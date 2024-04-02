@@ -1,0 +1,25 @@
+.navigationLink {
+  font-size: var(--font-size-xss);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular-300);
+  color: var(--color-light-100);
+  padding: 10px 22px;
+  line-height: var(--line-height-180);
+  text-decoration: none;
+  border-radius: 80px;
+
+  &:hover {
+    color: var(--color-accent);
+  }
+
+
+}
+
+.active {
+  background-color: var(--color-accent);
+  color: var(--color-dark-secondary);
+
+  &:hover {
+    color: var(--color-dark-secondary);
+  }
+}

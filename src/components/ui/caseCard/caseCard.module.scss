@@ -1,0 +1,52 @@
+.card {
+  border-radius: 32px;
+  position: relative;
+  background-color: var(--color-dark-secondary);
+
+  .title {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+  }
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 32px;
+  }
+
+  .tagList {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    display: flex;
+    gap: 12px;
+  }
+  figcaption{
+    font-weight: var(--font-weight-regular-500);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-m);
+    color: var(--color-light-100);
+    line-height: var(--line-height-120);
+  }
+}
+
+.small {
+  width: 536px;
+  height: 554px;
+}
+
+.medium {
+  width: 678px;
+  height: 554px;
+}
+
+.large {
+  width: 678px;
+  height: 700px;
+}
+
+.extraLarge {
+  width: 820px;
+  height: 700px;
+}

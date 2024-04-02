@@ -1,0 +1,6 @@
+.cards{
+  display: grid;
+  width: 994px;
+  grid-template: 1fr 1fr/ 1fr 1fr;
+  gap: 46px;
+}

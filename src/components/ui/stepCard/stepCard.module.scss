@@ -1,0 +1,42 @@
+.card {
+  width: 600px;
+  height: 670px;
+  flex-shrink: 0;
+  padding: 0 24px;
+  border-left: 1px solid var(--color-accent);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family-primary);
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .cardHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .stepNumber {
+    color: var(--color-accent);
+    font-weight: var(--font-weight-bold-900);
+    font-size: var(--font-size-lxl);
+    font-family: var(--font-family-primary);
+    line-height: var(--line-height-120);
+  }
+
+  .title {
+    font-weight: var(--font-weight-regular-300);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-180);
+    color: var(--color-accent);
+    font-family: var(--font-family-primary);
+  }
+
+  p {
+    font-weight: var(--font-weight-regular-600);
+    font-size: var(--font-size-smm);
+    line-height: var(--line-height-160);
+    color: var(--color-light-100);
+    margin: 0;
+  }
+}

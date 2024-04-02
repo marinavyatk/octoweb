@@ -1,0 +1,18 @@
+.navbar{
+padding: 15px;
+  width: fit-content;
+  background-color: var(--color-dark-secondary);
+  border-radius: 80px;
+  ul{
+    list-style: none;
+    width: fit-content;
+    display: flex;
+    padding: 0; /* Установка внешнего отступа списка в 0 */
+    margin: 0;
+  }
+  li{
+    text-decoration: none;
+  }
+
+
+}
