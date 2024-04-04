@@ -43,13 +43,13 @@ export const ServicesLinksList = (props: ServicesLinksListProps) => {
         },
     ]
 
-    const linksList = linksData.map(link => {
+    const linkList = linksData.map(link => {
         return <ServicesLink number={link.number} title={link.title} tags={link.tags} href={link.href} img={link.img} key={link.number}/>
     })
 
 
     return <div {...restProps} className={className}>
-        {linksList}
+        {linkList}
     </div>
 
 }

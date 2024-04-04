@@ -15,7 +15,7 @@ export type ServicesLinkProps = {
 export const ServicesLink = (props: ServicesLinkProps) => {
     const {number, title, tags, href, img, ...restProps} = props;
     const className = clsx(s.servicesLink, restProps.className)
-    const tagsList = tags.map(tag => {
+    const tagList = tags.map(tag => {
         return <Tag title={tag} key={tag} variant={"monochrome-secondary"}/>
     })
 
@@ -28,8 +28,8 @@ export const ServicesLink = (props: ServicesLinkProps) => {
                 </div>
                 <ArrowButton href={href} size={"medium"}/>
             </div>
-            <div className={s.tagsList}>
-                {tagsList}
+            <div className={s.tagList}>
+                {tagList}
             </div>
             <img src={img} alt={title}/>
         </div>

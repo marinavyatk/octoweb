@@ -28,22 +28,15 @@ export const CaseCard = (props: CaseCardProps) => {
             [s.large]: size === "large",
             [s.extraLarge]: size === "extraLarge",
         })
-    const tagsList = tags.map(tag => {
+    const tagList = tags.map(tag => {
         return <Tag title={tag} variant={"colored"} key={tag}/>
     })
 
     return <figure {...restProps} className={className}>
         <Tag title={title} variant={"monochrome-primary"} className={s.title}/>
-
-        {/*<picture>*/}
-        {/*    <source srcSet={`${img.webp1x} 1x, ${img.webp2x} 2x, ${img.webp3x} 3x`} type={'image/webp'}/>*/}
-        {/*    <source srcSet={`${img.png1x} 1x, ${img.png2x} 2x, ${img.png3x} 3x`}/>*/}
-        {/*    <img src={img.png1x} alt={caption}/>*/}
-        {/*</picture>*/}
-        <img src={img} alt={caption} />
-
+        <img src={img} alt={caption}/>
         <div className={s.tagList}>
-            {tagsList}
+            {tagList}
         </div>
         <figcaption>{caption}</figcaption>
     </figure>

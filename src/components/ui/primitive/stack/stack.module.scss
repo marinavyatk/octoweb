@@ -1,0 +1,33 @@
+.stack {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1672px;
+  width: 100%;
+  min-height: 100px;
+  border-bottom: 1px solid var(--color-primary);
+
+  .text {
+    margin-bottom: 40px;
+
+    .number, .title {
+      color: var(--color-light-100);
+      font-weight: var(--font-weight-regular-500);
+      font-size: var(--font-size-ml);
+      line-height: var(--line-height-120);
+    }
+
+    .number {
+      opacity: 0.2;
+      margin-right: 40px;
+    }
+  }
+
+  .tagList {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+}
