@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react'
 
 import {AdvantageCard} from "./advantageCard.tsx";
-import AdvantageIcon from "../../../assets/simplicity.svg";
+import AdvantageIcon from "../../../../assets/simplicity.svg";
 
 const meta = {
     title: 'Components/AdvantageCard',

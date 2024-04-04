@@ -1,0 +1,87 @@
+.servicesLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 1428px;
+  width: 100%;
+  height: 264px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.innerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 224px;
+  border-bottom: 1px solid var(--color-primary);
+  padding: 10px 0 40px 0;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+
+    svg {
+      transition: all 0.5s;
+    }
+  }
+
+  .text {
+    display: flex;
+    gap: 27px;
+  }
+
+  .number, .title {
+    color: var(--color-light-100);
+    font-weight: var(--font-weight-regular-500);
+    font-size: var(--font-size-ml);
+    line-height: var(--line-height-120);
+  }
+
+  .title {
+    transition: all 0.5s;
+  }
+
+  .number {
+    opacity: 0.2;
+  }
+
+  .tagsList {
+    display: flex;
+    gap: 16px
+  }
+
+  img {
+    width: 394px;
+    height: 20px;
+    border-radius: 16px;
+    position: absolute;
+    right: 0;
+    bottom: 40px;
+    object-fit: cover;
+    z-index: -1;
+    margin-bottom: -224px;
+    transition: all 0.5s;
+    opacity: 0;
+  }
+
+  &:hover {
+    .title {
+      color: var(--color-accent);
+    }
+
+    svg {
+      transform: rotate(45deg);
+      stroke: var(--color-accent);
+    }
+
+    img {
+      height: 224px;
+      margin-bottom: 0;
+      opacity: 1;
+    }
+  }
+}
+

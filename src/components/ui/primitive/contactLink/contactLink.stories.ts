@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/react'
-import Telegram from '../../../assets/telegram.svg'
+import Telegram from '../../../../assets/telegram.svg'
 
 import {ContactLink} from "./contactLink.tsx";
 

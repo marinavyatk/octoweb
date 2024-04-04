@@ -1,10 +1,13 @@
+import {StepCard} from "../primitive/stepCard/stepCard.tsx";
 import {ComponentPropsWithoutRef} from "react";
-import {StepCards} from "./stepCards.tsx";
+import clsx from "clsx";
+import s from './stepCards.module.scss'
 
-export type StepCardsBlockProps = ComponentPropsWithoutRef<'div'>
+export type StepCardsProps =  ComponentPropsWithoutRef<'div'>
 
-export const StepCardsBlock = (props: StepCardsBlockProps) => {
-    const {...restProps} = props;
+export const StepCards = (props: StepCardsProps) => {
+    const { ...restProps} = props;
+    const className = clsx(s.cards, restProps.className);
     const cards = [
         {
             stepNumber: '01',
@@ -42,6 +45,11 @@ export const StepCardsBlock = (props: StepCardsBlockProps) => {
             description: 'Презентуем готовый сайт, вносим финальные правки и подписываем закрывающие документы'
         }
     ];
+    const cardsList = cards.map(card => {
+        return <StepCard stepNumber={card.stepNumber} title={card.title} description={card.description} key={card.stepNumber}/>
+    })
 
-    return <StepCards cards={cards} {...restProps}/>
+    return <div {...restProps} className={className}>
+        {cardsList}
+    </div>
 }
