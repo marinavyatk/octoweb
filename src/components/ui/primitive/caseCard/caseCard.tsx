@@ -3,14 +3,6 @@ import {clsx} from "clsx";
 import s from './caseCard.module.scss'
 import {Tag} from "../tag/tag.tsx";
 
-// export type imageType = {
-//     png1x?: string,
-//     png2x?: string,
-//     png3x?: string,
-//     webp1x?: string
-//     webp2x?: string
-//     webp3x?: string
-// }
 export type CaseCardProps = {
     title: string,
     tags: string[],
