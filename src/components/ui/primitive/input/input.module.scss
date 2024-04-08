@@ -1,0 +1,67 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--color-light-40);
+  align-items: center;
+  padding: 0 0 16px 0;
+
+  &:focus-within {
+    border-bottom: 1px solid var(--color-primary)
+  }
+}
+
+.mainLabel, .required {
+  color: var(--color-light-40);
+  font-size: var(--font-size-xss);
+  font-weight: var(--font-weight-regular-400);
+  line-height: var(--line-height-140);
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.required {
+  color: var(--color-accent);
+}
+
+.input {
+  color: var(--color-light-100);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular-400);
+  line-height: var(--line-height-180);
+  background-color: transparent;
+  flex-grow: 2;
+  position: relative;
+  display: inline-block;
+  border: none;
+  padding: 16px 0 0 0;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    border: none;
+  }
+}
+
+.fileInputPosition {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.fileInputContainer {
+  position: relative;
+
+  input {
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+  }
+
+  svg {
+    position: absolute;
+    width: 27px;
+    height: 27px;
+  }
+}
