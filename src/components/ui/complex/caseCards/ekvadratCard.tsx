@@ -1,6 +1,6 @@
-import {CaseCard} from "../primitive/caseCard/caseCard.tsx";
+import {CaseCard} from "../../primitive/caseCard/caseCard.tsx";
 import {ComponentPropsWithoutRef} from "react";
-import Ekvadrat from '../../../assets/webp/case-e-kvadrat.webp'
+import Ekvadrat from '../../../../assets/webp/case-e-kvadrat.webp'
 
 
 export type EkvadratCardProps = ComponentPropsWithoutRef<'figure'>

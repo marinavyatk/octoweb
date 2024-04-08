@@ -1,6 +1,6 @@
 import {ComponentPropsWithoutRef} from "react";
 import clsx from "clsx";
-import {Stack} from "../primitive/stack/stack.tsx";
+import {Stack} from "../../primitive/stack/stack.tsx";
 import s from './stackList.module.scss'
 
 export type StackListProps = ComponentPropsWithoutRef<'div'>

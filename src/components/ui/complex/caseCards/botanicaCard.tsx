@@ -1,6 +1,6 @@
-import {CaseCard} from "../primitive/caseCard/caseCard.tsx";
+import {CaseCard} from "../../primitive/caseCard/caseCard.tsx";
 import {ComponentPropsWithoutRef} from "react";
-import Botanica from '../../../assets/webp/case-botanica.webp'
+import Botanica from '../../../../assets/webp/case-botanica.webp'
 
 export type BotanicaCardProps = ComponentPropsWithoutRef<'figure'>
 export const BotanicaCard = (props: BotanicaCardProps) => {

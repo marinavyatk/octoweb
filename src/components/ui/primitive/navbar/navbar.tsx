@@ -1,25 +1,47 @@
-import {NavigationLink} from "../navigationLink/navigationLink.tsx";
-import {ComponentPropsWithoutRef} from "react";
-import {clsx} from "clsx";
-import s from "./navbar.module.scss";
+import {NavigationLink} from '../navigationLink/navigationLink.tsx';
+import {ComponentPropsWithoutRef} from 'react';
+import {clsx} from 'clsx';
+import s from './navbar.module.scss';
+import {routes} from '../../../../common/routes.ts';
 
-
-export type navItem = {
-    title: string
-    to: string
-}
-export type NavbarProps = {
-    navItems: navItem[];
-} & ComponentPropsWithoutRef<'nav'>
+export type NavbarProps = ComponentPropsWithoutRef<'nav'>
 
 export const Navbar = (props: NavbarProps) => {
-    const {navItems, ...restProps} = props;
-    const navLinks = navItems.map(item => {
-        return <li key={item.title}><NavigationLink title={item.title} to={item.to}
-        /></li>
+    const {...restProps} = props;
+    const className = clsx(s.navbar, restProps.className);
+    const navData = [
+        {
+            title: 'О нас',
+            to: routes.about
+        },
+        {
+            title: 'Услуги',
+            to: routes.services
+        },
+        {
+            title: 'Кейсы',
+            to: routes.cases
+        },
+        {
+            title: 'Команда',
+            to: routes.team
+        },
+        {
+            title: 'Блог',
+            to: routes.blog
+        },
+        {
+            title: 'Контакты',
+            to: routes.contacts
+        },
+    ]
+    const navLinks = navData.map(item => {
+        return <li key={item.title}>
+            <NavigationLink to={item.to}>
+                {item.title}
+            </NavigationLink>
+        </li>
     })
-    const className = clsx(s.navbar, restProps.className)
-
 
     return <nav {...restProps} className={className}>
         <ul>

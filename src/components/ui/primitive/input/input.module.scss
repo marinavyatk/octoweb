@@ -3,7 +3,8 @@
   flex-direction: column;
   border-bottom: 1px solid var(--color-light-40);
   align-items: center;
-  padding: 0 0 16px 0;
+
+  position: relative;
 
   &:focus-within {
     border-bottom: 1px solid var(--color-primary)
@@ -33,34 +34,33 @@
   position: relative;
   display: inline-block;
   border: none;
-  padding: 16px 0 0 0;
-  width: 100%;
+  padding: 16px 0;
+  caret-color: var(--color-primary);
 
   &:focus {
     outline: none;
     border: none;
+    color: var(--color-accent);
   }
 }
-
-.fileInputPosition {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
+.position{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
 
 .fileInputContainer {
   position: relative;
 
   input {
-    position: absolute;
     width: 0.1px;
     height: 0.1px;
     opacity: 0;
   }
 
   svg {
-    position: absolute;
     width: 27px;
     height: 27px;
   }

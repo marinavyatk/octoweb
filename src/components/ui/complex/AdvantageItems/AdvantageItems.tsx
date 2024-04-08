@@ -1,4 +1,4 @@
-import {AdvantageItem} from '../primitive/advantageItem/advantageItem.tsx';
+import {AdvantageItem} from '../../primitive/advantageItem/advantageItem.tsx';
 import {ComponentPropsWithoutRef} from 'react';
 import {clsx} from 'clsx';
 import s from './AdvantageItems.module.scss';

@@ -2,17 +2,17 @@
   font-size: var(--font-size-xss);
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-regular-300);
-  color: var(--color-light-100);
-  padding: 10px 22px;
   line-height: var(--line-height-180);
   text-decoration: none;
+  color: var(--color-light-100);
+  padding: 10px 22px 11px 22px;
   border-radius: 80px;
+  display: inline-block;
+  white-space: nowrap;
 
   &:hover {
     color: var(--color-accent);
   }
-
-
 }
 
 .active {

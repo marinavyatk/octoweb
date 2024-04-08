@@ -21,16 +21,20 @@ export const Input = <T extends ElementType>(props: InputProps<T>) => {
             {label}
             {required && <sup className={s.required}> *</sup>}
         </label>
-        <Component {...inputProps} className={s.input} name={inputProps?.name}></Component>
+        <div className={s.position}>
+            <Component {...inputProps} className={s.input} name={inputProps?.name}>
 
-        <div className={s.fileInputPosition}>
-            <div className={s.fileInputContainer}>
-                <label htmlFor={inputProps?.name}>
-                    <input type={'file'} id={inputProps?.name} {...inputProps} className={s.inputFile}/>
-                    <AttachIcon/>
-                </label>
+
+            </Component>
+
+                <div className={s.fileInputContainer}>
+                    <label htmlFor={inputProps?.name}>
+                        <input type={'file'} id={inputProps?.name} {...inputProps} className={s.inputFile}/>
+                        <AttachIcon/>
+                    </label>
+                </div>
             </div>
-        </div>
+
 
 
     </div>

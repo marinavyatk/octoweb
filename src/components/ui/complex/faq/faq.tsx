@@ -1,7 +1,7 @@
 import {ComponentPropsWithoutRef} from 'react';
 import {clsx} from 'clsx';
 import s from './faq.module.scss' //mb delete later?
-import {Question} from '../primitive/question/question.tsx';
+import {Question} from '../../primitive/question/question.tsx';
 
 
 export type FAQProps = & ComponentPropsWithoutRef<'div'>

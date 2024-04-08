@@ -1,11 +1,11 @@
 import {ComponentPropsWithoutRef} from "react";
 import clsx from "clsx";
 import s from "./servicesLinksList.module.scss";
-import {ServicesLink} from "../primitive/servicesLink/servicesLink.tsx";
-import Botanica from '../../../assets/webp/link-botanica.webp'
-import Ekvadrat from '../../../assets/webp/link-e-kvadrat.webp'
-import Smxtream from '../../../assets/webp/case-smxtream.webp'
-import Demarko from '../../../assets/webp/link-de-marko.webp'
+import {ServicesLink} from "../../primitive/servicesLink/servicesLink.tsx";
+import Botanica from '../../../../assets/webp/link-botanica.webp'
+import Ekvadrat from '../../../../assets/webp/link-e-kvadrat.webp'
+import Smxtream from '../../../../assets/webp/case-smxtream.webp'
+import Demarko from '../../../../assets/webp/link-de-marko.webp'
 
 export type ServicesLinksListProps = ComponentPropsWithoutRef<'div'>
 

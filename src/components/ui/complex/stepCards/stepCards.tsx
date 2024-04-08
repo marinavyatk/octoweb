@@ -1,4 +1,4 @@
-import {StepCard} from "../primitive/stepCard/stepCard.tsx";
+import {StepCard} from "../../primitive/stepCard/stepCard.tsx";
 import {ComponentPropsWithoutRef} from "react";
 import clsx from "clsx";
 import s from './stepCards.module.scss'

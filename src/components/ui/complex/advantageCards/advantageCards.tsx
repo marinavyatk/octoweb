@@ -1,11 +1,11 @@
-import {AdvantageCard} from "../primitive/advantageCard/advantageCard.tsx";
+import {AdvantageCard} from "../../primitive/advantageCard/advantageCard.tsx";
 import {ComponentPropsWithoutRef} from "react";
 import {clsx} from "clsx";
 import s from './advantageCards.module.scss'
-import AdvantageIcon from "../../../assets/simplicity.svg";
-import CommunicationCard from "../../../assets/communication.svg";
-import EfficiencyIcon from "../../../assets/efficiency.svg";
-import PriceIcon from "../../../assets/price.svg";
+import AdvantageIcon from "../../../../assets/simplicity.svg";
+import CommunicationCard from "../../../../assets/communication.svg";
+import EfficiencyIcon from "../../../../assets/efficiency.svg";
+import PriceIcon from "../../../../assets/price.svg";
 
 export type AdvantageCardsProps = ComponentPropsWithoutRef<'div'>
 export const AdvantageCards = (props: AdvantageCardsProps) => {

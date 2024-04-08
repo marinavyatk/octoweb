@@ -1,6 +1,6 @@
-import {CaseCard} from "../primitive/caseCard/caseCard.tsx";
+import {CaseCard} from "../../primitive/caseCard/caseCard.tsx";
 import {ComponentPropsWithoutRef} from "react";
-import Smxtream from '../../../assets/webp/case-smxtream.webp'
+import Smxtream from '../../../../assets/webp/case-smxtream.webp'
 
 
 export type SmxtreamCardProps = ComponentPropsWithoutRef<'figure'>

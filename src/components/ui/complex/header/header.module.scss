@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 87%;
+  margin: auto;
+  position: sticky;
+  top: 32px;
+
+  .rightBlock {
+    display: flex;
+    gap: 24px;
+  }
+}

@@ -1,0 +1,70 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 80px;
+
+
+  .mainLogoContainer {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .logoImgContainer {
+    z-index: -1;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.5s cubic-bezier(0.85, 0.01, 0.58, 1),
+                width 0.5s cubic-bezier(0.85, 0.01, 0.58, 1),
+                height 0.5s cubic-bezier(0.85, 0.01, 0.58, 1);
+  }
+
+  .logoImg {
+    fill: var(--color-light-100);
+    stroke: var(--color-light-100);
+    transition: all 0.5s cubic-bezier(0.85, 0.01, 0.58, 1);
+  }
+  .logoText {
+    transition: opacity 0.5s;
+  }
+}
+
+.clicked {
+  .logoImgContainer {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.5s cubic-bezier(0.85, 0.01, 0.58, 1),
+    width 0.5s cubic-bezier(0.85, 0.01, 0.58, 1),
+    height 0.5s cubic-bezier(0.85, 0.01, 0.58, 1);
+  }
+
+  .logoImg {
+
+    width: 50px;
+    stroke: var(--color-dark-primary);
+    fill: var(--color-dark-primary);
+    //transition: fill 0.5s cubic-bezier(0.85, 0.01, 0.58, 1), stroke 0.5s cubic-bezier(0.85, 0.01, 0.58, 1);
+    transition: all 0.5s cubic-bezier(0.85, 0.01, 0.58, 1);
+
+  }
+
+  .logoText {
+    transition: opacity 0.5s;
+    opacity: 0;
+  }
+
+}
