@@ -1,0 +1,65 @@
+.animatedField {
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  font-weight: var(--font-weight-regular-500);
+  font-size: var(--font-size-l);
+  line-height: var(--line-height-150);
+  letter-spacing: 0.1em;
+}
+
+.primary {
+  background: linear-gradient(350deg, #a330ff 0%, #a330ff 0.01%, #ff37df 100%);
+  color: var(--color-light-100);
+
+}
+
+.secondary {
+  background-color: var(--color-accent);
+  color: var(--color-dark-primary)
+}
+
+.dark {
+  background-color: var(--color-dark-secondary);
+  color: var(--color-accent);
+}
+
+.light {
+  background-color: var(--color-light-100);
+  color: var(--color-dark-primary)
+}
+
+.right {
+  transition: transform 0.2s cubic-bezier(1.000, 1.650, 0.265, 1.550);
+
+  &:hover {
+    transform: rotate(4deg);
+    transition: transform 0.2s cubic-bezier(1.000, 1.650, 0.265, 1.550);
+  }
+}
+
+.left {
+  transition: transform 0.2s cubic-bezier(1.000, 1.650, 0.265, 1.550);
+
+  &:hover {
+    transform: rotate(-4deg);
+    transition: transform 0.2s cubic-bezier(1.000, 1.650, 0.265, 1.550);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: rotate(-4.5deg);
+  }
+  75% {
+    transform: rotate(-3deg);
+  }
+  100% {
+    transform: rotate(-4deg);
+  }
+}
+
+
+//cubic-bezier(0.68, -0.55, 0.265, 1.55) - Ease In And Out Back

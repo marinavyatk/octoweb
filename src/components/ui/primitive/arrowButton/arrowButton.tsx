@@ -20,7 +20,7 @@ export const ArrowButton = <T extends ElementType>(props: ArrowButtonProps<T>) =
             [s.black]: variant === 'black',
             [s.small]: size === 'small',
             [s.medium]: size === 'medium',
-            [s.big]: size === 'large',
+            [s.large]: size === 'large',
             [s.outlineColored]: outline === 'outline-colored',
             [s.outlineMonochrome]: outline === 'outline-monochrome',
 

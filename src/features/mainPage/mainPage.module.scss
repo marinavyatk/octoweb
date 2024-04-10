@@ -1,0 +1,209 @@
+h2 {
+  font-weight: var(--font-weight-bold-900);
+  font-size: var(--font-size-l);
+  line-height: var(--line-height-140);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  max-width: 338px;
+
+}
+
+
+.greetingContainer {
+  //width: 87%;
+  max-width: 1672px;
+  width: 100%;
+  margin: auto;
+
+
+  .greetingText {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    white-space: nowrap;
+    //margin-top: 93px;
+    //margin-bottom: 67px;
+    padding: 93px 0 67px 0;
+    position: relative;
+
+    div:first-child {
+      padding-left: 140px;
+    }
+
+    div:last-child {
+      padding-left: 265px;
+    }
+
+    .arrow {
+      position: absolute;
+      left: 125px;
+      bottom: 0;
+    }
+  }
+
+
+  .greetingDescription {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    white-space: pre-wrap;
+    font-size: var(--font-size-xl);
+    margin-bottom: 228px;
+  }
+}
+
+
+.mainText {
+  font-weight: var(--font-weight-bold-900);
+  font-size: var(--font-size-xxl);
+  line-height: var(--line-height-124);
+  text-transform: uppercase;
+  color: var(--color-light-100);
+}
+
+.accent {
+  color: var(--color-accent);
+}
+
+.briefOffer {
+  display: flex;
+  gap: 58px;
+  align-items: center;
+  padding-left: 142px;
+  margin-bottom: 222px;
+
+  .offerText {
+    font-family: var(--font-family-secondary);
+    line-height: var(--line-height-160);
+    color: var(--color-light-100);
+
+    .heading {
+      font-weight: var(--font-weight-regular-500);
+      font-size: var(--font-size-smm);
+    }
+
+    .description {
+      font-weight: var(--font-weight-regular-300);
+      font-size: var(--font-size-sm);
+    }
+  }
+}
+
+.starsSymbols {
+  width: 504px;
+}
+
+.arrowSymbol {
+  width: 257px;
+
+  svg {
+    width: 37px;
+    stroke: var(--color-accent);
+    height: 37px;
+  }
+}
+
+.happySymbol {
+  background: linear-gradient(345deg, #a330ff 0%, #ff37df 100%);
+  width: 257px;
+  font-weight: var(--font-weight-bold-800);
+}
+
+.kaomojiSymbol {
+  width: 406px;
+}
+
+.emojiSymbol {
+  width: 162px;
+}
+
+.kissSymbol {
+  width: 162px;
+}
+
+// about
+.about {
+  max-width: 1920px;
+  margin: auto;
+  border-radius: 72px;
+  padding: 52px;
+  background-color: var(--color-accent);
+  color: var(--color-dark-primary);
+  margin-bottom: 163px;
+
+  .text {
+    display: flex;
+    justify-content: space-between;
+    padding: 39px 72px 55px 72px;
+    align-items: flex-start;
+  }
+
+  h1 {
+    text-transform: uppercase;
+    font-weight: var(--font-weight-bold-800);
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-120);
+    display: inline-block;
+    width: 820px;
+  }
+
+  p {
+    font-weight: var(--font-weight-regular-300);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-180);
+    text-align: right;
+    display: inline-block;
+    width: 529px;
+  }
+
+  .imageContainer {
+    position: relative;
+  }
+
+  .arrowButton {
+    position: absolute;
+    right: 72px;
+    top: 0;
+  }
+
+  img {
+    width: 1816px;
+    height: 966px;
+  }
+}
+
+// advantages
+.advantages {
+  padding-left: 142px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 301px;
+
+  span {
+    position: absolute;
+    color: var(--color-primary);
+    font-weight: var(--font-weight-regular-500);
+    line-height: var(--line-height-200);
+    font-size: var(--font-size-m);
+    left: 180px;
+    top: 374px;
+    transform: rotate(68deg) scaleY(-1);
+  }
+
+  span + span {
+    font-size: var(--font-size-smm);
+    left: 330px;
+    top: 535px;
+    transform: rotate(112deg);
+  }
+
+  .arrow {
+    position: absolute;
+    left: 284px;
+    top: 181px;
+  }
+}
+
+//

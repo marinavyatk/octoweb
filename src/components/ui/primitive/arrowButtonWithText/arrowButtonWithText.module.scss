@@ -1,0 +1,79 @@
+.arrowButtonWithText {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 32px;
+  width: 426px;
+  height: 100px;
+  position: relative;
+  transition: gap 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+
+  span {
+    font-weight: var(--font-weight-regular-300);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-200);
+    text-transform: uppercase;
+    z-index: 2;
+    transition: color 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+  }
+
+  .arrow {
+    z-index: 2;
+  }
+
+  .background {
+    width: 100px;
+    height: 100px;
+    border-radius: 72px;
+    position: absolute;
+    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+  }
+
+
+  &:hover {
+    transition: gap 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+    gap: 17px;
+
+    span {
+      transition: color 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+    }
+
+    .background {
+      width: 100%;
+      height: 100%;
+      border-radius: 72px;
+      transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+    }
+
+    svg {
+      stroke: var(--color-accent);
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.colored {
+  color: var(--color-light-100);
+
+  .background {
+    background-color: var(--color-accent);
+  }
+
+  &:hover {
+    color: var(--color-dark-primary);
+  }
+}
+
+.dark {
+  color: var(--color-dark-primary);
+
+  .background {
+    background-color: var(--color-dark-primary);
+  }
+
+  &:hover {
+    color: var(--color-light-100);
+  }
+}
