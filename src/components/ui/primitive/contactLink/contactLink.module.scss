@@ -4,13 +4,24 @@
   font-size: var(--font-size-smm);
   font-weight: var(--font-weight-regular-400);
   font-family: var(--font-family-primary);
-
+  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 32px;
 
-  img{
+  svg {
     width: 64px;
     height: 64px;
+    fill: var(--color-light-100);
+    transition: fill 0.4s cubic-bezier(1.000, 1.650, 0.265, 1.550);
+  }
+
+  &:hover {
+
+    svg {
+      fill: var(--color-accent);
+      transition: fill 0.4s cubic-bezier(1.000, 1.650, 0.265, 1.550);
+    }
+
   }
 }

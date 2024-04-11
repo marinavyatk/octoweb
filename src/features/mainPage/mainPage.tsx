@@ -8,6 +8,16 @@ import {ArrowButtonWithText} from '../../components/ui/primitive/arrowButtonWith
 import {AdvantageCards} from '../../components/ui/complex/advantageCards/advantageCards.tsx';
 import ArrowPointer from '../../assets/arrowPointer.svg?react'
 import ArrowPointerSmall from '../../assets/arrowPointerSmall.svg?react'
+import {DemarkoCard} from '../../components/ui/complex/caseCards/demarkoCard.tsx';
+import {EkvadratCard} from '../../components/ui/complex/caseCards/ekvadratCard.tsx';
+import {BotanicaCard} from '../../components/ui/complex/caseCards/botanicaCard.tsx';
+import {SmxtreamCard} from '../../components/ui/complex/caseCards/smxtreamCard.tsx';
+import {ServicesLinksList} from '../../components/ui/complex/servicesLinksList/servicesLinksList.tsx';
+import {StepCards} from '../../components/ui/complex/stepCards/stepCards.tsx';
+import {Form} from '../../components/ui/complex/form/form.tsx';
+import {Input} from '../../components/ui/primitive/input/input.tsx';
+import {InputWithCounter} from '../../components/ui/primitive/inputWithCounter/inputWithCounter.tsx';
+
 
 export const MainPage = () => {
     return <div>
@@ -67,7 +77,7 @@ export const MainPage = () => {
 
             <div className={s.imageContainer}>
                 <ArrowButtonWithText variant={'dark'} text={'Заказать проект'} className={s.arrowButton}/>
-                <img src={team} alt={"Команда"}/>
+                <img src={team} alt={'Команда'}/>
             </div>
         </section>
 
@@ -82,8 +92,30 @@ export const MainPage = () => {
 
                 <AdvantageCards/>
             </section>
+            <section className={s.cases}>
+                <h2>КЕЙСЫ</h2>
+                <DemarkoCard/>
+                <EkvadratCard className={s.ekvadrat}/>
+                <BotanicaCard/>
+                <SmxtreamCard/>
+                <ArrowButtonWithText text={'Больше кейсов'}/>
+            </section>
         </div>
 
+        <section className={s.services}>
+            <h2>Услуги</h2>
+            <ServicesLinksList/>
+        </section>
+
+        <section className={s.steps}>
+            <StepCards/>
+        </section>
+
+        <Form/>
+
+        <Input as={'input'} label={'имя'} required/>
+        <InputWithCounter as={'input'} label={'О проекте'} required/>
+        <InputWithCounter as={'textarea'} label={'О проекте'} required inputProps={{rows: 1}}/>
 
     </div>
 }

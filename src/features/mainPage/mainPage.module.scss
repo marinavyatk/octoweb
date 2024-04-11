@@ -206,4 +206,42 @@ h2 {
   }
 }
 
-//
+//cases
+.cases {
+  height: 1898px;
+  margin-bottom: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 174px;
+  flex-wrap: wrap;
+
+  h2 {
+    padding-left: 142px;
+  }
+
+  .ekvadrat {
+    align-self: flex-end;
+  }
+}
+
+//services
+.services {
+  border-radius: 72px;
+  background-color: var(--color-dark-secondary);
+  padding: 120px 266px 160px 266px;
+  z-index: 2;
+  position: relative;
+  margin-bottom: 300px;
+
+  h2 {
+    margin-bottom: 112px;
+  }
+}
+
+//steps
+.steps {
+  padding-left: 224px;
+  margin-bottom: 372px;
+}

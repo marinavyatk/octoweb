@@ -9,6 +9,7 @@
   //light
   --color-light-100: #FFFFFF;
   --color-light-80: rgba(255, 255, 255, 0.8);
+  --color-light-60: rgba(255, 255, 255, 0.6);
   --color-light-40: rgba(255, 255, 255, 0.4);
   --color-light-20: rgba(255, 255, 255, 0.2);
 
@@ -16,6 +17,9 @@
   --color-dark-primary: #161616;
   --color-dark-secondary: #292929;
   --color-dark-additional: #74777b;
+
+  //error
+  --color-error: #ff006b;
 
   //gradient
   --linear-gradient-primary: linear-gradient(331deg, #A330FF 0%, #FF37DF 100%);

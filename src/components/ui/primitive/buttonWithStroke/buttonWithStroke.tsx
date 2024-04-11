@@ -4,13 +4,15 @@ import s from './buttonWithStroke.module.scss';
 import Stroke from '../../../../assets/stroke.svg?react'
 import {ArrowButton} from '../arrowButton/arrowButton.tsx';
 
-export type ButtonWithStrokeProps = ComponentPropsWithoutRef<'div'>
+export type ButtonWithStrokeProps = {
+    variant?: 'primary' | 'secondary'
+} & ComponentPropsWithoutRef<'div'>
 
 export const ButtonWithStroke = (props: ButtonWithStrokeProps) => {
-    const {...restProps} = props;
+    const {variant = 'primary', ...restProps} = props;
     const className = clsx(s.buttonContainer, restProps.className)
     return <div {...restProps} className={className}>
         <Stroke className={s.stroke}/>
-        <ArrowButton size={"large"} className={s.arrowButton}/>
+        <ArrowButton size={'large'} className={s.arrowButton} variant={variant}/>
     </div>
 }

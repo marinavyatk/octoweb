@@ -1,16 +1,12 @@
-import {ComponentPropsWithoutRef} from "react";
-import {clsx} from "clsx";
+import {ComponentPropsWithoutRef} from 'react';
+import {clsx} from 'clsx';
 import s from './contactLink.module.scss'
 
-export type ContactLinkProps = {
-    icon: string,
-    title: string
-} & ComponentPropsWithoutRef<'a'>
+export type ContactLinkProps = & ComponentPropsWithoutRef<'a'>
+
 export const ContactLink = (props: ContactLinkProps) => {
-    const {icon, title, ...restProps} = props;
+    const {...restProps} = props;
     const className = clsx(s.contactLink, restProps.className)
-    return <a {...restProps} className={className}>
-        <img src={icon} alt={`${title} icon`}/>
-        {title}
+    return <a {...restProps} className={className} target={'_blank'}>
     </a>
 }

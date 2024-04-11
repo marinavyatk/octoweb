@@ -43,7 +43,8 @@
     color: var(--color-accent);
   }
 }
-.position{
+
+.position {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -63,5 +64,22 @@
   svg {
     width: 27px;
     height: 27px;
+  }
+}
+
+.error .inputContainer {
+  border-bottom: 1px solid var(--color-error);
+
+  &:focus-within {
+    border-bottom: 1px solid var(--color-error);
+  }
+
+  input {
+    color: var(--color-error);
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
   }
 }
