@@ -1,0 +1,86 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--color-light-40);
+  align-items: center;
+
+  position: relative;
+  //flex-grow: 1;
+
+  &:focus-within {
+    border-bottom: 1px solid var(--color-primary)
+  }
+}
+
+.mainLabel, .required {
+  color: var(--color-light-40);
+  font-size: var(--font-size-xss);
+  font-weight: var(--font-weight-regular-400);
+  line-height: var(--line-height-140);
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.required {
+  color: var(--color-accent);
+}
+
+.input {
+  color: var(--color-light-100);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular-400);
+  line-height: var(--line-height-180);
+  background-color: transparent;
+  flex-grow: 2;
+  position: relative;
+  display: inline-block;
+  border: none;
+  padding: 16px 0;
+  caret-color: var(--color-primary);
+
+  &:focus {
+    outline: none;
+    border: none;
+    color: var(--color-accent);
+  }
+}
+
+.position {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.fileInputContainer {
+  position: relative;
+
+  input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+  }
+
+  svg {
+    width: 27px;
+    height: 27px;
+  }
+}
+
+.error .inputContainer {
+  border-bottom: 1px solid var(--color-error);
+
+  &:focus-within {
+    border-bottom: 1px solid var(--color-error);
+  }
+
+  input {
+    color: var(--color-error);
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}

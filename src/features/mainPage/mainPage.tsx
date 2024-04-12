@@ -15,8 +15,6 @@ import {SmxtreamCard} from '../../components/ui/complex/caseCards/smxtreamCard.t
 import {ServicesLinksList} from '../../components/ui/complex/servicesLinksList/servicesLinksList.tsx';
 import {StepCards} from '../../components/ui/complex/stepCards/stepCards.tsx';
 import {Form} from '../../components/ui/complex/form/form.tsx';
-import {Input} from '../../components/ui/primitive/input/input.tsx';
-import {InputWithCounter} from '../../components/ui/primitive/inputWithCounter/inputWithCounter.tsx';
 
 
 export const MainPage = () => {
@@ -112,10 +110,6 @@ export const MainPage = () => {
         </section>
 
         <Form/>
-
-        <Input as={'input'} label={'имя'} required/>
-        <InputWithCounter as={'input'} label={'О проекте'} required/>
-        <InputWithCounter as={'textarea'} label={'О проекте'} required inputProps={{rows: 1}}/>
 
     </div>
 }

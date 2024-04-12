@@ -2,4 +2,16 @@
   background-color: var(--color-dark-primary);
   border-radius: 72px;
   padding: 102px 110px 107px;
+
+  .mainInfo {
+    display: flex;
+    justify-content: space-between;
+    gap: 39px;
+    margin-bottom: 85px;
+
+    .item {
+      max-width: 458px;
+      width: 100%;
+    }
+  }
 }
