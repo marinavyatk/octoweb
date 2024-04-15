@@ -2,7 +2,6 @@ import {ComponentPropsWithoutRef} from 'react';
 import clsx from 'clsx';
 import s from './footer.module.scss';
 import {ContactLinks} from '../contactLinks/contactLinks.tsx';
-import FooterFormImg from '../../../../assets/footerForm.png'
 import {ButtonWithStroke} from '../../primitive/buttonWithStroke/buttonWithStroke.tsx';
 import {ArrowButton} from '../../primitive/arrowButton/arrowButton.tsx';
 
@@ -14,7 +13,6 @@ export const Footer = (props: FooterProps) => {
     const className = clsx(s.footer, restProps.className)
 
     return <div {...restProps} className={className}>
-        <img src={FooterFormImg}/>
         <div className={s.container}>
             <ContactLinks/>
             <ButtonWithStroke variant={'secondary'}/>
@@ -30,7 +28,12 @@ export const Footer = (props: FooterProps) => {
         </div>
         <div className={s.panelUp}>
             <span className={s.up}>наверх</span>
-            <ArrowButton variant={'black'} size={'small'} className={s.arrow}/>
+            <ArrowButton variant={'black'} size={'small'} className={s.arrow} as={'a'} onClick={()=>window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            })}
+            />
             <div>
                 <span>Политика конфиденциальности</span>
                 <span>© OctoWeb 2023 — Все права защищены</span>

@@ -14,13 +14,13 @@ import {BotanicaCard} from '../../components/ui/complex/caseCards/botanicaCard.t
 import {SmxtreamCard} from '../../components/ui/complex/caseCards/smxtreamCard.tsx';
 import {ServicesLinksList} from '../../components/ui/complex/servicesLinksList/servicesLinksList.tsx';
 import {StepCards} from '../../components/ui/complex/stepCards/stepCards.tsx';
-import {Form} from '../../components/ui/complex/form/form.tsx';
+import {FooterWithForm} from '../../components/ui/complex/footerWithForm/footerWithForm.tsx';
 
 
 export const MainPage = () => {
     return <div>
         <Header/>
-        <div className={s.greetingContainer}>
+        <div className={s.mainContainer}>
             <div className={s.mainText + ' ' + s.greetingText}>
                 <div>МЫ РЕВОЛЮЦИОНЕРЫ</div>
                 <div>В СФЕРЕ</div>
@@ -36,7 +36,7 @@ export const MainPage = () => {
                 </div>
             </div>
 
-            <div className={s.mainText + ' ' + s.greetingDescription}>
+            <section className={s.mainText + ' ' + s.greetingDescription}>
                 <div>создаем</div>
                 <AnimatedField variant={'secondary'}
                                animation={'right'}
@@ -61,7 +61,7 @@ export const MainPage = () => {
                 <AnimatedField variant={'dark'} animation={'right'} className={s.emojiSymbol}>(:\/)</AnimatedField>
                 <div>смысла</div>
                 <AnimatedField variant={'secondary'} animation={'left'} className={s.kissSymbol}>:^*</AnimatedField>
-            </div>
+            </section>
         </div>
 
         <section className={s.about}>
@@ -79,7 +79,7 @@ export const MainPage = () => {
             </div>
         </section>
 
-        <div className={s.greetingContainer}>
+        <div className={s.mainContainer}>
             <section className={s.advantages}>
                 <h2>
                     ПОЧЕМУ МЫ?
@@ -108,8 +108,6 @@ export const MainPage = () => {
         <section className={s.steps}>
             <StepCards/>
         </section>
-
-        <Form/>
-
+        <FooterWithForm/>
     </div>
 }

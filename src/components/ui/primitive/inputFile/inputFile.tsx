@@ -1,4 +1,4 @@
-import React, {ComponentPropsWithoutRef, LegacyRef} from 'react';
+import React, {ComponentPropsWithoutRef, Ref} from 'react';
 import {clsx} from 'clsx';
 import s from './inputFile.module.scss'
 import AttachIcon from '../../../../assets/attach.svg?react'
@@ -6,13 +6,13 @@ import ErrorIcon from '../../../../assets/error.svg?react'
 
 
 export type InputFileProps = {
-    errorMessage?: string
+    error?: boolean
     divProps?: ComponentPropsWithoutRef<'div'>,
 } & ComponentPropsWithoutRef<'input'>
 
-export const InputFile = React.forwardRef((props: InputFileProps, ref: LegacyRef<HTMLInputElement>) => {
-    const {errorMessage, divProps, ...restProps} = props;
-    const className = clsx(s.fileInputContainer, restProps.className, {[s.error]: errorMessage})
+export const InputFile = React.forwardRef((props: InputFileProps, ref: Ref<HTMLInputElement>) => {
+    const {error, divProps, ...restProps} = props;
+    const className = clsx(s.fileInputContainer, restProps.className, {[s.error]: error})
 
     return <div className={className} {...divProps}>
         <label htmlFor={restProps?.name}>
@@ -21,8 +21,10 @@ export const InputFile = React.forwardRef((props: InputFileProps, ref: LegacyRef
                    name={restProps?.name}
                    className={s.inputFile}
                    {...restProps}
-                   ref={ref}/>
-            {errorMessage ? <ErrorIcon/> : <AttachIcon/>}
+                   ref={ref}
+            />
+            <AttachIcon/>
+            {error && <ErrorIcon/>}
         </label>
     </div>
 

@@ -1,0 +1,37 @@
+.footerWithForm {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  .formContainer {
+    width: 100%;
+    padding: 56px 124px 137px;
+    background-image: url('../../../../assets/primaryFolderForm.png');
+    background-size: cover;
+    margin-bottom: 65px;
+  }
+
+  .title {
+    font-weight: var(--font-weight-bold-900);
+    font-size: var(--font-size-l);
+    line-height: var(--line-height-140);
+    text-transform: uppercase;
+    color: var(--color-dark-primary);
+    display: inline-block;
+    max-width: 1017px;
+    padding: 0 0 101px;
+  }
+}
+
+.secondaryFormImg {
+  position: absolute;
+  left: 0;
+  top: 55px;
+  width: 100%;
+  height: calc(100% - 55px);
+  z-index: -1;
+}

@@ -1,14 +1,15 @@
-import {ArrowButton} from '../arrowButton/arrowButton.tsx';
+import {ArrowButton, ArrowButtonProps} from '../arrowButton/arrowButton.tsx';
 import clsx from 'clsx';
 import s from './arrowButtonWithText.module.scss';
-import {ComponentPropsWithoutRef} from 'react';
+import {ComponentPropsWithoutRef, ElementType} from 'react';
 
-export type ArrowButtonWithTextProps = {
+export type ArrowButtonWithTextProps<T extends ElementType> = {
     variant?: 'colored' | 'dark',
-    text: string
+    text: string,
+    buttonProps?: ArrowButtonProps<T>,
 } & ComponentPropsWithoutRef<'div'>
-export const ArrowButtonWithText = (props: ArrowButtonWithTextProps) => {
-    const {variant = 'colored', text, ...restProps} = props;
+export const ArrowButtonWithText = <T extends ElementType>(props: ArrowButtonWithTextProps<T>) => {
+    const {variant = 'colored', text, buttonProps, ...restProps} = props;
     const className = clsx(s.arrowButtonWithText, restProps.className,
         {[s.colored]: variant === 'colored'},
         {[s.dark]: variant === 'dark'}
@@ -19,7 +20,13 @@ export const ArrowButtonWithText = (props: ArrowButtonWithTextProps) => {
         </span>
 
         <div className={s.background}></div>
-        <ArrowButton variant={'primary'} size={"medium"} outline={variant === 'colored' ? 'outline-colored' : 'outline-monochrome'}
-                     className={s.arrow}/>
+        <ArrowButton
+            variant={'primary'}
+            size={'medium'}
+            outline={variant === 'colored' ? 'outline-colored' : 'outline-monochrome'}
+            {...(buttonProps as ArrowButtonProps<T>)}
+            className={s.arrow}
+
+        />
     </div>
 }

@@ -1,7 +1,7 @@
 .form {
   background-color: var(--color-dark-primary);
   border-radius: 72px;
-  padding: 102px 110px 107px;
+  padding: 102px 110px 85px;
 
   .mainInfo {
     display: flex;
@@ -12,6 +12,39 @@
     .item {
       max-width: 458px;
       width: 100%;
+    }
+  }
+
+  .checkbox {
+    margin: 64px 0 33px
+  }
+
+  .submit {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    p {
+      max-width: 852px;
+      width: 100%;
+      font-weight: var(--font-weight-regular-300);
+      font-size: var(--font-size-xs);
+      line-height: var(--line-height-200);
+      color: var(--color-light-100);
+
+      a {
+        text-decoration: none;
+        font-weight: var(--font-weight-regular-400);
+        color: var(--color-accent);
+      }
+    }
+
+    .arrowButton {
+      gap: 70px;
+
+      &:hover {
+        gap: 56px;
+      }
     }
   }
 }

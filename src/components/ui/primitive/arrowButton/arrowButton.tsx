@@ -4,7 +4,7 @@ import {ComponentPropsWithoutRef, ElementType} from 'react';
 
 import ArrowIcon from '../../../../assets/arrow.svg?react'
 
-export type ArrowButtonProps<T extends ElementType = 'a'> = {
+export type ArrowButtonProps<T extends ElementType> = {
     as?: T
     variant?: 'primary' | 'secondary' | 'violet' | 'black',
     size?: 'small' | 'medium' | 'large',
@@ -27,11 +27,7 @@ export const ArrowButton = <T extends ElementType>(props: ArrowButtonProps<T>) =
         }
     )
 
-
-    return <Component className={className}>
-
-
+    return <Component {...restProps} className={className}>
         <ArrowIcon/>
-
     </Component>
 }

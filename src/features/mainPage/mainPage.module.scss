@@ -5,24 +5,18 @@ h2 {
   text-transform: uppercase;
   color: var(--color-accent);
   max-width: 338px;
-
 }
 
-
-.greetingContainer {
-  //width: 87%;
+.mainContainer {
   max-width: 1672px;
   width: 100%;
   margin: auto;
-
 
   .greetingText {
     display: flex;
     flex-direction: column;
     gap: 16px;
     white-space: nowrap;
-    //margin-top: 93px;
-    //margin-bottom: 67px;
     padding: 93px 0 67px 0;
     position: relative;
 
@@ -41,7 +35,6 @@ h2 {
     }
   }
 
-
   .greetingDescription {
     width: 100%;
     display: flex;
@@ -52,7 +45,6 @@ h2 {
     margin-bottom: 228px;
   }
 }
-
 
 .mainText {
   font-weight: var(--font-weight-bold-900);
@@ -125,12 +117,11 @@ h2 {
 // about
 .about {
   max-width: 1920px;
-  margin: auto;
+  margin: 0 auto 163px;
   border-radius: 72px;
   padding: 52px;
   background-color: var(--color-accent);
   color: var(--color-dark-primary);
-  margin-bottom: 163px;
 
   .text {
     display: flex;
@@ -233,6 +224,9 @@ h2 {
   padding: 120px 266px 160px 266px;
   z-index: 2;
   position: relative;
+  width: 100%;
+  max-width: 1672px;
+  margin: 0 auto;
   margin-bottom: 300px;
 
   h2 {
