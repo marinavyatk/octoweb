@@ -6,8 +6,8 @@ import s from './stackList.module.scss'
 export type StackListProps = ComponentPropsWithoutRef<'div'>
 
 export const StackList = (props: StackListProps) => {
-    const {...restProps} = props;
-    const className = clsx(s.list, restProps.className)
+    const {className, ...restProps} = props;
+    const classNames = clsx(s.list, className)
     const stackData = [
         {
             number: '01',
@@ -37,7 +37,7 @@ export const StackList = (props: StackListProps) => {
     })
 
 
-    return <div {...restProps} className={className}>
+    return <div {...restProps} className={classNames}>
         {stackTechList}
     </div>
 

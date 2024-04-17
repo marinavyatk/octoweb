@@ -1,7 +1,6 @@
 import {ComponentPropsWithoutRef} from 'react';
 import {Question} from '../../primitive/question/question.tsx';
 
-
 export type FAQProps = & ComponentPropsWithoutRef<'div'>
 
 export const FAQ = (props: FAQProps) => {

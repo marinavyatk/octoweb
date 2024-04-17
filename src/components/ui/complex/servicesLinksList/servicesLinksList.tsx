@@ -10,8 +10,8 @@ import Demarko from '../../../../assets/webp/link-de-marko.webp'
 export type ServicesLinksListProps = ComponentPropsWithoutRef<'div'>
 
 export const ServicesLinksList = (props: ServicesLinksListProps) => {
-    const {...restProps} = props;
-    const className = clsx(s.list, restProps.className)
+    const {className, ...restProps} = props;
+    const classNames = clsx(s.list, className)
     const linksData = [
         {
             number: '01',
@@ -48,7 +48,7 @@ export const ServicesLinksList = (props: ServicesLinksListProps) => {
     })
 
 
-    return <div {...restProps} className={className}>
+    return <div {...restProps} className={classNames}>
         {linkList}
     </div>
 

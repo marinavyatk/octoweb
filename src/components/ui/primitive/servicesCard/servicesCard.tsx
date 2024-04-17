@@ -11,8 +11,8 @@ export type ServicesCardProps = {
 } & ComponentPropsWithoutRef<'div'>
 
 export const ServicesCard = (props: ServicesCardProps) => {
-    const {number, title, tags, size = 'small', ...restProps} = props;
-    const className = clsx(s.card, restProps.className,
+    const {number, title, tags, size = 'small', className, ...restProps} = props;
+    const classNames = clsx(s.card, className,
         {
             [s.small]: size === 'small',
             [s.medium]: size === 'medium',
@@ -21,7 +21,7 @@ export const ServicesCard = (props: ServicesCardProps) => {
         return <Tag title={tag} variant={'monochrome-secondary'} key={tag}/>
     })
 
-    return <div {...restProps} className={className}>
+    return <div {...restProps} className={classNames}>
         <div className={s.texture}>
         </div>
             <div className={s.text}>

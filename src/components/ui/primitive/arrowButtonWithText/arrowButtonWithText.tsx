@@ -9,12 +9,12 @@ export type ArrowButtonWithTextProps<T extends ElementType> = {
     buttonProps?: ArrowButtonProps<T>,
 } & ComponentPropsWithoutRef<'div'>
 export const ArrowButtonWithText = <T extends ElementType>(props: ArrowButtonWithTextProps<T>) => {
-    const {variant = 'colored', text, buttonProps, ...restProps} = props;
-    const className = clsx(s.arrowButtonWithText, restProps.className,
+    const {variant = 'colored', text, buttonProps, className, ...restProps} = props;
+    const classNames = clsx(s.arrowButtonWithText, className,
         {[s.colored]: variant === 'colored'},
         {[s.dark]: variant === 'dark'}
     );
-    return <div {...restProps} className={className}>
+    return <div {...restProps} className={classNames}>
         <span>
             {text}
         </span>

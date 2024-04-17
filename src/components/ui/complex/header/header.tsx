@@ -8,9 +8,9 @@ import {ContactButton} from '../../primitive/contactButton/contactButton.tsx';
 export type HeaderProps = ComponentPropsWithoutRef<'header'>
 
 export const Header = (props: HeaderProps) => {
-    const {...restProps} = props;
-    const className = clsx(s.header, restProps.className)
-    return <header {...restProps} className={className}>
+    const {className, ...restProps} = props;
+    const classNames = clsx(s.header, className)
+    return <header {...restProps} className={classNames}>
         <Logo/>
         <div className={s.rightBlock}>
             <Navbar/>

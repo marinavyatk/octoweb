@@ -1,5 +1,5 @@
 import React, {ComponentPropsWithoutRef, Ref} from 'react';
-import {clsx} from 'clsx';
+import clsx from 'clsx';
 import s from './inputFile.module.scss'
 import AttachIcon from '../../../../assets/attach.svg?react'
 import ErrorIcon from '../../../../assets/error.svg?react'
@@ -11,10 +11,10 @@ export type InputFileProps = {
 } & ComponentPropsWithoutRef<'input'>
 
 export const InputFile = React.forwardRef((props: InputFileProps, ref: Ref<HTMLInputElement>) => {
-    const {error, divProps, ...restProps} = props;
-    const className = clsx(s.fileInputContainer, restProps.className, {[s.error]: error})
+    const {error, divProps, className, ...restProps} = props;
+    const classNames = clsx(s.fileInputContainer, className, {[s.error]: error})
 
-    return <div className={className} {...divProps}>
+    return <div className={classNames} {...divProps}>
         <label htmlFor={restProps?.name}>
             <input type={'file'}
                    id={restProps?.name}

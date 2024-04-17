@@ -6,8 +6,8 @@ import s from './AdvantageItems.module.scss';
 export type AdvantageItemsProps = ComponentPropsWithoutRef<'div'>
 
 export const AdvantageItems = (props: AdvantageItemsProps) => {
-    const {...restProps} = props;
-    const className = clsx(s.advantagesItems, restProps.className)
+    const {className, ...restProps} = props;
+    const classNames = clsx(s.advantagesItems, className)
     const advantageData = [
         {
             number: '01',
@@ -29,7 +29,7 @@ export const AdvantageItems = (props: AdvantageItemsProps) => {
     const advantageItemsList = advantageData.map(item => {
         return <AdvantageItem number={item.number} description={item.description} key={item.number}/>
     })
-    return <div {...restProps} className={className}>
+    return <div {...restProps} className={classNames}>
         {advantageItemsList}
     </div>
 }

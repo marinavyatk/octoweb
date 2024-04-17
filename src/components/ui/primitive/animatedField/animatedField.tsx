@@ -8,8 +8,8 @@ export type AnimatedFieldProps = {
 } & ComponentPropsWithoutRef<'div'>
 
 export const AnimatedField = (props: AnimatedFieldProps) => {
-    const {variant = 'primary', animation, ...restProps} = props;
-    const className = clsx(s.animatedField, restProps.className,
+    const {variant = 'primary', animation, className, ...restProps} = props;
+    const classNames = clsx(s.animatedField, className,
         {
             [s.primary]: variant === 'primary',
             [s.secondary]: variant === 'secondary',
@@ -19,6 +19,6 @@ export const AnimatedField = (props: AnimatedFieldProps) => {
             [s.left]: animation === 'left',
         }
     )
-    return <div {...restProps} className={className}>
+    return <div {...restProps} className={classNames}>
     </div>
 }

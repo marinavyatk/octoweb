@@ -5,14 +5,13 @@ import {ContactLinks} from '../contactLinks/contactLinks.tsx';
 import {ButtonWithStroke} from '../../primitive/buttonWithStroke/buttonWithStroke.tsx';
 import {ArrowButton} from '../../primitive/arrowButton/arrowButton.tsx';
 
-
 export type FooterProps = ComponentPropsWithoutRef<'div'>
 
 export const Footer = (props: FooterProps) => {
-    const {...restProps} = props;
-    const className = clsx(s.footer, restProps.className)
+    const {className,...restProps} = props;
+    const classNames = clsx(s.footer, className)
 
-    return <div {...restProps} className={className}>
+    return <div {...restProps} className={classNames}>
         <div className={s.container}>
             <ContactLinks/>
             <ButtonWithStroke variant={'secondary'}/>

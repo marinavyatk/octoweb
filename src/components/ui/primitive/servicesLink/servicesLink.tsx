@@ -13,13 +13,13 @@ export type ServicesLinkProps = {
 } & ComponentPropsWithoutRef<'div'>
 
 export const ServicesLink = (props: ServicesLinkProps) => {
-    const {number, title, tags, href, img, ...restProps} = props;
-    const className = clsx(s.servicesLink, restProps.className)
+    const {number, title, tags, href, img, className, ...restProps} = props;
+    const classNames = clsx(s.servicesLink, className)
     const tagList = tags.map(tag => {
         return <Tag title={tag} key={tag} variant={"monochrome-secondary"}/>
     })
 
-    return <div {...restProps} className={className}>
+    return <div {...restProps} className={classNames}>
         <div className={s.innerContainer}>
             <div className={s.header}>
                 <div className={s.text}>

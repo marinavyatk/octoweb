@@ -9,9 +9,9 @@ export type ButtonWithStrokeProps = {
 } & ComponentPropsWithoutRef<'div'>
 
 export const ButtonWithStroke = (props: ButtonWithStrokeProps) => {
-    const {variant = 'primary', ...restProps} = props;
-    const className = clsx(s.buttonContainer, restProps.className)
-    return <div {...restProps} className={className}>
+    const {variant = 'primary', className, ...restProps} = props;
+    const classNames = clsx(s.buttonContainer, className)
+    return <div {...restProps} className={classNames}>
         <Stroke className={s.stroke}/>
         <ArrowButton size={'large'} className={s.arrowButton} variant={variant}/>
     </div>

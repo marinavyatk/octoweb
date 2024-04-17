@@ -58,19 +58,16 @@
 // }
 
 
-
-
-
-import React, { useRef, useState } from 'react';
-import { StepCard } from '../../primitive/stepCard/stepCard.tsx';
-import { ComponentPropsWithoutRef } from 'react';
+import React, {useRef, useState} from 'react';
+import {StepCard} from '../../primitive/stepCard/stepCard.tsx';
+import {ComponentPropsWithoutRef} from 'react';
 import clsx from 'clsx';
 import s from './stepCards.module.scss';
 
 export type StepCardsProps = ComponentPropsWithoutRef<'div'>;
 
 export const StepCards = (props: StepCardsProps) => {
-    const { ...restProps } = props;
+    const {className, ...restProps} = props;
     const containerRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState<number | null>(null);
@@ -108,7 +105,7 @@ export const StepCards = (props: StepCardsProps) => {
         };
     }, [isDragging, startX, scrollLeft]);
 
-    const className = clsx(s.cards, restProps.className);
+    const classNames = clsx(s.cards, className);
     const cards = [
         {
             stepNumber: '01',
@@ -148,13 +145,14 @@ export const StepCards = (props: StepCardsProps) => {
     ];
 
     const cardsList = cards.map((card) => {
-        return <StepCard stepNumber={card.stepNumber} title={card.title} description={card.description} key={card.stepNumber} />;
+        return <StepCard stepNumber={card.stepNumber} title={card.title} description={card.description}
+                         key={card.stepNumber}/>;
     });
 
     return (
         <div
             {...restProps}
-            className={className}
+            className={classNames}
             ref={containerRef}
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}

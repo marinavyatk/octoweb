@@ -7,15 +7,15 @@ export type TagProps = {
     variant?: 'colored' | 'monochrome-primary' | 'monochrome-secondary'
 } & ComponentPropsWithoutRef<'span'>
 export const Tag = (props: TagProps) => {
-    const {title, variant = 'colored', ...restProps} = props;
-    const className = clsx(s.tag,
+    const {title, variant = 'colored', className, ...restProps} = props;
+    const classNames = clsx(s.tag,
         {
             [s.color]: variant === 'colored',
             [s.monochromePrimary]: variant === 'monochrome-primary',
             [s.monochromeSecondary]: variant === 'monochrome-secondary',
         },
-        restProps.className)
-    return <span {...restProps} className={className}>
+        className)
+    return <span {...restProps} className={classNames}>
     {title}
 </span>
 }

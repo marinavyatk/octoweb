@@ -9,8 +9,8 @@ import PriceIcon from "../../../../assets/price.svg";
 
 export type AdvantageCardsProps = ComponentPropsWithoutRef<'div'>
 export const AdvantageCards = (props: AdvantageCardsProps) => {
-    const {...restProps} = props;
-    const className = clsx(s.cards, restProps.className);
+    const {className, ...restProps} = props;
+    const classNames = clsx(s.cards, className);
     const cards = [
         {
             icon: AdvantageIcon,
@@ -36,7 +36,7 @@ export const AdvantageCards = (props: AdvantageCardsProps) => {
     const cardsList = cards.map(card => {
         return <AdvantageCard icon={card.icon} title={card.title} paragraph={card.paragraph} key={card.title}/>
     })
-    return <div className={className}>
+    return <div className={classNames} {...restProps}>
         {cardsList}
     </div>
 }

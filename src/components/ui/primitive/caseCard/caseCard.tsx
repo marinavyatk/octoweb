@@ -12,8 +12,8 @@ export type CaseCardProps = {
 } & ComponentPropsWithoutRef<'figure'>
 
 export const CaseCard = (props: CaseCardProps) => {
-    const {title, tags, img, size, caption, ...restProps} = props;
-    const className = clsx(s.card, restProps.className,
+    const {title, tags, img, size, caption, className, ...restProps} = props;
+    const classNames = clsx(s.card, className,
         {
             [s.small]: size === "small",
             [s.medium]: size === "medium",
@@ -24,7 +24,7 @@ export const CaseCard = (props: CaseCardProps) => {
         return <Tag title={tag} variant={"colored"} key={tag}/>
     })
 
-    return <figure {...restProps} className={className}>
+    return <figure {...restProps} className={classNames}>
         <Tag title={title} variant={"monochrome-primary"} className={s.title}/>
         <img src={img} alt={caption}/>
         <div className={s.tagList}>

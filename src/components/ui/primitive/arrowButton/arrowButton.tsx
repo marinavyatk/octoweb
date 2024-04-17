@@ -11,8 +11,8 @@ export type ArrowButtonProps<T extends ElementType> = {
     outline?: 'outline-colored' | 'outline-monochrome'
 } & ComponentPropsWithoutRef<T>
 export const ArrowButton = <T extends ElementType>(props: ArrowButtonProps<T>) => {
-    const {variant = 'primary', size = 'small', outline, as: Component = 'a', ...restProps} = props;
-    const className = clsx(s.arrowButton, restProps.className,
+    const {variant = 'primary', size = 'small', outline, as: Component = 'a', className, ...restProps} = props;
+    const classNames = clsx(s.arrowButton, className,
         {
             [s.primary]: variant === 'primary',
             [s.secondary]: variant === 'secondary',
@@ -27,7 +27,7 @@ export const ArrowButton = <T extends ElementType>(props: ArrowButtonProps<T>) =
         }
     )
 
-    return <Component {...restProps} className={className}>
+    return <Component {...restProps} className={classNames}>
         <ArrowIcon/>
     </Component>
 }

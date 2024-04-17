@@ -12,9 +12,9 @@ export type QuestionProps = {
 export const Question = (props: QuestionProps) => {
     const answerRef = useRef<HTMLDivElement>(null);
     const [opened, setOpened] = useState(false)
-    const {question, answer, ...restProps} = props;
-    const className = clsx(s.questionContainer,
-        restProps.className,
+    const {question, answer, className, ...restProps} = props;
+    const classNames = clsx(s.questionContainer,
+        className,
         {[s.opened]: opened})
 
     //necessary so that the height of the answer changes smoothly
@@ -25,7 +25,7 @@ export const Question = (props: QuestionProps) => {
         answerRef.current.style.maxHeight = `0`
     }
 
-    return <div {...restProps} className={className}>
+    return <div {...restProps} className={classNames}>
         <div className={s.accordion}>
             <span className={s.question}>{question}</span>
             <AccordionButton opened={opened} setOpened={setOpened}/>

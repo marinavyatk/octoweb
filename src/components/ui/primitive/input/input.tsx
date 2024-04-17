@@ -1,8 +1,7 @@
 import React, {ComponentPropsWithoutRef, Ref} from 'react';
-import {clsx} from 'clsx';
+import clsx from 'clsx';
 import s from './input.module.scss'
 import {InputFile, InputFileProps} from '../inputFile/inputFile.tsx';
-
 
 export type InputProps = {
     label: string,
@@ -12,12 +11,11 @@ export type InputProps = {
 } & ComponentPropsWithoutRef<'input'>
 
 export const Input = React.forwardRef((props: InputProps, ref: Ref<HTMLInputElement>) => {
-    const {label, errorMessage, fileProps, divProps, ...restProps} = props;
+    const {label, errorMessage, fileProps, divProps, className, ...restProps} = props;
     const isError = errorMessage && !!(errorMessage[0] || errorMessage[1]);
+    const classNames = clsx(s.inputContainer, className, {[s.error]: isError})
 
-    const className = clsx(s.inputContainer, restProps.className, {[s.error]: isError})
-
-    return <div className={className} {...divProps}>
+    return <div className={classNames} {...divProps}>
         <label className={s.mainLabel} htmlFor={restProps?.name}>
             {label}
             {restProps.required && <sup className={s.required}> *</sup>}

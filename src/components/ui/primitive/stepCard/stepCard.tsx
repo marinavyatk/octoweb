@@ -9,10 +9,10 @@ export type StepCardProps = {
 } & ComponentPropsWithoutRef<'div'>
 
 export const StepCard = (props: StepCardProps) => {
-    const {stepNumber, title, description, ...restProps} = props;
-    const className = clsx(s.card, restProps.className)
+    const {stepNumber, title, description, className, ...restProps} = props;
+    const classNames = clsx(s.card, className)
 
-    return <div {...restProps} className={className}>
+    return <div {...restProps} className={classNames}>
         <div className={s.cardHeader}>
             <span className={s.stepNumber}>{stepNumber}</span>
             <span className={s.title}>{title}</span>

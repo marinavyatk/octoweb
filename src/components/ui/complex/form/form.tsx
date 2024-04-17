@@ -35,8 +35,8 @@ export type FormProps = ComponentPropsWithoutRef<'div'>
 
 export const Form = (props: FormProps) => {
 
-    const {...restProps} = props;
-    const className = clsx(s.form, restProps.className)
+    const {className, ...restProps} = props;
+    const classNames = clsx(s.form, className)
     const {register, control, handleSubmit, formState: {errors}} = useForm<FormValues>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -59,7 +59,7 @@ export const Form = (props: FormProps) => {
         console.log(data)
     }
 
-    return <div {...restProps} className={className}>
+    return <div {...restProps} className={classNames}>
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className={s.mainInfo}>
                 <Input label={'Имя'}

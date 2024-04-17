@@ -1,14 +1,14 @@
 import {NavigationLink} from '../navigationLink/navigationLink.tsx';
 import {ComponentPropsWithoutRef} from 'react';
-import {clsx} from 'clsx';
+import clsx from 'clsx';
 import s from './navbar.module.scss';
 import {routes} from '../../../../common/routes.ts';
 
 export type NavbarProps = ComponentPropsWithoutRef<'nav'>
 
 export const Navbar = (props: NavbarProps) => {
-    const {...restProps} = props;
-    const className = clsx(s.navbar, restProps.className);
+    const {className,...restProps} = props;
+    const classNames = clsx(s.navbar, className);
     const navData = [
         {
             title: 'О нас',
@@ -43,7 +43,7 @@ export const Navbar = (props: NavbarProps) => {
         </li>
     })
 
-    return <nav {...restProps} className={className}>
+    return <nav {...restProps} className={classNames}>
         <ul>
             {navLinks}
         </ul>

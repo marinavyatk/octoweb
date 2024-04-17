@@ -10,13 +10,13 @@ export type StackProps = {
 } & ComponentPropsWithoutRef<'div'>
 
 export const Stack = (props: StackProps) => {
-    const {number, title, tags, ...restProps} = props;
-    const className = clsx(s.stack, restProps.className)
+    const {number, title, tags, className, ...restProps} = props;
+    const classNames = clsx(s.stack, className)
     const tagList = tags.map(tag => {
         return <Tag title={tag} key={tag} variant={'monochrome-secondary'}/>
     })
 
-    return <div {...restProps} className={className}>
+    return <div {...restProps} className={classNames}>
         <div className={s.text}>
             <span className={s.number}>{number}</span>
             <span className={s.title}>{title}</span>

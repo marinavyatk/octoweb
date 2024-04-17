@@ -9,15 +9,14 @@ export type AccordionButtonProps = {
 } & ComponentPropsWithoutRef<'div'>
 
 export const AccordionButton = (props: AccordionButtonProps) => {
-    // const [opened, setOpened] = useState(false)
-    const {opened, setOpened, ...restProps} = props;
-    const className = clsx(
+    const {opened, setOpened, className, ...restProps} = props;
+    const classNames = clsx(
         s.buttonContainer,
-        restProps.className,
+        className,
         {[s.opened]: opened}
     )
 
-    return <div {...restProps} className={className} onClick={() => setOpened(!opened)}>
+    return <div {...restProps} className={classNames} onClick={() => setOpened(!opened)}>
         <div className={s.closedBackground}></div>
         <div className={s.horizontal}></div>
         <div className={s.vertical}></div>
