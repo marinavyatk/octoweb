@@ -1,0 +1,70 @@
+.teamMember {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 68px;
+  height: 580px;
+  border-radius: 45px;
+  overflow: hidden;
+
+  .info {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 513px;
+    padding: 48px 0 48px 56px;
+
+    span {
+      display: inline-block;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .workExperience {
+    font-weight: var(--font-weight-regular-300);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-120);
+    color: var(--color-dark-primary-60);
+    margin-bottom: 24px;
+  }
+
+  .name {
+    font-weight: var(--font-weight-regular-500);
+    font-size: var(--font-size-smm);
+    line-height: var(--line-height-140);
+    color: var(--color-dark-primary);
+    margin-bottom: 8px;
+  }
+
+  .specialization {
+    font-weight: var(--font-weight-regular-300);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-120);
+    color: var(--color-dark-primary);
+  }
+
+  p {
+    font-weight: var(--font-weight-regular-300);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-160);
+    color: var(--color-dark-primary);
+  }
+
+  .background {
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+  }
+
+  .memberPhoto {
+    width: 370px;
+  }
+}

@@ -35,13 +35,12 @@
 }
 
 .opened {
-  .question{
+  .question {
     margin-bottom: 70px;
     transition: margin-bottom 1s;
   }
 
   .answer {
-    max-height: 100px; //change later
     transition: max-height 1s, margin-bottom 1s;
     margin-bottom: 88px;
   }

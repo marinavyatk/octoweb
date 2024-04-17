@@ -4,6 +4,8 @@ html {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
 }
 
 *,
@@ -33,4 +35,9 @@ body {
   padding: 0;
   background-color: var(--color-dark-primary);
   font-family: var(--font-family-primary);
+
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
