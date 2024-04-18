@@ -41,7 +41,7 @@ export const MainPage = () => {
                 <AnimatedField variant={'secondary'}
                                animation={'right'}
                                className={s.starsSymbols}>
-                    ★ ★ ★ ★ ★
+                    ★  ★  ★  ★  ★
                 </AnimatedField>
                 <div>сайты</div>
                 <div>для</div>
@@ -69,7 +69,7 @@ export const MainPage = () => {
                 <h1>
                     ВЕБ-студия OCTOWEB
                 </h1>
-                <p> С 2018 года специализируеМСЯ на разработке, сопровождении и развитии IT-продуктов,
+                <p> С 2018 года специализируемся на разработке, сопровождении и развитии IT-продуктов,
                     интернет-магазинов и бизнес-сайтов</p>
             </div>
 

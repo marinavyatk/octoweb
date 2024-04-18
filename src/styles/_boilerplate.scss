@@ -41,3 +41,12 @@ body {
 html::-webkit-scrollbar {
   display: none;
 }
+
+h1 {
+  font-weight: var(--font-weight-bold-900);
+  font-size: var(--font-size-xxl);
+  line-height: var(--line-height-124);
+  text-transform: uppercase;
+  color: var(--color-light-100);
+  margin-top: 120px;
+}

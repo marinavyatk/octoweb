@@ -15,7 +15,7 @@ import {FAQ} from '../../components/ui/complex/faq/faq.tsx';
 import ArrowIconForPrices from '../../assets/arrow4.svg?react'
 
 export const OnlineStoreDevPage = () => {
-    return <div>
+    return <div className={s.onlineStoreDevPage}>
         <Header/>
         <div className={s.mainContainer}>
             <h1>Разработка интернет-магазинов</h1>

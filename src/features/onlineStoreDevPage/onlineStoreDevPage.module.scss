@@ -1,31 +1,51 @@
-h1 {
-  font-weight: var(--font-weight-bold-900);
-  font-size: var(--font-size-xxl);
-  line-height: var(--line-height-124);
-  text-transform: uppercase;
-  color: var(--color-light-100);
-}
+//h1 {
+//  font-weight: var(--font-weight-bold-900);
+//  font-size: var(--font-size-xxl);
+//  line-height: var(--line-height-124);
+//  text-transform: uppercase;
+//  color: var(--color-light-100);
+//  margin-top: 120px;
+//}
+
+//.onlineStoreDevPage{
+//  p {
+//    font-weight: var(--font-weight-regular-250);
+//    font-size: var(--font-size-sm);
+//    line-height: var(--line-height-200);
+//    color: var(--color-light-100);
+//  }
+//}
 
 .mainContainer {
   max-width: 1920px;
   padding: 0 124px;
   width: 100%;
   margin: auto;
+  //margin-top: 120px;
 }
 
-p {
-  font-weight: var(--font-weight-regular-250);
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-200);
-  color: var(--color-light-100);
-}
+
 
 .discussProject {
   display: flex;
   justify-content: space-between;
   gap: 142px;
   margin: 50px 0 64px;
+
+  //p {
+  //  font-weight: var(--font-weight-regular-250);
+  //  font-size: var(--font-size-sm);
+  //  line-height: var(--line-height-200);
+  //  color: var(--color-light-100);
+  //}
 }
+
+.discussProject  p {
+    font-weight: var(--font-weight-regular-250);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-200);
+    color: var(--color-light-100);
+  }
 
 .serviceImg {
   border-radius: 48px;
@@ -59,9 +79,9 @@ p {
     align-items: flex-start;
     margin-bottom: 240px;
 
-    p {
-      text-align: justify;
-    }
+    //p {
+    //  text-align: justify;
+    //}
 
     .arrow {
       gap: 87px;
@@ -71,6 +91,15 @@ p {
       }
     }
   }
+}
+
+
+.container p{
+  font-weight: var(--font-weight-regular-250);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-200);
+  color: var(--color-light-100);
+  //text-align: justify;
 }
 
 //location
@@ -136,6 +165,7 @@ p {
 
   p {
     font-weight: var(--font-weight-regular-300);
+    font-size: var(--font-size-sm);
     line-height: var(--line-height-180);
     color: var(--color-dark-primary);
     width: 638px;
@@ -143,6 +173,7 @@ p {
     position: absolute;
     left: 0;
     bottom: 0;
+
   }
 
   img {
