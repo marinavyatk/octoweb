@@ -11,6 +11,7 @@ import {ServicesPage} from './features/services/servicesPage.tsx';
 import {OnlineStoreDevPage} from './features/onlineStoreDevPage/onlineStoreDevPage.tsx';
 import {ContactsPage} from './features/contactsPage/contactsPage.tsx';
 import {AboutPage} from './features/aboutPage/aboutPage.tsx';
+import {CasesPage} from './features/casesPage/casesPage.tsx';
 
 const router = createBrowserRouter([
     {
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
     },
     {
         path: routes.cases,
-        element: <div>Кейсы</div>,
+        element: <CasesPage/>,
     },
     {
         path: routes.team,
