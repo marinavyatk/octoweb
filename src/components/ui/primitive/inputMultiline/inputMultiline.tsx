@@ -1,28 +1,23 @@
 import React, {ComponentPropsWithoutRef, Ref, useEffect, useRef, useState} from 'react';
 import clsx from 'clsx';
-import s from './inputWithCounter.module.scss'
-import {InputFile, InputFileProps} from '../inputFile/inputFile.tsx';
+import s from './inputMultiline.module.scss'
+import ErrorIcon from '../../../../assets/error.svg?react'
 
-export type InputProps = {
+export type InputMultilineProps = {
     label: string,
     required: boolean,
     placeholder?: string,
-    errorMessage?: (string | undefined)[],
+    errorMessage?: string | undefined,
     value: string,
     onChange: (value: string) => void,
-    fileProps?: InputFileProps,
 } & ComponentPropsWithoutRef<'div'>
 
-export const InputWithCounter = React.forwardRef((props: InputProps, ref: Ref<HTMLDivElement>) => {
+export const InputMultiline = React.forwardRef((props: InputMultilineProps, ref: Ref<HTMLDivElement>) => {
 
     const [content, setContent] = useState('')
     const contentRef = useRef<HTMLDivElement>(null);
-    const {label, required, placeholder, errorMessage, fileProps, onChange, className, ...restProps} = props;
-    const isError = errorMessage && !!(errorMessage[0] || errorMessage[1]);
-    const classNames = clsx(className, {[s.error]: isError})
-    const underlineMessage = isError ?
-        Array.isArray(errorMessage) ? errorMessage.filter(message => message).join('. ') : 'это не массив'
-        : 'Размер файла не более 5mb';
+    const {label, required, placeholder, errorMessage, onChange, className, ...restProps} = props;
+    const classNames = clsx(className, {[s.error]: errorMessage})
 
     const handleInput = () => {
         if (contentRef.current) {
@@ -60,14 +55,11 @@ export const InputWithCounter = React.forwardRef((props: InputProps, ref: Ref<HT
                      className={s.input}
                 ></div>
                 {content === '' && <div className={s.placeholder}>{placeholder}</div>}
-                <InputFile {...fileProps} error={isError}/>
+                {errorMessage && <ErrorIcon className={s.errorIcon}/>}
             </div>
         </div>
-        <div className={s.underText}>
-            <span>{content.length}/500</span>
-            <span className={s.underlineMessage}>
-                {underlineMessage}
+        <span className={s.errorMessage}>
+                {errorMessage}
             </span>
-        </div>
     </div>
 })

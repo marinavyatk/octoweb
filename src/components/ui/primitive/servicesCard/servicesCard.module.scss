@@ -9,7 +9,6 @@
   border-radius: 48px;
   position: relative;
 
-
   .texture {
     background-image: url("../../../../assets/webp/texture.webp"); //change texture
     opacity: 0.3;
@@ -20,7 +19,6 @@
     top: 0;
     border-radius: 48px;
     z-index: -1;
-
   }
 
   .number {
@@ -30,7 +28,7 @@
     font-weight: var(--font-weight-regular-300);
   }
 
-  .title {
+  .header {
     color: var(--color-light-100);
     line-height: var(--line-height-120);
     font-size: var(--font-size-ml);
@@ -41,18 +39,6 @@
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
-
-    span {
-      transition: all 0.6s ease-out 0.4s;
-    }
-
-
-    span:hover {
-      cursor: pointer;
-      color: var(--color-dark-primary);
-      background-color: var(--color-accent);
-      transition: all 0.5s ease;
-    }
   }
 }
 

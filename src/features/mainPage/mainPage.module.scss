@@ -1,50 +1,31 @@
-h2 {
-  font-weight: var(--font-weight-bold-900);
-  font-size: var(--font-size-l);
-  line-height: var(--line-height-140);
-  text-transform: uppercase;
-  color: var(--color-accent);
-  max-width: 338px;
-}
-
 .mainContainer {
-  max-width: 1672px;
+  max-width: 1920px;
+  padding: 0 124px;
   width: 100%;
   margin: auto;
+}
 
-  .greetingText {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    white-space: nowrap;
-    padding: 93px 0 67px 0;
-    position: relative;
+//greetingBlock
+.greetingText {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  white-space: nowrap;
+  padding: 120px 0 67px 0;
+  position: relative;
 
-    div:first-child {
-      padding-left: 140px;
-    }
-
-    div:last-child {
-      padding-left: 265px;
-    }
-
-    .arrow {
-      position: absolute;
-      left: 125px;
-      bottom: 0;
-    }
+  div:first-child {
+    padding-left: 140px;
   }
 
-  .greetingDescription {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    row-gap: 24px;
-    white-space: pre-wrap;
-    font-size: var(--font-size-xl);
-    margin-bottom: 228px;
-    //line-height: var(--line-height-150);
+  div:last-child {
+    padding-left: 265px;
+  }
+
+  .arrow {
+    position: absolute;
+    left: 125px;
+    bottom: 0;
   }
 }
 
@@ -56,16 +37,13 @@ h2 {
   color: var(--color-light-100);
 }
 
-.accent {
-  color: var(--color-accent);
-}
-
 .briefOffer {
   display: flex;
   gap: 58px;
   align-items: center;
   padding-left: 142px;
   margin-bottom: 222px;
+
 
   .offerText {
     font-family: var(--font-family-secondary);
@@ -77,12 +55,41 @@ h2 {
       font-size: var(--font-size-smm);
     }
 
+    .accent {
+      color: var(--color-accent);
+    }
+
     .description {
       font-weight: var(--font-weight-regular-300);
       font-size: var(--font-size-sm);
     }
   }
 }
+
+
+//greetingDescription
+
+.greetingDescription {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 24px;
+  white-space: pre-wrap;
+  font-size: var(--font-size-xl);
+  margin-bottom: 228px;
+
+  font-weight: var(--font-weight-bold-800);
+  //line-height: var(--line-height-150);
+  text-transform: uppercase;
+  text-align: justify;
+  color: var(--color-light-100);
+
+  h1{
+    display: none;
+  }
+}
+
 
 .starsSymbols {
   width: 504px;
@@ -132,8 +139,7 @@ h2 {
     align-items: flex-start;
     //color: var(--color-dark-primary);
 
-    h1 {
-      text-transform: uppercase;
+    h2 {
       font-weight: var(--font-weight-bold-800);
       font-size: var(--font-size-xl);
       line-height: var(--line-height-120);
@@ -152,7 +158,6 @@ h2 {
       width: 529px;
     }
   }
-
 
 
   .imageContainer {
@@ -174,7 +179,9 @@ h2 {
 // advantages
 .advantages {
   padding-left: 142px;
+  gap: 15px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   position: relative;
   margin-bottom: 301px;
@@ -228,13 +235,12 @@ h2 {
 .services {
   border-radius: 72px;
   background-color: var(--color-dark-secondary);
-  padding: 120px 266px 160px 266px;
+  padding: 120px 266px 160px;
   z-index: 2;
   position: relative;
   width: 100%;
-  max-width: 1672px;
-  margin: 0 auto;
-  margin-bottom: 300px;
+  max-width: 1920px;
+  margin: 0 auto 300px;
 
   h2 {
     margin-bottom: 112px;

@@ -5,7 +5,7 @@ import Botanica from '../../../../assets/webp/case-botanica.webp'
 export type BotanicaCardProps = ComponentPropsWithoutRef<'figure'>
 export const BotanicaCard = (props: BotanicaCardProps) => {
     const {...restProps} = props;
-    return <CaseCard title={"LANDING PAGE"}
+    return <CaseCard category={"LANDING PAGE"}
                      tags={["DEVELOP", "UI/UX", "SEO"]}
                      img={Botanica}
                      size={'small'}

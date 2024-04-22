@@ -13,7 +13,7 @@ export const Stack = (props: StackProps) => {
     const {number, title, tags, className, ...restProps} = props;
     const classNames = clsx(s.stack, className)
     const tagList = tags.map(tag => {
-        return <Tag title={tag} key={tag} variant={'monochrome-secondary'}/>
+        return <Tag key={tag} variant={'monochrome-secondary'}>{tag}</Tag>
     })
 
     return <div {...restProps} className={classNames}>

@@ -12,12 +12,22 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
+export const AsH2: Story = {
     args: {
-        title: "LANDING PAGE",
+        category: "LANDING PAGE",
         tags: ["DEVELOP", "UI/UX", "SEO"],
         img: Botanica,
         size: 'small',
         caption: "ботаника-хилс.рф"
+    },
+}
+export const AsH3: Story = {
+    args: {
+        category: "LANDING PAGE",
+        tags: ["DEVELOP", "UI/UX", "SEO"],
+        img: Botanica,
+        size: 'small',
+        caption: "ботаника-хилс.рф",
+        as: 'h3'
     },
 }

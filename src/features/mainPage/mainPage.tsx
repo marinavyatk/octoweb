@@ -21,27 +21,32 @@ export const MainPage = () => {
     return <div>
         <Header/>
         <div className={s.mainContainer}>
-            <div className={s.mainText + ' ' + s.greetingText}>
-                <div>МЫ РЕВОЛЮЦИОНЕРЫ</div>
-                <div>В СФЕРЕ</div>
-                <ArrowPointerSmall className={s.arrow}/>
-                <div>ИЗ КРАСНОДАРА</div>
-            </div>
-            <div className={s.briefOffer}>
-                <ButtonWithStroke/>
-                <div className={s.offerText}>
-                    <span className={s.heading}>Получите скидку <span className={s.accent}>5000 рублей!</span></span>
-                    <br/>
-                    <span className={s.description}>Достаточно просто заполнить бриф</span>
-                </div>
-            </div>
 
-            <section className={s.mainText + ' ' + s.greetingDescription}>
+            <section className={s.greetingBlock}>
+                <div className={s.mainText + ' ' + s.greetingText}>
+                    <div>МЫ РЕВОЛЮЦИОНЕРЫ</div>
+                    <div>В СФЕРЕ</div>
+                    <ArrowPointerSmall className={s.arrow}/>
+                    <div>ИЗ КРАСНОДАРА</div>
+                </div>
+                <div className={s.briefOffer}>
+                    <ButtonWithStroke/>
+                    <div className={s.offerText}>
+                        <span className={s.heading}>Получите скидку <span
+                            className={s.accent}>5000 рублей!</span></span>
+                        <br/>
+                        <span className={s.description}>Достаточно просто заполнить бриф</span>
+                    </div>
+                </div>
+            </section>
+
+            <section className={s.greetingDescription}>
+                <h1>Создаем сайты для бизнеса</h1>
                 <div>создаем</div>
                 <AnimatedField variant={'secondary'}
                                animation={'right'}
                                className={s.starsSymbols}>
-                    ★  ★  ★  ★  ★
+                    ★ ★ ★ ★ ★
                 </AnimatedField>
                 <div>сайты</div>
                 <div>для</div>
@@ -66,9 +71,9 @@ export const MainPage = () => {
 
         <section className={s.about}>
             <div className={s.text}>
-                <h1>
-                    ВЕБ-студия OCTOWEB
-                </h1>
+                <h2>
+                    ВЕБ-студия OCTOWEB <br/>
+                </h2>
                 <p> С 2018 года специализируемся на разработке, сопровождении и развитии IT-продуктов,
                     интернет-магазинов и бизнес-сайтов</p>
             </div>
@@ -82,7 +87,7 @@ export const MainPage = () => {
         <div className={s.mainContainer}>
             <section className={s.advantages}>
                 <h2>
-                    ПОЧЕМУ МЫ?
+                    ПОЧЕМУ <br/>МЫ?
                 </h2>
                 <ArrowPointer className={s.arrow}/>
                 <span>くコ:彡</span>

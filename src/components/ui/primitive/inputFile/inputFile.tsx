@@ -15,17 +15,16 @@ export const InputFile = React.forwardRef((props: InputFileProps, ref: Ref<HTMLI
     const classNames = clsx(s.fileInputContainer, className, {[s.error]: error})
 
     return <div className={classNames} {...divProps}>
+        <input type={'file'}
+               id={restProps?.name}
+               name={restProps?.name}
+               className={s.inputFile}
+               {...restProps}
+               ref={ref}
+        />
         <label htmlFor={restProps?.name}>
-            <input type={'file'}
-                   id={restProps?.name}
-                   name={restProps?.name}
-                   className={s.inputFile}
-                   {...restProps}
-                   ref={ref}
-            />
             <AttachIcon/>
-            {error && <ErrorIcon/>}
         </label>
+        {error && <ErrorIcon className={s.errorIcon}/>}
     </div>
-
 });

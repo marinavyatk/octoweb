@@ -4,6 +4,7 @@ import {Logo} from './logo.tsx';
 const meta = {
     title: 'Components/Logo',
     component: Logo,
+    tags: ['autodocs'],
 } satisfies Meta<typeof Logo>
 
 export default meta
