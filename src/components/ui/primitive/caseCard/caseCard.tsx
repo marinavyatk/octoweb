@@ -1,35 +1,36 @@
-import {ComponentPropsWithoutRef} from "react";
-import {clsx} from "clsx";
+import {ComponentPropsWithoutRef, ElementType} from 'react';
+import {clsx} from 'clsx';
 import s from './caseCard.module.scss'
-import {Tag} from "../tag/tag.tsx";
+import {Tag} from '../tag/tag.tsx';
 
-export type CaseCardProps = {
-    title: string,
+export type CaseCardProps<T extends ElementType> = {
+    category: string,
     tags: string[],
     img: string,
-    size: "small" | "medium" | "large" | "extraLarge",
-    caption: string
-} & ComponentPropsWithoutRef<'figure'>
+    size: 'small' | 'medium' | 'large' | 'extraLarge',
+    caption: string,
+    as?: T
+} & ComponentPropsWithoutRef<'a'>
 
-export const CaseCard = (props: CaseCardProps) => {
-    const {title, tags, img, size, caption, className, ...restProps} = props;
+export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
+    const {category, tags, img, size, caption, className, as: HeaderType = 'h2', ...restProps} = props;
     const classNames = clsx(s.card, className,
         {
-            [s.small]: size === "small",
-            [s.medium]: size === "medium",
-            [s.large]: size === "large",
-            [s.extraLarge]: size === "extraLarge",
+            [s.small]: size === 'small',
+            [s.medium]: size === 'medium',
+            [s.large]: size === 'large',
+            [s.extraLarge]: size === 'extraLarge',
         })
     const tagList = tags.map(tag => {
-        return <Tag title={tag} variant={"colored"} key={tag}/>
+        return <Tag variant={'colored'} key={tag}>{tag}</Tag>
     })
 
-    return <figure {...restProps} className={classNames}>
-        <Tag title={title} variant={"monochrome-primary"} className={s.title}/>
+    return <a {...restProps} className={classNames}>
+        <Tag variant={'monochrome-primary'} className={s.category}>{category}</Tag>
         <img src={img} alt={caption}/>
         <div className={s.tagList}>
             {tagList}
         </div>
-        <figcaption>{caption}</figcaption>
-    </figure>
+        <HeaderType className={s.caption}>{caption}</HeaderType>
+    </a>
 }

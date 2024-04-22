@@ -1,13 +1,13 @@
 .form {
   background-color: var(--color-dark-primary);
   border-radius: 72px;
-  padding: 102px 110px 85px;
+  padding: 64px 110px 85px;
 
   .mainInfo {
     display: flex;
     justify-content: space-between;
     gap: 39px;
-    margin-bottom: 85px;
+    margin-bottom: 56px;
 
     .item {
       max-width: 458px;
@@ -16,7 +16,7 @@
   }
 
   .checkbox {
-    margin: 64px 0 33px
+    margin: 56px 0 33px
   }
 
   .submit {

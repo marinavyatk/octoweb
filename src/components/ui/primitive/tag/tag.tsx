@@ -1,13 +1,13 @@
-import {ComponentPropsWithoutRef} from "react";
-import clsx from "clsx";
+import {ComponentPropsWithoutRef, ElementType} from 'react';
+import clsx from 'clsx';
 import s from './tag.module.scss'
 
-export type TagProps = {
-    title: string
-    variant?: 'colored' | 'monochrome-primary' | 'monochrome-secondary'
-} & ComponentPropsWithoutRef<'span'>
-export const Tag = (props: TagProps) => {
-    const {title, variant = 'colored', className, ...restProps} = props;
+export type TagProps<T extends ElementType> = {
+    variant?: 'colored' | 'monochrome-primary' | 'monochrome-secondary',
+    as?: T
+} & ComponentPropsWithoutRef<T>
+export const Tag = <T extends ElementType>(props: TagProps<T>) => {
+    const {variant = 'colored',as: Component = 'span', className, ...restProps} = props;
     const classNames = clsx(s.tag,
         {
             [s.color]: variant === 'colored',
@@ -15,7 +15,5 @@ export const Tag = (props: TagProps) => {
             [s.monochromeSecondary]: variant === 'monochrome-secondary',
         },
         className)
-    return <span {...restProps} className={classNames}>
-    {title}
-</span>
+    return <Component {...restProps} className={classNames}/>
 }

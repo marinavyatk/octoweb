@@ -8,18 +8,29 @@
     opacity: 0;
   }
 
+  label{
+    cursor: pointer;
+  }
+  svg {
+
+    width: 27px;
+    height: 27px;
+  }
+
+  input:focus-visible + label {
+    outline: -webkit-focus-ring-color auto 5px;
+  }
+}
+
+.error {
   svg {
     width: 27px;
     height: 27px;
   }
-}
 
-.error  {
-  svg {
+  .errorIcon{
+    margin-left: 6px;
     width: 24px;
     height: 24px;
-  }
-  svg+svg{
-    margin-left: 6px;
   }
 }

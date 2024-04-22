@@ -2,12 +2,14 @@ import {ComponentPropsWithoutRef} from 'react';
 import clsx from 'clsx';
 import s from './form.module.scss';
 import {Input} from '../../primitive/input/input.tsx';
-import {FormInputWithCounter} from '../../primitive/inputWithCounter/inputWithCounter.tsx';
+
 import {useForm} from 'react-hook-form'
 import {Checkbox} from '../../primitive/checkbox/checkbox.tsx';
 import {ArrowButtonWithText} from '../../primitive/arrowButtonWithText/arrowButtonWithText.tsx';
 import {z} from 'zod'
 import {zodResolver} from '@hookform/resolvers/zod';
+import {FormInputWithCounter} from '../../primitive/inputWithCounter/FormInputWithCounter.tsx';
+
 
 const MAX_UPLOAD_SIZE = 1024 * 1024 * 5; // 5MB
 
@@ -20,11 +22,8 @@ const fileSchema = z.custom<
 
 const formSchema = z.object({
     name: z.string().min(1, {message: 'Это обязательное поле'}),
-    nameFile: fileSchema,
     email: z.string().email(),
-    emailFile: fileSchema,
     tel: z.string().min(1, {message: 'Это обязательное поле'}),
-    telFile: fileSchema,
     projectDescription: z.string().min(1, {message: 'Это обязательное поле'}).max(500, {message: 'Максимум 500 символов'}),
     projectDescriptionFile: fileSchema,
     mailing: z.boolean()
@@ -41,11 +40,8 @@ export const Form = (props: FormProps) => {
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: undefined,
-            nameFile: undefined,
             email: undefined,
-            emailFile: undefined,
             tel: undefined,
-            telFile: undefined,
             projectDescription: undefined,
             projectDescriptionFile: undefined,
             mailing: false
@@ -65,27 +61,24 @@ export const Form = (props: FormProps) => {
                 <Input label={'Имя'}
                        required
                        {...register('name')}
-                       fileProps={{...register('nameFile')}}
                        placeholder={'Как вас зовут?'}
                        className={s.item}
-                       errorMessage={[errors.name?.message, errors.nameFile?.message]}
+                       errorMessage={errors.name?.message}
                 />
                 <Input label={'email'}
                        required
                        {...register('email')}
                        type={'email'}
-                       fileProps={{...register('emailFile')}}
                        placeholder={'Электронная почта'}
                        className={s.item}
-                       errorMessage={[errors.email?.message, errors.emailFile?.message]}
+                       errorMessage={errors.email?.message}
                 />
                 <Input label={'Номер телефона'}
                        required
                        {...register('tel')}
-                       fileProps={{...register('telFile')}}
                        placeholder={'+7 (900) 000 00 00'}
                        className={s.item}
-                       errorMessage={[errors.tel?.message, errors.telFile?.message]}
+                       errorMessage={errors.tel?.message}
                 />
             </div>
             <FormInputWithCounter label={'О проекте'}
@@ -110,7 +103,6 @@ export const Form = (props: FormProps) => {
             </div>
         </form>
     </div>
-
 }
 
 
