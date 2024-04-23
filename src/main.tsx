@@ -35,15 +35,19 @@ const router = createBrowserRouter([
     },
     {
         path: routes.team,
-        element: <div>Команда</div>,
+        element: <div style={{color: 'white'}}>under construction</div>,
     },
     {
         path: routes.blog,
-        element: <div>Блог</div>,
+        element: <div style={{color: 'white'}}>under construction</div>,
     },
     {
         path: routes.contacts,
         element: <ContactsPage/>,
+    },
+    {
+        path: routes.brief,
+        element: <div style={{color: 'white'}}>under construction</div>,
     },
 ]);
 

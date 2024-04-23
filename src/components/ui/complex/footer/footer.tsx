@@ -3,12 +3,12 @@ import clsx from 'clsx';
 import s from './footer.module.scss';
 import {ContactLinks} from '../contactLinks/contactLinks.tsx';
 import {ButtonWithStroke} from '../../primitive/buttonWithStroke/buttonWithStroke.tsx';
-import {ArrowButton} from '../../primitive/arrowButton/arrowButton.tsx';
+import {ArrowNavigationButton} from '../../primitive/arrowNavigationButton/arrowNavigationButton.tsx';
 
 export type FooterProps = ComponentPropsWithoutRef<'div'>
 
 export const Footer = (props: FooterProps) => {
-    const {className,...restProps} = props;
+    const {className, ...restProps} = props;
     const classNames = clsx(s.footer, className)
 
     return <div {...restProps} className={classNames}>
@@ -26,14 +26,15 @@ export const Footer = (props: FooterProps) => {
             </div>
         </div>
         <div className={s.panelUp}>
-            <span className={s.up}>наверх</span>
-            <ArrowButton variant={'black'} size={'small'} className={s.arrow} as={'a'} onClick={()=>window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth'
-            })}
+            <ArrowNavigationButton variant={'up'}
+                                   className={s.arrow}
+                                   onClick={() => window.scrollTo({
+                                       top: 0,
+                                       left: 0,
+                                       behavior: 'smooth'
+                                   })}
             />
-            <div>
+            <div className={s.bottomCaption}>
                 <span>Политика конфиденциальности</span>
                 <span>© OctoWeb 2023 — Все права защищены</span>
             </div>

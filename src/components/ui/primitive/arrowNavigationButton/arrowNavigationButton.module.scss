@@ -1,0 +1,82 @@
+.navigationButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover {
+    .upCaption {
+      color: var(--color-dark-primary);
+    }
+
+    .up {
+      svg {
+        stroke: var(--color-accent);
+        transform: rotate(-45deg);
+        transition: all 0.4s;
+      }
+    }
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+
+.up {
+  background-color: var(--color-dark-primary);
+  border: 8px solid var(--color-primary);
+
+  svg {
+    stroke: var(--color-light-100);
+    transition: all 0.4s;
+  }
+
+  &:hover {
+    svg {
+      stroke: var(--color-accent);
+      transform: rotate(-45deg);
+      transition: all 0.4s;
+    }
+  }
+}
+
+.upCaption {
+  font-weight: var(--font-weight-regular-400);
+  margin: 0 auto 13px;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-180);
+  text-transform: uppercase;
+  color: var(--color-light-100);
+}
+
+
+.next {
+  background-color: var(--color-accent);
+
+  svg {
+    stroke: var(--color-dark-primary);
+  }
+}
+
+.previous {
+  transform: rotate(-90deg);
+  background-color: var(--color-dark-secondary);
+
+  svg {
+    stroke: var(--color-accent);
+  }
+}

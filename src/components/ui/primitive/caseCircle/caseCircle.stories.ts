@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react'
 import {CaseCircle} from './caseCircle.tsx';
-import CaseCircleBotanica from '../../../../assets/webp/caseCircle-plastic-botanica.png'
+import CaseCircleBotanica from '../../../../assets/webp/case-circle-botanica.png'
 
 
 const meta = {

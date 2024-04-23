@@ -11,8 +11,54 @@
     border-radius: 50%;
   }
 
-  .arrowButton {
+  .arrowLink {
     position: absolute;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+
+    svg {
+      width: 42px;
+      height: 42px;
+      transition: transform 0.3s cubic-bezier(1.000, 1.650, 0.265, 1.550);
+    }
+
+    &:hover {
+      svg {
+        transform: rotate(45deg);
+        transition: transform 0.3s cubic-bezier(1.000, 1.650, 0.265, 1.550);
+      }
+    }
+  }
+}
+
+.primary {
+  background: var(--linear-gradient-primary);
+
+  svg {
+    stroke: var(--color-light-100);
+  }
+
+  &:hover {
+    svg {
+      stroke: var(--color-accent);
+    }
+  }
+}
+
+.secondary {
+  background-color: var(--color-accent);
+
+  svg {
+    stroke: var(--color-dark-secondary)
+  }
+
+  &:hover {
+    stroke: var(--color-primary);
   }
 }
 

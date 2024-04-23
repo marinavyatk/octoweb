@@ -4,7 +4,6 @@ import {ButtonWithStroke} from '../../components/ui/primitive/buttonWithStroke/b
 import {AnimatedField} from '../../components/ui/primitive/animatedField/animatedField.tsx';
 import ArrowIcon from '../../assets/arrow.svg?react'
 import team from '../../assets/webp/team.webp'
-import {ArrowButtonWithText} from '../../components/ui/primitive/arrowButtonWithText/arrowButtonWithText.tsx';
 import {AdvantageCards} from '../../components/ui/complex/advantageCards/advantageCards.tsx';
 import ArrowPointer from '../../assets/arrowPointer.svg?react'
 import ArrowPointerSmall from '../../assets/arrowPointerSmall.svg?react'
@@ -15,6 +14,8 @@ import {SmxtreamCard} from '../../components/ui/complex/caseCards/smxtreamCard.t
 import {ServicesLinksList} from '../../components/ui/complex/servicesLinksList/servicesLinksList.tsx';
 import {StepCards} from '../../components/ui/complex/stepCards/stepCards.tsx';
 import {FooterWithForm} from '../../components/ui/complex/footerWithForm/footerWithForm.tsx';
+import {routes} from '../../common/routes.ts';
+import {ArrowLinkWithText} from '../../components/ui/primitive/ArrowLinkWithText/arrowLinkWithText.tsx';
 
 
 export const MainPage = () => {
@@ -79,7 +80,12 @@ export const MainPage = () => {
             </div>
 
             <div className={s.imageContainer}>
-                <ArrowButtonWithText variant={'dark'} text={'Заказать проект'} className={s.arrowButton}/>
+                <ArrowLinkWithText variant={'dark'}
+                                   text={'Заказать проект'}
+                                   href={'#form'}
+                                   className={s.arrowButton}
+
+                />
                 <img src={team} alt={'Команда'}/>
             </div>
         </section>
@@ -101,7 +107,8 @@ export const MainPage = () => {
                 <EkvadratCard className={s.ekvadrat}/>
                 <BotanicaCard/>
                 <SmxtreamCard/>
-                <ArrowButtonWithText text={'Больше кейсов'}/>
+                <ArrowLinkWithText text={'Больше кейсов'}
+                                   to={routes.cases}/>
             </section>
         </div>
 

@@ -6,5 +6,6 @@ export const routes = {
     cases: '/cases',
     team: '/team',
     blog: '/blog',
-    contacts: '/contacts'
+    contacts: '/contacts',
+    brief: '/brief'
 }

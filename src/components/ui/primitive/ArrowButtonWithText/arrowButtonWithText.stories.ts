@@ -10,16 +10,8 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Colored: Story = {
+export const Primary: Story = {
     args: {
-        variant: 'colored',
-        text: 'Больше кейсов'
-    },
-}
-
-export const Dark: Story = {
-    args: {
-        variant: 'dark',
-        text: 'Заказать проект'
+        text: 'Больше кейсов',
     },
 }

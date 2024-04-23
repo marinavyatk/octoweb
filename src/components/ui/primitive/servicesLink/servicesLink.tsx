@@ -1,8 +1,8 @@
-import {ComponentPropsWithoutRef} from "react";
-import clsx from "clsx";
+import {ComponentPropsWithoutRef} from 'react';
+import clsx from 'clsx';
 import s from './servicesLink.module.scss'
-import {ArrowButton} from "../arrowButton/arrowButton.tsx";
-import {Tag} from "../tag/tag.tsx";
+import {ArrowButton} from '../arrowButton/arrowButton.tsx';
+import {Tag} from '../tag/tag.tsx';
 
 export type ServicesLinkProps = {
     number: string,
@@ -16,7 +16,7 @@ export const ServicesLink = (props: ServicesLinkProps) => {
     const {number, header, tags, href, img, className, ...restProps} = props;
     const classNames = clsx(s.servicesLink, className)
     const tagList = tags.map(tag => {
-        return <Tag key={tag} variant={"monochrome-secondary"}>{tag}</Tag>
+        return <Tag key={tag} variant={'monochrome-secondary'}>{tag}</Tag>
     })
 
     return <div {...restProps} className={classNames}>
@@ -26,7 +26,7 @@ export const ServicesLink = (props: ServicesLinkProps) => {
                     <span className={s.number}>{number}</span>
                     <h3 className={s.header}>{header}</h3>
                 </div>
-                <ArrowButton href={href} size={"medium"}/>
+                <ArrowButton href={href}/>
             </div>
             <div className={s.tagList}>
                 {tagList}

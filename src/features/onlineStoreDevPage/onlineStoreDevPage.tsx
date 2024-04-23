@@ -1,7 +1,7 @@
 import s from './onlineStoreDevPage.module.scss'
 import {Header} from '../../components/ui/complex/header/header.tsx';
 import {FooterWithForm} from '../../components/ui/complex/footerWithForm/footerWithForm.tsx';
-import {ArrowButtonWithText} from '../../components/ui/primitive/arrowButtonWithText/arrowButtonWithText.tsx';
+
 import OnlineStoreImg from '../../assets/webp/onlineStoreImg.webp'
 import {AnimatedField} from '../../components/ui/primitive/animatedField/animatedField.tsx';
 import ArrowIcon from '../../assets/arrow.svg?react'
@@ -15,6 +15,7 @@ import {FAQ} from '../../components/ui/complex/faq/faq.tsx';
 import ArrowIconForPrices from '../../assets/arrow4.svg?react'
 import Temp from '../../assets/webp/temp.png';
 import FrontendDev from '../../assets/webp/frontendDev.webp';
+import {ArrowLinkWithText} from '../../components/ui/primitive/ArrowLinkWithText/arrowLinkWithText.tsx';
 
 const teamMembersInfo = [
     {
@@ -93,7 +94,7 @@ export const OnlineStoreDevPage = () => {
             <div className={s.discussProject}>
                 <p>Увеличиваем количество продаж через автоматизацию расчета стоимости доставки, онлайн-платежи и
                     выгрузку товаров на маркетплейсы</p>
-                <ArrowButtonWithText text={'ОБСУДИТЬ ПРОЕКТ'}/>
+                <ArrowLinkWithText text={'ОБСУДИТЬ ПРОЕКТ'} href={'#form'}/>
             </div>
             <div className={s.serviceImg}>
                 <img src={OnlineStoreImg} alt={''}/>
@@ -104,7 +105,7 @@ export const OnlineStoreDevPage = () => {
                     <p>Мы создаем удобные online-шопинговые платформы, где легко найти любой товар с помощью эффективных
                         фильтров, а процесс оплаты и заказа доставки становится доступным всего в несколько кликов.
                         Возвращение пользователей в такие интернет-магазины — результат нашей работы!</p>
-                    <ArrowButtonWithText text={'Консультация'} className={s.arrow}/>
+                    <ArrowLinkWithText text={'Консультация'} className={s.arrow} href={'#form'}/>
                 </div>
             </div>
         </div>
@@ -168,7 +169,7 @@ export const OnlineStoreDevPage = () => {
         <section className={s.prices}>
             <div className={s.container}>
                 <div className={s.cost}>Стоимость от <span>170 000 ₽</span></div>
-                <ArrowButtonWithText text={'Обсудить проект'} className={s.arrow}/>
+                <ArrowLinkWithText text={'Обсудить проект'} className={s.arrow} href={'#form'}/>
             </div>
             <div className={s.backgroundContainer}>
                 <div className={s.background}></div>
