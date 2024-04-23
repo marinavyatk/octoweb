@@ -18,7 +18,7 @@ export const AsH2: Story = {
         tags: ["DEVELOP", "UI/UX", "SEO"],
         img: Botanica,
         size: 'small',
-        caption: "ботаника-хилс.рф"
+        header: "ботаника-хилс.рф"
     },
 }
 export const AsH3: Story = {
@@ -27,7 +27,7 @@ export const AsH3: Story = {
         tags: ["DEVELOP", "UI/UX", "SEO"],
         img: Botanica,
         size: 'small',
-        caption: "ботаника-хилс.рф",
+        header: "ботаника-хилс.рф",
         as: 'h3'
     },
 }
