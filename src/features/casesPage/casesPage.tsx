@@ -4,12 +4,13 @@ import {Header} from '../../components/ui/complex/header/header.tsx';
 import {CaseCircle, Category} from '../../components/ui/primitive/caseCircle/caseCircle.tsx';
 import CaseCircleBotanica from '../../assets/webp/case-circle-botanica.png';
 import CaseCirclePlastic from '../../assets/webp/case-circle-plastic.png';
-import CaseCircleEkvadrat from '../../assets/webp/case-circle-plastic-e-kvadrat.png';
+import CaseCircleEkvadrat from '../../assets/webp/case-circle-e-kvadrat.png';
 import {FilterButton} from '../../components/ui/primitive/filterButton/filterButton.tsx';
 import {useState} from 'react';
 import {CaseCircleList} from '../../components/ui/complex/caseCircleList/caseCircleList.tsx';
 import {CaseCardFullWidth} from '../../components/ui/primitive/caseCardFullWidth/caseCardFullWidth.tsx';
 import CaseCardFullWidthImg from '../../assets/webp/caseCardFullWidth.png'
+import {WebsiteLink} from '../../components/ui/primitive/websiteLink/websiteLink.tsx';
 
 const circles: CaseCircle[] = [
     {img: CaseCircleBotanica, caseId: 'botanica', category: 'Web'},
@@ -55,7 +56,8 @@ export const CasesPage = () => {
                            header={'de-marko.ru'}
 
         />
-
+        <WebsiteLink webSiteName={'ekvadrat23.ru'}
+        />
         <FooterWithForm/>
     </div>
 }

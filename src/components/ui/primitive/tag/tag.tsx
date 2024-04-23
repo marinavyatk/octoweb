@@ -15,5 +15,5 @@ export const Tag = <T extends ElementType>(props: TagProps<T>) => {
             [s.monochromeSecondary]: variant === 'monochrome-secondary',
         },
         className)
-    return <Component {...restProps} className={classNames}/>
+    return <Component {...restProps} className={classNames} rel={'nofollow'}/>
 }

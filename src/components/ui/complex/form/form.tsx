@@ -55,7 +55,7 @@ export const Form = (props: FormProps) => {
         console.log(data)
     }
 
-    return <div {...restProps} className={classNames}>
+    return <div {...restProps} className={classNames} id={'form'}>
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className={s.mainInfo}>
                 <Input label={'Имя'}
@@ -95,7 +95,7 @@ export const Form = (props: FormProps) => {
                 className={s.checkbox}
             />
             <div className={s.submit}>
-                <p>Я принимаю условия <a href={'#'}>Политика ООО OctoWeb в отношении обработки данных</a> и, нажимая на
+                <p>Я принимаю условия <a href={'#'} rel={'nofollow'}>Политика ООО OctoWeb в отношении обработки данных</a> и, нажимая на
                     кнопку
                     “Отправить”, даю согласие на обработку компанией указанных мной персональных данных</p>
                 <ArrowButtonWithText text={'Отправить'} buttonProps={{type: 'submit', as: 'button'}}
