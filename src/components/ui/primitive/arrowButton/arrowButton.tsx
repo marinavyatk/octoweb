@@ -27,7 +27,7 @@ export const ArrowButton = <T extends ElementType>(props: ArrowButtonProps<T>) =
         }
     )
 
-    return <Component {...restProps} className={classNames}>
+    return <Component {...restProps} className={classNames} rel={'nofollow'}>
         <ArrowIcon/>
     </Component>
 }

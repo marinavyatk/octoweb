@@ -9,5 +9,5 @@ export const NavigationLink = (props: NavigationLinkProps) => {
     const classNames = clsx(s.navigationLink, className)
 
     return <NavLink  {...restProps}
-                     className={({isActive}) => isActive ? `${s.active}  ${classNames}` : classNames}/>
+                     className={({isActive}) => isActive ? `${s.active}  ${classNames}` : classNames} rel={'nofollow'}/>
 }
