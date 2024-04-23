@@ -6,26 +6,10 @@ import ArrowIcon from '../../../../assets/arrow.svg?react'
 
 export type ArrowButtonProps<T extends ElementType> = {
     as?: T
-    variant?: 'primary' | 'secondary' | 'violet' | 'black',
-    size?: 'small' | 'medium' | 'large',
-    outline?: 'outline-colored' | 'outline-monochrome'
 } & ComponentPropsWithoutRef<T>
 export const ArrowButton = <T extends ElementType>(props: ArrowButtonProps<T>) => {
-    const {variant = 'primary', size = 'small', outline, as: Component = 'a', className, ...restProps} = props;
-    const classNames = clsx(s.arrowButton, className,
-        {
-            [s.primary]: variant === 'primary',
-            [s.secondary]: variant === 'secondary',
-            [s.violet]: variant === 'violet',
-            [s.black]: variant === 'black',
-            [s.small]: size === 'small',
-            [s.medium]: size === 'medium',
-            [s.large]: size === 'large',
-            [s.outlineColored]: outline === 'outline-colored',
-            [s.outlineMonochrome]: outline === 'outline-monochrome',
-
-        }
-    )
+    const {as: Component = 'a', className, ...restProps} = props;
+    const classNames = clsx(s.arrowButton, className)
 
     return <Component {...restProps} className={classNames} rel={'nofollow'}>
         <ArrowIcon/>

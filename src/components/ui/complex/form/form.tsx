@@ -5,10 +5,10 @@ import {Input} from '../../primitive/input/input.tsx';
 
 import {useForm} from 'react-hook-form'
 import {Checkbox} from '../../primitive/checkbox/checkbox.tsx';
-import {ArrowButtonWithText} from '../../primitive/arrowButtonWithText/arrowButtonWithText.tsx';
 import {z} from 'zod'
 import {zodResolver} from '@hookform/resolvers/zod';
 import {FormInputWithCounter} from '../../primitive/inputWithCounter/FormInputWithCounter.tsx';
+import {ArrowButtonWithText} from '../../primitive/ArrowButtonWithText/arrowButtonWithText.tsx';
 
 
 const MAX_UPLOAD_SIZE = 1024 * 1024 * 5; // 5MB
@@ -55,7 +55,7 @@ export const Form = (props: FormProps) => {
         console.log(data)
     }
 
-    return <div {...restProps} className={classNames} id={'form'}>
+    return <div {...restProps} className={classNames}>
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className={s.mainInfo}>
                 <Input label={'Имя'}
@@ -95,10 +95,12 @@ export const Form = (props: FormProps) => {
                 className={s.checkbox}
             />
             <div className={s.submit}>
-                <p>Я принимаю условия <a href={'#'} rel={'nofollow'}>Политика ООО OctoWeb в отношении обработки данных</a> и, нажимая на
+                <p>Я принимаю условия <a href={'#'} rel={'nofollow'}>Политика ООО OctoWeb в отношении обработки
+                    данных</a> и, нажимая на
                     кнопку
                     “Отправить”, даю согласие на обработку компанией указанных мной персональных данных</p>
-                <ArrowButtonWithText text={'Отправить'} buttonProps={{type: 'submit', as: 'button'}}
+                <ArrowButtonWithText text={'Отправить'}
+                                     type={'submit'}
                                      className={s.arrowButton}/>
             </div>
         </form>

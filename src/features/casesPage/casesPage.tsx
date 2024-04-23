@@ -45,16 +45,12 @@ export const CasesPage = () => {
                     {filterButtons}
                 </div>
             </div>
-
-
             <CaseCircleList caseCircles={filteredCases}/>
         </div>
-
         <CaseCardFullWidth category={'Корпоративный сайт'}
                            tags={['Develop', 'ux/ui', 'seo']}
                            img={CaseCardFullWidthImg}
                            header={'de-marko.ru'}
-
         />
         <WebsiteLink webSiteName={'ekvadrat23.ru'}
         />

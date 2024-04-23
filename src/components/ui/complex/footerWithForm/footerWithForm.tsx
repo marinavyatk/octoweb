@@ -11,7 +11,7 @@ export const FooterWithForm = (props: FooterWithFormProps) => {
     const {className, ...restProps} = props;
     const classNames = clsx(s.footerWithForm, className)
 
-    return <div {...restProps} className={classNames}>
+    return <div {...restProps} className={classNames} id={'form'}>
         <img src={SecondaryFolderForm} className={s.secondaryFormImg} alt=""/>
         <div className={s.formContainer}>
             <span className={s.title}>Давайте начнем работать прямо сейчас</span>

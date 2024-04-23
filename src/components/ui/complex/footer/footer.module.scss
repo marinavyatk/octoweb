@@ -39,25 +39,12 @@
   .panelUp {
     margin: auto;
 
-    .up {
-      font-weight: var(--font-weight-regular-400);
-      margin: 0 auto 13px;
-      display: block;
-      width: fit-content;
-      font-size: var(--font-size-sm);
-      line-height: var(--line-height-180);
-      text-transform: uppercase;
-      color: var(--color-light-100);
-    }
-
     .arrow {
-      outline: 8px solid var(--color-primary);
       margin: auto;
-      margin-bottom: -32px;
-      border: none;
+      margin-bottom: -20px;
     }
 
-    div {
+    .bottomCaption {
       background-color: var(--color-dark-primary);
       height: 101px;
       border-radius: 72px 72px 0 0;

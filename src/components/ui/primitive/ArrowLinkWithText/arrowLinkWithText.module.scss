@@ -1,0 +1,106 @@
+.arrowButtonWithText {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 32px;
+  width: 426px;
+  height: 100px;
+  position: relative;
+  transition: gap 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+  text-decoration: none;
+
+  span {
+    font-weight: var(--font-weight-regular-300);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-200);
+    text-transform: uppercase;
+    z-index: 2;
+    transition: color 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+  }
+
+  .arrow {
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    background: var(--linear-gradient-primary);
+    border: 10px solid;
+    box-sizing: content-box;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--color-light-100);
+      transition: transform 0.4s;
+    }
+  }
+
+  .background {
+    width: 100px;
+    height: 100px;
+    border-radius: 72px;
+    position: absolute;
+    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+  }
+
+
+  &:hover {
+    transition: gap 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+    gap: 17px;
+
+    span {
+      transition: color 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+    }
+
+    .background {
+      width: 100%;
+      height: 100%;
+      border-radius: 72px;
+      transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+    }
+
+    svg {
+      stroke: var(--color-accent);
+      transform: rotate(45deg);
+      transition: transform 0.4s;
+    }
+  }
+}
+
+.colored {
+  color: var(--color-light-100);
+
+  .arrow {
+    border-color: var(--color-accent);
+  }
+
+  .background {
+    background-color: var(--color-accent);
+  }
+
+  &:hover {
+    color: var(--color-dark-primary);
+  }
+}
+
+.dark {
+  color: var(--color-dark-primary);
+
+  .arrow {
+    border-color: var(--color-dark-primary);
+  }
+
+  .background {
+    background-color: var(--color-dark-primary);
+  }
+
+  &:hover {
+    color: var(--color-light-100);
+  }
+}
