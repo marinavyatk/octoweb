@@ -8,6 +8,8 @@ import CaseCircleEkvadrat from '../../assets/webp/case-circle-plastic-e-kvadrat.
 import {FilterButton} from '../../components/ui/primitive/filterButton/filterButton.tsx';
 import {useState} from 'react';
 import {CaseCircleList} from '../../components/ui/complex/caseCircleList/caseCircleList.tsx';
+import {CaseCardFullWidth} from '../../components/ui/primitive/caseCardFullWidth/caseCardFullWidth.tsx';
+import CaseCardFullWidthImg from '../../assets/webp/caseCardFullWidth.png'
 
 const circles: CaseCircle[] = [
     {img: CaseCircleBotanica, caseId: 'botanica', category: 'Web'},
@@ -46,6 +48,14 @@ export const CasesPage = () => {
 
             <CaseCircleList caseCircles={filteredCases}/>
         </div>
+
+        <CaseCardFullWidth category={'Корпоративный сайт'}
+                           tags={['Develop', 'ux/ui', 'seo']}
+                           img={CaseCardFullWidthImg}
+                           header={'de-marko.ru'}
+
+        />
+
         <FooterWithForm/>
     </div>
 }

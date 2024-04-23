@@ -8,12 +8,12 @@ export type CaseCardProps<T extends ElementType> = {
     tags: string[],
     img: string,
     size: 'small' | 'medium' | 'large' | 'extraLarge',
-    caption: string,
+    header: string,
     as?: T
 } & ComponentPropsWithoutRef<'a'>
 
 export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
-    const {category, tags, img, size, caption, className, as: HeaderType = 'h2', ...restProps} = props;
+    const {category, tags, img, size, header, className, as: HeaderType = 'h2', ...restProps} = props;
     const classNames = clsx(s.card, className,
         {
             [s.small]: size === 'small',
@@ -27,10 +27,10 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
 
     return <a {...restProps} className={classNames}>
         <Tag variant={'monochrome-primary'} className={s.category}>{category}</Tag>
-        <img src={img} alt={caption}/>
+        <img src={img} alt={header}/>
         <div className={s.tagList}>
             {tagList}
         </div>
-        <HeaderType className={s.caption}>{caption}</HeaderType>
+        <HeaderType className={s.header}>{header}</HeaderType>
     </a>
 }
