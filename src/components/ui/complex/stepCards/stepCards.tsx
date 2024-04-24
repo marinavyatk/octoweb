@@ -145,8 +145,12 @@ export const StepCards = (props: StepCardsProps) => {
     ];
 
     const cardsList = cards.map((card) => {
-        return <StepCard stepNumber={card.stepNumber} title={card.title} description={card.description}
-                         key={card.stepNumber}/>;
+        return <StepCard stepNumber={card.stepNumber}
+                         title={card.title}
+                         description={card.description}
+                         key={card.stepNumber}
+                         className={s.card}
+        />;
     });
 
     return (
