@@ -1,7 +1,8 @@
-import React, {ComponentPropsWithoutRef, Ref, useEffect, useRef, useState} from 'react';
+import React, {ChangeEvent, ComponentPropsWithoutRef, Ref, useEffect, useRef, useState} from 'react';
 import clsx from 'clsx';
 import s from './inputWithCounter.module.scss'
 import {InputFile, InputFileProps} from '../inputFile/inputFile.tsx';
+import {AttachedFile} from '../attachedFile/attachedFile.tsx';
 
 export type InputProps = {
     label: string,
@@ -14,15 +15,17 @@ export type InputProps = {
 } & ComponentPropsWithoutRef<'div'>
 
 export const InputWithCounter = React.forwardRef((props: InputProps, ref: Ref<HTMLDivElement>) => {
-
     const [content, setContent] = useState('')
+    const [file, setFile] = useState<File | undefined>(undefined)
     const contentRef = useRef<HTMLDivElement>(null);
     const {label, required, placeholder, errorMessage, fileProps, onChange, className, ...restProps} = props;
     const isError = errorMessage && !!(errorMessage[0] || errorMessage[1]);
     const classNames = clsx(className, {[s.error]: isError})
     const underlineMessage = isError ?
-        Array.isArray(errorMessage) ? errorMessage.filter(message => message).join('. ') : 'это не массив'
-        : 'Размер файла не более 5mb';
+        errorMessage.filter(message => message).join('. ')
+        : file
+            ? <AttachedFile fileName={file.name} onDeleteClick={() => setFile(undefined)}/>
+            : 'Размер файла не более 5mb';
 
     const handleInput = () => {
         if (contentRef.current) {
@@ -31,6 +34,13 @@ export const InputWithCounter = React.forwardRef((props: InputProps, ref: Ref<HT
             onChange(newContent);
         }
     };
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        const filesFromInput = event.target.files;
+        if (filesFromInput) {
+            setFile([...filesFromInput][0])
+        }
+    }
 
     useEffect(() => {
         const contentDiv = contentRef.current;
@@ -60,7 +70,7 @@ export const InputWithCounter = React.forwardRef((props: InputProps, ref: Ref<HT
                      className={s.input}
                 ></div>
                 {content === '' && <div className={s.placeholder}>{placeholder}</div>}
-                <InputFile {...fileProps} error={isError}/>
+                <InputFile {...fileProps} error={isError} onChange={handleChange}/>
             </div>
         </div>
         <div className={s.underText}>

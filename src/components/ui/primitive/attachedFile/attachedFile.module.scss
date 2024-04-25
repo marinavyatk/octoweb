@@ -1,0 +1,23 @@
+.attachedFile {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  font-weight: var(--font-weight-regular-300);
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-160);
+  color: var(--color-light-100);
+
+  .attachIcon {
+    fill: var(--color-light-20);
+    margin-right: 26px;
+    width: 27px;
+  }
+
+  .deleteIcon {
+    margin-left: 18px;
+    fill: var(--color-error);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+}
