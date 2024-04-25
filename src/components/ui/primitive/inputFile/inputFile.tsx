@@ -4,7 +4,6 @@ import s from './inputFile.module.scss'
 import AttachIcon from '../../../../assets/attach.svg?react'
 import ErrorIcon from '../../../../assets/error.svg?react'
 
-
 export type InputFileProps = {
     error?: boolean
     divProps?: ComponentPropsWithoutRef<'div'>,
