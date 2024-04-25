@@ -81,7 +81,7 @@ export const TeamMemberCards = (props: TeamMemberCardsProps) => {
             containerRef.current.children[currentCard]
                 .scrollIntoView({
                     inline: 'start',
-                    block: 'nearest',
+                    block: 'center',
                     behavior: 'smooth'
                 });
         }

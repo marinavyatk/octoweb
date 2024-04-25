@@ -12,9 +12,9 @@
     cursor: pointer;
   }
   svg {
-
     width: 27px;
     height: 27px;
+    fill: var(--color-light-100)
   }
 
   input:focus-visible + label {
