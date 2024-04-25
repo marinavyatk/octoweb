@@ -1,0 +1,34 @@
+.radioButtonContainer {
+  display: flex;
+  padding: 12px 24px 12px 12px;
+  border-radius: 32px;
+  align-items: center;
+  gap: 10px;
+  background-color: #232323;
+  border: 1px solid var(--color-light-20);
+  width: fit-content;
+  color: var(--color-light-100);
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-regular-300);
+  transition: all 0.5s;
+
+  input {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--color-light-20);
+    background-color: rgba(22, 22, 22, 0.20);
+    appearance: none;
+    border-radius: 50%;
+    transition: all 0.5s;
+  }
+}
+
+.checked {
+  background-color: var(--color-accent);
+  color: var(--color-dark-primary);
+
+  input {
+    border: 8px solid var(--color-dark-primary);
+    background-color: var(--color-accent);
+  }
+}

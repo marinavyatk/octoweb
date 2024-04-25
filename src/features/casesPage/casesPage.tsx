@@ -11,6 +11,8 @@ import {CaseCircleList} from '../../components/ui/complex/caseCircleList/caseCir
 import {CaseCardFullWidth} from '../../components/ui/primitive/caseCardFullWidth/caseCardFullWidth.tsx';
 import CaseCardFullWidthImg from '../../assets/webp/caseCardFullWidth.png'
 import {WebsiteLink} from '../../components/ui/primitive/websiteLink/websiteLink.tsx';
+import {RadioButton} from '../../components/ui/primitive/radioButton/radioButton.tsx';
+import {RadioCheckbox} from '../../components/ui/primitive/radioCheckbox/radioCheckbox.tsx';
 
 const circles: CaseCircle[] = [
     {img: CaseCircleBotanica, caseId: 'botanica', category: 'Web'},
@@ -54,6 +56,8 @@ export const CasesPage = () => {
         />
         <WebsiteLink webSiteName={'ekvadrat23.ru'}
         />
+        <RadioButton text={'Да'}/>
+        <RadioCheckbox text={'Получение заявок на почту'}/>
         <FooterWithForm/>
     </div>
 }
