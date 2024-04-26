@@ -65,7 +65,7 @@ export const InputWithCounter = React.forwardRef((props: InputProps, ref: Ref<HT
             <div className={s.position}>
                 <div id={restProps?.id}
                      data-placeholder={placeholder}
-                     ref={contentRef}
+                     ref={contentRef || ref}
                      contentEditable
                      className={s.input}
                 ></div>
