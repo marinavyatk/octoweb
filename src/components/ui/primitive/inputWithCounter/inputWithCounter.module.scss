@@ -41,6 +41,7 @@
   border: none;
   padding: 16px 0;
   caret-color: var(--color-primary);
+  word-break: break-word;
 
   &:focus {
     outline: none;
