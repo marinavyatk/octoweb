@@ -9,6 +9,6 @@ export const DemarkoCard = (props: DemarkoCardProps) => {
                      tags={["DEVELOP", "UI/UX", "КОМПЛЕКСНЫЙ МАРКЕТИНГ"]}
                      img={Demarko}
                      size={'extraLarge'}
-                     caption={"de-marko.ru"}
+                     header={"de-marko.ru"}
                      {...restProps} />
 }

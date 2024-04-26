@@ -33,9 +33,10 @@ option {
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--color-dark-primary);
+  background-color: black;
   font-family: var(--font-family-primary);
-
+  background-image: url("../assets/webp/noise-texture.webp");
+  background-size: contain;
 }
 
 //html::-webkit-scrollbar {

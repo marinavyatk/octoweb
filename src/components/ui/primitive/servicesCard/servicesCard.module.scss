@@ -11,6 +11,7 @@
 
   .texture {
     background-image: url("../../../../assets/webp/texture.webp"); //change texture
+    background-size: contain;
     opacity: 0.3;
     position: absolute;
     width: 100%;
