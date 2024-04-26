@@ -1,5 +1,5 @@
 export const routes = {
-    main: '/octoweb',
+    main: '/',
     about: '/about',
     services: '/services',
     onlineStoreDev: '/services/online-store-development',
