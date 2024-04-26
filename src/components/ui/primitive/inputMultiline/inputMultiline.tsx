@@ -50,7 +50,7 @@ export const InputMultiline = React.forwardRef((props: InputMultilineProps, ref:
             <div className={s.position}>
                 <div id={restProps?.id}
                      data-placeholder={placeholder}
-                     ref={contentRef || ref}
+                     ref={contentRef}
                      contentEditable
                      className={s.input}
                 ></div>

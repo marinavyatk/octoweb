@@ -98,7 +98,7 @@ export const BriefPage = () => {
 
     console.log(location.hash)
 
-    const {register, handleSubmit, formState: {errors}} = useForm<FormValues>({
+    const {register, control, handleSubmit, formState: {errors}} = useForm<FormValues>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             //contactInfo

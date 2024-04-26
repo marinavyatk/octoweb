@@ -10,6 +10,6 @@ export const EkvadratCard = (props: EkvadratCardProps) => {
                      tags={["DEVELOP", "UI/UX", "КОМПЛЕКСНЫЙ МАРКЕТИНГ", "SEO"]}
                      img={Ekvadrat}
                      size={'large'}
-                     header={"ekvadrat23.ru"}
+                     caption={"ekvadrat23.ru"}
                      {...restProps} />
 }

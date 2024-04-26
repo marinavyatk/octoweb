@@ -10,7 +10,7 @@ export const SmxtreamCard = (props: SmxtreamCardProps) => {
                      tags={["DEVELOP", "UI/UX", "SEO"]}
                      img={Smxtream}
                      size={'medium'}
-                     header={'smxtream.pro'}
+                     caption={'smxtream.pro'}
                      as={'h3'}
                      {...restProps}
     href={"https://chat.openai.com/c/7350bbd7-ba2a-40d8-8cb6-ebcaac380187"}/>

@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>
 export const Primary: Story = {
     args: {
         number: "01",
-        header: 'Первый контакт',
+        title: 'Первый контакт',
         tags: ['Промо-сайт', 'Лендинг', 'Многостраничный сайт', 'Сайт-каталог', 'Интернет-магазин'],
         href: '#',
         img: Botanica

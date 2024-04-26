@@ -9,6 +9,6 @@ export const BotanicaCard = (props: BotanicaCardProps) => {
                      tags={["DEVELOP", "UI/UX", "SEO"]}
                      img={Botanica}
                      size={'small'}
-                     header={"ботаника-хилс.рф"}
+                     caption={"ботаника-хилс.рф"}
                      {...restProps} />
 }
