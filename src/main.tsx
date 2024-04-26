@@ -12,6 +12,7 @@ import {OnlineStoreDevPage} from './features/onlineStoreDevPage/onlineStoreDevPa
 import {ContactsPage} from './features/contactsPage/contactsPage.tsx';
 import {AboutPage} from './features/aboutPage/aboutPage.tsx';
 import {CasesPage} from './features/casesPage/casesPage.tsx';
+import {BriefPage} from './features/briefPage/briefPage.tsx';
 
 const router = createBrowserRouter([
     {
@@ -47,7 +48,7 @@ const router = createBrowserRouter([
     },
     {
         path: routes.brief,
-        element: <div style={{color: 'white'}}>under construction</div>,
+        element: <BriefPage/>,
     },
 ]);
 
