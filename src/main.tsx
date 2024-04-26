@@ -50,7 +50,7 @@ const router = createBrowserRouter([
         path: routes.brief,
         element: <BriefPage/>,
     },
-]);
+], { basename: "/octoweb" });
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
