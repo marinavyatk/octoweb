@@ -1,4 +1,4 @@
-import React, {ChangeEvent, ComponentPropsWithoutRef, Ref, useEffect, useRef, useState} from 'react';
+import React, {ChangeEvent, ComponentPropsWithoutRef, Ref, useState} from 'react';
 import clsx from 'clsx';
 import s from './inputWithCounter.module.scss'
 import {InputFile, InputFileProps} from '../inputFile/inputFile.tsx';
@@ -17,7 +17,6 @@ export type InputProps = {
 export const InputWithCounter = React.forwardRef((props: InputProps, ref: Ref<HTMLDivElement>) => {
     const [content, setContent] = useState('')
     const [file, setFile] = useState<File | undefined>(undefined)
-    const contentRef = useRef<HTMLDivElement>(null);
     const {label, required, placeholder, errorMessage, fileProps, onChange, className, ...restProps} = props;
     const isError = errorMessage && !!(errorMessage[0] || errorMessage[1]);
     const classNames = clsx(className, {[s.error]: isError})
@@ -27,12 +26,10 @@ export const InputWithCounter = React.forwardRef((props: InputProps, ref: Ref<HT
             ? <AttachedFile fileName={file.name} onDeleteClick={() => setFile(undefined)}/>
             : 'Размер файла не более 5mb';
 
-    const handleInput = () => {
-        if (contentRef.current) {
-            const newContent = contentRef.current.innerText;
-            setContent(newContent);
-            onChange(newContent);
-        }
+    const handleInput = (event: ChangeEvent<HTMLDivElement>) => {
+        const newContent = event.target.innerText;
+        setContent(newContent);
+        onChange(newContent);
     };
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -41,18 +38,6 @@ export const InputWithCounter = React.forwardRef((props: InputProps, ref: Ref<HT
             setFile([...filesFromInput][0])
         }
     }
-
-    useEffect(() => {
-        const contentDiv = contentRef.current;
-        if (contentDiv) {
-            contentDiv.addEventListener('input', handleInput);
-        }
-        return () => {
-            if (contentDiv) {
-                contentDiv.removeEventListener('input', handleInput);
-            }
-        };
-    }, []);
 
     return <div className={classNames} {...restProps}>
         <div className={s.inputContainer}>
@@ -65,9 +50,11 @@ export const InputWithCounter = React.forwardRef((props: InputProps, ref: Ref<HT
             <div className={s.position}>
                 <div id={restProps?.id}
                      data-placeholder={placeholder}
-                     ref={contentRef || ref}
+                     ref={ref}
                      contentEditable
                      className={s.input}
+                     onInput={(event: ChangeEvent<HTMLDivElement>) => handleInput(event)}
+
                 ></div>
                 {content === '' && <div className={s.placeholder}>{placeholder}</div>}
                 <InputFile {...fileProps} error={isError} onChange={handleChange}/>

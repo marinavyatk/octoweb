@@ -14,7 +14,7 @@ export const ServicesPage = () => {
                                   {tag: 'Лендинг', price: '40000', href: '#'},
                                   {tag: 'Многостраничный сайт', price: '40000', href: '#'},
                                   {tag: 'Сайт-каталог', price: '40000', href: '#'},
-                                  {tag: 'Интернет-магазин', price: '40000', href: '#'}
+                                  {tag: 'Интернет-магазин', price: '40000', href: '#services/online-store-development'}
                               ]}
                               size={'medium'}/>
                 <ServicesCard number={'02'} header={'Интернет-Маркетинг'}

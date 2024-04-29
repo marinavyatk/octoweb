@@ -1,4 +1,4 @@
-import React, {ComponentPropsWithoutRef, Ref, useEffect, useRef, useState} from 'react';
+import React, {ChangeEvent, ComponentPropsWithoutRef, Ref, useState} from 'react';
 import clsx from 'clsx';
 import s from './inputMultiline.module.scss'
 import ErrorIcon from '../../../../assets/error.svg?react'
@@ -15,29 +15,14 @@ export type InputMultilineProps = {
 export const InputMultiline = React.forwardRef((props: InputMultilineProps, ref: Ref<HTMLDivElement>) => {
 
     const [content, setContent] = useState('')
-    const contentRef = useRef<HTMLDivElement>(null);
     const {label, required, placeholder, errorMessage, onChange, className, ...restProps} = props;
-    const classNames = clsx(className, {[s.error]: errorMessage})
+    const classNames = clsx(s.inputMultiline, className, {[s.error]: errorMessage})
 
-    const handleInput = () => {
-        if (contentRef.current) {
-            const newContent = contentRef.current.innerText;
-            setContent(newContent);
-            onChange(newContent);
-        }
+    const handleInput = (event: ChangeEvent<HTMLDivElement>) => {
+        const newContent = event.target.innerText;
+        setContent(newContent);
+        onChange(newContent);
     };
-
-    useEffect(() => {
-        const contentDiv = contentRef.current;
-        if (contentDiv) {
-            contentDiv.addEventListener('input', handleInput);
-        }
-        return () => {
-            if (contentDiv) {
-                contentDiv.removeEventListener('input', handleInput);
-            }
-        };
-    }, []);
 
     return <div className={classNames} {...restProps}>
         <div className={s.inputContainer}>
@@ -50,11 +35,12 @@ export const InputMultiline = React.forwardRef((props: InputMultilineProps, ref:
             <div className={s.position}>
                 <div id={restProps?.id}
                      data-placeholder={placeholder}
-                     ref={contentRef || ref}
+                     ref={ref}
                      contentEditable
                      className={s.input}
-                ></div>
-                {content === '' && <div className={s.placeholder}>{placeholder}</div>}
+                     onInput={(event: ChangeEvent<HTMLDivElement>) => handleInput(event)}
+                >
+                </div>
                 {errorMessage && <ErrorIcon className={s.errorIcon}/>}
             </div>
         </div>

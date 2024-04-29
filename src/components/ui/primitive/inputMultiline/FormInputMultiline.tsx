@@ -1,27 +1,29 @@
 import {Control, FieldPath, FieldValues, useController} from 'react-hook-form';
-import {InputProps} from '../input/input.tsx';
-import {InputMultiline} from './inputMultiline.tsx';
+import {InputMultiline, InputMultilineProps} from './inputMultiline.tsx';
 
 export type FormInputMultilineProps<TFieldValues extends FieldValues> = {
-    errorMessage?: string | undefined,
-    placeholder?: string,
+    // errorMessage?: string | undefined,
+    // placeholder?: string,
     control: Control<TFieldValues>
     name: FieldPath<TFieldValues>
-} & Omit<InputProps, 'id' | 'onChange' | 'value'>
+} & Omit<InputMultilineProps, 'id' | 'onChange' | 'value'>
 
 export const FormInputMultiline = <TFieldValues extends FieldValues>(
     props: FormInputMultilineProps<TFieldValues>
 ) => {
-    const {field} = useController({
+    const {field, fieldState: {error}} = useController({
         control: props.control,
         name: props.name,
     })
 
+
+    // console.log(error)
     return <InputMultiline
         {...props}
         {...field}
-        errorMessage={props.errorMessage}
-        placeholder={props.placeholder}
+
+        errorMessage={error?.message}
+        // placeholder={props.placeholder}
         id={props.name}
     />
 }

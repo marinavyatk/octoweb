@@ -10,8 +10,9 @@
   &:focus-within {
     border-bottom: 1px solid var(--color-primary);
 
-    .mainLabel{
+    .mainLabel {
       color: var(--color-light-100);
+      margin-top: -5px;
     }
   }
 }
@@ -28,7 +29,6 @@
 
 .required {
   color: var(--color-accent);
-  position: absolute;
 }
 
 .position {
@@ -39,7 +39,7 @@
   gap: 10px;
 }
 
-.errorIcon{
+.errorIcon {
   width: 24px;
   height: 24px;
 }

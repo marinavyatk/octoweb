@@ -48,7 +48,7 @@ export const Form = (props: FormProps) => {
         },
         mode: 'onBlur'
     })
-
+    console.log(control)
     console.log(errors)
 
     const onSubmit = (data: FormValues) => {

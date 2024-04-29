@@ -1,3 +1,7 @@
+.inputMultiline {
+  position: relative;
+}
+
 .inputContainer {
   display: flex;
   flex-direction: column;
@@ -11,6 +15,7 @@
 
     .mainLabel {
       color: var(--color-light-100);
+      margin-top: -5px;
     }
   }
 }
@@ -81,6 +86,10 @@
     }
   }
 
+  .errorIcon {
+    flex-shrink: 0;
+  }
+
   svg {
     width: 24px;
     height: 24px;
@@ -88,23 +97,34 @@
 
   .errorMessage {
     color: var(--color-error);
+    font-size: var(--font-size-xs);
+    text-align: right;
+    display: block;
+    line-height: var(--line-height-160);
+    position: absolute;
+    right: 0;
   }
 }
 
-.placeholder {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
+//.placeholder {
+//  position: absolute;
+//  top: 0;
+//  bottom: 0;
+//  left: 0;
+//  color: var(--color-light-20);
+//  pointer-events: none;
+//  font-size: var(--font-size-sm);
+//  font-weight: var(--font-weight-regular-400);
+//  line-height: var(--line-height-180);
+//  padding: 16px 0;
+//}
+//
+//.input:focus + .placeholder {
+//  display: none;
+//}
+
+
+[data-placeholder]:empty:before {
+  content: attr(data-placeholder);
   color: var(--color-light-20);
-  pointer-events: none;
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-regular-400);
-  line-height: var(--line-height-180);
-  padding: 16px 0;
-
-}
-
-.input:focus + .placeholder {
-  display: none;
 }

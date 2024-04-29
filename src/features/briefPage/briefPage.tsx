@@ -4,32 +4,32 @@ import {FooterWithoutForm} from '../../components/ui/complex/footerWithoutForm/f
 import {BriefNavbar} from '../../components/ui/primitive/briefNavbar/briefNavbar.tsx';
 import {Input} from '../../components/ui/primitive/input/input.tsx';
 import {RadioCheckbox} from '../../components/ui/primitive/radioCheckbox/radioCheckbox.tsx';
-import {InputMultiline} from '../../components/ui/primitive/inputMultiline/inputMultiline.tsx';
-import {RadioButton} from '../../components/ui/primitive/radioButton/radioButton.tsx';
 import {InputAdditionalFile} from '../../components/ui/primitive/inputAdditionalFile/inputAdditionalFile.tsx';
 import {ArrowButtonWithText} from '../../components/ui/primitive/ArrowButtonWithText/arrowButtonWithText.tsx';
 import {z} from 'zod';
 import {useForm} from 'react-hook-form';
 import {zodResolver} from '@hookform/resolvers/zod';
+import {FormInputMultiline} from '../../components/ui/primitive/inputMultiline/FormInputMultiline.tsx';
+import {FormRadioGroup} from '../../components/ui/primitive/radioGroup/formRadioGroup.tsx';
 
 
 const fileSchema = z.custom<FileList>()
 const required = z.string().min(1, {message: 'Это обязательное поле'}).max(500, {message: 'Длина не более 500 символов'})
-
 const radio = z.string() //temp
+const optionalString = z.string().max(500, {message: 'Длина не более 500 символов'}).optional()
 
 
 const formSchema = z.object({
     //contactInfo
     name: required,
-    position: required.optional(),
+    position: optionalString,
     tel: required,
     email: required.email(),
     communicationWay: radio,
 
     //about
     companyName: required,
-    semantics: required.optional(),
+    semantics: optionalString,
     field: required,
     productsAndServices: required,
     productsAndServicesDescription: required,
@@ -37,9 +37,9 @@ const formSchema = z.object({
     offerUniqueness: required,
     disadvantages: required,
     geography: required,
-    shortCompanyInfo: required.optional(),
-    site: required.optional(),
-    socialNetworks: required.optional(),
+    shortCompanyInfo: optionalString,
+    site: optionalString,
+    socialNetworks: optionalString,
     competitors: required,
 
     //details
@@ -49,12 +49,12 @@ const formSchema = z.object({
     competitorsSites: required,
     advantagesCompetitorsSites: required,
     disadvantagesCompetitorsSites: required,
-    sitesYouLike: required.optional(),
-    sitesYouDislike: required.optional(),
-    preferredColors: required.optional(),
-    unwantedColors: required.optional(),
+    sitesYouLike: optionalString,
+    sitesYouDislike: optionalString,
+    preferredColors: optionalString,
+    unwantedColors: optionalString,
     siteFunctionality: radio,
-    specificSystem: required.optional(),
+    specificSystem: optionalString,
     seo: radio,
     copywriting: radio,
 
@@ -65,7 +65,7 @@ const formSchema = z.object({
     income: required,
     interests: required,
     useInteractionStages: required,
-    communicationChannels: required.optional(),
+    communicationChannels: optionalString,
     intensityOfUse: required,
 
     //materials
@@ -75,10 +75,10 @@ const formSchema = z.object({
     //additionalInfo
     numberOfLanguageVersions: radio,
     budget: required,
-    technicalSpecificationAvailable: radio,
+    technicalSpecificationAvailable: required,
     technicalSpecification: fileSchema.optional(),
-    siteAdministration: radio,
-    additionalInfo: required.optional(),
+    siteAdministration: required,
+    additionalInfo: optionalString,
     additionalFiles: fileSchema.optional()
 
 })
@@ -98,7 +98,7 @@ export const BriefPage = () => {
 
     console.log(location.hash)
 
-    const {register, handleSubmit, formState: {errors}} = useForm<FormValues>({
+    const {register, control, handleSubmit, formState: {errors}} = useForm<FormValues>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             //contactInfo
@@ -124,7 +124,7 @@ export const BriefPage = () => {
             competitors: '',
 
             //details
-            siteType: '',
+            siteType: 'landing',
             goals: '',
             usersTargetAction: '',
             competitorsSites: '',
@@ -136,11 +136,11 @@ export const BriefPage = () => {
             unwantedColors: '',
             siteFunctionality: '',
             specificSystem: '',
-            seo: '',
-            copywriting: '',
+            seo: 'yes',
+            copywriting: 'yes',
 
             //targetGroup
-            knowTargetAudience: '',
+            knowTargetAudience: 'yes',
             sex: '',
             age: '',
             income: '',
@@ -150,15 +150,15 @@ export const BriefPage = () => {
             intensityOfUse: '',
 
             //materials
-            materialsDevelopment: '',
+            materialsDevelopment: 'yes',
             materialsToDevelop: '',
 
             //additionalInfo
-            numberOfLanguageVersions: '',
+            numberOfLanguageVersions: '1',
             budget: '',
-            technicalSpecificationAvailable: '',
+            technicalSpecificationAvailable: 'yes',
             technicalSpecification: {} as FileList,
-            siteAdministration: '',
+            siteAdministration: 'yes',
             additionalInfo: '',
             additionalFiles: {} as FileList
         },
@@ -241,57 +241,54 @@ export const BriefPage = () => {
                                {...register('companyName')}
                                errorMessage={errors.companyName?.message}
                         />
-                        <InputMultiline label={'Семантика названия'}
-                                        required={false}
-                                        onChange={() => {
-                                        }}
-                                        value={'j'}
+                        <FormInputMultiline label={'Семантика названия'}
+                                            required={false}
+                                            placeholder={'Семантическое значение названия компании, которое поможет лучше понять суть бренда и подчеркнуть сильные стороны'}
+                                            name={'semantics'}
+                                            control={control}
                         />
                         <Input label={'Ниша'}
                                required
                                {...register('field')}
                                errorMessage={errors.field?.message}
                         />
-                        <InputMultiline label={'Ряд продуктов и услуг'}
-                                        required
-                                        onChange={() => {
-                                        }}
-                                        value={'j'}
+                        <FormInputMultiline label={'Ряд продуктов и услуг'}
+                                            required
+                                            name={'productsAndServices'}
+                                            control={control}
                         />
-                        <InputMultiline label={'Описание продукта или услуги'}
-                                        required
-                                        onChange={() => {
-                                        }}
-                                        value={'j'}
+                        <FormInputMultiline label={'Описание продукта или услуги'}
+                                            required
+                                            name={'productsAndServicesDescription'}
+                                            control={control}
+                                            placeholder={'Подробное описание основных услуг, указанных в предыдущем пункте'}
                         />
                         <Input label={'Приоритетные товары и услуги'}
                                required
                                {...register('priorityProductsAndServices')}
                                errorMessage={errors.priorityProductsAndServices?.message}
                         />
-                        <InputMultiline label={'Уникальность предложения'}
-                                        required
-                                        onChange={() => {
-                                        }}
-                                        value={'j'}
+                        <FormInputMultiline label={'Уникальность предложения'}
+                                            required
+                                            name={'offerUniqueness'}
+                                            control={control}
+                                            placeholder={'Краткое описание фишки и уникальности бренда'}
                         />
-                        <InputMultiline label={'Недостатки услуги или продукта'}
-                                        required
-                                        onChange={() => {
-                                        }}
-                                        value={'j'}
+                        <FormInputMultiline label={'Недостатки услуги или продукта'}
+                                            required
+                                            name={'disadvantages'}
+                                            control={control}
                         />
-                        <InputMultiline label={'География продукта/услуги'}
-                                        required
-                                        onChange={() => {
-                                        }}
-                                        value={'j'}
+                        <FormInputMultiline label={'География продукта/услуги'}
+                                            required
+                                            name={'geography'}
+                                            control={control}
+                                            placeholder={'В каких регионах/ городах / странах представлены услуги или продукт'}
                         />
-                        <InputMultiline label={'Краткая информация о компании'}
-                                        required={false}
-                                        onChange={() => {
-                                        }}
-                                        value={'j'}
+                        <FormInputMultiline label={'Краткая информация о компании'}
+                                            required={false}
+                                            name={'shortCompanyInfo'}
+                                            control={control}
                         />
                         <Input label={'Сайт компании (если есть)'}
                                required={false}
@@ -306,7 +303,7 @@ export const BriefPage = () => {
                                errorMessage={errors.socialNetworks?.message}
                         />
                         <Input label={'Прямые конкуренты'}
-                               required={false}
+                               required
                                {...register('competitors')}
                                errorMessage={errors.competitors?.message}
                         />
@@ -319,27 +316,24 @@ export const BriefPage = () => {
                     </div>
                     <div className={s.fields}>
                         <h2>Детализация задачи</h2>
-                        <div>
-                            <span className={s.label}>
-                                Тип сайта
-                                <sup className={s.required}> *</sup>
-                            </span>
-                            <div className={s.radioButtons}>
-                                <RadioButton text={'Лендинг'}/>
-                                <RadioButton text={'Сайт-визитка'}/>
-                                <RadioButton text={'Интернет-магазин'}/>
-                                <RadioButton text={'Информационный сайт'}/>
-                                <RadioButton text={'Корпоративный сайт'}/>
-                                <RadioButton text={'Лонгрид'}/>
-                                <RadioButton text={'Нужна консультация'}/>
-                            </div>
-                        </div>
-                        <InputMultiline label={'Цели, которые должен решить сайт'}
-                                        required
-                                        placeholder={'Например: увеличить конверсию, рассказать о бизнесе, привлечь и т.д.'}
-                                        onChange={() => {
-                                        }}
-                                        value={'j'}
+                        <FormRadioGroup control={control}
+                                        name={'siteType'}
+                                        mainLabel={'Тип сайта'} required={true}
+                                        radioItems={[
+                                            {label: 'Лендинг', value: 'landing'},
+                                            {label: 'Сайт-визитка', value: 'siteCard'},
+                                            {label: 'Интернет-магазин', value: 'onlineStore'},
+                                            {label: 'Информационный сайт', value: 'informational'},
+                                            {label: 'Корпоративный сайт', value: 'corporate'},
+                                            {label: 'Лонгрид', value: 'longrid'},
+                                            {label: 'Нужна консультация', value: 'NeedConsultation'},
+                                        ]}
+                        />
+                        <FormInputMultiline label={'Цели, которые должен решить сайт'}
+                                            required
+                                            placeholder={'Например: увеличить конверсию, рассказать о бизнесе, привлечь и т.д.'}
+                                            name={'goals'}
+                                            control={control}
                         />
                         <div>
                             <span className={s.label}>
@@ -363,45 +357,41 @@ export const BriefPage = () => {
                                {...register('competitorsSites')}
                                errorMessage={errors.competitorsSites?.message}
                         />
-                        <InputMultiline label={'Чем нравятся сайты конкурентов'}
-                                        required
-                                        placeholder={'Укажите сильные стороны сайтов конкурентов'}
-                                        onChange={() => {
-                                        }}
-                                        value={'j'}
+                        <FormInputMultiline label={'Чем нравятся сайты конкурентов'}
+                                            required
+                                            placeholder={'Укажите сильные стороны сайтов конкурентов'}
+                                            name={'advantagesCompetitorsSites'}
+                                            control={control}
                         />
-                        <InputMultiline label={`Чем нравятся сайты конкурентов`}
-                                        required
-                                        placeholder={'Укажите сильные стороны сайтов конкурентов'}
-                                        onChange={() => {
-                                        }}
-                                        value={'j'}
+                        <FormInputMultiline label={`Чем не нравятся сайты конкурентов`}
+                                            required
+                                            placeholder={'Укажите, что не нравится на сайтах конкурентов'}
+                                            name={'disadvantagesCompetitorsSites'}
+                                            control={control}
                         />
                         <Input label={'Сайты, которые нравятся'}
-                               required
+                               required={false}
                                placeholder={'Сайты не конкурентов, которые вам нравятся, и почему'}
                                {...register('sitesYouLike')}
                                errorMessage={errors.sitesYouLike?.message}
                         />
                         <Input label={'Сайты, которые не нравятся'}
-                               required
+                               required={false}
                                placeholder={'Сайты не конкурентов, которые вам не нравятся, и почему'}
                                {...register('sitesYouDislike')}
                                errorMessage={errors.sitesYouDislike?.message}
                         />
-                        <InputMultiline label={`Предпочитаемые цвета`}
-                                        required
-                                        placeholder={'Укажите предпочтения в цвете, если они есть'}
-                                        onChange={() => {
-                                        }}
-                                        value={'j'}
+                        <FormInputMultiline label={`Предпочитаемые цвета`}
+                                            required={false}
+                                            placeholder={'Укажите предпочтения в цвете, если они есть'}
+                                            name={'preferredColors'}
+                                            control={control}
                         />
-                        <InputMultiline label={`Нежелательные цвета`}
-                                        required
-                                        placeholder={'Укажите цвета, которые не подходит вашему продукту'}
-                                        onChange={() => {
-                                        }}
-                                        value={'j'}
+                        <FormInputMultiline label={`Нежелательные цвета`}
+                                            required={false}
+                                            placeholder={'Укажите цвета, которые не подходит вашему продукту'}
+                                            name={'unwantedColors'}
+                                            control={control}
                         />
                         <div>
                             <span className={s.label}>
@@ -430,30 +420,26 @@ export const BriefPage = () => {
                                {...register('specificSystem')}
                                errorMessage={errors.specificSystem?.message}
                         />
-                        <div>
-                            <span className={s.label}>
-                                SEO-Оптимизация
-                                <sup className={s.required}> *</sup>
-                            </span>
-                            <div className={s.radioButtons}>
-                                <RadioButton text={'Да, нужна'}/>
-                                <RadioButton text={'Нет, не нужна'}/>
-                                <RadioButton text={'Свой специалист'}/>
-                                <RadioButton text={'Нужна консультация'}/>
-                            </div>
-                        </div>
-                        <div>
-                            <span className={s.label}>
-                                Копирайтинг
-                                <sup className={s.required}> *</sup>
-                            </span>
-                            <div className={s.radioButtons}>
-                                <RadioButton text={'Да, нужна'}/>
-                                <RadioButton text={'Нет, не нужна'}/>
-                                <RadioButton text={'Свой специалист'}/>
-                                <RadioButton text={'Нужна консультация'}/>
-                            </div>
-                        </div>
+                        <FormRadioGroup control={control}
+                                        name={'seo'}
+                                        mainLabel={'SEO-Оптимизация'} required={true}
+                                        radioItems={[
+                                            {label: 'Да, нужна', value: 'yes'},
+                                            {label: 'Нет, не нужна', value: 'no'},
+                                            {label: 'Свой специалист', value: 'ownSpecialist'},
+                                            {label: 'Нужна консультация', value: 'needConsultation'},
+                                        ]}
+                        />
+                        <FormRadioGroup control={control}
+                                        name={'copywriting'}
+                                        mainLabel={'Копирайтинг'} required={true}
+                                        radioItems={[
+                                            {label: 'Да, нужен', value: 'yes'},
+                                            {label: 'Нет, не нужен', value: 'no'},
+                                            {label: 'Свой специалист', value: 'ownSpecialist'},
+                                            {label: 'Нужна консультация', value: 'needConsultation'},
+                                        ]}
+                        />
                     </div>
                 </section>
 
@@ -463,17 +449,16 @@ export const BriefPage = () => {
                     </div>
                     <div className={s.fields}>
                         <h2>Целевая аудитория</h2>
-                        <div>
-                            <span className={s.label}>
-                                Знаете ли вы свою ЦА
-                                <sup className={s.required}> *</sup>
-                            </span>
-                            <div className={s.radioButtons}>
-                                <RadioButton text={'Да'}/>
-                                <RadioButton text={'Нет'}/>
-                                <RadioButton text={'Нужна проработка'}/>
-                            </div>
-                        </div>
+                        <FormRadioGroup control={control}
+                                        name={'knowTargetAudience'}
+                                        mainLabel={'Знаете ли вы свою ЦА'} required={true}
+                                        radioItems={[
+                                            {label: 'Да', value: 'yes'},
+                                            {label: 'Нет', value: 'no'},
+                                            {label: 'Нужна проработка', value: 'needToElaboration'},
+                                        ]}
+                        />
+
                         <div className={s.twoColumns}>
                             <Input label={'Пол'}
                                    required
@@ -488,40 +473,35 @@ export const BriefPage = () => {
                                    errorMessage={errors.age?.message}
                             />
                         </div>
-                        <InputMultiline label={`Достаток`}
-                                        required
-                                        placeholder={'Гипотетический доход пользователя, средняя месячная зарплата'}
-                                        onChange={() => {
-                                        }}
-                                        value={'j'}
+                        <FormInputMultiline label={`Достаток`}
+                                            required
+                                            placeholder={'Гипотетический доход пользователя, средняя месячная зарплата'}
+                                            name={'income'}
+                                            control={control}
                         />
-                        <InputMultiline label={`Интересы`}
-                                        required
-                                        placeholder={'Чем интересуется целевая аудитория, например — спорт, туризм и т.д.'}
-                                        onChange={() => {
-                                        }}
-                                        value={'j'}
+                        <FormInputMultiline label={`Интересы`}
+                                            required
+                                            placeholder={'Чем интересуется целевая аудитория, например — спорт, туризм и т.д.'}
+                                            name={'interests'}
+                                            control={control}
                         />
-                        <InputMultiline label={`Этапы взаимодействия пользователя с продуктом`}
-                                        required
-                                        placeholder={'Опишите путь пользователя от контакта до заказа'}
-                                        onChange={() => {
-                                        }}
-                                        value={'j'}
+                        <FormInputMultiline label={`Этапы взаимодействия пользователя с продуктом`}
+                                            required
+                                            placeholder={'Опишите путь пользователя от контакта до заказа'}
+                                            name={'useInteractionStages'}
+                                            control={control}
                         />
-                        <InputMultiline label={`Каналы коммуникации с ЦА`}
-                                        required={false}
-                                        placeholder={'Телефонный звонок, переписка в мессенджерах, почта, соц. сети и т.д.'}
-                                        onChange={() => {
-                                        }}
-                                        value={'j'}
+                        <FormInputMultiline label={`Каналы коммуникации с ЦА`}
+                                            required={false}
+                                            placeholder={'Телефонный звонок, переписка в мессенджерах, почта, соц. сети и т.д.'}
+                                            name={'communicationChannels'}
+                                            control={control}
                         />
-                        <InputMultiline label={`Интенсивность употребления`}
-                                        required
-                                        placeholder={'Как часто будет совершаться повторная покупка/заказ'}
-                                        onChange={() => {
-                                        }}
-                                        value={'j'}
+                        <FormInputMultiline label={`Интенсивность употребления`}
+                                            required
+                                            placeholder={'Как часто будет совершаться повторная покупка/заказ'}
+                                            name={'intensityOfUse'}
+                                            control={control}
                         />
                     </div>
                 </section>
@@ -532,16 +512,14 @@ export const BriefPage = () => {
                     </div>
                     <div className={s.fields}>
                         <h2>Материалы</h2>
-                        <div>
-                            <span className={s.label}>
-                                Требуется ли разработка дополнительных материалов
-                                <sup className={s.required}> *</sup>
-                            </span>
-                            <div className={s.radioButtons}>
-                                <RadioButton text={'Да'}/>
-                                <RadioButton text={'Нет'}/>
-                            </div>
-                        </div>
+                        <FormRadioGroup control={control}
+                                        name={'materialsDevelopment'}
+                                        mainLabel={'Требуется ли разработка дополнительных материалов'} required={true}
+                                        radioItems={[
+                                            {label: 'Да', value: 'yes'},
+                                            {label: 'Нет', value: 'no'},
+                                        ]}
+                        />
                         <Input label={'Перечислите материалы, которые нужно разработать'}
                                required
                                placeholder={'Логотип, фирменный стиль, буклеты, иллюстрации'}
@@ -557,56 +535,56 @@ export const BriefPage = () => {
                     </div>
                     <div className={s.fields}>
                         <h2>Доп. информация</h2>
-                        <div>
-                            <span className={s.label}>
-                                Кол-во языковых версий
-                                <sup className={s.required}> *</sup>
-                            </span>
-                            <div className={s.radioButtons}>
-                                <RadioButton text={'1'}/>
-                                <RadioButton text={'2'}/>
-                                <RadioButton text={'Больше 2-ух'}/>
-                            </div>
-                        </div>
+                        <FormRadioGroup control={control}
+                                        name={'numberOfLanguageVersions'}
+                                        mainLabel={'Кол-во языковых версий'} required={true}
+                                        radioItems={[
+                                            {label: '1', value: '1'},
+                                            {label: '2', value: '2'},
+                                            {label: 'Больше 2-ух', value: 'moreThan2'},
+                                        ]}
+                        />
                         <Input label={'Планируемый или рассчитанный бюджет'}
                                required
                                placeholder={'Например: 100-200 т.р.'}
+                               {...register('budget')}
+                               errorMessage={errors.budget?.message}
                         />
-                        <div>
-                            <span className={s.label}>
-                                Есть ли Техническое Задание
-                                <sup className={s.required}> *</sup>
-                            </span>
-                            <div className={s.radioButtons}>
-                                <RadioButton text={'Да'}/>
-                                <RadioButton text={'Нет'}/>
-                            </div>
-                        </div>
-                        <InputAdditionalFile label={'Прикрепите ТЗ'}/>
-                        <div>
-                            <span className={s.label}>
-                                Требуется ли администрирование сайта после запуска
-                                <sup className={s.required}> *</sup>
-                            </span>
-                            <div className={s.radioButtons}>
-                                <RadioButton text={'Да'}/>
-                                <RadioButton text={'Нет'}/>
-                                <RadioButton text={'Пока неизвестно'}/>
-                            </div>
-                        </div>
-                        <InputMultiline label={`Дополнительная информация`}
-                                        required
-                                        placeholder={'Дополнительная информация по проекту'}
-                                        onChange={() => {
-                                        }}
-                                        value={'j'}
+                        <FormRadioGroup control={control}
+                                        name={'technicalSpecificationAvailable'}
+                                        mainLabel={'Есть ли Техническое Задание'} required={true}
+                                        radioItems={[
+                                            {label: 'Да', value: 'yes'},
+                                            {label: 'Нет', value: 'no'},
+                                        ]}
                         />
-                        <InputAdditionalFile label={'Дополнительные файлы'}/>
+
+                        <InputAdditionalFile label={'Прикрепите ТЗ'}
+                                             {...register('technicalSpecification')}
+                        />
+                        <FormRadioGroup control={control}
+                                        name={'siteAdministration'}
+                                        mainLabel={'Требуется ли администрирование сайта после запуска'} required={true}
+                                        radioItems={[
+                                            {label: 'Да', value: 'yes'},
+                                            {label: 'Нет', value: 'no'},
+                                        ]}
+                        />
+                        <FormInputMultiline label={`Дополнительная информация`}
+                                            required={false}
+                                            placeholder={'Дополнительная информация по проекту'}
+                                            name={'additionalInfo'}
+                                            control={control}
+                                            errorMessage={errors.additionalInfo?.message}
+                        />
+                        <InputAdditionalFile label={'Дополнительные файлы'}
+                                             {...register('additionalFiles')}
+                        />
                     </div>
                 </section>
-
                 <div className={s.submit}>
-                    <p>Я принимаю условия <a href={'#'} rel={'nofollow'}>Политика ООО OctoWeb в отношении обработки
+                    <p>Я принимаю условия <a href={'#'} rel={'nofollow'} download>Политика ООО OctoWeb в отношении
+                        обработки
                         данных</a> и, нажимая на
                         кнопку
                         “Отправить”, даю согласие на обработку компанией указанных мной персональных данных</p>
