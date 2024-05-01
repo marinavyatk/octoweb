@@ -35,6 +35,7 @@ export const RadioGroupComponent = forwardRef<HTMLDivElement, RadioGroupComponen
                                     <RadioGroup.Item
                                         className={s.radioSign}
                                         value={item.value}
+                                        id={item.value}
                                     >
                                         <RadioGroup.Indicator className={s.radioIndicator}/>
                                     </RadioGroup.Item>

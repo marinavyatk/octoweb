@@ -1,29 +1,28 @@
-import React, {ComponentPropsWithoutRef, Ref, useState} from 'react';
+import React, {ComponentPropsWithoutRef, Ref} from 'react';
 import clsx from 'clsx';
 import s from './radioCheckbox.module.scss'
 
 export type RadioCheckboxProps = {
-    text: string,
+    label: string,
+    value: string,
     divProps?: ComponentPropsWithoutRef<'div'>,
 } & ComponentPropsWithoutRef<'input'>
 
 export const RadioCheckbox = React.forwardRef((props: RadioCheckboxProps, ref: Ref<HTMLInputElement>) => {
-    const [checked, setChecked] = useState(false)
-    const {text, divProps, className, ...restProps} = props;
+    const {label, divProps, value, className, ...restProps} = props;
     const classNames = clsx(s.radioCheckboxContainer, className,
-        {[s.checked]: checked}
     )
 
-    return <div className={classNames} {...divProps} onClick={()=>setChecked(!checked)}>
-        <input type={'radio'}
-               id={restProps?.name}
-               name={restProps?.name}
+    return <div className={classNames} {...divProps} >
+        <input type={'checkbox'}
+               id={value}
                className={s.inputFile}
                {...restProps}
+               value={value}
                ref={ref}
         />
-        <label htmlFor={restProps?.name}>
-            {text}
+        <label htmlFor={value}>
+            {label}
         </label>
     </div>
 });

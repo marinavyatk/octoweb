@@ -1,14 +1,15 @@
-import {ComponentPropsWithoutRef} from 'react';
+import {ComponentPropsWithoutRef, ElementType} from 'react';
 import clsx from 'clsx';
 import s from './arrowNavigationButton.module.scss';
 import ArrowIcon from '../../../../assets/arrow.svg?react'
 
-export type ArrowNavigationButtonProps = {
+export type ArrowNavigationButtonProps<T extends ElementType> = {
+    as?: T,
     variant?: 'up' | 'next' | 'previous'
-} & ComponentPropsWithoutRef<'button'>
+} & ComponentPropsWithoutRef<T>
 
-export const ArrowNavigationButton = (props: ArrowNavigationButtonProps) => {
-    const {variant = 'primary', className, ...restProps} = props;
+export const ArrowNavigationButton = <T extends ElementType = 'button'>(props: ArrowNavigationButtonProps<T>) => {
+    const {as: Component = 'button', variant = 'primary', className, ...restProps} = props;
     const classNames = clsx(s.navigationButton, className)
     const arrowClassNames = clsx(s.buttonContainer, className, {
         [s.up]: variant === 'up',
@@ -16,10 +17,10 @@ export const ArrowNavigationButton = (props: ArrowNavigationButtonProps) => {
         [s.previous]: variant === 'previous'
     })
 
-    return <button {...restProps} className={classNames}>
+    return <Component {...restProps} className={classNames}>
         {variant === 'up' && <span className={s.upCaption}>Наверх</span>}
         <div className={arrowClassNames}>
             <ArrowIcon/>
         </div>
-    </button>
+    </Component>
 }

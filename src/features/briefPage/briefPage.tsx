@@ -3,7 +3,6 @@ import {Header} from '../../components/ui/complex/header/header.tsx';
 import {FooterWithoutForm} from '../../components/ui/complex/footerWithoutForm/footerWithoutForm.tsx';
 import {BriefNavbar} from '../../components/ui/primitive/briefNavbar/briefNavbar.tsx';
 import {Input} from '../../components/ui/primitive/input/input.tsx';
-import {RadioCheckbox} from '../../components/ui/primitive/radioCheckbox/radioCheckbox.tsx';
 import {InputAdditionalFile} from '../../components/ui/primitive/inputAdditionalFile/inputAdditionalFile.tsx';
 import {ArrowButtonWithText} from '../../components/ui/primitive/ArrowButtonWithText/arrowButtonWithText.tsx';
 import {z} from 'zod';
@@ -11,12 +10,17 @@ import {useForm} from 'react-hook-form';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {FormInputMultiline} from '../../components/ui/primitive/inputMultiline/FormInputMultiline.tsx';
 import {FormRadioGroup} from '../../components/ui/primitive/radioGroup/formRadioGroup.tsx';
+import {RadioCheckboxGroup} from '../../components/ui/primitive/radioCheckboxGroup/radioCheckboxGroup.tsx';
+import ArrowPointerRight from '../../assets/arrow-brief-right.svg?react'
+import ArrowPointerLeft from '../../assets/arrow-brief-left.svg?react'
 
 
 const fileSchema = z.custom<FileList>()
 const required = z.string().min(1, {message: 'Это обязательное поле'}).max(500, {message: 'Длина не более 500 символов'})
 const radio = z.string() //temp
 const optionalString = z.string().max(500, {message: 'Длина не более 500 символов'}).optional()
+const checkboxGroupRequired = z.string().array().nonempty({message: 'Выберите хотя бы один вариант'})
+const checkboxGroupOptional = z.string().array().optional()
 
 
 const formSchema = z.object({
@@ -25,7 +29,7 @@ const formSchema = z.object({
     position: optionalString,
     tel: required,
     email: required.email(),
-    communicationWay: radio,
+    communicationWay: checkboxGroupOptional,
 
     //about
     companyName: required,
@@ -45,7 +49,7 @@ const formSchema = z.object({
     //details
     siteType: radio,
     goals: required,
-    usersTargetAction: radio,
+    usersTargetAction: checkboxGroupRequired,
     competitorsSites: required,
     advantagesCompetitorsSites: required,
     disadvantagesCompetitorsSites: required,
@@ -53,7 +57,7 @@ const formSchema = z.object({
     sitesYouDislike: optionalString,
     preferredColors: optionalString,
     unwantedColors: optionalString,
-    siteFunctionality: radio,
+    siteFunctionality: checkboxGroupRequired,
     specificSystem: optionalString,
     seo: radio,
     copywriting: radio,
@@ -106,7 +110,7 @@ export const BriefPage = () => {
             position: '',
             tel: '',
             email: '',
-            communicationWay: '',
+            communicationWay: [],
 
             //about
             companyName: '',
@@ -126,7 +130,7 @@ export const BriefPage = () => {
             //details
             siteType: 'landing',
             goals: '',
-            usersTargetAction: '',
+            usersTargetAction: [],
             competitorsSites: '',
             advantagesCompetitorsSites: '',
             disadvantagesCompetitorsSites: '',
@@ -134,7 +138,7 @@ export const BriefPage = () => {
             sitesYouDislike: '',
             preferredColors: '',
             unwantedColors: '',
-            siteFunctionality: '',
+            siteFunctionality: [],
             specificSystem: '',
             seo: 'yes',
             copywriting: 'yes',
@@ -169,7 +173,6 @@ export const BriefPage = () => {
         console.log(data)
     }
 
-
     return <div className={s.briefPage}>
         <Header/>
 
@@ -178,6 +181,7 @@ export const BriefPage = () => {
                 <h1>БРИФ студии <br/>
                     <span className={s.accent}>OCTOWEB</span>
                 </h1>
+                <ArrowPointerRight className={s.arrowRight}/>
                 <div className={s.explanation}>
                     <p>Перед началом работы, пожалуйста, ответьте на наши вопросы. Ответы станут отправной точкой. Это
                         позволит собрать необходимую информацию и подготовить подробное коммерческое предложение.</p>
@@ -185,6 +189,7 @@ export const BriefPage = () => {
                         будет полезна. В случае, если увидим, что не справимся с работой, то с удовольствием
                         порекомендуем подходящих партнеров, способных решить задачи проекта.</p>
                 </div>
+                <ArrowPointerLeft className={s.arrowLeft}/>
                 <span className={s.time}>Примерное время заполнения — 15-30 мин.</span>
             </section>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -216,17 +221,37 @@ export const BriefPage = () => {
                                {...register('email')}
                                errorMessage={errors.email?.message}
                         />
-
-                        <div>
-                            <span className={s.label}>Предпочитаемый способ связи</span>
-                            <div className={s.radioButtons}>
-                                <RadioCheckbox text={'Telegram'}/>
-                                <RadioCheckbox text={'Skype'}/>
-                                <RadioCheckbox text={'WhatsApp'}/>
-                                <RadioCheckbox text={'Email'}/>
-                                <RadioCheckbox text={'Звонок'}/>
-                            </div>
-                        </div>
+                        <RadioCheckboxGroup mainLabel={'Предпочитаемый способ связи'}
+                                            required={false}
+                                            checkboxItems={[
+                                                {
+                                                    label: 'Telegram',
+                                                    value: 'telegram',
+                                                    rest: {...register('communicationWay')}
+                                                },
+                                                {
+                                                    label: 'Skype',
+                                                    value: 'skype',
+                                                    rest: {...register('communicationWay')}
+                                                },
+                                                {
+                                                    label: 'WhatsApp',
+                                                    value: 'whatsApp',
+                                                    rest: {...register('communicationWay')}
+                                                },
+                                                {
+                                                    label: 'Email',
+                                                    value: 'email',
+                                                    rest: {...register('communicationWay')}
+                                                },
+                                                {
+                                                    label: 'Звонок',
+                                                    value: 'call',
+                                                    rest: {...register('communicationWay')}
+                                                },
+                                            ]}
+                                            errorMessage={errors.communicationWay?.message}
+                        />
                     </div>
                 </section>
 
@@ -243,9 +268,9 @@ export const BriefPage = () => {
                         />
                         <FormInputMultiline label={'Семантика названия'}
                                             required={false}
-                                            placeholder={'Семантическое значение названия компании, которое поможет лучше понять суть бренда и подчеркнуть сильные стороны'}
                                             name={'semantics'}
                                             control={control}
+                                            placeholder={'Семантическое значение названия компании, которое поможет лучше понять суть бренда и подчеркнуть сильные стороны'}
                         />
                         <Input label={'Ниша'}
                                required
@@ -316,9 +341,10 @@ export const BriefPage = () => {
                     </div>
                     <div className={s.fields}>
                         <h2>Детализация задачи</h2>
-                        <FormRadioGroup control={control}
+                        <FormRadioGroup mainLabel={'Тип сайта'}
+                                        required
                                         name={'siteType'}
-                                        mainLabel={'Тип сайта'} required={true}
+                                        control={control}
                                         radioItems={[
                                             {label: 'Лендинг', value: 'landing'},
                                             {label: 'Сайт-визитка', value: 'siteCard'},
@@ -331,26 +357,56 @@ export const BriefPage = () => {
                         />
                         <FormInputMultiline label={'Цели, которые должен решить сайт'}
                                             required
-                                            placeholder={'Например: увеличить конверсию, рассказать о бизнесе, привлечь и т.д.'}
                                             name={'goals'}
                                             control={control}
+                                            placeholder={'Например: увеличить конверсию, рассказать о бизнесе, привлечь и т.д.'}
                         />
-                        <div>
-                            <span className={s.label}>
-                                Целевое действие пользователя
-                                <sup className={s.required}> *</sup>
-                            </span>
-                            <div className={s.radioButtons}>
-                                <RadioCheckbox text={'Купить'}/>
-                                <RadioCheckbox text={'Зарегистрироваться'}/>
-                                <RadioCheckbox text={'Забронировать'}/>
-                                <RadioCheckbox text={'Заказать'}/>
-                                <RadioCheckbox text={'Подписаться'}/>
-                                <RadioCheckbox text={'Оставить заявку'}/>
-                                <RadioCheckbox text={'Позвонить'}/>
-                                <RadioCheckbox text={'Другое'}/>
-                            </div>
-                        </div>
+                        <RadioCheckboxGroup mainLabel={'Целевое действие пользователя'}
+                                            required
+                                            checkboxItems={[
+                                                {
+                                                    label: 'Купить',
+                                                    value: 'buy',
+                                                    rest: {...register('usersTargetAction')}
+                                                },
+                                                {
+                                                    label: 'Зарегистрироваться',
+                                                    value: 'register',
+                                                    rest: {...register('usersTargetAction')}
+                                                },
+                                                {
+                                                    label: 'Забронировать',
+                                                    value: 'book',
+                                                    rest: {...register('usersTargetAction')}
+                                                },
+                                                {
+                                                    label: 'Заказать',
+                                                    value: 'order',
+                                                    rest: {...register('usersTargetAction')}
+                                                },
+                                                {
+                                                    label: 'Подписаться',
+                                                    value: 'subscribe',
+                                                    rest: {...register('usersTargetAction')}
+                                                },
+                                                {
+                                                    label: 'Оставить заявку',
+                                                    value: 'submitApplication ',
+                                                    rest: {...register('usersTargetAction')}
+                                                },
+                                                {
+                                                    label: 'Позвонить',
+                                                    value: 'call ',
+                                                    rest: {...register('usersTargetAction')}
+                                                },
+                                                {
+                                                    label: 'Другое',
+                                                    value: 'other ',
+                                                    rest: {...register('usersTargetAction')}
+                                                },
+                                            ]}
+                                            errorMessage={errors.usersTargetAction?.message}
+                        />
                         <Input label={'Сайты конкурентов'}
                                required
                                placeholder={'Укажите сайты прямых или смежных конкурентов, минимум 3'}
@@ -359,15 +415,15 @@ export const BriefPage = () => {
                         />
                         <FormInputMultiline label={'Чем нравятся сайты конкурентов'}
                                             required
-                                            placeholder={'Укажите сильные стороны сайтов конкурентов'}
                                             name={'advantagesCompetitorsSites'}
                                             control={control}
+                                            placeholder={'Укажите сильные стороны сайтов конкурентов'}
                         />
                         <FormInputMultiline label={`Чем не нравятся сайты конкурентов`}
                                             required
-                                            placeholder={'Укажите, что не нравится на сайтах конкурентов'}
                                             name={'disadvantagesCompetitorsSites'}
                                             control={control}
+                                            placeholder={'Укажите, что не нравится на сайтах конкурентов'}
                         />
                         <Input label={'Сайты, которые нравятся'}
                                required={false}
@@ -383,46 +439,93 @@ export const BriefPage = () => {
                         />
                         <FormInputMultiline label={`Предпочитаемые цвета`}
                                             required={false}
-                                            placeholder={'Укажите предпочтения в цвете, если они есть'}
                                             name={'preferredColors'}
                                             control={control}
+                                            placeholder={'Укажите предпочтения в цвете, если они есть'}
                         />
                         <FormInputMultiline label={`Нежелательные цвета`}
                                             required={false}
-                                            placeholder={'Укажите цвета, которые не подходит вашему продукту'}
                                             name={'unwantedColors'}
                                             control={control}
+                                            placeholder={'Укажите цвета, которые не подходит вашему продукту'}
                         />
-                        <div>
-                            <span className={s.label}>
-                                Планируемый функционал сайта
-                                <sup className={s.required}> *</sup>
-                            </span>
-                            <div className={s.radioButtons}>
-                                <RadioCheckbox text={'CRM'}/>
-                                <RadioCheckbox text={'Корзина и оплата'}/>
-                                <RadioCheckbox text={'Формы сбора контактов'}/>
-                                <RadioCheckbox text={'Калькулятор'}/>
-                                <RadioCheckbox text={'Настройка рассылки'}/>
-                                <RadioCheckbox text={'Интеграция Getcourse'}/>
-                                <RadioCheckbox text={'Личный кабинет'}/>
-                                <RadioCheckbox text={'Получение заявок на почту'}/>
-                                <RadioCheckbox text={'Получение заявок в телеграм'}/>
-                                <RadioCheckbox text={'Каталог'}/>
-                                <RadioCheckbox text={'Сохранение информации в Google документы'}/>
-                                <RadioCheckbox text={'Нужна консультация'}/>
-                                <RadioCheckbox text={'Другие'}/>
-                            </div>
-                        </div>
+                        <RadioCheckboxGroup mainLabel={'Планируемый функционал сайта'}
+                                            required
+                                            checkboxItems={[
+                                                {label: 'CRM', value: 'crm', rest: {...register('siteFunctionality')}},
+                                                {
+                                                    label: 'Корзина и оплата',
+                                                    value: 'shoppingCartAndPayment',
+                                                    rest: {...register('siteFunctionality')}
+                                                },
+                                                {
+                                                    label: 'Формы сбора контактов',
+                                                    value: 'contactCollectionForms',
+                                                    rest: {...register('siteFunctionality')}
+                                                },
+                                                {
+                                                    label: 'Калькулятор',
+                                                    value: 'calculator',
+                                                    rest: {...register('siteFunctionality')}
+                                                },
+                                                {
+                                                    label: 'Настройка рассылки',
+                                                    value: 'mailingSetup',
+                                                    rest: {...register('siteFunctionality')}
+                                                },
+                                                {
+                                                    label: 'Интеграция Getcourse',
+                                                    value: 'getcourseIntegration',
+                                                    rest: {...register('siteFunctionality')}
+                                                },
+                                                {
+                                                    label: 'Личный кабинет',
+                                                    value: 'personalAccount',
+                                                    rest: {...register('siteFunctionality')}
+                                                },
+                                                {
+                                                    label: 'Получение заявок на почту',
+                                                    value: 'receivingApplicationsByMail',
+                                                    rest: {...register('siteFunctionality')}
+                                                },
+                                                {
+                                                    label: 'Получение заявок в телеграм',
+                                                    value: 'receivingApplicationsByTelegram',
+                                                    rest: {...register('siteFunctionality')}
+                                                },
+                                                {
+                                                    label: 'Каталог',
+                                                    value: 'catalog',
+                                                    rest: {...register('siteFunctionality')}
+                                                },
+                                                {
+                                                    label: 'Сохранение информации в Google документы',
+                                                    value: 'savingInfoToGoogleDocs',
+                                                    rest: {...register('siteFunctionality')}
+                                                },
+                                                {
+                                                    label: 'Нужна консультация',
+                                                    value: 'needConsultation',
+                                                    rest: {...register('siteFunctionality')}
+                                                },
+                                                {
+                                                    label: 'Другие',
+                                                    value: 'other',
+                                                    rest: {...register('siteFunctionality')}
+                                                },
+                                            ]}
+                                            errorMessage={errors.siteFunctionality?.message}
+                        />
                         <Input label={'Есть ли определенная CMS система, на которой нужно сделать сайт?'}
                                required={false}
                                placeholder={'Например Tilda, WordPress и др.'}
                                {...register('specificSystem')}
                                errorMessage={errors.specificSystem?.message}
                         />
-                        <FormRadioGroup control={control}
+                        <FormRadioGroup mainLabel={'SEO-Оптимизация'}
+                                        required
                                         name={'seo'}
-                                        mainLabel={'SEO-Оптимизация'} required={true}
+                                        control={control}
                                         radioItems={[
                                             {label: 'Да, нужна', value: 'yes'},
                                             {label: 'Нет, не нужна', value: 'no'},
@@ -430,9 +533,10 @@ export const BriefPage = () => {
                                             {label: 'Нужна консультация', value: 'needConsultation'},
                                         ]}
                         />
-                        <FormRadioGroup control={control}
+                        <FormRadioGroup mainLabel={'Копирайтинг'}
+                                        required
                                         name={'copywriting'}
-                                        mainLabel={'Копирайтинг'} required={true}
+                                        control={control}
                                         radioItems={[
                                             {label: 'Да, нужен', value: 'yes'},
                                             {label: 'Нет, не нужен', value: 'no'},
@@ -449,16 +553,16 @@ export const BriefPage = () => {
                     </div>
                     <div className={s.fields}>
                         <h2>Целевая аудитория</h2>
-                        <FormRadioGroup control={control}
+                        <FormRadioGroup mainLabel={'Знаете ли вы свою ЦА'}
+                                        required={true}
                                         name={'knowTargetAudience'}
-                                        mainLabel={'Знаете ли вы свою ЦА'} required={true}
+                                        control={control}
                                         radioItems={[
                                             {label: 'Да', value: 'yes'},
                                             {label: 'Нет', value: 'no'},
                                             {label: 'Нужна проработка', value: 'needToElaboration'},
                                         ]}
                         />
-
                         <div className={s.twoColumns}>
                             <Input label={'Пол'}
                                    required
@@ -475,33 +579,33 @@ export const BriefPage = () => {
                         </div>
                         <FormInputMultiline label={`Достаток`}
                                             required
-                                            placeholder={'Гипотетический доход пользователя, средняя месячная зарплата'}
                                             name={'income'}
                                             control={control}
+                                            placeholder={'Гипотетический доход пользователя, средняя месячная зарплата'}
                         />
                         <FormInputMultiline label={`Интересы`}
                                             required
-                                            placeholder={'Чем интересуется целевая аудитория, например — спорт, туризм и т.д.'}
                                             name={'interests'}
                                             control={control}
+                                            placeholder={'Чем интересуется целевая аудитория, например — спорт, туризм и т.д.'}
                         />
                         <FormInputMultiline label={`Этапы взаимодействия пользователя с продуктом`}
                                             required
-                                            placeholder={'Опишите путь пользователя от контакта до заказа'}
                                             name={'useInteractionStages'}
                                             control={control}
+                                            placeholder={'Опишите путь пользователя от контакта до заказа'}
                         />
                         <FormInputMultiline label={`Каналы коммуникации с ЦА`}
                                             required={false}
-                                            placeholder={'Телефонный звонок, переписка в мессенджерах, почта, соц. сети и т.д.'}
                                             name={'communicationChannels'}
                                             control={control}
+                                            placeholder={'Телефонный звонок, переписка в мессенджерах, почта, соц. сети и т.д.'}
                         />
                         <FormInputMultiline label={`Интенсивность употребления`}
                                             required
-                                            placeholder={'Как часто будет совершаться повторная покупка/заказ'}
                                             name={'intensityOfUse'}
                                             control={control}
+                                            placeholder={'Как часто будет совершаться повторная покупка/заказ'}
                         />
                     </div>
                 </section>
@@ -512,9 +616,10 @@ export const BriefPage = () => {
                     </div>
                     <div className={s.fields}>
                         <h2>Материалы</h2>
-                        <FormRadioGroup control={control}
+                        <FormRadioGroup mainLabel={'Требуется ли разработка дополнительных материалов'}
+                                        required
                                         name={'materialsDevelopment'}
-                                        mainLabel={'Требуется ли разработка дополнительных материалов'} required={true}
+                                        control={control}
                                         radioItems={[
                                             {label: 'Да', value: 'yes'},
                                             {label: 'Нет', value: 'no'},
@@ -535,9 +640,10 @@ export const BriefPage = () => {
                     </div>
                     <div className={s.fields}>
                         <h2>Доп. информация</h2>
-                        <FormRadioGroup control={control}
+                        <FormRadioGroup mainLabel={'Кол-во языковых версий'}
+                                        required
                                         name={'numberOfLanguageVersions'}
-                                        mainLabel={'Кол-во языковых версий'} required={true}
+                                        control={control}
                                         radioItems={[
                                             {label: '1', value: '1'},
                                             {label: '2', value: '2'},
@@ -550,9 +656,10 @@ export const BriefPage = () => {
                                {...register('budget')}
                                errorMessage={errors.budget?.message}
                         />
-                        <FormRadioGroup control={control}
+                        <FormRadioGroup mainLabel={'Есть ли Техническое Задание'}
+                                        required
                                         name={'technicalSpecificationAvailable'}
-                                        mainLabel={'Есть ли Техническое Задание'} required={true}
+                                        control={control}
                                         radioItems={[
                                             {label: 'Да', value: 'yes'},
                                             {label: 'Нет', value: 'no'},
@@ -562,9 +669,10 @@ export const BriefPage = () => {
                         <InputAdditionalFile label={'Прикрепите ТЗ'}
                                              {...register('technicalSpecification')}
                         />
-                        <FormRadioGroup control={control}
+                        <FormRadioGroup mainLabel={'Требуется ли администрирование сайта после запуска'}
+                                        required={true}
                                         name={'siteAdministration'}
-                                        mainLabel={'Требуется ли администрирование сайта после запуска'} required={true}
+                                        control={control}
                                         radioItems={[
                                             {label: 'Да', value: 'yes'},
                                             {label: 'Нет', value: 'no'},
@@ -572,10 +680,9 @@ export const BriefPage = () => {
                         />
                         <FormInputMultiline label={`Дополнительная информация`}
                                             required={false}
-                                            placeholder={'Дополнительная информация по проекту'}
                                             name={'additionalInfo'}
                                             control={control}
-                                            errorMessage={errors.additionalInfo?.message}
+                                            placeholder={'Дополнительная информация по проекту'}
                         />
                         <InputAdditionalFile label={'Дополнительные файлы'}
                                              {...register('additionalFiles')}
@@ -592,13 +699,8 @@ export const BriefPage = () => {
                                          type={'submit'}
                                          className={s.arrowButton}/>
                 </div>
-
-
             </form>
-
-
         </div>
-
         <FooterWithoutForm/>
     </div>
 }

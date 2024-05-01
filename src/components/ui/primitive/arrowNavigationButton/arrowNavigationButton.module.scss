@@ -6,6 +6,7 @@
   border-radius: 50%;
   border: none;
   background-color: transparent;
+  text-decoration: none;
 
   svg {
     width: 24px;
@@ -15,6 +16,7 @@
   &:hover {
     .upCaption {
       color: var(--color-dark-primary);
+      transition: all 0.4s;
     }
 
     .up {
@@ -61,6 +63,8 @@
   line-height: var(--line-height-180);
   text-transform: uppercase;
   color: var(--color-light-100);
+  transition: all 0.4s;
+  text-decoration: none;
 }
 
 

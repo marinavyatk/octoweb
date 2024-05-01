@@ -10,6 +10,7 @@
   font-size: var(--font-size-s);
   font-weight: var(--font-weight-regular-300);
   background-color: #232323;
+  cursor: pointer;
 
   input {
     border: 1px solid var(--color-light-20);
@@ -18,16 +19,21 @@
     height: 32px;
     appearance: none;
     background-color: rgba(22, 22, 22, 0.20);
+    cursor: pointer;
   }
-}
 
-.checked {
-  background: linear-gradient(351deg, #a330ff 0%, #ff37df 100%);
+  label {
+    cursor: pointer;
+  }
 
-  input {
-    background-color: var(--color-dark-primary);
-    background-image: url('../../../../assets/Check Icon.svg');
-    background-repeat: no-repeat;
-    background-position: center;
+  &:has(:checked) {
+    background: linear-gradient(351deg, #a330ff 0%, #ff37df 100%);
+
+    input {
+      background-color: var(--color-dark-primary);
+      background-image: url('../../../../assets/check-icon.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+    }
   }
 }
