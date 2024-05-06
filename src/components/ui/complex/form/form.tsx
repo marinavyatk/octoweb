@@ -1,38 +1,24 @@
-import {ComponentPropsWithoutRef} from 'react';
+import {ComponentPropsWithoutRef, ElementRef, useRef} from 'react';
 import clsx from 'clsx';
 import s from './form.module.scss';
 import {Input} from '../../primitive/input/input.tsx';
-
 import {useForm} from 'react-hook-form'
 import {Checkbox} from '../../primitive/checkbox/checkbox.tsx';
 import {z} from 'zod'
 import {zodResolver} from '@hookform/resolvers/zod';
 import {FormInputWithCounter} from '../../primitive/inputWithCounter/FormInputWithCounter.tsx';
 import {ArrowButtonWithText} from '../../primitive/ArrowButtonWithText/arrowButtonWithText.tsx';
+import {formSchema} from '../../../../common/validation.ts';
+import emailjs from '@emailjs/browser';
+import {useHookFormMask} from 'use-mask-input';
 
-
-const MAX_UPLOAD_SIZE = 1024 * 1024 * 5; // 5MB
-
-const fileSchema = z.custom<
-    FileList>()
-    .refine((fileList) => {
-        if (fileList[0] === undefined) return true;
-        return fileList[0] && fileList[0]?.size <= MAX_UPLOAD_SIZE;
-    }, 'Размер файла не более 5mb')
-
-const formSchema = z.object({
-    name: z.string().min(1, {message: 'Это обязательное поле'}),
-    email: z.string().email(),
-    tel: z.string().min(1, {message: 'Это обязательное поле'}),
-    projectDescription: z.string().min(1, {message: 'Это обязательное поле'}).max(500, {message: 'Максимум 500 символов'}),
-    projectDescriptionFile: fileSchema,
-    mailing: z.boolean()
-})
 
 type FormValues = z.infer<typeof formSchema>
 export type FormProps = ComponentPropsWithoutRef<'div'>
 
 export const Form = (props: FormProps) => {
+
+    const form = useRef<ElementRef<'form'>>(null);
 
     const {className, ...restProps} = props;
     const classNames = clsx(s.form, className)
@@ -48,15 +34,35 @@ export const Form = (props: FormProps) => {
         },
         mode: 'onBlur'
     })
-    console.log(control)
+
+
+    const registerWithMask = useHookFormMask(register);
     console.log(errors)
 
     const onSubmit = (data: FormValues) => {
         console.log(data)
+
+        // e.preventDefault();
+        if (form.current) {
+            emailjs
+                .sendForm('service_lxgyeoc', 'template_o1vilzd', form.current, {
+                    publicKey: 'BXCsYOL3OfUW1Zrlv',
+                })
+                .then(
+                    () => {
+                        console.log('SUCCESS!');
+                    },
+                    (error) => {
+                        console.log('FAILED...', error.text);
+                    },
+                );
+        } else {
+            console.log('\'Form element is not available\'')
+        }
     }
 
     return <div {...restProps} className={classNames}>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} ref={form}>
             <div className={s.mainInfo}>
                 <Input label={'Имя'}
                        required
@@ -76,7 +82,10 @@ export const Form = (props: FormProps) => {
                 <Input label={'Номер телефона'}
                        required
                        {...register('tel')}
-                       placeholder={'+7 (900) 000 00 00'}
+
+                       {...registerWithMask("tel", ['+7 (999) 999-99-99'])}
+                       type="tel"
+                       placeholder={'+7 (900) 000-00-00'}
                        className={s.item}
                        errorMessage={errors.tel?.message}
                 />
@@ -96,9 +105,8 @@ export const Form = (props: FormProps) => {
             />
             <div className={s.submit}>
                 <p>Я принимаю условия <a href={'#'} rel={'nofollow'}>Политика ООО OctoWeb в отношении обработки
-                    данных</a> и, нажимая на
-                    кнопку
-                    “Отправить”, даю согласие на обработку компанией указанных мной персональных данных</p>
+                    данных</a> и, нажимая на кнопку “Отправить”, даю согласие на обработку компанией указанных мной
+                    персональных данных</p>
                 <ArrowButtonWithText text={'Отправить'}
                                      type={'submit'}
                                      className={s.arrowButton}/>
