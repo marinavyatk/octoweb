@@ -19,6 +19,7 @@ import {
     multipleFilesSchema, optionalString,
     radio, requiredString,
 } from '../../common/validation.ts';
+import {useEffect, useRef, useState} from 'react';
 
 const defineSchema = (fieldName: FieldType) => {
     return fieldName.required ? requiredString : optionalString
@@ -53,56 +54,155 @@ export const BriefPage = () => {
         },
         about: {
             companyName: {required: true, label: 'Название компании', placeholder: ''},
-            semantics: {required: false, label: 'Семантика названия', placeholder: 'Семантическое значение названия компании, которое поможет лучше понять суть бренда и подчеркнуть сильные стороны'},
+            semantics: {
+                required: false,
+                label: 'Семантика названия',
+                placeholder: 'Семантическое значение названия компании, которое поможет лучше понять суть бренда и подчеркнуть сильные стороны'
+            },
             field: {required: true, label: 'Ниша', placeholder: ''},
             productsAndServices: {required: true, label: 'Ряд продуктов и услуг', placeholder: ''},
-            productsAndServicesDescription: {required: true, label: 'Описание продукта или услуги', placeholder: 'Подробное описание основных услуг, указанных в предыдущем пункте'},
+            productsAndServicesDescription: {
+                required: true,
+                label: 'Описание продукта или услуги',
+                placeholder: 'Подробное описание основных услуг, указанных в предыдущем пункте'
+            },
             priorityProductsAndServices: {required: true, label: 'Приоритетные товары и услуги', placeholder: ''},
-            offerUniqueness: {required: true, label: 'Уникальность предложения', placeholder: 'Краткое описание фишки и уникальности бренда'},
+            offerUniqueness: {
+                required: true,
+                label: 'Уникальность предложения',
+                placeholder: 'Краткое описание фишки и уникальности бренда'
+            },
             disadvantages: {required: true, label: 'Недостатки услуги или продукта', placeholder: ''},
-            geography: {required: true, label: 'География продукта/услуги', placeholder: 'В каких регионах/ городах / странах представлены услуги или продукт'},
+            geography: {
+                required: true,
+                label: 'География продукта/услуги',
+                placeholder: 'В каких регионах/ городах / странах представлены услуги или продукт'
+            },
             shortCompanyInfo: {required: false, label: 'Краткая информация о компании', placeholder: ''},
-            site: {required: false, label: 'Сайт компании (если есть)', placeholder: 'Введите сайт компании, если он существует'},
-            socialNetworks: {required: false, label: 'Социальные сети', placeholder: 'Прикрепите ссылки на социальные сети, если они есть'},
+            site: {
+                required: false,
+                label: 'Сайт компании (если есть)',
+                placeholder: 'Введите сайт компании, если он существует'
+            },
+            socialNetworks: {
+                required: false,
+                label: 'Социальные сети',
+                placeholder: 'Прикрепите ссылки на социальные сети, если они есть'
+            },
             competitors: {required: true, label: 'Прямые конкуренты', placeholder: ''}
         },
         details: {
             siteType: {required: true, label: 'Тип сайта'},
-            goals: {required: true, label: 'Цели, которые должен решить сайт', placeholder: 'Например: увеличить конверсию, рассказать о бизнесе, привлечь и т.д.'},
+            goals: {
+                required: true,
+                label: 'Цели, которые должен решить сайт',
+                placeholder: 'Например: увеличить конверсию, рассказать о бизнесе, привлечь и т.д.'
+            },
             usersTargetAction: {required: true, label: 'Целевое действие пользователя'},
-            competitorsSites: {required: true, label: 'Сайты конкурентов', placeholder: 'Укажите сайты прямых или смежных конкурентов, минимум 3'},
-            advantagesCompetitorsSites: {required: true, label: 'Чем нравятся сайты конкурентов', placeholder: 'Укажите сильные стороны сайтов конкурентов'},
-            disadvantagesCompetitorsSites: {required: true, label: 'Чем не нравятся сайты конкурентов', placeholder: 'Укажите, что не нравится на сайтах конкурентов'},
-            sitesYouLike: {required: false, label: 'Сайты, которые нравятся', placeholder: 'Сайты не конкурентов, которые вам нравятся, и почему'},
-            sitesYouDislike: {required: false, label: 'Сайты, которые не нравятся', placeholder: 'Сайты не конкурентов, которые вам не нравятся, и почему'},
-            preferredColors: {required: false, label: 'Предпочитаемые цвета', placeholder: 'Укажите предпочтения в цвете, если они есть'},
-            unwantedColors: {required: false, label: 'Нежелательные цвета', placeholder: 'Укажите цвета, которые не подходит вашему продукту'},
+            competitorsSites: {
+                required: true,
+                label: 'Сайты конкурентов',
+                placeholder: 'Укажите сайты прямых или смежных конкурентов, минимум 3'
+            },
+            advantagesCompetitorsSites: {
+                required: true,
+                label: 'Чем нравятся сайты конкурентов',
+                placeholder: 'Укажите сильные стороны сайтов конкурентов'
+            },
+            disadvantagesCompetitorsSites: {
+                required: true,
+                label: 'Чем не нравятся сайты конкурентов',
+                placeholder: 'Укажите, что не нравится на сайтах конкурентов'
+            },
+            sitesYouLike: {
+                required: false,
+                label: 'Сайты, которые нравятся',
+                placeholder: 'Сайты не конкурентов, которые вам нравятся, и почему'
+            },
+            sitesYouDislike: {
+                required: false,
+                label: 'Сайты, которые не нравятся',
+                placeholder: 'Сайты не конкурентов, которые вам не нравятся, и почему'
+            },
+            preferredColors: {
+                required: false,
+                label: 'Предпочитаемые цвета',
+                placeholder: 'Укажите предпочтения в цвете, если они есть'
+            },
+            unwantedColors: {
+                required: false,
+                label: 'Нежелательные цвета',
+                placeholder: 'Укажите цвета, которые не подходит вашему продукту'
+            },
             siteFunctionality: {required: true, label: 'Планируемый функционал сайта'},
-            specificSystem: {required: false, label: 'Есть ли определенная CMS система, на которой нужно сделать сайт?', placeholder: 'Например Tilda, WordPress и др.'},
+            specificSystem: {
+                required: false,
+                label: 'Есть ли определенная CMS система, на которой нужно сделать сайт?',
+                placeholder: 'Например Tilda, WordPress и др.'
+            },
             seo: {required: true, label: 'SEO-Оптимизация'},
             copywriting: {required: true, label: 'Копирайтинг'},
         },
         targetGroup: {
             knowTargetAudience: {required: true, label: 'Знаете ли вы свою ЦА'},
             sex: {required: knowTargetAudienceCurrentValue === 'yes', label: 'Пол', placeholder: 'Например — 80% М'},
-            age: {required: knowTargetAudienceCurrentValue === 'yes', label: 'Возраст', placeholder: 'Например — 35-45 лет'},
-            income: {required: knowTargetAudienceCurrentValue === 'yes', label: 'Достаток', placeholder: 'Гипотетический доход пользователя, средняя месячная зарплата'},
-            interests: {required: knowTargetAudienceCurrentValue === 'yes', label: 'Интересы', placeholder: 'Чем интересуется целевая аудитория, например — спорт, туризм и т.д.'},
-            useInteractionStages: {required: knowTargetAudienceCurrentValue === 'yes', label: 'Этапы взаимодействия пользователя с продуктом', placeholder: 'Опишите путь пользователя от контакта до заказа'},
-            communicationChannels: {required: false, label: 'Каналы коммуникации с ЦА', placeholder: 'Телефонный звонок, переписка в мессенджерах, почта, соц. сети и т.д.'},
-            intensityOfUse: {required: knowTargetAudienceCurrentValue === 'yes', label: 'Интенсивность употребления', placeholder: 'Как часто будет совершаться повторная покупка/заказ'},
+            age: {
+                required: knowTargetAudienceCurrentValue === 'yes',
+                label: 'Возраст',
+                placeholder: 'Например — 35-45 лет'
+            },
+            income: {
+                required: knowTargetAudienceCurrentValue === 'yes',
+                label: 'Достаток',
+                placeholder: 'Гипотетический доход пользователя, средняя месячная зарплата'
+            },
+            interests: {
+                required: knowTargetAudienceCurrentValue === 'yes',
+                label: 'Интересы',
+                placeholder: 'Чем интересуется целевая аудитория, например — спорт, туризм и т.д.'
+            },
+            useInteractionStages: {
+                required: knowTargetAudienceCurrentValue === 'yes',
+                label: 'Этапы взаимодействия пользователя с продуктом',
+                placeholder: 'Опишите путь пользователя от контакта до заказа'
+            },
+            communicationChannels: {
+                required: false,
+                label: 'Каналы коммуникации с ЦА',
+                placeholder: 'Телефонный звонок, переписка в мессенджерах, почта, соц. сети и т.д.'
+            },
+            intensityOfUse: {
+                required: knowTargetAudienceCurrentValue === 'yes',
+                label: 'Интенсивность употребления',
+                placeholder: 'Как часто будет совершаться повторная покупка/заказ'
+            },
         },
         materials: {
-            materialsDevelopment: {required: knowTargetAudienceCurrentValue === 'yes', label: 'Требуется ли разработка дополнительных материалов'},
-            materialsToDevelop: {required: materialsDevelopmentCurrentValue === 'yes', label: 'Перечислите материалы, которые нужно разработать', placeholder: 'Логотип, фирменный стиль, буклеты, иллюстрации'},
+            materialsDevelopment: {
+                required: knowTargetAudienceCurrentValue === 'yes',
+                label: 'Требуется ли разработка дополнительных материалов'
+            },
+            materialsToDevelop: {
+                required: materialsDevelopmentCurrentValue === 'yes',
+                label: 'Перечислите материалы, которые нужно разработать',
+                placeholder: 'Логотип, фирменный стиль, буклеты, иллюстрации'
+            },
         },
         additionalInfo: {
             numberOfLanguageVersions: {required: true, label: 'Кол-во языковых версий'},
-            budget: {required: true, label: 'Планируемый или рассчитанный бюджет', placeholder: 'Например: 100-200 т.р.'},
+            budget: {
+                required: true,
+                label: 'Планируемый или рассчитанный бюджет',
+                placeholder: 'Например: 100-200 т.р.'
+            },
             technicalSpecificationAvailable: {required: true, label: 'Есть ли Техническое Задание'},
             technicalSpecification: {required: false, label: 'Прикрепите ТЗ'},
             siteAdministration: {required: true, label: 'Требуется ли администрирование сайта после запуска'},
-            additionalInfo: {required: false, label: 'Дополнительная информация', placeholder: 'Дополнительная информация по проекту'},
+            additionalInfo: {
+                required: false,
+                label: 'Дополнительная информация',
+                placeholder: 'Дополнительная информация по проекту'
+            },
             additionalFiles: {required: false, label: 'Дополнительные файлы'}
         }
     }
@@ -255,7 +355,7 @@ export const BriefPage = () => {
     materialsDevelopmentCurrentValue = currentValues.materials.materialsDevelopment as string
     knowTargetAudienceCurrentValue = currentValues.targetGroup.knowTargetAudience as string
 
-    const removeErrorsInMaterials = ()=>{
+    const removeErrorsInMaterials = () => {
         if (materialsDevelopmentCurrentValue !== 'yes') {
             if (errors.materials) {
                 errors.materials.materialsToDevelop = undefined
@@ -281,15 +381,74 @@ export const BriefPage = () => {
         return isRequiredFieldsNonEmpty && !isSectionHasErrors
     }
 
-    const briefSections = [
-        {text: 'Контактная информация', href: '#contactInfo', completed: checkSectionDone('contactInfo')},
-        {text: 'О компании и продукте', href: '#about', completed: checkSectionDone('about')},
-        {text: 'Детализация задачи', href: '#details', completed: checkSectionDone('details')},
-        {text: 'Целевая аудитория', href: '#targetGroup', completed: checkSectionDone('targetGroup')},
-        {text: 'Материалы', href: '#materials', completed: checkSectionDone('materials')},
-        {text: 'Доп. информация', href: '#additionalInfo', completed: checkSectionDone('additionalInfo')},
-    ]
 
+    const [activeSection, setActiveSection] = useState<string | null>(null);
+    const observer = useRef<IntersectionObserver | null>(null);
+    console.log(activeSection)
+    useEffect(() => {
+        observer.current = new IntersectionObserver((entries) => {
+            const visibleSection = entries.find((entry) => entry.isIntersecting)?.target;
+            if (visibleSection) {
+                setActiveSection(visibleSection.id);
+            }
+        }, { threshold: 0.3 });
+
+        const sections = document.querySelectorAll('[data-section]');
+
+        sections.forEach((section) => {
+            observer?.current?.observe(section);
+        });
+        return () => {
+            sections.forEach((section) => {
+                observer?.current?.unobserve(section);
+            });
+        };
+    }, []);
+
+    const briefSections = [
+        {
+            text: 'Контактная информация',
+            href: '#contactInfo',
+            completed: checkSectionDone('contactInfo'),
+            currentSection: activeSection,
+            sectionId: 'contactInfo'
+        },
+        {
+            text: 'О компании и продукте',
+            href: '#about',
+            completed: checkSectionDone('about'),
+            currentSection: activeSection,
+            sectionId: 'about'
+        },
+        {
+            text: 'Детализация задачи',
+            href: '#details',
+            completed: checkSectionDone('details'),
+            currentSection: activeSection,
+            sectionId: 'details'
+        },
+        {
+            text: 'Целевая аудитория',
+            href: '#targetGroup',
+            completed: checkSectionDone('targetGroup'),
+            currentSection: activeSection,
+            sectionId: 'targetGroup'
+        },
+        {
+            text: 'Материалы',
+            href: '#materials',
+            completed: checkSectionDone('materials'),
+            currentSection: activeSection,
+            sectionId: 'materials'
+        },
+        {
+            text: 'Доп. информация',
+            href: '#additionalInfo',
+            completed: checkSectionDone('additionalInfo'),
+            currentSection: activeSection,
+            sectionId: 'additionalInfo'
+        },
+    ]
 
     return <div className={s.briefPage}>
         <Header/>
@@ -314,7 +473,7 @@ export const BriefPage = () => {
                 <div className={s.formWithNavigation}>
                     <BriefNavbar navItems={briefSections} className={s.navbar}/>
                     <div>
-                        <section className={s.section} id={'contactInfo'}>
+                        <section className={s.section} id={'contactInfo'} data-section>
                             <h2>Контактная информация</h2>
                             <Input label={allFields.contactInfo.name.label}
                                    required={allFields.contactInfo.name.required}
@@ -375,7 +534,7 @@ export const BriefPage = () => {
                             />
                         </section>
 
-                        <section className={s.section} id={'about'}>
+                        <section className={s.section} id={'about'} data-section>
                             <h2>О компании и продукте</h2>
                             <Input label={allFields.about.companyName.label}
                                    required={allFields.about.companyName.required}
@@ -457,7 +616,7 @@ export const BriefPage = () => {
                             />
                         </section>
 
-                        <section className={s.section} id={'details'}>
+                        <section className={s.section} id={'details'} data-section>
                             <h2>Детализация задачи</h2>
                             <FormRadioGroup mainLabel={allFields.details.siteType.label}
                                             required={allFields.details.siteType.required}
@@ -570,7 +729,11 @@ export const BriefPage = () => {
                             <RadioCheckboxGroup mainLabel={allFields.details.siteFunctionality.label}
                                                 required={allFields.details.siteFunctionality.required}
                                                 checkboxItems={[
-                                                    {label: 'CRM', value: 'crm', rest: {...register('details.siteFunctionality')}},
+                                                    {
+                                                        label: 'CRM',
+                                                        value: 'crm',
+                                                        rest: {...register('details.siteFunctionality')}
+                                                    },
                                                     {
                                                         label: 'Корзина и оплата',
                                                         value: 'shoppingCartAndPayment',
@@ -664,7 +827,7 @@ export const BriefPage = () => {
                             />
                         </section>
 
-                        <section className={s.section} id={'targetGroup'}>
+                        <section className={s.section} id={'targetGroup'} data-section>
                             <h2>Целевая аудитория</h2>
                             <FormRadioGroup mainLabel={allFields.targetGroup.knowTargetAudience.label}
                                             required={allFields.targetGroup.knowTargetAudience.required}
@@ -726,7 +889,7 @@ export const BriefPage = () => {
                             }
                         </section>
 
-                        <section className={s.section} id={'materials'}>
+                        <section className={s.section} id={'materials'} data-section>
                             <h2>Материалы</h2>
                             <FormRadioGroup mainLabel={allFields.materials.materialsDevelopment.label}
                                             required={allFields.materials.materialsDevelopment.required}
@@ -748,7 +911,7 @@ export const BriefPage = () => {
                             }
                         </section>
 
-                        <section className={s.section} id={'additionalInfo'}>
+                        <section className={s.section} id={'additionalInfo'} data-section>
                             <h2>Доп. информация</h2>
                             <FormRadioGroup mainLabel={allFields.additionalInfo.numberOfLanguageVersions.label}
                                             required={allFields.additionalInfo.numberOfLanguageVersions.required}
