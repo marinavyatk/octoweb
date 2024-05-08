@@ -2,23 +2,23 @@ import clsx from 'clsx';
 import s from './briefNavigationLink.module.scss'
 import {ComponentPropsWithoutRef} from 'react';
 import DoneIcon from '../../../../assets/doneIcon.svg?react'
-import {NavLink} from 'react-router-dom';
 
 export type BriefNavigationLinkProps = {
     text: string,
-    completed: boolean
+    completed: boolean,
+    currentSection: string | null
+    sectionId: string
 } & ComponentPropsWithoutRef<'a'>;
 
 export const BriefNavigationLink = (props: BriefNavigationLinkProps) => {
-    const {text, completed, className, ...restProps} = props;
+    const {text, completed, className, currentSection, sectionId,...restProps} = props;
     const classNames = clsx(s.briefNavigationLink, className,
-        // {
-        //     [s.active]: restProps.href === location.hash,
-        // }
+        {
+            [s.active]: sectionId === currentSection,
+        }
         )
 
-    // useEffect(()=>{}, [location.hash]) //temp
-    return <NavLink to={restProps.href as string} {...restProps}
+    return <a  {...restProps}
                rel={'nofollow'}
                className={classNames}
     >
@@ -26,5 +26,5 @@ export const BriefNavigationLink = (props: BriefNavigationLinkProps) => {
         <div className={s.indicator}>
             {completed && <DoneIcon/>}
         </div>
-    </NavLink>
+    </a>
 }
