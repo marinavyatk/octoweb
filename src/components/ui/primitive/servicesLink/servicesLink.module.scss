@@ -32,7 +32,8 @@
     gap: 27px;
   }
 
-  .number, .header {
+  .number,
+  .header {
     color: var(--color-light-100);
     font-weight: var(--font-weight-regular-500);
     font-size: var(--font-size-ml);
@@ -84,4 +85,3 @@
     }
   }
 }
-

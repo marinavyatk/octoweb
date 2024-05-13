@@ -24,8 +24,6 @@
   //margin-top: 120px;
 }
 
-
-
 .discussProject {
   display: flex;
   justify-content: space-between;
@@ -40,12 +38,12 @@
   //}
 }
 
-.discussProject  p {
-    font-weight: var(--font-weight-regular-250);
-    font-size: var(--font-size-sm);
-    line-height: var(--line-height-200);
-    color: var(--color-light-100);
-  }
+.discussProject p {
+  font-weight: var(--font-weight-regular-250);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-200);
+  color: var(--color-light-100);
+}
 
 .serviceImg {
   border-radius: 48px;
@@ -93,8 +91,7 @@
   }
 }
 
-
-.container p{
+.container p {
   font-weight: var(--font-weight-regular-250);
   font-size: var(--font-size-sm);
   line-height: var(--line-height-200);
@@ -154,14 +151,12 @@
     .kissSymbol {
       width: 208px;
     }
-
   }
 }
 
 .map {
   height: 599px;
   position: relative;
-
 
   p {
     font-weight: var(--font-weight-regular-300);
@@ -173,7 +168,6 @@
     position: absolute;
     left: 0;
     bottom: 0;
-
   }
 
   img {

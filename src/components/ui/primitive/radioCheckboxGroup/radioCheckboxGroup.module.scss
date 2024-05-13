@@ -1,8 +1,9 @@
 .radioCheckboxGroupContainer {
-position: relative;
+  position: relative;
 }
 
-.mainLabel, .required {
+.mainLabel,
+.required {
   color: var(--color-light-40);
   font-size: var(--font-size-xss);
   font-weight: var(--font-weight-regular-400);

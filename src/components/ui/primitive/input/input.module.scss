@@ -17,7 +17,8 @@
   }
 }
 
-.mainLabel, .required {
+.mainLabel,
+.required {
   color: var(--color-light-40);
   font-size: var(--font-size-xss);
   font-weight: var(--font-weight-regular-400);
@@ -58,6 +59,8 @@
   border: none;
   padding: 16px 0;
   caret-color: var(--color-primary);
+  scrollbar-width: none;
+  resize: none;
 
   &::placeholder {
     color: var(--color-light-20);

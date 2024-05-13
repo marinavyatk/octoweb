@@ -1,4 +1,4 @@
-.cardContainer{
+.cardContainer {
   position: relative;
   width: 536px;
   height: 536px;
@@ -23,7 +23,8 @@
   line-height: var(--line-height-160);
 }
 
-.specialization, .workExperience {
+.specialization,
+.workExperience {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-regular-300);
   line-height: var(--line-height-180);
@@ -76,7 +77,7 @@
   position: absolute;
   backface-visibility: hidden;
 
-  p{
+  p {
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular-400);
     line-height: var(--line-height-180);
