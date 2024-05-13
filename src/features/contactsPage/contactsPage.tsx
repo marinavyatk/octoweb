@@ -1,7 +1,7 @@
 import s from "./contactsPage.module.scss";
 import { FooterWithForm } from "../../components/ui/complex/footerWithForm/footerWithForm.tsx";
 import { Header } from "../../components/ui/complex/header/header.tsx";
-import BaseMap from "../../assets/webp/baseMap.webp";
+import Map from "../../components/ui/primitive/map/map.tsx";
 
 export const ContactsPage = () => {
   return (
@@ -19,7 +19,7 @@ export const ContactsPage = () => {
         </div>
       </div>
       <div className={s.map}>
-        <img src={BaseMap} alt="" />
+        <Map />
       </div>
       <FooterWithForm />
     </div>
