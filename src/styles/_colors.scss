@@ -1,13 +1,13 @@
 :root {
   //primary
-  --color-primary: #A330FF;
-  --color-primary-bright: #FF37DF;
+  --color-primary: #a330ff;
+  --color-primary-bright: #ff37df;
 
   //accent
-  --color-accent: #D6FF41;
+  --color-accent: #d6ff41;
 
   //light
-  --color-light-100: #FFFFFF;
+  --color-light-100: #ffffff;
   --color-light-80: rgba(255, 255, 255, 0.8);
   --color-light-60: rgba(255, 255, 255, 0.6);
   --color-light-40: rgba(255, 255, 255, 0.4);
@@ -25,23 +25,15 @@
   --color-error: #ff006b;
 
   //gradient
-  --linear-gradient-primary: linear-gradient(331deg, #A330FF 0%, #FF37DF 100%);
+  --linear-gradient-primary: linear-gradient(331deg, #a330ff 0%, #ff37df 100%);
 
-
-
-
-
-
-
-//for possible use, then delete
+  //for possible use, then delete
   --purple-purple-100: #a330ff;
   --purple-purple-80: rgba(163, 48, 255, 0.8);
   --purple-purple-60: rgba(163, 48, 255, 0.6);
   --purple-purple-40: rgba(163, 48, 255, 0.4);
   --purple-purple-20: rgba(163, 48, 255, 0.2);
   --purple-purple-10: rgba(163, 48, 255, 0.1);
-
-
 
   --yellow-yellow-100: #d6ff41;
   --yellow-yellow-80: rgba(214, 255, 65, 0.8);
@@ -50,8 +42,6 @@
   --yellow-yellow-20: rgba(214, 255, 65, 0.2);
   --yellow-yellow-10: rgba(214, 255, 65, 0.1);
 
-
-
   --white-white-100: #fff;
   --white-white-80: rgba(255, 255, 255, 0.8);
   --white-white-60: rgba(255, 255, 255, 0.6);
@@ -59,16 +49,12 @@
   --white-white-20: rgba(255, 255, 255, 0.2);
   --white-white-10: rgba(255, 255, 255, 0.1);
 
-
   --dark-100: #161616;
   --dark-80: rgba(22, 22, 22, 0.8);
   --dark-60: rgba(22, 22, 22, 0.6);
   --dark-40: rgba(22, 22, 22, 0.4);
   --dark-20: rgba(22, 22, 22, 0.2);
   --dark-10: rgba(22, 22, 22, 0.1);
-
-
-
 
   --dark-dark-100: #292929;
   --dark-dark-80: rgba(41, 41, 41, 0.8);

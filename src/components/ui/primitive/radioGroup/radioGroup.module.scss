@@ -11,7 +11,8 @@
   }
 }
 
-.mainLabel, .required {
+.mainLabel,
+.required {
   color: var(--color-light-40);
   font-size: var(--font-size-xss);
   font-weight: var(--font-weight-regular-400);
@@ -24,7 +25,6 @@
 .required {
   color: var(--color-accent);
 }
-
 
 .radioItems {
   display: flex;
@@ -46,7 +46,7 @@
   font-weight: var(--font-weight-regular-300);
   transition: all 0.5s;
 
-  &:has([data-state='checked']) {
+  &:has([data-state="checked"]) {
     background-color: var(--color-accent);
     color: var(--color-dark-primary);
   }
@@ -56,20 +56,17 @@
   width: 32px;
   height: 32px;
   border: 1px solid var(--color-light-20);
-  background-color: rgba(22, 22, 22, 0.20);
+  background-color: rgba(22, 22, 22, 0.2);
   appearance: none;
   border-radius: 50%;
   transition: all 0.5s;
   cursor: pointer;
 
-  &[data-state='checked'] {
+  &[data-state="checked"] {
     border: 8px solid var(--color-dark-primary);
     background-color: var(--color-accent);
   }
 }
 
 .radioIndicator {
-
 }
-
-

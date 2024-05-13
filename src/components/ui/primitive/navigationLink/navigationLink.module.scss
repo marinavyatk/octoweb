@@ -9,10 +9,10 @@
   border-radius: 80px;
   display: inline-block;
   white-space: nowrap;
-  transition: color 0.4s cubic-bezier(1.000, 1.650, 0.265, 1.550);
+  transition: color 0.4s cubic-bezier(1, 1.65, 0.265, 1.55);
   &:hover {
     color: var(--color-accent);
-    transition: color 0.4s cubic-bezier(1.000, 1.650, 0.265, 1.550);
+    transition: color 0.4s cubic-bezier(1, 1.65, 0.265, 1.55);
   }
 }
 

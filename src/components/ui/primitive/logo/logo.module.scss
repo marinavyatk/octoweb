@@ -22,9 +22,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.5s cubic-bezier(0.85, 0.01, 0.58, 1),
-    width 0.5s cubic-bezier(0.85, 0.01, 0.58, 1),
-    height 0.5s cubic-bezier(0.85, 0.01, 0.58, 1);
+    transition:
+      background-color 0.5s cubic-bezier(0.85, 0.01, 0.58, 1),
+      width 0.5s cubic-bezier(0.85, 0.01, 0.58, 1),
+      height 0.5s cubic-bezier(0.85, 0.01, 0.58, 1);
   }
 
   .logoImg {
@@ -42,9 +43,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background-color 0.5s cubic-bezier(0.85, 0.01, 0.58, 1),
-      width 0.5s cubic-bezier(0.85, 0.01, 0.58, 1),
-      height 0.5s cubic-bezier(0.85, 0.01, 0.58, 1);
+      transition:
+        background-color 0.5s cubic-bezier(0.85, 0.01, 0.58, 1),
+        width 0.5s cubic-bezier(0.85, 0.01, 0.58, 1),
+        height 0.5s cubic-bezier(0.85, 0.01, 0.58, 1);
     }
 
     .logoImg {
