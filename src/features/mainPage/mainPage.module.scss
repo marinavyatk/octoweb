@@ -14,11 +14,16 @@
   padding: 120px 0 67px 0;
   position: relative;
 
-  div:first-child {
+  .firstLine {
     padding-left: 140px;
   }
+  .secondLine {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+  }
 
-  div:last-child {
+  .thirdLine {
     padding-left: 265px;
   }
 
