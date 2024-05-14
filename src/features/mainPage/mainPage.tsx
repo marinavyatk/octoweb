@@ -16,6 +16,7 @@ import { StepCards } from "../../components/ui/complex/stepCards/stepCards.tsx";
 import { FooterWithForm } from "../../components/ui/complex/footerWithForm/footerWithForm.tsx";
 import { routes } from "../../common/routes.ts";
 import { ArrowLinkWithText } from "../../components/ui/primitive/ArrowLinkWithText/arrowLinkWithText.tsx";
+import { WordSwipe } from "../../components/ui/primitive/wordSwipe/wordSwipe.tsx";
 
 export const MainPage = () => {
   return (
@@ -24,10 +25,13 @@ export const MainPage = () => {
       <div className={s.mainContainer}>
         <section className={s.greetingBlock}>
           <div className={s.mainText + " " + s.greetingText}>
-            <div>МЫ РЕВОЛЮЦИОНЕРЫ</div>
-            <div>В СФЕРЕ</div>
+            <div className={s.firstLine}>МЫ РЕВОЛЮЦИОНЕРЫ</div>
+            <div className={s.secondLine}>
+              В СФЕРЕ <WordSwipe />
+            </div>
             <ArrowPointerSmall className={s.arrow} />
-            <div>ИЗ КРАСНОДАРА</div>
+
+            <div className={s.thirdLine}>ИЗ КРАСНОДАРА</div>
           </div>
           <div className={s.briefOffer}>
             <ButtonWithStroke />

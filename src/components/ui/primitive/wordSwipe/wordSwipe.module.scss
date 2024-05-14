@@ -1,0 +1,98 @@
+.wordSwipe {
+  height: 144px;
+  background-color: var(--color-accent);
+  border-radius: 100px;
+  padding: 10px 50px;
+  width: fit-content;
+  color: var(--color-dark-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: var(--font-weight-bold-900);
+  font-size: var(--font-size-xxl);
+  line-height: var(--line-height-124);
+  text-transform: uppercase;
+
+  .inner {
+    height: 124px;
+    overflow: hidden;
+    margin-bottom: 0;
+    width: 100%;
+  }
+
+  div {
+    text-align: center;
+    margin-bottom: 124px;
+  }
+
+  .firstWord,
+  .secondWord {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  span {
+    animation: bounce 1.5s ease infinite forwards;
+    display: block;
+  }
+
+  span:nth-child(1) {
+    animation-delay: 0.13s;
+  }
+
+  span:nth-child(2) {
+    animation-delay: 0.08s;
+  }
+
+  span:nth-child(3) {
+    animation-delay: 0s;
+  }
+
+  .inner .firstWord {
+    animation: show 3s linear infinite;
+  }
+}
+
+@keyframes show {
+  0% {
+    margin-top: -496px;
+  }
+  12% {
+    margin-top: -258px;
+  }
+  40% {
+    margin-top: -258px;
+  }
+  62% {
+    margin-top: -10px;
+  }
+  90% {
+    margin-top: -10px;
+  }
+  99% {
+    margin-top: 124px;
+  }
+  99.99% {
+    margin-top: 124px;
+  }
+  100% {
+    margin-top: -496px;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  20% {
+    transform: translateY(25px);
+  }
+  40% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
