@@ -68,7 +68,7 @@ export const Form = (props: FormProps) => {
         <div className={s.mainInfo}>
           <Input
             label={"Имя"}
-            required
+            isRequiredField
             {...register("name")}
             placeholder={"Как вас зовут?"}
             className={s.item}
@@ -76,7 +76,7 @@ export const Form = (props: FormProps) => {
           />
           <Input
             label={"email"}
-            required
+            isRequiredField
             {...register("email")}
             type={"email"}
             placeholder={"Электронная почта"}
@@ -85,7 +85,7 @@ export const Form = (props: FormProps) => {
           />
           <Input
             label={"Номер телефона"}
-            required
+            isRequiredField
             {...register("tel")}
             {...registerWithMask("tel", ["+7 (999) 999-99-99"])}
             type="tel"
@@ -96,7 +96,7 @@ export const Form = (props: FormProps) => {
         </div>
         <InputWithCounter
           label={"О проекте"}
-          required
+          isRequiredField
           placeholder={"Расскажите о своем проекте"}
           {...register("projectDescription")}
           name={"projectDescription"}

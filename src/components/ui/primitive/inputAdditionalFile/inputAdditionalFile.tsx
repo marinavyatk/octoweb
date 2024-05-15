@@ -8,6 +8,7 @@ import clsx from "clsx";
 import s from "./inputAdditionalFile.module.scss";
 import LoadIcon from "../../../../assets/loadIcon.svg?react";
 import { AttachedFile } from "../attachedFile/attachedFile.tsx";
+import { Label } from "../label/label.tsx";
 
 export type InputAdditionalFileProps = {
   label: string;
@@ -40,9 +41,10 @@ export const InputAdditionalFile = React.forwardRef(
       );
     });
 
+    // mb need change required dynamically through props
     return (
       <div className={classNames} {...divProps}>
-        <span className={s.label}>{label}</span>
+        <Label text={label} isRequiredField={false} />
         {attachedFiles.length > 0 && (
           <div className={s.attachedFiles}>{attachedFiles}</div>
         )}

@@ -2,11 +2,12 @@ import React, { ComponentPropsWithoutRef, ElementType, Ref } from "react";
 import clsx from "clsx";
 import s from "./input.module.scss";
 import ErrorIcon from "../../../../assets/error.svg?react";
+import { Label } from "../label/label.tsx";
 
 export type InputProps<T extends ElementType> = {
   as: T;
-  label: string;
-  required: boolean;
+  label?: string;
+  isRequiredField?: boolean;
   errorMessage?: string | undefined;
   divProps?: ComponentPropsWithoutRef<"div">;
 } & ComponentPropsWithoutRef<T>;
@@ -15,7 +16,7 @@ export const Input = React.forwardRef(
   <T extends ElementType>(props: InputProps<T>, ref: Ref<HTMLInputElement>) => {
     const {
       as: Component = "input",
-      required,
+      isRequiredField,
       label,
       errorMessage,
       divProps,
@@ -28,15 +29,20 @@ export const Input = React.forwardRef(
 
     return (
       <div className={classNames} {...divProps}>
-        <label className={s.mainLabel} htmlFor={restProps?.name}>
-          {label}
-          {required && <sup className={s.required}> *</sup>}
-        </label>
+        {label && (
+          <Label
+            text={label}
+            isRequiredField={isRequiredField ? isRequiredField : false}
+            htmlFor={restProps?.name}
+            className={s.mainLabel}
+          />
+        )}
         <div className={s.position}>
           <Component
             {...restProps}
             className={s.input}
             name={restProps?.name}
+            id={restProps?.name}
             ref={ref}
           />
           {errorMessage && <ErrorIcon className={s.errorIcon} />}
