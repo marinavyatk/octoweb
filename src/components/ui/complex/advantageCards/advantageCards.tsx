@@ -14,25 +14,25 @@ export const AdvantageCards = (props: AdvantageCardsProps) => {
   const cards = [
     {
       icon: AdvantageIcon,
-      title: "Просто о сложном",
+      header: "Просто о сложном",
       paragraph:
         'Переводим технические моменты на "человеческий язык", чтобы вы могли понимать окончательный результат.',
     },
     {
       icon: CommunicationCard,
-      title: "Ясность коммуникаций",
+      header: "Ясность коммуникаций",
       paragraph:
         "Вы всегда можете уточнить, как идет работа. В коммуникации учавствуют основные сотрудники нашей студии.",
     },
     {
       icon: EfficiencyIcon,
-      title: "Полная эффективность",
+      header: "Полная эффективность",
       paragraph:
         "Быстро включаемся в решение задачи и также оператовно справляемся с ней без бюрократических задержек.",
     },
     {
       icon: PriceIcon,
-      title: "Прозрачные цены",
+      header: "Прозрачные цены",
       paragraph:
         "Ясное представление о составе расценок, цена фиксируется в договоре, без скрытых или неочевидных платежей",
     },
@@ -41,9 +41,9 @@ export const AdvantageCards = (props: AdvantageCardsProps) => {
     return (
       <AdvantageCard
         icon={card.icon}
-        title={card.title}
+        header={card.header}
         paragraph={card.paragraph}
-        key={card.title}
+        key={card.header}
       />
     );
   });

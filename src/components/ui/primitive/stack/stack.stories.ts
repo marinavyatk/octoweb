@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     number: "01",
-    title: "Backend",
+    header: "Backend",
     tags: ["PHP", "Laravel", "Node.js"],
   },
 };
