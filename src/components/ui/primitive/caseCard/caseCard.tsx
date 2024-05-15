@@ -3,11 +3,12 @@ import { clsx } from "clsx";
 import s from "./caseCard.module.scss";
 import { Tag } from "../tag/tag.tsx";
 
+export type Size = "small" | "medium" | "large" | "extraLarge";
 export type CaseCardProps<T extends ElementType> = {
   category: string;
   tags: string[];
   img: string;
-  size: "small" | "medium" | "large" | "extraLarge";
+  size: Size;
   header: string;
   as?: T;
 } & ComponentPropsWithoutRef<"a">;
@@ -23,7 +24,9 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
     as: HeaderType = "h2",
     ...restProps
   } = props;
-  const classNames = clsx(s.card, className, {
+  const classNames = clsx(s.card, className);
+
+  const sizeClassName = clsx(s.container, {
     [s.small]: size === "small",
     [s.medium]: size === "medium",
     [s.large]: size === "large",
@@ -39,11 +42,13 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
 
   return (
     <a {...restProps} className={classNames}>
-      <Tag variant={"monochrome-primary"} className={s.category}>
-        {category}
-      </Tag>
-      <img src={img} alt={header} />
-      <div className={s.tagList}>{tagList}</div>
+      <div className={sizeClassName}>
+        <Tag variant={"monochrome-primary"} className={s.category}>
+          {category}
+        </Tag>
+        <img src={img} alt={header} />
+        <div className={s.tagList}>{tagList}</div>
+      </div>
       <HeaderType className={s.header}>{header}</HeaderType>
     </a>
   );

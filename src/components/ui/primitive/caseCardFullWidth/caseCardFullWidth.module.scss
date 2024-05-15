@@ -9,13 +9,20 @@
 
   .textContainer {
     position: absolute;
-    left: 124px;
     top: 0;
     height: 100%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    padding: 90px 0 28px;
+    padding-top: 90px;
+
+    width: 100%;
+    max-width: 613px;
+    align-items: center;
+
+    &:first-child {
+      left: 124px;
+    }
   }
 
   .imgContainer {
@@ -36,9 +43,26 @@
     }
   }
 
+  .caption {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 195px;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
   .tagList {
     display: flex;
     gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+
+    span {
+      display: block;
+    }
   }
 
   .header {
@@ -49,6 +73,5 @@
     line-height: var(--line-height-120);
     text-transform: none;
     padding-left: 0;
-    margin-top: 30px;
   }
 }
