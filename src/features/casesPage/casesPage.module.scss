@@ -1,3 +1,8 @@
+.casesPageContent {
+  width: 100%;
+  max-width: 1920px;
+  margin: auto;
+}
 .mainContainer {
   max-width: 1920px;
   width: 100%;
@@ -18,5 +23,30 @@
 
   h1 {
     margin-top: 0;
+  }
+}
+.casesList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 174px;
+  row-gap: 182px;
+  margin: 237px 0 252px;
+
+  .extraLarge {
+  }
+
+  .large {
+    margin-top: 156px;
+  }
+
+  .small {
+    margin-top: -180px;
+  }
+
+  .medium {
+  }
+
+  .fullWidth {
   }
 }

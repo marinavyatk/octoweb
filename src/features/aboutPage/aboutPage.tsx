@@ -83,36 +83,38 @@ export const AboutPage = () => {
   return (
     <div className={s.aboutPage}>
       <Header />
-      <div className={s.mainContainer}>
-        <h1>
-          О веб-студии <br /> OctoWeb
-        </h1>
-        <p>Раскроем подробности о том, кто стоит за реализацией проектов</p>
-      </div>
-      <div className={s.imageContainer}>
-        <img src={TeamMainPhoto} alt="Команда" />
-      </div>
-
-      <div className={s.mainContainer}>
-        <div className={s.aboutCompany}>
-          <h2>О компании</h2>
-          <p>
-            Выступаем стратегическим партнером для развития бизнеса в цифровом
-            пространстве с 2018 года. За это время выпустили более 150
-            проектов.Задача нашей компании — разрабатывать цифровые решения,
-            способные помогать бизнесу становиться ключевым игроком в своей
-            сфере
-          </p>
+      <div className={s.aboutPageContent}>
+        <div className={s.mainContainer}>
+          <h1>
+            О веб-студии <br /> OctoWeb
+          </h1>
+          <p>Раскроем подробности о том, кто стоит за реализацией проектов</p>
         </div>
-        <StackList />
+        <div className={s.imageContainer}>
+          <img src={TeamMainPhoto} alt="Команда" />
+        </div>
+
+        <div className={s.mainContainer}>
+          <div className={s.aboutCompany}>
+            <h2>О компании</h2>
+            <p>
+              Выступаем стратегическим партнером для развития бизнеса в цифровом
+              пространстве с 2018 года. За это время выпустили более 150
+              проектов.Задача нашей компании — разрабатывать цифровые решения,
+              способные помогать бизнесу становиться ключевым игроком в своей
+              сфере
+            </p>
+          </div>
+          <StackList />
+        </div>
+        <div className={s.aboutTeam}>
+          <TeamMemberCards
+            teamMembers={teamMembersInfo}
+            className={s.teamCards}
+          />
+        </div>
+        <FooterWithForm />
       </div>
-      <div className={s.aboutTeam}>
-        <TeamMemberCards
-          teamMembers={teamMembersInfo}
-          className={s.teamCards}
-        />
-      </div>
-      <FooterWithForm />
     </div>
   );
 };

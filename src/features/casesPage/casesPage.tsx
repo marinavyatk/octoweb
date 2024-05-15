@@ -13,6 +13,14 @@ import { useState } from "react";
 import { CaseCircleList } from "../../components/ui/complex/caseCircleList/caseCircleList.tsx";
 import { CaseCardFullWidth } from "../../components/ui/primitive/caseCardFullWidth/caseCardFullWidth.tsx";
 import CaseCardFullWidthImg from "../../assets/webp/caseCardFullWidth.png";
+import Demarko from "../../assets/webp/case-de-marko.webp";
+import {
+  CaseCard,
+  Size,
+} from "../../components/ui/primitive/caseCard/caseCard.tsx";
+import Ekvadrat from "../../assets/webp/case-e-kvadrat.webp";
+import Botanica from "../../assets/webp/case-botanica.webp";
+import Smxtream from "../../assets/webp/case-smxtream.webp";
 
 const circles: CaseCircle[] = [
   { img: CaseCircleBotanica, caseId: "botanica", category: "Web" },
@@ -20,7 +28,71 @@ const circles: CaseCircle[] = [
   { img: CaseCircleEkvadrat, caseId: "ekvadrat", category: "Seo" },
 ];
 
+const casesData = [
+  {
+    category: "ИНТЕРНЕТ-МАГАЗИН",
+    tags: ["DEVELOP", "UI/UX", "КОМПЛЕКСНЫЙ МАРКЕТИНГ"],
+    img: Demarko,
+    header: "de-marko.ru",
+  },
+  {
+    category: "КОРПОРАТИВНЫЙ САЙТ",
+    tags: ["DEVELOP", "UI/UX", "КОМПЛЕКСНЫЙ МАРКЕТИНГ", "SEO"],
+    img: Ekvadrat,
+    header: "ekvadrat23.ru",
+  },
+  {
+    category: "LANDING PAGE",
+    tags: ["DEVELOP", "UI/UX", "SEO"],
+    img: Botanica,
+    header: "ботаника-хилс.рф",
+  },
+  {
+    category: "КОРПОРАТИВНЫЙ САЙТ",
+    tags: ["DEVELOP", "UI/UX", "SEO"],
+    img: Smxtream,
+    header: "smxtream.pro",
+  },
+  {
+    category: "Корпоративный сайт",
+    tags: ["Develop", "ux/ui", "seo"],
+    img: CaseCardFullWidthImg,
+    header: "de-marko.ru",
+  },
+  {
+    category: "ИНТЕРНЕТ-МАГАЗИН",
+    tags: ["DEVELOP", "UI/UX", "КОМПЛЕКСНЫЙ МАРКЕТИНГ"],
+    img: Demarko,
+    header: "de-marko.ru",
+  },
+  {
+    category: "КОРПОРАТИВНЫЙ САЙТ",
+    tags: ["DEVELOP", "UI/UX", "КОМПЛЕКСНЫЙ МАРКЕТИНГ", "SEO"],
+    img: Ekvadrat,
+    header: "ekvadrat23.ru",
+  },
+  {
+    category: "LANDING PAGE",
+    tags: ["DEVELOP", "UI/UX", "SEO"],
+    img: Botanica,
+    header: "ботаника-хилс.рф",
+  },
+  {
+    category: "КОРПОРАТИВНЫЙ САЙТ",
+    tags: ["DEVELOP", "UI/UX", "SEO"],
+    img: Smxtream,
+    header: "smxtream.pro",
+  },
+  {
+    category: "Корпоративный сайт",
+    tags: ["Develop", "ux/ui", "seo"],
+    img: CaseCardFullWidthImg,
+    header: "de-marko.ru",
+  },
+];
 const buttons: Category[] = ["All projects", "Web", "Seo", "Ads"];
+//last element is a mock because the replay occurs after 5 cards
+const sizes = ["extraLarge", "large", "small", "medium", "fullWidth"];
 
 export const CasesPage = () => {
   const [currentFilter, setCurrentFilter] = useState<Category>("All projects");
@@ -42,23 +114,44 @@ export const CasesPage = () => {
     );
   });
 
-  return (
-    <div>
-      <Header />
-      <div className={s.mainContainer}>
-        <div className={s.header}>
-          <h1>КЕЙСЫ</h1>
-          <div className={s.filterButtons}>{filterButtons}</div>
-        </div>
-        <CaseCircleList caseCircles={filteredCases} />
-      </div>
-      <CaseCardFullWidth
-        category={"Корпоративный сайт"}
-        tags={["Develop", "ux/ui", "seo"]}
-        img={CaseCardFullWidthImg}
-        header={"de-marko.ru"}
+  const cases = casesData.map((card, index) => {
+    const size = sizes[index % sizes.length];
+    const cardClassName = s[size];
+
+    return (index + 1) % 5 !== 0 ? (
+      <CaseCard
+        category={card.category}
+        tags={card.tags}
+        img={card.img}
+        size={size as Size}
+        header={card.header}
+        className={cardClassName}
       />
-      <FooterWithForm />
+    ) : (
+      <CaseCardFullWidth
+        category={card.category}
+        tags={card.tags}
+        img={card.img}
+        header={card.header}
+        className={cardClassName}
+      />
+    );
+  });
+
+  return (
+    <div className={s.casesPage}>
+      <Header />
+      <div className={s.casesPageContent}>
+        <div className={s.mainContainer}>
+          <div className={s.header}>
+            <h1>КЕЙСЫ</h1>
+            <div className={s.filterButtons}>{filterButtons}</div>
+          </div>
+          <CaseCircleList caseCircles={filteredCases} />
+        </div>
+        <div className={s.casesList}>{cases}</div>
+        <FooterWithForm />
+      </div>
     </div>
   );
 };

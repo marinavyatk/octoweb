@@ -31,8 +31,6 @@ export const Footer = (props: FooterProps) => {
         <ArrowNavigationButton
           variant={"up"}
           className={s.arrow}
-          // as={'a'}
-          // href={'#top'}
           onClick={() =>
             window.scrollTo({
               top: 0,

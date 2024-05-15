@@ -1,9 +1,14 @@
 .card {
   border-radius: 33px;
-  position: relative;
-  background-color: var(--color-dark-secondary);
+
   text-decoration: none;
   display: block;
+
+  .container {
+    position: relative;
+    background-color: var(--color-dark-secondary);
+    border-radius: 33px;
+  }
 
   .category {
     position: absolute;
@@ -35,6 +40,7 @@
     text-transform: none;
     padding-left: 0;
     margin-top: 30px;
+    display: block;
   }
 }
 

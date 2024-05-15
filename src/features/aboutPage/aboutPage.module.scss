@@ -5,7 +5,11 @@
   padding: 0 124px;
 }
 
-.aboutPage {
+.aboutPageContent {
+  width: 100%;
+  max-width: 1920px;
+  margin: auto;
+
   p {
     font-weight: var(--font-weight-regular-250);
     font-size: var(--font-size-sm);
