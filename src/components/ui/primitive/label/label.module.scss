@@ -1,0 +1,13 @@
+.label {
+  color: var(--color-light-40);
+  font-size: var(--font-size-xss);
+  font-weight: var(--font-weight-regular-400);
+  line-height: var(--line-height-140);
+  text-transform: uppercase;
+  width: 100%;
+
+  .required {
+    color: var(--color-accent);
+    width: fit-content;
+  }
+}

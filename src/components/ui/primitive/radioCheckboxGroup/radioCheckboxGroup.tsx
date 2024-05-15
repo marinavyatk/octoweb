@@ -2,6 +2,7 @@ import { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 import s from "./radioCheckboxGroup.module.scss";
 import { RadioCheckbox } from "../radioCheckbox/radioCheckbox.tsx";
+import { Label } from "../label/label.tsx";
 
 export type checkboxItem = {
   label: string;
@@ -12,14 +13,14 @@ export type checkboxItem = {
 export type RadioCheckboxGroupProps = {
   errorMessage?: string;
   mainLabel: string;
-  required: boolean;
+  isRequiredField: boolean;
   checkboxItems: checkboxItem[];
 } & ComponentPropsWithoutRef<"div">;
 
 export const RadioCheckboxGroup = (props: RadioCheckboxGroupProps) => {
   const {
     mainLabel,
-    required,
+    isRequiredField,
     checkboxItems,
     errorMessage,
     className,
@@ -40,10 +41,7 @@ export const RadioCheckboxGroup = (props: RadioCheckboxGroupProps) => {
 
   return (
     <div className={classNames} {...restProps}>
-      <span className={s.mainLabel}>
-        {mainLabel}
-        {required && <sup className={s.required}> *</sup>}
-      </span>
+      <Label text={mainLabel} isRequiredField={isRequiredField} />
       <div className={s.answerVariants}>{radioCheckboxes}</div>
       {errorMessage && <div className={s.error}>{errorMessage}</div>}
     </div>

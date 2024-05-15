@@ -9,6 +9,7 @@ import s from "./inputWithCounter.module.scss";
 import { InputFile, InputFileProps } from "../inputFile/inputFile.tsx";
 import { AttachedFile } from "../attachedFile/attachedFile.tsx";
 import TextareaAutosize from "react-textarea-autosize";
+import { Label } from "../label/label.tsx";
 
 type Style = {
   height?: number;
@@ -16,7 +17,7 @@ type Style = {
 };
 export type InputProps = {
   label: string;
-  required: boolean;
+  isRequiredField: boolean;
   containerProps?: ComponentPropsWithoutRef<"div">;
   errorMessage?: (string | undefined)[];
   fileProps?: InputFileProps;
@@ -28,7 +29,7 @@ export const InputWithCounter = React.forwardRef(
     const [file, setFile] = useState<File | undefined>(undefined);
     const {
       label,
-      required,
+      isRequiredField,
       containerProps,
       errorMessage,
       fileProps,
@@ -63,10 +64,16 @@ export const InputWithCounter = React.forwardRef(
     return (
       <div className={classNames} {...containerProps}>
         <div className={s.inputContainer}>
-          <label className={s.mainLabel} htmlFor={restProps?.id}>
-            {label}
-            {required && <sup className={s.required}> *</sup>}
-          </label>
+          {/*<label className={s.mainLabel} htmlFor={restProps?.id}>*/}
+          {/*  {label}*/}
+          {/*  {required && <sup className={s.required}> *</sup>}*/}
+          {/*</label>*/}
+          <Label
+            text={label}
+            isRequiredField={isRequiredField}
+            htmlFor={restProps?.id}
+            className={s.mainLabel}
+          />
           <div className={s.position}>
             <TextareaAutosize
               ref={ref}

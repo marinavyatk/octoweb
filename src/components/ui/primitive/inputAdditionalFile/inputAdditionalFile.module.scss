@@ -3,14 +3,6 @@
   flex-direction: column;
   gap: 32px;
 
-  .label {
-    color: var(--color-light-100);
-    font-size: var(--font-size-xss);
-    font-weight: var(--font-weight-regular-400);
-    line-height: var(--line-height-140);
-    text-transform: uppercase;
-  }
-
   .attachedFiles {
     display: flex;
     flex-direction: column;

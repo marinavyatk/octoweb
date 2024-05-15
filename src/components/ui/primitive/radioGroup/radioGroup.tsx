@@ -3,6 +3,7 @@ import * as RadioGroup from "@radix-ui/react-radio-group";
 import { RadioGroupProps } from "@radix-ui/react-radio-group";
 import s from "./radioGroup.module.scss";
 import clsx from "clsx";
+import { Label } from "../label/label.tsx";
 
 type radioItem = {
   label: string;
@@ -10,21 +11,24 @@ type radioItem = {
 };
 export type RadioGroupComponentProps = {
   mainLabel: string;
-  required: boolean;
+  isRequiredField: boolean;
   radioItems: radioItem[];
 } & RadioGroupProps;
 export const RadioGroupComponent = forwardRef<
   HTMLDivElement,
   RadioGroupComponentProps
 >((props: RadioGroupComponentProps, ref) => {
-  const { mainLabel, required, radioItems = [], className, ...rest } = props;
+  const {
+    mainLabel,
+    isRequiredField,
+    radioItems = [],
+    className,
+    ...rest
+  } = props;
   const classNames = clsx(s.radioRoot, className);
   return (
     <RadioGroup.Root className={classNames} {...rest} ref={ref}>
-      <span className={s.mainLabel}>
-        {mainLabel}
-        {required && <sup className={s.required}> *</sup>}
-      </span>
+      <Label text={mainLabel} isRequiredField={isRequiredField} />
       <div className={s.radioItems}>
         {radioItems.length &&
           radioItems.map((item) => {

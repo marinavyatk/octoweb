@@ -583,21 +583,21 @@ export const BriefPage = () => {
                 <h2>Контактная информация</h2>
                 <Input
                   label={allFields.contactInfo.name.label}
-                  required={allFields.contactInfo.name.required}
+                  isRequiredField={allFields.contactInfo.name.required}
                   placeholder={allFields.contactInfo.name.placeholder}
                   {...register("contactInfo.name")}
                   errorMessage={errors.contactInfo?.name?.message}
                 />
                 <Input
                   label={allFields.contactInfo.position.label}
-                  required={allFields.contactInfo.position.required}
+                  isRequiredField={allFields.contactInfo.position.required}
                   placeholder={allFields.contactInfo.position.placeholder}
                   {...register("contactInfo.position")}
                   errorMessage={errors.contactInfo?.position?.message}
                 />
                 <Input
                   label={allFields.contactInfo.tel.label}
-                  required={allFields.contactInfo.tel.required}
+                  isRequiredField={allFields.contactInfo.tel.required}
                   type={"tel"}
                   placeholder={allFields.contactInfo.tel.placeholder}
                   {...register("contactInfo.tel")}
@@ -605,7 +605,7 @@ export const BriefPage = () => {
                 />
                 <Input
                   label={allFields.contactInfo.email.label}
-                  required={allFields.contactInfo.email.required}
+                  isRequiredField={allFields.contactInfo.email.required}
                   type={"email"}
                   placeholder={allFields.contactInfo.email.placeholder}
                   {...register("contactInfo.email")}
@@ -613,7 +613,9 @@ export const BriefPage = () => {
                 />
                 <RadioCheckboxGroup
                   mainLabel={allFields.contactInfo.communicationWay.label}
-                  required={allFields.contactInfo.communicationWay.required}
+                  isRequiredField={
+                    allFields.contactInfo.communicationWay.required
+                  }
                   checkboxItems={[
                     {
                       label: "Telegram",
@@ -649,7 +651,7 @@ export const BriefPage = () => {
                 <h2>О компании и продукте</h2>
                 <Input
                   label={allFields.about.companyName.label}
-                  required={allFields.about.companyName.required}
+                  isRequiredField={allFields.about.companyName.required}
                   placeholder={allFields.about.companyName.placeholder}
                   {...register("about.companyName")}
                   errorMessage={errors.about?.companyName?.message}
@@ -657,14 +659,14 @@ export const BriefPage = () => {
                 <Input
                   as={TextareaAutosize}
                   label={allFields.about.semantics.label}
-                  required={allFields.about.semantics.required}
+                  isRequiredField={allFields.about.semantics.required}
                   placeholder={allFields.about.semantics.placeholder}
                   {...register("about.semantics")}
                   errorMessage={errors.about?.semantics?.message}
                 />
                 <Input
                   label={allFields.about.field.label}
-                  required={allFields.about.field.required}
+                  isRequiredField={allFields.about.field.required}
                   placeholder={allFields.about.field.placeholder}
                   {...register("about.field")}
                   errorMessage={errors.about?.field?.message}
@@ -672,7 +674,7 @@ export const BriefPage = () => {
                 <Input
                   as={TextareaAutosize}
                   label={allFields.about.productsAndServices.label}
-                  required={allFields.about.productsAndServices.required}
+                  isRequiredField={allFields.about.productsAndServices.required}
                   placeholder={allFields.about.productsAndServices.placeholder}
                   {...register("about.productsAndServices")}
                   errorMessage={errors.about?.productsAndServices?.message}
@@ -680,7 +682,7 @@ export const BriefPage = () => {
                 <Input
                   as={TextareaAutosize}
                   label={allFields.about.productsAndServicesDescription.label}
-                  required={
+                  isRequiredField={
                     allFields.about.productsAndServicesDescription.required
                   }
                   placeholder={
@@ -693,7 +695,7 @@ export const BriefPage = () => {
                 />
                 <Input
                   label={allFields.about.priorityProductsAndServices.label}
-                  required={
+                  isRequiredField={
                     allFields.about.priorityProductsAndServices.required
                   }
                   placeholder={
@@ -707,7 +709,7 @@ export const BriefPage = () => {
                 <Input
                   as={TextareaAutosize}
                   label={allFields.about.offerUniqueness.label}
-                  required={allFields.about.offerUniqueness.required}
+                  isRequiredField={allFields.about.offerUniqueness.required}
                   placeholder={allFields.about.offerUniqueness.placeholder}
                   {...register("about.offerUniqueness")}
                   errorMessage={errors.about?.offerUniqueness?.message}
@@ -715,7 +717,7 @@ export const BriefPage = () => {
                 <Input
                   as={TextareaAutosize}
                   label={allFields.about.disadvantages.label}
-                  required={allFields.about.disadvantages.required}
+                  isRequiredField={allFields.about.disadvantages.required}
                   placeholder={allFields.about.disadvantages.placeholder}
                   {...register("about.disadvantages")}
                   errorMessage={errors.about?.disadvantages?.message}
@@ -723,7 +725,7 @@ export const BriefPage = () => {
                 <Input
                   as={TextareaAutosize}
                   label={allFields.about.geography.label}
-                  required={allFields.about.geography.required}
+                  isRequiredField={allFields.about.geography.required}
                   placeholder={allFields.about.geography.placeholder}
                   {...register("about.geography")}
                   errorMessage={errors.about?.geography?.message}
@@ -731,28 +733,28 @@ export const BriefPage = () => {
                 <Input
                   as={TextareaAutosize}
                   label={allFields.about.shortCompanyInfo.label}
-                  required={allFields.about.shortCompanyInfo.required}
+                  isRequiredField={allFields.about.shortCompanyInfo.required}
                   placeholder={allFields.about.shortCompanyInfo.placeholder}
                   {...register("about.shortCompanyInfo")}
                   errorMessage={errors.about?.shortCompanyInfo?.message}
                 />
                 <Input
                   label={allFields.about.site.label}
-                  required={allFields.about.site.required}
+                  isRequiredField={allFields.about.site.required}
                   placeholder={allFields.about.site.placeholder}
                   {...register("about.site")}
                   errorMessage={errors.about?.site?.message}
                 />
                 <Input
                   label={allFields.about.socialNetworks.label}
-                  required={allFields.about.socialNetworks.required}
+                  isRequiredField={allFields.about.socialNetworks.required}
                   placeholder={allFields.about.socialNetworks.placeholder}
                   {...register("about.socialNetworks")}
                   errorMessage={errors.about?.socialNetworks?.message}
                 />
                 <Input
                   label={allFields.about.competitors.label}
-                  required={allFields.about.competitors.required}
+                  isRequiredField={allFields.about.competitors.required}
                   placeholder={allFields.about.competitors.placeholder}
                   {...register("about.competitors")}
                   errorMessage={errors.about?.competitors?.message}
@@ -763,7 +765,7 @@ export const BriefPage = () => {
                 <h2>Детализация задачи</h2>
                 <FormRadioGroup
                   mainLabel={allFields.details.siteType.label}
-                  required={allFields.details.siteType.required}
+                  isRequiredField={allFields.details.siteType.required}
                   name={"details.siteType"}
                   control={control}
                   radioItems={[
@@ -779,14 +781,14 @@ export const BriefPage = () => {
                 <Input
                   as={TextareaAutosize}
                   label={allFields.details.goals.label}
-                  required={allFields.details.goals.required}
+                  isRequiredField={allFields.details.goals.required}
                   placeholder={allFields.details.goals.placeholder}
                   {...register("details.goals")}
                   errorMessage={errors.details?.goals?.message}
                 />
                 <RadioCheckboxGroup
                   mainLabel={allFields.details.usersTargetAction.label}
-                  required={allFields.details.usersTargetAction.required}
+                  isRequiredField={allFields.details.usersTargetAction.required}
                   checkboxItems={[
                     {
                       label: "Купить",
@@ -833,7 +835,7 @@ export const BriefPage = () => {
                 />
                 <Input
                   label={allFields.details.competitorsSites.label}
-                  required={allFields.details.competitorsSites.required}
+                  isRequiredField={allFields.details.competitorsSites.required}
                   placeholder={allFields.details.competitorsSites.placeholder}
                   {...register("details.competitorsSites")}
                   errorMessage={errors.details?.competitorsSites?.message}
@@ -841,7 +843,7 @@ export const BriefPage = () => {
                 <Input
                   as={TextareaAutosize}
                   label={allFields.details.advantagesCompetitorsSites.label}
-                  required={
+                  isRequiredField={
                     allFields.details.advantagesCompetitorsSites.required
                   }
                   placeholder={
@@ -852,38 +854,53 @@ export const BriefPage = () => {
                     errors.details?.advantagesCompetitorsSites?.message
                   }
                 />
-                <Input
-                  as={TextareaAutosize}
-                  label={allFields.details.disadvantagesCompetitorsSites.label}
-                  required={
-                    allFields.details.disadvantagesCompetitorsSites.required
-                  }
-                  placeholder={
-                    allFields.details.disadvantagesCompetitorsSites.placeholder
-                  }
-                  {...register("details.disadvantagesCompetitorsSites")}
-                  errorMessage={
-                    errors.details?.disadvantagesCompetitorsSites?.message
-                  }
-                />
+                <div className={s.fieldWithAccent}>
+                  <label
+                    htmlFor="details.disadvantagesCompetitorsSites"
+                    className={s.label}
+                  >
+                    Чем <span className={s.accent}>не</span> нравятся сайты
+                    конкурентов
+                    {allFields.details.disadvantagesCompetitorsSites
+                      .required && <sup className={s.required}> *</sup>}
+                  </label>
+                  <Input
+                    as={TextareaAutosize}
+                    placeholder={
+                      allFields.details.disadvantagesCompetitorsSites
+                        .placeholder
+                    }
+                    {...register("details.disadvantagesCompetitorsSites")}
+                    name={"details.disadvantagesCompetitorsSites"}
+                    errorMessage={
+                      errors.details?.disadvantagesCompetitorsSites?.message
+                    }
+                  />
+                </div>
                 <Input
                   label={allFields.details.sitesYouLike.label}
-                  required={allFields.details.sitesYouLike.required}
+                  isRequiredField={allFields.details.sitesYouLike.required}
                   placeholder={allFields.details.sitesYouLike.placeholder}
                   {...register("details.sitesYouLike")}
                   errorMessage={errors.details?.sitesYouLike?.message}
                 />
-                <Input
-                  label={allFields.details.sitesYouDislike.label}
-                  required={allFields.details.sitesYouDislike.required}
-                  placeholder={allFields.details.sitesYouDislike.placeholder}
-                  {...register("details.sitesYouDislike")}
-                  errorMessage={errors.details?.sitesYouDislike?.message}
-                />
+                <div className={s.fieldWithAccent}>
+                  <label htmlFor="details.sitesYouDislike" className={s.label}>
+                    Сайты, которые <span className={s.accent}>не</span> нравятся
+                    {allFields.details.sitesYouDislike.required && (
+                      <sup className={s.required}> *</sup>
+                    )}
+                  </label>
+                  <Input
+                    placeholder={allFields.details.sitesYouDislike.placeholder}
+                    {...register("details.sitesYouDislike")}
+                    errorMessage={errors.details?.sitesYouDislike?.message}
+                  />
+                </div>
                 <Input
                   as={TextareaAutosize}
                   label={allFields.details.preferredColors.label}
-                  required={allFields.details.preferredColors.required}
+                  isRequiredField={allFields.details.preferredColors.required}
                   placeholder={allFields.details.preferredColors.placeholder}
                   {...register("details.preferredColors")}
                   errorMessage={errors.details?.preferredColors?.message}
@@ -891,14 +908,14 @@ export const BriefPage = () => {
                 <Input
                   as={TextareaAutosize}
                   label={allFields.details.unwantedColors.label}
-                  required={allFields.details.unwantedColors.required}
+                  isRequiredField={allFields.details.unwantedColors.required}
                   placeholder={allFields.details.unwantedColors.placeholder}
                   {...register("details.unwantedColors")}
                   errorMessage={errors.details?.unwantedColors?.message}
                 />
                 <RadioCheckboxGroup
                   mainLabel={allFields.details.siteFunctionality.label}
-                  required={allFields.details.siteFunctionality.required}
+                  isRequiredField={allFields.details.siteFunctionality.required}
                   checkboxItems={[
                     {
                       label: "CRM",
@@ -970,14 +987,14 @@ export const BriefPage = () => {
                 />
                 <Input
                   label={allFields.details.specificSystem.label}
-                  required={allFields.details.specificSystem.required}
+                  isRequiredField={allFields.details.specificSystem.required}
                   placeholder={allFields.details.specificSystem.placeholder}
                   {...register("details.specificSystem")}
                   errorMessage={errors.details?.specificSystem?.message}
                 />
                 <FormRadioGroup
                   mainLabel={allFields.details.seo.label}
-                  required={allFields.details.seo.required}
+                  isRequiredField={allFields.details.seo.required}
                   name={"details.seo"}
                   control={control}
                   radioItems={[
@@ -989,7 +1006,7 @@ export const BriefPage = () => {
                 />
                 <FormRadioGroup
                   mainLabel={allFields.details.copywriting.label}
-                  required={allFields.details.copywriting.required}
+                  isRequiredField={allFields.details.copywriting.required}
                   name={"details.copywriting"}
                   control={control}
                   radioItems={[
@@ -1005,7 +1022,9 @@ export const BriefPage = () => {
                 <h2>Целевая аудитория</h2>
                 <FormRadioGroup
                   mainLabel={allFields.targetGroup.knowTargetAudience.label}
-                  required={allFields.targetGroup.knowTargetAudience.required}
+                  isRequiredField={
+                    allFields.targetGroup.knowTargetAudience.required
+                  }
                   name={"targetGroup.knowTargetAudience"}
                   control={control}
                   radioItems={[
@@ -1019,14 +1038,14 @@ export const BriefPage = () => {
                     <div className={s.twoColumns}>
                       <Input
                         label={allFields.targetGroup.sex.label}
-                        required={allFields.targetGroup.sex.required}
+                        isRequiredField={allFields.targetGroup.sex.required}
                         placeholder={allFields.targetGroup.sex.placeholder}
                         {...register("targetGroup.sex")}
                         errorMessage={errors.targetGroup?.sex?.message}
                       />
                       <Input
                         label={allFields.targetGroup.age.label}
-                        required={allFields.targetGroup.age.required}
+                        isRequiredField={allFields.targetGroup.age.required}
                         placeholder={allFields.targetGroup.age.placeholder}
                         {...register("targetGroup.age")}
                         errorMessage={errors.targetGroup?.age?.message}
@@ -1035,7 +1054,7 @@ export const BriefPage = () => {
                     <Input
                       as={TextareaAutosize}
                       label={allFields.targetGroup.income.label}
-                      required={allFields.targetGroup.income.required}
+                      isRequiredField={allFields.targetGroup.income.required}
                       placeholder={allFields.targetGroup.income.placeholder}
                       {...register("targetGroup.income")}
                       errorMessage={errors.targetGroup?.income?.message}
@@ -1043,7 +1062,7 @@ export const BriefPage = () => {
                     <Input
                       as={TextareaAutosize}
                       label={allFields.targetGroup.interests.label}
-                      required={allFields.targetGroup.interests.required}
+                      isRequiredField={allFields.targetGroup.interests.required}
                       placeholder={allFields.targetGroup.interests.placeholder}
                       {...register("targetGroup.interests")}
                       errorMessage={errors.targetGroup?.interests?.message}
@@ -1051,7 +1070,7 @@ export const BriefPage = () => {
                     <Input
                       as={TextareaAutosize}
                       label={allFields.targetGroup.useInteractionStages.label}
-                      required={
+                      isRequiredField={
                         allFields.targetGroup.useInteractionStages.required
                       }
                       placeholder={
@@ -1065,7 +1084,7 @@ export const BriefPage = () => {
                     <Input
                       as={TextareaAutosize}
                       label={allFields.targetGroup.communicationChannels.label}
-                      required={
+                      isRequiredField={
                         allFields.targetGroup.communicationChannels.required
                       }
                       placeholder={
@@ -1079,7 +1098,9 @@ export const BriefPage = () => {
                     <Input
                       as={TextareaAutosize}
                       label={allFields.targetGroup.intensityOfUse.label}
-                      required={allFields.targetGroup.intensityOfUse.required}
+                      isRequiredField={
+                        allFields.targetGroup.intensityOfUse.required
+                      }
                       placeholder={
                         allFields.targetGroup.intensityOfUse.placeholder
                       }
@@ -1094,7 +1115,9 @@ export const BriefPage = () => {
                 <h2>Материалы</h2>
                 <FormRadioGroup
                   mainLabel={allFields.materials.materialsDevelopment.label}
-                  required={allFields.materials.materialsDevelopment.required}
+                  isRequiredField={
+                    allFields.materials.materialsDevelopment.required
+                  }
                   name={"materials.materialsDevelopment"}
                   control={control}
                   radioItems={[
@@ -1106,7 +1129,9 @@ export const BriefPage = () => {
                 {currentValues.materials?.materialsDevelopment === "yes" && (
                   <Input
                     label={allFields.materials.materialsToDevelop.label}
-                    required={allFields.materials.materialsToDevelop.required}
+                    isRequiredField={
+                      allFields.materials.materialsToDevelop.required
+                    }
                     placeholder={
                       allFields.materials.materialsToDevelop.placeholder
                     }
@@ -1122,7 +1147,7 @@ export const BriefPage = () => {
                   mainLabel={
                     allFields.additionalInfo.numberOfLanguageVersions.label
                   }
-                  required={
+                  isRequiredField={
                     allFields.additionalInfo.numberOfLanguageVersions.required
                   }
                   name={"additionalInfo.numberOfLanguageVersions"}
@@ -1135,7 +1160,7 @@ export const BriefPage = () => {
                 />
                 <Input
                   label={allFields.additionalInfo.budget.label}
-                  required={allFields.additionalInfo.budget.required}
+                  isRequiredField={allFields.additionalInfo.budget.required}
                   placeholder={allFields.additionalInfo.budget.placeholder}
                   {...register("additionalInfo.budget")}
                   errorMessage={errors.additionalInfo?.budget?.message}
@@ -1145,7 +1170,7 @@ export const BriefPage = () => {
                     allFields.additionalInfo.technicalSpecificationAvailable
                       .label
                   }
-                  required={
+                  isRequiredField={
                     allFields.additionalInfo.technicalSpecificationAvailable
                       .required
                   }
@@ -1163,7 +1188,7 @@ export const BriefPage = () => {
                 />
                 <FormRadioGroup
                   mainLabel={allFields.additionalInfo.siteAdministration.label}
-                  required={
+                  isRequiredField={
                     allFields.additionalInfo.siteAdministration.required
                   }
                   name={"additionalInfo.siteAdministration"}
@@ -1176,7 +1201,9 @@ export const BriefPage = () => {
                 <Input
                   as={TextareaAutosize}
                   label={allFields.additionalInfo.additionalInfo.label}
-                  required={allFields.additionalInfo.additionalInfo.required}
+                  isRequiredField={
+                    allFields.additionalInfo.additionalInfo.required
+                  }
                   placeholder={
                     allFields.additionalInfo.additionalInfo.placeholder
                   }
