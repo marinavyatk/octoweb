@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     stepNumber: "01",
-    title: "Первый контакт",
+    header: "Первый контакт",
     description:
       "Знакомимся с вами, оцениваем цели и задачи проекта, составляем техническое задание",
   },

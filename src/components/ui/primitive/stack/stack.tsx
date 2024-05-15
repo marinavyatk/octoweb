@@ -5,12 +5,12 @@ import { Tag } from "../tag/tag.tsx";
 
 export type StackProps = {
   number: string;
-  title: string;
+  header: string;
   tags: string[];
 } & ComponentPropsWithoutRef<"div">;
 
 export const Stack = (props: StackProps) => {
-  const { number, title, tags, className, ...restProps } = props;
+  const { number, header, tags, className, ...restProps } = props;
   const classNames = clsx(s.stack, className);
   const tagList = tags.map((tag) => {
     return (
@@ -24,7 +24,7 @@ export const Stack = (props: StackProps) => {
     <div {...restProps} className={classNames}>
       <div className={s.text}>
         <span className={s.number}>{number}</span>
-        <span className={s.title}>{title}</span>
+        <span className={s.title}>{header}</span>
       </div>
       <div className={s.tagList}>{tagList}</div>
     </div>

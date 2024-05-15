@@ -11,22 +11,22 @@ export const StackList = (props: StackListProps) => {
   const stackData = [
     {
       number: "01",
-      title: "Backend",
+      header: "Backend",
       tags: ["PHP", "Laravel", "Node.js"],
     },
     {
       number: "02",
-      title: "Frontend",
+      header: "Frontend",
       tags: ["React", "Vue.js", "JavaScript", "jQuery"],
     },
     {
       number: "03",
-      title: "UI/UX",
+      header: "UI/UX",
       tags: ["Figma", "Sketch", "Illustrator", "Photoshop"],
     },
     {
       number: "04",
-      title: "CMS",
+      header: "CMS",
       tags: ["1C-Битрикс", "WordPress", "MODX", "Drupal", "Tilda", "OpenCart"],
     },
   ];
@@ -35,7 +35,7 @@ export const StackList = (props: StackListProps) => {
     return (
       <Stack
         number={stack.number}
-        title={stack.title}
+        header={stack.header}
         tags={stack.tags}
         key={stack.number}
       />
