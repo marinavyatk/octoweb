@@ -1,27 +1,3 @@
-.buttons {
-  display: flex;
-  gap: 32px;
-  justify-content: flex-end;
-  //margin: 0 124px 70px 0;
-}
-
-.cards {
-  display: flex;
-  gap: 24px;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  user-select: none;
-  padding: 0 16px;
-  margin-left: 124px;
-  transition: margin-left 0.2s;
-
-  &::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-  }
-}
-
 .teamBlock {
   .header {
     display: flex;
@@ -29,5 +5,39 @@
     align-items: end;
     margin-bottom: 70px;
     padding: 0 124px;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 32px;
+    justify-content: flex-end;
+  }
+
+  .cards {
+    display: flex;
+    gap: 24px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    user-select: none;
+    padding: 0 16px;
+    transition: margin-left 0.2s;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+  }
+
+  .swiperSlide {
+    width: 536px !important;
+
+    &:first-child {
+      margin-left: 124px;
+    }
+
+    &:last-child {
+      margin-right: 124px;
+    }
   }
 }
