@@ -2,6 +2,8 @@ import { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 import s from "./caseCircleList.module.scss";
 import { CaseCircle } from "../../primitive/caseCircle/caseCircle.tsx";
+import { ScrollContainer } from "react-indiana-drag-scroll";
+import "react-indiana-drag-scroll/dist/style.css";
 
 export type CaseCircleProps = {
   caseCircles: CaseCircle[];
@@ -22,8 +24,6 @@ export const CaseCircleList = (props: CaseCircleProps) => {
   });
 
   return (
-    <div {...restProps} className={classNames}>
-      {CaseCircles}
-    </div>
+    <ScrollContainer className={classNames}>{CaseCircles}</ScrollContainer>
   );
 };

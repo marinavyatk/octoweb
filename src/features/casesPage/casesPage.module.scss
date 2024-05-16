@@ -25,6 +25,15 @@
     margin-top: 0;
   }
 }
+
+.caseCircleList {
+  margin: 86px 0 237px;
+
+  a:first-child {
+    margin-left: 124px;
+  }
+}
+
 .casesList {
   display: flex;
   flex-wrap: wrap;
