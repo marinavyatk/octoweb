@@ -8,6 +8,8 @@ import {
 import CaseCircleBotanica from "../../assets/webp/case-circle-botanica.png";
 import CaseCirclePlastic from "../../assets/webp/case-circle-plastic.png";
 import CaseCircleEkvadrat from "../../assets/webp/case-circle-e-kvadrat.png";
+import CaseCircleDemarko from "../../assets/webp/case-circle-demarko.png";
+import CaseCircleShortrid from "../../assets/webp/case-circle-shortrid.png";
 import { FilterButton } from "../../components/ui/primitive/filterButton/filterButton.tsx";
 import { useState } from "react";
 import { CaseCircleList } from "../../components/ui/complex/caseCircleList/caseCircleList.tsx";
@@ -26,6 +28,11 @@ const circles: CaseCircle[] = [
   { img: CaseCircleBotanica, caseId: "botanica", category: "Web" },
   { img: CaseCirclePlastic, caseId: "plastic", category: "Ads" },
   { img: CaseCircleEkvadrat, caseId: "ekvadrat", category: "Seo" },
+  { img: CaseCircleDemarko, caseId: "demarko", category: "Web" },
+  { img: CaseCircleShortrid, caseId: "goodwood", category: "Ads" },
+  { img: CaseCircleBotanica, caseId: "botanica2", category: "Web" },
+  { img: CaseCirclePlastic, caseId: "plastic2", category: "Ads" },
+  { img: CaseCircleEkvadrat, caseId: "ekvadrat2", category: "Seo" },
 ];
 
 const casesData = [
@@ -126,6 +133,7 @@ export const CasesPage = () => {
         size={size as Size}
         header={card.header}
         className={cardClassName}
+        key={card.header}
       />
     ) : (
       <CaseCardFullWidth
@@ -134,6 +142,7 @@ export const CasesPage = () => {
         img={card.img}
         header={card.header}
         className={cardClassName}
+        key={card.header}
       />
     );
   });
@@ -147,8 +156,11 @@ export const CasesPage = () => {
             <h1>КЕЙСЫ</h1>
             <div className={s.filterButtons}>{filterButtons}</div>
           </div>
-          <CaseCircleList caseCircles={filteredCases} />
         </div>
+        <CaseCircleList
+          caseCircles={filteredCases}
+          className={s.caseCircleList}
+        />
         <div className={s.casesList}>{cases}</div>
         <FooterWithForm />
       </div>
