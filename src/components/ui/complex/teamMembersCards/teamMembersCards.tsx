@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef, useRef, useState } from "react";
+import { useRef } from "react";
 import clsx from "clsx";
 import s from "./teamMembersCards.module.scss";
 import {
@@ -6,106 +6,45 @@ import {
   TeamMemberCard,
 } from "../../primitive/teamMemberCard/teamMemberCard.tsx";
 import { ArrowNavigationButton } from "../../primitive/arrowNavigationButton/arrowNavigationButton.tsx";
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
 
 export type TeamMemberCardsProps = {
   teamMembers: TeamMember[];
-} & ComponentPropsWithoutRef<"div">;
+  className: string;
+};
 
 export const TeamMemberCards = (props: TeamMemberCardsProps) => {
-  //need to fix
-
-  const { teamMembers, className, ...restProps } = props;
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState<number | null>(null);
-  const [scrollLeft, setScrollLeft] = useState<number | null>(null);
-  const [currentCard, setCurrentCard] = useState(0);
-
-  const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
-    setIsDragging(true);
-    setStartX(event.pageX - containerRef.current.offsetLeft);
-    setScrollLeft(containerRef.current.scrollLeft);
-  };
-
-  const handleMouseMove = (event: MouseEvent) => {
-    if (!isDragging || !startX || scrollLeft === null) return;
-    const x = event.pageX - containerRef.current!.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    containerRef.current!.scrollLeft = scrollLeft - walk;
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  React.useEffect(() => {
-    if (isDragging) {
-      document.addEventListener("mousemove", handleMouseMove);
-      document.addEventListener("mouseup", handleMouseUp);
-    } else {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
-    }
-
-    scrollContainer();
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
-    };
-  }, [isDragging, startX, scrollLeft, currentCard]);
-
+  const { teamMembers, className } = props;
+  const swiperRef = useRef<SwiperClass>(null);
   const classNames = clsx(s.teamBlock, className);
-  const teamMemberList = teamMembers.map((member) => {
+  const teamMemberList = teamMembers.map((member, index) => {
     return (
-      <TeamMemberCard
-        workExperience={member.workExperience}
-        name={member.name}
-        specialization={member.specialization}
-        description={member.description}
-        img={member.img}
+      <SwiperSlide
+        virtualIndex={index}
         key={member.specialization}
-        className={s.cardItem}
-      />
+        className={s.swiperSlide}
+      >
+        <TeamMemberCard
+          workExperience={member.workExperience}
+          name={member.name}
+          specialization={member.specialization}
+          description={member.description}
+          img={member.img}
+          className={s.cardItem}
+        />
+      </SwiperSlide>
     );
   });
 
-  //carousel
-  const cardsOnPage = 3;
-  const handlePreviousClick = () => {
-    const previous = currentCard - 1;
-    setCurrentCard(
-      previous < 0
-        ? teamMembers.length - 1
-        : teamMembers.length - previous <= 4
-          ? teamMembers.length - (cardsOnPage + 1)
-          : previous,
-    );
+  const handleSwiper = (swiper: SwiperClass) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    swiperRef.current = swiper;
   };
-
-  const handleNextClick = () => {
-    const next = currentCard + 1;
-    setCurrentCard(
-      next === teamMembers.length - (cardsOnPage - 1) ||
-        next > teamMembers.length - 1
-        ? 0
-        : next,
-    );
-  };
-
-  const scrollContainer = () => {
-    if (containerRef.current) {
-      containerRef.current.children[currentCard].scrollIntoView({
-        inline: "start",
-        block: "center",
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const style = {
-    marginLeft: currentCard !== 0 ? "0" : undefined,
-  };
+  const handlePrevButtonClick = () => swiperRef.current?.slidePrev();
+  const handleNextButtonClick = () => swiperRef.current?.slideNext();
 
   return (
     <div className={classNames} id={"team"}>
@@ -114,22 +53,22 @@ export const TeamMemberCards = (props: TeamMemberCardsProps) => {
         <div className={s.buttons}>
           <ArrowNavigationButton
             variant={"previous"}
-            onClick={handlePreviousClick}
+            onClick={handlePrevButtonClick}
           />
-          <ArrowNavigationButton variant={"next"} onClick={handleNextClick} />
+          <ArrowNavigationButton
+            variant={"next"}
+            onClick={handleNextButtonClick}
+          />
         </div>
       </div>
-
-      <div
-        {...restProps}
+      <Swiper
         className={s.cards}
-        ref={containerRef}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-        style={style}
+        slidesPerView={"auto"}
+        spaceBetween={24}
+        onSwiper={handleSwiper}
       >
         {teamMemberList}
-      </div>
+      </Swiper>
     </div>
   );
 };

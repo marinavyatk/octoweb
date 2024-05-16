@@ -6,7 +6,6 @@ import { StackList } from "../../components/ui/complex/stackList/stackList.tsx";
 import { TeamMemberCards } from "../../components/ui/complex/teamMembersCards/teamMembersCards.tsx";
 import Temp from "../../assets/webp/temp.png";
 import FrontendDev from "../../assets/webp/frontendDev.webp";
-import { useEffect } from "react";
 
 const teamMembersInfo = [
   {
@@ -76,10 +75,6 @@ const teamMembersInfo = [
 ];
 
 export const AboutPage = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0); // прокрутить страницу в начало при загрузке
-  }, []);
-
   return (
     <div className={s.aboutPage}>
       <Header />
