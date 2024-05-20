@@ -23,10 +23,6 @@ export const Navbar = (props: NavbarProps) => {
       to: routes.cases,
     },
     {
-      title: "Команда",
-      to: routes.team,
-    },
-    {
       title: "Блог",
       to: routes.blog,
     },
