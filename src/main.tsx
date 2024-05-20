@@ -13,6 +13,7 @@ import { ContactsPage } from "./features/contactsPage/contactsPage.tsx";
 import { AboutPage } from "./features/aboutPage/aboutPage.tsx";
 import { CasesPage } from "./features/casesPage/casesPage.tsx";
 import { BriefPage } from "./features/briefPage/briefPage.tsx";
+import { BlogPage } from "./features/blogPage/blogPage.tsx";
 
 const router = createBrowserRouter(
   [
@@ -37,12 +38,8 @@ const router = createBrowserRouter(
       element: <CasesPage />,
     },
     {
-      path: routes.team,
-      element: <div style={{ color: "white" }}>under construction</div>,
-    },
-    {
       path: routes.blog,
-      element: <div style={{ color: "white" }}>under construction</div>,
+      element: <BlogPage />,
     },
     {
       path: routes.contacts,
