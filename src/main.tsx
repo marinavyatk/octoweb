@@ -14,6 +14,7 @@ import { AboutPage } from "./features/aboutPage/aboutPage.tsx";
 import { CasesPage } from "./features/casesPage/casesPage.tsx";
 import { BriefPage } from "./features/briefPage/briefPage.tsx";
 import { BlogPage } from "./features/blogPage/blogPage.tsx";
+import { CasePage } from "./features/casePage/casePage.tsx";
 
 const router = createBrowserRouter(
   [
@@ -48,6 +49,10 @@ const router = createBrowserRouter(
     {
       path: routes.brief,
       element: <BriefPage />,
+    },
+    {
+      path: routes.case,
+      element: <CasePage />,
     },
   ],
   { basename: "/octoweb" },

@@ -10,6 +10,7 @@
     line-height: var(--line-height-140);
     text-transform: uppercase;
     opacity: 0.8;
+    font-weight: var(--font-weight-regular-400);
   }
 
   .linkWithName {
@@ -26,9 +27,22 @@
     padding: 16px;
     background-color: var(--color-dark-secondary);
     border-radius: 50%;
+    transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
 
     svg {
       width: 27px;
+      fill: var(--color-light-100);
+      transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+    }
+
+    &:hover {
+      background-color: var(--color-accent);
+      transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+      svg {
+        fill: var(--color-dark-primary);
+        transform: rotate(45deg);
+        transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+      }
     }
   }
 }

@@ -7,4 +7,5 @@ export const routes = {
   blog: "/blog",
   contacts: "/contacts",
   brief: "/brief",
+  case: "/cases/:caseName",
 };

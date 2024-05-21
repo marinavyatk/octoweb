@@ -1,0 +1,149 @@
+.mainContainer {
+  padding: 0 124px;
+}
+
+.subheader {
+  opacity: 0.8;
+  font-size: var(--font-size-xss);
+  line-height: var(--line-height-140);
+  font-weight: var(--font-weight-regular-400);
+  text-transform: uppercase;
+}
+
+.casePageContent {
+  max-width: 1920px;
+  width: 100%;
+  margin: auto;
+  font-weight: var(--font-weight-regular-300);
+  font-size: var(--font-size-smm);
+  line-height: var(--line-height-200);
+  color: var(--color-light-100);
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .tagList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 24px 0 96px;
+
+    .tag {
+      transition: all 0.4s cubic-bezier(0.72, 0.01, 0.58, 1);
+
+      &:hover {
+        background-color: var(--color-accent);
+        border-color: var(--color-accent);
+        color: var(--color-dark-primary);
+        transition: all 0.4s cubic-bezier(0.72, 0.01, 0.58, 1);
+      }
+    }
+  }
+
+  .topCaption {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    gap: 30px;
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+
+  .mainImgContainer {
+    width: 100%;
+    height: 1200px;
+    clip-path: path(
+      "M1920 48C1920 21.4903 1898.51 0 1872 0H48C21.4903 0 0 21.4903 0 48V982C0 1008.51 21.4903 1030 48 1030H1354C1380.51 1030 1402 1051.49 1402 1078V1152C1402 1178.51 1423.49 1200 1450 1200H1872C1898.51 1200 1920 1178.51 1920 1152V48Z"
+    );
+    background-color: var(--color-dark-secondary);
+    overflow: hidden;
+  }
+
+  .description {
+    width: 1246px;
+    margin: -100px 32px 0 124px;
+  }
+
+  .taskBlock {
+    border-top: 1px solid var(--color-light-40);
+    margin-top: 168px;
+
+    .taskHeader {
+      padding: 56px 0 0;
+      display: flex;
+      justify-content: space-between;
+
+      .taskDescription {
+        width: 50%;
+        font-weight: var(--font-weight-regular-250);
+        font-size: var(--font-size-sm);
+      }
+    }
+  }
+
+  .images {
+    display: flex;
+    gap: 32px;
+    margin: 130px 0 108px;
+
+    .smallImg {
+      border-radius: 48px;
+      width: 536px;
+      height: 532px;
+      overflow: hidden;
+    }
+
+    .mediumImg {
+      border-radius: 48px;
+      width: 1104px;
+      height: 1079px;
+      overflow: hidden;
+    }
+  }
+
+  .bigImg {
+    border-radius: 48px;
+    width: 1920px;
+    height: 1270px;
+    overflow: hidden;
+  }
+
+  .stackTech {
+    display: flex;
+    flex-direction: column;
+    line-height: var(--line-height-160);
+    margin-top: 16px;
+    font-weight: var(--font-weight-regular-250);
+
+    b {
+      font-weight: var(--font-weight-regular-400);
+    }
+  }
+
+  .resultBlock {
+    display: flex;
+    justify-content: space-between;
+    gap: 209px;
+    margin: 120px 0 300px;
+
+    .resultInfo {
+      display: flex;
+      flex-direction: column;
+      gap: 70px;
+    }
+
+    .resultDescription {
+      font-weight: var(--font-weight-regular-250);
+      font-size: var(--font-size-sm);
+      width: 58%;
+    }
+  }
+}
