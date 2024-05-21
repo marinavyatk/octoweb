@@ -10,6 +10,7 @@
   font-size: var(--font-size-s);
   font-weight: var(--font-weight-regular-300);
   background-color: #232323;
+  transition: all 0.5s;
 
   input {
     border: 1px solid var(--color-light-20);
@@ -19,6 +20,19 @@
     appearance: none;
     background-color: rgba(22, 22, 22, 0.2);
     cursor: pointer;
+    transition: border-color 0.5s;
+  }
+
+  &:hover:not(:has(:checked)) {
+    background-color: #221a2c;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transition: all 0.5s;
+
+    input {
+      border-color: var(--color-primary);
+      transition: border-color 0.5s;
+    }
   }
 
   &:has(:checked) {

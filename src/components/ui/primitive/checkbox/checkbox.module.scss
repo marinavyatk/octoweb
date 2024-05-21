@@ -33,6 +33,7 @@
     flex-grow: 0;
     background-repeat: no-repeat;
     background-position: center center;
+    transition: all 0.5s;
   }
 
   input:checked + label::before {
@@ -40,8 +41,9 @@
     background-image: url("../../../../assets/checkbox.svg");
   }
 
-  input:focus:not(:checked) + label::before {
+  input:hover:not(:checked) + label::before {
     background-color: rgba(163, 48, 255, 0.2);
     border-color: var(--color-primary);
+    transition: all 0.5s;
   }
 }

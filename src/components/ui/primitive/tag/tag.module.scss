@@ -8,8 +8,10 @@
   border-radius: 500px;
   padding: 6px 16px;
   text-decoration: none;
-  display: inline-block;
   width: fit-content;
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
 .color {

@@ -119,16 +119,17 @@
 // };
 
 import { StepCard } from "../../primitive/stepCard/stepCard.tsx";
-import { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 import s from "./stepCards.module.scss";
 import { ScrollContainer } from "react-indiana-drag-scroll";
 import "react-indiana-drag-scroll/dist/style.css";
 
-export type StepCardsProps = ComponentPropsWithoutRef<"div">;
+export type StepCardsProps = {
+  className?: string;
+};
 
 export const StepCards = (props: StepCardsProps) => {
-  const { className, ...restProps } = props;
+  const { className } = props;
 
   const classNames = clsx(s.cards, className);
   const cards = [

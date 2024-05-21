@@ -2,13 +2,6 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-
-  &:focus-visible {
-    .mainLabel {
-      color: var(--color-light-100);
-      margin-top: -5px;
-    }
-  }
 }
 
 .radioItems {
@@ -30,6 +23,16 @@
   font-size: var(--font-size-s);
   font-weight: var(--font-weight-regular-300);
   transition: all 0.5s;
+
+  &:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background-color: #2a2d1c;
+
+    .radioSign:not([data-state="checked"]) {
+      border-color: var(--color-accent);
+    }
+  }
 
   &:has([data-state="checked"]) {
     background-color: var(--color-accent);
@@ -54,4 +57,5 @@
 }
 
 .radioIndicator {
+  display: none;
 }

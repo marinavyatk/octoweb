@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   gap: 32px;
+  transition: color 0.4s cubic-bezier(1, 1.65, 0.265, 1.55);
 
   svg {
     width: 64px;
@@ -17,6 +18,8 @@
   }
 
   &:hover {
+    color: var(--color-dark-primary);
+    transition: color 0.4s cubic-bezier(1, 1.65, 0.265, 1.55);
     svg {
       fill: var(--color-accent);
       transition: fill 0.4s cubic-bezier(1, 1.65, 0.265, 1.55);
