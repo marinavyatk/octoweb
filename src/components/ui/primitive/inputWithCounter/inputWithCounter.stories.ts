@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     label: "О проекте",
-    required: true,
+    isRequiredField: true,
     placeholder: "Расскажите о своем проекте",
     value: "aboutProject",
     onChange: () => {},
@@ -24,7 +24,7 @@ export const Primary: Story = {
 export const WithErrors: Story = {
   args: {
     label: "О проекте",
-    required: true,
+    isRequiredField: true,
     placeholder: "Расскажите о своем проекте",
     value: "aboutProject",
     onChange: () => {},

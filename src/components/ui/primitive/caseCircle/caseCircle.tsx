@@ -20,8 +20,9 @@ export const CaseCircle = (props: CaseCircleProps) => {
       {...restProps}
       className={classNames}
       rel={"nofollow"}
+      draggable={false}
     >
-      <img src={img} alt="caseId" />
+      <img src={img} alt="caseId" draggable={false} />
     </Link>
   );
 };
