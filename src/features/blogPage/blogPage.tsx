@@ -117,19 +117,21 @@ export const BlogPage = () => {
   return (
     <div className={s.blogPage}>
       <Header />
-      <div className={s.mainContainer}>
-        <div className={s.header}>
-          <h1>Блог</h1>
-          <div className={s.filterButtons}>{filterButtons}</div>
+      <div className={s.blogPageContent}>
+        <div className={s.mainContainer}>
+          <div className={s.header}>
+            <h1>Блог</h1>
+            <div className={s.filterButtons}>{filterButtons}</div>
+          </div>
+          <div className={s.articles}>{articles}</div>
+          <ArrowButtonWithText
+            text={"Загрузить ещё"}
+            className={s.loadMoreButton}
+            onClick={handleLoadMore}
+          />
         </div>
-        <div className={s.articles}>{articles}</div>
-        <ArrowButtonWithText
-          text={"Загрузить ещё"}
-          className={s.loadMoreButton}
-          onClick={handleLoadMore}
-        />
+        <FooterWithForm />
       </div>
-      <FooterWithForm />
     </div>
   );
 };
