@@ -8,13 +8,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { routes } from "./common/routes.ts";
 import { MainPage } from "./features/mainPage/mainPage.tsx";
 import { ServicesPage } from "./features/services/servicesPage.tsx";
-import { OnlineStoreDevPage } from "./features/onlineStoreDevPage/onlineStoreDevPage.tsx";
 import { ContactsPage } from "./features/contactsPage/contactsPage.tsx";
 import { AboutPage } from "./features/aboutPage/aboutPage.tsx";
 import { CasesPage } from "./features/casesPage/casesPage.tsx";
 import { BriefPage } from "./features/briefPage/briefPage.tsx";
 import { BlogPage } from "./features/blogPage/blogPage.tsx";
 import { CasePage } from "./features/casePage/casePage.tsx";
+import { ServicePage } from "./features/servicePage/servicePage.tsx";
 
 const router = createBrowserRouter(
   [
@@ -31,8 +31,8 @@ const router = createBrowserRouter(
       element: <ServicesPage />,
     },
     {
-      path: routes.onlineStoreDev,
-      element: <OnlineStoreDevPage />,
+      path: routes.service,
+      element: <ServicePage />,
     },
     {
       path: routes.cases,

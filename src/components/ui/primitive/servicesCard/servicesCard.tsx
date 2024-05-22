@@ -32,7 +32,7 @@ export const ServicesCard = (props: ServicesCardProps) => {
         key={tag.tag}
         tag={tag.tag}
         price={tag.price}
-        href={tag.href}
+        serviceId={tag.serviceId}
       >
         {tag.tag}
       </TagLinkWithPrice>

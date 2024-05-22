@@ -14,14 +14,22 @@ export const ServicesPage = () => {
             number={"01"}
             header={"Разработка Веб-Сайтов"}
             tags={[
-              { tag: "Промо-сайт", price: "40000", href: "#" },
-              { tag: "Лендинг", price: "40000", href: "#" },
-              { tag: "Многостраничный сайт", price: "40000", href: "#" },
-              { tag: "Сайт-каталог", price: "40000", href: "#" },
+              { tag: "Промо-сайт", price: "40000", serviceId: "promo-website" },
+              { tag: "Лендинг", price: "40000", serviceId: "landing" },
+              {
+                tag: "Многостраничный сайт",
+                price: "40000",
+                serviceId: "multi-page-website",
+              },
+              {
+                tag: "Сайт-каталог",
+                price: "40000",
+                serviceId: "catalog-website",
+              },
               {
                 tag: "Интернет-магазин",
                 price: "40000",
-                href: "#services/online-store-development",
+                serviceId: "online-store",
               },
             ]}
             size={"medium"}
@@ -30,10 +38,22 @@ export const ServicesPage = () => {
             number={"02"}
             header={"Интернет-Маркетинг"}
             tags={[
-              { tag: "Контентное продвижение", price: "40000", href: "#" },
-              { tag: "Контекстная реклама", price: "40000", href: "#" },
-              { tag: "Таргетированная реклама", price: "40000", href: "#" },
-              { tag: "SEO", price: "40000", href: "#" },
+              {
+                tag: "Контентное продвижение",
+                price: "40000",
+                serviceId: "content-promotion",
+              },
+              {
+                tag: "Контекстная реклама",
+                price: "40000",
+                serviceId: "contextual-advertising",
+              },
+              {
+                tag: "Таргетированная реклама",
+                price: "40000",
+                serviceId: "targeted-advertising",
+              },
+              { tag: "SEO", price: "40000", serviceId: "seo" },
             ]}
             size={"small"}
           />
@@ -43,9 +63,21 @@ export const ServicesPage = () => {
             number={"03"}
             header={"Поддержка и Развитие"}
             tags={[
-              { tag: "Техническая поддержка", price: "40000", href: "#" },
-              { tag: "Контент поддержка", price: "40000", href: "#" },
-              { tag: "Маркетинговая поддержка", price: "40000", href: "#" },
+              {
+                tag: "Техническая поддержка",
+                price: "40000",
+                serviceId: "technical-support",
+              },
+              {
+                tag: "Контент поддержка",
+                price: "40000",
+                serviceId: "content-support",
+              },
+              {
+                tag: "Маркетинговая поддержка",
+                price: "40000",
+                serviceId: "marketing-support",
+              },
             ]}
             size={"small"}
           />
@@ -53,8 +85,16 @@ export const ServicesPage = () => {
             number={"04"}
             header={"Дополнительные Услуги"}
             tags={[
-              { tag: "Аудит существующего сайта", price: "40000", href: "#" },
-              { tag: "Упаковка франшиз", price: "40000", href: "#" },
+              {
+                tag: "Аудит существующего сайта",
+                price: "40000",
+                serviceId: "audit",
+              },
+              {
+                tag: "Упаковка франшиз",
+                price: "40000",
+                serviceId: "franchise-packaging",
+              },
             ]}
             size={"medium"}
           />
