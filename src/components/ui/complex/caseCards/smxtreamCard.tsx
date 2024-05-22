@@ -14,6 +14,7 @@ export const SmxtreamCard = (props: SmxtreamCardProps) => {
       header={"smxtream.pro"}
       as={"h3"}
       {...restProps}
+      caseId={"smxtream"}
       href={"https://chat.openai.com/c/7350bbd7-ba2a-40d8-8cb6-ebcaac380187"}
     />
   );

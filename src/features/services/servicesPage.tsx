@@ -2,8 +2,15 @@ import s from "./servicesPage.module.scss";
 import { Header } from "../../components/ui/complex/header/header.tsx";
 import { ServicesCard } from "../../components/ui/primitive/servicesCard/servicesCard.tsx";
 import { FooterWithForm } from "../../components/ui/complex/footerWithForm/footerWithForm.tsx";
+import { useEffect } from "react";
 
 export const ServicesPage = () => {
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "instant",
+    });
+  }, []);
   return (
     <div>
       <Header />

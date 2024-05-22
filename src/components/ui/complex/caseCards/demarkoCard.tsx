@@ -12,6 +12,7 @@ export const DemarkoCard = (props: DemarkoCardProps) => {
       img={Demarko}
       size={"extraLarge"}
       header={"de-marko.ru"}
+      caseId={"demarko"}
       {...restProps}
     />
   );

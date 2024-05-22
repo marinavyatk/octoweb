@@ -12,6 +12,7 @@ export const EkvadratCard = (props: EkvadratCardProps) => {
       img={Ekvadrat}
       size={"large"}
       header={"ekvadrat23.ru"}
+      caseId={"ekvadrat"}
       {...restProps}
     />
   );

@@ -8,21 +8,23 @@ export type FormNotificationProps = {
 } & ComponentPropsWithoutRef<"div">;
 export const FormNotification = (props: FormNotificationProps) => {
   const { onButtonClick, className, ...restProps } = props;
-  const classNames = clsx(s.formNotification, className);
+  const classNames = clsx(s.modal, className);
 
   return (
     <div className={classNames} {...restProps}>
-      <div className={s.submittedIcon}>
-        <SubmittedIcon />
+      <div className={s.formNotification}>
+        <div className={s.submittedIcon}>
+          <SubmittedIcon />
+        </div>
+        <div>
+          <span>Спасибо за ваше доверие!</span>
+          <p>
+            Благодарим за обращение! В ближайшее время мы свяжемся с вами для
+            обсуждения деталей.
+          </p>
+        </div>
+        <button onClick={onButtonClick}>ОТЛИЧНО!</button>
       </div>
-      <div>
-        <span>Спасибо за ваше доверие!</span>
-        <p>
-          Благодарим за обращение! В ближайшее время мы свяжемся с вами для
-          обсуждения деталей.
-        </p>
-      </div>
-      <button onClick={onButtonClick}>ОТЛИЧНО!</button>
     </div>
   );
 };

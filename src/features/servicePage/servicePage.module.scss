@@ -56,6 +56,7 @@
 
     .arrow {
       gap: 87px;
+      z-index: 0;
 
       &:hover {
         gap: 32px;
@@ -170,6 +171,7 @@
     position: absolute;
     bottom: 10px;
     left: 243px;
+    z-index: 0;
   }
 }
 //audience
@@ -215,6 +217,7 @@
 
     .arrow {
       margin: auto;
+      z-index: 0;
     }
   }
 
@@ -255,10 +258,15 @@
       position: absolute;
       top: 269px;
       right: 450px;
+      z-index: 0;
     }
   }
 }
 
 .faq {
   margin: 260px 0 234px;
+}
+
+.arrowLink {
+  z-index: 0;
 }

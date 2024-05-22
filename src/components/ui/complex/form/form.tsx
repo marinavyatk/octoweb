@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ElementRef, useRef } from "react";
+import { ComponentPropsWithoutRef, ElementRef, useRef, useState } from "react";
 import clsx from "clsx";
 import s from "./form.module.scss";
 import { Input } from "../../primitive/input/input.tsx";
@@ -11,11 +11,14 @@ import { formSchema } from "../../../../common/validation.ts";
 import emailjs from "@emailjs/browser";
 import { useHookFormMask } from "use-mask-input";
 import { InputWithCounter } from "../../primitive/inputWithCounter/inputWithCounter.tsx";
+import { FormNotification } from "../../primitive/formNotification/formNotification.tsx";
 
 type FormValues = z.infer<typeof formSchema>;
 export type FormProps = ComponentPropsWithoutRef<"div">;
 
 export const Form = (props: FormProps) => {
+  const [isFormNotificationShown, setIsFormNotificationShown] = useState(false);
+
   const form = useRef<ElementRef<"form">>(null);
 
   const { className, ...restProps } = props;
@@ -24,6 +27,7 @@ export const Form = (props: FormProps) => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -43,7 +47,7 @@ export const Form = (props: FormProps) => {
   const onSubmit = (data: FormValues) => {
     console.log(data);
 
-    // e.preventDefault();
+    setIsFormNotificationShown(true);
     if (form.current) {
       emailjs
         .sendForm("service_lxgyeoc", "template_o1vilzd", form.current, {
@@ -62,8 +66,16 @@ export const Form = (props: FormProps) => {
     }
   };
 
+  const handleCloseNotification = () => {
+    setIsFormNotificationShown(false);
+    reset();
+  };
+
   return (
     <div {...restProps} className={classNames}>
+      {isFormNotificationShown && (
+        <FormNotification onButtonClick={handleCloseNotification} />
+      )}
       <form onSubmit={handleSubmit(onSubmit)} ref={form}>
         <div className={s.mainInfo}>
           <Input

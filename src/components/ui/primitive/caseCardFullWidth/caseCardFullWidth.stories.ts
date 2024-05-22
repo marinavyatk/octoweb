@@ -18,5 +18,6 @@ export const Primary: Story = {
     tags: ["Develop", "ux/ui", "seo"],
     img: CaseCardFullWidthImg,
     header: "de-marko.ru",
+    caseId: "demarko",
   },
 };

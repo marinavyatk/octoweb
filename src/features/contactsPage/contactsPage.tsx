@@ -2,8 +2,15 @@ import s from "./contactsPage.module.scss";
 import { FooterWithForm } from "../../components/ui/complex/footerWithForm/footerWithForm.tsx";
 import { Header } from "../../components/ui/complex/header/header.tsx";
 import Map from "../../components/ui/primitive/map/map.tsx";
+import { useEffect } from "react";
 
 export const ContactsPage = () => {
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "instant",
+    });
+  }, []);
   return (
     <div className={s.contactsPage}>
       <Header />

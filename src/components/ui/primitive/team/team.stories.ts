@@ -15,6 +15,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
+    intro:
+      "Разработка интернет-магазина — это командная работа, где каждый вносит свой профессиональный вклад для успешной реализации проекта.",
     teamMembersInfo: [
       {
         id: "Руководитель проекта",

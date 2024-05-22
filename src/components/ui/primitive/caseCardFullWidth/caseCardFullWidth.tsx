@@ -2,16 +2,19 @@ import { ComponentPropsWithoutRef } from "react";
 import { clsx } from "clsx";
 import s from "./caseCardFullWidth.module.scss";
 import { Tag } from "../tag/tag.tsx";
+import { Link } from "react-router-dom";
 
 export type CaseCardProps = {
   category: string;
   tags: string[];
   img: string;
   header: string;
+  caseId: string;
 } & ComponentPropsWithoutRef<"a">;
 
 export const CaseCardFullWidth = (props: CaseCardProps) => {
-  const { category, tags, img, header, className, ...restProps } = props;
+  const { caseId, category, tags, img, header, className, ...restProps } =
+    props;
   const classNames = clsx(s.card, className);
   const tagList = tags.map((tag) => {
     return (
@@ -22,7 +25,12 @@ export const CaseCardFullWidth = (props: CaseCardProps) => {
   });
 
   return (
-    <a {...restProps} className={classNames} rel={"nofollow"}>
+    <Link
+      {...restProps}
+      className={classNames}
+      rel={"nofollow"}
+      to={`/cases/${caseId}`}
+    >
       <div className={s.imgContainer}>
         <img src={img} alt={header} />
       </div>
@@ -35,6 +43,6 @@ export const CaseCardFullWidth = (props: CaseCardProps) => {
           <h2 className={s.header}>{header}</h2>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };

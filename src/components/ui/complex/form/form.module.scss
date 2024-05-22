@@ -41,6 +41,7 @@
 
     .arrowButton {
       gap: 70px;
+      z-index: 0;
 
       &:hover {
         gap: 56px;
