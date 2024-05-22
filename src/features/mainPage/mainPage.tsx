@@ -17,8 +17,15 @@ import { FooterWithForm } from "../../components/ui/complex/footerWithForm/foote
 import { routes } from "../../common/routes.ts";
 import { ArrowLinkWithText } from "../../components/ui/primitive/ArrowLinkWithText/arrowLinkWithText.tsx";
 import { WordSwipe } from "../../components/ui/primitive/wordSwipe/wordSwipe.tsx";
+import { useEffect } from "react";
 
 export const MainPage = () => {
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "instant",
+    });
+  }, []);
   return (
     <div>
       <Header />
@@ -138,7 +145,11 @@ export const MainPage = () => {
           <EkvadratCard className={s.ekvadrat} />
           <BotanicaCard />
           <SmxtreamCard />
-          <ArrowLinkWithText text={"Больше кейсов"} to={routes.cases} />
+          <ArrowLinkWithText
+            text={"Больше кейсов"}
+            to={routes.cases}
+            className={s.arrowLink}
+          />
         </section>
       </div>
 

@@ -169,6 +169,7 @@
     position: absolute;
     right: 72px;
     top: 0;
+    z-index: 0;
   }
 
   img {
@@ -237,7 +238,6 @@
   border-radius: 72px;
   background-color: var(--color-dark-secondary);
   padding: 120px 266px 160px;
-  z-index: 2;
   position: relative;
   width: 100%;
   max-width: 1920px;
@@ -251,4 +251,8 @@
 //steps
 .steps {
   margin-bottom: 372px;
+}
+
+.arrowLink {
+  z-index: 0;
 }

@@ -16,6 +16,7 @@ import FrontendDev from "../../assets/webp/frontendDev.webp";
 import { ArrowLinkWithText } from "../../components/ui/primitive/ArrowLinkWithText/arrowLinkWithText.tsx";
 import { AudienceCard } from "../../components/ui/primitive/audienceCard/audienceCard.tsx";
 import { PriceTable } from "../../components/ui/primitive/priceTable/priceTable.tsx";
+import { useEffect } from "react";
 
 const teamMembersInfo = [
   {
@@ -119,6 +120,12 @@ const serviceData = {
 };
 
 export const ServicePage = () => {
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "instant",
+    });
+  }, []);
   return (
     <div className={s.servicePage}>
       <Header />
@@ -126,7 +133,11 @@ export const ServicePage = () => {
         <h1>{serviceData.serviceName}</h1>
         <div className={s.discussProject}>
           <p>{serviceData.description}</p>
-          <ArrowLinkWithText text={"ОБСУДИТЬ ПРОЕКТ"} href={"#form"} />
+          <ArrowLinkWithText
+            text={"ОБСУДИТЬ ПРОЕКТ"}
+            href={"#form"}
+            className={s.arrowLink}
+          />
         </div>
         <div className={s.serviceImg}>
           <img src={OnlineStoreImg} alt={""} />

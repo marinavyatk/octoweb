@@ -12,6 +12,7 @@ export const BotanicaCard = (props: BotanicaCardProps) => {
       img={Botanica}
       size={"small"}
       header={"ботаника-хилс.рф"}
+      caseId={"botanica"}
       {...restProps}
     />
   );

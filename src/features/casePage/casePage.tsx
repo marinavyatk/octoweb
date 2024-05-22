@@ -4,6 +4,7 @@ import { Header } from "../../components/ui/complex/header/header.tsx";
 import EkvadratImg from "../../assets/webp/ekvadratExaple.png";
 import { Tag } from "../../components/ui/primitive/tag/tag.tsx";
 import { WebsiteLink } from "../../components/ui/primitive/websiteLink/websiteLink.tsx";
+import { useEffect } from "react";
 
 export const CasePage = () => {
   const caseData = {
@@ -48,6 +49,12 @@ export const CasePage = () => {
       </span>
     );
   });
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "instant",
+    });
+  }, []);
 
   return (
     <div className={s.casePage}>

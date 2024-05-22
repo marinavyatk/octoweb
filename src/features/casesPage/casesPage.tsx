@@ -11,7 +11,7 @@ import CaseCircleEkvadrat from "../../assets/webp/case-circle-e-kvadrat.png";
 import CaseCircleDemarko from "../../assets/webp/case-circle-demarko.png";
 import CaseCircleShortrid from "../../assets/webp/case-circle-shortrid.png";
 import { FilterButton } from "../../components/ui/primitive/filterButton/filterButton.tsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CaseCircleList } from "../../components/ui/complex/caseCircleList/caseCircleList.tsx";
 import { CaseCardFullWidth } from "../../components/ui/primitive/caseCardFullWidth/caseCardFullWidth.tsx";
 import CaseCardFullWidthImg from "../../assets/webp/caseCardFullWidth.png";
@@ -41,60 +41,70 @@ const casesData = [
     tags: ["DEVELOP", "UI/UX", "КОМПЛЕКСНЫЙ МАРКЕТИНГ"],
     img: Demarko,
     header: "de-marko.ru",
+    caseId: "demarko",
   },
   {
     category: "КОРПОРАТИВНЫЙ САЙТ",
     tags: ["DEVELOP", "UI/UX", "КОМПЛЕКСНЫЙ МАРКЕТИНГ", "SEO"],
     img: Ekvadrat,
     header: "ekvadrat23.ru",
+    caseId: "ekvadrat",
   },
   {
     category: "LANDING PAGE",
     tags: ["DEVELOP", "UI/UX", "SEO"],
     img: Botanica,
     header: "ботаника-хилс.рф",
+    caseId: "botanica",
   },
   {
     category: "КОРПОРАТИВНЫЙ САЙТ",
     tags: ["DEVELOP", "UI/UX", "SEO"],
     img: Smxtream,
     header: "smxtream.pro",
+    caseId: "smxtream",
   },
   {
     category: "Корпоративный сайт",
     tags: ["Develop", "ux/ui", "seo"],
     img: CaseCardFullWidthImg,
     header: "de-marko.ru",
+    caseId: "demarko",
   },
   {
     category: "ИНТЕРНЕТ-МАГАЗИН",
     tags: ["DEVELOP", "UI/UX", "КОМПЛЕКСНЫЙ МАРКЕТИНГ"],
     img: Demarko,
     header: "de-marko.ru",
+    caseId: "demarko",
   },
   {
     category: "КОРПОРАТИВНЫЙ САЙТ",
     tags: ["DEVELOP", "UI/UX", "КОМПЛЕКСНЫЙ МАРКЕТИНГ", "SEO"],
     img: Ekvadrat,
     header: "ekvadrat23.ru",
+    caseId: "ekvadrat",
   },
   {
     category: "LANDING PAGE",
     tags: ["DEVELOP", "UI/UX", "SEO"],
     img: Botanica,
     header: "ботаника-хилс.рф",
+    caseId: "botanica",
   },
   {
     category: "КОРПОРАТИВНЫЙ САЙТ",
     tags: ["DEVELOP", "UI/UX", "SEO"],
     img: Smxtream,
     header: "smxtream.pro",
+    caseId: "smxtream",
   },
   {
     category: "Корпоративный сайт",
     tags: ["Develop", "ux/ui", "seo"],
     img: CaseCardFullWidthImg,
     header: "de-marko.ru",
+    caseId: "demarko",
   },
 ];
 const buttons: Category[] = ["All projects", "Web", "Seo", "Ads"];
@@ -103,6 +113,13 @@ const sizes = ["extraLarge", "large", "small", "medium", "fullWidth"];
 
 export const CasesPage = () => {
   const [currentFilter, setCurrentFilter] = useState<Category>("All projects");
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "instant",
+    });
+  }, []);
+
   const filteredCases: CaseCircle[] =
     currentFilter === "All projects"
       ? circles
@@ -134,6 +151,7 @@ export const CasesPage = () => {
         header={card.header}
         className={cardClassName}
         key={card.header}
+        caseId={card.caseId}
       />
     ) : (
       <CaseCardFullWidth
@@ -143,6 +161,7 @@ export const CasesPage = () => {
         header={card.header}
         className={cardClassName}
         key={card.header}
+        caseId={card.caseId}
       />
     );
   });

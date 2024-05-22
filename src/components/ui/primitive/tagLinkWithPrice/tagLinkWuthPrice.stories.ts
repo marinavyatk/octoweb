@@ -14,6 +14,6 @@ export const Primary: Story = {
   args: {
     tag: "Лендинг",
     price: "30000",
-    href: "#",
+    serviceId: "landing",
   },
 };

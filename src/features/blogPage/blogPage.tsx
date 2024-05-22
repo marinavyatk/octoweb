@@ -10,7 +10,7 @@ import OptimizationArticleCover from "../../assets/webp/blogImgOptimization.png"
 import { BlogCardFullWidth } from "../../components/ui/primitive/blogCardFullWidth/blogCardFullWidth.tsx";
 import { FilterButton } from "../../components/ui/primitive/filterButton/filterButton.tsx";
 import { Category } from "../../components/ui/primitive/caseCircle/caseCircle.tsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SemanticArticleCover from "../../assets/webp/blogImgSemantic.png";
 import SecurityArticleCover from "../../assets/webp/blogImgSecurity.png";
 import ManagmentArticleCover from "../../assets/webp/blogImgManagment.png";
@@ -113,6 +113,12 @@ export const BlogPage = () => {
   const handleLoadMore = () => {
     //need request new data
   };
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "instant",
+    });
+  }, []);
 
   return (
     <div className={s.blogPage}>

@@ -1,4 +1,4 @@
-.modal {
+.warning {
   position: fixed;
   background-color: rgba(0, 0, 0, 0.6);
   width: 100vw;
@@ -13,8 +13,6 @@
 .formNotification {
   max-width: 536px;
   width: 100%;
-  max-height: 619px;
-  height: 619px;
   border-radius: 32px;
   padding: 56px;
   background-color: var(--color-dark-secondary);
@@ -24,41 +22,28 @@
   gap: 40px;
   margin-top: -200px;
 
-  .submittedIcon {
-    width: 131px;
-    height: 131px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--color-accent);
-
-    svg {
-      width: 76px;
-    }
-  }
-
-  span {
-    font-weight: var(--font-weight-regular-500);
-    font-size: var(--font-size-m);
-    line-height: var(--line-height-120);
-  }
-
   p {
-    font-weight: var(--font-weight-regular-300);
-    font-size: var(--font-size-xss);
+    font-weight: var(--font-weight-regular-500);
+    font-size: var(--font-size-s);
     line-height: var(--line-height-180);
     opacity: 0.8;
     margin-top: 24px;
+    text-align: center;
   }
 
   button {
     padding: 22px;
     width: 100%;
     border-radius: 64px;
-    background-color: var(--color-primary);
+    background-color: var(--color-accent);
     font-weight: var(--font-weight-regular-300);
     font-size: var(--font-size-s);
     border: none;
+    color: var(--color-dark-primary);
   }
+}
+
+.buttonsBlock {
+  display: flex;
+  gap: 20px;
 }

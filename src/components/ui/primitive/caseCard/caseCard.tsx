@@ -2,6 +2,7 @@ import { ComponentPropsWithoutRef, ElementType } from "react";
 import { clsx } from "clsx";
 import s from "./caseCard.module.scss";
 import { Tag } from "../tag/tag.tsx";
+import { Link } from "react-router-dom";
 
 export type Size = "small" | "medium" | "large" | "extraLarge";
 export type CaseCardProps<T extends ElementType> = {
@@ -11,6 +12,7 @@ export type CaseCardProps<T extends ElementType> = {
   size: Size;
   header: string;
   as?: T;
+  caseId: string;
 } & ComponentPropsWithoutRef<"a">;
 
 export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
@@ -21,6 +23,7 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
     size,
     header,
     className,
+    caseId,
     as: HeaderType = "h2",
     ...restProps
   } = props;
@@ -41,7 +44,12 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
   });
 
   return (
-    <a {...restProps} className={classNames}>
+    <Link
+      {...restProps}
+      className={classNames}
+      to={`/cases/${caseId}`}
+      rel={"nofollow"}
+    >
       <div className={sizeClassName}>
         <Tag variant={"monochrome-primary"} className={s.category}>
           {category}
@@ -50,6 +58,6 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
         <div className={s.tagList}>{tagList}</div>
       </div>
       <HeaderType className={s.header}>{header}</HeaderType>
-    </a>
+    </Link>
   );
 };

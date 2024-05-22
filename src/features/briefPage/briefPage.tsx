@@ -22,6 +22,9 @@ import {
 } from "../../common/validation.ts";
 import { useEffect, useRef, useState } from "react";
 import TextareaAutosize from "react-textarea-autosize";
+import { FormNotification } from "../../components/ui/primitive/formNotification/formNotification.tsx";
+import { useBlocker } from "react-router-dom";
+import { Warning } from "../../components/ui/primitive/warning/warning.tsx";
 
 const defineSchema = (fieldName: FieldType) => {
   return fieldName.required ? requiredString : optionalString;
@@ -52,6 +55,8 @@ export let materialsDevelopmentCurrentValue = "";
 export let knowTargetAudienceCurrentValue = "";
 
 export const BriefPage = () => {
+  const [isFormNotificationShown, setIsFormNotificationShown] = useState(false);
+
   const allFields: AllFields = {
     contactInfo: {
       name: { required: true, label: "Как к Вам обращаться?", placeholder: "" },
@@ -360,8 +365,9 @@ export const BriefPage = () => {
     register,
     control,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isDirty },
     watch,
+    reset,
   } = useForm<FormValues>({
     resolver: zodResolver(briefSchema),
     defaultValues: {
@@ -430,9 +436,15 @@ export const BriefPage = () => {
     mode: "onBlur",
   });
 
+  const blocker = useBlocker(
+    ({ currentLocation, nextLocation }) =>
+      isDirty && currentLocation.pathname !== nextLocation.pathname,
+  );
+
   console.log(errors);
   const onSubmit = (data: FormValues) => {
     console.log(data);
+    setIsFormNotificationShown(true);
   };
 
   const currentValues: CurrentFields = watch();
@@ -544,9 +556,23 @@ export const BriefPage = () => {
       sectionId: "additionalInfo",
     },
   ];
+  const handleCloseNotification = () => {
+    setIsFormNotificationShown(false);
+    reset();
+  };
 
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "instant",
+    });
+  }, []);
   return (
     <div className={s.briefPage}>
+      {/*<ScrollRestoration />*/}
+      {isFormNotificationShown && (
+        <FormNotification onButtonClick={handleCloseNotification} />
+      )}
       <Header />
       <div className={s.mainContainer}>
         <section className={s.startSection}>
@@ -576,6 +602,13 @@ export const BriefPage = () => {
         </section>
 
         <form onSubmit={handleSubmit(onSubmit)}>
+          {blocker.state === "blocked" ? (
+            <Warning
+              onConfirmButtonClick={() => blocker.proceed()}
+              onCancelButtonClick={() => blocker.reset()}
+            />
+          ) : null}
+
           <div className={s.formWithNavigation}>
             <BriefNavbar navItems={briefSections} className={s.navbar} />
             <div>

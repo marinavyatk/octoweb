@@ -19,6 +19,7 @@ export const AsH2: Story = {
     img: Botanica,
     size: "small",
     header: "ботаника-хилс.рф",
+    caseId: "botanica",
   },
 };
 export const AsH3: Story = {
@@ -29,5 +30,6 @@ export const AsH3: Story = {
     size: "small",
     header: "ботаника-хилс.рф",
     as: "h3",
+    caseId: "botanica",
   },
 };
