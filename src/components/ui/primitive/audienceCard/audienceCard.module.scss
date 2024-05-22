@@ -1,0 +1,45 @@
+.audienceCard {
+  border-radius: 72px;
+  padding: 91px 142px 117px;
+  background-color: var(--color-primary);
+
+  h2 {
+    color: var(--color-light-100);
+    text-align: left;
+  }
+
+  ul {
+    list-style: none;
+    font-weight: var(--font-weight-regular-500);
+    font-size: var(--font-size-ml);
+    line-height: var(--line-height-120);
+    color: var(--color-light-100);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px 300px;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    text-transform: uppercase;
+  }
+
+  .arrow {
+    background-color: var(--color-accent);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--color-dark-primary);
+    }
+  }
+}

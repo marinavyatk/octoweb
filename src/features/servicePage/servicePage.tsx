@@ -1,21 +1,21 @@
-import s from "./onlineStoreDevPage.module.scss";
+import s from "./servicePage.module.scss";
 import { Header } from "../../components/ui/complex/header/header.tsx";
 import { FooterWithForm } from "../../components/ui/complex/footerWithForm/footerWithForm.tsx";
-
 import OnlineStoreImg from "../../assets/webp/onlineStoreImg.webp";
 import { AnimatedField } from "../../components/ui/primitive/animatedField/animatedField.tsx";
 import ArrowIcon from "../../assets/arrow.svg?react";
 import Map from "../../assets/webp/map.webp";
 import { AdvantageItems } from "../../components/ui/complex/AdvantageItems/AdvantageItems.tsx";
 import ArrowPointerSmall from "../../assets/arrow3.svg?react";
-import { ArrowButton } from "../../components/ui/primitive/arrowButton/arrowButton.tsx";
 import { Team } from "../../components/ui/primitive/team/team.tsx";
 import { StepCards } from "../../components/ui/complex/stepCards/stepCards.tsx";
-import { FAQ } from "../../components/ui/complex/faq/faq.tsx";
+import { FAQ, faqData } from "../../components/ui/complex/faq/faq.tsx";
 import ArrowIconForPrices from "../../assets/arrow4.svg?react";
 import Temp from "../../assets/webp/temp.png";
 import FrontendDev from "../../assets/webp/frontendDev.webp";
 import { ArrowLinkWithText } from "../../components/ui/primitive/ArrowLinkWithText/arrowLinkWithText.tsx";
+import { AudienceCard } from "../../components/ui/primitive/audienceCard/audienceCard.tsx";
+import { PriceTable } from "../../components/ui/primitive/priceTable/priceTable.tsx";
 
 const teamMembersInfo = [
   {
@@ -92,17 +92,40 @@ const teamMembersInfo = [
   },
 ];
 
-export const OnlineStoreDevPage = () => {
+const serviceData = {
+  serviceName: "Разработка интернет-магазинов",
+  description:
+    "Увеличиваем количество продаж через автоматизацию расчета стоимости доставки, онлайн-платежи и выгрузку товаров на маркетплейсы",
+  aboutService:
+    "Мы создаем удобные online-шопинговые платформы, где легко найти любой товар с помощью эффективных фильтров, а процесс оплаты и заказа доставки становится доступным всего в несколько кликов. Возвращение пользователей в такие интернет-магазины — результат нашей работы!",
+  audience: {
+    header: "Для тех, кто занимается продажами:",
+    items: ["товаров", "продуктов", "экспертизы", "услуг"],
+  },
+  team: {
+    intro:
+      "Разработка интернет-магазина — это командная работа, где каждый вносит свой профессиональный вклад для успешной реализации проекта.",
+    teamMembersInfo: teamMembersInfo,
+  },
+  cost: "170 000",
+  priceTable: [
+    { service: "Разработка логотипа", price: "5 000" },
+    { service: "Создание брендбука", price: "5 000" },
+    { service: "Копирайтинг", price: "350" },
+    { service: "Вывод на маркетплейсы", price: "25 000" },
+    { service: "Контекстная реклама", price: "20 000" },
+    { service: "SEO-продвижение", price: "50 000" },
+  ],
+};
+
+export const ServicePage = () => {
   return (
-    <div className={s.onlineStoreDevPage}>
+    <div className={s.servicePage}>
       <Header />
       <div className={s.mainContainer}>
-        <h1>Разработка интернет-магазинов</h1>
+        <h1>{serviceData.serviceName}</h1>
         <div className={s.discussProject}>
-          <p>
-            Увеличиваем количество продаж через автоматизацию расчета стоимости
-            доставки, онлайн-платежи и выгрузку товаров на маркетплейсы
-          </p>
+          <p>{serviceData.description}</p>
           <ArrowLinkWithText text={"ОБСУДИТЬ ПРОЕКТ"} href={"#form"} />
         </div>
         <div className={s.serviceImg}>
@@ -111,13 +134,7 @@ export const OnlineStoreDevPage = () => {
         <div className={s.aboutService}>
           <h2>ОБ УСЛУГЕ</h2>
           <div className={s.container}>
-            <p>
-              Мы создаем удобные online-шопинговые платформы, где легко найти
-              любой товар с помощью эффективных фильтров, а процесс оплаты и
-              заказа доставки становится доступным всего в несколько кликов.
-              Возвращение пользователей в такие интернет-магазины — результат
-              нашей работы!
-            </p>
+            <p>{serviceData.aboutService}</p>
             <ArrowLinkWithText
               text={"Консультация"}
               className={s.arrow}
@@ -142,11 +159,7 @@ export const OnlineStoreDevPage = () => {
           </AnimatedField>
           <div>Долгосрочное</div>
           <div>сотрудничество</div>
-          <AnimatedField
-            variant={"dark"}
-            animation={"right"}
-            className={s.arrowSymbol}
-          >
+          <AnimatedField variant={"dark"} className={s.arrowSymbol}>
             <ArrowIcon />
           </AnimatedField>
           <AnimatedField variant={"light"} className={s.kissSymbol}>
@@ -172,33 +185,24 @@ export const OnlineStoreDevPage = () => {
             <ArrowPointerSmall className={s.arrow} />
           </div>
           <AdvantageItems />
-          <div className={s.audience}>
-            <h2>Для тех, кто занимается продажами:</h2>
-            <ul>
-              <li>
-                <ArrowButton variant={"secondary"} size={"medium"} /> товаров
-              </li>
-              <li>
-                <ArrowButton variant={"secondary"} size={"medium"} /> продуктов
-              </li>
-              <li>
-                <ArrowButton variant={"secondary"} size={"medium"} /> экспертизы
-              </li>
-              <li>
-                <ArrowButton variant={"secondary"} size={"medium"} /> услуг
-              </li>
-            </ul>
-          </div>
+          <AudienceCard
+            header={serviceData.audience.header}
+            items={serviceData.audience.items}
+            className={s.audience}
+          />
         </section>
         <section className={s.team}>
-          <Team teamMembersInfo={teamMembersInfo} />
+          <Team
+            teamMembersInfo={serviceData.team.teamMembersInfo}
+            intro={serviceData.team.intro}
+          />
         </section>
       </div>
       <StepCards className={s.stepCards} />
       <section className={s.prices}>
         <div className={s.container}>
           <div className={s.cost}>
-            Стоимость от <span>170 000 ₽</span>
+            Стоимость от <span>{serviceData.cost} ₽</span>
           </div>
           <ArrowLinkWithText
             text={"Обсудить проект"}
@@ -214,24 +218,11 @@ export const OnlineStoreDevPage = () => {
             ДОПОЛНИТЕЛЬНЫЕ <br /> УСЛУГИ
           </h2>
           <ArrowIconForPrices className={s.arrow} />
-          <div className={s.priceContainer}>
-            <span>Разработка логотипа</span>
-            <span className={s.price}>от 5 000 ₽</span>
-            <span>Создание брендбука</span>
-            <span className={s.price}>от 5 000 ₽</span>
-            <span>Копирайтинг</span>
-            <span className={s.price}>от 350 ₽</span>
-            <span>Вывод на маркетплейсы</span>
-            <span className={s.price}>от 25 000 ₽</span>
-            <span>Контекстная реклама</span>
-            <span className={s.price}>от 20 000 ₽</span>
-            <span>SEO-продвижение</span>
-            <span className={s.price}>от 50 000 ₽</span>
-          </div>
+          <PriceTable priceItems={serviceData.priceTable} />
         </div>
       </section>
       <div className={s.mainContainer}>
-        <FAQ className={s.faq} />
+        <FAQ className={s.faq} faqData={faqData} />
       </div>
       <FooterWithForm />
     </div>

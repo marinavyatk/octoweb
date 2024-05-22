@@ -7,11 +7,12 @@ import {
 } from "../teamMemberIntro/teamMemberIntro.tsx";
 
 export type TeamProps = {
+  intro: string;
   teamMembersInfo: TeamMember[];
 } & ComponentPropsWithoutRef<"div">;
 
 export const Team = (props: TeamProps) => {
-  const { teamMembersInfo, className, ...restProps } = props;
+  const { teamMembersInfo, intro, className, ...restProps } = props;
   const classNames = clsx(s.team, className);
   const teamMembers = teamMembersInfo.map((member) => member.id);
   const [currentMember, setCurrentMember] = useState(teamMembers[0]);
@@ -46,10 +47,7 @@ export const Team = (props: TeamProps) => {
   return (
     <div {...restProps} className={classNames}>
       <div className={s.firstCol}>
-        <p>
-          Разработка интернет-магазина — это командная работа, где каждый вносит
-          свой профессиональный вклад для успешной реализации проекта.
-        </p>
+        <p>{intro}</p>
         {currentMemberCard}
       </div>
       <div className={s.secondCol}>
