@@ -18,6 +18,7 @@ import { routes } from "../../common/routes.ts";
 import { ArrowLinkWithText } from "../../components/ui/primitive/ArrowLinkWithText/arrowLinkWithText.tsx";
 import { WordSwipe } from "../../components/ui/primitive/wordSwipe/wordSwipe.tsx";
 import { useEffect } from "react";
+import { MainPageBubbles } from "../../components/ui/primitive/bubbles/bubbles.tsx";
 
 export const MainPage = () => {
   useEffect(() => {
@@ -28,6 +29,7 @@ export const MainPage = () => {
   }, []);
   return (
     <div>
+      <MainPageBubbles />
       <Header />
       <div className={s.mainContainer}>
         <section className={s.greetingBlock}>
