@@ -27,7 +27,7 @@ export const Question = (props: QuestionProps) => {
   return (
     <div {...restProps} className={classNames}>
       <div className={s.accordion}>
-        <span className={s.question}>{question}</span>
+        <h2 className={s.question}>{question}</h2>
         <AccordionButton opened={opened} setOpened={setOpened} />
       </div>
       <p className={s.answer} ref={answerRef}>
