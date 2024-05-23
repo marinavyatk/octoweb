@@ -26,6 +26,7 @@ export const BlogPage = () => {
       description:
         "Узнайте, как создать свой собственный инструмент для анализа семантики без использования парсеров и освойте техники обработки текста с нуля.",
       img: SemanticArticleCover,
+      articleId: "semantic",
     },
     {
       header:
@@ -34,6 +35,7 @@ export const BlogPage = () => {
       description:
         "Откройте секреты успешной оптимизации веб-сайтов для мобильных устройств.",
       img: OptimizationArticleCover,
+      articleId: "optimization",
     },
     {
       header:
@@ -42,6 +44,7 @@ export const BlogPage = () => {
       description:
         "Получите советы по реализации эффективных мер безопасности, чтобы обеспечить защиту как для себя, так и для ваших пользователей.",
       img: SecurityArticleCover,
+      articleId: "security",
     },
     {
       header:
@@ -50,6 +53,7 @@ export const BlogPage = () => {
       description:
         "Получите советы по реализации эффективных мер безопасности, чтобы обеспечить защиту как для себя, так и для ваших пользователей.",
       img: ManagmentArticleCover,
+      articleId: "management",
     },
     {
       header:
@@ -58,6 +62,7 @@ export const BlogPage = () => {
       description:
         "Откройте секреты успешной оптимизации веб-сайтов для мобильных устройств.",
       img: ArticleCover,
+      articleId: "article",
     },
     {
       header:
@@ -66,6 +71,7 @@ export const BlogPage = () => {
       description:
         "Откройте секреты успешной оптимизации веб-сайтов для мобильных устройств.",
       img: SecurityArticleCover,
+      articleId: "security",
     },
     {
       header:
@@ -74,6 +80,7 @@ export const BlogPage = () => {
       description:
         "Откройте секреты успешной оптимизации веб-сайтов для мобильных устройств.",
       img: ArticleCover2,
+      articleId: "article2",
     },
   ];
   const [currentFilter, setCurrentFilter] = useState<Category>("All projects");

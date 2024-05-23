@@ -3,9 +3,11 @@ import { clsx } from "clsx";
 import s from "./blogCard.module.scss";
 import { Tag } from "../tag/tag.tsx";
 import ArrowIcon from "../../../../assets/arrow.svg?react";
+import { Link } from "react-router-dom";
 
 export type Size = "small" | "medium";
 export type BlogCardProps = {
+  articleId: string;
   tags: string[];
   img: string;
   size?: Size;
@@ -16,6 +18,7 @@ export type BlogCardProps = {
 
 export const BlogCard = (props: BlogCardProps) => {
   const {
+    articleId,
     tags,
     img,
     size = "small",
@@ -44,9 +47,9 @@ export const BlogCard = (props: BlogCardProps) => {
         <img src={img} alt="" />
         <div className={s.markContainer}>
           <div className={s.tagList}>{tagList}</div>
-          <a className={s.arrow} {...linkProps}>
+          <Link className={s.arrow} {...linkProps} to={`/blog/${articleId}`}>
             <ArrowIcon />
-          </a>
+          </Link>
         </div>
       </div>
       <h2 className={s.header}>{header}</h2>

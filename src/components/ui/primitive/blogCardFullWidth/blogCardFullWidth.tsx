@@ -3,12 +3,21 @@ import s from "./blogCardFullWidth.module.scss";
 import { Tag } from "../tag/tag.tsx";
 import ArrowIcon from "../../../../assets/arrow.svg?react";
 import { BlogCardProps } from "../blogCard/blogCard.tsx";
+import { Link } from "react-router-dom";
 
 export type BlogCardFullWidthProps = Omit<BlogCardProps, "size">;
 
 export const BlogCardFullWidth = (props: BlogCardFullWidthProps) => {
-  const { tags, img, header, description, className, linkProps, ...restProps } =
-    props;
+  const {
+    articleId,
+    tags,
+    img,
+    header,
+    description,
+    className,
+    linkProps,
+    ...restProps
+  } = props;
   const classNames = clsx(s.blogCard, className);
 
   const tagList = tags.map((tag) => {
@@ -25,9 +34,9 @@ export const BlogCardFullWidth = (props: BlogCardFullWidthProps) => {
         <img src={img} alt="" />
         <div className={s.markContainer}>
           <div className={s.tagList}>{tagList}</div>
-          <a className={s.arrow} {...linkProps}>
+          <Link className={s.arrow} {...linkProps} to={`/blog/${articleId}`}>
             <ArrowIcon />
-          </a>
+          </Link>
         </div>
       </div>
       <div className={s.text}>

@@ -8,4 +8,5 @@ export const routes = {
   brief: "/brief",
   case: "/cases/:caseName",
   service: "/services/:serviceName",
+  article: "blog/:articleName",
 };
