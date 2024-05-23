@@ -20,6 +20,7 @@ export const Small: Story = {
     description:
       "Откройте секреты успешной оптимизации веб-сайтов для мобильных устройств.",
     img: OptimizationArticleCover,
+    articleId: "optimization",
   },
 };
 
@@ -32,5 +33,6 @@ export const Medium: Story = {
       "Откройте секреты успешной оптимизации веб-сайтов для мобильных устройств.",
     img: OptimizationArticleCover,
     size: "medium",
+    articleId: "optimization",
   },
 };

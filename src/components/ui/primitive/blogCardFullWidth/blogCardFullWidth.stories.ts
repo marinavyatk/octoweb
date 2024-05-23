@@ -20,5 +20,6 @@ export const FullWidth: Story = {
     description:
       "Откройте секреты успешной оптимизации веб-сайтов для мобильных устройств.",
     img: OptimizationArticleCover,
+    articleId: "optimization",
   },
 };

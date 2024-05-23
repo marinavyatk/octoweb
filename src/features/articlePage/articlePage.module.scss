@@ -1,0 +1,40 @@
+.articleContent {
+  max-width: 1920px;
+  width: 100%;
+  padding: 0 124px;
+  margin: auto;
+
+  h1 {
+    font-size: var(--font-size-lxl);
+    margin-bottom: 32px;
+  }
+
+  .topCaption {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 56px;
+
+    .tagList {
+      display: flex;
+      gap: 16px;
+    }
+  }
+
+  .imgContainer {
+    border-radius: 32px;
+    width: 100%;
+    height: 752px;
+    background-color: var(--color-dark-secondary);
+    margin-bottom: 52px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .faq {
+    margin-bottom: 140px;
+  }
+}
