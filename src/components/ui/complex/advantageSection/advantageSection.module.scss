@@ -1,0 +1,23 @@
+.advantages {
+  .title {
+    width: 100%;
+    position: relative;
+  }
+
+  h2 {
+    margin-bottom: 127px;
+    text-align: right;
+    max-width: 100%;
+
+    span {
+      color: var(--color-light-100);
+    }
+  }
+
+  .arrow {
+    position: absolute;
+    bottom: 10px;
+    left: 243px;
+    z-index: 0;
+  }
+}

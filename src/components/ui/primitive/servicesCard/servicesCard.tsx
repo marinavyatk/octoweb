@@ -5,8 +5,10 @@ import {
   TagLink,
   TagLinkWithPrice,
 } from "../tagLinkWithPrice/tagLinkWithPrice.tsx";
+import { Link } from "react-router-dom";
 
 export type ServicesCardProps = {
+  serviceCategory: string;
   number: string;
   header: string;
   tags: TagLink[];
@@ -15,6 +17,7 @@ export type ServicesCardProps = {
 
 export const ServicesCard = (props: ServicesCardProps) => {
   const {
+    serviceCategory,
     number,
     header,
     tags,
@@ -41,10 +44,11 @@ export const ServicesCard = (props: ServicesCardProps) => {
 
   return (
     <div {...restProps} className={classNames}>
-      <div className={s.texture}></div>
       <div className={s.text}>
         <span className={s.number}>{number}</span> <br />
-        <span className={s.header}>{header}</span>
+        <Link to={`/services/category/${serviceCategory}`}>
+          <h2 className={s.header}>{header}</h2>
+        </Link>
       </div>
       <div className={s.tagList}>{tagList}</div>
     </div>

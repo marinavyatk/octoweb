@@ -13,6 +13,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Small: Story = {
   args: {
+    serviceCategory: "online-store",
     number: "02",
     header: "Интернет-Маркетинг",
     tags: [
@@ -32,6 +33,7 @@ export const Small: Story = {
 
 export const Big: Story = {
   args: {
+    serviceCategory: "website-development",
     number: "01",
     header: "Разработка Веб-Сайтов",
     tags: [

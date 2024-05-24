@@ -9,4 +9,5 @@ export const routes = {
   case: "/cases/:caseName",
   service: "/services/:serviceName",
   article: "blog/:articleName",
+  serviceCategory: "services/category/:serviceCategory",
 };

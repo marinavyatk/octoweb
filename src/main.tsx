@@ -16,6 +16,7 @@ import { BlogPage } from "./features/blogPage/blogPage.tsx";
 import { CasePage } from "./features/casePage/casePage.tsx";
 import { ServicePage } from "./features/servicePage/servicePage.tsx";
 import { ArticlePage } from "./features/articlePage/articlePage.tsx";
+import { ServiceCategoryPage } from "./features/serviceCategoryPage/serviceCategoryPage.tsx";
 
 const router = createBrowserRouter(
   [
@@ -58,6 +59,10 @@ const router = createBrowserRouter(
     {
       path: routes.article,
       element: <ArticlePage />,
+    },
+    {
+      path: routes.serviceCategory,
+      element: <ServiceCategoryPage />,
     },
   ],
   { basename: "/octoweb" },

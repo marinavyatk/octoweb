@@ -29,7 +29,7 @@ export const TeamMemberCard = (props: TeamMemberCardProps) => {
       <div className={s.frontSide + " " + s.card}>
         <img src={img} alt={specialization} />
         <div className={s.about}>
-          <span className={s.name}>{name}</span> <br />
+          <h3 className={s.name}>{name}</h3>
           <span className={s.specialization}>{specialization}</span>
         </div>
       </div>
@@ -37,7 +37,7 @@ export const TeamMemberCard = (props: TeamMemberCardProps) => {
       <div className={s.backSide + " " + s.card}>
         <div>
           <span className={s.workExperience}>{workExperience}</span> <br />
-          <span className={s.name}>{name}</span> <br />
+          <h3 className={s.name}>{name}</h3>
           <span className={s.specialization}>{specialization}</span>
         </div>
         <p>{description}</p>

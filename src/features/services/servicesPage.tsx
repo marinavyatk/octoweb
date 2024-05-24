@@ -18,6 +18,7 @@ export const ServicesPage = () => {
         <h1>УСЛУГИ</h1>
         <div className={s.firstRow}>
           <ServicesCard
+            serviceCategory={"website-development"}
             number={"01"}
             header={"Разработка Веб-Сайтов"}
             tags={[
@@ -42,6 +43,7 @@ export const ServicesPage = () => {
             size={"medium"}
           />
           <ServicesCard
+            serviceCategory={"internet-marketing"}
             number={"02"}
             header={"Интернет-Маркетинг"}
             tags={[
@@ -67,6 +69,7 @@ export const ServicesPage = () => {
         </div>
         <div className={s.secondRow}>
           <ServicesCard
+            serviceCategory={"support&development"}
             number={"03"}
             header={"Поддержка и Развитие"}
             tags={[
@@ -89,6 +92,7 @@ export const ServicesPage = () => {
             size={"small"}
           />
           <ServicesCard
+            serviceCategory={"additional"}
             number={"04"}
             header={"Дополнительные Услуги"}
             tags={[

@@ -6,7 +6,7 @@ import { Tag } from "../../components/ui/primitive/tag/tag.tsx";
 import { ShareButton } from "../../components/ui/primitive/shareButton/shareButton.tsx";
 import { FAQ, faqData } from "../../components/ui/complex/faq/faq.tsx";
 import ArticleImg1 from "../../assets/webp/articleImg1.png";
-import { ElementType } from "react";
+import { ElementType, useEffect } from "react";
 import ArticleImg2 from "../../assets/webp/articleImg2.png";
 import ArticleImg3 from "../../assets/webp/articleImg3.png";
 import ArticleImg4 from "../../assets/webp/articleImg4.png";
@@ -176,6 +176,13 @@ const articleData = {
 };
 
 export const ArticlePage = () => {
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "instant",
+    });
+  }, []);
+
   const tags = articleData.tags.map((tag) => {
     return (
       <Tag key={tag} variant={"colored"} className={s.tag}>

@@ -16,7 +16,7 @@ export const StepCard = (props: StepCardProps) => {
     <div {...restProps} className={classNames}>
       <div className={s.cardHeader}>
         <span className={s.stepNumber}>{stepNumber}</span>
-        <span className={s.title}>{header}</span>
+        <h2 className={s.header}>{header}</h2>
       </div>
       <p>{description}</p>
     </div>
