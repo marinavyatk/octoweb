@@ -7,21 +7,23 @@ import { Tag } from "../tag/tag.tsx";
 export type ServicesLinkProps = {
   number: string;
   header: string;
-  tags: string[];
+  tags?: string[];
   href: string;
-  img: string;
+  img?: string;
 } & ComponentPropsWithoutRef<"div">;
 
 export const ServicesLink = (props: ServicesLinkProps) => {
   const { number, header, tags, href, img, className, ...restProps } = props;
   const classNames = clsx(s.servicesLink, className);
-  const tagList = tags.map((tag) => {
-    return (
-      <Tag key={tag} variant={"monochrome-secondary"}>
-        {tag}
-      </Tag>
-    );
-  });
+  const tagList =
+    tags &&
+    tags.map((tag) => {
+      return (
+        <Tag key={tag} variant={"monochrome-secondary"}>
+          {tag}
+        </Tag>
+      );
+    });
 
   return (
     <div {...restProps} className={classNames}>
@@ -33,8 +35,8 @@ export const ServicesLink = (props: ServicesLinkProps) => {
           </div>
           <ArrowButton href={href} />
         </div>
-        <div className={s.tagList}>{tagList}</div>
-        <img src={img} alt={header} />
+        {tags && <div className={s.tagList}>{tagList}</div>}
+        {img && <img src={img} alt={header} />}
       </div>
     </div>
   );

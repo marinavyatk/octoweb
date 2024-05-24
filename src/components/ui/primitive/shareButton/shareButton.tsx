@@ -9,7 +9,6 @@ export const ShareButton = (props: ShareButtonProps) => {
   const { className, ...restProps } = props;
   const classNames = clsx(s.shareButton, className);
   const url = document.location.href;
-  console.log(url);
   const [isCopied, setIsCopied] = useState(false);
   const copyUrl = async () => {
     try {

@@ -9,7 +9,7 @@ import {
 export type TeamProps = {
   intro: string;
   teamMembersInfo: TeamMember[];
-} & ComponentPropsWithoutRef<"div">;
+} & ComponentPropsWithoutRef<"section">;
 
 export const Team = (props: TeamProps) => {
   const { teamMembersInfo, intro, className, ...restProps } = props;
@@ -45,7 +45,7 @@ export const Team = (props: TeamProps) => {
     });
 
   return (
-    <div {...restProps} className={classNames}>
+    <section {...restProps} className={classNames}>
       <div className={s.firstCol}>
         <p>{intro}</p>
         {currentMemberCard}
@@ -54,6 +54,6 @@ export const Team = (props: TeamProps) => {
         <h2>Над проектом будут работать</h2>
         <ul>{teamMembersList}</ul>
       </div>
-    </div>
+    </section>
   );
 };

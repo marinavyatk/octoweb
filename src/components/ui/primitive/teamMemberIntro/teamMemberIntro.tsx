@@ -31,7 +31,7 @@ export const TeamMemberIntro = (props: TeamMemberIntroProps) => {
       <div className={s.info}>
         <div>
           <span className={s.workExperience}>{workExperience}</span>
-          <span className={s.name}>{name}</span>
+          <h3 className={s.name}>{name}</h3>
           <span className={s.specialization}>{specialization}</span>
         </div>
         <p>{description}</p>

@@ -18,7 +18,7 @@ export const AudienceCard = (props: AudienceCardProps) => {
         <div className={s.arrow}>
           <ArrowIcon />
         </div>
-        {item}
+        <h3>{item}</h3>
       </li>
     );
   });

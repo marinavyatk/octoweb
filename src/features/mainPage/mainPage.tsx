@@ -11,7 +11,10 @@ import { DemarkoCard } from "../../components/ui/complex/caseCards/demarkoCard.t
 import { EkvadratCard } from "../../components/ui/complex/caseCards/ekvadratCard.tsx";
 import { BotanicaCard } from "../../components/ui/complex/caseCards/botanicaCard.tsx";
 import { SmxtreamCard } from "../../components/ui/complex/caseCards/smxtreamCard.tsx";
-import { ServicesLinksList } from "../../components/ui/complex/servicesLinksList/servicesLinksList.tsx";
+import {
+  linksData,
+  ServicesLinksList,
+} from "../../components/ui/complex/servicesLinksList/servicesLinksList.tsx";
 import { StepCards } from "../../components/ui/complex/stepCards/stepCards.tsx";
 import { FooterWithForm } from "../../components/ui/complex/footerWithForm/footerWithForm.tsx";
 import { routes } from "../../common/routes.ts";
@@ -156,7 +159,7 @@ export const MainPage = () => {
 
       <section className={s.services}>
         <h2>Услуги</h2>
-        <ServicesLinksList />
+        <ServicesLinksList linksData={linksData} />
       </section>
 
       <section className={s.steps}>

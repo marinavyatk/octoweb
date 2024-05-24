@@ -2,11 +2,6 @@ import s from "./servicePage.module.scss";
 import { Header } from "../../components/ui/complex/header/header.tsx";
 import { FooterWithForm } from "../../components/ui/complex/footerWithForm/footerWithForm.tsx";
 import OnlineStoreImg from "../../assets/webp/onlineStoreImg.webp";
-import { AnimatedField } from "../../components/ui/primitive/animatedField/animatedField.tsx";
-import ArrowIcon from "../../assets/arrow.svg?react";
-import Map from "../../assets/webp/map.webp";
-import { AdvantageItems } from "../../components/ui/complex/AdvantageItems/AdvantageItems.tsx";
-import ArrowPointerSmall from "../../assets/arrow3.svg?react";
 import { Team } from "../../components/ui/primitive/team/team.tsx";
 import { StepCards } from "../../components/ui/complex/stepCards/stepCards.tsx";
 import { FAQ, faqData } from "../../components/ui/complex/faq/faq.tsx";
@@ -17,6 +12,8 @@ import { ArrowLinkWithText } from "../../components/ui/primitive/ArrowLinkWithTe
 import { AudienceCard } from "../../components/ui/primitive/audienceCard/audienceCard.tsx";
 import { PriceTable } from "../../components/ui/primitive/priceTable/priceTable.tsx";
 import { useEffect } from "react";
+import { CooperationCard } from "../../components/ui/complex/cooperationCard/cooperationCard.tsx";
+import { AdvantageSection } from "../../components/ui/complex/advantageSection/advantageSection.tsx";
 
 const teamMembersInfo = [
   {
@@ -154,60 +151,20 @@ export const ServicePage = () => {
           </div>
         </div>
       </div>
-      <section className={s.location}>
-        <div className={s.text}>
-          <div>НАША</div>
-          <AnimatedField variant={"light"} className={s.starsSymbols}>
-            ★ ★ ★ ★ ★
-          </AnimatedField>
-          <div>ВЕБ-СТУДИЯ</div>
-          <div>ОРИЕНТИРОВАНА</div>
-          <AnimatedField className={s.happySymbol}>⌢⌣</AnimatedField>
-          <div>на</div>
-          <AnimatedField className={s.kaomojiSymbol}>くコ:彡</AnimatedField>
-          <AnimatedField variant={"dark"} className={s.emojiSymbol}>
-            (:\/)
-          </AnimatedField>
-          <div>Долгосрочное</div>
-          <div>сотрудничество</div>
-          <AnimatedField variant={"dark"} className={s.arrowSymbol}>
-            <ArrowIcon />
-          </AnimatedField>
-          <AnimatedField variant={"light"} className={s.kissSymbol}>
-            :^*
-          </AnimatedField>
-        </div>
-        <div className={s.map}>
-          <img src={Map} alt="Карта" />
-          <p>
-            Мы базируемся в Краснодаре и эффективно сотрудничаем с клиентами по
-            всей России на удаленной основе.
-          </p>
-        </div>
-      </section>
+
+      <CooperationCard />
       <div className={s.mainContainer}>
-        <section className={s.advantages}>
-          <div className={s.title}>
-            <h2>
-              <span>РАБОТАТЬ С НАМИ </span>
-              <br />
-              ЛЕГКО, ПРИЯТНО И ВЫГОДНО!
-            </h2>
-            <ArrowPointerSmall className={s.arrow} />
-          </div>
-          <AdvantageItems />
-          <AudienceCard
-            header={serviceData.audience.header}
-            items={serviceData.audience.items}
-            className={s.audience}
-          />
-        </section>
-        <section className={s.team}>
-          <Team
-            teamMembersInfo={serviceData.team.teamMembersInfo}
-            intro={serviceData.team.intro}
-          />
-        </section>
+        <AdvantageSection />
+        <AudienceCard
+          header={serviceData.audience.header}
+          items={serviceData.audience.items}
+          className={s.audience}
+        />
+        <Team
+          teamMembersInfo={serviceData.team.teamMembersInfo}
+          intro={serviceData.team.intro}
+          className={s.team}
+        />
       </div>
       <StepCards className={s.stepCards} />
       <section className={s.prices}>

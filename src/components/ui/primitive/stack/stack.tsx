@@ -24,7 +24,7 @@ export const Stack = (props: StackProps) => {
     <div {...restProps} className={classNames}>
       <div className={s.text}>
         <span className={s.number}>{number}</span>
-        <span className={s.title}>{header}</span>
+        <h2 className={s.header}>{header}</h2>
       </div>
       <div className={s.tagList}>{tagList}</div>
     </div>

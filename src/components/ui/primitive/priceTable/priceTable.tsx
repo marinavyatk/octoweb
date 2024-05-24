@@ -18,7 +18,7 @@ export const PriceTable = (props: PriceTableProps) => {
   const priceList = priceItems.map((item) => {
     return (
       <div className={s.priceRow}>
-        <span>{item.service}</span>
+        <h3>{item.service}</h3>
         <span className={s.price}>от {item.price} ₽</span>
       </div>
     );

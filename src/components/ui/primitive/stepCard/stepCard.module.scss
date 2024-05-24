@@ -24,12 +24,13 @@
     line-height: var(--line-height-120);
   }
 
-  .title {
+  .header {
     font-weight: var(--font-weight-regular-300);
     font-size: var(--font-size-sm);
     line-height: var(--line-height-180);
     color: var(--color-accent);
     font-family: var(--font-family-primary);
+    text-transform: none;
   }
 
   p {
