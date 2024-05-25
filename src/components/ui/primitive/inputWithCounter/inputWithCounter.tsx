@@ -2,6 +2,7 @@ import React, {
   ChangeEvent,
   ComponentPropsWithoutRef,
   Ref,
+  useRef,
   useState,
 } from "react";
 import clsx from "clsx";
@@ -10,6 +11,7 @@ import { InputFile, InputFileProps } from "../inputFile/inputFile.tsx";
 import { AttachedFile } from "../attachedFile/attachedFile.tsx";
 import TextareaAutosize from "react-textarea-autosize";
 import { Label } from "../label/label.tsx";
+import { useCombinedRef } from "../../../../common/customHooks.ts";
 
 type Style = {
   height?: number;
@@ -27,6 +29,7 @@ export const InputWithCounter = React.forwardRef(
   (props: InputProps, ref: Ref<HTMLTextAreaElement>) => {
     const [content, setContent] = useState("");
     const [file, setFile] = useState<File | undefined>(undefined);
+    const inputFileRef = useRef<HTMLInputElement>(null);
     const {
       label,
       isRequiredField,
@@ -38,13 +41,17 @@ export const InputWithCounter = React.forwardRef(
     } = props;
     const isError = errorMessage && !!(errorMessage[0] || errorMessage[1]);
     const classNames = clsx(className, { [s.error]: isError });
+
+    const handleDeleteFile = () => {
+      setFile(undefined);
+      if (inputFileRef.current) {
+        inputFileRef.current.value = "";
+      }
+    };
     const underlineMessage = isError ? (
       errorMessage.filter((message) => message).join(". ")
     ) : file ? (
-      <AttachedFile
-        fileName={file.name}
-        onDeleteClick={() => setFile(undefined)}
-      />
+      <AttachedFile fileName={file.name} onDeleteClick={handleDeleteFile} />
     ) : (
       "Размер файла не более 5mb"
     );
@@ -61,13 +68,11 @@ export const InputWithCounter = React.forwardRef(
       }
     };
 
+    const finalInputFileRef = useCombinedRef(inputFileRef, fileProps?.ref);
+
     return (
       <div className={classNames} {...containerProps}>
         <div className={s.inputContainer}>
-          {/*<label className={s.mainLabel} htmlFor={restProps?.id}>*/}
-          {/*  {label}*/}
-          {/*  {required && <sup className={s.required}> *</sup>}*/}
-          {/*</label>*/}
           <Label
             text={label}
             isRequiredField={isRequiredField}
@@ -84,7 +89,12 @@ export const InputWithCounter = React.forwardRef(
               }}
               style={restProps?.style as Style}
             />
-            <InputFile {...fileProps} error={isError} onChange={handleChange} />
+            <InputFile
+              {...fileProps}
+              error={isError}
+              onChange={handleChange}
+              ref={finalInputFileRef}
+            />
           </div>
         </div>
         <div className={s.underText}>
