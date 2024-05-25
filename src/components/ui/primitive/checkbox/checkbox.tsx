@@ -15,7 +15,7 @@ export const Checkbox = React.forwardRef(
       <div {...divProps} className={classNames}>
         <input {...restProps} type={"checkbox"} id={restProps.name} ref={ref} />
         <label htmlFor={restProps.name}></label>
-        <span>{text}</span>
+        <label htmlFor={restProps.name}>{text}</label>
       </div>
     );
   },
