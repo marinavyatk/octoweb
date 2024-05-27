@@ -3,7 +3,7 @@ import { Header } from "../../components/ui/complex/header/header.tsx";
 import { FooterWithoutForm } from "../../components/ui/complex/footerWithoutForm/footerWithoutForm.tsx";
 import { BriefNavbar } from "../../components/ui/primitive/briefNavbar/briefNavbar.tsx";
 import { Input } from "../../components/ui/primitive/input/input.tsx";
-import { InputAdditionalFile } from "../../components/ui/primitive/inputAdditionalFile/inputAdditionalFile.tsx";
+import { FromInputAdditionalFile } from "../../components/ui/primitive/inputAdditionalFile/formInputAdditionalFile.tsx";
 import { ArrowButtonWithText } from "../../components/ui/primitive/ArrowButtonWithText/arrowButtonWithText.tsx";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -486,7 +486,6 @@ export const BriefPage = () => {
 
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const observer = useRef<IntersectionObserver | null>(null);
-  console.log(activeSection);
   useEffect(() => {
     observer.current = new IntersectionObserver(
       (entries) => {
@@ -569,7 +568,6 @@ export const BriefPage = () => {
   }, []);
   return (
     <div className={s.briefPage}>
-      {/*<ScrollRestoration />*/}
       {isFormNotificationShown && (
         <FormNotification onButtonClick={handleCloseNotification} />
       )}
@@ -1214,10 +1212,10 @@ export const BriefPage = () => {
                     { label: "Нет", value: "no" },
                   ]}
                 />
-
-                <InputAdditionalFile
+                <FromInputAdditionalFile
                   label={allFields.additionalInfo.technicalSpecification.label}
-                  {...register("additionalInfo.technicalSpecification")}
+                  control={control}
+                  name={"additionalInfo.technicalSpecification"}
                 />
                 <FormRadioGroup
                   mainLabel={allFields.additionalInfo.siteAdministration.label}
@@ -1243,9 +1241,10 @@ export const BriefPage = () => {
                   {...register("additionalInfo.additionalInfo")}
                   errorMessage={errors.additionalInfo?.additionalInfo?.message}
                 />
-                <InputAdditionalFile
+                <FromInputAdditionalFile
                   label={allFields.additionalInfo.additionalFiles.label}
-                  {...register("additionalInfo.additionalFiles")}
+                  control={control}
+                  name={"additionalInfo.additionalFiles"}
                 />
               </section>
             </div>
