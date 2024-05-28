@@ -3,6 +3,7 @@ import clsx from "clsx";
 import s from "./input.module.scss";
 import ErrorIcon from "../../../../assets/error.svg?react";
 import { Label } from "../label/label.tsx";
+import InputMask from "@mona-health/react-input-mask";
 
 export type InputProps<T extends ElementType> = {
   as: T;
@@ -38,13 +39,24 @@ export const Input = React.forwardRef(
           />
         )}
         <div className={s.position}>
-          <Component
-            {...restProps}
-            className={s.input}
-            name={restProps?.name}
-            id={restProps?.name}
-            ref={ref}
-          />
+          {restProps.type === "tel" ? (
+            <InputMask
+              mask="+7\ (999) 999-99-99"
+              {...restProps}
+              className={s.input}
+              name={restProps?.name}
+              id={restProps?.name}
+              ref={ref}
+            />
+          ) : (
+            <Component
+              {...restProps}
+              className={s.input}
+              name={restProps?.name}
+              id={restProps?.name}
+              ref={ref}
+            />
+          )}
           {errorMessage && <ErrorIcon className={s.errorIcon} />}
         </div>
         {errorMessage && <span className={s.errorMessage}>{errorMessage}</span>}

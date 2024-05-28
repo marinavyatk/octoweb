@@ -76,13 +76,14 @@ export const InputWithCounter = React.forwardRef(
           <Label
             text={label}
             isRequiredField={isRequiredField}
-            htmlFor={restProps?.id}
+            htmlFor={restProps?.name}
             className={s.mainLabel}
           />
           <div className={s.position}>
             <TextareaAutosize
               ref={ref}
               className={s.input}
+              id={restProps?.name}
               {...restProps}
               onInput={(event: ChangeEvent<HTMLTextAreaElement>) => {
                 handleInput(event);

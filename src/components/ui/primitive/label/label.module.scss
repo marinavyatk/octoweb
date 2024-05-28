@@ -4,7 +4,8 @@
   font-weight: var(--font-weight-regular-400);
   line-height: var(--line-height-140);
   text-transform: uppercase;
-  width: 100%;
+  //width: 100%;
+  width: fit-content;
 
   .required {
     color: var(--color-accent);

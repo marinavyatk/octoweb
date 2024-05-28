@@ -9,7 +9,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowButtonWithText } from "../../primitive/ArrowButtonWithText/arrowButtonWithText.tsx";
 import { formSchema } from "../../../../common/validation.ts";
 import emailjs from "@emailjs/browser";
-import { useHookFormMask } from "use-mask-input";
 import { InputWithCounter } from "../../primitive/inputWithCounter/inputWithCounter.tsx";
 import { FormNotification } from "../../primitive/formNotification/formNotification.tsx";
 import { Warning } from "../../primitive/warning/warning.tsx";
@@ -41,7 +40,6 @@ export const Form = (props: FormProps) => {
     mode: "onBlur",
   });
 
-  const registerWithMask = useHookFormMask(register);
   console.log(errors);
 
   const onSubmit = (data: FormValues) => {
@@ -109,7 +107,6 @@ export const Form = (props: FormProps) => {
             label={"Номер телефона"}
             isRequiredField
             {...register("tel")}
-            {...registerWithMask("tel", ["+7 (999) 999-99-99"])}
             type="tel"
             placeholder={"+7 (900) 000-00-00"}
             className={s.item}
