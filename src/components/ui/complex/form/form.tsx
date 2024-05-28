@@ -12,30 +12,30 @@ import emailjs from "@emailjs/browser";
 import { useHookFormMask } from "use-mask-input";
 import { InputWithCounter } from "../../primitive/inputWithCounter/inputWithCounter.tsx";
 import { FormNotification } from "../../primitive/formNotification/formNotification.tsx";
+import { Warning } from "../../primitive/warning/warning.tsx";
+import { useBlocker } from "react-router-dom";
 
 type FormValues = z.infer<typeof formSchema>;
 export type FormProps = ComponentPropsWithoutRef<"div">;
 
 export const Form = (props: FormProps) => {
   const [isFormNotificationShown, setIsFormNotificationShown] = useState(false);
-
   const form = useRef<ElementRef<"form">>(null);
-
   const { className, ...restProps } = props;
   const classNames = clsx(s.form, className);
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isDirty },
     reset,
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: undefined,
-      email: undefined,
-      tel: undefined,
-      projectDescription: undefined,
-      projectDescriptionFile: undefined,
+      name: "",
+      email: "",
+      tel: "",
+      projectDescription: "",
+      projectDescriptionFile: {} as FileList,
       mailing: false,
     },
     mode: "onBlur",
@@ -70,9 +70,19 @@ export const Form = (props: FormProps) => {
     setIsFormNotificationShown(false);
     reset();
   };
+  const blocker = useBlocker(
+    ({ currentLocation, nextLocation }) =>
+      isDirty && currentLocation.pathname !== nextLocation.pathname,
+  );
 
   return (
     <div {...restProps} className={classNames}>
+      {blocker.state === "blocked" ? (
+        <Warning
+          onConfirmButtonClick={() => blocker.proceed()}
+          onCancelButtonClick={() => blocker.reset()}
+        />
+      ) : null}
       {isFormNotificationShown && (
         <FormNotification onButtonClick={handleCloseNotification} />
       )}

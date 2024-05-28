@@ -4,8 +4,28 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  //-ms-overflow-style: none; /* IE and Edge */
-  //scrollbar-width: none;
+
+  //scrollbar-color: #4f4f4f #292929;
+
+  &::-webkit-scrollbar {
+    width: auto;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #292929;
+    border: 1px solid black;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #4f4f4f;
+    border-radius: 5px;
+    border: 2px solid #292929;
+
+    &:active {
+      background-color: var(--color-accent);
+      transition: all 0.4s;
+    }
+  }
 }
 
 *,
