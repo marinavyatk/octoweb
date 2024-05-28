@@ -39,5 +39,12 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      const bodyElement = document.querySelector("body");
+      const isFirefox = navigator.userAgent.toLowerCase().includes("firefox");
+      if (isFirefox) {
+        bodyElement.parentElement.style.scrollbarColor = "#4f4f4f #292929";
+      }
+    </script>
   </body>
 </html>
