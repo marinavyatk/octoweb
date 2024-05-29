@@ -4,6 +4,7 @@
   border-radius: 50%;
   border: 10px solid var(--color-dark-secondary);
   display: inline-block;
+  flex-shrink: 0;
 
   img {
     width: 232px;

@@ -29,7 +29,10 @@ export const CooperationCard = () => {
         </AnimatedField>
       </div>
       <div className={s.map}>
-        <img src={Map} alt="Карта" />
+        <div className={s.imgContainer}>
+          <img src={Map} alt="Карта" />
+        </div>
+
         <p>
           Мы базируемся в Краснодаре и эффективно сотрудничаем с клиентами по
           всей России на удаленной основе.

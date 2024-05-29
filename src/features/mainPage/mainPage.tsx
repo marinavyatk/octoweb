@@ -3,7 +3,7 @@ import s from "./mainPage.module.scss";
 import { ButtonWithStroke } from "../../components/ui/primitive/buttonWithStroke/buttonWithStroke.tsx";
 import { AnimatedField } from "../../components/ui/primitive/animatedField/animatedField.tsx";
 import ArrowIcon from "../../assets/arrow.svg?react";
-import team from "../../assets/webp/team.webp";
+import teamPhoto from "../../assets/webp/teamMainPhoto.webp";
 import { AdvantageCards } from "../../components/ui/complex/advantageCards/advantageCards.tsx";
 import ArrowPointer from "../../assets/arrowPointer.svg?react";
 import ArrowPointerSmall from "../../assets/arrowPointerSmall.svg?react";
@@ -120,14 +120,16 @@ export const MainPage = () => {
           </p>
         </div>
 
-        <div className={s.imageContainer}>
+        <div className={s.imageWithButton}>
+          <div className={s.imgContainer}>
+            <img src={teamPhoto} alt={"Команда"} />
+          </div>
           <ArrowLinkWithText
             variant={"dark"}
             text={"Заказать проект"}
             href={"#form"}
             className={s.arrowButton}
           />
-          <img src={team} alt={"Команда"} />
         </div>
       </section>
 
