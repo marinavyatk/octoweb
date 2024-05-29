@@ -18,9 +18,8 @@ export const FormNotification = (props: FormNotificationProps) => {
         </div>
         <div>
           <span>Спасибо за ваше доверие!</span>
-          <p>
-            Благодарим за обращение! В ближайшее время мы свяжемся с вами для
-            обсуждения деталей.
+          <p className={s.message}>
+            Благодарим за обращение! В ближайшее время мы свяжемся с вами для обсуждения деталей.
           </p>
         </div>
         <button onClick={onButtonClick}>ОТЛИЧНО!</button>

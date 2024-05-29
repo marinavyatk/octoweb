@@ -81,9 +81,7 @@ export const Form = (props: FormProps) => {
           onCancelButtonClick={() => blocker.reset()}
         />
       ) : null}
-      {isFormNotificationShown && (
-        <FormNotification onButtonClick={handleCloseNotification} />
-      )}
+      {isFormNotificationShown && <FormNotification onButtonClick={handleCloseNotification} />}
       <form onSubmit={handleSubmit(onSubmit)} ref={form}>
         <div className={s.mainInfo}>
           <Input
@@ -136,14 +134,10 @@ export const Form = (props: FormProps) => {
             <a href={"#"} rel={"nofollow"}>
               Политики ООО OctoWeb в отношении обработки данных
             </a>{" "}
-            и, нажимая на кнопку “Отправить”, даю согласие на обработку
-            компанией указанных мной персональных данных
+            и, нажимая на кнопку “Отправить”, даю согласие на обработку компанией указанных мной
+            персональных данных
           </p>
-          <ArrowButtonWithText
-            text={"Отправить"}
-            type={"submit"}
-            className={s.arrowButton}
-          />
+          <ArrowButtonWithText text={"Отправить"} type={"submit"} className={s.arrowButton} />
         </div>
       </form>
     </div>
