@@ -90,8 +90,7 @@ export const BriefPage = () => {
       productsAndServicesDescription: {
         required: true,
         label: "Описание продукта или услуги",
-        placeholder:
-          "Подробное описание основных услуг, указанных в предыдущем пункте",
+        placeholder: "Подробное описание основных услуг, указанных в предыдущем пункте",
       },
       priorityProductsAndServices: {
         required: true,
@@ -111,8 +110,7 @@ export const BriefPage = () => {
       geography: {
         required: true,
         label: "География продукта/услуги",
-        placeholder:
-          "В каких регионах/ городах / странах представлены услуги или продукт",
+        placeholder: "В каких регионах/ городах / странах представлены услуги или продукт",
       },
       shortCompanyInfo: {
         required: false,
@@ -140,8 +138,7 @@ export const BriefPage = () => {
       goals: {
         required: true,
         label: "Цели, которые должен решить сайт",
-        placeholder:
-          "Например: увеличить конверсию, рассказать о бизнесе, привлечь и т.д.",
+        placeholder: "Например: увеличить конверсию, рассказать о бизнесе, привлечь и т.д.",
       },
       usersTargetAction: {
         required: true,
@@ -188,8 +185,7 @@ export const BriefPage = () => {
       },
       specificSystem: {
         required: false,
-        label:
-          "Есть ли определенная CMS система, на которой нужно сделать сайт?",
+        label: "Есть ли определенная CMS система, на которой нужно сделать сайт?",
         placeholder: "Например Tilda, WordPress и др.",
       },
       seo: { required: true, label: "SEO-Оптимизация" },
@@ -210,14 +206,12 @@ export const BriefPage = () => {
       income: {
         required: knowTargetAudienceCurrentValue === "yes",
         label: "Достаток",
-        placeholder:
-          "Гипотетический доход пользователя, средняя месячная зарплата",
+        placeholder: "Гипотетический доход пользователя, средняя месячная зарплата",
       },
       interests: {
         required: knowTargetAudienceCurrentValue === "yes",
         label: "Интересы",
-        placeholder:
-          "Чем интересуется целевая аудитория, например — спорт, туризм и т.д.",
+        placeholder: "Чем интересуется целевая аудитория, например — спорт, туризм и т.д.",
       },
       useInteractionStages: {
         required: knowTargetAudienceCurrentValue === "yes",
@@ -227,8 +221,7 @@ export const BriefPage = () => {
       communicationChannels: {
         required: false,
         label: "Каналы коммуникации с ЦА",
-        placeholder:
-          "Телефонный звонок, переписка в мессенджерах, почта, соц. сети и т.д.",
+        placeholder: "Телефонный звонок, переписка в мессенджерах, почта, соц. сети и т.д.",
       },
       intensityOfUse: {
         required: knowTargetAudienceCurrentValue === "yes",
@@ -238,7 +231,7 @@ export const BriefPage = () => {
     },
     materials: {
       materialsDevelopment: {
-        required: knowTargetAudienceCurrentValue === "yes",
+        required: true,
         label: "Требуется ли разработка дополнительных материалов",
       },
       materialsToDevelop: {
@@ -287,12 +280,8 @@ export const BriefPage = () => {
     semantics: defineSchema(allFields.about.semantics),
     field: defineSchema(allFields.about.field),
     productsAndServices: defineSchema(allFields.about.productsAndServices),
-    productsAndServicesDescription: defineSchema(
-      allFields.about.productsAndServicesDescription,
-    ),
-    priorityProductsAndServices: defineSchema(
-      allFields.about.priorityProductsAndServices,
-    ),
+    productsAndServicesDescription: defineSchema(allFields.about.productsAndServicesDescription),
+    priorityProductsAndServices: defineSchema(allFields.about.priorityProductsAndServices),
     offerUniqueness: defineSchema(allFields.about.offerUniqueness),
     disadvantages: defineSchema(allFields.about.disadvantages),
     geography: defineSchema(allFields.about.geography),
@@ -306,12 +295,8 @@ export const BriefPage = () => {
     goals: defineSchema(allFields.details.goals),
     usersTargetAction: checkboxGroupRequired,
     competitorsSites: defineSchema(allFields.details.competitorsSites),
-    advantagesCompetitorsSites: defineSchema(
-      allFields.details.advantagesCompetitorsSites,
-    ),
-    disadvantagesCompetitorsSites: defineSchema(
-      allFields.details.disadvantagesCompetitorsSites,
-    ),
+    advantagesCompetitorsSites: defineSchema(allFields.details.advantagesCompetitorsSites),
+    disadvantagesCompetitorsSites: defineSchema(allFields.details.disadvantagesCompetitorsSites),
     sitesYouLike: defineSchema(allFields.details.sitesYouLike),
     sitesYouDislike: defineSchema(allFields.details.sitesYouDislike),
     preferredColors: defineSchema(allFields.details.preferredColors),
@@ -327,12 +312,8 @@ export const BriefPage = () => {
     age: defineSchema(allFields.targetGroup.age),
     income: defineSchema(allFields.targetGroup.income),
     interests: defineSchema(allFields.targetGroup.interests),
-    useInteractionStages: defineSchema(
-      allFields.targetGroup.useInteractionStages,
-    ),
-    communicationChannels: defineSchema(
-      allFields.targetGroup.communicationChannels,
-    ),
+    useInteractionStages: defineSchema(allFields.targetGroup.useInteractionStages),
+    communicationChannels: defineSchema(allFields.targetGroup.communicationChannels),
     intensityOfUse: defineSchema(allFields.targetGroup.intensityOfUse),
   });
   const materials = z.object({
@@ -346,9 +327,7 @@ export const BriefPage = () => {
       allFields.additionalInfo.technicalSpecificationAvailable,
     ),
     technicalSpecification: multipleFilesSchema.optional(),
-    siteAdministration: defineSchema(
-      allFields.additionalInfo.siteAdministration,
-    ),
+    siteAdministration: defineSchema(allFields.additionalInfo.siteAdministration),
     additionalInfo: defineSchema(allFields.additionalInfo.additionalInfo),
     additionalFiles: multipleFilesSchema.optional(),
   });
@@ -362,6 +341,70 @@ export const BriefPage = () => {
   });
   type FormValues = z.infer<typeof briefSchema>;
 
+  const defaultValues = {
+    contactInfo: {
+      name: "",
+      position: "",
+      tel: "",
+      email: "",
+      communicationWay: [],
+    },
+    about: {
+      companyName: "",
+      semantics: "",
+      field: "",
+      productsAndServices: "",
+      productsAndServicesDescription: "",
+      priorityProductsAndServices: "",
+      offerUniqueness: "",
+      disadvantages: "",
+      geography: "",
+      shortCompanyInfo: "",
+      site: "",
+      socialNetworks: "",
+      competitors: "",
+    },
+    details: {
+      siteType: "landing",
+      goals: "",
+      usersTargetAction: [],
+      competitorsSites: "",
+      advantagesCompetitorsSites: "",
+      disadvantagesCompetitorsSites: "",
+      sitesYouLike: "",
+      sitesYouDislike: "",
+      preferredColors: "",
+      unwantedColors: "",
+      siteFunctionality: [],
+      specificSystem: "",
+      seo: "yes",
+      copywriting: "yes",
+    },
+    targetGroup: {
+      knowTargetAudience: "yes",
+      sex: "",
+      age: "",
+      income: "",
+      interests: "",
+      useInteractionStages: "",
+      communicationChannels: "",
+      intensityOfUse: "",
+    },
+    materials: {
+      materialsDevelopment: "yes",
+      materialsToDevelop: "",
+    },
+    additionalInfo: {
+      numberOfLanguageVersions: "1",
+      budget: "",
+      technicalSpecificationAvailable: "yes",
+      technicalSpecification: {} as FileList,
+      siteAdministration: "yes",
+      additionalInfo: "",
+      additionalFiles: {} as FileList,
+    },
+  };
+
   const {
     register,
     control,
@@ -371,69 +414,7 @@ export const BriefPage = () => {
     reset,
   } = useForm<FormValues>({
     resolver: zodResolver(briefSchema),
-    defaultValues: {
-      contactInfo: {
-        name: "",
-        position: "",
-        tel: "",
-        email: "",
-        communicationWay: [],
-      },
-      about: {
-        companyName: "",
-        semantics: "",
-        field: "",
-        productsAndServices: "",
-        productsAndServicesDescription: "",
-        priorityProductsAndServices: "",
-        offerUniqueness: "",
-        disadvantages: "",
-        geography: "",
-        shortCompanyInfo: "",
-        site: "",
-        socialNetworks: "",
-        competitors: "",
-      },
-      details: {
-        siteType: "landing",
-        goals: "",
-        usersTargetAction: [],
-        competitorsSites: "",
-        advantagesCompetitorsSites: "",
-        disadvantagesCompetitorsSites: "",
-        sitesYouLike: "",
-        sitesYouDislike: "",
-        preferredColors: "",
-        unwantedColors: "",
-        siteFunctionality: [],
-        specificSystem: "",
-        seo: "yes",
-        copywriting: "yes",
-      },
-      targetGroup: {
-        knowTargetAudience: "yes",
-        sex: "",
-        age: "",
-        income: "",
-        interests: "",
-        useInteractionStages: "",
-        communicationChannels: "",
-        intensityOfUse: "",
-      },
-      materials: {
-        materialsDevelopment: "yes",
-        materialsToDevelop: "",
-      },
-      additionalInfo: {
-        numberOfLanguageVersions: "1",
-        budget: "",
-        technicalSpecificationAvailable: "yes",
-        technicalSpecification: {} as FileList,
-        siteAdministration: "yes",
-        additionalInfo: "",
-        additionalFiles: {} as FileList,
-      },
-    },
+    defaultValues: defaultValues,
     mode: "onBlur",
   });
 
@@ -449,28 +430,18 @@ export const BriefPage = () => {
   };
 
   const currentValues: CurrentFields = watch();
-  materialsDevelopmentCurrentValue = currentValues.materials
-    .materialsDevelopment as string;
-  knowTargetAudienceCurrentValue = currentValues.targetGroup
-    .knowTargetAudience as string;
+  materialsDevelopmentCurrentValue = currentValues.materials.materialsDevelopment as string;
+  knowTargetAudienceCurrentValue = currentValues.targetGroup.knowTargetAudience as string;
 
-  const removeErrorsInMaterials = () => {
-    if (materialsDevelopmentCurrentValue !== "yes") {
-      allFields.materials.materialsToDevelop.required = false;
-      if (errors.materials) {
-        errors.materials.materialsToDevelop = undefined;
-      }
+  if (materialsDevelopmentCurrentValue !== "yes") {
+    if (errors.materials) {
+      delete errors.materials;
     }
-  };
+  }
 
   if (knowTargetAudienceCurrentValue !== "yes") {
     if (errors.targetGroup) {
-      errors.targetGroup.sex = undefined;
-      errors.targetGroup.age = undefined;
-      errors.targetGroup.income = undefined;
-      errors.targetGroup.interests = undefined;
-      errors.targetGroup.useInteractionStages = undefined;
-      errors.targetGroup.intensityOfUse = undefined;
+      delete errors.targetGroup;
     }
   }
 
@@ -531,9 +502,7 @@ export const BriefPage = () => {
 
   return (
     <div className={s.briefPage}>
-      {isFormNotificationShown && (
-        <FormNotification onButtonClick={handleCloseNotification} />
-      )}
+      {isFormNotificationShown && <FormNotification onButtonClick={handleCloseNotification} />}
       <Header />
       <div className={s.mainContainer}>
         <section className={s.startSection}>
@@ -544,22 +513,18 @@ export const BriefPage = () => {
           <ArrowPointerRight className={s.arrowRight} />
           <div className={s.explanation}>
             <p>
-              Перед началом работы, пожалуйста, ответьте на наши вопросы. Ответы
-              станут отправной точкой. Это позволит собрать необходимую
-              информацию и подготовить подробное коммерческое предложение.
+              Перед началом работы, пожалуйста, ответьте на наши вопросы. Ответы станут отправной
+              точкой. Это позволит собрать необходимую информацию и подготовить подробное
+              коммерческое предложение.
             </p>
             <p>
-              Наша цель - сделать общение продуктивным, чтобы уже на начальном
-              этапе понять, чем наша команда будет полезна. В случае, если
-              увидим, что не справимся с работой, то с удовольствием
-              порекомендуем подходящих партнеров, способных решить задачи
-              проекта.
+              Наша цель - сделать общение продуктивным, чтобы уже на начальном этапе понять, чем
+              наша команда будет полезна. В случае, если увидим, что не справимся с работой, то с
+              удовольствием порекомендуем подходящих партнеров, способных решить задачи проекта.
             </p>
           </div>
           <ArrowPointerLeft className={s.arrowLeft} />
-          <span className={s.time}>
-            Примерное время заполнения — 15-30 мин.
-          </span>
+          <span className={s.time}>Примерное время заполнения — 15-30 мин.</span>
         </section>
 
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -608,9 +573,7 @@ export const BriefPage = () => {
                   />
                   <RadioCheckboxGroup
                     mainLabel={allFields.contactInfo.communicationWay.label}
-                    isRequiredField={
-                      allFields.contactInfo.communicationWay.required
-                    }
+                    isRequiredField={allFields.contactInfo.communicationWay.required}
                     checkboxItems={[
                       {
                         label: "Telegram",
@@ -670,41 +633,25 @@ export const BriefPage = () => {
                   <Input
                     as={TextareaAutosize}
                     label={allFields.about.productsAndServices.label}
-                    isRequiredField={
-                      allFields.about.productsAndServices.required
-                    }
-                    placeholder={
-                      allFields.about.productsAndServices.placeholder
-                    }
+                    isRequiredField={allFields.about.productsAndServices.required}
+                    placeholder={allFields.about.productsAndServices.placeholder}
                     {...register("about.productsAndServices")}
                     errorMessage={errors.about?.productsAndServices?.message}
                   />
                   <Input
                     as={TextareaAutosize}
                     label={allFields.about.productsAndServicesDescription.label}
-                    isRequiredField={
-                      allFields.about.productsAndServicesDescription.required
-                    }
-                    placeholder={
-                      allFields.about.productsAndServicesDescription.placeholder
-                    }
+                    isRequiredField={allFields.about.productsAndServicesDescription.required}
+                    placeholder={allFields.about.productsAndServicesDescription.placeholder}
                     {...register("about.productsAndServicesDescription")}
-                    errorMessage={
-                      errors.about?.productsAndServicesDescription?.message
-                    }
+                    errorMessage={errors.about?.productsAndServicesDescription?.message}
                   />
                   <Input
                     label={allFields.about.priorityProductsAndServices.label}
-                    isRequiredField={
-                      allFields.about.priorityProductsAndServices.required
-                    }
-                    placeholder={
-                      allFields.about.priorityProductsAndServices.placeholder
-                    }
+                    isRequiredField={allFields.about.priorityProductsAndServices.required}
+                    placeholder={allFields.about.priorityProductsAndServices.placeholder}
                     {...register("about.priorityProductsAndServices")}
-                    errorMessage={
-                      errors.about?.priorityProductsAndServices?.message
-                    }
+                    errorMessage={errors.about?.priorityProductsAndServices?.message}
                   />
                   <Input
                     as={TextareaAutosize}
@@ -792,9 +739,7 @@ export const BriefPage = () => {
                   />
                   <RadioCheckboxGroup
                     mainLabel={allFields.details.usersTargetAction.label}
-                    isRequiredField={
-                      allFields.details.usersTargetAction.required
-                    }
+                    isRequiredField={allFields.details.usersTargetAction.required}
                     checkboxItems={[
                       {
                         label: "Купить",
@@ -841,9 +786,7 @@ export const BriefPage = () => {
                   />
                   <Input
                     label={allFields.details.competitorsSites.label}
-                    isRequiredField={
-                      allFields.details.competitorsSites.required
-                    }
+                    isRequiredField={allFields.details.competitorsSites.required}
                     placeholder={allFields.details.competitorsSites.placeholder}
                     {...register("details.competitorsSites")}
                     errorMessage={errors.details?.competitorsSites?.message}
@@ -851,38 +794,24 @@ export const BriefPage = () => {
                   <Input
                     as={TextareaAutosize}
                     label={allFields.details.advantagesCompetitorsSites.label}
-                    isRequiredField={
-                      allFields.details.advantagesCompetitorsSites.required
-                    }
-                    placeholder={
-                      allFields.details.advantagesCompetitorsSites.placeholder
-                    }
+                    isRequiredField={allFields.details.advantagesCompetitorsSites.required}
+                    placeholder={allFields.details.advantagesCompetitorsSites.placeholder}
                     {...register("details.advantagesCompetitorsSites")}
-                    errorMessage={
-                      errors.details?.advantagesCompetitorsSites?.message
-                    }
+                    errorMessage={errors.details?.advantagesCompetitorsSites?.message}
                   />
                   <div className={s.fieldWithAccent}>
-                    <label
-                      htmlFor="details.disadvantagesCompetitorsSites"
-                      className={s.label}
-                    >
-                      Чем <span className={s.accent}>не</span> нравятся сайты
-                      конкурентов
-                      {allFields.details.disadvantagesCompetitorsSites
-                        .required && <sup className={s.required}> *</sup>}
+                    <label htmlFor="details.disadvantagesCompetitorsSites" className={s.label}>
+                      Чем <span className={s.accent}>не</span> нравятся сайты конкурентов
+                      {allFields.details.disadvantagesCompetitorsSites.required && (
+                        <sup className={s.required}> *</sup>
+                      )}
                     </label>
                     <Input
                       as={TextareaAutosize}
-                      placeholder={
-                        allFields.details.disadvantagesCompetitorsSites
-                          .placeholder
-                      }
+                      placeholder={allFields.details.disadvantagesCompetitorsSites.placeholder}
                       {...register("details.disadvantagesCompetitorsSites")}
                       name={"details.disadvantagesCompetitorsSites"}
-                      errorMessage={
-                        errors.details?.disadvantagesCompetitorsSites?.message
-                      }
+                      errorMessage={errors.details?.disadvantagesCompetitorsSites?.message}
                     />
                   </div>
                   <Input
@@ -893,20 +822,14 @@ export const BriefPage = () => {
                     errorMessage={errors.details?.sitesYouLike?.message}
                   />
                   <div className={s.fieldWithAccent}>
-                    <label
-                      htmlFor="details.sitesYouDislike"
-                      className={s.label}
-                    >
-                      Сайты, которые <span className={s.accent}>не</span>{" "}
-                      нравятся
+                    <label htmlFor="details.sitesYouDislike" className={s.label}>
+                      Сайты, которые <span className={s.accent}>не</span> нравятся
                       {allFields.details.sitesYouDislike.required && (
                         <sup className={s.required}> *</sup>
                       )}
                     </label>
                     <Input
-                      placeholder={
-                        allFields.details.sitesYouDislike.placeholder
-                      }
+                      placeholder={allFields.details.sitesYouDislike.placeholder}
                       {...register("details.sitesYouDislike")}
                       errorMessage={errors.details?.sitesYouDislike?.message}
                     />
@@ -929,9 +852,7 @@ export const BriefPage = () => {
                   />
                   <RadioCheckboxGroup
                     mainLabel={allFields.details.siteFunctionality.label}
-                    isRequiredField={
-                      allFields.details.siteFunctionality.required
-                    }
+                    isRequiredField={allFields.details.siteFunctionality.required}
                     checkboxItems={[
                       {
                         label: "CRM",
@@ -1045,9 +966,7 @@ export const BriefPage = () => {
                   <h2>Целевая аудитория</h2>
                   <FormRadioGroup
                     mainLabel={allFields.targetGroup.knowTargetAudience.label}
-                    isRequiredField={
-                      allFields.targetGroup.knowTargetAudience.required
-                    }
+                    isRequiredField={allFields.targetGroup.knowTargetAudience.required}
                     name={"targetGroup.knowTargetAudience"}
                     control={control}
                     radioItems={[
@@ -1085,59 +1004,34 @@ export const BriefPage = () => {
                       <Input
                         as={TextareaAutosize}
                         label={allFields.targetGroup.interests.label}
-                        isRequiredField={
-                          allFields.targetGroup.interests.required
-                        }
-                        placeholder={
-                          allFields.targetGroup.interests.placeholder
-                        }
+                        isRequiredField={allFields.targetGroup.interests.required}
+                        placeholder={allFields.targetGroup.interests.placeholder}
                         {...register("targetGroup.interests")}
                         errorMessage={errors.targetGroup?.interests?.message}
                       />
                       <Input
                         as={TextareaAutosize}
                         label={allFields.targetGroup.useInteractionStages.label}
-                        isRequiredField={
-                          allFields.targetGroup.useInteractionStages.required
-                        }
-                        placeholder={
-                          allFields.targetGroup.useInteractionStages.placeholder
-                        }
+                        isRequiredField={allFields.targetGroup.useInteractionStages.required}
+                        placeholder={allFields.targetGroup.useInteractionStages.placeholder}
                         {...register("targetGroup.useInteractionStages")}
-                        errorMessage={
-                          errors.targetGroup?.useInteractionStages?.message
-                        }
+                        errorMessage={errors.targetGroup?.useInteractionStages?.message}
                       />
                       <Input
                         as={TextareaAutosize}
-                        label={
-                          allFields.targetGroup.communicationChannels.label
-                        }
-                        isRequiredField={
-                          allFields.targetGroup.communicationChannels.required
-                        }
-                        placeholder={
-                          allFields.targetGroup.communicationChannels
-                            .placeholder
-                        }
+                        label={allFields.targetGroup.communicationChannels.label}
+                        isRequiredField={allFields.targetGroup.communicationChannels.required}
+                        placeholder={allFields.targetGroup.communicationChannels.placeholder}
                         {...register("targetGroup.communicationChannels")}
-                        errorMessage={
-                          errors.targetGroup?.communicationChannels?.message
-                        }
+                        errorMessage={errors.targetGroup?.communicationChannels?.message}
                       />
                       <Input
                         as={TextareaAutosize}
                         label={allFields.targetGroup.intensityOfUse.label}
-                        isRequiredField={
-                          allFields.targetGroup.intensityOfUse.required
-                        }
-                        placeholder={
-                          allFields.targetGroup.intensityOfUse.placeholder
-                        }
+                        isRequiredField={allFields.targetGroup.intensityOfUse.required}
+                        placeholder={allFields.targetGroup.intensityOfUse.placeholder}
                         {...register("targetGroup.intensityOfUse")}
-                        errorMessage={
-                          errors.targetGroup?.intensityOfUse?.message
-                        }
+                        errorMessage={errors.targetGroup?.intensityOfUse?.message}
                       />
                     </>
                   )}
@@ -1148,30 +1042,21 @@ export const BriefPage = () => {
                   <h2>Материалы</h2>
                   <FormRadioGroup
                     mainLabel={allFields.materials.materialsDevelopment.label}
-                    isRequiredField={
-                      allFields.materials.materialsDevelopment.required
-                    }
+                    isRequiredField={allFields.materials.materialsDevelopment.required}
                     name={"materials.materialsDevelopment"}
                     control={control}
                     radioItems={[
                       { label: "Да", value: "yes" },
                       { label: "Нет", value: "no" },
                     ]}
-                    onClick={removeErrorsInMaterials}
                   />
                   {currentValues.materials?.materialsDevelopment === "yes" && (
                     <Input
                       label={allFields.materials.materialsToDevelop.label}
-                      isRequiredField={
-                        allFields.materials.materialsToDevelop.required
-                      }
-                      placeholder={
-                        allFields.materials.materialsToDevelop.placeholder
-                      }
+                      isRequiredField={allFields.materials.materialsToDevelop.required}
+                      placeholder={allFields.materials.materialsToDevelop.placeholder}
                       {...register("materials.materialsToDevelop")}
-                      errorMessage={
-                        errors.materials?.materialsToDevelop?.message
-                      }
+                      errorMessage={errors.materials?.materialsToDevelop?.message}
                     />
                   )}
                 </section>
@@ -1180,12 +1065,8 @@ export const BriefPage = () => {
                 <section className={s.section} id={"additionalInfo"}>
                   <h2>Доп. информация</h2>
                   <FormRadioGroup
-                    mainLabel={
-                      allFields.additionalInfo.numberOfLanguageVersions.label
-                    }
-                    isRequiredField={
-                      allFields.additionalInfo.numberOfLanguageVersions.required
-                    }
+                    mainLabel={allFields.additionalInfo.numberOfLanguageVersions.label}
+                    isRequiredField={allFields.additionalInfo.numberOfLanguageVersions.required}
                     name={"additionalInfo.numberOfLanguageVersions"}
                     control={control}
                     radioItems={[
@@ -1202,13 +1083,9 @@ export const BriefPage = () => {
                     errorMessage={errors.additionalInfo?.budget?.message}
                   />
                   <FormRadioGroup
-                    mainLabel={
-                      allFields.additionalInfo.technicalSpecificationAvailable
-                        .label
-                    }
+                    mainLabel={allFields.additionalInfo.technicalSpecificationAvailable.label}
                     isRequiredField={
-                      allFields.additionalInfo.technicalSpecificationAvailable
-                        .required
+                      allFields.additionalInfo.technicalSpecificationAvailable.required
                     }
                     name={"additionalInfo.technicalSpecificationAvailable"}
                     control={control}
@@ -1218,19 +1095,13 @@ export const BriefPage = () => {
                     ]}
                   />
                   <FromInputAdditionalFile
-                    label={
-                      allFields.additionalInfo.technicalSpecification.label
-                    }
+                    label={allFields.additionalInfo.technicalSpecification.label}
                     control={control}
                     name={"additionalInfo.technicalSpecification"}
                   />
                   <FormRadioGroup
-                    mainLabel={
-                      allFields.additionalInfo.siteAdministration.label
-                    }
-                    isRequiredField={
-                      allFields.additionalInfo.siteAdministration.required
-                    }
+                    mainLabel={allFields.additionalInfo.siteAdministration.label}
+                    isRequiredField={allFields.additionalInfo.siteAdministration.required}
                     name={"additionalInfo.siteAdministration"}
                     control={control}
                     radioItems={[
@@ -1241,16 +1112,10 @@ export const BriefPage = () => {
                   <Input
                     as={TextareaAutosize}
                     label={allFields.additionalInfo.additionalInfo.label}
-                    isRequiredField={
-                      allFields.additionalInfo.additionalInfo.required
-                    }
-                    placeholder={
-                      allFields.additionalInfo.additionalInfo.placeholder
-                    }
+                    isRequiredField={allFields.additionalInfo.additionalInfo.required}
+                    placeholder={allFields.additionalInfo.additionalInfo.placeholder}
                     {...register("additionalInfo.additionalInfo")}
-                    errorMessage={
-                      errors.additionalInfo?.additionalInfo?.message
-                    }
+                    errorMessage={errors.additionalInfo?.additionalInfo?.message}
                   />
                   <FromInputAdditionalFile
                     label={allFields.additionalInfo.additionalFiles.label}
@@ -1267,14 +1132,10 @@ export const BriefPage = () => {
               <a href={"#"} rel={"nofollow"} download>
                 Политика ООО OctoWeb в отношении обработки данных
               </a>{" "}
-              и, нажимая на кнопку “Отправить”, даю согласие на обработку
-              компанией указанных мной персональных данных
+              и, нажимая на кнопку “Отправить”, даю согласие на обработку компанией указанных мной
+              персональных данных
             </p>
-            <ArrowButtonWithText
-              text={"Отправить"}
-              type={"submit"}
-              className={s.arrowButton}
-            />
+            <ArrowButtonWithText text={"Отправить"} type={"submit"} className={s.arrowButton} />
           </section>
         </form>
       </div>
