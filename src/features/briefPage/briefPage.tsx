@@ -20,11 +20,12 @@ import {
   radio,
   requiredString,
 } from "../../common/validation.ts";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import TextareaAutosize from "react-textarea-autosize";
 import { FormNotification } from "../../components/ui/primitive/formNotification/formNotification.tsx";
 import { useBlocker } from "react-router-dom";
 import { Warning } from "../../components/ui/primitive/warning/warning.tsx";
+import { Element } from "react-scroll";
 
 const defineSchema = (fieldName: FieldType) => {
   return fieldName.required ? requiredString : optionalString;
@@ -484,74 +485,35 @@ export const BriefPage = () => {
     return isRequiredFieldsNonEmpty && !isSectionHasErrors;
   };
 
-  const [activeSection, setActiveSection] = useState<string | null>(null);
-  const observer = useRef<IntersectionObserver | null>(null);
-  useEffect(() => {
-    observer.current = new IntersectionObserver(
-      (entries) => {
-        const visibleSection = entries.find(
-          (entry) => entry.isIntersecting,
-        )?.target;
-        if (visibleSection) {
-          setActiveSection(visibleSection.id);
-        }
-      },
-      { threshold: 0.3 },
-    );
-
-    const sections = document.querySelectorAll("[data-section]");
-
-    sections.forEach((section) => {
-      observer?.current?.observe(section);
-    });
-    return () => {
-      sections.forEach((section) => {
-        observer?.current?.unobserve(section);
-      });
-    };
-  }, []);
-
   const briefSections = [
     {
       text: "Контактная информация",
-      href: "#contactInfo",
       completed: checkSectionDone("contactInfo"),
-      currentSection: activeSection,
       sectionId: "contactInfo",
     },
     {
       text: "О компании и продукте",
-      href: "#about",
       completed: checkSectionDone("about"),
-      currentSection: activeSection,
       sectionId: "about",
     },
     {
       text: "Детализация задачи",
-      href: "#details",
       completed: checkSectionDone("details"),
-      currentSection: activeSection,
       sectionId: "details",
     },
     {
       text: "Целевая аудитория",
-      href: "#targetGroup",
       completed: checkSectionDone("targetGroup"),
-      currentSection: activeSection,
       sectionId: "targetGroup",
     },
     {
       text: "Материалы",
-      href: "#materials",
       completed: checkSectionDone("materials"),
-      currentSection: activeSection,
       sectionId: "materials",
     },
     {
       text: "Доп. информация",
-      href: "#additionalInfo",
       completed: checkSectionDone("additionalInfo"),
-      currentSection: activeSection,
       sectionId: "additionalInfo",
     },
   ];
@@ -566,6 +528,7 @@ export const BriefPage = () => {
       behavior: "instant",
     });
   }, []);
+
   return (
     <div className={s.briefPage}>
       {isFormNotificationShown && (
@@ -610,643 +573,692 @@ export const BriefPage = () => {
           <div className={s.formWithNavigation}>
             <BriefNavbar navItems={briefSections} className={s.navbar} />
             <div>
-              <section className={s.section} id={"contactInfo"} data-section>
-                <h2>Контактная информация</h2>
-                <Input
-                  label={allFields.contactInfo.name.label}
-                  isRequiredField={allFields.contactInfo.name.required}
-                  placeholder={allFields.contactInfo.name.placeholder}
-                  {...register("contactInfo.name")}
-                  errorMessage={errors.contactInfo?.name?.message}
-                />
-                <Input
-                  label={allFields.contactInfo.position.label}
-                  isRequiredField={allFields.contactInfo.position.required}
-                  placeholder={allFields.contactInfo.position.placeholder}
-                  {...register("contactInfo.position")}
-                  errorMessage={errors.contactInfo?.position?.message}
-                />
-                <Input
-                  label={allFields.contactInfo.tel.label}
-                  isRequiredField={allFields.contactInfo.tel.required}
-                  type={"tel"}
-                  placeholder={allFields.contactInfo.tel.placeholder}
-                  {...register("contactInfo.tel")}
-                  errorMessage={errors.contactInfo?.tel?.message}
-                />
-                <Input
-                  label={allFields.contactInfo.email.label}
-                  isRequiredField={allFields.contactInfo.email.required}
-                  type={"email"}
-                  placeholder={allFields.contactInfo.email.placeholder}
-                  {...register("contactInfo.email")}
-                  errorMessage={errors.contactInfo?.email?.message}
-                />
-                <RadioCheckboxGroup
-                  mainLabel={allFields.contactInfo.communicationWay.label}
-                  isRequiredField={
-                    allFields.contactInfo.communicationWay.required
-                  }
-                  checkboxItems={[
-                    {
-                      label: "Telegram",
-                      value: "telegram",
-                      rest: { ...register("contactInfo.communicationWay") },
-                    },
-                    {
-                      label: "Skype",
-                      value: "skype",
-                      rest: { ...register("contactInfo.communicationWay") },
-                    },
-                    {
-                      label: "WhatsApp",
-                      value: "whatsApp",
-                      rest: { ...register("contactInfo.communicationWay") },
-                    },
-                    {
-                      label: "Email",
-                      value: "email",
-                      rest: { ...register("contactInfo.communicationWay") },
-                    },
-                    {
-                      label: "Звонок",
-                      value: "call",
-                      rest: { ...register("contactInfo.communicationWay") },
-                    },
-                  ]}
-                  errorMessage={errors.contactInfo?.communicationWay?.message}
-                />
-              </section>
-
-              <section className={s.section} id={"about"} data-section>
-                <h2>О компании и продукте</h2>
-                <Input
-                  label={allFields.about.companyName.label}
-                  isRequiredField={allFields.about.companyName.required}
-                  placeholder={allFields.about.companyName.placeholder}
-                  {...register("about.companyName")}
-                  errorMessage={errors.about?.companyName?.message}
-                />
-                <Input
-                  as={TextareaAutosize}
-                  label={allFields.about.semantics.label}
-                  isRequiredField={allFields.about.semantics.required}
-                  placeholder={allFields.about.semantics.placeholder}
-                  {...register("about.semantics")}
-                  errorMessage={errors.about?.semantics?.message}
-                />
-                <Input
-                  label={allFields.about.field.label}
-                  isRequiredField={allFields.about.field.required}
-                  placeholder={allFields.about.field.placeholder}
-                  {...register("about.field")}
-                  errorMessage={errors.about?.field?.message}
-                />
-                <Input
-                  as={TextareaAutosize}
-                  label={allFields.about.productsAndServices.label}
-                  isRequiredField={allFields.about.productsAndServices.required}
-                  placeholder={allFields.about.productsAndServices.placeholder}
-                  {...register("about.productsAndServices")}
-                  errorMessage={errors.about?.productsAndServices?.message}
-                />
-                <Input
-                  as={TextareaAutosize}
-                  label={allFields.about.productsAndServicesDescription.label}
-                  isRequiredField={
-                    allFields.about.productsAndServicesDescription.required
-                  }
-                  placeholder={
-                    allFields.about.productsAndServicesDescription.placeholder
-                  }
-                  {...register("about.productsAndServicesDescription")}
-                  errorMessage={
-                    errors.about?.productsAndServicesDescription?.message
-                  }
-                />
-                <Input
-                  label={allFields.about.priorityProductsAndServices.label}
-                  isRequiredField={
-                    allFields.about.priorityProductsAndServices.required
-                  }
-                  placeholder={
-                    allFields.about.priorityProductsAndServices.placeholder
-                  }
-                  {...register("about.priorityProductsAndServices")}
-                  errorMessage={
-                    errors.about?.priorityProductsAndServices?.message
-                  }
-                />
-                <Input
-                  as={TextareaAutosize}
-                  label={allFields.about.offerUniqueness.label}
-                  isRequiredField={allFields.about.offerUniqueness.required}
-                  placeholder={allFields.about.offerUniqueness.placeholder}
-                  {...register("about.offerUniqueness")}
-                  errorMessage={errors.about?.offerUniqueness?.message}
-                />
-                <Input
-                  as={TextareaAutosize}
-                  label={allFields.about.disadvantages.label}
-                  isRequiredField={allFields.about.disadvantages.required}
-                  placeholder={allFields.about.disadvantages.placeholder}
-                  {...register("about.disadvantages")}
-                  errorMessage={errors.about?.disadvantages?.message}
-                />
-                <Input
-                  as={TextareaAutosize}
-                  label={allFields.about.geography.label}
-                  isRequiredField={allFields.about.geography.required}
-                  placeholder={allFields.about.geography.placeholder}
-                  {...register("about.geography")}
-                  errorMessage={errors.about?.geography?.message}
-                />
-                <Input
-                  as={TextareaAutosize}
-                  label={allFields.about.shortCompanyInfo.label}
-                  isRequiredField={allFields.about.shortCompanyInfo.required}
-                  placeholder={allFields.about.shortCompanyInfo.placeholder}
-                  {...register("about.shortCompanyInfo")}
-                  errorMessage={errors.about?.shortCompanyInfo?.message}
-                />
-                <Input
-                  label={allFields.about.site.label}
-                  isRequiredField={allFields.about.site.required}
-                  placeholder={allFields.about.site.placeholder}
-                  {...register("about.site")}
-                  errorMessage={errors.about?.site?.message}
-                />
-                <Input
-                  label={allFields.about.socialNetworks.label}
-                  isRequiredField={allFields.about.socialNetworks.required}
-                  placeholder={allFields.about.socialNetworks.placeholder}
-                  {...register("about.socialNetworks")}
-                  errorMessage={errors.about?.socialNetworks?.message}
-                />
-                <Input
-                  label={allFields.about.competitors.label}
-                  isRequiredField={allFields.about.competitors.required}
-                  placeholder={allFields.about.competitors.placeholder}
-                  {...register("about.competitors")}
-                  errorMessage={errors.about?.competitors?.message}
-                />
-              </section>
-
-              <section className={s.section} id={"details"} data-section>
-                <h2>Детализация задачи</h2>
-                <FormRadioGroup
-                  mainLabel={allFields.details.siteType.label}
-                  isRequiredField={allFields.details.siteType.required}
-                  name={"details.siteType"}
-                  control={control}
-                  radioItems={[
-                    { label: "Лендинг", value: "landing" },
-                    { label: "Сайт-визитка", value: "siteCard" },
-                    { label: "Интернет-магазин", value: "onlineStore" },
-                    { label: "Информационный сайт", value: "informational" },
-                    { label: "Корпоративный сайт", value: "corporate" },
-                    { label: "Лонгрид", value: "longrid" },
-                    { label: "Нужна консультация", value: "NeedConsultation" },
-                  ]}
-                />
-                <Input
-                  as={TextareaAutosize}
-                  label={allFields.details.goals.label}
-                  isRequiredField={allFields.details.goals.required}
-                  placeholder={allFields.details.goals.placeholder}
-                  {...register("details.goals")}
-                  errorMessage={errors.details?.goals?.message}
-                />
-                <RadioCheckboxGroup
-                  mainLabel={allFields.details.usersTargetAction.label}
-                  isRequiredField={allFields.details.usersTargetAction.required}
-                  checkboxItems={[
-                    {
-                      label: "Купить",
-                      value: "buy",
-                      rest: { ...register("details.usersTargetAction") },
-                    },
-                    {
-                      label: "Зарегистрироваться",
-                      value: "register",
-                      rest: { ...register("details.usersTargetAction") },
-                    },
-                    {
-                      label: "Забронировать",
-                      value: "book",
-                      rest: { ...register("details.usersTargetAction") },
-                    },
-                    {
-                      label: "Заказать",
-                      value: "order",
-                      rest: { ...register("details.usersTargetAction") },
-                    },
-                    {
-                      label: "Подписаться",
-                      value: "subscribe",
-                      rest: { ...register("details.usersTargetAction") },
-                    },
-                    {
-                      label: "Оставить заявку",
-                      value: "submitApplication ",
-                      rest: { ...register("details.usersTargetAction") },
-                    },
-                    {
-                      label: "Позвонить",
-                      value: "call ",
-                      rest: { ...register("details.usersTargetAction") },
-                    },
-                    {
-                      label: "Другое",
-                      value: "other ",
-                      rest: { ...register("details.usersTargetAction") },
-                    },
-                  ]}
-                  errorMessage={errors.details?.usersTargetAction?.message}
-                />
-                <Input
-                  label={allFields.details.competitorsSites.label}
-                  isRequiredField={allFields.details.competitorsSites.required}
-                  placeholder={allFields.details.competitorsSites.placeholder}
-                  {...register("details.competitorsSites")}
-                  errorMessage={errors.details?.competitorsSites?.message}
-                />
-                <Input
-                  as={TextareaAutosize}
-                  label={allFields.details.advantagesCompetitorsSites.label}
-                  isRequiredField={
-                    allFields.details.advantagesCompetitorsSites.required
-                  }
-                  placeholder={
-                    allFields.details.advantagesCompetitorsSites.placeholder
-                  }
-                  {...register("details.advantagesCompetitorsSites")}
-                  errorMessage={
-                    errors.details?.advantagesCompetitorsSites?.message
-                  }
-                />
-                <div className={s.fieldWithAccent}>
-                  <label
-                    htmlFor="details.disadvantagesCompetitorsSites"
-                    className={s.label}
-                  >
-                    Чем <span className={s.accent}>не</span> нравятся сайты
-                    конкурентов
-                    {allFields.details.disadvantagesCompetitorsSites
-                      .required && <sup className={s.required}> *</sup>}
-                  </label>
+              <Element name={"contactInfo"}>
+                <section className={s.section} id={"contactInfo"}>
+                  <h2>Контактная информация</h2>
+                  <Input
+                    label={allFields.contactInfo.name.label}
+                    isRequiredField={allFields.contactInfo.name.required}
+                    placeholder={allFields.contactInfo.name.placeholder}
+                    {...register("contactInfo.name")}
+                    errorMessage={errors.contactInfo?.name?.message}
+                  />
+                  <Input
+                    label={allFields.contactInfo.position.label}
+                    isRequiredField={allFields.contactInfo.position.required}
+                    placeholder={allFields.contactInfo.position.placeholder}
+                    {...register("contactInfo.position")}
+                    errorMessage={errors.contactInfo?.position?.message}
+                  />
+                  <Input
+                    label={allFields.contactInfo.tel.label}
+                    isRequiredField={allFields.contactInfo.tel.required}
+                    type={"tel"}
+                    placeholder={allFields.contactInfo.tel.placeholder}
+                    {...register("contactInfo.tel")}
+                    errorMessage={errors.contactInfo?.tel?.message}
+                  />
+                  <Input
+                    label={allFields.contactInfo.email.label}
+                    isRequiredField={allFields.contactInfo.email.required}
+                    type={"email"}
+                    placeholder={allFields.contactInfo.email.placeholder}
+                    {...register("contactInfo.email")}
+                    errorMessage={errors.contactInfo?.email?.message}
+                  />
+                  <RadioCheckboxGroup
+                    mainLabel={allFields.contactInfo.communicationWay.label}
+                    isRequiredField={
+                      allFields.contactInfo.communicationWay.required
+                    }
+                    checkboxItems={[
+                      {
+                        label: "Telegram",
+                        value: "telegram",
+                        rest: { ...register("contactInfo.communicationWay") },
+                      },
+                      {
+                        label: "Skype",
+                        value: "skype",
+                        rest: { ...register("contactInfo.communicationWay") },
+                      },
+                      {
+                        label: "WhatsApp",
+                        value: "whatsApp",
+                        rest: { ...register("contactInfo.communicationWay") },
+                      },
+                      {
+                        label: "Email",
+                        value: "email",
+                        rest: { ...register("contactInfo.communicationWay") },
+                      },
+                      {
+                        label: "Звонок",
+                        value: "call",
+                        rest: { ...register("contactInfo.communicationWay") },
+                      },
+                    ]}
+                    errorMessage={errors.contactInfo?.communicationWay?.message}
+                  />
+                </section>
+              </Element>
+              <Element name={"about"}>
+                <section className={s.section} id={"about"}>
+                  <h2>О компании и продукте</h2>
+                  <Input
+                    label={allFields.about.companyName.label}
+                    isRequiredField={allFields.about.companyName.required}
+                    placeholder={allFields.about.companyName.placeholder}
+                    {...register("about.companyName")}
+                    errorMessage={errors.about?.companyName?.message}
+                  />
                   <Input
                     as={TextareaAutosize}
-                    placeholder={
-                      allFields.details.disadvantagesCompetitorsSites
-                        .placeholder
-                    }
-                    {...register("details.disadvantagesCompetitorsSites")}
-                    name={"details.disadvantagesCompetitorsSites"}
-                    errorMessage={
-                      errors.details?.disadvantagesCompetitorsSites?.message
-                    }
+                    label={allFields.about.semantics.label}
+                    isRequiredField={allFields.about.semantics.required}
+                    placeholder={allFields.about.semantics.placeholder}
+                    {...register("about.semantics")}
+                    errorMessage={errors.about?.semantics?.message}
                   />
-                </div>
-                <Input
-                  label={allFields.details.sitesYouLike.label}
-                  isRequiredField={allFields.details.sitesYouLike.required}
-                  placeholder={allFields.details.sitesYouLike.placeholder}
-                  {...register("details.sitesYouLike")}
-                  errorMessage={errors.details?.sitesYouLike?.message}
-                />
-                <div className={s.fieldWithAccent}>
-                  <label htmlFor="details.sitesYouDislike" className={s.label}>
-                    Сайты, которые <span className={s.accent}>не</span> нравятся
-                    {allFields.details.sitesYouDislike.required && (
-                      <sup className={s.required}> *</sup>
-                    )}
-                  </label>
                   <Input
-                    placeholder={allFields.details.sitesYouDislike.placeholder}
-                    {...register("details.sitesYouDislike")}
-                    errorMessage={errors.details?.sitesYouDislike?.message}
+                    label={allFields.about.field.label}
+                    isRequiredField={allFields.about.field.required}
+                    placeholder={allFields.about.field.placeholder}
+                    {...register("about.field")}
+                    errorMessage={errors.about?.field?.message}
                   />
-                </div>
-                <Input
-                  as={TextareaAutosize}
-                  label={allFields.details.preferredColors.label}
-                  isRequiredField={allFields.details.preferredColors.required}
-                  placeholder={allFields.details.preferredColors.placeholder}
-                  {...register("details.preferredColors")}
-                  errorMessage={errors.details?.preferredColors?.message}
-                />
-                <Input
-                  as={TextareaAutosize}
-                  label={allFields.details.unwantedColors.label}
-                  isRequiredField={allFields.details.unwantedColors.required}
-                  placeholder={allFields.details.unwantedColors.placeholder}
-                  {...register("details.unwantedColors")}
-                  errorMessage={errors.details?.unwantedColors?.message}
-                />
-                <RadioCheckboxGroup
-                  mainLabel={allFields.details.siteFunctionality.label}
-                  isRequiredField={allFields.details.siteFunctionality.required}
-                  checkboxItems={[
-                    {
-                      label: "CRM",
-                      value: "crm",
-                      rest: { ...register("details.siteFunctionality") },
-                    },
-                    {
-                      label: "Корзина и оплата",
-                      value: "shoppingCartAndPayment",
-                      rest: { ...register("details.siteFunctionality") },
-                    },
-                    {
-                      label: "Формы сбора контактов",
-                      value: "contactCollectionForms",
-                      rest: { ...register("details.siteFunctionality") },
-                    },
-                    {
-                      label: "Калькулятор",
-                      value: "calculator",
-                      rest: { ...register("details.siteFunctionality") },
-                    },
-                    {
-                      label: "Настройка рассылки",
-                      value: "mailingSetup",
-                      rest: { ...register("details.siteFunctionality") },
-                    },
-                    {
-                      label: "Интеграция Getcourse",
-                      value: "getcourseIntegration",
-                      rest: { ...register("details.siteFunctionality") },
-                    },
-                    {
-                      label: "Личный кабинет",
-                      value: "personalAccount",
-                      rest: { ...register("details.siteFunctionality") },
-                    },
-                    {
-                      label: "Получение заявок на почту",
-                      value: "receivingApplicationsByMail",
-                      rest: { ...register("details.siteFunctionality") },
-                    },
-                    {
-                      label: "Получение заявок в телеграм",
-                      value: "receivingApplicationsByTelegram",
-                      rest: { ...register("details.siteFunctionality") },
-                    },
-                    {
-                      label: "Каталог",
-                      value: "catalog",
-                      rest: { ...register("details.siteFunctionality") },
-                    },
-                    {
-                      label: "Сохранение информации в Google документы",
-                      value: "savingInfoToGoogleDocs",
-                      rest: { ...register("details.siteFunctionality") },
-                    },
-                    {
-                      label: "Нужна консультация",
-                      value: "needConsultation",
-                      rest: { ...register("details.siteFunctionality") },
-                    },
-                    {
-                      label: "Другие",
-                      value: "other",
-                      rest: { ...register("details.siteFunctionality") },
-                    },
-                  ]}
-                  errorMessage={errors.details?.siteFunctionality?.message}
-                />
-                <Input
-                  label={allFields.details.specificSystem.label}
-                  isRequiredField={allFields.details.specificSystem.required}
-                  placeholder={allFields.details.specificSystem.placeholder}
-                  {...register("details.specificSystem")}
-                  errorMessage={errors.details?.specificSystem?.message}
-                />
-                <FormRadioGroup
-                  mainLabel={allFields.details.seo.label}
-                  isRequiredField={allFields.details.seo.required}
-                  name={"details.seo"}
-                  control={control}
-                  radioItems={[
-                    { label: "Да, нужна", value: "yes" },
-                    { label: "Нет, не нужна", value: "no" },
-                    { label: "Свой специалист", value: "ownSpecialist" },
-                    { label: "Нужна консультация", value: "needConsultation" },
-                  ]}
-                />
-                <FormRadioGroup
-                  mainLabel={allFields.details.copywriting.label}
-                  isRequiredField={allFields.details.copywriting.required}
-                  name={"details.copywriting"}
-                  control={control}
-                  radioItems={[
-                    { label: "Да, нужен", value: "yes" },
-                    { label: "Нет, не нужен", value: "no" },
-                    { label: "Свой специалист", value: "ownSpecialist" },
-                    { label: "Нужна консультация", value: "needConsultation" },
-                  ]}
-                />
-              </section>
-
-              <section className={s.section} id={"targetGroup"} data-section>
-                <h2>Целевая аудитория</h2>
-                <FormRadioGroup
-                  mainLabel={allFields.targetGroup.knowTargetAudience.label}
-                  isRequiredField={
-                    allFields.targetGroup.knowTargetAudience.required
-                  }
-                  name={"targetGroup.knowTargetAudience"}
-                  control={control}
-                  radioItems={[
-                    { label: "Да", value: "yes" },
-                    { label: "Нет", value: "no" },
-                    { label: "Нужна проработка", value: "needToElaboration" },
-                  ]}
-                />
-                {knowTargetAudienceCurrentValue === "yes" && (
-                  <>
-                    <div className={s.twoColumns}>
-                      <Input
-                        label={allFields.targetGroup.sex.label}
-                        isRequiredField={allFields.targetGroup.sex.required}
-                        placeholder={allFields.targetGroup.sex.placeholder}
-                        {...register("targetGroup.sex")}
-                        errorMessage={errors.targetGroup?.sex?.message}
-                      />
-                      <Input
-                        label={allFields.targetGroup.age.label}
-                        isRequiredField={allFields.targetGroup.age.required}
-                        placeholder={allFields.targetGroup.age.placeholder}
-                        {...register("targetGroup.age")}
-                        errorMessage={errors.targetGroup?.age?.message}
-                      />
-                    </div>
-                    <Input
-                      as={TextareaAutosize}
-                      label={allFields.targetGroup.income.label}
-                      isRequiredField={allFields.targetGroup.income.required}
-                      placeholder={allFields.targetGroup.income.placeholder}
-                      {...register("targetGroup.income")}
-                      errorMessage={errors.targetGroup?.income?.message}
-                    />
-                    <Input
-                      as={TextareaAutosize}
-                      label={allFields.targetGroup.interests.label}
-                      isRequiredField={allFields.targetGroup.interests.required}
-                      placeholder={allFields.targetGroup.interests.placeholder}
-                      {...register("targetGroup.interests")}
-                      errorMessage={errors.targetGroup?.interests?.message}
-                    />
-                    <Input
-                      as={TextareaAutosize}
-                      label={allFields.targetGroup.useInteractionStages.label}
-                      isRequiredField={
-                        allFields.targetGroup.useInteractionStages.required
-                      }
-                      placeholder={
-                        allFields.targetGroup.useInteractionStages.placeholder
-                      }
-                      {...register("targetGroup.useInteractionStages")}
-                      errorMessage={
-                        errors.targetGroup?.useInteractionStages?.message
-                      }
-                    />
-                    <Input
-                      as={TextareaAutosize}
-                      label={allFields.targetGroup.communicationChannels.label}
-                      isRequiredField={
-                        allFields.targetGroup.communicationChannels.required
-                      }
-                      placeholder={
-                        allFields.targetGroup.communicationChannels.placeholder
-                      }
-                      {...register("targetGroup.communicationChannels")}
-                      errorMessage={
-                        errors.targetGroup?.communicationChannels?.message
-                      }
-                    />
-                    <Input
-                      as={TextareaAutosize}
-                      label={allFields.targetGroup.intensityOfUse.label}
-                      isRequiredField={
-                        allFields.targetGroup.intensityOfUse.required
-                      }
-                      placeholder={
-                        allFields.targetGroup.intensityOfUse.placeholder
-                      }
-                      {...register("targetGroup.intensityOfUse")}
-                      errorMessage={errors.targetGroup?.intensityOfUse?.message}
-                    />
-                  </>
-                )}
-              </section>
-
-              <section className={s.section} id={"materials"} data-section>
-                <h2>Материалы</h2>
-                <FormRadioGroup
-                  mainLabel={allFields.materials.materialsDevelopment.label}
-                  isRequiredField={
-                    allFields.materials.materialsDevelopment.required
-                  }
-                  name={"materials.materialsDevelopment"}
-                  control={control}
-                  radioItems={[
-                    { label: "Да", value: "yes" },
-                    { label: "Нет", value: "no" },
-                  ]}
-                  onClick={removeErrorsInMaterials}
-                />
-                {currentValues.materials?.materialsDevelopment === "yes" && (
                   <Input
-                    label={allFields.materials.materialsToDevelop.label}
+                    as={TextareaAutosize}
+                    label={allFields.about.productsAndServices.label}
                     isRequiredField={
-                      allFields.materials.materialsToDevelop.required
+                      allFields.about.productsAndServices.required
                     }
                     placeholder={
-                      allFields.materials.materialsToDevelop.placeholder
+                      allFields.about.productsAndServices.placeholder
                     }
-                    {...register("materials.materialsToDevelop")}
-                    errorMessage={errors.materials?.materialsToDevelop?.message}
+                    {...register("about.productsAndServices")}
+                    errorMessage={errors.about?.productsAndServices?.message}
                   />
-                )}
-              </section>
-
-              <section className={s.section} id={"additionalInfo"} data-section>
-                <h2>Доп. информация</h2>
-                <FormRadioGroup
-                  mainLabel={
-                    allFields.additionalInfo.numberOfLanguageVersions.label
-                  }
-                  isRequiredField={
-                    allFields.additionalInfo.numberOfLanguageVersions.required
-                  }
-                  name={"additionalInfo.numberOfLanguageVersions"}
-                  control={control}
-                  radioItems={[
-                    { label: "1", value: "1" },
-                    { label: "2", value: "2" },
-                    { label: "Больше 2-ух", value: "moreThan2" },
-                  ]}
-                />
-                <Input
-                  label={allFields.additionalInfo.budget.label}
-                  isRequiredField={allFields.additionalInfo.budget.required}
-                  placeholder={allFields.additionalInfo.budget.placeholder}
-                  {...register("additionalInfo.budget")}
-                  errorMessage={errors.additionalInfo?.budget?.message}
-                />
-                <FormRadioGroup
-                  mainLabel={
-                    allFields.additionalInfo.technicalSpecificationAvailable
-                      .label
-                  }
-                  isRequiredField={
-                    allFields.additionalInfo.technicalSpecificationAvailable
-                      .required
-                  }
-                  name={"additionalInfo.technicalSpecificationAvailable"}
-                  control={control}
-                  radioItems={[
-                    { label: "Да", value: "yes" },
-                    { label: "Нет", value: "no" },
-                  ]}
-                />
-                <FromInputAdditionalFile
-                  label={allFields.additionalInfo.technicalSpecification.label}
-                  control={control}
-                  name={"additionalInfo.technicalSpecification"}
-                />
-                <FormRadioGroup
-                  mainLabel={allFields.additionalInfo.siteAdministration.label}
-                  isRequiredField={
-                    allFields.additionalInfo.siteAdministration.required
-                  }
-                  name={"additionalInfo.siteAdministration"}
-                  control={control}
-                  radioItems={[
-                    { label: "Да", value: "yes" },
-                    { label: "Нет", value: "no" },
-                  ]}
-                />
-                <Input
-                  as={TextareaAutosize}
-                  label={allFields.additionalInfo.additionalInfo.label}
-                  isRequiredField={
-                    allFields.additionalInfo.additionalInfo.required
-                  }
-                  placeholder={
-                    allFields.additionalInfo.additionalInfo.placeholder
-                  }
-                  {...register("additionalInfo.additionalInfo")}
-                  errorMessage={errors.additionalInfo?.additionalInfo?.message}
-                />
-                <FromInputAdditionalFile
-                  label={allFields.additionalInfo.additionalFiles.label}
-                  control={control}
-                  name={"additionalInfo.additionalFiles"}
-                />
-              </section>
+                  <Input
+                    as={TextareaAutosize}
+                    label={allFields.about.productsAndServicesDescription.label}
+                    isRequiredField={
+                      allFields.about.productsAndServicesDescription.required
+                    }
+                    placeholder={
+                      allFields.about.productsAndServicesDescription.placeholder
+                    }
+                    {...register("about.productsAndServicesDescription")}
+                    errorMessage={
+                      errors.about?.productsAndServicesDescription?.message
+                    }
+                  />
+                  <Input
+                    label={allFields.about.priorityProductsAndServices.label}
+                    isRequiredField={
+                      allFields.about.priorityProductsAndServices.required
+                    }
+                    placeholder={
+                      allFields.about.priorityProductsAndServices.placeholder
+                    }
+                    {...register("about.priorityProductsAndServices")}
+                    errorMessage={
+                      errors.about?.priorityProductsAndServices?.message
+                    }
+                  />
+                  <Input
+                    as={TextareaAutosize}
+                    label={allFields.about.offerUniqueness.label}
+                    isRequiredField={allFields.about.offerUniqueness.required}
+                    placeholder={allFields.about.offerUniqueness.placeholder}
+                    {...register("about.offerUniqueness")}
+                    errorMessage={errors.about?.offerUniqueness?.message}
+                  />
+                  <Input
+                    as={TextareaAutosize}
+                    label={allFields.about.disadvantages.label}
+                    isRequiredField={allFields.about.disadvantages.required}
+                    placeholder={allFields.about.disadvantages.placeholder}
+                    {...register("about.disadvantages")}
+                    errorMessage={errors.about?.disadvantages?.message}
+                  />
+                  <Input
+                    as={TextareaAutosize}
+                    label={allFields.about.geography.label}
+                    isRequiredField={allFields.about.geography.required}
+                    placeholder={allFields.about.geography.placeholder}
+                    {...register("about.geography")}
+                    errorMessage={errors.about?.geography?.message}
+                  />
+                  <Input
+                    as={TextareaAutosize}
+                    label={allFields.about.shortCompanyInfo.label}
+                    isRequiredField={allFields.about.shortCompanyInfo.required}
+                    placeholder={allFields.about.shortCompanyInfo.placeholder}
+                    {...register("about.shortCompanyInfo")}
+                    errorMessage={errors.about?.shortCompanyInfo?.message}
+                  />
+                  <Input
+                    label={allFields.about.site.label}
+                    isRequiredField={allFields.about.site.required}
+                    placeholder={allFields.about.site.placeholder}
+                    {...register("about.site")}
+                    errorMessage={errors.about?.site?.message}
+                  />
+                  <Input
+                    label={allFields.about.socialNetworks.label}
+                    isRequiredField={allFields.about.socialNetworks.required}
+                    placeholder={allFields.about.socialNetworks.placeholder}
+                    {...register("about.socialNetworks")}
+                    errorMessage={errors.about?.socialNetworks?.message}
+                  />
+                  <Input
+                    label={allFields.about.competitors.label}
+                    isRequiredField={allFields.about.competitors.required}
+                    placeholder={allFields.about.competitors.placeholder}
+                    {...register("about.competitors")}
+                    errorMessage={errors.about?.competitors?.message}
+                  />
+                </section>
+              </Element>
+              <Element name={"details"}>
+                <section className={s.section} id={"details"}>
+                  <h2>Детализация задачи</h2>
+                  <FormRadioGroup
+                    mainLabel={allFields.details.siteType.label}
+                    isRequiredField={allFields.details.siteType.required}
+                    name={"details.siteType"}
+                    control={control}
+                    radioItems={[
+                      { label: "Лендинг", value: "landing" },
+                      { label: "Сайт-визитка", value: "siteCard" },
+                      { label: "Интернет-магазин", value: "onlineStore" },
+                      { label: "Информационный сайт", value: "informational" },
+                      { label: "Корпоративный сайт", value: "corporate" },
+                      { label: "Лонгрид", value: "longrid" },
+                      {
+                        label: "Нужна консультация",
+                        value: "NeedConsultation",
+                      },
+                    ]}
+                  />
+                  <Input
+                    as={TextareaAutosize}
+                    label={allFields.details.goals.label}
+                    isRequiredField={allFields.details.goals.required}
+                    placeholder={allFields.details.goals.placeholder}
+                    {...register("details.goals")}
+                    errorMessage={errors.details?.goals?.message}
+                  />
+                  <RadioCheckboxGroup
+                    mainLabel={allFields.details.usersTargetAction.label}
+                    isRequiredField={
+                      allFields.details.usersTargetAction.required
+                    }
+                    checkboxItems={[
+                      {
+                        label: "Купить",
+                        value: "buy",
+                        rest: { ...register("details.usersTargetAction") },
+                      },
+                      {
+                        label: "Зарегистрироваться",
+                        value: "register",
+                        rest: { ...register("details.usersTargetAction") },
+                      },
+                      {
+                        label: "Забронировать",
+                        value: "book",
+                        rest: { ...register("details.usersTargetAction") },
+                      },
+                      {
+                        label: "Заказать",
+                        value: "order",
+                        rest: { ...register("details.usersTargetAction") },
+                      },
+                      {
+                        label: "Подписаться",
+                        value: "subscribe",
+                        rest: { ...register("details.usersTargetAction") },
+                      },
+                      {
+                        label: "Оставить заявку",
+                        value: "submitApplication ",
+                        rest: { ...register("details.usersTargetAction") },
+                      },
+                      {
+                        label: "Позвонить",
+                        value: "call ",
+                        rest: { ...register("details.usersTargetAction") },
+                      },
+                      {
+                        label: "Другое",
+                        value: "other ",
+                        rest: { ...register("details.usersTargetAction") },
+                      },
+                    ]}
+                    errorMessage={errors.details?.usersTargetAction?.message}
+                  />
+                  <Input
+                    label={allFields.details.competitorsSites.label}
+                    isRequiredField={
+                      allFields.details.competitorsSites.required
+                    }
+                    placeholder={allFields.details.competitorsSites.placeholder}
+                    {...register("details.competitorsSites")}
+                    errorMessage={errors.details?.competitorsSites?.message}
+                  />
+                  <Input
+                    as={TextareaAutosize}
+                    label={allFields.details.advantagesCompetitorsSites.label}
+                    isRequiredField={
+                      allFields.details.advantagesCompetitorsSites.required
+                    }
+                    placeholder={
+                      allFields.details.advantagesCompetitorsSites.placeholder
+                    }
+                    {...register("details.advantagesCompetitorsSites")}
+                    errorMessage={
+                      errors.details?.advantagesCompetitorsSites?.message
+                    }
+                  />
+                  <div className={s.fieldWithAccent}>
+                    <label
+                      htmlFor="details.disadvantagesCompetitorsSites"
+                      className={s.label}
+                    >
+                      Чем <span className={s.accent}>не</span> нравятся сайты
+                      конкурентов
+                      {allFields.details.disadvantagesCompetitorsSites
+                        .required && <sup className={s.required}> *</sup>}
+                    </label>
+                    <Input
+                      as={TextareaAutosize}
+                      placeholder={
+                        allFields.details.disadvantagesCompetitorsSites
+                          .placeholder
+                      }
+                      {...register("details.disadvantagesCompetitorsSites")}
+                      name={"details.disadvantagesCompetitorsSites"}
+                      errorMessage={
+                        errors.details?.disadvantagesCompetitorsSites?.message
+                      }
+                    />
+                  </div>
+                  <Input
+                    label={allFields.details.sitesYouLike.label}
+                    isRequiredField={allFields.details.sitesYouLike.required}
+                    placeholder={allFields.details.sitesYouLike.placeholder}
+                    {...register("details.sitesYouLike")}
+                    errorMessage={errors.details?.sitesYouLike?.message}
+                  />
+                  <div className={s.fieldWithAccent}>
+                    <label
+                      htmlFor="details.sitesYouDislike"
+                      className={s.label}
+                    >
+                      Сайты, которые <span className={s.accent}>не</span>{" "}
+                      нравятся
+                      {allFields.details.sitesYouDislike.required && (
+                        <sup className={s.required}> *</sup>
+                      )}
+                    </label>
+                    <Input
+                      placeholder={
+                        allFields.details.sitesYouDislike.placeholder
+                      }
+                      {...register("details.sitesYouDislike")}
+                      errorMessage={errors.details?.sitesYouDislike?.message}
+                    />
+                  </div>
+                  <Input
+                    as={TextareaAutosize}
+                    label={allFields.details.preferredColors.label}
+                    isRequiredField={allFields.details.preferredColors.required}
+                    placeholder={allFields.details.preferredColors.placeholder}
+                    {...register("details.preferredColors")}
+                    errorMessage={errors.details?.preferredColors?.message}
+                  />
+                  <Input
+                    as={TextareaAutosize}
+                    label={allFields.details.unwantedColors.label}
+                    isRequiredField={allFields.details.unwantedColors.required}
+                    placeholder={allFields.details.unwantedColors.placeholder}
+                    {...register("details.unwantedColors")}
+                    errorMessage={errors.details?.unwantedColors?.message}
+                  />
+                  <RadioCheckboxGroup
+                    mainLabel={allFields.details.siteFunctionality.label}
+                    isRequiredField={
+                      allFields.details.siteFunctionality.required
+                    }
+                    checkboxItems={[
+                      {
+                        label: "CRM",
+                        value: "crm",
+                        rest: { ...register("details.siteFunctionality") },
+                      },
+                      {
+                        label: "Корзина и оплата",
+                        value: "shoppingCartAndPayment",
+                        rest: { ...register("details.siteFunctionality") },
+                      },
+                      {
+                        label: "Формы сбора контактов",
+                        value: "contactCollectionForms",
+                        rest: { ...register("details.siteFunctionality") },
+                      },
+                      {
+                        label: "Калькулятор",
+                        value: "calculator",
+                        rest: { ...register("details.siteFunctionality") },
+                      },
+                      {
+                        label: "Настройка рассылки",
+                        value: "mailingSetup",
+                        rest: { ...register("details.siteFunctionality") },
+                      },
+                      {
+                        label: "Интеграция Getcourse",
+                        value: "getcourseIntegration",
+                        rest: { ...register("details.siteFunctionality") },
+                      },
+                      {
+                        label: "Личный кабинет",
+                        value: "personalAccount",
+                        rest: { ...register("details.siteFunctionality") },
+                      },
+                      {
+                        label: "Получение заявок на почту",
+                        value: "receivingApplicationsByMail",
+                        rest: { ...register("details.siteFunctionality") },
+                      },
+                      {
+                        label: "Получение заявок в телеграм",
+                        value: "receivingApplicationsByTelegram",
+                        rest: { ...register("details.siteFunctionality") },
+                      },
+                      {
+                        label: "Каталог",
+                        value: "catalog",
+                        rest: { ...register("details.siteFunctionality") },
+                      },
+                      {
+                        label: "Сохранение информации в Google документы",
+                        value: "savingInfoToGoogleDocs",
+                        rest: { ...register("details.siteFunctionality") },
+                      },
+                      {
+                        label: "Нужна консультация",
+                        value: "needConsultation",
+                        rest: { ...register("details.siteFunctionality") },
+                      },
+                      {
+                        label: "Другие",
+                        value: "other",
+                        rest: { ...register("details.siteFunctionality") },
+                      },
+                    ]}
+                    errorMessage={errors.details?.siteFunctionality?.message}
+                  />
+                  <Input
+                    label={allFields.details.specificSystem.label}
+                    isRequiredField={allFields.details.specificSystem.required}
+                    placeholder={allFields.details.specificSystem.placeholder}
+                    {...register("details.specificSystem")}
+                    errorMessage={errors.details?.specificSystem?.message}
+                  />
+                  <FormRadioGroup
+                    mainLabel={allFields.details.seo.label}
+                    isRequiredField={allFields.details.seo.required}
+                    name={"details.seo"}
+                    control={control}
+                    radioItems={[
+                      { label: "Да, нужна", value: "yes" },
+                      { label: "Нет, не нужна", value: "no" },
+                      { label: "Свой специалист", value: "ownSpecialist" },
+                      {
+                        label: "Нужна консультация",
+                        value: "needConsultation",
+                      },
+                    ]}
+                  />
+                  <FormRadioGroup
+                    mainLabel={allFields.details.copywriting.label}
+                    isRequiredField={allFields.details.copywriting.required}
+                    name={"details.copywriting"}
+                    control={control}
+                    radioItems={[
+                      { label: "Да, нужен", value: "yes" },
+                      { label: "Нет, не нужен", value: "no" },
+                      { label: "Свой специалист", value: "ownSpecialist" },
+                      {
+                        label: "Нужна консультация",
+                        value: "needConsultation",
+                      },
+                    ]}
+                  />
+                </section>
+              </Element>
+              <Element name={"targetGroup"}>
+                <section className={s.section} id={"targetGroup"}>
+                  <h2>Целевая аудитория</h2>
+                  <FormRadioGroup
+                    mainLabel={allFields.targetGroup.knowTargetAudience.label}
+                    isRequiredField={
+                      allFields.targetGroup.knowTargetAudience.required
+                    }
+                    name={"targetGroup.knowTargetAudience"}
+                    control={control}
+                    radioItems={[
+                      { label: "Да", value: "yes" },
+                      { label: "Нет", value: "no" },
+                      { label: "Нужна проработка", value: "needToElaboration" },
+                    ]}
+                  />
+                  {knowTargetAudienceCurrentValue === "yes" && (
+                    <>
+                      <div className={s.twoColumns}>
+                        <Input
+                          label={allFields.targetGroup.sex.label}
+                          isRequiredField={allFields.targetGroup.sex.required}
+                          placeholder={allFields.targetGroup.sex.placeholder}
+                          {...register("targetGroup.sex")}
+                          errorMessage={errors.targetGroup?.sex?.message}
+                        />
+                        <Input
+                          label={allFields.targetGroup.age.label}
+                          isRequiredField={allFields.targetGroup.age.required}
+                          placeholder={allFields.targetGroup.age.placeholder}
+                          {...register("targetGroup.age")}
+                          errorMessage={errors.targetGroup?.age?.message}
+                        />
+                      </div>
+                      <Input
+                        as={TextareaAutosize}
+                        label={allFields.targetGroup.income.label}
+                        isRequiredField={allFields.targetGroup.income.required}
+                        placeholder={allFields.targetGroup.income.placeholder}
+                        {...register("targetGroup.income")}
+                        errorMessage={errors.targetGroup?.income?.message}
+                      />
+                      <Input
+                        as={TextareaAutosize}
+                        label={allFields.targetGroup.interests.label}
+                        isRequiredField={
+                          allFields.targetGroup.interests.required
+                        }
+                        placeholder={
+                          allFields.targetGroup.interests.placeholder
+                        }
+                        {...register("targetGroup.interests")}
+                        errorMessage={errors.targetGroup?.interests?.message}
+                      />
+                      <Input
+                        as={TextareaAutosize}
+                        label={allFields.targetGroup.useInteractionStages.label}
+                        isRequiredField={
+                          allFields.targetGroup.useInteractionStages.required
+                        }
+                        placeholder={
+                          allFields.targetGroup.useInteractionStages.placeholder
+                        }
+                        {...register("targetGroup.useInteractionStages")}
+                        errorMessage={
+                          errors.targetGroup?.useInteractionStages?.message
+                        }
+                      />
+                      <Input
+                        as={TextareaAutosize}
+                        label={
+                          allFields.targetGroup.communicationChannels.label
+                        }
+                        isRequiredField={
+                          allFields.targetGroup.communicationChannels.required
+                        }
+                        placeholder={
+                          allFields.targetGroup.communicationChannels
+                            .placeholder
+                        }
+                        {...register("targetGroup.communicationChannels")}
+                        errorMessage={
+                          errors.targetGroup?.communicationChannels?.message
+                        }
+                      />
+                      <Input
+                        as={TextareaAutosize}
+                        label={allFields.targetGroup.intensityOfUse.label}
+                        isRequiredField={
+                          allFields.targetGroup.intensityOfUse.required
+                        }
+                        placeholder={
+                          allFields.targetGroup.intensityOfUse.placeholder
+                        }
+                        {...register("targetGroup.intensityOfUse")}
+                        errorMessage={
+                          errors.targetGroup?.intensityOfUse?.message
+                        }
+                      />
+                    </>
+                  )}
+                </section>
+              </Element>
+              <Element name={"materials"}>
+                <section className={s.section} id={"materials"}>
+                  <h2>Материалы</h2>
+                  <FormRadioGroup
+                    mainLabel={allFields.materials.materialsDevelopment.label}
+                    isRequiredField={
+                      allFields.materials.materialsDevelopment.required
+                    }
+                    name={"materials.materialsDevelopment"}
+                    control={control}
+                    radioItems={[
+                      { label: "Да", value: "yes" },
+                      { label: "Нет", value: "no" },
+                    ]}
+                    onClick={removeErrorsInMaterials}
+                  />
+                  {currentValues.materials?.materialsDevelopment === "yes" && (
+                    <Input
+                      label={allFields.materials.materialsToDevelop.label}
+                      isRequiredField={
+                        allFields.materials.materialsToDevelop.required
+                      }
+                      placeholder={
+                        allFields.materials.materialsToDevelop.placeholder
+                      }
+                      {...register("materials.materialsToDevelop")}
+                      errorMessage={
+                        errors.materials?.materialsToDevelop?.message
+                      }
+                    />
+                  )}
+                </section>
+              </Element>
+              <Element name={"additionalInfo"}>
+                <section className={s.section} id={"additionalInfo"}>
+                  <h2>Доп. информация</h2>
+                  <FormRadioGroup
+                    mainLabel={
+                      allFields.additionalInfo.numberOfLanguageVersions.label
+                    }
+                    isRequiredField={
+                      allFields.additionalInfo.numberOfLanguageVersions.required
+                    }
+                    name={"additionalInfo.numberOfLanguageVersions"}
+                    control={control}
+                    radioItems={[
+                      { label: "1", value: "1" },
+                      { label: "2", value: "2" },
+                      { label: "Больше 2-ух", value: "moreThan2" },
+                    ]}
+                  />
+                  <Input
+                    label={allFields.additionalInfo.budget.label}
+                    isRequiredField={allFields.additionalInfo.budget.required}
+                    placeholder={allFields.additionalInfo.budget.placeholder}
+                    {...register("additionalInfo.budget")}
+                    errorMessage={errors.additionalInfo?.budget?.message}
+                  />
+                  <FormRadioGroup
+                    mainLabel={
+                      allFields.additionalInfo.technicalSpecificationAvailable
+                        .label
+                    }
+                    isRequiredField={
+                      allFields.additionalInfo.technicalSpecificationAvailable
+                        .required
+                    }
+                    name={"additionalInfo.technicalSpecificationAvailable"}
+                    control={control}
+                    radioItems={[
+                      { label: "Да", value: "yes" },
+                      { label: "Нет", value: "no" },
+                    ]}
+                  />
+                  <FromInputAdditionalFile
+                    label={
+                      allFields.additionalInfo.technicalSpecification.label
+                    }
+                    control={control}
+                    name={"additionalInfo.technicalSpecification"}
+                  />
+                  <FormRadioGroup
+                    mainLabel={
+                      allFields.additionalInfo.siteAdministration.label
+                    }
+                    isRequiredField={
+                      allFields.additionalInfo.siteAdministration.required
+                    }
+                    name={"additionalInfo.siteAdministration"}
+                    control={control}
+                    radioItems={[
+                      { label: "Да", value: "yes" },
+                      { label: "Нет", value: "no" },
+                    ]}
+                  />
+                  <Input
+                    as={TextareaAutosize}
+                    label={allFields.additionalInfo.additionalInfo.label}
+                    isRequiredField={
+                      allFields.additionalInfo.additionalInfo.required
+                    }
+                    placeholder={
+                      allFields.additionalInfo.additionalInfo.placeholder
+                    }
+                    {...register("additionalInfo.additionalInfo")}
+                    errorMessage={
+                      errors.additionalInfo?.additionalInfo?.message
+                    }
+                  />
+                  <FromInputAdditionalFile
+                    label={allFields.additionalInfo.additionalFiles.label}
+                    control={control}
+                    name={"additionalInfo.additionalFiles"}
+                  />
+                </section>
+              </Element>
             </div>
           </div>
           <section className={s.submit}>

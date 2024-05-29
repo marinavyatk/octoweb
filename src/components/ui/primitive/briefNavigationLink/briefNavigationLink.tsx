@@ -1,32 +1,31 @@
 import clsx from "clsx";
 import s from "./briefNavigationLink.module.scss";
-import { ComponentPropsWithoutRef } from "react";
 import DoneIcon from "../../../../assets/doneIcon.svg?react";
+import { Link } from "react-scroll";
 
 export type BriefNavigationLinkProps = {
   text: string;
   completed: boolean;
-  currentSection: string | null;
   sectionId: string;
-} & ComponentPropsWithoutRef<"a">;
+  className?: string;
+};
 
 export const BriefNavigationLink = (props: BriefNavigationLinkProps) => {
-  const {
-    text,
-    completed,
-    className,
-    currentSection,
-    sectionId,
-    ...restProps
-  } = props;
-  const classNames = clsx(s.briefNavigationLink, className, {
-    [s.active]: sectionId === currentSection,
-  });
+  const { text, completed, className, sectionId } = props;
+  const classNames = clsx(s.briefNavigationLink, className);
 
   return (
-    <a {...restProps} rel={"nofollow"} className={classNames}>
+    <Link
+      rel={"nofollow"}
+      to={sectionId}
+      className={classNames}
+      spy={true}
+      activeClass={s.active}
+      hashSpy={true}
+      offset={-150}
+    >
       <span>{text}</span>
       <div className={s.indicator}>{completed && <DoneIcon />}</div>
-    </a>
+    </Link>
   );
 };
