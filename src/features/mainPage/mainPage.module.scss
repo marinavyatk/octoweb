@@ -17,6 +17,7 @@
   .firstLine {
     padding-left: 140px;
   }
+
   .secondLine {
     display: flex;
     gap: 50px;
@@ -133,6 +134,8 @@
   padding: 52px;
   background-color: var(--color-accent);
   color: var(--color-dark-primary);
+  //position: relative;
+  //z-index: -2;
 
   .text {
     display: flex;
@@ -161,8 +164,9 @@
     }
   }
 
-  .imageContainer {
+  .imageWithButton {
     position: relative;
+    z-index: 0;
   }
 
   .arrowButton {
@@ -172,9 +176,26 @@
     z-index: 0;
   }
 
-  img {
-    width: 1816px;
+  .imgContainer {
+    background-color: var(--color-dark-secondary);
     height: 966px;
+    width: 100%;
+    mask-image: url(../../assets/mainPagePhotoShape.svg);
+    -webkit-mask-image: url(../../assets/mainPagePhotoShape.svg);
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    overflow: hidden;
+    position: relative;
+    z-index: -1;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: relative;
+      z-index: -1;
+    }
   }
 }
 

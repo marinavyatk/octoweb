@@ -1,6 +1,8 @@
 <!--<svg width="1920" height="823" viewBox="0 0 1920 823" fill="none" xmlns="http://www.w3.org/2000/svg">-->
 <svg  fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1920 85V822.5H0V96.4998V0H1048.65C1062.73 0 1076.64 2.97082 1089.49 8.71818L1240.51 76.2818C1253.36 82.0292 1267.27 85 1281.35 85H1920Z" fill="url(#paint0_linear_545_8915)"/>
+
+<path id="shape" d="M1920 85V822.5H0V96.4998V0H1048.65C1062.73 0 1076.64 2.97082 1089.49 8.71818L1240.51 76.2818C1253.36 82.0292 1267.27 85 1281.35 85H1920Z" fill="url(#paint0_linear_545_8915)"/>
+
 <defs>
 <linearGradient id="paint0_linear_545_8915" x1="960" y1="436" x2="277.317" y2="-2406.03" gradientUnits="userSpaceOnUse">
 <stop stop-color="#A330FF"/>

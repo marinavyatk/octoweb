@@ -14,7 +14,10 @@ export const AdvantageCard = (props: AdvantagesCardProps) => {
   return (
     <div className={classNames} {...restProps}>
       <figure>
-        <img src={icon} alt={header} />
+        <div className={s.imgContainer}>
+          <img src={icon} alt={header} />
+        </div>
+
         <figcaption>{header}</figcaption>
       </figure>
       <p>{paragraph}</p>

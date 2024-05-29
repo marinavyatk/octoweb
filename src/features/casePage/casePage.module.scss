@@ -60,11 +60,14 @@
   .mainImgContainer {
     width: 100%;
     height: 1200px;
-    clip-path: path(
-      "M1920 48C1920 21.4903 1898.51 0 1872 0H48C21.4903 0 0 21.4903 0 48V982C0 1008.51 21.4903 1030 48 1030H1354C1380.51 1030 1402 1051.49 1402 1078V1152C1402 1178.51 1423.49 1200 1450 1200H1872C1898.51 1200 1920 1178.51 1920 1152V48Z"
-    );
     background-color: var(--color-dark-secondary);
     overflow: hidden;
+    mask-image: url(../../assets/caseMainPhotoShape.svg);
+    -webkit-mask-image: url(../../assets/caseMainPhotoShape.svg);
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
   }
 
   .description {
@@ -99,6 +102,7 @@
       width: 536px;
       height: 532px;
       overflow: hidden;
+      background-color: var(--color-dark-secondary);
     }
 
     .mediumImg {
@@ -106,6 +110,7 @@
       width: 1104px;
       height: 1079px;
       overflow: hidden;
+      background-color: var(--color-dark-secondary);
     }
   }
 
@@ -114,6 +119,7 @@
     width: 1920px;
     height: 1270px;
     overflow: hidden;
+    background-color: var(--color-dark-secondary);
   }
 
   .stackTech {
