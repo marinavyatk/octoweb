@@ -11,7 +11,8 @@ export const checkboxGroupRequired = z
   .array()
   .nonempty({ message: "Выберите хотя бы один вариант" });
 export const checkboxGroupOptional = z.string().array().optional();
-export const radio = z.string(); //temp
+export const radio = z.string().min(1, { message: "Это обязательное поле" });
+
 const MAX_UPLOAD_SIZE = 1024 * 1024 * 5; // 5MB
 
 export const fileSchema = z.custom<FileList>().refine((fileList) => {
@@ -23,7 +24,7 @@ export const multipleFilesSchema = z.custom<FileList>().optional();
 //for form
 export const formSchema = z.object({
   name: requiredString,
-  email: requiredString.email(),
+  email: requiredString.email({ message: "Некорректный email" }),
   tel: requiredString,
   projectDescription: requiredString,
   projectDescriptionFile: fileSchema,
