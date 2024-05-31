@@ -32,6 +32,7 @@
     justify-content: center;
     align-items: center;
     background-color: var(--color-accent);
+    flex-shrink: 0;
 
     svg {
       width: 76px;
@@ -44,12 +45,12 @@
     line-height: var(--line-height-120);
   }
 
-  p {
+  .message {
     font-weight: var(--font-weight-regular-300);
     font-size: var(--font-size-xss);
     line-height: var(--line-height-180);
     opacity: 0.8;
-    margin-top: 24px;
+    margin: 24px 0 0;
   }
 
   button {

@@ -56,11 +56,9 @@ body {
   font-family: var(--font-family-primary);
   background-image: url("../assets/webp/noise-texture.webp");
   background-size: contain;
+  width: 100%;
+  overflow-x: hidden;
 }
-
-//html::-webkit-scrollbar {
-//  display: none;
-//}
 
 h1 {
   font-weight: var(--font-weight-bold-900);
