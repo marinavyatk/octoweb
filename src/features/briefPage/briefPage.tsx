@@ -6,7 +6,7 @@ import { Input } from "../../components/ui/primitive/input/input.tsx";
 import { FromInputAdditionalFile } from "../../components/ui/primitive/inputAdditionalFile/formInputAdditionalFile.tsx";
 import { ArrowButtonWithText } from "../../components/ui/primitive/ArrowButtonWithText/arrowButtonWithText.tsx";
 import { z } from "zod";
-import { useForm } from "react-hook-form";
+import { useForm, UseFormReturn } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormRadioGroup } from "../../components/ui/primitive/radioGroup/formRadioGroup.tsx";
 import { RadioCheckboxGroup } from "../../components/ui/primitive/radioCheckboxGroup/radioCheckboxGroup.tsx";
@@ -47,10 +47,10 @@ type SectionName =
   | "materials"
   | "additionalInfo";
 type AllFields = Record<SectionName, Field>;
-type CurrentField = {
-  [key: string]: string | string[] | FileList;
+
+type DirtyField = {
+  [key: string]: boolean | boolean[] | undefined;
 };
-type CurrentFields = Record<SectionName, CurrentField>;
 
 export let materialsDevelopmentCurrentValue = "";
 export let knowTargetAudienceCurrentValue = "";
@@ -409,13 +409,14 @@ export const BriefPage = () => {
     register,
     control,
     handleSubmit,
-    formState: { errors, isDirty },
+    formState: { errors, isDirty, dirtyFields },
     watch,
     reset,
-  } = useForm<FormValues>({
+  }: UseFormReturn<FormValues> = useForm<FormValues>({
     resolver: zodResolver(briefSchema),
     defaultValues: defaultValues,
     mode: "onBlur",
+    reValidateMode: "onChange",
   });
 
   const blocker = useBlocker(
@@ -423,15 +424,16 @@ export const BriefPage = () => {
       isDirty && currentLocation.pathname !== nextLocation.pathname,
   );
 
-  console.log(errors);
+  const currentFields = watch(["targetGroup.knowTargetAudience", "materials.materialsDevelopment"]);
+  knowTargetAudienceCurrentValue = currentFields[0];
+  materialsDevelopmentCurrentValue = currentFields[1];
+
+  console.log("errors", errors);
+
   const onSubmit = (data: FormValues) => {
     console.log(data);
     setIsFormNotificationShown(true);
   };
-
-  const currentValues: CurrentFields = watch();
-  materialsDevelopmentCurrentValue = currentValues.materials.materialsDevelopment as string;
-  knowTargetAudienceCurrentValue = currentValues.targetGroup.knowTargetAudience as string;
 
   if (materialsDevelopmentCurrentValue !== "yes") {
     if (errors.materials) {
@@ -449,9 +451,23 @@ export const BriefPage = () => {
     const requiredFields = Object.keys(allFields[sectionName]).filter(
       (fieldName) => allFields[sectionName][fieldName].required,
     );
-    const isRequiredFieldsNonEmpty = requiredFields.every(
-      (fieldName) => currentValues[sectionName][fieldName].length > 0,
-    );
+    const isRequiredFieldsNonEmpty = requiredFields.every((fieldName) => {
+      if (
+        fieldName === "siteType" ||
+        fieldName === "seo" ||
+        fieldName === "copywriting" ||
+        fieldName === "knowTargetAudience" ||
+        fieldName === "materialsDevelopment" ||
+        fieldName === "numberOfLanguageVersions" ||
+        fieldName === "technicalSpecificationAvailable" ||
+        fieldName === "siteAdministration"
+      ) {
+        return true;
+      } else {
+        const sectionDirtyFields = dirtyFields[sectionName] as DirtyField | undefined;
+        return sectionDirtyFields ? sectionDirtyFields[fieldName] !== undefined : false;
+      }
+    });
     const isSectionHasErrors = sectionName in errors;
     return isRequiredFieldsNonEmpty && !isSectionHasErrors;
   };
@@ -1050,7 +1066,7 @@ export const BriefPage = () => {
                       { label: "Нет", value: "no" },
                     ]}
                   />
-                  {currentValues.materials?.materialsDevelopment === "yes" && (
+                  {materialsDevelopmentCurrentValue === "yes" && (
                     <Input
                       label={allFields.materials.materialsToDevelop.label}
                       isRequiredField={allFields.materials.materialsToDevelop.required}

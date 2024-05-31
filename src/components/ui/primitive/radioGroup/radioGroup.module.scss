@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
+  position: relative;
 }
 
 .radioItems {
@@ -58,4 +59,15 @@
 
 .radioIndicator {
   display: none;
+}
+
+.error {
+  color: var(--color-error);
+  font-size: var(--font-size-xs);
+  border-top: 1px solid var(--color-error);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: -35px;
+  padding-top: 3px;
 }
