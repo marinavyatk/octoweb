@@ -52,6 +52,8 @@ export const ServicesPage = () => {
                 price: "40000",
                 serviceId: "content-promotion",
               },
+
+              { tag: "SEO", price: "40000", serviceId: "seo" },
               {
                 tag: "Контекстная реклама",
                 price: "40000",
@@ -62,7 +64,6 @@ export const ServicesPage = () => {
                 price: "40000",
                 serviceId: "targeted-advertising",
               },
-              { tag: "SEO", price: "40000", serviceId: "seo" },
             ]}
             size={"small"}
           />

@@ -1,10 +1,7 @@
 import { ComponentPropsWithoutRef } from "react";
 import { clsx } from "clsx";
 import s from "./servicesCard.module.scss";
-import {
-  TagLink,
-  TagLinkWithPrice,
-} from "../tagLinkWithPrice/tagLinkWithPrice.tsx";
+import { TagLink, TagLinkWithPrice } from "../tagLinkWithPrice/tagLinkWithPrice.tsx";
 import { Link } from "react-router-dom";
 
 export type ServicesCardProps = {
@@ -16,27 +13,14 @@ export type ServicesCardProps = {
 } & ComponentPropsWithoutRef<"div">;
 
 export const ServicesCard = (props: ServicesCardProps) => {
-  const {
-    serviceCategory,
-    number,
-    header,
-    tags,
-    size = "small",
-    className,
-    ...restProps
-  } = props;
+  const { serviceCategory, number, header, tags, size = "small", className, ...restProps } = props;
   const classNames = clsx(s.card, className, {
     [s.small]: size === "small",
     [s.medium]: size === "medium",
   });
   const tagList = tags.map((tag) => {
     return (
-      <TagLinkWithPrice
-        key={tag.tag}
-        tag={tag.tag}
-        price={tag.price}
-        serviceId={tag.serviceId}
-      >
+      <TagLinkWithPrice key={tag.tag} tag={tag.tag} price={tag.price} serviceId={tag.serviceId}>
         {tag.tag}
       </TagLinkWithPrice>
     );
@@ -44,13 +28,16 @@ export const ServicesCard = (props: ServicesCardProps) => {
 
   return (
     <div {...restProps} className={classNames}>
-      <div className={s.text}>
-        <span className={s.number}>{number}</span> <br />
-        <Link to={`/services/category/${serviceCategory}`}>
-          <h2 className={s.header}>{header}</h2>
-        </Link>
+      <div className={s.blur}></div>
+      <div className={s.content}>
+        <div className={s.text}>
+          <span className={s.number}>{number}</span> <br />
+          <Link to={`/services/category/${serviceCategory}`}>
+            <h2 className={s.header}>{header}</h2>
+          </Link>
+        </div>
+        <div className={s.tagList}>{tagList}</div>
       </div>
-      <div className={s.tagList}>{tagList}</div>
     </div>
   );
 };
