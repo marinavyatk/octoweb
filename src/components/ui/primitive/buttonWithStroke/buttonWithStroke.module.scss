@@ -9,6 +9,7 @@
   .stroke {
     animation: rotation 15s linear 0s infinite;
     border-radius: 50%;
+    width: 252px;
   }
 
   .arrowLink {
@@ -68,5 +69,24 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1905px) {
+  //1425px the same
+  .buttonContainer {
+    .stroke {
+      width: 185px;
+    }
+
+    .arrowLink {
+      width: 82px;
+      height: 82px;
+
+      svg {
+        width: 25px;
+        height: 25px;
+      }
+    }
   }
 }

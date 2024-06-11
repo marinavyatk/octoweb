@@ -77,9 +77,22 @@ h2 {
   color: var(--color-accent);
 }
 
-//.mainContainer {
-//  max-width: 1920px;
-//  padding: 0 124px;
-//  width: 100%;
-//  margin: auto;
-//}
+@media (max-width: 1905px) {
+  h1 {
+    font-size: 72px;
+    line-height: var(--line-height-140);
+    margin-top: 100px;
+  }
+  h2 {
+    font-size: 48px;
+  }
+}
+@media (max-width: 1425px) {
+  h1 {
+    font-size: 64px;
+    margin-top: 68px;
+  }
+  h2 {
+    font-size: 40px;
+  }
+}

@@ -24,3 +24,16 @@
     color: var(--color-dark-secondary);
   }
 }
+
+@media (max-width: 1905px) {
+  .navigationLink {
+    font-size: var(--font-size-xs);
+    padding: 7px 22px;
+  }
+}
+@media (max-width: 1425px) {
+  .navigationLink {
+    font-size: var(--font-size-xxs);
+    padding: 5px 22px;
+  }
+}

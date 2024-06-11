@@ -25,10 +25,16 @@
 }
 
 .monochromeSecondary {
-  font-size: var(--font-size-s);
+  font-size: 18px;
   padding: 10px 24px;
   text-transform: none;
   background-color: var(--color-dark-secondary);
   color: var(--color-light-100);
   line-height: var(--line-height-160);
+}
+
+@media (max-width: 1905px) {
+  .monochromeSecondary {
+    font-size: 16px;
+  }
 }

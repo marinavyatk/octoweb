@@ -28,7 +28,7 @@
       max-width: 852px;
       width: 100%;
       font-weight: var(--font-weight-regular-300);
-      font-size: var(--font-size-xs);
+      font-size: 14px;
       line-height: var(--line-height-200);
       color: var(--color-light-100);
 
@@ -45,6 +45,53 @@
 
       &:hover {
         gap: 56px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1905px) {
+  .form {
+    padding: 56px 80px 62px;
+    .mainInfo {
+      gap: 24px;
+    }
+    .item {
+      max-width: 312px;
+    }
+    .submit {
+      p {
+        max-width: 728px;
+      }
+      .arrowButton {
+        gap: 47px;
+
+        &:hover {
+          gap: 24px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1425px) {
+  .form {
+    padding: 56px 89px 66px;
+    .item {
+      max-width: 239px;
+    }
+    .submit {
+      p {
+        font-size: 12px;
+        max-width: 504px;
+      }
+
+      .arrowButton {
+        gap: 47px;
+
+        &:hover {
+          gap: 24px;
+        }
       }
     }
   }

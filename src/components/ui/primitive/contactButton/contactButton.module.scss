@@ -72,3 +72,53 @@
     }
   }
 }
+
+@media (max-width: 1905px) {
+  .contactButton {
+    width: 288px;
+    height: 60px;
+    gap: 28px;
+
+    span {
+      font-weight: var(--font-weight-regular-300);
+      font-size: var(--font-size-xs);
+    }
+
+    .arrow {
+      width: 48px;
+      height: 48px;
+
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+
+    .background {
+      width: 48px;
+      height: 48px;
+    }
+  }
+}
+
+@media (max-width: 1425px) {
+  .contactButton {
+    width: 226px;
+    height: 48px;
+    gap: 14px;
+
+    span {
+      font-size: var(--font-size-xxs);
+    }
+
+    .arrow {
+      width: 40px;
+      height: 40px;
+    }
+
+    .background {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}

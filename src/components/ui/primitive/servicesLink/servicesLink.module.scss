@@ -21,7 +21,6 @@
   .header {
     display: flex;
     justify-content: space-between;
-    //margin-bottom: 48px;
 
     svg {
       transition: all 0.5s;
@@ -31,14 +30,14 @@
   .text {
     display: flex;
     gap: 27px;
-    align-items: center; //
+    align-items: center;
   }
 
   .number,
   .header {
     color: var(--color-light-100);
     font-weight: var(--font-weight-regular-500);
-    font-size: var(--font-size-ml);
+    font-size: 48px;
     line-height: var(--line-height-120);
   }
 
@@ -85,6 +84,24 @@
       height: 224px;
       margin-bottom: 0;
       opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 1905px) {
+  .servicesLink {
+    .number,
+    .header {
+      font-size: 40px;
+    }
+  }
+}
+
+@media (max-width: 1425px) {
+  .servicesLink {
+    .number,
+    .header {
+      font-size: 32px;
     }
   }
 }

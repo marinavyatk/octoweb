@@ -1,7 +1,6 @@
 import { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 import s from "./footerWithForm.module.scss";
-import SecondaryFolderForm from "../../../../assets/secondaryFolderForm.png";
 import { Footer } from "../footer/footer.tsx";
 import { Form } from "../form/form.tsx";
 
@@ -13,7 +12,7 @@ export const FooterWithForm = (props: FooterWithFormProps) => {
 
   return (
     <div {...restProps} className={classNames} id={"form"}>
-      <img src={SecondaryFolderForm} className={s.secondaryFormImg} alt="" />
+      <div className={s.secondaryFormImg}></div>
       <div className={s.formContainer}>
         <span className={s.title}>Давайте начнем работать прямо сейчас</span>
         <Form />

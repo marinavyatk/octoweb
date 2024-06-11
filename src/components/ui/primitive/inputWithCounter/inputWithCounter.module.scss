@@ -17,7 +17,7 @@
 
 .input {
   color: var(--color-light-100);
-  font-size: var(--font-size-sm);
+  font-size: 24px;
   font-weight: var(--font-weight-regular-400);
   line-height: var(--line-height-180);
   background-color: transparent;
@@ -53,26 +53,26 @@
   position: relative;
 }
 
-.fileInputContainer {
-  position: relative;
-
-  input {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-  }
-
-  svg {
-    width: 27px;
-    height: 27px;
-  }
-}
+//.fileInputContainer {
+//  position: relative;
+//
+//  input {
+//    width: 0.1px;
+//    height: 0.1px;
+//    opacity: 0;
+//  }
+//
+//  svg {
+//    width: 27px;
+//    height: 27px;
+//  }
+//}
 
 .underText {
   display: flex;
   justify-content: space-between;
   font-weight: var(--font-weight-regular-300);
-  font-size: var(--font-size-xss);
+  font-size: 16px;
   line-height: var(--line-height-140);
   color: var(--color-light-40);
   margin-top: 7px;
@@ -104,19 +104,18 @@
   }
 }
 
-//.placeholder {
-//  position: absolute;
-//  top: 0;
-//  bottom: 0;
-//  left: 0;
-//  color: var(--color-light-20);
-//  pointer-events: none;
-//  font-size: var(--font-size-sm);
-//  font-weight: var(--font-weight-regular-400);
-//  line-height: var(--line-height-180);
-//  padding: 16px 0;
-//}
-//
-//.input:focus + .placeholder {
-//  display: none;
-//}
+@media (max-width: 1905px) {
+  .input {
+    font-size: 18px;
+    padding: 8px 0;
+  }
+}
+@media (max-width: 1425px) {
+  .input {
+    font-size: 16px;
+    padding: 4px 0;
+  }
+  .underText {
+    font-size: 14px;
+  }
+}
