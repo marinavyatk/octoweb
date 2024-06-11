@@ -2,5 +2,15 @@
   display: flex;
   flex-direction: column;
   gap: 46px;
-  //z-index: -1;
+}
+
+@media (max-width: 1905px) {
+  .list {
+    gap: 0;
+  }
+}
+@media (max-width: 1425px) {
+  .list {
+    gap: 16px;
+  }
 }

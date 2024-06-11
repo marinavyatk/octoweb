@@ -34,3 +34,18 @@
     height: 24px;
   }
 }
+
+@media (max-width: 1905px) {
+  .fileInputContainer {
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .error {
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

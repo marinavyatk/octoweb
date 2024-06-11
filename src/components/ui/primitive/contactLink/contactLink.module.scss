@@ -1,7 +1,7 @@
 .contactLink {
   color: var(--color-light-100);
   line-height: var(--line-height-140);
-  font-size: var(--font-size-smm);
+  font-size: 32px;
   font-weight: var(--font-weight-regular-400);
   font-family: var(--font-family-primary);
   text-decoration: none;
@@ -20,9 +20,34 @@
   &:hover {
     color: var(--color-dark-primary);
     transition: color 0.4s cubic-bezier(1, 1.65, 0.265, 1.55);
+
     svg {
       fill: var(--color-accent);
       transition: fill 0.4s cubic-bezier(1, 1.65, 0.265, 1.55);
+    }
+  }
+}
+
+@media (max-width: 1905px) {
+  .contactLink {
+    font-size: 24px;
+    gap: 24px;
+
+    svg {
+      width: 48px;
+      height: 48px;
+    }
+  }
+}
+
+@media (max-width: 1425px) {
+  .contactLink {
+    font-size: 16px;
+    gap: 16px;
+
+    svg {
+      width: 40px;
+      height: 40px;
     }
   }
 }

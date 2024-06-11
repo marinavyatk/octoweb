@@ -5,12 +5,7 @@ import { AnimatedField } from "../../components/ui/primitive/animatedField/anima
 import ArrowIcon from "../../assets/arrow.svg?react";
 import teamPhoto from "../../assets/webp/teamMainPhoto.webp";
 import { AdvantageCards } from "../../components/ui/complex/advantageCards/advantageCards.tsx";
-import ArrowPointer from "../../assets/arrowPointer.svg?react";
 import ArrowPointerSmall from "../../assets/arrowPointerSmall.svg?react";
-import { DemarkoCard } from "../../components/ui/complex/caseCards/demarkoCard.tsx";
-import { EkvadratCard } from "../../components/ui/complex/caseCards/ekvadratCard.tsx";
-import { BotanicaCard } from "../../components/ui/complex/caseCards/botanicaCard.tsx";
-import { SmxtreamCard } from "../../components/ui/complex/caseCards/smxtreamCard.tsx";
 import {
   linksData,
   ServicesLinksList,
@@ -21,8 +16,44 @@ import { routes } from "../../common/routes.ts";
 import { ArrowLinkWithText } from "../../components/ui/primitive/ArrowLinkWithText/arrowLinkWithText.tsx";
 import { WordSwipe } from "../../components/ui/primitive/wordSwipe/wordSwipe.tsx";
 import { useEffect } from "react";
+import Demarko from "../../assets/webp/case-de-marko.webp";
+import Ekvadrat from "../../assets/webp/case-e-kvadrat.webp";
+import Botanica from "../../assets/webp/case-botanica.webp";
+import Smxtream from "../../assets/webp/case-smxtream.webp";
+import { CaseCard, Size } from "../../components/ui/primitive/caseCard/caseCard.tsx";
 
 export const MainPage = () => {
+  const mainPageCases = [
+    {
+      category: "ИНТЕРНЕТ-МАГАЗИН",
+      tags: ["DEVELOP", "UI/UX", "КОМПЛЕКСНЫЙ МАРКЕТИНГ"],
+      img: Demarko,
+      header: "de-marko.ru",
+      caseId: "demarko",
+    },
+    {
+      category: "КОРПОРАТИВНЫЙ САЙТ",
+      tags: ["DEVELOP", "UI/UX", "КОМПЛЕКСНЫЙ МАРКЕТИНГ", "SEO"],
+      img: Ekvadrat,
+      header: "ekvadrat23.ru",
+      caseId: "ekvadrat",
+    },
+    {
+      category: "LANDING PAGE",
+      tags: ["DEVELOP", "UI/UX", "SEO"],
+      img: Botanica,
+      header: "ботаника-хилс.рф",
+      caseId: "botanica",
+    },
+    {
+      category: "КОРПОРАТИВНЫЙ САЙТ",
+      tags: ["DEVELOP", "UI/UX", "SEO"],
+      img: Smxtream,
+      header: "smxtream.pro",
+      caseId: "smxtream",
+    },
+  ];
+
   useEffect(() => {
     window.scroll({
       top: 0,
@@ -30,7 +61,7 @@ export const MainPage = () => {
     });
   }, []);
   return (
-    <div>
+    <div className={s.mainPage}>
       {/*<MainPageBubbles />*/}
       <Header />
       <div className={s.mainContainer}>
@@ -51,9 +82,7 @@ export const MainPage = () => {
                 Получите скидку <span className={s.accent}>5000 рублей!</span>
               </span>
               <br />
-              <span className={s.description}>
-                Достаточно просто заполнить бриф
-              </span>
+              <span className={s.description}>Достаточно просто заполнить бриф</span>
             </div>
           </div>
         </section>
@@ -61,20 +90,12 @@ export const MainPage = () => {
         <section className={s.greetingDescription}>
           <h1>Создаем сайты для бизнеса</h1>
           <div>создаем</div>
-          <AnimatedField
-            variant={"secondary"}
-            animation={"right"}
-            className={s.starsSymbols}
-          >
+          <AnimatedField variant={"secondary"} animation={"right"} className={s.starsSymbols}>
             ★ ★ ★ ★ ★
           </AnimatedField>
           <div>сайты</div>
           <div>для</div>
-          <AnimatedField
-            variant={"dark"}
-            animation={"right"}
-            className={s.arrowSymbol}
-          >
+          <AnimatedField variant={"dark"} animation={"right"} className={s.arrowSymbol}>
             <ArrowIcon />
           </AnimatedField>
           <div>бизнеса</div>
@@ -90,19 +111,11 @@ export const MainPage = () => {
           <div>данных</div>
           <div>и</div>
           <div>здравого</div>
-          <AnimatedField
-            variant={"dark"}
-            animation={"right"}
-            className={s.emojiSymbol}
-          >
+          <AnimatedField variant={"dark"} animation={"right"} className={s.emojiSymbol}>
             (:\/)
           </AnimatedField>
           <div>смысла</div>
-          <AnimatedField
-            variant={"secondary"}
-            animation={"left"}
-            className={s.kissSymbol}
-          >
+          <AnimatedField variant={"secondary"} animation={"left"} className={s.kissSymbol}>
             :^*
           </AnimatedField>
         </section>
@@ -111,12 +124,13 @@ export const MainPage = () => {
       <section className={s.about}>
         <div className={s.text}>
           <h2>
-            ВЕБ-студия OCTOWEB <br />
+            ВЕБ-студия <br />
+            OCTOWEB
           </h2>
           <p>
             {" "}
-            С 2018 года специализируемся на разработке, сопровождении и развитии
-            IT-продуктов, интернет-магазинов и бизнес-сайтов
+            С 2018 года специализируемся на разработке, сопровождении и развитии IT-продуктов,
+            интернет-магазинов и бизнес-сайтов
           </p>
         </div>
 
@@ -135,27 +149,27 @@ export const MainPage = () => {
 
       <div className={s.mainContainer}>
         <section className={s.advantages}>
-          <h2>
-            ПОЧЕМУ <br />
-            МЫ?
-          </h2>
-          <ArrowPointer className={s.arrow} />
+          <h2>ПОЧЕМУ МЫ?</h2>
+          <div className={s.arrow}></div>
           <span>くコ:彡</span>
           <span>くコ:彡</span>
 
-          <AdvantageCards />
+          <div className={s.advantagesCards}>
+            <AdvantageCards />
+          </div>
         </section>
         <section className={s.cases}>
           <h2>КЕЙСЫ</h2>
-          <DemarkoCard />
-          <EkvadratCard className={s.ekvadrat} />
-          <BotanicaCard />
-          <SmxtreamCard />
-          <ArrowLinkWithText
-            text={"Больше кейсов"}
-            to={routes.cases}
-            className={s.arrowLink}
+          <CaseCard as={"h3"} size={"extraLarge" as Size} {...mainPageCases[0]} />
+          <CaseCard
+            as={"h3"}
+            size={"large" as Size}
+            {...mainPageCases[1]}
+            className={s.secondCard}
           />
+          <CaseCard as={"h3"} size={"small" as Size} {...mainPageCases[2]} />
+          <CaseCard as={"h3"} size={"medium" as Size} {...mainPageCases[3]} />
+          <ArrowLinkWithText text={"Больше кейсов"} to={routes.cases} className={s.arrowLink} />
         </section>
       </div>
 

@@ -13,3 +13,14 @@
     gap: 24px;
   }
 }
+
+@media (max-width: 1905px) {
+  .header {
+    width: 85%;
+  }
+}
+@media (max-width: 1425px) {
+  .header {
+    width: 81%;
+  }
+}

@@ -33,9 +33,23 @@
 
   p {
     font-weight: var(--font-weight-regular-300);
-    font-size: var(--font-size-s);
+    font-size: 18px;
     line-height: var(--line-height-200);
     color: var(--color-light-100);
     margin: 0;
+  }
+}
+
+@media (max-width: 1905px) {
+  .card {
+    width: 496px;
+    p {
+      font-size: 16px;
+    }
+  }
+}
+@media (max-width: 1425px) {
+  .card {
+    width: 416px;
   }
 }

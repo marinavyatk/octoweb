@@ -18,3 +18,15 @@
 .card:last-child {
   margin-right: 224px;
 }
+
+@media (max-width: 1925px) {
+  .cards {
+    gap: 128px;
+  }
+  .card:first-child {
+    margin-left: 212px;
+  }
+  .card:last-child {
+    margin-right: 212px;
+  }
+}

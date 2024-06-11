@@ -12,7 +12,7 @@
 
   span {
     font-weight: var(--font-weight-regular-300);
-    font-size: var(--font-size-sm);
+    font-size: 24px;
     line-height: var(--line-height-200);
     text-transform: uppercase;
     z-index: 2;
@@ -29,7 +29,7 @@
     width: 80px;
     height: 80px;
     background: var(--linear-gradient-primary);
-    border: 10px solid;
+    border: 10px solid transparent;
     box-sizing: content-box;
 
     svg {
@@ -85,6 +85,10 @@
 
   &:hover {
     color: var(--color-dark-primary);
+
+    .arrow {
+      border-color: var(--color-accent);
+    }
   }
 }
 
@@ -101,5 +105,40 @@
 
   &:hover {
     color: var(--color-light-100);
+
+    .arrow {
+      border-color: var(--color-dark-primary);
+    }
+  }
+}
+
+@media (max-width: 1425px) {
+  .arrowButtonWithText {
+    width: 319px;
+    height: 80px;
+
+    span {
+      font-size: 18px;
+    }
+
+    .arrow {
+      z-index: 2;
+      width: 60px;
+      height: 60px;
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    .background {
+      height: 80px;
+      width: 80px;
+    }
+
+    &:hover {
+      gap: 12px;
+    }
   }
 }

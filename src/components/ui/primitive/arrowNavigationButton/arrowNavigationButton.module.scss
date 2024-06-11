@@ -59,7 +59,7 @@
 .upCaption {
   font-weight: var(--font-weight-regular-400);
   margin: 0 auto 13px;
-  font-size: var(--font-size-sm);
+  font-size: 24px;
   line-height: var(--line-height-180);
   text-transform: uppercase;
   color: var(--color-light-100);
@@ -81,5 +81,13 @@
 
   svg {
     stroke: var(--color-accent);
+  }
+}
+
+@media (max-width: 1905px) {
+  .upCaption {
+    font-size: 18px;
+    font-weight: var(--font-weight-regular-300);
+    margin: 0 auto 16px;
   }
 }
