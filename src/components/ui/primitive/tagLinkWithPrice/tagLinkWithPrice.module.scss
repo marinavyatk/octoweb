@@ -23,7 +23,7 @@
     backdrop-filter: blur(40px);
     background-color: rgba(22, 22, 22, 0.08);
     color: var(--color-accent);
-    font-size: var(--font-size-smm);
+    font-size: 32px;
     position: absolute;
     left: 80px;
     bottom: -100px;
@@ -32,5 +32,13 @@
     z-index: 10;
     white-space: nowrap;
     transition: opacity 0.5s ease;
+  }
+}
+
+@media (max-width: 1905px) {
+  .tagLink {
+    .price {
+      font-size: 24px;
+    }
   }
 }
