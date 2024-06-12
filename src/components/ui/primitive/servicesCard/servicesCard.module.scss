@@ -5,14 +5,14 @@
   .number {
     opacity: 1;
     color: var(--color-primary);
-    font-size: var(--font-size-ml);
+    font-size: 48px;
     font-weight: var(--font-weight-regular-300);
   }
 
   .header {
     color: var(--color-light-100);
     line-height: var(--line-height-120);
-    font-size: var(--font-size-ml);
+    font-size: 48px;
     font-weight: var(--font-weight-regular-500);
     text-transform: none;
     display: inline-block;
@@ -61,4 +61,42 @@
   justify-content: space-between;
   width: 100%;
   min-height: 588px;
+}
+
+@media (max-width: 1905px) {
+  .card {
+    min-height: 500px;
+
+    .number {
+      font-size: 40px;
+    }
+
+    .header {
+      font-size: 40px;
+    }
+
+    .content {
+      padding: 50px 56px 56px;
+      min-height: 500px;
+    }
+  }
+  .small {
+    max-width: 496px;
+
+    .blur {
+      max-width: 496px;
+    }
+  }
+
+  .medium {
+    max-width: 600px;
+
+    .blur {
+      max-width: 600px;
+    }
+  }
+
+  .blur {
+    min-height: 500px;
+  }
 }

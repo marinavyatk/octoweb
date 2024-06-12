@@ -18,6 +18,8 @@ export const ServicesCard = (props: ServicesCardProps) => {
     [s.small]: size === "small",
     [s.medium]: size === "medium",
   });
+  console.log(size);
+  console.log("smal size?", size === "small");
   const tagList = tags.map((tag) => {
     return (
       <TagLinkWithPrice key={tag.tag} tag={tag.tag} price={tag.price} serviceId={tag.serviceId}>
