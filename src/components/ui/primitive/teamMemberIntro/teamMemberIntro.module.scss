@@ -9,7 +9,6 @@
   overflow: hidden;
 
   .info {
-    margin-top: 48px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -28,7 +27,7 @@
 
   .workExperience {
     font-weight: var(--font-weight-regular-300);
-    font-size: var(--font-size-sm);
+    font-size: 24px;
     line-height: var(--line-height-120);
     color: var(--color-dark-primary-60);
     margin-bottom: 24px;
@@ -36,7 +35,7 @@
 
   .name {
     font-weight: var(--font-weight-regular-500);
-    font-size: var(--font-size-smm);
+    font-size: 32px;
     line-height: var(--line-height-140);
     color: var(--color-dark-primary);
     margin-bottom: 8px;
@@ -44,27 +43,58 @@
 
   .specialization {
     font-weight: var(--font-weight-regular-300);
-    font-size: var(--font-size-sm);
+    font-size: 24px;
     line-height: var(--line-height-120);
     color: var(--color-dark-primary);
   }
 
   p {
     font-weight: var(--font-weight-regular-300);
-    font-size: var(--font-size-sm);
+    font-size: 24px;
     line-height: var(--line-height-160);
     color: var(--color-dark-primary);
   }
 
   .background {
     width: 100%;
-    object-fit: cover;
     z-index: -1;
     position: absolute;
     top: 0;
+    height: 100%;
   }
 
   .memberPhoto {
     width: 370px;
+  }
+}
+
+@media (max-width: 1905px) {
+  .teamMember {
+    padding-top: 88px;
+    height: 486px;
+
+    .info {
+      height: 436px;
+      padding: 48px 0 48px 40px;
+    }
+
+    .workExperience {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    .name {
+      font-size: 24px;
+    }
+
+    .specialization {
+      font-size: 18px;
+    }
+    p {
+      font-size: 16px;
+    }
+    .memberPhoto {
+      width: 288px;
+    }
   }
 }

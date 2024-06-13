@@ -1,21 +1,30 @@
 .item {
   max-width: 330px;
   width: 100%;
-  padding: 32px;
 
   .number {
     color: var(--color-primary);
-    font-size: var(--font-size-l);
+    font-size: 56px;
     font-weight: var(--font-weight-regular-600);
     margin-bottom: 36px;
   }
 
   .description {
     color: var(--color-light-100);
-    font-size: var(--font-size-s);
+    font-size: 18px;
     font-weight: var(--font-weight-regular-300);
     line-height: var(--line-height-160);
     display: inline-block;
     width: 100%;
+  }
+}
+
+@media (max-width: 1905px) {
+  .item {
+    max-width: 264px;
+
+    .description {
+      font-size: 14px;
+    }
   }
 }
