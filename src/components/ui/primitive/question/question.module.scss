@@ -49,3 +49,11 @@
     margin-bottom: 88px;
   }
 }
+
+@media (max-width: 1905px) {
+  .questionContainer {
+    .question {
+      margin-bottom: 70px;
+    }
+  }
+}

@@ -21,3 +21,15 @@
     z-index: 0;
   }
 }
+
+@media (max-width: 1905px) {
+  .advantages {
+    h2 {
+      margin-bottom: 88px;
+    }
+
+    .arrow {
+      display: none;
+    }
+  }
+}

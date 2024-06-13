@@ -1,9 +1,10 @@
 .servicePage {
   overflow: hidden;
 }
+
 .mainContainer {
   max-width: 1920px;
-  padding: 0 124px;
+  padding: 0 116px;
   width: 100%;
   margin: auto;
 }
@@ -31,6 +32,7 @@
 
   img {
     height: 100%;
+    width: 100%;
     object-fit: cover;
     border-radius: 48px;
   }
@@ -102,7 +104,7 @@
 
     .cost {
       max-width: fit-content;
-      font-size: var(--font-size-lxl);
+      font-size: 80px;
       font-weight: var(--font-weight-bold-900);
       line-height: var(--line-height-120);
       color: var(--color-light-100);
@@ -167,4 +169,73 @@
 
 .arrowLink {
   z-index: 0;
+}
+
+@media (max-width: 1905px) {
+  .mainContainer {
+    padding: 0 108px;
+  }
+  .discussProject {
+    gap: 96px;
+    margin: 50px 0 64px;
+  }
+
+  .discussProject p {
+    font-weight: var(--font-weight-regular-250);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-200);
+    color: var(--color-light-100);
+  }
+  .serviceImg {
+    border-radius: 40px;
+    height: 500px;
+  }
+  .aboutService {
+    .container {
+      max-width: 600px;
+      gap: 56px;
+      margin-bottom: 112px;
+    }
+  }
+  .audience {
+    margin-top: 115px;
+  }
+  .team {
+    margin: 125px auto 220px;
+  }
+  .stepCards {
+    margin: 0 0 161px 0;
+  }
+
+  .prices {
+    .container {
+      padding: 177px 0 288px;
+
+      .cost {
+        font-size: 56px;
+        margin-bottom: 55px;
+      }
+    }
+
+    .background {
+      height: 490px;
+    }
+    .additionalServices {
+      padding: 0 212px;
+
+      h2 {
+        margin-bottom: 80px;
+      }
+
+      .arrow {
+        top: 150px;
+        right: 220px;
+        width: 137px;
+        height: 203px;
+      }
+    }
+  }
+  .faq {
+    margin: 152px 0 234px;
+  }
 }
