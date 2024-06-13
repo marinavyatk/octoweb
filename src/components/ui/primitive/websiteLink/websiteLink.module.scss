@@ -6,7 +6,7 @@
   font-weight: var(--font-weight-regular-300);
 
   .caption {
-    font-size: var(--font-size-xss);
+    font-size: 16px;
     line-height: var(--line-height-140);
     text-transform: uppercase;
     opacity: 0.8;
@@ -16,18 +16,21 @@
   .linkWithName {
     display: flex;
     gap: 24px;
-    font-size: var(--font-size-smm);
+    font-size: 32px;
     line-height: var(--line-height-200);
+    align-items: center;
   }
 
   a {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 16px;
+    //padding: 16px;
     background-color: var(--color-dark-secondary);
     border-radius: 50%;
     transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+    width: 60px;
+    height: 60px;
 
     svg {
       width: 27px;
@@ -42,6 +45,26 @@
         fill: var(--color-dark-primary);
         transform: rotate(45deg);
         transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+      }
+    }
+  }
+}
+
+@media (max-width: 1905px) {
+  .websiteLink {
+    gap: 12px;
+
+    .linkWithName {
+      font-size: 18px;
+      gap: 24px;
+    }
+
+    a {
+      width: 40px;
+      height: 40px;
+
+      svg {
+        width: 20px;
       }
     }
   }

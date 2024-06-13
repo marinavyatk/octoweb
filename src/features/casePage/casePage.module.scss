@@ -4,7 +4,7 @@
 
 .subheader {
   opacity: 0.8;
-  font-size: var(--font-size-xss);
+  font-size: 16px;
   line-height: var(--line-height-140);
   font-weight: var(--font-weight-regular-400);
   text-transform: uppercase;
@@ -15,7 +15,7 @@
   width: 100%;
   margin: auto;
   font-weight: var(--font-weight-regular-300);
-  font-size: var(--font-size-smm);
+  font-size: 24px;
   line-height: var(--line-height-200);
   color: var(--color-light-100);
   overflow: hidden;
@@ -54,6 +54,7 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
+      font-size: 32px;
     }
   }
 
@@ -73,6 +74,7 @@
   .description {
     width: 1246px;
     margin: -100px 32px 0 124px;
+    font-size: 32px;
   }
 
   .taskBlock {
@@ -87,7 +89,6 @@
       .taskDescription {
         width: 50%;
         font-weight: var(--font-weight-regular-250);
-        font-size: var(--font-size-sm);
       }
     }
   }
@@ -95,7 +96,8 @@
   .images {
     display: flex;
     gap: 32px;
-    margin: 130px 0 108px;
+    margin: 130px auto 108px;
+    width: fit-content;
 
     .smallImg {
       border-radius: 48px;
@@ -116,7 +118,7 @@
 
   .bigImg {
     border-radius: 48px;
-    width: 1920px;
+    width: 100%;
     height: 1270px;
     overflow: hidden;
     background-color: var(--color-dark-secondary);
@@ -148,8 +150,69 @@
 
     .resultDescription {
       font-weight: var(--font-weight-regular-250);
-      font-size: var(--font-size-sm);
       width: 58%;
+    }
+  }
+}
+
+@media (max-width: 1905px) {
+  .mainContainer {
+    padding: 0 108px;
+  }
+  .casePageContent {
+    font-size: 18px;
+
+    .topCaption {
+      margin-bottom: 90px;
+
+      .field {
+        gap: 12px;
+        font-size: 18px;
+      }
+    }
+
+    .mainImgContainer {
+      height: 756px;
+      mask-image: url(../../assets/caseMainPhotoShape1440.svg);
+      -webkit-mask-image: url(../../assets/caseMainPhotoShape1440.svg);
+      mask-size: 100% 100%;
+      -webkit-mask-size: 100% 100%;
+    }
+
+    .description {
+      width: 704px;
+      margin: -50px 32px 0 108px;
+      font-size: 18px;
+    }
+
+    .images {
+      display: flex;
+      gap: 24px;
+      margin: 88px auto 130px;
+
+      .smallImg {
+        border-radius: 32px;
+        width: 392px;
+        height: 390px;
+      }
+
+      .mediumImg {
+        border-radius: 32px;
+        width: 808px;
+        height: 789px;
+      }
+    }
+    .bigImg {
+      border-radius: 32px;
+      height: 950px;
+    }
+    .resultBlock {
+      gap: 232px;
+      margin: 106px 0 187px;
+
+      .resultInfo {
+        gap: 42px;
+      }
     }
   }
 }
