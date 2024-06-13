@@ -3,3 +3,9 @@
   gap: 32px;
   user-select: none;
 }
+
+@media (max-width: 1905px) {
+  .circles {
+    gap: 24px;
+  }
+}

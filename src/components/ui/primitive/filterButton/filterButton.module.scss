@@ -1,10 +1,10 @@
 .filterButton {
   border: 1px solid var(--white-white-20);
   border-radius: 56px;
-  padding: 10px 24px;
+  padding: 13px 24px;
   background-color: rgba(255, 255, 255, 0.05);
   font-weight: var(--font-weight-regular-300);
-  font-size: var(--font-size-s);
+  font-size: 18px;
   line-height: var(--line-height-160);
   color: var(--color-light-100);
   transition: all 0.3s cubic-bezier(0.61, 0.01, 0.58, 1);
@@ -20,4 +20,11 @@
 .active {
   background: linear-gradient(351deg, #a330ff 0%, #ff37df 100%);
   border-color: transparent;
+}
+
+@media (max-width: 1905px) {
+  .filterButton {
+    font-size: 16px;
+    padding: 9px 20px;
+  }
 }

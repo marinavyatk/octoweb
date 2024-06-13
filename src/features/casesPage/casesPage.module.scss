@@ -27,7 +27,7 @@
 }
 
 .caseCircleList {
-  margin: 86px 0 237px;
+  margin: 86px auto 237px;
 
   a:first-child {
     margin-left: 124px;
@@ -43,10 +43,8 @@
   justify-content: center;
   column-gap: 174px;
   row-gap: 182px;
-  margin: 237px 0 252px;
-
-  .extraLarge {
-  }
+  //margin-bottom: 252px;
+  margin: 0 auto 252px;
 
   .large {
     margin-top: 156px;
@@ -55,10 +53,26 @@
   .small {
     margin-top: -180px;
   }
+}
 
-  .medium {
+@media (max-width: 1905px) {
+  .mainContainer {
+    padding: 0 108px;
   }
+  .filterButtons {
+    gap: 8px;
+  }
+  .caseCircleList {
+    margin: 76px 0 140px;
 
-  .fullWidth {
+    a:first-child {
+      margin-left: 108px;
+    }
+    a:last-child {
+      margin-right: 108px;
+    }
+  }
+  .casesList {
+    max-width: 1835px;
   }
 }
