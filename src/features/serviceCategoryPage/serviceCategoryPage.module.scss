@@ -13,6 +13,8 @@
   white-space: nowrap;
   padding: 120px 0 67px 0;
   position: relative;
+  margin: auto;
+  width: fit-content;
 
   .firstLine {
     padding-left: 140px;
@@ -117,4 +119,45 @@
 
 .faq {
   margin-bottom: 150px;
+}
+
+@media (max-width: 1905px) {
+  .mainContainer {
+    padding: 0 108px;
+  }
+  .mainText {
+    font-size: 72px;
+  }
+  .greetingText {
+    .firstLine {
+      padding-left: 118px;
+    }
+    .secondLine {
+      gap: 32px;
+    }
+    .thirdLine {
+      padding-left: 200px;
+    }
+    .arrow {
+      left: 90px;
+    }
+
+    .headerAccent {
+      height: 102px;
+      font-size: 72px;
+    }
+  }
+  .briefOffer {
+    margin-bottom: 167px;
+
+    .offerText {
+      .heading {
+        font-size: 24px;
+      }
+
+      .description {
+        font-size: 16px;
+      }
+    }
+  }
 }
