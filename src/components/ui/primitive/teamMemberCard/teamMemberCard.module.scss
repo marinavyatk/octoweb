@@ -18,14 +18,14 @@
 }
 
 .name {
-  font-size: var(--font-size-smm);
+  font-size: 32px;
   font-weight: var(--font-weight-regular-600);
   line-height: var(--line-height-160);
 }
 
 .specialization,
 .workExperience {
-  font-size: var(--font-size-sm);
+  font-size: 24px;
   font-weight: var(--font-weight-regular-300);
   line-height: var(--line-height-180);
 }
@@ -78,7 +78,7 @@
   backface-visibility: hidden;
 
   p {
-    font-size: var(--font-size-sm);
+    font-size: 24px;
     font-weight: var(--font-weight-regular-400);
     line-height: var(--line-height-180);
     margin: 0;

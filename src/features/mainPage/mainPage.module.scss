@@ -42,7 +42,7 @@
 
 .mainText {
   font-weight: var(--font-weight-bold-900);
-  font-size: var(--font-size-xxl);
+  font-size: 100px;
   line-height: var(--line-height-124);
   text-transform: uppercase;
   color: var(--color-light-100);
@@ -220,14 +220,14 @@
     color: var(--color-primary);
     font-weight: var(--font-weight-regular-500);
     line-height: var(--line-height-200);
-    font-size: var(--font-size-m);
+    font-size: 40px;
     left: 180px;
     top: 374px;
     transform: rotate(68deg) scaleY(-1);
   }
 
   span + span {
-    font-size: var(--font-size-smm);
+    font-size: 32px;
     left: 330px;
     top: 535px;
     transform: rotate(112deg);
@@ -411,7 +411,6 @@
   //cases
   .cases {
     height: 1570px;
-    //margin: 0 auto 210px;
     margin-bottom: 210px;
     width: fit-content;
     gap: 128px;
