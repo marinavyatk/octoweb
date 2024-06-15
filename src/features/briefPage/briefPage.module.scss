@@ -32,7 +32,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  font-size: var(--font-size-sm);
+  font-size: 24px;
   line-height: var(--line-height-200);
   color: var(--color-light-100);
   font-weight: var(--font-weight-regular-250);
@@ -51,7 +51,7 @@
 
 .time {
   font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-s);
+  font-size: 18px;
   line-height: var(--line-height-160);
   color: var(--color-accent);
   margin: 150px 0 25px;
@@ -79,7 +79,7 @@
 
 .label {
   color: var(--color-light-40);
-  font-size: var(--font-size-xss);
+  font-size: 16px;
   font-weight: var(--font-weight-regular-400);
   line-height: var(--line-height-140);
   text-transform: uppercase;
@@ -116,7 +116,7 @@
     max-width: 852px;
     width: 100%;
     font-weight: var(--font-weight-regular-300);
-    font-size: var(--font-size-xs);
+    font-size: 14px;
     line-height: var(--line-height-200);
     color: var(--color-light-100);
 

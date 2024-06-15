@@ -41,13 +41,13 @@
 
   span {
     font-weight: var(--font-weight-regular-500);
-    font-size: var(--font-size-m);
+    font-size: 40px;
     line-height: var(--line-height-120);
   }
 
   .message {
     font-weight: var(--font-weight-regular-300);
-    font-size: var(--font-size-xss);
+    font-size: 16px;
     line-height: var(--line-height-180);
     opacity: 0.8;
     margin: 24px 0 0;
@@ -59,7 +59,7 @@
     border-radius: 64px;
     background-color: var(--color-primary);
     font-weight: var(--font-weight-regular-300);
-    font-size: var(--font-size-s);
+    font-size: 18px;
     border: none;
   }
 }

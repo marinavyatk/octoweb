@@ -3,6 +3,7 @@
   max-width: 1920px;
   margin: auto;
 }
+
 .mainContainer {
   max-width: 1920px;
   width: 100%;
@@ -32,6 +33,7 @@
   a:first-child {
     margin-left: 124px;
   }
+
   a:last-child {
     margin-right: 124px;
   }
@@ -43,7 +45,6 @@
   justify-content: center;
   column-gap: 174px;
   row-gap: 182px;
-  //margin-bottom: 252px;
   margin: 0 auto 252px;
 
   .large {
@@ -71,6 +72,7 @@
     a:first-child {
       margin-left: 108px;
     }
+
     a:last-child {
       margin-right: 108px;
     }

@@ -5,8 +5,6 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  //scrollbar-color: #4f4f4f #292929;
-
   &::-webkit-scrollbar {
     width: auto;
   }
@@ -62,7 +60,7 @@ body {
 
 h1 {
   font-weight: var(--font-weight-bold-900);
-  font-size: var(--font-size-xxl);
+  font-size: 100px;
   line-height: var(--line-height-124);
   text-transform: uppercase;
   color: var(--color-light-100);
@@ -71,7 +69,7 @@ h1 {
 
 h2 {
   font-weight: var(--font-weight-bold-900);
-  font-size: var(--font-size-l);
+  font-size: 56px;
   line-height: var(--line-height-140);
   text-transform: uppercase;
   color: var(--color-accent);

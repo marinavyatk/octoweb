@@ -1,5 +1,5 @@
 .navigationLink {
-  font-size: var(--font-size-xss);
+  font-size: 16px;
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-regular-300);
   line-height: var(--line-height-180);
@@ -27,13 +27,13 @@
 
 @media (max-width: 1905px) {
   .navigationLink {
-    font-size: var(--font-size-xs);
+    font-size: 14px;
     padding: 7px 22px;
   }
 }
 @media (max-width: 1425px) {
   .navigationLink {
-    font-size: var(--font-size-xxs);
+    font-size: 12px;
     padding: 5px 22px;
   }
 }
