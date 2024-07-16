@@ -101,6 +101,7 @@
   .wordSwipe {
     height: 102px;
     font-size: 72px;
+    padding: 10px 40px;
 
     .inner {
       height: 89px;
@@ -182,5 +183,95 @@
   }
   100% {
     margin-top: -316px;
+  }
+}
+
+@media (max-width: 1265px) {
+  .wordSwipe {
+    height: 46px;
+    font-size: 32px;
+    padding: 10px 20px;
+
+    .inner {
+      height: 40px;
+      div {
+        margin-bottom: 40px;
+      }
+    }
+    .firstWord {
+      animation: show768 3s linear infinite;
+    }
+  }
+}
+
+@keyframes show768 {
+  0% {
+    margin-top: -160px;
+  }
+  12% {
+    margin-top: -90px;
+  }
+  40% {
+    margin-top: -90px;
+  }
+  62% {
+    margin-top: -10px;
+  }
+  90% {
+    margin-top: -10px;
+  }
+  99% {
+    margin-top: 40px;
+  }
+  99.99% {
+    margin-top: 40px;
+  }
+  100% {
+    margin-top: -160px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wordSwipe {
+    height: 20px;
+    font-size: 14px;
+    padding: 10px 9px;
+
+    .inner {
+      height: 17px;
+      div {
+        margin-bottom: 17px;
+      }
+    }
+    .firstWord {
+      animation: show320 3s linear infinite;
+    }
+  }
+}
+
+@keyframes show320 {
+  0% {
+    margin-top: -68px;
+  }
+  12% {
+    margin-top: -44px;
+  }
+  40% {
+    margin-top: -44px;
+  }
+  62% {
+    margin-top: -10px;
+  }
+  90% {
+    margin-top: -10px;
+  }
+  99% {
+    margin-top: 17px;
+  }
+  99.99% {
+    margin-top: 17px;
+  }
+  100% {
+    margin-top: -68px;
   }
 }

@@ -98,6 +98,7 @@
     }
   }
 }
+
 @media (max-width: 1425px) {
   .arrowButtonWithText {
     width: 240px;
@@ -111,6 +112,34 @@
     .background {
       height: 64px;
       width: 64px;
+    }
+  }
+}
+
+@media (max-width: 1265px) {
+  .arrowButtonWithText {
+    width: 144px;
+    height: 38px;
+    gap: 19px;
+
+    span {
+      font-size: 10px;
+    }
+
+    .arrow {
+      width: 28px;
+      height: 28px;
+      border-width: 5px;
+
+      svg {
+        width: 11px;
+        height: 11px;
+      }
+    }
+
+    .background {
+      height: 38px;
+      width: 38px;
     }
   }
 }

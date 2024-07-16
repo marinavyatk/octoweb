@@ -142,3 +142,99 @@
     }
   }
 }
+
+@media (max-width: 1265px) {
+  .arrowButtonWithText {
+    width: 243px;
+    height: 60px;
+    gap: 22px;
+
+    span {
+      font-size: 14px;
+    }
+
+    .arrow {
+      width: 48px;
+      height: 48px;
+      border-width: 6px;
+
+      svg {
+        width: 13px;
+        height: 13px;
+      }
+    }
+
+    .background {
+      height: 60px;
+      width: 60px;
+    }
+
+    &:hover {
+      gap: 12px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .arrowButtonWithText {
+    width: 96px;
+    height: 25px;
+    gap: 4px;
+
+    span {
+      font-size: 5px;
+    }
+
+    .arrow {
+      width: 20px;
+      height: 20px;
+      border-width: 3px;
+
+      svg {
+        width: 6px;
+        height: 6px;
+      }
+    }
+
+    .background {
+      height: 25px;
+      width: 25px;
+    }
+
+    &:hover {
+      gap: 2px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .arrowButtonWithText {
+    width: 243px;
+    height: 60px;
+    gap: 22px;
+
+    span {
+      font-size: 14px;
+    }
+
+    .arrow {
+      width: 48px;
+      height: 48px;
+      border-width: 6px;
+
+      svg {
+        width: 13px;
+        height: 13px;
+      }
+    }
+
+    .background {
+      height: 60px;
+      width: 60px;
+    }
+
+    &:hover {
+      gap: 12px;
+    }
+  }
+}

@@ -59,3 +59,14 @@
     }
   }
 }
+@media (max-width: 1265px) {
+  .checkbox {
+    font-size: 14px;
+
+    input + label::before {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+    }
+  }
+}

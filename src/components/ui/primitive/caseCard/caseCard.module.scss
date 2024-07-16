@@ -114,3 +114,66 @@
     height: 512px;
   }
 }
+
+@media (max-width: 1265px) {
+  .card {
+    .header {
+      font-size: 16px;
+      margin-top: 21px;
+    }
+    .category {
+      top: 15px;
+      left: 15px;
+    }
+    .tagList {
+      gap: 8px;
+      bottom: 15px;
+      left: 15px;
+    }
+  }
+  .small {
+    width: 215px;
+    height: 265px;
+  }
+
+  .medium {
+    width: 265px;
+    height: 278px;
+  }
+
+  .large {
+    width: 266px;
+    height: 336px;
+  }
+
+  .extraLarge {
+    width: 354px;
+    height: 336px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    .header {
+      font-size: 14px;
+      margin-top: 16px;
+    }
+    .category {
+      top: 12px;
+      left: 12px;
+    }
+    .tagList {
+      gap: 6px;
+      bottom: 12px;
+      left: 12px;
+    }
+  }
+  .small {
+    width: 212px;
+  }
+
+  .extraLarge {
+    width: 288px;
+    height: 273px;
+  }
+}

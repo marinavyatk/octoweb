@@ -30,3 +30,26 @@
     margin-right: 212px;
   }
 }
+@media (max-width: 1265px) {
+  .cards {
+    gap: 96px;
+  }
+  .card:first-child {
+    margin-left: 200px;
+  }
+  .card:last-child {
+    margin-right: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards {
+    gap: 29px;
+  }
+  .card:first-child {
+    margin-left: 90px;
+  }
+  .card:last-child {
+    margin-right: 90px;
+  }
+}
