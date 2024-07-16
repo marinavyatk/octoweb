@@ -14,3 +14,8 @@
     gap: 16px;
   }
 }
+@media (max-width: 1265px) {
+  .list {
+    gap: 0;
+  }
+}

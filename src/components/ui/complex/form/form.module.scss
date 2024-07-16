@@ -53,16 +53,20 @@
 @media (max-width: 1905px) {
   .form {
     padding: 56px 80px 62px;
+
     .mainInfo {
       gap: 24px;
     }
+
     .item {
       max-width: 312px;
     }
+
     .submit {
       p {
         max-width: 728px;
       }
+
       .arrowButton {
         gap: 47px;
 
@@ -77,9 +81,11 @@
 @media (max-width: 1425px) {
   .form {
     padding: 56px 89px 66px;
+
     .item {
       max-width: 239px;
     }
+
     .submit {
       p {
         font-size: 12px;
@@ -88,6 +94,38 @@
 
       .arrowButton {
         gap: 47px;
+
+        &:hover {
+          gap: 24px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1265px) {
+  .form {
+    padding: 33px 52px 40px;
+
+    .mainInfo {
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 16px;
+
+      .item {
+        max-width: unset;
+      }
+    }
+
+    .submit {
+      gap: 30px;
+
+      p {
+        font-size: 10px;
+      }
+
+      .arrowButton {
+        gap: 19px;
 
         &:hover {
           gap: 24px;

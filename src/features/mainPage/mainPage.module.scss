@@ -191,6 +191,7 @@
     overflow: hidden;
     position: relative;
     z-index: -1;
+
     img {
       width: 100%;
       height: 100%;
@@ -300,12 +301,15 @@
     .firstLine {
       padding-left: 118px;
     }
+
     .secondLine {
       gap: 32px;
     }
+
     .thirdLine {
       padding-left: 200px;
     }
+
     .arrow {
       left: 90px;
     }
@@ -332,6 +336,7 @@
     .starsSymbols {
       width: 431px;
     }
+
     .arrowSymbol {
       width: 213px;
 
@@ -360,15 +365,18 @@
   //about
   .about {
     padding: 56px;
+
     .text {
       h2 {
         font-size: 80px;
       }
+
       p {
         font-size: 18px;
         width: 392px;
       }
     }
+
     .imgContainer {
       height: 690px;
       mask-image: url(../../assets/mainPagePhotoShape1440.svg);
@@ -387,6 +395,7 @@
       margin-bottom: 97px;
       width: fit-content;
     }
+
     .advantagesCards {
       display: flex;
       justify-content: flex-end;
@@ -448,9 +457,11 @@
     .firstLine {
       padding-left: 59px;
     }
+
     .secondLine {
       gap: 24px;
     }
+
     .thirdLine {
       padding-left: 150px;
     }
@@ -467,6 +478,7 @@
     .starsSymbols {
       width: 333px;
     }
+
     .arrowSymbol {
       width: 161px;
     }
@@ -491,20 +503,24 @@
   //about
   .about {
     padding: 64px;
+
     .text {
       h2 {
         font-size: 64px;
       }
+
       p {
         font-size: 16px;
         width: 328px;
       }
     }
+
     .imgContainer {
       height: 575px;
       mask-image: url(../../assets/mainPagePhotoShape1280.svg);
       -webkit-mask-image: url(../../assets/mainPagePhotoShape1280.svg);
     }
+
     .arrowButton {
       right: 60px;
     }
@@ -524,6 +540,17 @@
       left: 33px;
     }
   }
+
+  //services
+  .services {
+    padding: 72px 124px 100px;
+    margin: 0 auto 120px;
+
+    h2 {
+      margin-bottom: 57px;
+    }
+  }
+
   //cases
   .cases {
     height: 1440px;
@@ -532,5 +559,302 @@
   //steps
   .steps {
     margin-bottom: 165px;
+  }
+}
+
+//////////////////////////////////
+//////////////////////////////////
+/////////////////////////////////
+//Current
+@media (max-width: 1265px) {
+  .mainContainer {
+    padding: 0 40px;
+  }
+  .mainText {
+    font-size: 40px;
+  }
+  .greetingText {
+    gap: 5px;
+    padding: 77px 0 90px 0;
+
+    .firstLine {
+      padding-left: 49px;
+    }
+
+    .secondLine {
+      gap: 20px;
+    }
+
+    .arrow {
+      height: 99px;
+    }
+  }
+  .briefOffer {
+    margin-bottom: 110px;
+    padding-left: 89px;
+    gap: 24px;
+  }
+
+  .greetingDescription {
+    font-size: 40px;
+    margin: 0 auto 110px;
+    max-width: 688px;
+    row-gap: 8px;
+
+    .starsSymbols {
+      width: 190px;
+    }
+
+    .arrowSymbol {
+      width: 92px;
+
+      svg {
+        width: 21px;
+        height: 21px;
+      }
+    }
+
+    .happySymbol {
+      width: 92px;
+    }
+
+    .kaomojiSymbol {
+      width: 155px;
+    }
+
+    .emojiSymbol {
+      width: 56px;
+    }
+
+    .kissSymbol {
+      width: 56px;
+    }
+  }
+
+  //about
+  .about {
+    padding: 70px 15px;
+
+    .text {
+      padding: 0 25px 50px 25px;
+
+      h2 {
+        font-size: 40px;
+      }
+    }
+
+    .imgContainer {
+      height: 369px;
+      mask-image: url(../../assets/mainPagePhotoShape768.svg);
+      -webkit-mask-image: url(../../assets/mainPagePhotoShape768.svg);
+    }
+
+    .arrowButton {
+      right: 25px;
+    }
+  }
+
+  //advantages
+  .advantages {
+    margin-bottom: 100px;
+    h2 {
+      margin-bottom: 40px;
+    }
+
+    span {
+      left: -20px;
+    }
+
+    span + span {
+      left: 33px;
+    }
+  }
+  //cases
+  .cases {
+    height: 964px;
+    gap: 50px 89px;
+    margin: 0 auto 100px;
+  }
+
+  //services
+  .services {
+    padding: 50px 40px;
+    margin: 0 auto 100px;
+
+    h2 {
+      margin-bottom: 30px;
+    }
+  }
+
+  //steps
+  .steps {
+    margin-bottom: 100px;
+  }
+}
+
+//////////////////////////////////
+//////////////////////////////////
+/////////////////////////////////
+//MOBILE!!!
+@media (max-width: 768px) {
+  .mainContainer {
+    padding: 0 16px;
+  }
+  .mainText {
+    font-size: 17px;
+  }
+  .greetingText {
+    padding: 50px 0 40px 0;
+
+    .firstLine {
+      padding-left: 26px;
+    }
+
+    .secondLine {
+      gap: 10px;
+    }
+
+    .thirdLine {
+      padding-left: 60px;
+    }
+
+    .arrow {
+      height: 38px;
+    }
+  }
+  .briefOffer {
+    margin-bottom: 60px;
+    padding-left: 0;
+    gap: 16px;
+
+    .offerText {
+      .heading {
+        font-size: 12px;
+      }
+
+      .description {
+        font-size: 10px;
+      }
+    }
+  }
+
+  .greetingDescription {
+    font-size: 17px;
+    margin: 0 auto 60px;
+    max-width: 288px;
+    row-gap: 3px;
+
+    .starsSymbols {
+      width: 76px;
+    }
+
+    .arrowSymbol {
+      width: 36px;
+
+      svg {
+        width: 9px;
+        height: 9px;
+      }
+    }
+
+    .happySymbol {
+      width: 36px;
+    }
+
+    .kaomojiSymbol {
+      width: 61px;
+    }
+
+    .emojiSymbol {
+      width: 22px;
+    }
+
+    .kissSymbol {
+      width: 22px;
+    }
+  }
+
+  //about
+  .about {
+    padding: 50px 15px;
+
+    .text {
+      flex-direction: column;
+      gap: 30px;
+
+      h2 {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 12px;
+        width: 288px;
+      }
+    }
+
+    .imgContainer {
+      height: 144px;
+      mask-image: url(../../assets/mainPagePhotoShape320.svg);
+      -webkit-mask-image: url(../../assets/mainPagePhotoShape320.svg);
+    }
+
+    .arrowButton {
+      right: 0;
+    }
+  }
+
+  //advantages
+  .advantages {
+    margin-bottom: 60px;
+    h2 {
+      margin-bottom: 50px;
+    }
+
+    span {
+      left: -20px;
+      height: 80px;
+      font-size: 29px;
+    }
+
+    span + span {
+      left: -25px;
+      font-size: 23px;
+    }
+
+    .arrow {
+      width: 42px;
+      height: 81px;
+      left: 10px;
+      top: 40px;
+    }
+  }
+
+  //cases
+  .cases {
+    height: unset;
+    gap: 36px;
+    margin-bottom: 60px;
+
+    .fourCard {
+      align-self: flex-end;
+    }
+    .arrowLink {
+      align-self: center;
+    }
+  }
+
+  //services
+  .services {
+    padding: 50px 16px;
+    margin: 0 auto 60px;
+
+    h2 {
+      margin-bottom: 10px;
+    }
+  }
+
+  //steps
+  .steps {
+    margin-bottom: 60px;
   }
 }

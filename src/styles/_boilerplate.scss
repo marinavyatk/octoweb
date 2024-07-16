@@ -94,3 +94,23 @@ h2 {
     font-size: 40px;
   }
 }
+
+@media (max-width: 1265px) {
+  h1 {
+    font-size: 40px;
+    margin-top: 77px;
+  }
+  h2 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 17px;
+    margin-top: 50px;
+  }
+  h2 {
+    font-size: 16px;
+  }
+}

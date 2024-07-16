@@ -73,10 +73,11 @@
 }
 
 @media (max-width: 1905px) {
-  //1425px the same
+  //1425 & 768px the same
   .buttonContainer {
     .stroke {
       width: 185px;
+      height: 185px;
     }
 
     .arrowLink {
@@ -86,6 +87,25 @@
       svg {
         width: 25px;
         height: 25px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .buttonContainer {
+    .stroke {
+      width: 60px;
+      height: 60px;
+    }
+
+    .arrowLink {
+      width: 27px;
+      height: 27px;
+
+      svg {
+        width: 8px;
+        height: 8px;
       }
     }
   }

@@ -62,7 +62,6 @@ export const MainPage = () => {
   }, []);
   return (
     <div className={s.mainPage}>
-      {/*<MainPageBubbles />*/}
       <Header />
       <div className={s.mainContainer}>
         <section className={s.greetingBlock}>
@@ -168,7 +167,12 @@ export const MainPage = () => {
             className={s.secondCard}
           />
           <CaseCard as={"h3"} size={"small" as Size} {...mainPageCases[2]} />
-          <CaseCard as={"h3"} size={"medium" as Size} {...mainPageCases[3]} />
+          <CaseCard
+            as={"h3"}
+            size={"medium" as Size}
+            {...mainPageCases[3]}
+            className={s.fourCard}
+          />
           <ArrowLinkWithText text={"Больше кейсов"} to={routes.cases} className={s.arrowLink} />
         </section>
       </div>

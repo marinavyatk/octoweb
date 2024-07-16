@@ -34,7 +34,32 @@
 }
 
 @media (max-width: 1905px) {
+  .tag {
+    line-height: var(--line-height-140);
+  }
+
   .monochromeSecondary {
     font-size: 16px;
   }
+}
+
+@media (max-width: 1265px) {
+  .tag {
+    font-size: 9px;
+    padding: 6px 10px;
+  }
+  .monochromeSecondary {
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tag {
+    font-size: 7px;
+    padding: 5px 8px;
+  }
+  //.monochromeSecondary {
+  //  font-size: 16px;
+  //}
 }

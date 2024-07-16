@@ -72,3 +72,46 @@
     }
   }
 }
+
+@media (max-width: 1265px) {
+  .card {
+    width: 246px;
+    height: 345px;
+
+    .stepNumber {
+      font-size: 36px;
+    }
+
+    .header {
+      font-size: 13px;
+    }
+
+    p {
+      font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 123px;
+    height: 172px;
+    padding-left: 9px;
+
+    .cardHeader {
+      gap: 5px;
+    }
+
+    .stepNumber {
+      font-size: 17px;
+    }
+
+    .header {
+      font-size: 10px;
+    }
+
+    p {
+      font-size: 8px;
+    }
+  }
+}

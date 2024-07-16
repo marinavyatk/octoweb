@@ -104,4 +104,67 @@
       font-size: 32px;
     }
   }
+
+  .innerContainer {
+    padding: 10px 0 24px;
+
+    .text {
+      gap: 24px;
+    }
+    .tagList {
+      margin-top: 32px;
+    }
+  }
+}
+
+@media (max-width: 1265px) {
+  .servicesLink {
+    .number,
+    .header {
+      font-size: 21px;
+    }
+  }
+  .innerContainer {
+    padding: 10px 0 16px;
+
+    .text {
+      gap: 16px;
+    }
+    .tagList {
+      gap: 10px;
+      margin-top: 21px;
+    }
+
+    img {
+      width: 220px;
+      height: 20px;
+      bottom: 40px;
+    }
+
+    &:hover {
+      img {
+        height: 110px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .servicesLink {
+    .number,
+    .header {
+      font-size: 14px;
+    }
+  }
+  .innerContainer {
+    padding: 10px 0 6px;
+
+    .text {
+      gap: 7px;
+    }
+    .tagList {
+      gap: 5px;
+      margin-top: 9px;
+    }
+  }
 }

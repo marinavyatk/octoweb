@@ -68,3 +68,16 @@
     font-size: 40px;
   }
 }
+
+@media (max-width: 1265px) {
+  .animatedField {
+    height: 65px;
+    font-size: 28px;
+  }
+}
+@media (max-width: 768px) {
+  .animatedField {
+    height: 27px;
+    font-size: 11px;
+  }
+}
