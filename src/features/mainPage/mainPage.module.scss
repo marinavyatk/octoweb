@@ -49,31 +49,7 @@
 }
 
 .briefOffer {
-  display: flex;
-  gap: 58px;
-  align-items: center;
-  padding-left: 142px;
   margin-bottom: 222px;
-
-  .offerText {
-    font-family: var(--font-family-secondary);
-    line-height: var(--line-height-160);
-    color: var(--color-light-100);
-
-    .heading {
-      font-weight: var(--font-weight-regular-500);
-      font-size: 32px;
-    }
-
-    .accent {
-      color: var(--color-accent);
-    }
-
-    .description {
-      font-weight: var(--font-weight-regular-300);
-      font-size: 24px;
-    }
-  }
 }
 
 //greetingDescription
@@ -319,16 +295,6 @@
   }
   .briefOffer {
     margin-bottom: 167px;
-
-    .offerText {
-      .heading {
-        font-size: 24px;
-      }
-
-      .description {
-        font-size: 16px;
-      }
-    }
   }
   .greetingDescription {
     font-size: 64px;
@@ -597,8 +563,6 @@
   }
   .briefOffer {
     margin-bottom: 110px;
-    padding-left: 0;
-    gap: 40px;
   }
 
   .greetingDescription {
@@ -740,18 +704,6 @@
   }
   .briefOffer {
     margin-bottom: 60px;
-    padding-left: 0;
-    gap: 16px;
-
-    .offerText {
-      .heading {
-        font-size: 12px;
-      }
-
-      .description {
-        font-size: 10px;
-      }
-    }
   }
 
   .greetingDescription {

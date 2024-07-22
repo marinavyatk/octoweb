@@ -1,6 +1,5 @@
 import { Header } from "../../components/ui/complex/header/header.tsx";
 import s from "./mainPage.module.scss";
-import { ButtonWithStroke } from "../../components/ui/primitive/buttonWithStroke/buttonWithStroke.tsx";
 import { AnimatedField } from "../../components/ui/primitive/animatedField/animatedField.tsx";
 import ArrowIcon from "../../assets/arrow.svg?react";
 import teamPhoto from "../../assets/webp/teamMainPhoto.webp";
@@ -21,45 +20,47 @@ import Ekvadrat from "../../assets/webp/case-e-kvadrat.webp";
 import Botanica from "../../assets/webp/case-botanica.webp";
 import Smxtream from "../../assets/webp/case-smxtream.webp";
 import { CaseCard, Size } from "../../components/ui/primitive/caseCard/caseCard.tsx";
+import { BriefOffer } from "../../components/ui/complex/briefOffer/briefOffer.tsx";
+
+const mainPageCases = [
+  {
+    category: "ИНТЕРНЕТ-МАГАЗИН",
+    tags: ["DEVELOP", "UI/UX", "КОМПЛЕКСНЫЙ МАРКЕТИНГ"],
+    img: Demarko,
+    header: "de-marko.ru",
+    caseId: "demarko",
+  },
+  {
+    category: "КОРПОРАТИВНЫЙ САЙТ",
+    tags: ["DEVELOP", "UI/UX", "КОМПЛЕКСНЫЙ МАРКЕТИНГ", "SEO"],
+    img: Ekvadrat,
+    header: "ekvadrat23.ru",
+    caseId: "ekvadrat",
+  },
+  {
+    category: "LANDING PAGE",
+    tags: ["DEVELOP", "UI/UX", "SEO"],
+    img: Botanica,
+    header: "ботаника-хилс.рф",
+    caseId: "botanica",
+  },
+  {
+    category: "КОРПОРАТИВНЫЙ САЙТ",
+    tags: ["DEVELOP", "UI/UX", "SEO"],
+    img: Smxtream,
+    header: "smxtream.pro",
+    caseId: "smxtream",
+  },
+];
 
 export const MainPage = () => {
-  const mainPageCases = [
-    {
-      category: "ИНТЕРНЕТ-МАГАЗИН",
-      tags: ["DEVELOP", "UI/UX", "КОМПЛЕКСНЫЙ МАРКЕТИНГ"],
-      img: Demarko,
-      header: "de-marko.ru",
-      caseId: "demarko",
-    },
-    {
-      category: "КОРПОРАТИВНЫЙ САЙТ",
-      tags: ["DEVELOP", "UI/UX", "КОМПЛЕКСНЫЙ МАРКЕТИНГ", "SEO"],
-      img: Ekvadrat,
-      header: "ekvadrat23.ru",
-      caseId: "ekvadrat",
-    },
-    {
-      category: "LANDING PAGE",
-      tags: ["DEVELOP", "UI/UX", "SEO"],
-      img: Botanica,
-      header: "ботаника-хилс.рф",
-      caseId: "botanica",
-    },
-    {
-      category: "КОРПОРАТИВНЫЙ САЙТ",
-      tags: ["DEVELOP", "UI/UX", "SEO"],
-      img: Smxtream,
-      header: "smxtream.pro",
-      caseId: "smxtream",
-    },
-  ];
-
   useEffect(() => {
     window.scroll({
       top: 0,
       behavior: "instant",
     });
   }, []);
+
   return (
     <div className={s.mainPage}>
       <Header />
@@ -74,16 +75,7 @@ export const MainPage = () => {
 
             <div className={s.thirdLine}>ИЗ КРАСНОДАРА</div>
           </div>
-          <div className={s.briefOffer}>
-            <ButtonWithStroke />
-            <div className={s.offerText}>
-              <span className={s.heading}>
-                Получите скидку <span className={s.accent}>5000 рублей!</span>
-              </span>
-              <br />
-              <span className={s.description}>Достаточно просто заполнить бриф</span>
-            </div>
-          </div>
+          <BriefOffer className={s.briefOffer} />
         </section>
 
         <section className={s.greetingDescription}>

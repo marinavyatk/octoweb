@@ -12,15 +12,15 @@ export type ButtonWithStrokeProps = {
 
 export const ButtonWithStroke = (props: ButtonWithStrokeProps) => {
   const { variant = "primary", className, ...restProps } = props;
-  const classNames = clsx(s.buttonContainer, className);
-  const classNamesForArrow = clsx(s.arrowLink, {
+  const classNames = clsx(s.buttonContainer, className, {
     [s.primary]: variant === "primary",
     [s.secondary]: variant === "secondary",
   });
+
   return (
     <div {...restProps} className={classNames}>
       <Stroke className={s.stroke} />
-      <Link to={routes.brief} className={classNamesForArrow} rel={"nofollow"}>
+      <Link to={routes.brief} className={s.arrowLink} rel={"nofollow"}>
         <ArrowIcon />
       </Link>
     </div>
