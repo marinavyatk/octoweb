@@ -91,3 +91,45 @@
     margin: 0 auto 16px;
   }
 }
+
+@media (max-width: 1265px) {
+  .navigationButton {
+    svg {
+      width: 13px;
+      height: 13px;
+    }
+  }
+  .buttonContainer {
+    width: 48px;
+    height: 48px;
+  }
+
+  .up {
+    border-width: 5px;
+  }
+  .upCaption {
+    font-size: 10px;
+    margin: 0 auto 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navigationButton {
+    svg {
+      width: 5px;
+      height: 5px;
+    }
+  }
+  .buttonContainer {
+    width: 20px;
+    height: 20px;
+  }
+
+  .up {
+    border-width: 2px;
+  }
+  .upCaption {
+    font-size: 8px;
+    margin: 0 auto 5px;
+  }
+}

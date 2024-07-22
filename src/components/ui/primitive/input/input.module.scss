@@ -92,3 +92,13 @@
     padding: 4px 0;
   }
 }
+@media (max-width: 1265px) {
+  .input {
+    font-size: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .input {
+    font-size: 10px;
+  }
+}

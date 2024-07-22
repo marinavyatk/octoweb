@@ -111,6 +111,7 @@
     .text {
       gap: 24px;
     }
+
     .tagList {
       margin-top: 32px;
     }
@@ -121,17 +122,18 @@
   .servicesLink {
     .number,
     .header {
-      font-size: 21px;
+      font-size: 30px;
     }
   }
   .innerContainer {
-    padding: 10px 0 16px;
+    padding: 40px 0;
 
     .text {
-      gap: 16px;
+      gap: 24px;
     }
+
     .tagList {
-      gap: 10px;
+      gap: 10px 24px;
       margin-top: 21px;
     }
 
@@ -162,9 +164,9 @@
     .text {
       gap: 7px;
     }
+
     .tagList {
-      gap: 5px;
-      margin-top: 9px;
+      gap: 10px;
     }
   }
 }

@@ -59,20 +59,20 @@
 
 @media (max-width: 1265px) {
   .card {
-    width: 246px;
-    padding: 19px 19px 23px 19px;
+    width: 548px;
+    padding: 38px 24px 94px;
 
     .imgContainer {
-      width: 77px;
-      height: 77px;
+      width: 160px;
+      height: 160px;
     }
 
     figcaption {
-      font-size: 16px;
+      font-size: 32px;
     }
 
     p {
-      font-size: 12px;
+      font-size: 28px;
     }
   }
 }
@@ -80,7 +80,7 @@
 @media (max-width: 768px) {
   .card {
     width: 212px;
-    padding: 16px 16px 23px 16px;
+    padding: 16px 10px 10px;
 
     .imgContainer {
       width: 67px;
@@ -92,7 +92,7 @@
     }
 
     p {
-      font-size: 10px;
+      font-size: 12px;
     }
   }
 }

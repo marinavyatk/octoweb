@@ -188,14 +188,14 @@
 
 @media (max-width: 1265px) {
   .wordSwipe {
-    height: 46px;
-    font-size: 32px;
+    height: 48px;
+    font-size: 33px;
     padding: 10px 20px;
 
     .inner {
-      height: 40px;
+      height: 42px;
       div {
-        margin-bottom: 40px;
+        margin-bottom: 42px;
       }
     }
     .firstWord {
@@ -206,13 +206,13 @@
 
 @keyframes show768 {
   0% {
-    margin-top: -160px;
+    margin-top: -168px;
   }
   12% {
-    margin-top: -90px;
+    margin-top: -94px;
   }
   40% {
-    margin-top: -90px;
+    margin-top: -94px;
   }
   62% {
     margin-top: -10px;
@@ -221,13 +221,13 @@
     margin-top: -10px;
   }
   99% {
-    margin-top: 40px;
+    margin-top: 42px;
   }
   99.99% {
-    margin-top: 40px;
+    margin-top: 42px;
   }
   100% {
-    margin-top: -160px;
+    margin-top: -168px;
   }
 }
 

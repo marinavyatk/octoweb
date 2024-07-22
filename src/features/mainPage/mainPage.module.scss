@@ -169,6 +169,8 @@
   .imageWithButton {
     position: relative;
     z-index: 0;
+    margin: auto;
+    width: fit-content;
   }
 
   .arrowButton {
@@ -296,6 +298,7 @@
   }
   .mainText {
     font-size: 72px;
+    line-height: var(--line-height-140);
   }
   .greetingText {
     .firstLine {
@@ -568,7 +571,7 @@
 //Current
 @media (max-width: 1265px) {
   .mainContainer {
-    padding: 0 40px;
+    padding: 0 38px;
   }
   .mainText {
     font-size: 40px;
@@ -582,31 +585,34 @@
     }
 
     .secondLine {
-      gap: 20px;
+      gap: 26px;
     }
 
     .arrow {
       height: 99px;
+      transform: rotate(24deg);
+      left: 70px;
+      bottom: 20px;
     }
   }
   .briefOffer {
     margin-bottom: 110px;
-    padding-left: 89px;
-    gap: 24px;
+    padding-left: 0;
+    gap: 40px;
   }
 
   .greetingDescription {
     font-size: 40px;
-    margin: 0 auto 110px;
-    max-width: 688px;
+    margin: 0 auto 100px;
+    max-width: 691px;
     row-gap: 8px;
 
     .starsSymbols {
-      width: 190px;
+      width: 184px;
     }
 
     .arrowSymbol {
-      width: 92px;
+      width: 89px;
 
       svg {
         width: 21px;
@@ -615,11 +621,11 @@
     }
 
     .happySymbol {
-      width: 92px;
+      width: 89px;
     }
 
     .kaomojiSymbol {
-      width: 155px;
+      width: 147px;
     }
 
     .emojiSymbol {
@@ -637,9 +643,14 @@
 
     .text {
       padding: 0 25px 50px 25px;
+      flex-direction: column;
 
       h2 {
         font-size: 40px;
+      }
+      p {
+        align-self: flex-end;
+        width: 690px;
       }
     }
 
@@ -659,6 +670,9 @@
     margin-bottom: 100px;
     h2 {
       margin-bottom: 40px;
+    }
+    .arrow {
+      left: 25px;
     }
 
     span {

@@ -69,3 +69,20 @@
     }
   }
 }
+
+@media (max-width: 1265px) {
+  .footerWithForm {
+    .formContainer {
+      padding: 36px 74px;
+      background-image: url(../../../../assets/primaryFolderForm320.png);
+    }
+    .title {
+      font-size: 28px;
+      max-width: 550px;
+      padding: 0 0 35px;
+    }
+    .secondaryFormImg {
+      background-image: url(../../../../assets/secondaryFolderForm320.png);
+    }
+  }
+}
