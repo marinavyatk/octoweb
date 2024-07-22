@@ -12,11 +12,12 @@
 }
 @media (max-width: 1265px) {
   .cards {
-    gap: 20px;
+    grid-template: 1fr/ 1fr;
+    gap: 40px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .cards {
-    grid-template: 1fr/ 1fr;
+    gap: 22px;
   }
 }

@@ -39,6 +39,7 @@
   input:checked + label::before {
     border-color: var(--color-primary);
     background-image: url("../../../../assets/checkbox.svg");
+    background-size: cover;
   }
 
   input:hover:not(:checked) + label::before {
@@ -68,5 +69,25 @@
       height: 24px;
       border-radius: 6px;
     }
+  }
+}
+@media (max-width: 767px) {
+  .checkbox {
+    font-size: 8px;
+    line-height: var(--line-height-140);
+    gap: 10px;
+
+    input + label::before {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+    }
+
+    //input:checked + label::before {
+    //  width: 12px;
+    //  height: 12px;
+    //  border-color: var(--color-primary);
+    //  background-image: url("../../../../assets/checkbox.svg");
+    //}
   }
 }

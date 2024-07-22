@@ -49,3 +49,23 @@
     }
   }
 }
+@media (max-width: 767px) {
+  .fileInputContainer {
+    svg {
+      width: 13px;
+      height: 13px;
+    }
+  }
+  .error {
+    svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .errorIcon {
+      margin-left: 2px;
+      width: 13px;
+      height: 13px;
+    }
+  }
+}

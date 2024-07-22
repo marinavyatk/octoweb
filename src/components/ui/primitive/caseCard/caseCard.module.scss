@@ -118,41 +118,40 @@
 @media (max-width: 1265px) {
   .card {
     .header {
-      font-size: 16px;
-      margin-top: 21px;
+      font-size: 32px;
     }
     .category {
-      top: 15px;
-      left: 15px;
+      top: 31px;
+      left: 31px;
     }
     .tagList {
-      gap: 8px;
-      bottom: 15px;
-      left: 15px;
+      gap: 24px;
+      bottom: 31px;
+      left: 31px;
     }
   }
   .small {
-    width: 215px;
-    height: 265px;
+    width: 509px;
+    height: 636px;
   }
 
   .medium {
-    width: 265px;
-    height: 278px;
+    width: 638px;
+    height: 806px;
   }
 
   .large {
-    width: 266px;
-    height: 336px;
+    width: 636px;
+    height: 667px;
   }
 
   .extraLarge {
-    width: 354px;
-    height: 336px;
+    width: 691px;
+    height: 655px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .card {
     .header {
       font-size: 14px;
@@ -163,17 +162,29 @@
       left: 12px;
     }
     .tagList {
-      gap: 6px;
+      gap: 10px;
       bottom: 12px;
       left: 12px;
     }
   }
+
   .small {
     width: 212px;
+    height: 265px;
+  }
+
+  .medium {
+    width: 265px;
+    height: 278px;
+  }
+
+  .large {
+    width: 288px;
+    height: 273px;
   }
 
   .extraLarge {
-    width: 288px;
-    height: 273px;
+    width: 266px;
+    height: 336px;
   }
 }

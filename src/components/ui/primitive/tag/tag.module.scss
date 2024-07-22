@@ -45,19 +45,19 @@
 
 @media (max-width: 1265px) {
   .tag {
-    font-size: 9px;
-    padding: 6px 10px;
+    font-size: 24px;
+    padding: 9px 20px;
   }
   .monochromeSecondary {
-    font-size: 10px;
+    font-size: 24px;
     padding: 6px 10px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .tag {
-    font-size: 7px;
-    padding: 5px 8px;
+    font-size: 10px;
+    padding: 6px 15px;
   }
   //.monochromeSecondary {
   //  font-size: 16px;

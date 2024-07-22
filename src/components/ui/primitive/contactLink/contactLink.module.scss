@@ -51,3 +51,25 @@
     }
   }
 }
+@media (max-width: 1265px) {
+  .contactLink {
+    gap: 10px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .contactLink {
+    font-size: 9px;
+    gap: 5px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

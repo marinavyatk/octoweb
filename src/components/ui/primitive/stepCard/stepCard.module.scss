@@ -75,24 +75,24 @@
 
 @media (max-width: 1265px) {
   .card {
-    width: 246px;
-    height: 345px;
+    width: 296px;
+    height: 414px;
 
     .stepNumber {
-      font-size: 36px;
+      font-size: 40px;
     }
 
     .header {
-      font-size: 13px;
+      font-size: 24px;
     }
 
     p {
-      font-size: 13px;
+      font-size: 20px;
     }
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .card {
     width: 123px;
     height: 172px;
