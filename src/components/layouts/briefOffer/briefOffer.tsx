@@ -1,5 +1,5 @@
 import s from "./briefOffer.module.scss";
-import { ButtonWithStroke } from "../../primitive/buttonWithStroke/buttonWithStroke.tsx";
+import { ButtonWithStroke } from "../../ui/primitive/buttonWithStroke/buttonWithStroke.tsx";
 import { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 

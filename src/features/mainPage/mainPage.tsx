@@ -13,14 +13,14 @@ import { StepCards } from "../../components/ui/complex/stepCards/stepCards.tsx";
 import { FooterWithForm } from "../../components/ui/complex/footerWithForm/footerWithForm.tsx";
 import { routes } from "../../common/routes.ts";
 import { ArrowLinkWithText } from "../../components/ui/primitive/ArrowLinkWithText/arrowLinkWithText.tsx";
-import { WordSwipe } from "../../components/ui/primitive/wordSwipe/wordSwipe.tsx";
 import { useEffect } from "react";
 import Demarko from "../../assets/webp/case-de-marko.webp";
 import Ekvadrat from "../../assets/webp/case-e-kvadrat.webp";
 import Botanica from "../../assets/webp/case-botanica.webp";
 import Smxtream from "../../assets/webp/case-smxtream.webp";
 import { CaseCard, Size } from "../../components/ui/primitive/caseCard/caseCard.tsx";
-import { BriefOffer } from "../../components/ui/complex/briefOffer/briefOffer.tsx";
+import { BriefOffer } from "../../components/layouts/briefOffer/briefOffer.tsx";
+import { GreetingText } from "../../components/layouts/greetingText/greetingText.tsx";
 
 const mainPageCases = [
   {
@@ -66,14 +66,9 @@ export const MainPage = () => {
       <Header />
       <div className={s.mainContainer}>
         <section className={s.greetingBlock}>
-          <div className={s.mainText + " " + s.greetingText}>
-            <div className={s.firstLine}>МЫ РЕВОЛЮЦИОНЕРЫ</div>
-            <div className={s.secondLine}>
-              В СФЕРЕ <WordSwipe />
-            </div>
+          <div className={s.greetingText}>
+            <GreetingText />
             <ArrowPointerSmall className={s.arrow} />
-
-            <div className={s.thirdLine}>ИЗ КРАСНОДАРА</div>
           </div>
           <BriefOffer className={s.briefOffer} />
         </section>

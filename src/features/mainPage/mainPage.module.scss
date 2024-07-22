@@ -5,47 +5,21 @@
   margin: auto;
 }
 
-//greetingBlock
+//greetingText
 .greetingBlock {
   margin: auto;
   width: fit-content;
 }
 
 .greetingText {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  white-space: nowrap;
-  padding: 120px 0 67px 0;
   position: relative;
-
-  .firstLine {
-    padding-left: 140px;
-  }
-
-  .secondLine {
-    display: flex;
-    gap: 50px;
-    align-items: center;
-  }
-
-  .thirdLine {
-    padding-left: 265px;
-  }
+  padding: 120px 0 67px 0;
 
   .arrow {
     position: absolute;
     left: 125px;
     bottom: 0;
   }
-}
-
-.mainText {
-  font-weight: var(--font-weight-bold-900);
-  font-size: 100px;
-  line-height: var(--line-height-124);
-  text-transform: uppercase;
-  color: var(--color-light-100);
 }
 
 .briefOffer {
@@ -272,23 +246,7 @@
   .mainContainer {
     padding: 0 108px;
   }
-  .mainText {
-    font-size: 72px;
-    line-height: var(--line-height-140);
-  }
   .greetingText {
-    .firstLine {
-      padding-left: 118px;
-    }
-
-    .secondLine {
-      gap: 32px;
-    }
-
-    .thirdLine {
-      padding-left: 200px;
-    }
-
     .arrow {
       left: 90px;
     }
@@ -419,22 +377,6 @@
   .mainContainer {
     padding: 0 124px;
   }
-  .mainText {
-    font-size: 64px;
-  }
-  .greetingText {
-    .firstLine {
-      padding-left: 59px;
-    }
-
-    .secondLine {
-      gap: 24px;
-    }
-
-    .thirdLine {
-      padding-left: 150px;
-    }
-  }
   .briefOffer {
     margin-bottom: 125px;
   }
@@ -539,20 +481,9 @@
   .mainContainer {
     padding: 0 38px;
   }
-  .mainText {
-    font-size: 40px;
-  }
+
   .greetingText {
-    gap: 5px;
     padding: 77px 0 90px 0;
-
-    .firstLine {
-      padding-left: 49px;
-    }
-
-    .secondLine {
-      gap: 26px;
-    }
 
     .arrow {
       height: 99px;
@@ -613,6 +544,7 @@
       h2 {
         font-size: 40px;
       }
+
       p {
         align-self: flex-end;
         width: 690px;
@@ -633,9 +565,11 @@
   //advantages
   .advantages {
     margin-bottom: 100px;
+
     h2 {
       margin-bottom: 40px;
     }
+
     .arrow {
       left: 25px;
     }
@@ -680,26 +614,14 @@
   .mainContainer {
     padding: 0 16px;
   }
-  .mainText {
-    font-size: 17px;
-  }
+
   .greetingText {
     padding: 50px 0 40px 0;
 
-    .firstLine {
-      padding-left: 26px;
-    }
-
-    .secondLine {
-      gap: 10px;
-    }
-
-    .thirdLine {
-      padding-left: 60px;
-    }
-
     .arrow {
       height: 38px;
+      left: 20px;
+      bottom: 10px;
     }
   }
   .briefOffer {
@@ -774,6 +696,7 @@
   //advantages
   .advantages {
     margin-bottom: 60px;
+
     h2 {
       margin-bottom: 50px;
     }
@@ -806,6 +729,7 @@
     .fourCard {
       align-self: flex-end;
     }
+
     .arrowLink {
       align-self: center;
     }
