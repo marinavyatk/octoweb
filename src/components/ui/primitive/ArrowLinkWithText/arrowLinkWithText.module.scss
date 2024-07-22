@@ -177,12 +177,13 @@
 
 @media (max-width: 767px) {
   .arrowButtonWithText {
-    width: 96px;
-    height: 25px;
+    width: 115px;
+    height: 26px;
     gap: 4px;
 
     span {
-      font-size: 5px;
+      font-size: 7px;
+      white-space: nowrap;
     }
 
     .arrow {
@@ -205,10 +206,8 @@
       gap: 2px;
     }
   }
-}
 
-@media (max-width: 767px) {
-  .arrowButtonWithText {
+  .colored {
     width: 243px;
     height: 60px;
     gap: 22px;

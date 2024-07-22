@@ -5,33 +5,15 @@
   margin: auto;
 }
 
-//greetingBlock
+//greetingText
 .greetingBlock {
   margin: auto;
   width: fit-content;
 }
 
 .greetingText {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  white-space: nowrap;
-  padding: 120px 0 67px 0;
   position: relative;
-
-  .firstLine {
-    padding-left: 140px;
-  }
-
-  .secondLine {
-    display: flex;
-    gap: 50px;
-    align-items: center;
-  }
-
-  .thirdLine {
-    padding-left: 265px;
-  }
+  padding: 120px 0 67px 0;
 
   .arrow {
     position: absolute;
@@ -40,168 +22,23 @@
   }
 }
 
-.mainText {
-  font-weight: var(--font-weight-bold-900);
-  font-size: 100px;
-  line-height: var(--line-height-124);
-  text-transform: uppercase;
-  color: var(--color-light-100);
-}
-
 .briefOffer {
-  display: flex;
-  gap: 58px;
-  align-items: center;
-  padding-left: 142px;
   margin-bottom: 222px;
-
-  .offerText {
-    font-family: var(--font-family-secondary);
-    line-height: var(--line-height-160);
-    color: var(--color-light-100);
-
-    .heading {
-      font-weight: var(--font-weight-regular-500);
-      font-size: 32px;
-    }
-
-    .accent {
-      color: var(--color-accent);
-    }
-
-    .description {
-      font-weight: var(--font-weight-regular-300);
-      font-size: 24px;
-    }
-  }
 }
 
 //greetingDescription
-
 .greetingDescription {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  row-gap: 24px;
-  white-space: pre-wrap;
-  font-size: 96px;
   margin-bottom: 228px;
-
-  font-weight: var(--font-weight-bold-800);
-  text-transform: uppercase;
-  text-align: justify;
-  color: var(--color-light-100);
 
   h1 {
     display: none;
   }
 }
 
-.starsSymbols {
-  width: 504px;
-}
-
-.arrowSymbol {
-  width: 257px;
-
-  svg {
-    width: 37px;
-    stroke: var(--color-accent);
-    height: 37px;
-  }
-}
-
-.happySymbol {
-  background: linear-gradient(345deg, #a330ff 0%, #ff37df 100%);
-  width: 257px;
-  font-weight: var(--font-weight-bold-800);
-}
-
-.kaomojiSymbol {
-  width: 400px;
-}
-
-.emojiSymbol {
-  width: 162px;
-}
-
-.kissSymbol {
-  width: 162px;
-}
-
 // about
 .about {
   max-width: 1920px;
   margin: 0 auto 163px;
-  border-radius: 72px;
-  padding: 52px;
-  background-color: var(--color-accent);
-  color: var(--color-dark-primary);
-
-  .text {
-    display: flex;
-    justify-content: space-between;
-    padding: 39px 72px 55px 72px;
-    align-items: flex-start;
-
-    h2 {
-      font-weight: var(--font-weight-bold-800);
-      font-size: 96px;
-      line-height: var(--line-height-120);
-      display: inline-block;
-      width: 820px;
-      margin-top: 0;
-      color: var(--color-dark-primary);
-    }
-
-    p {
-      font-weight: var(--font-weight-regular-300);
-      font-size: 24px;
-      line-height: var(--line-height-180);
-      text-align: right;
-      display: inline-block;
-      width: 529px;
-    }
-  }
-
-  .imageWithButton {
-    position: relative;
-    z-index: 0;
-    margin: auto;
-    width: fit-content;
-  }
-
-  .arrowButton {
-    position: absolute;
-    right: 72px;
-    top: 0;
-    z-index: 0;
-  }
-
-  .imgContainer {
-    background-color: var(--color-dark-secondary);
-    height: 966px;
-    width: 100%;
-    mask-image: url(../../assets/mainPagePhotoShape.svg);
-    -webkit-mask-image: url(../../assets/mainPagePhotoShape.svg);
-    mask-size: 100% 100%;
-    -webkit-mask-size: 100% 100%;
-    mask-repeat: no-repeat;
-    -webkit-mask-repeat: no-repeat;
-    overflow: hidden;
-    position: relative;
-    z-index: -1;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: relative;
-      z-index: -1;
-    }
-  }
 }
 
 // advantages
@@ -250,11 +87,10 @@
 
 //cases
 .cases {
-  height: 2000px;
-  margin: 0 auto 270px;
+  height: 2248px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: flex-start;
   gap: 174px;
   flex-wrap: wrap;
@@ -265,6 +101,9 @@
 
   .secondCard {
     align-self: flex-end;
+  }
+  .arrowLink {
+    margin-top: 195px;
   }
 }
 
@@ -296,95 +135,17 @@
   .mainContainer {
     padding: 0 108px;
   }
-  .mainText {
-    font-size: 72px;
-    line-height: var(--line-height-140);
-  }
   .greetingText {
-    .firstLine {
-      padding-left: 118px;
-    }
-
-    .secondLine {
-      gap: 32px;
-    }
-
-    .thirdLine {
-      padding-left: 200px;
-    }
-
     .arrow {
       left: 90px;
     }
   }
   .briefOffer {
     margin-bottom: 167px;
-
-    .offerText {
-      .heading {
-        font-size: 24px;
-      }
-
-      .description {
-        font-size: 16px;
-      }
-    }
   }
   .greetingDescription {
-    font-size: 64px;
     margin: 0 auto 170px;
-    row-gap: 20px;
     max-width: 1224px;
-
-    .starsSymbols {
-      width: 431px;
-    }
-
-    .arrowSymbol {
-      width: 213px;
-
-      svg {
-        width: 32px;
-        height: 32px;
-      }
-    }
-
-    .happySymbol {
-      width: 213px;
-    }
-
-    .kaomojiSymbol {
-      width: 373px;
-    }
-
-    .emojiSymbol {
-      width: 153px;
-    }
-
-    .kissSymbol {
-      width: 153px;
-    }
-  }
-  //about
-  .about {
-    padding: 56px;
-
-    .text {
-      h2 {
-        font-size: 80px;
-      }
-
-      p {
-        font-size: 18px;
-        width: 392px;
-      }
-    }
-
-    .imgContainer {
-      height: 690px;
-      mask-image: url(../../assets/mainPagePhotoShape1440.svg);
-      -webkit-mask-image: url(../../assets/mainPagePhotoShape1440.svg);
-    }
   }
 
   //advantages
@@ -422,13 +183,16 @@
   }
   //cases
   .cases {
-    height: 1570px;
-    margin-bottom: 210px;
+    height: 1702px;
     width: fit-content;
     gap: 128px;
 
     h2 {
       padding-left: 0;
+    }
+
+    .arrowLink {
+      margin-top: 175px;
     }
   }
   //services
@@ -453,80 +217,13 @@
   .mainContainer {
     padding: 0 124px;
   }
-  .mainText {
-    font-size: 64px;
-  }
-  .greetingText {
-    .firstLine {
-      padding-left: 59px;
-    }
-
-    .secondLine {
-      gap: 24px;
-    }
-
-    .thirdLine {
-      padding-left: 150px;
-    }
-  }
   .briefOffer {
     margin-bottom: 125px;
   }
 
   .greetingDescription {
-    font-size: 56px;
     margin: 0 auto 115px;
     max-width: 1032px;
-
-    .starsSymbols {
-      width: 333px;
-    }
-
-    .arrowSymbol {
-      width: 161px;
-    }
-
-    .happySymbol {
-      width: 161px;
-    }
-
-    .kaomojiSymbol {
-      width: 285px;
-    }
-
-    .emojiSymbol {
-      width: 111px;
-    }
-
-    .kissSymbol {
-      width: 111px;
-    }
-  }
-
-  //about
-  .about {
-    padding: 64px;
-
-    .text {
-      h2 {
-        font-size: 64px;
-      }
-
-      p {
-        font-size: 16px;
-        width: 328px;
-      }
-    }
-
-    .imgContainer {
-      height: 575px;
-      mask-image: url(../../assets/mainPagePhotoShape1280.svg);
-      -webkit-mask-image: url(../../assets/mainPagePhotoShape1280.svg);
-    }
-
-    .arrowButton {
-      right: 60px;
-    }
   }
 
   //advantages
@@ -556,8 +253,11 @@
 
   //cases
   .cases {
-    height: 1440px;
     gap: 112px;
+
+    .arrowLink {
+      margin-top: 115px;
+    }
   }
   //steps
   .steps {
@@ -573,20 +273,9 @@
   .mainContainer {
     padding: 0 38px;
   }
-  .mainText {
-    font-size: 40px;
-  }
+
   .greetingText {
-    gap: 5px;
     padding: 77px 0 90px 0;
-
-    .firstLine {
-      padding-left: 49px;
-    }
-
-    .secondLine {
-      gap: 26px;
-    }
 
     .arrow {
       height: 99px;
@@ -597,81 +286,21 @@
   }
   .briefOffer {
     margin-bottom: 110px;
-    padding-left: 0;
-    gap: 40px;
   }
 
   .greetingDescription {
-    font-size: 40px;
     margin: 0 auto 100px;
     max-width: 691px;
-    row-gap: 8px;
-
-    .starsSymbols {
-      width: 184px;
-    }
-
-    .arrowSymbol {
-      width: 89px;
-
-      svg {
-        width: 21px;
-        height: 21px;
-      }
-    }
-
-    .happySymbol {
-      width: 89px;
-    }
-
-    .kaomojiSymbol {
-      width: 147px;
-    }
-
-    .emojiSymbol {
-      width: 56px;
-    }
-
-    .kissSymbol {
-      width: 56px;
-    }
-  }
-
-  //about
-  .about {
-    padding: 70px 15px;
-    border-radius: 18px;
-
-    .text {
-      padding: 0 25px 50px 25px;
-      flex-direction: column;
-
-      h2 {
-        font-size: 40px;
-      }
-      p {
-        align-self: flex-end;
-        width: 690px;
-      }
-    }
-
-    .imgContainer {
-      height: 369px;
-      mask-image: url(../../assets/mainPagePhotoShape768.svg);
-      -webkit-mask-image: url(../../assets/mainPagePhotoShape768.svg);
-    }
-
-    .arrowButton {
-      right: 25px;
-    }
   }
 
   //advantages
   .advantages {
     margin-bottom: 100px;
+
     h2 {
       margin-bottom: 40px;
     }
+
     .arrow {
       left: 25px;
     }
@@ -686,9 +315,17 @@
   }
   //cases
   .cases {
-    height: 964px;
-    gap: 50px 89px;
-    margin: 0 auto 100px;
+    margin-bottom: 100px;
+    height: unset;
+
+    .arrowLink {
+      margin-top: 0;
+      align-self: center;
+    }
+    .secondCard,
+    .fourCard {
+      align-self: flex-end;
+    }
   }
 
   //services
@@ -716,112 +353,29 @@
   .mainContainer {
     padding: 0 16px;
   }
-  .mainText {
-    font-size: 17px;
-  }
+
   .greetingText {
     padding: 50px 0 40px 0;
 
-    .firstLine {
-      padding-left: 26px;
-    }
-
-    .secondLine {
-      gap: 10px;
-    }
-
-    .thirdLine {
-      padding-left: 60px;
-    }
-
     .arrow {
       height: 38px;
+      left: 20px;
+      bottom: 10px;
     }
   }
   .briefOffer {
     margin-bottom: 60px;
-    padding-left: 0;
-    gap: 16px;
-
-    .offerText {
-      .heading {
-        font-size: 12px;
-      }
-
-      .description {
-        font-size: 10px;
-      }
-    }
   }
 
   .greetingDescription {
-    font-size: 17px;
     margin: 0 auto 60px;
     max-width: 288px;
-    row-gap: 3px;
-
-    .starsSymbols {
-      width: 76px;
-    }
-
-    .arrowSymbol {
-      width: 36px;
-
-      svg {
-        width: 9px;
-        height: 9px;
-      }
-    }
-
-    .happySymbol {
-      width: 36px;
-    }
-
-    .kaomojiSymbol {
-      width: 61px;
-    }
-
-    .emojiSymbol {
-      width: 22px;
-    }
-
-    .kissSymbol {
-      width: 22px;
-    }
-  }
-
-  //about
-  .about {
-    padding: 50px 15px;
-
-    .text {
-      flex-direction: column;
-      gap: 30px;
-
-      h2 {
-        font-size: 16px;
-      }
-
-      p {
-        font-size: 12px;
-        width: 288px;
-      }
-    }
-
-    .imgContainer {
-      height: 144px;
-      mask-image: url(../../assets/mainPagePhotoShape320.svg);
-      -webkit-mask-image: url(../../assets/mainPagePhotoShape320.svg);
-    }
-
-    .arrowButton {
-      right: 0;
-    }
   }
 
   //advantages
   .advantages {
     margin-bottom: 60px;
+
     h2 {
       margin-bottom: 50px;
     }
@@ -847,16 +401,8 @@
 
   //cases
   .cases {
-    height: unset;
     gap: 36px;
     margin-bottom: 60px;
-
-    .fourCard {
-      align-self: flex-end;
-    }
-    .arrowLink {
-      align-self: center;
-    }
   }
 
   //services
