@@ -1,6 +1,5 @@
 import { Header } from "../../components/ui/complex/header/header.tsx";
 import s from "./mainPage.module.scss";
-import teamPhoto from "../../assets/webp/teamMainPhoto.webp";
 import { AdvantageCards } from "../../components/ui/complex/advantageCards/advantageCards.tsx";
 import ArrowPointerSmall from "../../assets/arrowPointerSmall.svg?react";
 import {
@@ -20,6 +19,7 @@ import { CaseCard, Size } from "../../components/ui/primitive/caseCard/caseCard.
 import { BriefOffer } from "../../components/layouts/briefOffer/briefOffer.tsx";
 import { GreetingText } from "../../components/layouts/greetingText/greetingText.tsx";
 import { GreetingDescription } from "../../components/layouts/greetingDescription/greetingDescription.tsx";
+import { AboutCard } from "../../components/layouts/aboutCard/aboutCard.tsx";
 
 const mainPageCases = [
   {
@@ -71,46 +71,20 @@ export const MainPage = () => {
           </div>
           <BriefOffer className={s.briefOffer} />
         </section>
-
         <section className={s.greetingDescription}>
           <h1>Создаем сайты для бизнеса</h1>
           <GreetingDescription />
         </section>
       </div>
-
       <section className={s.about}>
-        <div className={s.text}>
-          <h2>
-            ВЕБ-студия <br />
-            OCTOWEB
-          </h2>
-          <p>
-            {" "}
-            С 2018 года специализируемся на разработке, сопровождении и развитии IT-продуктов,
-            интернет-магазинов и бизнес-сайтов
-          </p>
-        </div>
-
-        <div className={s.imageWithButton}>
-          <div className={s.imgContainer}>
-            <img src={teamPhoto} alt={"Команда"} />
-          </div>
-          <ArrowLinkWithText
-            variant={"dark"}
-            text={"Заказать проект"}
-            href={"#form"}
-            className={s.arrowButton}
-          />
-        </div>
+        <AboutCard />
       </section>
-
       <div className={s.mainContainer}>
         <section className={s.advantages}>
           <h2>ПОЧЕМУ МЫ?</h2>
           <div className={s.arrow}></div>
           <span>くコ:彡</span>
           <span>くコ:彡</span>
-
           <div className={s.advantagesCards}>
             <AdvantageCards />
           </div>
@@ -134,12 +108,10 @@ export const MainPage = () => {
           <ArrowLinkWithText text={"Больше кейсов"} to={routes.cases} className={s.arrowLink} />
         </section>
       </div>
-
       <section className={s.services}>
         <h2>Услуги</h2>
         <ServicesLinksList linksData={linksData} />
       </section>
-
       <section className={s.steps}>
         <StepCards />
       </section>

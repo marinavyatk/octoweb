@@ -177,12 +177,13 @@
 
 @media (max-width: 767px) {
   .arrowButtonWithText {
-    width: 96px;
-    height: 25px;
+    width: 115px;
+    height: 26px;
     gap: 4px;
 
     span {
-      font-size: 5px;
+      font-size: 7px;
+      white-space: nowrap;
     }
 
     .arrow {
@@ -207,34 +208,34 @@
   }
 }
 
-@media (max-width: 767px) {
-  .arrowButtonWithText {
-    width: 243px;
-    height: 60px;
-    gap: 22px;
-
-    span {
-      font-size: 14px;
-    }
-
-    .arrow {
-      width: 48px;
-      height: 48px;
-      border-width: 6px;
-
-      svg {
-        width: 13px;
-        height: 13px;
-      }
-    }
-
-    .background {
-      height: 60px;
-      width: 60px;
-    }
-
-    &:hover {
-      gap: 12px;
-    }
-  }
-}
+//@media (max-width: 767px) {
+//  .arrowButtonWithText {
+//    width: 243px;
+//    height: 60px;
+//    gap: 22px;
+//
+//    span {
+//      font-size: 14px;
+//    }
+//
+//    .arrow {
+//      width: 48px;
+//      height: 48px;
+//      border-width: 6px;
+//
+//      svg {
+//        width: 13px;
+//        height: 13px;
+//      }
+//    }
+//
+//    .background {
+//      height: 60px;
+//      width: 60px;
+//    }
+//
+//    &:hover {
+//      gap: 12px;
+//    }
+//  }
+//}
