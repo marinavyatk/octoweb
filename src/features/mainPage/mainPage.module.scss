@@ -87,11 +87,10 @@
 
 //cases
 .cases {
-  height: 2000px;
-  margin: 0 auto 270px;
+  height: 2248px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: flex-start;
   gap: 174px;
   flex-wrap: wrap;
@@ -102,6 +101,9 @@
 
   .secondCard {
     align-self: flex-end;
+  }
+  .arrowLink {
+    margin-top: 195px;
   }
 }
 
@@ -181,13 +183,16 @@
   }
   //cases
   .cases {
-    height: 1570px;
-    margin-bottom: 210px;
+    height: 1702px;
     width: fit-content;
     gap: 128px;
 
     h2 {
       padding-left: 0;
+    }
+
+    .arrowLink {
+      margin-top: 175px;
     }
   }
   //services
@@ -248,8 +253,11 @@
 
   //cases
   .cases {
-    height: 1440px;
     gap: 112px;
+
+    .arrowLink {
+      margin-top: 115px;
+    }
   }
   //steps
   .steps {
@@ -307,9 +315,17 @@
   }
   //cases
   .cases {
-    height: 964px;
-    gap: 50px 89px;
-    margin: 0 auto 100px;
+    margin-bottom: 100px;
+    height: unset;
+
+    .arrowLink {
+      margin-top: 0;
+      align-self: center;
+    }
+    .secondCard,
+    .fourCard {
+      align-self: flex-end;
+    }
   }
 
   //services
@@ -385,17 +401,8 @@
 
   //cases
   .cases {
-    height: unset;
     gap: 36px;
     margin-bottom: 60px;
-
-    .fourCard {
-      align-self: flex-end;
-    }
-
-    .arrowLink {
-      align-self: center;
-    }
   }
 
   //services

@@ -206,36 +206,34 @@
       gap: 2px;
     }
   }
-}
 
-//@media (max-width: 767px) {
-//  .arrowButtonWithText {
-//    width: 243px;
-//    height: 60px;
-//    gap: 22px;
-//
-//    span {
-//      font-size: 14px;
-//    }
-//
-//    .arrow {
-//      width: 48px;
-//      height: 48px;
-//      border-width: 6px;
-//
-//      svg {
-//        width: 13px;
-//        height: 13px;
-//      }
-//    }
-//
-//    .background {
-//      height: 60px;
-//      width: 60px;
-//    }
-//
-//    &:hover {
-//      gap: 12px;
-//    }
-//  }
-//}
+  .colored {
+    width: 243px;
+    height: 60px;
+    gap: 22px;
+
+    span {
+      font-size: 14px;
+    }
+
+    .arrow {
+      width: 48px;
+      height: 48px;
+      border-width: 6px;
+
+      svg {
+        width: 13px;
+        height: 13px;
+      }
+    }
+
+    .background {
+      height: 60px;
+      width: 60px;
+    }
+
+    &:hover {
+      gap: 12px;
+    }
+  }
+}
