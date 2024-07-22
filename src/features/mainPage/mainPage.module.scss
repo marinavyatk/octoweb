@@ -640,6 +640,7 @@
   //about
   .about {
     padding: 70px 15px;
+    border-radius: 18px;
 
     .text {
       padding: 0 25px 50px 25px;
@@ -694,6 +695,7 @@
   .services {
     padding: 50px 40px;
     margin: 0 auto 100px;
+    border-radius: 18px;
 
     h2 {
       margin-bottom: 30px;
@@ -710,7 +712,7 @@
 //////////////////////////////////
 /////////////////////////////////
 //MOBILE!!!
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .mainContainer {
     padding: 0 16px;
   }

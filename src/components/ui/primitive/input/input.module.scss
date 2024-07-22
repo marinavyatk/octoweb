@@ -74,6 +74,7 @@
   .errorMessage {
     color: var(--color-error);
     font-size: 14px;
+    font-weight: var(--font-weight-regular-300);
     position: absolute;
     bottom: 0;
     margin-bottom: -22px;
@@ -86,19 +87,34 @@
     padding: 8px 0;
   }
 }
+
 @media (max-width: 1425px) {
   .input {
     font-size: 16px;
     padding: 4px 0;
   }
 }
+
 @media (max-width: 1265px) {
   .input {
     font-size: 24px;
+    padding: 0;
   }
 }
-@media (max-width: 768px) {
+
+@media (max-width: 767px) {
   .input {
     font-size: 10px;
+  }
+  .errorIcon {
+    width: 13px;
+    height: 13px;
+  }
+  .error {
+    .errorMessage {
+      font-size: 8px;
+      bottom: 0;
+      margin-bottom: -12px;
+    }
   }
 }

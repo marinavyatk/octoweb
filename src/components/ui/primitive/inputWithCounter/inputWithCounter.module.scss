@@ -112,11 +112,19 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .input {
     font-size: 10px;
+    padding: 0;
   }
   .underText {
     font-size: 8px;
+    margin-top: 0px;
+  }
+  .error {
+    svg {
+      width: 13px;
+      height: 13px;
+    }
   }
 }

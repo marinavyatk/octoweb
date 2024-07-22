@@ -140,7 +140,7 @@
 
       .bottomCaption {
         height: 48px;
-        border-radius: 50px 50px 0 0;
+        border-radius: 25px 25px 0 0;
         padding: 19px 24px 12px;
         font-size: 12px;
       }
@@ -148,7 +148,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .footer {
     .container {
       padding: 0 31px;
@@ -174,7 +174,6 @@
 
       .bottomCaption {
         height: 20px;
-        border-radius: 50px 50px 0 0;
         padding: 8px 10px 5px;
         font-size: 5px;
       }
