@@ -1,7 +1,5 @@
 import { Header } from "../../components/ui/complex/header/header.tsx";
 import s from "./mainPage.module.scss";
-import { AnimatedField } from "../../components/ui/primitive/animatedField/animatedField.tsx";
-import ArrowIcon from "../../assets/arrow.svg?react";
 import teamPhoto from "../../assets/webp/teamMainPhoto.webp";
 import { AdvantageCards } from "../../components/ui/complex/advantageCards/advantageCards.tsx";
 import ArrowPointerSmall from "../../assets/arrowPointerSmall.svg?react";
@@ -21,6 +19,7 @@ import Smxtream from "../../assets/webp/case-smxtream.webp";
 import { CaseCard, Size } from "../../components/ui/primitive/caseCard/caseCard.tsx";
 import { BriefOffer } from "../../components/layouts/briefOffer/briefOffer.tsx";
 import { GreetingText } from "../../components/layouts/greetingText/greetingText.tsx";
+import { GreetingDescription } from "../../components/layouts/greetingDescription/greetingDescription.tsx";
 
 const mainPageCases = [
   {
@@ -75,35 +74,7 @@ export const MainPage = () => {
 
         <section className={s.greetingDescription}>
           <h1>Создаем сайты для бизнеса</h1>
-          <div>создаем</div>
-          <AnimatedField variant={"secondary"} animation={"right"} className={s.starsSymbols}>
-            ★ ★ ★ ★ ★
-          </AnimatedField>
-          <div>сайты</div>
-          <div>для</div>
-          <AnimatedField variant={"dark"} animation={"right"} className={s.arrowSymbol}>
-            <ArrowIcon />
-          </AnimatedField>
-          <div>бизнеса</div>
-          <AnimatedField animation={"left"} className={s.happySymbol}>
-            {" "}
-            ⌢⌣
-          </AnimatedField>
-          <div>на</div>
-          <AnimatedField animation={"left"} className={s.kaomojiSymbol}>
-            くコ:彡
-          </AnimatedField>
-          <div>основе</div>
-          <div>данных</div>
-          <div>и</div>
-          <div>здравого</div>
-          <AnimatedField variant={"dark"} animation={"right"} className={s.emojiSymbol}>
-            (:\/)
-          </AnimatedField>
-          <div>смысла</div>
-          <AnimatedField variant={"secondary"} animation={"left"} className={s.kissSymbol}>
-            :^*
-          </AnimatedField>
+          <GreetingDescription />
         </section>
       </div>
 
