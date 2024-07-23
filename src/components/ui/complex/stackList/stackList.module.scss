@@ -3,3 +3,9 @@
   flex-direction: column;
   gap: 40px;
 }
+
+@media (max-width: 767px) {
+  .list {
+    gap: 20px;
+  }
+}

@@ -38,9 +38,11 @@
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 154px;
+    gap: 25px;
 
     h2 {
       max-width: fit-content;
+      white-space: nowrap;
     }
 
     p {
@@ -51,5 +53,82 @@
 
   .aboutTeam {
     margin: 178px 0 290px 0;
+  }
+}
+
+@media (max-width: 1425px) {
+  .aboutPageContent {
+    .imageContainer {
+      height: 900px;
+      margin-bottom: 100px;
+    }
+
+    .aboutCompany {
+      margin-bottom: 100px;
+      p {
+        width: 600px;
+      }
+    }
+    .aboutTeam {
+      margin: 100px 0 150px;
+    }
+  }
+}
+
+@media (max-width: 1265px) {
+  .mainContainer {
+    padding: 0 16px;
+  }
+  .aboutPageContent {
+    p {
+      font-size: 28px;
+      margin: 40px 0 46px;
+    }
+
+    .imageContainer {
+      border-radius: 48px;
+      height: 528px;
+      margin-bottom: 106px;
+    }
+
+    .aboutCompany {
+      margin-bottom: 50px;
+      flex-direction: column;
+      gap: 50px;
+      p {
+        width: unset;
+      }
+    }
+
+    .aboutTeam {
+      margin: 100px 0;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .mainContainer {
+    padding: 0 16px;
+  }
+  .aboutPageContent {
+    p {
+      font-size: 12px;
+      margin: 20px 0 22px;
+    }
+
+    .imageContainer {
+      border-radius: 18px;
+      height: 220px;
+      margin-bottom: 60px;
+    }
+
+    .aboutCompany {
+      margin-bottom: 30px;
+      gap: 30px;
+    }
+
+    .aboutTeam {
+      margin: 60px 0;
+    }
   }
 }

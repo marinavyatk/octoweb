@@ -43,3 +43,47 @@
     }
   }
 }
+
+@media (max-width: 1265px) {
+  .teamBlock {
+    .header {
+      padding: 0 16px;
+    }
+
+    .swiperSlide {
+      &:first-child {
+        margin-left: 32px;
+      }
+
+      &:last-child {
+        margin-right: 32px;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .teamBlock {
+    .header {
+      margin-bottom: 30px;
+    }
+
+    .cards {
+      gap: 10px;
+    }
+    .buttons {
+      gap: 16px;
+    }
+    .swiperSlide {
+      width: 288px !important;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

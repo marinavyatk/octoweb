@@ -1,15 +1,17 @@
 .stack {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  //align-items: center;
+  //flex-wrap: wrap;
   max-width: 1672px;
   width: 100%;
   min-height: 100px;
   border-bottom: 1px solid var(--color-primary);
+  gap: 25px;
 
   .text {
     margin-bottom: 40px;
+    white-space: nowrap;
 
     .number,
     .header {
@@ -35,5 +37,64 @@
     gap: 16px;
     flex-wrap: wrap;
     margin-bottom: 40px;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 1425px) {
+  .stack {
+    .number,
+    .header {
+      font-size: 40px;
+    }
+  }
+}
+
+@media (max-width: 1265px) {
+  .stack {
+    min-height: 53px;
+
+    .text {
+      margin-bottom: 17px;
+
+      .number,
+      .header {
+        font-size: 30px;
+      }
+
+      .number {
+        margin-right: 11px;
+      }
+    }
+
+    .tagList {
+      gap: 12px;
+      margin-bottom: 17px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .stack {
+    min-height: 21px;
+    gap: 10px;
+
+    .text {
+      margin-bottom: 7px;
+
+      .number,
+      .header {
+        font-size: 12px;
+      }
+
+      .number {
+        margin-right: 5px;
+      }
+    }
+
+    .tagList {
+      gap: 5px;
+      margin-bottom: 7px;
+    }
   }
 }

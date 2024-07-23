@@ -132,4 +132,15 @@
     font-size: 8px;
     margin: 0 auto 5px;
   }
+
+  .next,
+  .previous {
+    width: 30px;
+    height: 30px;
+
+    svg {
+      width: 9px;
+      height: 9px;
+    }
+  }
 }
