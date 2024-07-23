@@ -84,3 +84,41 @@
     margin: 0;
   }
 }
+
+@media (max-width: 767px) {
+  .cardContainer {
+    width: 288px;
+    height: 268px;
+  }
+  .card {
+    width: 288px;
+    height: 268px;
+    border-radius: 40px;
+  }
+  .name {
+    font-size: 16px;
+  }
+  .specialization,
+  .workExperience {
+    font-size: 12px;
+  }
+  .workExperience {
+    margin-bottom: 9px;
+  }
+  .frontSide {
+    .about {
+      border-radius: 12px;
+      width: 248px;
+      padding: 8px 16px;
+      bottom: 10px;
+    }
+  }
+  .backSide {
+    background: linear-gradient(336deg, #a330ff 0%, #ff37df 100%);
+    padding: 20px 26px;
+
+    p {
+      font-size: 12px;
+    }
+  }
+}

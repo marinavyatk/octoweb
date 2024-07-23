@@ -1,7 +1,7 @@
 .stack {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  //align-items: center;
   //flex-wrap: wrap;
   max-width: 1672px;
   width: 100%;
@@ -61,6 +61,31 @@
     .tagList {
       gap: 12px;
       margin-bottom: 17px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .stack {
+    min-height: 21px;
+    gap: 10px;
+
+    .text {
+      margin-bottom: 7px;
+
+      .number,
+      .header {
+        font-size: 12px;
+      }
+
+      .number {
+        margin-right: 5px;
+      }
+    }
+
+    .tagList {
+      gap: 5px;
+      margin-bottom: 7px;
     }
   }
 }
