@@ -67,6 +67,17 @@
   .underlineMessage {
     position: absolute;
     right: 0;
+    display: flex;
+    justify-content: end;
+    max-width: calc(100% - 78px);
+
+    div {
+      word-break: break-word;
+
+      svg {
+        height: fit-content;
+      }
+    }
   }
 }
 
@@ -110,6 +121,18 @@
   .input {
     font-size: 24px;
   }
+  .underText {
+    font-size: 19px;
+    margin-top: 1px;
+
+    .underlineMessage {
+      max-width: calc(100% - 87px);
+
+      div {
+        font-size: 19px;
+      }
+    }
+  }
 }
 
 @media (max-width: 767px) {
@@ -119,7 +142,15 @@
   }
   .underText {
     font-size: 8px;
-    margin-top: 0px;
+    margin-top: 1px;
+
+    .underlineMessage {
+      max-width: calc(100% - 45px);
+
+      div {
+        font-size: 8px;
+      }
+    }
   }
   .error {
     svg {

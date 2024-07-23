@@ -21,3 +21,19 @@
     cursor: pointer;
   }
 }
+
+@media (max-width: 767px) {
+  .attachedFile {
+    font-size: 10px;
+
+    .attachIcon {
+      width: 12px;
+      margin-right: 6px;
+    }
+
+    .deleteIcon {
+      width: 10px;
+      margin-left: 4px;
+    }
+  }
+}
