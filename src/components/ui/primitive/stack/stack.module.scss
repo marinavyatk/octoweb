@@ -41,6 +41,15 @@
   }
 }
 
+@media (max-width: 1425px) {
+  .stack {
+    .number,
+    .header {
+      font-size: 40px;
+    }
+  }
+}
+
 @media (max-width: 1265px) {
   .stack {
     min-height: 53px;

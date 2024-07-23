@@ -38,10 +38,11 @@
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 154px;
-    gap: 10px;
+    gap: 25px;
 
     h2 {
       max-width: fit-content;
+      white-space: nowrap;
     }
 
     p {
@@ -52,6 +53,25 @@
 
   .aboutTeam {
     margin: 178px 0 290px 0;
+  }
+}
+
+@media (max-width: 1425px) {
+  .aboutPageContent {
+    .imageContainer {
+      height: 900px;
+      margin-bottom: 100px;
+    }
+
+    .aboutCompany {
+      margin-bottom: 100px;
+      p {
+        width: 600px;
+      }
+    }
+    .aboutTeam {
+      margin: 100px 0 150px;
+    }
   }
 }
 
