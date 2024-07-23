@@ -19,7 +19,8 @@ export const ContactsPage = () => {
           <h1>КОНТАКТЫ </h1>
           <div className={s.contacts}>
             <p>
-              Пн-пт 10:00 — 18:00. <br /> г. Краснодар, ул. Атарбекова 7
+              Пн-пт 10:00 — 18:00. <br />
+              г. Краснодар, <span>ул. Атарбекова 7</span>
             </p>
             <p>
               info@octoweb.ru <br /> +7 905 407-78-32

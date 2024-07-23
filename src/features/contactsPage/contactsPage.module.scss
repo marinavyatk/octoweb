@@ -2,6 +2,10 @@
   max-width: 1920px;
   width: 100%;
   margin: auto;
+
+  h1 {
+    margin-bottom: 80px;
+  }
 }
 
 .mainContainer {
@@ -29,4 +33,49 @@
   border-radius: 48px;
   overflow: hidden;
   margin-bottom: 192px;
+}
+
+@media (max-width: 1265px) {
+  .contactsPageContent {
+    h1 {
+      margin-bottom: 40px;
+    }
+  }
+  .mainContainer {
+    padding: 0 16px;
+  }
+  .contacts {
+    margin-bottom: 40px;
+
+    p {
+      font-size: 24px;
+      max-width: 365px;
+
+      span {
+        white-space: nowrap;
+      }
+    }
+  }
+  .map {
+    margin-bottom: 100px;
+  }
+}
+
+@media (max-width: 767px) {
+  .contactsPageContent {
+    h1 {
+      margin-bottom: 20px;
+    }
+    .contacts {
+      margin-bottom: 20px;
+
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+  .map {
+    border-radius: 18px;
+    margin-bottom: 60px;
+  }
 }

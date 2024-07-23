@@ -16,3 +16,24 @@
     margin-top: -10px;
   }
 }
+
+@media (max-width: 1265px) {
+  .innerYandexMap {
+    height: 432px;
+  }
+}
+
+@media (max-width: 767px) {
+  .innerYandexMap {
+    //height: 180px;
+
+    .placeMarkContainer {
+      font-size: 12px;
+
+      svg {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}
