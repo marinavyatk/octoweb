@@ -37,8 +37,7 @@ const teamMembersInfo = [
     workExperience: "4+ года опыта",
     name: "Елисеев Николай",
     specialization: "Frontend-Гуру",
-    description:
-      'Николай "HTML-Rockstar" Елисеев, фронтенд-гуру с исключительным талантом.',
+    description: 'Николай "HTML-Rockstar" Елисеев, фронтенд-гуру с исключительным талантом.',
     img: FrontendDev,
   },
   {
@@ -100,23 +99,19 @@ export const AboutPage = () => {
           <div className={s.aboutCompany}>
             <h2>О компании</h2>
             <p>
-              Выступаем стратегическим партнером для развития бизнеса в цифровом
-              пространстве с 2018 года. За это время выпустили более 150
-              проектов.Задача нашей компании — разрабатывать цифровые решения,
-              способные помогать бизнесу становиться ключевым игроком в своей
+              Выступаем стратегическим партнером для развития бизнеса в цифровом пространстве с 2018
+              года. За это время выпустили более 150 проектов. Задача нашей компании — разрабатывать
+              цифровые решения, способные помогать бизнесу становиться ключевым игроком в своей
               сфере
             </p>
           </div>
           <StackList />
         </div>
         <div className={s.aboutTeam}>
-          <TeamMemberCards
-            teamMembers={teamMembersInfo}
-            className={s.teamCards}
-          />
+          <TeamMemberCards teamMembers={teamMembersInfo} className={s.teamCards} />
         </div>
-        <FooterWithForm />
       </div>
+      <FooterWithForm />
     </div>
   );
 };

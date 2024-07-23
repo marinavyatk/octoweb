@@ -43,3 +43,23 @@
     }
   }
 }
+
+@media (max-width: 1265px) {
+  .teamBlock {
+    .header {
+      padding: 0 16px;
+    }
+
+    .swiperSlide {
+      width: 536px !important;
+
+      &:first-child {
+        margin-left: 32px;
+      }
+
+      &:last-child {
+        margin-right: 32px;
+      }
+    }
+  }
+}
