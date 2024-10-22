@@ -1,6 +1,6 @@
-import s from "./aboutCard.module.scss";
-import teamPhoto from "../../../assets/webp/teamMainPhoto.webp";
-import { ArrowLinkWithText } from "../../ui/primitive/ArrowLinkWithText/arrowLinkWithText.tsx";
+import s from './aboutCard.module.scss';
+import {ArrowLinkWithText} from '@/components/ui/buttons/ArrowLinkWithText/arrowLinkWithText';
+import Image from 'next/image';
 
 export const AboutCard = () => {
   return (
@@ -18,7 +18,7 @@ export const AboutCard = () => {
 
       <div className={s.imageWithButton}>
         <div className={s.imgContainer}>
-          <img src={teamPhoto} alt={"Команда"} />
+            <Image src={'/teamMainPhoto.webp'} alt={"Команда"} fill sizes={'(max-width: 767px) 736px, (max-width: 1280px) 1152px, (max-width: 1440px) 1328px, 1816px'} />
         </div>
         <ArrowLinkWithText
           variant={"dark"}

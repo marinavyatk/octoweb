@@ -1,5 +1,5 @@
 import s from "./greetingText.module.scss";
-import { WordSwipe } from "../../ui/primitive/wordSwipe/wordSwipe.tsx";
+import { WordSwipe } from "../../ui/wordSwipe/wordSwipe";
 import { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 

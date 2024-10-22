@@ -4,6 +4,8 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
 
   &::-webkit-scrollbar {
     width: auto;
@@ -34,6 +36,8 @@ html {
   padding: 0;
 }
 
+
+
 input,
 button,
 select,
@@ -48,14 +52,23 @@ option {
 }
 
 body {
-  margin: 0;
   padding: 0;
   background-color: black;
   font-family: var(--font-family-primary);
-  background-image: url("../assets/webp/noise-texture.webp");
+  background-image: url(/noise-texture.webp);
   background-size: contain;
   width: 100%;
   overflow-x: hidden;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+img {
+  object-fit: cover;
+}
+
+button, a {
+  cursor: pointer;
 }
 
 h1 {
@@ -85,6 +98,7 @@ h2 {
     font-size: 48px;
   }
 }
+
 @media (max-width: 1425px) {
   h1 {
     font-size: 64px;

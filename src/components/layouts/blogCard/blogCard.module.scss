@@ -1,0 +1,102 @@
+.blogCard {
+  display: block;
+  text-decoration: none;
+
+  .imgContainer {
+    border-radius: 32px;
+    background-color: var(--color-dark-secondary);
+    overflow: hidden;
+    position: relative;
+
+    .markContainer {
+      display: flex;
+      padding: 32px;
+      justify-content: space-between;
+      align-items: flex-end;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .tagList {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      .tag {
+        transition: all 0.4s cubic-bezier(0.72, 0.01, 0.58, 1);
+
+        &:hover {
+          background-color: var(--color-accent);
+          border-color: var(--color-accent);
+          color: var(--color-dark-primary);
+          transition: all 0.4s cubic-bezier(0.72, 0.01, 0.58, 1);
+        }
+      }
+    }
+
+    .arrow {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        stroke: var(--color-dark-primary);
+        width: 24px;
+        height: 24px;
+        transition: all 0.3s cubic-bezier(1, 1.65, 0.265, 1.55);
+      }
+
+      &:hover {
+        svg {
+          transform: rotate(45deg);
+          stroke: var(--color-primary);
+          transition: all 0.3s cubic-bezier(1, 1.65, 0.265, 1.55);
+        }
+      }
+    }
+  }
+
+  .header {
+    font-weight: var(--font-weight-regular-600);
+    font-size: 32px;
+    line-height: var(--line-height-160);
+    color: var(--color-light-100);
+    text-transform: none;
+    margin-top: 40px;
+  }
+
+  .description {
+    font-weight: var(--font-weight-regular-300);
+    font-size: 18px;
+    line-height: var(--line-height-200);
+    color: var(--color-light-100);
+    margin-top: 24px;
+  }
+}
+
+.small {
+  width: 100%;
+  max-width: 678px;
+
+  .imgContainer {
+    width: 100%;
+    max-width: 678px;
+    height: 506px;
+  }
+}
+
+.medium {
+  width: 100%;
+  max-width: 820px;
+
+  .imgContainer {
+    width: 100%;
+    max-width: 820px;
+    height: 614px;
+  }
+}

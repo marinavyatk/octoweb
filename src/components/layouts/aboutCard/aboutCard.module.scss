@@ -48,8 +48,8 @@
     background-color: var(--color-dark-secondary);
     height: 966px;
     width: 100%;
-    mask-image: url(../../../assets/mainPagePhotoShape.svg);
-    -webkit-mask-image: url(../../../assets/mainPagePhotoShape.svg);
+    mask-image: url(../../../svg/mainPagePhotoShape.svg);
+    -webkit-mask-image: url(../../../svg/mainPagePhotoShape.svg);
     mask-size: 100% 100%;
     -webkit-mask-size: 100% 100%;
     mask-repeat: no-repeat;
@@ -59,10 +59,7 @@
     z-index: -1;
 
     img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: relative;
+      position: relative !important;
       z-index: -1;
     }
   }
@@ -85,8 +82,8 @@
 
     .imgContainer {
       height: 50vw;
-      mask-image: url(../../../assets/mainPagePhotoShape1440.svg);
-      -webkit-mask-image: url(../../../assets/mainPagePhotoShape1440.svg);
+      mask-image: url(../../../svg/mainPagePhotoShape1440.svg);
+      -webkit-mask-image: url(../../../svg/mainPagePhotoShape1440.svg);
     }
   }
 }
@@ -108,8 +105,8 @@
 
     .imgContainer {
       height: 575px;
-      mask-image: url(../../../assets/mainPagePhotoShape1280.svg);
-      -webkit-mask-image: url(../../../assets/mainPagePhotoShape1280.svg);
+      mask-image: url(../../../svg/mainPagePhotoShape1280.svg);
+      -webkit-mask-image: url(../../../svg/mainPagePhotoShape1280.svg);
     }
 
     .arrowButton {
@@ -140,8 +137,8 @@
 
     .imgContainer {
       height: 45vw;
-      mask-image: url(../../../assets/mainPagePhotoShape768.svg);
-      -webkit-mask-image: url(../../../assets/mainPagePhotoShape768.svg);
+      mask-image: url(../../../svg/mainPagePhotoShape768.svg);
+      -webkit-mask-image: url(../../../svg/mainPagePhotoShape768.svg);
       background-color: var(--color-dark-secondary);
     }
 
@@ -170,11 +167,11 @@
       }
     }
 
-    .imgContainer {
-      height: 45vw;
-      mask-image: url(../../../assets/mainPagePhotoShape320.svg);
-      -webkit-mask-image: url(../../../assets/mainPagePhotoShape320.svg);
-    }
+    //.imgContainer {
+    //  height: 45vw;
+    //  mask-image: url(../../../svg/mainPagePhotoShape320.svg);
+    //  -webkit-mask-image: url(../../../svg/mainPagePhotoShape320.svg);
+    //}
 
     .arrowButton {
       right: 0;

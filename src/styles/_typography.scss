@@ -1,6 +1,6 @@
 :root {
-  --font-family-primary: "Unbounded Variable", sans-serif;
-  --font-family-secondary: "Montserrat Variable", sans-serif;
+  --font-family-primary: var(--unbounded), sans-serif;
+  --font-family-secondary: var(--montserrat), sans-serif;
 
   // font weights
   --font-weight-regular-250: 250;

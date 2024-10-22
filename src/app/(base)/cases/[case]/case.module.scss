@@ -1,0 +1,222 @@
+.mainContainer {
+  padding: 0 124px;
+}
+
+.subheader {
+  opacity: 0.8;
+  font-size: 16px;
+  line-height: var(--line-height-140);
+  font-weight: var(--font-weight-regular-400);
+  text-transform: uppercase;
+}
+
+.casePageContent {
+  max-width: 1920px;
+  width: 100%;
+  margin: auto;
+  font-weight: var(--font-weight-regular-300);
+  font-size: 24px;
+  line-height: var(--line-height-200);
+  color: var(--color-light-100);
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .tagList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 24px 0 96px;
+
+    .tag {
+      transition: all 0.4s cubic-bezier(0.72, 0.01, 0.58, 1);
+
+      &:hover {
+        background-color: var(--color-accent);
+        border-color: var(--color-accent);
+        color: var(--color-dark-primary);
+        transition: all 0.4s cubic-bezier(0.72, 0.01, 0.58, 1);
+      }
+    }
+  }
+
+  .topCaption {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    gap: 30px;
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      font-size: 32px;
+    }
+  }
+
+  .mainImgContainer {
+    width: 100%;
+    height: 1200px;
+    background-color: var(--color-dark-secondary);
+    overflow: hidden;
+    mask-image: url(../../../../svg/caseMainPhotoShape.svg);
+    -webkit-mask-image: url(../../../../svg/caseMainPhotoShape.svg);
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    position: relative;
+  }
+
+  .description {
+    width: 1246px;
+    margin: -100px 32px 0 124px;
+    font-size: 32px;
+  }
+
+  .taskBlock {
+    border-top: 1px solid var(--color-light-40);
+    margin-top: 168px;
+
+    .taskHeader {
+      padding: 56px 0 0;
+      display: flex;
+      justify-content: space-between;
+
+      .taskDescription {
+        width: 50%;
+        font-weight: var(--font-weight-regular-250);
+      }
+    }
+  }
+
+  .images {
+    display: flex;
+    gap: 32px;
+    margin: 130px auto 108px;
+    width: fit-content;
+
+    .smallImg {
+      border-radius: 48px;
+      width: 536px;
+      height: 532px;
+      overflow: hidden;
+      background-color: var(--color-dark-secondary);
+      position: relative;
+    }
+
+    .mediumImg {
+      border-radius: 48px;
+      width: 1104px;
+      height: 1079px;
+      overflow: hidden;
+      background-color: var(--color-dark-secondary);
+      position: relative;
+    }
+  }
+
+  .bigImg {
+    border-radius: 48px;
+    width: 100%;
+    height: 1270px;
+    overflow: hidden;
+    background-color: var(--color-dark-secondary);
+    position: relative;
+  }
+
+  .stackTech {
+    display: flex;
+    flex-direction: column;
+    line-height: var(--line-height-160);
+    margin-top: 16px;
+    font-weight: var(--font-weight-regular-250);
+
+    b {
+      font-weight: var(--font-weight-regular-400);
+    }
+  }
+
+  .resultBlock {
+    display: flex;
+    justify-content: space-between;
+    gap: 209px;
+    margin: 120px 0 300px;
+
+    .resultInfo {
+      display: flex;
+      flex-direction: column;
+      gap: 70px;
+    }
+
+    .resultDescription {
+      font-weight: var(--font-weight-regular-250);
+      width: 58%;
+    }
+  }
+}
+
+@media (max-width: 1905px) {
+  .mainContainer {
+    padding: 0 108px;
+  }
+  .casePageContent {
+    font-size: 18px;
+
+    .topCaption {
+      margin-bottom: 90px;
+
+      .field {
+        gap: 12px;
+        font-size: 18px;
+      }
+    }
+
+    .mainImgContainer {
+      height: 756px;
+      mask-image: url(../../../../svg/caseMainPhotoShape1440.svg);
+      -webkit-mask-image: url(../../../../svg/caseMainPhotoShape1440.svg);
+      mask-size: 100% 100%;
+      -webkit-mask-size: 100% 100%;
+    }
+
+    .description {
+      width: 704px;
+      margin: -50px 32px 0 108px;
+      font-size: 18px;
+    }
+
+    .images {
+      display: flex;
+      gap: 24px;
+      margin: 88px auto 130px;
+
+      .smallImg {
+        border-radius: 32px;
+        width: 392px;
+        height: 390px;
+      }
+
+      .mediumImg {
+        border-radius: 32px;
+        width: 808px;
+        height: 789px;
+      }
+    }
+    .bigImg {
+      border-radius: 32px;
+      height: 950px;
+    }
+    .resultBlock {
+      gap: 232px;
+      margin: 106px 0 187px;
+
+      .resultInfo {
+        gap: 42px;
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
-import { AnimatedField } from "../../ui/primitive/animatedField/animatedField.tsx";
+import { AnimatedField } from "../../ui/animatedField/animatedField";
 import s from "./greetingDescription.module.scss";
-import ArrowIcon from "../../../assets/arrow.svg?react";
+import ArrowIcon from "@/svg/arrow.svg";
 
 export const GreetingDescription = () => {
   return (

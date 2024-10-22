@@ -1,0 +1,110 @@
+.footerWithForm {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  .formContainer {
+    width: 100%;
+    padding: 56px 124px 137px;
+    background-image: url(/primaryFolderForm.png);
+    border-radius: 72px;
+    background-size: cover;
+    margin-bottom: 65px;
+  }
+
+  .title {
+    font-weight: var(--font-weight-bold-900);
+    font-size: 56px;
+    line-height: var(--line-height-140);
+    text-transform: uppercase;
+    color: var(--color-dark-primary);
+    display: inline-block;
+    max-width: 1017px;
+    padding: 0 0 72px;
+  }
+}
+
+.secondaryFormImg {
+  position: absolute;
+  left: 0;
+  top: 55px;
+  width: 100%;
+  height: calc(100% - 55px);
+  z-index: -1;
+  background-image: url(/secondaryFolderForm.png);
+  background-size: cover;
+}
+
+@media (max-width: 1905px) {
+  .footerWithForm {
+    .formContainer {
+      padding: 40px 108px 96px;
+      background-image: url(/primaryFolderForm1440.png);
+    }
+    .title {
+      font-size: 48px;
+      max-width: 872px;
+      padding: 0 0 49px;
+    }
+    .secondaryFormImg {
+      background-image: url(/secondaryFolderForm1440.png);
+      top: 40px;
+      height: calc(100% - 40px);
+    }
+  }
+}
+@media (max-width: 1425px) {
+  .footerWithForm {
+    .formContainer {
+      padding: 40px 124px 92px;
+    }
+    .title {
+      font-size: 40px;
+      max-width: 749px;
+      padding: 0 0 71px;
+    }
+  }
+}
+
+@media (max-width: 1265px) {
+  .footerWithForm {
+    .formContainer {
+      padding: 36px 74px;
+      background-image: url(/primaryFolderForm320.png);
+    }
+    .title {
+      font-size: 28px;
+      max-width: 550px;
+      padding: 0 0 35px;
+    }
+    .secondaryFormImg {
+      background-image: url(/secondaryFolderForm320.png);
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .footerWithForm {
+    .formContainer {
+      padding: 27px;
+      border-radius: 18px;
+      margin-bottom: 23px;
+      //background-image: url(../../../../assets/primaryFolderForm320.png);
+      background-size: cover;
+    }
+    .title {
+      font-size: 12px;
+      max-width: 228px;
+      padding: 0 0 14px;
+    }
+    .secondaryFormImg {
+      //background-image: url(../../../../assets/secondaryFolderForm320.png);
+      top: 10px;
+      height: calc(100% - 10px);
+    }
+  }
+}

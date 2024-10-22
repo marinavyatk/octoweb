@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded');
+
+:root {
+    --unbounded: 'Unbounded', sans-serif;
+    --montserrat: 'Montserrat', sans-serif;
+}

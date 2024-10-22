@@ -1,0 +1,138 @@
+.location {
+  padding: 112px 124px 100px;
+  background-color: var(--color-accent);
+  border-radius: 72px;
+  margin: 0 auto 162px;
+  max-width: 1920px;
+
+  .text {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    white-space: pre-wrap;
+    font-weight: var(--font-weight-bold-800);
+    font-size: 96px;
+    line-height: var(--line-height-150);
+    text-transform: uppercase;
+    color: var(--color-dark-primary);
+    word-wrap: break-word;
+    margin-bottom: 69px;
+
+    .starsSymbols {
+      width: 387px;
+    }
+
+    .happySymbol {
+      width: 303px;
+      background: linear-gradient(345deg, #a330ff 0%, #ff37df 100%);
+      font-weight: var(--font-weight-bold-800);
+    }
+
+    .kaomojiSymbol {
+      width: 380px;
+    }
+
+    .emojiSymbol {
+      width: 198px;
+    }
+
+    .arrowSymbol {
+      width: 208px;
+
+      svg {
+        width: 37px;
+        stroke: var(--color-accent);
+        height: 37px;
+      }
+    }
+
+    .kissSymbol {
+      width: 208px;
+    }
+  }
+}
+
+.map {
+  height: 599px;
+  position: relative;
+  margin: auto;
+
+  p {
+    font-weight: var(--font-weight-regular-300);
+    font-size: 24px;
+    line-height: var(--line-height-180);
+    color: var(--color-dark-primary);
+    width: 638px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+
+  .imgContainer {
+    width: 100%;
+    height: 599px;
+    mask-image: url(../../../svg/mapShape.svg);
+    -webkit-mask-image: url(../../../svg/mapShape.svg);
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    background-color: var(--color-dark-secondary);
+    position: relative;
+  }
+}
+
+@media (max-width: 1905px) {
+  .location {
+    padding: 80px 108px 108px;
+    border-radius: 48px;
+    margin: 0 auto 86px;
+
+    .text {
+      width: 1224px;
+      font-size: 64px;
+      margin: 0 auto 56px;
+
+      .starsSymbols {
+        width: 353px;
+      }
+
+      .happySymbol {
+        width: 297px;
+      }
+
+      .kaomojiSymbol {
+        width: 283px;
+      }
+
+      .arrowSymbol {
+        width: 186px;
+
+        svg {
+          width: 37px;
+          stroke: var(--color-accent);
+          height: 37px;
+        }
+      }
+
+      .kissSymbol {
+        width: 186px;
+      }
+    }
+  }
+  .map {
+    height: 460px;
+    max-width: 1224px;
+
+    p {
+      font-size: 18px;
+      width: 451px;
+    }
+
+    .imgContainer {
+      height: 460px;
+    }
+  }
+}
