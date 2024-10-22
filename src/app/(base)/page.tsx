@@ -14,7 +14,7 @@ import {mainPageCases} from '@/common/componentsData/mainPageCases';
 
 
 export default function Home() {
-//
+
     return (
         <div className={s.mainPage}>
             <div className={s.mainContainer}>
