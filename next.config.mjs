@@ -31,15 +31,6 @@ const nextConfig = {
         );
         return config;
     },
-
-    async rewrites() {
-        return [
-            {
-                source: '/storybook/:path*',
-                destination: '/storybook/index.html',
-            },
-        ];
-    },
 };
 
 export default nextConfig;

@@ -1,15 +1,5 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npm run build && npm run build-storybook",
-  "devCommand": "npm run dev",
-  "installCommand": "npm install",
-  "framework": "nextjs",
-  "routes": [
-    {
-      "src": "/storybook/(.*)",
-      "dest": "/storybook-static/$1"
-    }
-  ]
+  "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
 }
 
 
