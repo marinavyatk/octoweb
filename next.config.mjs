@@ -29,10 +29,16 @@ const nextConfig = {
                 ],
             }
         );
-
-        // fileLoaderRule.exclude = /\.svg$/i;
-
         return config;
+    },
+
+    async rewrites() {
+        return [
+            {
+                source: '/storybook/:path*',
+                destination: '/storybook/index.html',
+            },
+        ];
     },
 };
 
