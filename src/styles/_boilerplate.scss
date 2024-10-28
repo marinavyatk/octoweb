@@ -1,3 +1,16 @@
+:root {
+  --offset-x: 116px; //124 - scrollbar width/2
+  @media (max-width: 1905px) {
+    --offset-x: 100px; //108 - scrollbar width/2
+  }
+  @media (max-width: 1425px) {
+    --offset-x: 116px; //124 - scrollbar width/2
+  }
+  @media (max-width: 1265px) {
+    --offset-x: 16px;
+  }
+}
+
 html {
   box-sizing: border-box;
   font-size: 100%;
@@ -6,25 +19,25 @@ html {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
+}
 
-  &::-webkit-scrollbar {
-    width: auto;
-  }
+::-webkit-scrollbar {
+  width: auto;
+}
 
-  &::-webkit-scrollbar-track {
-    background: #292929;
-    border: 1px solid black;
-  }
+::-webkit-scrollbar-track {
+  background: #292929;
+  border: 1px solid black;
+}
 
-  &::-webkit-scrollbar-thumb {
-    background-color: #4f4f4f;
-    border-radius: 5px;
-    border: 2px solid #292929;
+::-webkit-scrollbar-thumb {
+  background-color: #4f4f4f;
+  border-radius: 5px;
+  border: 2px solid #292929;
 
-    &:active {
-      background-color: var(--color-accent);
-      transition: all 0.4s;
-    }
+  :active {
+    background-color: var(--color-accent);
+    transition: all 0.4s;
   }
 }
 
@@ -35,8 +48,6 @@ html {
   margin: 0;
   padding: 0;
 }
-
-
 
 input,
 button,
@@ -57,7 +68,6 @@ body {
   font-family: var(--font-family-primary);
   background-image: url(/noise-texture.webp);
   background-size: contain;
-  width: 100%;
   overflow-x: hidden;
   max-width: 1920px;
   margin: 0 auto;
@@ -67,7 +77,9 @@ img {
   object-fit: cover;
 }
 
-button, a {
+button,
+a {
+  all: unset;
   cursor: pointer;
 }
 
@@ -86,6 +98,10 @@ h2 {
   line-height: var(--line-height-140);
   text-transform: uppercase;
   color: var(--color-accent);
+}
+
+.mainContainer {
+  padding: 0 var(--offset-x);
 }
 
 @media (max-width: 1905px) {

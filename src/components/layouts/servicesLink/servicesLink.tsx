@@ -3,7 +3,7 @@ import clsx from "clsx";
 import s from "./servicesLink.module.scss";
 import { ArrowButton } from "@/components/ui/buttons/arrowButton/arrowButton";
 import { Tag } from "../../ui/tag/tag";
-import Image from 'next/image';
+import Image from "next/image";
 
 export type ServicesLinkProps = {
   number: string;
@@ -28,7 +28,6 @@ export const ServicesLink = (props: ServicesLinkProps) => {
 
   return (
     <div {...restProps} className={classNames}>
-      <div className={s.innerContainer}>
         <div className={s.header}>
           <div className={s.text}>
             <span className={s.number}>{number}</span>
@@ -38,12 +37,11 @@ export const ServicesLink = (props: ServicesLinkProps) => {
         </div>
         {tags && <div className={s.tagList}>{tagList}</div>}
         {img &&
-            <div className={s.imgContainer}>
-              <div className={s.imgPositionContainer}>
-            <Image src={img} alt={header} fill/>
+          <div className={s.imgContainer}>
+            <div className={s.imgPositionContainer}>
+              <Image src={img} alt={header} fill sizes={'394px'}/>
             </div>
-    </div>}
-      </div>
+          </div>}
     </div>
   );
 };

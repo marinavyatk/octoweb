@@ -1,21 +1,26 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: 46px;
+  gap: 66px;
 }
 
 @media (max-width: 1905px) {
   .list {
-    gap: 0;
+    gap: 20px;
   }
 }
 @media (max-width: 1425px) {
   .list {
-    gap: 16px;
+    gap: 36px;
   }
 }
 @media (max-width: 1265px) {
   .list {
-    gap: 0;
+    gap: 52px;
+  }
+}
+@media (max-width: 767px) {
+  .list {
+    gap: 24px;
   }
 }

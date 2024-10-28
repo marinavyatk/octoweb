@@ -1,6 +1,6 @@
 import s from './aboutCard.module.scss';
-import {ArrowLinkWithText} from '@/components/ui/buttons/ArrowLinkWithText/arrowLinkWithText';
 import Image from 'next/image';
+import { ArrowButtonWithText } from "@/components/ui/buttons/ArrowButtonWithText/arrowButtonWithText";
 
 export const AboutCard = () => {
   return (
@@ -20,7 +20,8 @@ export const AboutCard = () => {
         <div className={s.imgContainer}>
             <Image src={'/teamMainPhoto.webp'} alt={"Команда"} fill sizes={'(max-width: 767px) 736px, (max-width: 1280px) 1152px, (max-width: 1440px) 1328px, 1816px'} />
         </div>
-        <ArrowLinkWithText
+        <ArrowButtonWithText
+          as={'a'}
           variant={"dark"}
           text={"Заказать проект"}
           href={"#form"}
