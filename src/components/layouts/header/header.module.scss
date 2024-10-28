@@ -1,4 +1,4 @@
-.header {
+.header, .headerMobile, .headerDesktop {
   display: flex;
   justify-content: space-between;
   max-width: 1670px;
@@ -12,6 +12,10 @@
     display: flex;
     gap: 24px;
   }
+}
+
+.headerMobile{
+  display: none;
 }
 
 @media (max-width: 1905px) {
@@ -30,11 +34,20 @@
   .header {
     width: 96%;
   }
+  .headerMobile{
+    display: block;
+  }
+  .headerDesktop{
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {
   .header {
     width: 95%;
     padding-top: 20px;
+  }
+  .headerMobile{
+    padding: 0;
   }
 }

@@ -7,7 +7,6 @@ import { Logo } from "../../ui/logo/logo";
 import { Navbar } from "../../ui/navbar/navbar";
 import { ContactButton } from "@/components/ui/buttons/contactButton/contactButton";
 import Headroom from "react-headroom";
-import { useScreenWidth } from "@/common/customHooks/useScreenWidth";
 import { HeaderMobile } from "@/components/layouts/header/headerMobile";
 
 export type HeaderProps = ComponentPropsWithoutRef<"header">;
@@ -15,22 +14,20 @@ export type HeaderProps = ComponentPropsWithoutRef<"header">;
 export const Header = (props: HeaderProps) => {
   const { className, ...restProps } = props;
   const classNames = clsx(s.headerContainer, className);
-  const isTabletOrMobile = useScreenWidth(1279);
-
   return (
     <Headroom className={classNames}>
       <header {...restProps} className={s.header}>
-        {isTabletOrMobile ?
+        <div className={s.headerMobile}>
           <HeaderMobile />
-          :
-          <>
-            <Logo />
-            <div className={s.rightBlock}>
-              <Navbar />
-              <ContactButton />
-            </div>
-          </>
-        }
+        </div>
+
+        <div className={s.headerDesktop}>
+          <Logo />
+          <div className={s.rightBlock}>
+            <Navbar />
+            <ContactButton />
+          </div>
+        </div>
       </header>
     </Headroom>
   );
