@@ -3,7 +3,7 @@
 import { ComponentPropsWithoutRef, ElementRef, useRef } from "react";
 import clsx from "clsx";
 import s from "./form.module.scss";
-// import { Input } from "../../ui/input/input";
+import { Input } from "../../ui/input/input";
 import { useForm } from "react-hook-form";
 import { Checkbox } from "../../ui/checkbox/checkbox";
 import { z } from "zod";
@@ -86,34 +86,34 @@ export const Form = (props: FormProps) => {
       {/*) : null}*/}
       {/*{isFormNotificationShown && <FormNotification onButtonClick={handleCloseNotification} />}*/}
       <form onSubmit={handleSubmit(onSubmit)} ref={form}>
-        {/*<div className={s.mainInfo}>*/}
-        {/*  <Input*/}
-        {/*    label={"Имя"}*/}
-        {/*    isRequiredField*/}
-        {/*    {...register("name")}*/}
-        {/*    placeholder={"Как вас зовут?"}*/}
-        {/*    className={s.item}*/}
-        {/*    errorMessage={errors.name?.message}*/}
-        {/*  />*/}
-        {/*  <Input*/}
-        {/*    label={"email"}*/}
-        {/*    isRequiredField*/}
-        {/*    {...register("email")}*/}
-        {/*    type={"email"}*/}
-        {/*    placeholder={"Электронная почта"}*/}
-        {/*    className={s.item}*/}
-        {/*    errorMessage={errors.email?.message}*/}
-        {/*  />*/}
-        {/*  <Input*/}
-        {/*    label={"Номер телефона"}*/}
-        {/*    isRequiredField*/}
-        {/*    {...register("tel")}*/}
-        {/*    type="tel"*/}
-        {/*    placeholder={"+7 (900) 000-00-00"}*/}
-        {/*    className={s.item}*/}
-        {/*    errorMessage={errors.tel?.message}*/}
-        {/*  />*/}
-        {/*</div>*/}
+        <div className={s.mainInfo}>
+          <Input
+            label={"Имя"}
+            isRequiredField
+            {...register("name")}
+            placeholder={"Как вас зовут?"}
+            className={s.item}
+            errorMessage={errors.name?.message}
+          />
+          <Input
+            label={"email"}
+            isRequiredField
+            {...register("email")}
+            type={"email"}
+            placeholder={"Электронная почта"}
+            className={s.item}
+            errorMessage={errors.email?.message}
+          />
+          <Input
+            label={"Номер телефона"}
+            isRequiredField
+            {...register("tel")}
+            type="tel"
+            placeholder={"+7 (900) 000-00-00"}
+            className={s.item}
+            errorMessage={errors.tel?.message}
+          />
+        </div>
         {/*<InputWithCounter*/}
         {/*  label={"О проекте"}*/}
         {/*  isRequiredField*/}
