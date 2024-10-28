@@ -1,7 +1,7 @@
 import React, {
   ChangeEvent,
   ComponentPropsWithoutRef,
-  // Ref,
+  Ref,
   useRef,
   useState,
 } from "react";
@@ -9,7 +9,7 @@ import clsx from "clsx";
 import s from "./inputWithCounter.module.scss";
 import { InputFile, InputFileProps } from "../inputFile/inputFile";
 import { AttachedFile } from "../attachedFile/attachedFile";
-// import TextareaAutosize from "react-textarea-autosize";
+import TextareaAutosize from "react-textarea-autosize";
 import { Label } from "../label/label";
 import { useCombinedRef } from '@/common/customHooks';
 
@@ -23,11 +23,11 @@ export type InputProps = {
   containerProps?: ComponentPropsWithoutRef<"div">;
   errorMessage?: (string | undefined)[];
   fileProps?: InputFileProps;
-} & ComponentPropsWithoutRef<"textarea">;
+} & Omit<ComponentPropsWithoutRef<"textarea">, 'style'>;
 
 export const InputWithCounter = React.forwardRef(
-  (props: InputProps) => {
-    const [content] = useState("");
+  (props: InputProps, ref: Ref<HTMLTextAreaElement>) => {
+    const [content, setContent] = useState("");
     const [file, setFile] = useState<File | undefined>(undefined);
     const inputFileRef = useRef<HTMLInputElement>(null);
     const {
@@ -56,10 +56,10 @@ export const InputWithCounter = React.forwardRef(
       "Размер файла не более 5mb"
     );
 
-    // const handleInput = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    //   const newContent = event.target.value;
-    //   setContent(newContent);
-    // };
+    const handleInput = (event: ChangeEvent<HTMLTextAreaElement>) => {
+      const newContent = event.target.value;
+      setContent(newContent);
+    };
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
       const filesFromInput = event.target.files;
@@ -81,16 +81,16 @@ export const InputWithCounter = React.forwardRef(
             className={s.mainLabel}
           />
           <div className={s.position}>
-            {/*<TextareaAutosize*/}
-            {/*  ref={ref}*/}
-            {/*  className={s.input}*/}
-            {/*  id={restProps?.name}*/}
-            {/*  {...restProps}*/}
-            {/*  onInput={(event: ChangeEvent<HTMLTextAreaElement>) => {*/}
-            {/*    handleInput(event);*/}
-            {/*  }}*/}
-            {/*  style={restProps?.style as Style}*/}
-            {/*/>*/}
+            <TextareaAutosize
+              ref={ref}
+              className={s.input}
+              id={restProps?.name}
+              {...restProps}
+              onInput={(event: ChangeEvent<HTMLTextAreaElement>) => {
+                handleInput(event);
+              }}
+              // style={restProps?.style as Style}
+            />
             <InputFile
               {...fileProps}
               error={isError}
