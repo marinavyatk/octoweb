@@ -1,6 +1,6 @@
 'use client'
 
-import { ComponentPropsWithoutRef, ElementRef, useRef, useState } from "react";
+import { ComponentPropsWithoutRef, ElementRef, useRef } from "react";
 import clsx from "clsx";
 import s from "./form.module.scss";
 import { Input } from "../../ui/input/input";
@@ -12,7 +12,7 @@ import { ArrowButtonWithText } from "@/components/ui/buttons/ArrowButtonWithText
 
 // import emailjs from "@emailjs/browser";
 import { InputWithCounter } from "../../ui/inputWithCounter/inputWithCounter";
-import { FormNotification } from "@/components/layouts/formNotification/formNotification";
+// import { FormNotification } from "@/components/layouts/formNotification/formNotification";
 import {formSchema} from '@/common/validation';
 // import { Warning } from "../../primitive/warning/warning";
 // import { useBlocker } from "react-router-dom";
@@ -21,7 +21,7 @@ type FormValues = z.infer<typeof formSchema>;
 export type FormProps = ComponentPropsWithoutRef<"div">;
 
 export const Form = (props: FormProps) => {
-  const [isFormNotificationShown, setIsFormNotificationShown] = useState(false);
+  // const [isFormNotificationShown, setIsFormNotificationShown] = useState(false);
   const form = useRef<ElementRef<"form">>(null);
   const { className, ...restProps } = props;
   const classNames = clsx(s.form, className);
@@ -29,7 +29,7 @@ export const Form = (props: FormProps) => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
+    // reset,
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -67,10 +67,10 @@ export const Form = (props: FormProps) => {
     // }
   };
 
-  const handleCloseNotification = () => {
-    setIsFormNotificationShown(false);
-    reset();
-  };
+  // const handleCloseNotification = () => {
+  //   setIsFormNotificationShown(false);
+  //   reset();
+  // };
   // const blocker = useBlocker(
   //   ({ currentLocation, nextLocation }) =>
   //     isDirty && currentLocation.pathname !== nextLocation.pathname,
@@ -84,7 +84,7 @@ export const Form = (props: FormProps) => {
       {/*    onCancelButtonClick={() => blocker.reset()}*/}
       {/*  />*/}
       {/*) : null}*/}
-      {isFormNotificationShown && <FormNotification onButtonClick={handleCloseNotification} />}
+      {/*{isFormNotificationShown && <FormNotification onButtonClick={handleCloseNotification} />}*/}
       <form onSubmit={handleSubmit(onSubmit)} ref={form}>
         <div className={s.mainInfo}>
           <Input
