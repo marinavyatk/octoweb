@@ -1,6 +1,6 @@
 import {ReactNode} from 'react';
-// import {Header} from '@/components/layouts/header/header';
-import {FooterWithForm} from '@/components/layouts/footerWithForm/footerWithForm';
+import {Header} from '@/components/layouts/header/header';
+// import {FooterWithForm} from '@/components/layouts/footerWithForm/footerWithForm';
 
 export default function RootLayout({
   children,
@@ -9,9 +9,9 @@ export default function RootLayout({
 }>) {
   return (
       <>
-      {/*<Header />*/}
+      <Header />
         {children}
-      <FooterWithForm />
+      {/*<FooterWithForm />*/}
 </>
   );
 }
