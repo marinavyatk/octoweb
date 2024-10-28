@@ -3,7 +3,7 @@
 import { ComponentPropsWithoutRef, ElementRef, useRef } from "react";
 import clsx from "clsx";
 import s from "./form.module.scss";
-import { Input } from "../../ui/input/input";
+// import { Input } from "../../ui/input/input";
 import { useForm } from "react-hook-form";
 import { Checkbox } from "../../ui/checkbox/checkbox";
 import { z } from "zod";
@@ -11,7 +11,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowButtonWithText } from "@/components/ui/buttons/ArrowButtonWithText/arrowButtonWithText";
 
 // import emailjs from "@emailjs/browser";
-import { InputWithCounter } from "../../ui/inputWithCounter/inputWithCounter";
+// import { InputWithCounter } from "../../ui/inputWithCounter/inputWithCounter";
 // import { FormNotification } from "@/components/layouts/formNotification/formNotification";
 import {formSchema} from '@/common/validation';
 // import { Warning } from "../../primitive/warning/warning";
@@ -86,46 +86,46 @@ export const Form = (props: FormProps) => {
       {/*) : null}*/}
       {/*{isFormNotificationShown && <FormNotification onButtonClick={handleCloseNotification} />}*/}
       <form onSubmit={handleSubmit(onSubmit)} ref={form}>
-        <div className={s.mainInfo}>
-          <Input
-            label={"Имя"}
-            isRequiredField
-            {...register("name")}
-            placeholder={"Как вас зовут?"}
-            className={s.item}
-            errorMessage={errors.name?.message}
-          />
-          <Input
-            label={"email"}
-            isRequiredField
-            {...register("email")}
-            type={"email"}
-            placeholder={"Электронная почта"}
-            className={s.item}
-            errorMessage={errors.email?.message}
-          />
-          <Input
-            label={"Номер телефона"}
-            isRequiredField
-            {...register("tel")}
-            type="tel"
-            placeholder={"+7 (900) 000-00-00"}
-            className={s.item}
-            errorMessage={errors.tel?.message}
-          />
-        </div>
-        <InputWithCounter
-          label={"О проекте"}
-          isRequiredField
-          placeholder={"Расскажите о своем проекте"}
-          {...register("projectDescription")}
-          name={"projectDescription"}
-          fileProps={{ ...register("projectDescriptionFile") }}
-          errorMessage={[
-            errors.projectDescription?.message,
-            errors.projectDescriptionFile?.message,
-          ]}
-        />
+        {/*<div className={s.mainInfo}>*/}
+        {/*  <Input*/}
+        {/*    label={"Имя"}*/}
+        {/*    isRequiredField*/}
+        {/*    {...register("name")}*/}
+        {/*    placeholder={"Как вас зовут?"}*/}
+        {/*    className={s.item}*/}
+        {/*    errorMessage={errors.name?.message}*/}
+        {/*  />*/}
+        {/*  <Input*/}
+        {/*    label={"email"}*/}
+        {/*    isRequiredField*/}
+        {/*    {...register("email")}*/}
+        {/*    type={"email"}*/}
+        {/*    placeholder={"Электронная почта"}*/}
+        {/*    className={s.item}*/}
+        {/*    errorMessage={errors.email?.message}*/}
+        {/*  />*/}
+        {/*  <Input*/}
+        {/*    label={"Номер телефона"}*/}
+        {/*    isRequiredField*/}
+        {/*    {...register("tel")}*/}
+        {/*    type="tel"*/}
+        {/*    placeholder={"+7 (900) 000-00-00"}*/}
+        {/*    className={s.item}*/}
+        {/*    errorMessage={errors.tel?.message}*/}
+        {/*  />*/}
+        {/*</div>*/}
+        {/*<InputWithCounter*/}
+        {/*  label={"О проекте"}*/}
+        {/*  isRequiredField*/}
+        {/*  placeholder={"Расскажите о своем проекте"}*/}
+        {/*  {...register("projectDescription")}*/}
+        {/*  name={"projectDescription"}*/}
+        {/*  fileProps={{ ...register("projectDescriptionFile") }}*/}
+        {/*  errorMessage={[*/}
+        {/*    errors.projectDescription?.message,*/}
+        {/*    errors.projectDescriptionFile?.message,*/}
+        {/*  ]}*/}
+        {/*/>*/}
         <Checkbox
           {...register("mailing")}
           text={"Хочу получать информационные и рекламные письма от OctoWeb"}
