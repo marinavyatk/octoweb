@@ -165,7 +165,7 @@
 
     &:hover {
       .imgContainer {
-        height: 90px;
+        height: calc(100% - 6px);
       }
     }
   }

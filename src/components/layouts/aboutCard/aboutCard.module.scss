@@ -185,14 +185,14 @@
       --arrow-width: 21px;
       font-size: 7px;
       width: 112px;
-      gap: 3px;
+      gap: 7px;
 
       svg {
         width: 6px;
         height: 6px;
       }
       &:hover{
-        gap: 1px;
+        gap: 3px;
       }
     }
   }
