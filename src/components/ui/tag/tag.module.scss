@@ -7,12 +7,7 @@
   border: 1px solid var(--color-dark-additional);
   border-radius: 500px;
   padding: 6px 16px;
-  text-decoration: none;
-  width: fit-content;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  height: fit-content;
+  display: block;
 }
 
 .color {
@@ -46,13 +41,10 @@
 
 @media (max-width: 1265px) {
   .tag {
-    font-size: 24px;
-    padding: 9px 20px;
-    border-width: 0.5px;
+    font-size: 20px;
   }
   .monochromeSecondary {
-    font-size: 24px;
-    padding: 6px 10px;
+    font-size: 20px;
   }
 }
 

@@ -109,8 +109,8 @@
 
     .mainInfo {
       flex-direction: column;
-      gap: 16px;
-      margin-bottom: 16px;
+      gap: 30px;
+      margin-bottom: 30px;
 
       .item {
         max-width: unset;
@@ -125,10 +125,20 @@
       }
 
       .arrowButton {
-        gap: 19px;
+        --button-height: 48px;
+        --arrow-width: 35px;
+        font-size: 12px;
+        width: 172px;
+        gap: 20px;
+
+        svg {
+          width: 13px;
+          height: 13px;
+        }
+
 
         &:hover {
-          gap: 24px;
+          gap: 10px;
         }
       }
     }
@@ -157,10 +167,19 @@
       }
 
       .arrowButton {
-        gap: 7px;
+        --button-height: 20px;
+        --arrow-width: 14px;
+        font-size: 5px;
+        width: 72px;
+        gap: 10px;
+
+        svg {
+          width: 5px;
+          height: 5px;
+        }
 
         &:hover {
-          gap: 3px;
+          gap: 5px;
         }
       }
     }

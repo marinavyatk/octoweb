@@ -1,39 +1,41 @@
-import s from './service.module.scss';
-import {Team} from '@/components/layouts/team/team';
-import {StepCards} from '@/components/layouts/stepCards/stepCards';
-import {FAQ} from '@/components/layouts/faq/faq';
-import ArrowIconForPrices from '@/svg/arrow4.svg';
-import {ArrowLinkWithText} from '@/components/ui/buttons/ArrowLinkWithText/arrowLinkWithText';
-import {AudienceCard} from '@/components/layouts/audienceCard/audienceCard';
-import {PriceTable} from '@/components/layouts/priceTable/priceTable';
-import {CooperationCard} from '@/components/layouts/cooperationCard/cooperationCard';
-import {AdvantageSection} from '@/components/layouts/advantageSection/advantageSection';
-import {serviceData} from '@/common/componentsData/service';
-import {faqData} from '@/common/componentsData/faq';
-import Image from 'next/image';
+import s from "./service.module.scss";
+import { Team } from "@/components/layouts/team/team";
+import { StepCards } from "@/components/layouts/stepCards/stepCards";
+import { FAQ } from "@/components/layouts/faq/faq";
+import ArrowIconForPrices from "@/svg/arrow4.svg";
+import { AudienceCard } from "@/components/layouts/audienceCard/audienceCard";
+import { PriceTable } from "@/components/layouts/priceTable/priceTable";
+import { CooperationCard } from "@/components/layouts/cooperationCard/cooperationCard";
+import { AdvantageSection } from "@/components/layouts/advantageSection/advantageSection";
+import { serviceData } from "@/common/componentsData/service";
+import { faqData } from "@/common/componentsData/faq";
+import Image from "next/image";
+import { ArrowButtonWithText } from "@/components/ui/buttons/ArrowButtonWithText/arrowButtonWithText";
 
 
-export default function Service () {
+export default function Service() {
   return (
     <div className={s.servicePage}>
       <div className={s.mainContainer}>
         <h1>{serviceData.serviceName}</h1>
         <div className={s.discussProject}>
           <p>{serviceData.description}</p>
-          <ArrowLinkWithText
+          <ArrowButtonWithText
             text={"ОБСУДИТЬ ПРОЕКТ"}
+            as={"a"}
             href={"#form"}
             className={s.arrowLink}
           />
         </div>
         <div className={s.serviceImg}>
-          <Image src={'/onlineStoreImg.webp'} alt={''} fill/>
+          <Image src={"/onlineStoreImg.webp"} alt={""} fill />
         </div>
         <div className={s.aboutService}>
           <h2>ОБ УСЛУГЕ</h2>
           <div className={s.container}>
             <p>{serviceData.aboutService}</p>
-            <ArrowLinkWithText
+            <ArrowButtonWithText
+              as={"a"}
               text={"Консультация"}
               className={s.arrow}
               href={"#form"}
@@ -41,7 +43,6 @@ export default function Service () {
           </div>
         </div>
       </div>
-
       <CooperationCard />
       <div className={s.mainContainer}>
         <AdvantageSection />
@@ -62,7 +63,8 @@ export default function Service () {
           <div className={s.cost}>
             Стоимость от <span>{serviceData.cost} ₽</span>
           </div>
-          <ArrowLinkWithText
+          <ArrowButtonWithText
+            as={"a"}
             text={"Обсудить проект"}
             className={s.arrow}
             href={"#form"}

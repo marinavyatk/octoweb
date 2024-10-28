@@ -17,9 +17,9 @@ export const Footer = (props: FooterProps) => {
         <ContactLinks />
         <ButtonWithStroke variant={"secondary"} />
         <div className={s.contacts}>
-          <span>info@octoweb.ru</span>
+          <a href="mailto:info@octoweb.ru">info@octoweb.ru</a>
           <br />
-          <span>+7 905 407-78-32</span>
+          <a href="tel:+79054077832">+7 905 407-78-32</a>
           <address>
             <span>КРАСНОДАР </span>
             <br />
@@ -28,12 +28,14 @@ export const Footer = (props: FooterProps) => {
         </div>
       </div>
       <div className={s.panelUp}>
-        <ArrowNavigationButton
-          variant={"up"}
-          className={s.arrow}
+        <div className={s.arrow}>
+          <ArrowNavigationButton
+            variant={"up"}
             as={'a'}
-          href={'#top'}
-        />
+            href={'#top'}
+          />
+        </div>
+
         <div className={s.bottomCaption}>
           <span>Политика конфиденциальности</span>
           <span>© OctoWeb 2023 — Все права защищены</span>

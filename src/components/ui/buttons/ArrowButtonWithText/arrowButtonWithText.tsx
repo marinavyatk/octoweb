@@ -1,23 +1,32 @@
 import clsx from "clsx";
 import s from "./arrowButtonWithText.module.scss";
-import { ComponentPropsWithoutRef } from "react";
+import { ComponentPropsWithoutRef, ElementType } from "react";
 import ArrowIcon from "@/svg/arrow.svg";
 
-export type ArrowButtonWithTextProps = {
+export type ArrowButtonWithTextProps<T extends ElementType> = {
+  as?: T
+  variant?: "colored" | "dark";
   text: string;
-} & ComponentPropsWithoutRef<"button">;
+} & ComponentPropsWithoutRef<T>;
 
-export const ArrowButtonWithText = (props: ArrowButtonWithTextProps) => {
-  const { text, className, ...restProps } = props;
-  const classNames = clsx(s.arrowButtonWithText, className);
+export const ArrowButtonWithText = <T extends ElementType = "button">(props: ArrowButtonWithTextProps<T>) => {
+  const { as: Component = "button", variant = "colored", text, className, ...restProps } = props;
+  const classNames = clsx(
+    s.arrowButtonWithText,
+    className, s[variant],
+  );
 
   return (
-    <button {...restProps} className={classNames}>
+    <Component
+      {...restProps}
+      className={classNames}
+      rel={"nofollow"}
+    >
       <span>{text}</span>
       <div className={s.background}></div>
       <div className={s.arrow}>
         <ArrowIcon />
       </div>
-    </button>
+    </Component>
   );
 };

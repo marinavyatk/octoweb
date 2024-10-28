@@ -32,3 +32,15 @@
     padding: 9px;
   }
 }
+@media (max-width: 1279px) {
+  .navbar {
+    height: unset;
+    background-color: unset;
+    backdrop-filter: unset;
+
+    ul{
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+}
