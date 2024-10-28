@@ -31,6 +31,8 @@
   resize: none;
   max-height: 600px;
   scrollbar-width: none;
+  max-width: 100%;
+  overflow-x: hidden;
 
   &:focus {
     outline: none;
