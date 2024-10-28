@@ -15,6 +15,10 @@
     }
   }
 
+  .inputWithCounter {
+    max-width: 100%;
+  }
+
   .checkbox {
     margin: 56px 0 33px;
   }
@@ -121,7 +125,7 @@
 
       p {
         font-size: 10px;
-          max-width: unset;
+        max-width: unset;
       }
 
       .arrowButton {

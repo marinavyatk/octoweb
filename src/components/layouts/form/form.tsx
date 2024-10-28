@@ -125,6 +125,7 @@ export const Form = (props: FormProps) => {
             errors.projectDescription?.message,
             errors.projectDescriptionFile?.message,
           ]}
+          className={s.inputWithCounter}
         />
         <Checkbox
           {...register("mailing")}
