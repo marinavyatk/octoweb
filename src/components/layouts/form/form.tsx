@@ -11,7 +11,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowButtonWithText } from "@/components/ui/buttons/ArrowButtonWithText/arrowButtonWithText";
 
 // import emailjs from "@emailjs/browser";
-// import { InputWithCounter } from "../../ui/inputWithCounter/inputWithCounter";
+import { InputWithCounter } from "../../ui/inputWithCounter/inputWithCounter";
 // import { FormNotification } from "@/components/layouts/formNotification/formNotification";
 import {formSchema} from '@/common/validation';
 // import { Warning } from "../../primitive/warning/warning";
@@ -114,18 +114,18 @@ export const Form = (props: FormProps) => {
             errorMessage={errors.tel?.message}
           />
         </div>
-        {/*<InputWithCounter*/}
-        {/*  label={"О проекте"}*/}
-        {/*  isRequiredField*/}
-        {/*  placeholder={"Расскажите о своем проекте"}*/}
-        {/*  {...register("projectDescription")}*/}
-        {/*  name={"projectDescription"}*/}
-        {/*  fileProps={{ ...register("projectDescriptionFile") }}*/}
-        {/*  errorMessage={[*/}
-        {/*    errors.projectDescription?.message,*/}
-        {/*    errors.projectDescriptionFile?.message,*/}
-        {/*  ]}*/}
-        {/*/>*/}
+        <InputWithCounter
+          label={"О проекте"}
+          isRequiredField
+          placeholder={"Расскажите о своем проекте"}
+          {...register("projectDescription")}
+          name={"projectDescription"}
+          fileProps={{ ...register("projectDescriptionFile") }}
+          errorMessage={[
+            errors.projectDescription?.message,
+            errors.projectDescriptionFile?.message,
+          ]}
+        />
         <Checkbox
           {...register("mailing")}
           text={"Хочу получать информационные и рекламные письма от OctoWeb"}
