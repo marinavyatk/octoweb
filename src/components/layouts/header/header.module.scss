@@ -2,8 +2,12 @@
   display: flex;
   justify-content: space-between;
   max-width: 1670px;
-  width: 87%;
   margin: auto;
+  width: 100%;
+}
+
+.header {
+  width: 87%;
   position: sticky;
   z-index: 20;
   padding-top: 32px;

@@ -1,13 +1,12 @@
 .stack {
   display: flex;
   justify-content: space-between;
-  //align-items: center;
-  //flex-wrap: wrap;
+  align-items: center;
   max-width: 1672px;
   width: 100%;
   min-height: 100px;
   border-bottom: 1px solid var(--color-primary);
-  gap: 25px;
+  gap: 30px;
 
   .text {
     margin-bottom: 40px;
@@ -35,7 +34,7 @@
   .tagList {
     display: flex;
     gap: 16px;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
     margin-bottom: 40px;
     justify-content: flex-end;
   }

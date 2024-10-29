@@ -9,7 +9,7 @@ export type TagProps<T extends ElementType> = {
 export const Tag = <T extends ElementType>(props: TagProps<T>) => {
   const {
     variant = "colored",
-    as: Component = "span",
+    as: Component = "div",
     className,
     ...restProps
   } = props;

@@ -1,16 +1,15 @@
-"use client"
+"use client";
 
-import { useRef } from "react";
+import { MutableRefObject, useRef, useState } from "react";
 import clsx from "clsx";
 import s from "./teamMembersCards.module.scss";
 import {
   TeamMember,
-  TeamMemberCard,
+  TeamMemberCard
 } from "@/components/layouts/teamMemberCard/teamMemberCard";
 import { ArrowNavigationButton } from "@/components/ui/buttons/arrowNavigationButton/arrowNavigationButton";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/navigation";
 
 export type TeamMemberCardsProps = {
   teamMembers: TeamMember[];
@@ -21,6 +20,9 @@ export const TeamMemberCards = (props: TeamMemberCardsProps) => {
   const { teamMembers, className } = props;
   const swiperRef = useRef<SwiperClass>(null);
   const classNames = clsx(s.teamBlock, className);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
+
   const teamMemberList = teamMembers.map((member, index) => {
     return (
       <SwiperSlide
@@ -40,11 +42,20 @@ export const TeamMemberCards = (props: TeamMemberCardsProps) => {
     );
   });
 
-  const handleSwiper = (swiper: SwiperClass) => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
+  const handleSwiper = (swiper: SwiperClass, swiperRef: MutableRefObject<SwiperClass>) => {
     swiperRef.current = swiper;
   };
+  const handleUpdateButtonsState = (swiper: SwiperClass) => {
+    if (swiper.isBeginning) {
+      setIsBeginning(true);
+    } else if (swiper.isEnd) {
+      setIsEnd(true);
+    } else {
+      setIsBeginning(false);
+      setIsEnd(false);
+    }
+  };
+
   const handlePrevButtonClick = () => swiperRef.current?.slidePrev();
   const handleNextButtonClick = () => swiperRef.current?.slideNext();
 
@@ -56,10 +67,12 @@ export const TeamMemberCards = (props: TeamMemberCardsProps) => {
           <ArrowNavigationButton
             variant={"previous"}
             onClick={handlePrevButtonClick}
+            disabled={isBeginning}
           />
           <ArrowNavigationButton
             variant={"next"}
             onClick={handleNextButtonClick}
+            disabled={isEnd}
           />
         </div>
       </div>
@@ -67,7 +80,8 @@ export const TeamMemberCards = (props: TeamMemberCardsProps) => {
         className={s.cards}
         slidesPerView={"auto"}
         spaceBetween={24}
-        onSwiper={handleSwiper}
+        onSwiper={(swiper) => handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>)}
+        onProgress={handleUpdateButtonsState}
       >
         {teamMemberList}
       </Swiper>
