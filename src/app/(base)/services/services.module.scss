@@ -1,9 +1,4 @@
 .servicesPage {
-  max-width: 1920px;
-  padding: 0 124px;
-  width: 100%;
-  margin: auto;
-
   h1 {
     margin-bottom: 72px;
     margin-left: 142px;
@@ -21,21 +16,64 @@
 .secondRow {
   justify-content: flex-start;
 }
+
 .cardContainer {
   margin-bottom: 272px;
 }
 
 @media (max-width: 1905px) {
-  .servicesPage {
-    padding: 0 108px;
-  }
   .firstRow,
   .secondRow {
     gap: 24px;
     margin-bottom: 24px;
   }
   .cardContainer {
-    width: 1232px;
+    max-width: 1232px;
     margin: 0 auto 230px;
+  }
+}
+
+@media (max-width: 1425px) {
+  .servicesPage {
+    h1 {
+      margin-bottom: 51px;
+      margin-left: 0;
+    }
+  }
+  .firstRow,
+  .secondRow {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1265px) {
+  .servicesPage {
+    max-width: 1000px;
+    margin: auto;
+
+    h1 {
+      margin-left: var(--offset-x);
+    }
+  }
+  .firstRow,
+  .secondRow {
+    flex-direction: column;
+  }
+  .serviceCard:nth-child(2){
+    align-self: flex-end;
+  }
+
+  .cardContainer {
+    margin-bottom: 100px;
+  }
+}
+
+@media (max-width: 767px) {
+  .servicesPage {
+    max-width: 550px;
+  }
+
+  .cardContainer {
+    margin-bottom: 60px;
   }
 }

@@ -42,3 +42,14 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  .tagLink {
+    .price {
+      padding: 16px;
+      font-size: 14px;
+      left: 40px;
+      bottom: -65px;
+    }
+  }
+}
