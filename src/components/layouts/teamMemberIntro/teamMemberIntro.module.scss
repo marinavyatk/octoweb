@@ -14,6 +14,7 @@
     justify-content: space-between;
     height: 513px;
     padding: 48px 0 48px 56px;
+    max-width: 370px;
 
     span {
       display: inline-block;
@@ -55,28 +56,29 @@
     color: var(--color-dark-primary);
   }
 
-  .imgContainer{
+  .imgContainer {
+    position: absolute;
+    right: 0;
+  }
+
+  .imgPositionContainer {
     position: relative;
     width: 370px;
     height: 512px;
+
+    img {
+      object-fit: contain;
+      object-position: right bottom;
+    }
   }
 
   .background {
-    width: 100%;
     z-index: -1;
-    position: absolute;
-    top: 0;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  .memberPhoto {
-    width: 370px !important;
-    object-fit: contain;
+    object-fit: fill;
   }
 }
 
-@media (max-width: 1905px) {
+@media (max-width: 1675px) {
   .teamMember {
     padding-top: 88px;
     height: 486px;
@@ -84,6 +86,7 @@
     .info {
       height: 436px;
       padding: 48px 0 48px 40px;
+      max-width: 311px;
     }
 
     .workExperience {
@@ -98,11 +101,74 @@
     .specialization {
       font-size: 18px;
     }
+
     p {
       font-size: 16px;
+      padding-right: 26px;
     }
-    .memberPhoto {
+
+    .imgPositionContainer {
       width: 288px;
+      height: 398px;
+    }
+  }
+}
+
+@media (max-width: 970px) {
+  .teamMember {
+    max-width: 800px;
+    margin: auto;
+    height: 622px;
+
+    .info {
+      height: 568px;
+      max-width: 370px;
+    }
+
+    .imgPositionContainer {
+      width: 368px;
+      height: 510px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+}
+
+
+@media (max-width: 767px) {
+  .teamMember {
+    height: 259px;
+    border-radius: 12px;
+
+    .info {
+      height: 232px;
+      max-width: 180px;
+      padding: 16px 0 16px 16px;
+    }
+
+    .imgPositionContainer {
+      width: 153px;
+      height: 212px;
+    }
+
+    .workExperience {
+      font-size: 10px;
+      margin-bottom: 4px;
+    }
+
+    .name {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .specialization {
+      font-size: 10px;
+    }
+
+    p {
+      font-size: 10px;
     }
   }
 }

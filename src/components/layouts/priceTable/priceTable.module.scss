@@ -16,7 +16,7 @@
 
   h3 {
     font-weight: var(--font-weight-regular-400);
-    font-size: 32px;
+    font-size: inherit;
     line-height: var(--line-height-140);
   }
 
@@ -30,5 +30,19 @@
   .priceTable {
     font-size: 24px;
     gap: 27px;
+  }
+}
+
+@media (max-width: 1265px) {
+  .priceTable {
+    font-size: 28px;
+    margin: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .priceTable {
+    font-size: 12px;
+    gap: 10px;
   }
 }

@@ -33,3 +33,18 @@
     }
   }
 }
+
+@media (max-width: 1905px) {
+  .advantages {
+    h2 {
+      margin-bottom: 50px;
+    }
+  }
+}
+@media (max-width: 767px) {
+  .advantages {
+    h2 {
+      margin-bottom: 30px;
+    }
+  }
+}

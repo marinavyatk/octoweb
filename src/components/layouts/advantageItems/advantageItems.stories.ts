@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {AdvantageItems} from '@/components/layouts/AdvantageItems/AdvantageItems';
+import {AdvantageItems} from '@/components/layouts/advantageItems/advantageItems';
 
 const meta = {
-    title: "Layouts/AdvantageItems",
+    title: "Layouts/advantageItems",
     component: AdvantageItems,
     tags: ["autodocs"],
     argTypes: {},

@@ -1,5 +1,5 @@
 import s from "./advantageSection.module.scss";
-import { AdvantageItems } from "../AdvantageItems/AdvantageItems";
+import { AdvantageItems } from "@/components/layouts/advantageItems/advantageItems";
 import ArrowPointerSmall from "@/svg/arrow3.svg";
 import { clsx } from "clsx";
 

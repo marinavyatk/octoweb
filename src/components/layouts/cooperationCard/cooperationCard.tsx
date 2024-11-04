@@ -1,7 +1,7 @@
 import s from "./cooperationCard.module.scss";
 import { AnimatedField } from "../../ui/animatedField/animatedField";
 import ArrowIcon from "@/svg/arrow.svg";
-import Image from 'next/image';
+import Image from "next/image";
 
 export const CooperationCard = () => {
   return (
@@ -30,9 +30,9 @@ export const CooperationCard = () => {
       </div>
       <div className={s.map}>
         <div className={s.imgContainer}>
-          <Image src={'/map.webp'} alt={'Карта'} fill/>
+          <Image src={"/map.webp"} alt={"Карта"} fill
+                 sizes={"(max-width: 767px) 375px,(max-width: 1265px) 736px, (max-width: 1425px) 1193px, (max-width: 1905px) 1224px, 1655px"} />
         </div>
-
         <p>
           Мы базируемся в Краснодаре и эффективно сотрудничаем с клиентами по
           всей России на удаленной основе.

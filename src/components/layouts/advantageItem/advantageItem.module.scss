@@ -28,3 +28,31 @@
     }
   }
 }
+
+@media (max-width: 1425px) {
+  .item {
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 1425px) {
+  .item {
+    max-width: 340px;
+  }
+}
+
+@media (max-width: 767px) {
+  .item {
+    max-width: 340px;
+
+
+    .number {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      font-size: 12px;
+    }
+  }
+}

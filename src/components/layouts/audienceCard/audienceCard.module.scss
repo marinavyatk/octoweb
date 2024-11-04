@@ -15,7 +15,7 @@
     line-height: var(--line-height-120);
     color: var(--color-light-100);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
     gap: 72px;
   }
 
@@ -27,6 +27,7 @@
 
     h3 {
       font-weight: var(--font-weight-regular-500);
+      hyphens: auto;
     }
   }
 
@@ -38,6 +39,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
 
     svg {
       width: 24px;
@@ -50,7 +52,7 @@
 @media (max-width: 1905px) {
   .audienceCard {
     border-radius: 48px;
-    padding: 64px 164px 88px;
+    padding: 64px 104px 88px;
 
     h2 {
       margin-bottom: 70px;
@@ -70,6 +72,75 @@
         svg {
           width: 18px;
           height: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1425px) {
+  .audienceCard {
+    padding: 50px 50px 70px;
+
+    ul {
+      gap: 38px;
+
+      h3 {
+        font-size: 30px;
+      }
+
+      li {
+        gap: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1265px) {
+  .audienceCard {
+    padding: 70px 38px;
+    width: calc(100% + 32px);
+    margin-left: -16px;
+
+    h2 {
+      font-size: 36px;
+      margin-bottom: 70px;
+    }
+
+    ul {
+      gap: 24px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .audienceCard {
+    padding: 40px 16px;
+    border-radius: 18px;
+
+    h2 {
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    ul {
+      gap: 10px;
+
+      li {
+        gap: 8px;
+      }
+
+      h3 {
+        font-size: 12px;
+      }
+
+      .arrow {
+        width: 19px;
+        height: 19px;
+
+        svg {
+          width: 5px;
+          height: 5px;
         }
       }
     }

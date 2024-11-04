@@ -48,13 +48,17 @@ export const Team = (props: TeamProps) => {
 
   return (
     <section {...restProps} className={classNames}>
-      <div className={s.firstCol}>
-        <p>{intro}</p>
-        {currentMemberCard}
-      </div>
-      <div className={s.secondCol}>
-        <h2>Над проектом будут работать</h2>
-        <ul>{teamMembersList}</ul>
+      <h2 className={s.mobileHeader}>Над проектом <br /> будут работать</h2>
+      <p className={s.mobileIntro}>{intro}</p>
+      <div className={s.teamContainer}>
+        <div className={s.firstCol}>
+          <p className={s.desktopIntro}>{intro}</p>
+          {currentMemberCard}
+        </div>
+        <div className={s.secondCol}>
+          <h2 className={s.desktopHeader}>Над проектом будут работать</h2>
+          <ul>{teamMembersList}</ul>
+        </div>
       </div>
     </section>
   );

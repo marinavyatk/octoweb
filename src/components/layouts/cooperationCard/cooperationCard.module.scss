@@ -10,6 +10,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
     white-space: pre-wrap;
     font-weight: var(--font-weight-bold-800);
     font-size: 96px;
@@ -54,20 +55,17 @@
 }
 
 .map {
-  height: 599px;
   position: relative;
   margin: auto;
+  min-height: 599px;
+  height: 100%;
 
   p {
     font-weight: var(--font-weight-regular-300);
     font-size: 24px;
     line-height: var(--line-height-180);
     color: var(--color-dark-primary);
-    width: 638px;
-    display: inline-block;
-    position: absolute;
-    left: 0;
-    bottom: 0;
+    display: inline;
   }
 
   .imgContainer {
@@ -81,6 +79,8 @@
     -webkit-mask-repeat: no-repeat;
     background-color: var(--color-dark-secondary);
     position: relative;
+    shape-outside: polygon(100% 0%, 100% 100%, 37% 100%, 37% 78%, 0% 78%, 0% 0%);
+    float: right;
   }
 }
 
@@ -123,16 +123,181 @@
     }
   }
   .map {
-    height: 460px;
     max-width: 1224px;
+    min-height: 460px;
+    height: 100%;
 
     p {
       font-size: 18px;
-      width: 451px;
     }
 
     .imgContainer {
       height: 460px;
+    }
+  }
+}
+
+@media (max-width: 1425px) {
+  .location {
+    padding: 80px var(--offset-x) var(--offset-x);
+
+    .text {
+      width: 1031px;
+      font-size: 52px;
+      margin-bottom: 40px;
+
+      .starsSymbols {
+        width: 330px;
+      }
+
+      .happySymbol {
+        width: 250px;
+      }
+
+      .kaomojiSymbol {
+        width: 250px;
+      }
+
+      .emojiSymbol {
+        width: 150px;
+      }
+
+      .arrowSymbol {
+        width: 160px;
+
+        svg {
+          width: 37px;
+          height: 37px;
+        }
+      }
+
+      .kissSymbol {
+        width: 160px;
+      }
+    }
+  }
+  .map {
+    p {
+      font-size: 18px;
+    }
+
+    .imgContainer {
+      height: 460px;
+    }
+  }
+}
+
+@media (max-width: 1265px) {
+  .location {
+    padding: 80px var(--offset-x) 80px;
+
+    .text {
+      width: 736px;
+      font-size: 36px;
+      margin-bottom: 70px;
+
+
+      .starsSymbols {
+        width: 200px;
+      }
+
+      .happySymbol {
+        width: 167px;
+      }
+
+      .kaomojiSymbol {
+        width: 160px;
+      }
+
+      .emojiSymbol {
+        width: 112px;
+      }
+
+      .arrowSymbol {
+        width: 105px;
+
+        svg {
+          width: 21px;
+          height: 21px;
+        }
+      }
+
+      .kissSymbol {
+        width: 105px;
+      }
+    }
+  }
+  .map {
+    min-height: 300px;
+
+    p {
+      font-size: 24px;
+    }
+
+    .imgContainer {
+      height: 300px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .location {
+    padding: 40px var(--offset-x);
+    border-radius: 18px;
+    margin: 0 auto 60px;
+    width: 100vw;
+    max-width: 400px;
+    overflow: hidden;
+
+    .text {
+      width: 288px;
+      font-size: 14px;
+      margin-bottom: 30px;
+
+
+      .starsSymbols {
+        width: 83px;
+      }
+
+      .happySymbol {
+        width: 69px;
+      }
+
+      .kaomojiSymbol {
+        width: 66px;
+      }
+
+      .emojiSymbol {
+        width: 46px;
+      }
+
+      .arrowSymbol {
+        width: 43px;
+
+        svg {
+          width: 9px;
+          height: 9px;
+        }
+      }
+
+      .kissSymbol {
+        width: 43px;
+      }
+    }
+  }
+  .map {
+    min-height: 125px;
+
+    p {
+      font-size: 10px;
+    }
+
+    .imgContainer {
+      height: 125px;
+
+      img {
+        transform: scale(1.3);
+      }
     }
   }
 }

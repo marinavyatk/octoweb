@@ -16,7 +16,7 @@ import { ArrowButtonWithText } from "@/components/ui/buttons/ArrowButtonWithText
 export default function Service() {
   return (
     <div className={s.servicePage}>
-      <div className={s.mainContainer}>
+      <div className={'mainContainer'}>
         <h1>{serviceData.serviceName}</h1>
         <div className={s.discussProject}>
           <p>{serviceData.description}</p>
@@ -28,7 +28,7 @@ export default function Service() {
           />
         </div>
         <div className={s.serviceImg}>
-          <Image src={"/onlineStoreImg.webp"} alt={""} fill />
+          <Image src={"/onlineStoreImg.webp"} alt={""} fill sizes={'100vw'} priority/>
         </div>
         <div className={s.aboutService}>
           <h2>ОБ УСЛУГЕ</h2>
@@ -44,7 +44,7 @@ export default function Service() {
         </div>
       </div>
       <CooperationCard />
-      <div className={s.mainContainer}>
+      <div className={'mainContainer'}>
         <AdvantageSection />
         <AudienceCard
           header={serviceData.audience.header}
@@ -61,7 +61,7 @@ export default function Service() {
       <section className={s.prices}>
         <div className={s.container}>
           <div className={s.cost}>
-            Стоимость от <span>{serviceData.cost} ₽</span>
+            Стоимость <br/>от <span className={s.price}>{serviceData.cost} ₽</span>
           </div>
           <ArrowButtonWithText
             as={"a"}
@@ -81,7 +81,7 @@ export default function Service() {
           <PriceTable priceItems={serviceData.priceTable} />
         </div>
       </section>
-      <div className={s.mainContainer}>
+      <div className={'mainContainer'}>
         <FAQ className={s.faq} faqData={faqData} />
       </div>
     </div>
