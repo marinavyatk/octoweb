@@ -61,7 +61,7 @@ export default function Service() {
       <section className={s.prices}>
         <div className={s.container}>
           <div className={s.cost}>
-            Стоимость <br/>от <span className={s.price}>{serviceData.cost} ₽</span>
+            Стоимость <br />от <span className={s.price}>{serviceData.cost} ₽</span>
           </div>
           <ArrowButtonWithText
             as={"a"}
@@ -69,8 +69,6 @@ export default function Service() {
             className={s.arrow}
             href={"#form"}
           />
-        </div>
-        <div className={s.backgroundContainer}>
           <div className={s.background}></div>
         </div>
         <div className={s.additionalServices}>
