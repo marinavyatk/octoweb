@@ -1,0 +1,73 @@
+.greetingBlock {
+  margin: auto;
+  width: fit-content;
+  position: relative;
+}
+
+.textContainer {
+  position: relative;
+}
+
+.greetingText {
+  padding: 120px 0 67px 0;
+}
+
+.arrow {
+  position: absolute;
+  left: 125px;
+  bottom: 0;
+  width: 41px;
+  height: 145px;
+}
+
+.briefOffer {
+  margin-bottom: 222px;
+}
+
+@media (max-width: 1905px) {
+  .arrow {
+    left: 90px;
+  }
+  .briefOffer {
+    margin-bottom: 167px;
+  }
+}
+
+@media (max-width: 1425px) {
+  .briefOffer {
+    margin-bottom: 125px;
+  }
+}
+
+@media (max-width: 1265px) {
+  .greetingText {
+    padding: 77px 0 90px 0;
+  }
+
+  .arrow {
+    height: 99px;
+    transform: rotate(24deg);
+    left: 70px;
+    bottom: 20px;
+  }
+
+  .briefOffer {
+    margin-bottom: 110px;
+  }
+}
+
+@media (max-width: 767px) {
+  .greetingText {
+    padding: 50px 0 40px 0;
+  }
+
+  .arrow {
+    height: 38px;
+    left: 20px;
+    bottom: 10px;
+  }
+
+  .briefOffer {
+    margin-bottom: 60px;
+  }
+}

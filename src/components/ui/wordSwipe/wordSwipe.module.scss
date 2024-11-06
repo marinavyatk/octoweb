@@ -1,53 +1,30 @@
 .wordSwipe {
-  height: 144px;
   background-color: var(--color-accent);
   border-radius: 100px;
   padding: 10px 50px;
   width: fit-content;
   color: var(--color-dark-primary);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-weight: var(--font-weight-bold-900);
   font-size: 100px;
   line-height: var(--line-height-124);
   text-transform: uppercase;
+  --word-height: 124px;
 
   .inner {
-    height: 124px;
+    height: var(--word-height);
     overflow: hidden;
     margin-bottom: 0;
-    width: 100%;
   }
 
-  div {
-    text-align: center;
-    margin-bottom: 124px;
-  }
-
-  .firstWord,
-  .secondWord {
-    position: relative;
+  .word {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: var(--word-height);
   }
 
   span {
     animation: bounce 1.5s ease infinite forwards;
-    display: block;
-  }
-
-  span:nth-child(1) {
-    animation-delay: 0.13s;
-  }
-
-  span:nth-child(2) {
-    animation-delay: 0.08s;
-  }
-
-  span:nth-child(3) {
-    animation-delay: 0s;
   }
 
   .firstWord {
@@ -57,13 +34,13 @@
 
 @keyframes show {
   0% {
-    margin-top: -496px;
+    margin-top: calc(-4 * var(--word-height));
   }
   12% {
-    margin-top: -258px;
+    margin-top: calc(-2 * var(--word-height) - 10px);
   }
   40% {
-    margin-top: -258px;
+    margin-top: calc(-2 * var(--word-height) - 10px);
   }
   62% {
     margin-top: -10px;
@@ -72,206 +49,65 @@
     margin-top: -10px;
   }
   99% {
-    margin-top: 124px;
+    margin-top: var(--word-height);
   }
   99.99% {
-    margin-top: 124px;
+    margin-top: var(--word-height);
   }
   100% {
-    margin-top: -496px;
+    margin-top: calc(-4 * var(--word-height));
   }
 }
 
 @keyframes bounce {
-  0% {
-    transform: translateY(0px);
+  0%, 40%, 100% {
+    transform: translateY(10px);
   }
   20% {
     transform: translateY(25px);
-  }
-  40% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(10px);
   }
 }
 
 @media (max-width: 1905px) {
   .wordSwipe {
-    height: 102px;
     font-size: 72px;
     padding: 10px 40px;
-
-    .inner {
-      height: 89px;
-      div {
-        margin-bottom: 89px;
-      }
-    }
-    .firstWord {
-      animation: show1440 3s linear infinite;
-    }
-  }
-}
-
-@keyframes show1440 {
-  0% {
-    margin-top: -356px;
-  }
-  12% {
-    margin-top: -188px;
-  }
-  40% {
-    margin-top: -188px;
-  }
-  62% {
-    margin-top: -10px;
-  }
-  90% {
-    margin-top: -10px;
-  }
-  99% {
-    margin-top: 89px;
-  }
-  99.99% {
-    margin-top: 89px;
-  }
-  100% {
-    margin-top: -356px;
+    --word-height: 89px;
   }
 }
 
 @media (max-width: 1425px) {
   .wordSwipe {
-    height: 92px;
     font-size: 64px;
-
-    .inner {
-      height: 79px;
-      div {
-        margin-bottom: 79px;
-      }
-    }
-    .firstWord {
-      animation: show1280 3s linear infinite;
-    }
-  }
-}
-
-@keyframes show1280 {
-  0% {
-    margin-top: -316px;
-  }
-  12% {
-    margin-top: -168px;
-  }
-  40% {
-    margin-top: -168px;
-  }
-  62% {
-    margin-top: -10px;
-  }
-  90% {
-    margin-top: -10px;
-  }
-  99% {
-    margin-top: 79px;
-  }
-  99.99% {
-    margin-top: 79px;
-  }
-  100% {
-    margin-top: -316px;
+    --word-height: 79px;
   }
 }
 
 @media (max-width: 1265px) {
   .wordSwipe {
-    height: 48px;
     font-size: 33px;
-    padding: 10px 20px;
-
-    .inner {
-      height: 42px;
-      div {
-        margin-bottom: 42px;
-      }
-    }
-    .firstWord {
-      animation: show768 3s linear infinite;
-    }
-  }
-}
-
-@keyframes show768 {
-  0% {
-    margin-top: -168px;
-  }
-  12% {
-    margin-top: -94px;
-  }
-  40% {
-    margin-top: -94px;
-  }
-  62% {
-    margin-top: -10px;
-  }
-  90% {
-    margin-top: -10px;
-  }
-  99% {
-    margin-top: 42px;
-  }
-  99.99% {
-    margin-top: 42px;
-  }
-  100% {
-    margin-top: -168px;
+    padding: 3px 20px;
+    --word-height: 42px;
   }
 }
 
 @media (max-width: 767px) {
   .wordSwipe {
-    height: 20px;
     font-size: 14px;
-    padding: 10px 9px;
+    padding: 2px 9px;
+    --word-height: 17px;
 
-    .inner {
-      height: 17px;
-      div {
-        margin-bottom: 17px;
-      }
-    }
-    .firstWord {
-      animation: show320 3s linear infinite;
+    span {
+      animation: bounce767 1.5s ease infinite forwards;
     }
   }
 }
 
-@keyframes show320 {
-  0% {
-    margin-top: -68px;
+@keyframes bounce767 {
+  0%, 40%, 100% {
+    transform: translateY(10px);
   }
-  12% {
-    margin-top: -44px;
-  }
-  40% {
-    margin-top: -44px;
-  }
-  62% {
-    margin-top: -10px;
-  }
-  90% {
-    margin-top: -10px;
-  }
-  99% {
-    margin-top: 17px;
-  }
-  99.99% {
-    margin-top: 17px;
-  }
-  100% {
-    margin-top: -68px;
+  20% {
+    transform: translateY(15px);
   }
 }

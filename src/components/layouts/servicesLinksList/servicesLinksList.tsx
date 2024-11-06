@@ -1,5 +1,5 @@
 import { ComponentPropsWithoutRef } from "react";
-import {clsx} from 'clsx';
+import { clsx } from "clsx";
 import s from "./servicesLinksList.module.scss";
 import { ServicesLink } from "@/components/layouts/servicesLink/servicesLink";
 // import Botanica from "../../../../assets/webp/link-botanica.webp";
@@ -17,10 +17,10 @@ export const linksData = [
       "Лендинг",
       "Многостраничный сайт",
       "Сайт-каталог",
-      "Интернет-магазин",
+      "Интернет-магазин"
     ],
     href: "#", //change later
-    img: '/link-botanica.webp',
+    img: "/link-botanica.webp"
   },
   {
     number: "02",
@@ -29,10 +29,10 @@ export const linksData = [
       "Контентное продвижение",
       "Контекстная реклама",
       "Таргетированная реклама",
-      "SEO",
+      "SEO"
     ],
     href: "#", //change later
-    img: '/link-e-kvadrat.webp',
+    img: "/link-e-kvadrat.webp"
   },
   {
     number: "03",
@@ -40,18 +40,18 @@ export const linksData = [
     tags: [
       "Техническая поддержка",
       "Контент поддержка",
-      "Маркетинговая поддержка",
+      "Маркетинговая поддержка"
     ],
     href: "#", //change later
-    img: '/link-smxtream.webp',
+    img: "/link-smxtream.webp"
   },
   {
     number: "04",
     header: "Дополнительные Услуги",
     tags: ["Аудит существующего сайта", "Упаковка франшиз"],
     href: "#", //change later
-    img: '/link-de-marko.webp',
-  },
+    img: "/link-de-marko.webp"
+  }
 ];
 
 export type linkData = {
@@ -64,19 +64,23 @@ export type linkData = {
 
 export type ServicesLinksListProps = {
   linksData: linkData[];
-} & ComponentPropsWithoutRef<"div">;
+  header?: string;
+} & ComponentPropsWithoutRef<"section">;
 
 export const ServicesLinksList = (props: ServicesLinksListProps) => {
-  const { className, linksData, ...restProps } = props;
-  const classNames = clsx(s.list, className);
+  const { header, className, linksData, ...restProps } = props;
+  const classNames = clsx(s.services, className);
 
   const linkList = linksData.map((link) => {
     return <ServicesLink {...link} key={link.number} />;
   });
 
   return (
-    <div {...restProps} className={classNames}>
-      {linkList}
-    </div>
+    <section className={classNames} {...restProps}>
+      <h2>{header ? header : "Услуги"}</h2>
+      <div className={s.list}>
+        {linkList}
+      </div>
+    </section>
   );
 };

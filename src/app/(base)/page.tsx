@@ -1,5 +1,3 @@
-import { GreetingText } from "@/components/layouts/greetingText/greetingText";
-import { BriefOffer } from "@/components/layouts/briefOffer/briefOffer";
 import { GreetingDescription } from "@/components/layouts/greetingDescription/greetingDescription";
 import { AboutCard } from "@/components/layouts/aboutCard/aboutCard";
 import { AdvantageCards } from "@/components/layouts/advantageCards/advantageCards";
@@ -7,25 +5,25 @@ import { CaseCard, Size } from "@/components/layouts/caseCard/caseCard";
 import { linksData, ServicesLinksList } from "@/components/layouts/servicesLinksList/servicesLinksList";
 import { StepCards } from "@/components/layouts/stepCards/stepCards";
 import s from "./page.module.scss";
-import ArrowPointerSmall from "@/svg/arrowPointerSmall.svg";
 import { routes } from "@/common/routes";
 import { mainPageCases } from "@/common/componentsData/mainPageCases";
 import { ArrowButtonWithText } from "@/components/ui/buttons/ArrowButtonWithText/arrowButtonWithText";
 import Link from "next/link";
+import { Greeting } from "@/components/sections/greeting/greeting";
 
 
 export default function Home() {
+  const content = {
+    firstLine: "МЫ РЕВОЛЮЦИОНЕРЫ",
+    secondLine: "В СФЕРЕ",
+    thirdLine: "ИЗ КРАСНОДАРА",
+    wordSwipeProps: { words: ["web", "seo"] }
+  };
 
   return (
     <div className={s.mainPage}>
       <div className={"mainContainer"}>
-        <section className={s.greetingBlock}>
-          <div className={s.greetingText}>
-            <GreetingText />
-            <ArrowPointerSmall className={s.arrow} />
-          </div>
-          <BriefOffer className={s.briefOffer} />
-        </section>
+        <Greeting textContent={content} />
         <section className={s.greetingDescription}>
           <h1>Создаем сайты для бизнеса</h1>
           <GreetingDescription />
@@ -63,10 +61,7 @@ export default function Home() {
           <ArrowButtonWithText as={Link} text={"Больше кейсов"} href={routes.cases} className={s.arrowLink} />
         </section>
       </div>
-      <section className={s.services}>
-        <h2>Услуги</h2>
-        <ServicesLinksList linksData={linksData} />
-      </section>
+      <ServicesLinksList linksData={linksData} />
       <section className={s.steps}>
         <StepCards />
       </section>
