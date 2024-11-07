@@ -38,12 +38,14 @@ export default function Case() {
           />
         </div>
       </div>
+      <div className={s.mainInfoContainer}>
       <div className={s.mainImgContainer}>
         <Image src={caseData.img.main} alt="" fill />
       </div>
       <div className={s.descriptionContainer}>
       <p className={s.description}>{caseData.description}</p>
     </div>
+      </div>
       <div className={clsx("mainContainer", s.taskBlock)}>
           <div className={s.taskHeader}>
             <h2>Задача</h2>
