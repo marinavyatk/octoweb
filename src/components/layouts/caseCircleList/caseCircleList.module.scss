@@ -9,3 +9,8 @@
     gap: 24px;
   }
 }
+@media (max-width: 767px) {
+  .circles {
+    gap: 10px;
+  }
+}

@@ -1,41 +1,31 @@
-.casesPageContent {
-  width: 100%;
-  max-width: 1920px;
-  margin: auto;
-}
-
-.mainContainer {
-  max-width: 1920px;
-  width: 100%;
-  margin: auto;
-  padding: 0 124px;
-}
-
-.filterButtons {
-  display: flex;
-  gap: 16px;
-}
-
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 120px;
+  gap: 20px;
 
   h1 {
     margin-top: 0;
   }
 }
 
+.filterButtons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap-reverse;
+  justify-content: flex-end;
+}
+
 .caseCircleList {
   margin: 86px auto 237px;
 
   a:first-child {
-    margin-left: 124px;
+    margin-left: var(--offset-x);
   }
 
   a:last-child {
-    margin-right: 124px;
+    margin-right: var(--offset-x);
   }
 }
 
@@ -54,12 +44,17 @@
   .small {
     margin-top: -180px;
   }
+
+  .fullWidthContainer {
+    width: 100%;
+  }
+}
+
+.showMoreButton {
+  margin: 0 auto 237px;
 }
 
 @media (max-width: 1905px) {
-  .mainContainer {
-    padding: 0 108px;
-  }
   .header {
     margin-top: 100px;
   }
@@ -68,16 +63,65 @@
   }
   .caseCircleList {
     margin: 76px 0 140px;
-
-    a:first-child {
-      margin-left: 108px;
-    }
-
-    a:last-child {
-      margin-right: 108px;
-    }
   }
   .casesList {
-    max-width: 1835px;
+    column-gap: 128px;
+    row-gap: 144px;
+    margin: 0 auto 150px;
+    max-width: 1740px;
+  }
+}
+
+@media (max-width: 1425px) {
+  .casesList {
+    margin: 0 auto 140px;
+  }
+  .showMoreButton {
+    margin: 0 auto 150px;
+  }
+}
+
+@media (max-width: 1265px) {
+  .caseCircleList {
+    margin: 50px auto 100px;
+  }
+  .casesList {
+    flex-direction: column;
+    row-gap: 75px;
+    padding: 0 var(--offset-x);
+
+    .large {
+      margin-top: 0;
+    }
+
+    .small {
+      margin-top: 0;
+    }
+
+    a:nth-of-type(2n) {
+      align-self: flex-end;
+    }
+
+    .fullWidthContainer{
+      width: calc(100% + 32px);
+      margin-left: -16px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    margin-top: 50px;
+    gap: 10px;
+  }
+  .caseCircleList {
+    margin: 30px auto 50px;
+  }
+  .casesList {
+    row-gap: 30px;
+    margin: 0 auto 70px;
+  }
+  .showMoreButton {
+    margin: 0 auto 70px;
   }
 }

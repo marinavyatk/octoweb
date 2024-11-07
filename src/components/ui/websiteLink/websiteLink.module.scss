@@ -19,9 +19,22 @@
     font-size: 32px;
     line-height: var(--line-height-200);
     align-items: center;
+
+    &:hover {
+      .iconContainer {
+        background-color: var(--color-accent);
+        transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+
+        svg {
+          fill: var(--color-dark-primary);
+          transform: rotate(45deg);
+          transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+        }
+      }
+    }
   }
 
-  a {
+  .iconContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,16 +49,6 @@
       fill: var(--color-light-100);
       transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
     }
-
-    &:hover {
-      background-color: var(--color-accent);
-      transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
-      svg {
-        fill: var(--color-dark-primary);
-        transform: rotate(45deg);
-        transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
-      }
-    }
   }
 }
 
@@ -54,17 +57,42 @@
     gap: 12px;
 
     .linkWithName {
-      font-size: 18px;
+      font-size: inherit;
       gap: 24px;
     }
 
-    a {
+    .iconContainer {
       width: 40px;
       height: 40px;
 
       svg {
         width: 20px;
       }
+    }
+  }
+}
+
+@media (max-width: 1265px) {
+  .websiteLink .caption {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .websiteLink {
+    gap: 10px;
+
+    .caption {
+      font-size: 12px;
+    }
+
+    .linkWithName {
+      gap: 16px;
+    }
+
+    .iconContainer {
+      width: 24px;
+      height: 24px;
     }
   }
 }

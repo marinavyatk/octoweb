@@ -7,18 +7,19 @@ export type WebsiteLinkProps = {
   webSiteName: string;
   divProps?: ComponentPropsWithoutRef<"div">;
 } & ComponentPropsWithoutRef<"a">;
+
 export const WebsiteLink = (props: WebsiteLinkProps) => {
   const { webSiteName, className, divProps, ...restProps } = props;
   const classNames = clsx(s.websiteLink, className);
   return (
     <div {...divProps} className={classNames}>
       <span className={s.caption}>Сайт</span>
-      <div className={s.linkWithName}>
+      <a className={s.linkWithName} href="" {...restProps} rel={"nofollow"} target={"_blank"}>
         <span>{webSiteName}</span>
-        <a href="" {...restProps} rel={"nofollow"} target={"_blank"}>
+        <div className={s.iconContainer}>
           <LinkIcon />
-        </a>
-      </div>
+        </div>
+      </a>
     </div>
   );
 };
