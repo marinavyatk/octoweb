@@ -35,3 +35,16 @@ export const Medium: Story = {
     articleId: "optimization",
   },
 };
+
+export const FullWidth: Story = {
+  args: {
+    header:
+      "Мобильная Эра: оптимизация сайтов для максимального удобства пользователей",
+    tags: ["Seo", "Ads", "Web"],
+    description:
+      "Откройте секреты успешной оптимизации веб-сайтов для мобильных устройств.",
+    img: '/blogImgOptimization.png',
+    size: "fullWidth",
+    articleId: "optimization",
+  },
+};

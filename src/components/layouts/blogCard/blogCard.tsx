@@ -2,11 +2,11 @@ import { ComponentPropsWithoutRef } from "react";
 import { clsx } from "clsx";
 import s from "./blogCard.module.scss";
 import { Tag } from "../../ui/tag/tag";
-import ArrowIcon from "@/svg/arrow.svg";
 import Link from "next/link";
-import Image from 'next/image';
+import Image from "next/image";
+import { ArrowButton } from "@/components/ui/buttons/arrowButton/arrowButton";
 
-export type Size = "small" | "medium";
+export type Size = "small" | "medium" | "fullWidth";
 export type BlogCardProps = {
   articleId: string;
   tags: string[];
@@ -29,10 +29,7 @@ export const BlogCard = (props: BlogCardProps) => {
     linkProps,
     ...restProps
   } = props;
-  const classNames = clsx(s.blogCard, className, {
-    [s.small]: size === "small",
-    [s.medium]: size === "medium",
-  });
+  const classNames = clsx(s.blogCard, className, s[size]);
 
   const tagList = tags.map((tag) => {
     return (
@@ -45,12 +42,15 @@ export const BlogCard = (props: BlogCardProps) => {
   return (
     <div {...restProps} className={classNames}>
       <div className={s.imgContainer}>
-        <Image src={img} alt="" fill/>
+        <Image src={img} alt="" fill />
         <div className={s.markContainer}>
           <div className={s.tagList}>{tagList}</div>
-          <Link className={s.arrow} {...linkProps} href={`/blog/${articleId}`}>
-            <ArrowIcon />
-          </Link>
+          <ArrowButton as={Link}
+                       variant={"secondary"}
+                       className={s.arrow}
+                       {...linkProps}
+                       href={`/blog/${articleId}`}
+          />
         </div>
       </div>
       <h2 className={s.header}>{header}</h2>
