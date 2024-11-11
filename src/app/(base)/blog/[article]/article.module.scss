@@ -176,8 +176,8 @@
 
 @media (max-width: 767px) {
   .articlePage {
-    --article-max-width: 288px;
-    --article-offset: 30px;
+    --article-max-width: unset;
+    --article-offset: 0;
 
     h1 {
       font-size: 16px;
@@ -187,8 +187,6 @@
 
     .caption {
       margin-bottom: 20px;
-      //column-gap: 8px;
-      //row-gap: 16px;
       gap: 8px;
 
       .tagList {
@@ -226,12 +224,12 @@
         border-radius: 17px;
         height: 150px;
         margin-top: 20px;
+        width: 100%;
       }
     }
 
     .bottomCaption {
       margin: 40px 0 70px;
-      padding: 0;
     }
 
     .faq {
