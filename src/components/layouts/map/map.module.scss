@@ -15,9 +15,14 @@
     margin-left: -15px;
     margin-top: -10px;
   }
-  .placeMarker{
+
+  .placeMarker {
     width: 56px;
     height: 56px;
+  }
+
+  :global(.ymaps3x0--map-copyrights) {
+    margin-right: 20px;
   }
 }
 
@@ -29,7 +34,7 @@
 
 @media (max-width: 767px) {
   .innerYandexMap {
-    //height: 180px;
+    height: 220px;
 
     .placeMarkContainer {
       font-size: 12px;
@@ -38,6 +43,16 @@
         width: 30px;
         height: 30px;
       }
+    }
+
+    :global(.ymaps3x0--controls) {
+      padding-bottom: 22px;
+    }
+
+    :global(.ymaps3x0--map-copyrights) {
+      margin: 0 auto;
+      width: 100%;
+      justify-content: center;
     }
   }
 }

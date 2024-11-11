@@ -1,31 +1,31 @@
-.contactsPageContent {
-  max-width: 1920px;
-  width: 100%;
-  margin: auto;
-
+.contactsPage {
   h1 {
     margin-bottom: 80px;
   }
-}
 
-.mainContainer {
-  max-width: 1920px;
-  width: 100%;
-  margin: auto;
-  padding: 0 124px;
+  address {
+    font-style: normal;
+  }
 }
 
 .contacts {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  gap: 40px;
   margin-bottom: 40px;
+  font-weight: var(--font-weight-regular-250);
+  font-size: 24px;
+  line-height: var(--line-height-200);
+  color: var(--color-light-100);
 
-  p {
-    font-weight: var(--font-weight-regular-250);
-    font-size: 24px;
-    line-height: var(--line-height-200);
-    color: var(--color-light-100);
+  .links {
+    text-align: end;
+    white-space: nowrap;
+
+    a {
+      display: block;
+    }
   }
 }
 
@@ -36,44 +36,45 @@
 }
 
 @media (max-width: 1265px) {
-  .contactsPageContent {
+  .contactsPage {
     h1 {
       margin-bottom: 40px;
     }
   }
-  .mainContainer {
-    padding: 0 16px;
-  }
+
   .contacts {
     margin-bottom: 40px;
+    font-size: 24px;
 
-    p {
-      font-size: 24px;
+    div {
       max-width: 365px;
-
-      span {
-        white-space: nowrap;
-      }
     }
   }
+
   .map {
     margin-bottom: 100px;
   }
 }
 
 @media (max-width: 767px) {
-  .contactsPageContent {
+  .contactsPage {
     h1 {
       margin-bottom: 20px;
     }
-    .contacts {
-      margin-bottom: 20px;
 
-      p {
-        font-size: 12px;
-      }
+    :global(.mainContainer) {
+      max-width: unset;
+      justify-content: center;
+      width: 100%;
     }
   }
+
+  .contacts {
+    margin-bottom: 20px;
+    font-size: 12px;
+    gap: 16px;
+  }
+
   .map {
     border-radius: 18px;
     margin-bottom: 60px;
