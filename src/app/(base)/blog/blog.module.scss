@@ -4,6 +4,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+    margin: 120px 0 86px;
 
     h1 {
       margin-top: 0;
@@ -62,7 +63,9 @@
 
 @media (max-width: 1425px) {
   .blogPage {
-
+    .header {
+      margin-top: 68px;
+    }
     .articles {
       row-gap: 80px;
       column-gap: 16px;

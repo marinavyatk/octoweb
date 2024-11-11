@@ -1,8 +1,6 @@
-.articleContent {
-  max-width: 1920px;
-  width: 100%;
-  padding: 0 124px;
-  margin: auto;
+.articlePage {
+  --article-max-width: 1104px;
+  --article-offset: 142px;
 
   h1 {
     font-size: 80px;
@@ -13,9 +11,13 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 56px;
+    flex-wrap: wrap;
+    column-gap: 16px;
+    row-gap: 30px;
 
     .tagList {
       display: flex;
+      flex-wrap: wrap;
       gap: 16px;
     }
   }
@@ -27,21 +29,18 @@
     background-color: var(--color-dark-secondary);
     margin-bottom: 52px;
     position: relative;
+    overflow: hidden;
   }
 
   .article {
-    max-width: 1104px;
     width: 100%;
-    margin: auto;
-    margin-bottom: 312px;
+    max-width: var(--article-max-width);
+    margin: 0 auto;
 
-    .articleSection {
+    section {
       margin-bottom: 80px;
-      width: 1104px;
-    }
-    .articleText {
-      width: 1104px;
-      padding: 0 142px;
+      max-width: var(--article-max-width);
+      padding: 0 var(--article-offset);
     }
 
     h2 {
@@ -52,7 +51,7 @@
       text-transform: none;
     }
 
-    .h3Element {
+    h3 {
       color: var(--color-light-100);
       font-weight: var(--font-weight-regular-600);
       font-size: 24px;
@@ -60,32 +59,183 @@
       margin-bottom: 24px;
     }
 
-    .pElement {
+    p {
       color: var(--color-light-100);
       font-weight: var(--font-weight-regular-300);
       font-size: 18px;
       line-height: var(--line-height-200);
       margin-bottom: 56px;
-      text-align: justify;
     }
 
-    .imgContainer {
-      width: 1104px;
+    img {
+      max-width: var(--article-max-width);
       border-radius: 32px;
       height: 500px;
       background-color: var(--color-dark-secondary);
       margin-top: 80px;
       overflow: hidden;
-      position: relative;
+      margin-left: calc(-1 * var(--article-offset));
     }
   }
 
   .bottomCaption {
-    padding: 0 142px;
-    margin-top: 117px;
+    padding: 0 var(--article-offset);
+    margin: 100px auto 312px;
+    width: 100%;
+    max-width: var(--article-max-width);
   }
 
   .faq {
     margin-bottom: 140px;
+  }
+}
+
+
+@media (max-width: 1905px) {
+  .articlePage {
+    h1 {
+      font-size: 52px;
+    }
+
+    .bottomCaption {
+      margin-bottom: 200px;
+    }
+  }
+}
+
+@media (max-width: 1425px) {
+  .articlePage {
+    --article-max-width: 1000px;
+
+    .imgContainer {
+      height: 500px;
+    }
+
+    .article {
+      section {
+        margin-bottom: 40px;
+      }
+
+      h2 {
+        margin-bottom: 30px;
+      }
+
+      p {
+        margin-bottom: 24px;
+      }
+
+      img {
+        height: 450px;
+        margin-top: 30px;
+      }
+    }
+  }
+
+  .bottomCaption {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 1265px) {
+  .articlePage {
+    --article-max-width: 650px;
+    --article-offset: 80px;
+
+    h1 {
+      font-size: 32px;
+    }
+
+
+    .caption {
+      margin-bottom: 32px;
+    }
+
+    .imgContainer {
+      height: 400px;
+    }
+
+    .article {
+      h2 {
+        font-size: 30px;
+      }
+
+      img {
+        height: 320px;
+        margin-top: 30px;
+      }
+    }
+
+    .bottomCaption {
+      margin: 60px 0 100px;
+      padding: 0;
+      width: 100%;
+      max-width: unset;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .articlePage {
+    --article-max-width: 288px;
+    --article-offset: 30px;
+
+    h1 {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+
+    .caption {
+      margin-bottom: 20px;
+      //column-gap: 8px;
+      //row-gap: 16px;
+      gap: 8px;
+
+      .tagList {
+        gap: 8px
+      }
+
+      .tag {
+        padding: 6px 15px;
+      }
+
+    }
+
+    .imgContainer {
+      height: 150px;
+      border-radius: 17px;
+      margin-bottom: 30px;
+    }
+
+    .article {
+      h2 {
+        font-size: 16px;
+        margin-bottom: 14px;
+      }
+
+      h3 {
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 12px;
+      }
+
+      img {
+        border-radius: 17px;
+        height: 150px;
+        margin-top: 20px;
+      }
+    }
+
+    .bottomCaption {
+      margin: 40px 0 70px;
+      padding: 0;
+    }
+
+    .faq {
+      margin-bottom: 60px;
+    }
   }
 }

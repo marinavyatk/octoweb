@@ -6,9 +6,11 @@ import {ElementType} from 'react';
 import {articleData} from '@/common/componentsData/article';
 import {faqData} from '@/common/componentsData/faq';
 import Image from 'next/image';
+import { clsx } from "clsx";
 
 
 export default function Article(){
+//need to change after server connect
 
   const tags = articleData.tags.map((tag) => {
     return (
@@ -33,48 +35,43 @@ export default function Article(){
           })}
         </div>
         {section.sectionImg && (
-          <div className={s.imgContainer}>
-            <Image src={section.sectionImg} alt="" fill/>
-          </div>
+          <img src={section.sectionImg} alt=''/>
         )}
       </section>
     );
   });
 
   return (
-    <div className={s.articlePage}>
-      <div className={s.articleContent}>
-        <h1>{articleData.mainHeader}</h1>
-        <div className={s.caption}>
-          <div className={s.tagList}>
-            {tags}
-            <Tag variant={"monochrome-secondary"}>
-              {articleData.creationData}
-            </Tag>
-            <Tag variant={"monochrome-secondary"}>
-              {articleData.timeToRead} мин. чтения
-            </Tag>
-          </div>
-          <ShareButton />
+    <div className={clsx(s.articlePage, 'mainContainer')}>
+      <h1>{articleData.mainHeader}</h1>
+      <div className={s.caption}>
+        <div className={s.tagList}>
+          {tags}
+          <Tag variant={"monochrome-secondary"} className={s.tag}>
+            {articleData.creationData}
+          </Tag>
+          <Tag variant={"monochrome-secondary"} className={s.tag}>
+            {articleData.timeToRead} мин. чтения
+          </Tag>
         </div>
-        <div className={s.imgContainer}>
-          {/*<img src={articleData.mainPhoto} alt="" />*/}
-          <Image src={articleData.mainPhoto} alt="" fill/>
-        </div>
-        <div className={s.article}>
-          {articleContent}
-          <div className={s.caption + " " + s.bottomCaption}>
-            <div className={s.tagList}>
-              {tags}
-              <Tag variant={"monochrome-secondary"}>
-                {articleData.creationData}
-              </Tag>
-            </div>
-            <ShareButton />
-          </div>
-        </div>
-        <FAQ faqData={faqData} className={s.faq} />
+        <ShareButton />
       </div>
+      <div className={s.imgContainer}>
+        <Image src={articleData.mainPhoto} alt="" fill />
+      </div>
+      <div className={s.article}>
+        {articleContent}
+      </div>
+      <div className={s.caption + " " + s.bottomCaption}>
+        <div className={s.tagList}>
+          {tags}
+          <Tag variant={"monochrome-secondary"} className={s.tag}>
+            {articleData.creationData}
+          </Tag>
+        </div>
+        <ShareButton />
+      </div>
+      <FAQ faqData={faqData} className={s.faq} />
     </div>
   );
 };
