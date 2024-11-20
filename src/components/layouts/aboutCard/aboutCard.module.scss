@@ -149,10 +149,9 @@
     .arrowButton {
       right: 0;
       --button-height: 60px;
+      --button-width: 243px;
       --arrow-width: 48px;
       font-size: 14px;
-      width: 243px;
-      gap: 20px;
 
       svg {
         width: 13px;
@@ -182,17 +181,13 @@
     }
     .arrowButton {
       --button-height: 25px;
+      --button-width: 112px;
       --arrow-width: 21px;
       font-size: 7px;
-      width: 112px;
-      gap: 7px;
 
       svg {
         width: 6px;
         height: 6px;
-      }
-      &:hover{
-        gap: 3px;
       }
     }
   }

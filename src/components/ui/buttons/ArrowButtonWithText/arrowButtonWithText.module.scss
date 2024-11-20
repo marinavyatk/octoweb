@@ -1,25 +1,31 @@
 .arrowButtonWithText {
   --button-height: 100px;
+  --button-width: 426px;
   --arrow-width: 80px;
+  --border-width: calc((var(--button-height) - var(--arrow-width)) / 2);
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 32px;
-  width: 426px;
+  min-width: var(--button-width);
   height: var(--button-height);
   position: relative;
-  transition: gap 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
-  text-decoration: none;
   font-size: 24px;
   font-weight: var(--font-weight-regular-300);
   line-height: var(--line-height-200);
   text-transform: uppercase;
 
-  span {
+  .textContainer {
+    min-width: calc(var(--button-width) - var(--arrow-width) - var(--border-width) * 2);
     z-index: 2;
-    transition: color 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+    transition: margin 0.4s;
+  }
+
+  .text {
+    transition: color 0.4s, margin 0.4s;;
     white-space: nowrap;
+    width: fit-content;
+    margin: 0 var(--border-width) 0 0;
   }
 
   .arrow {
@@ -32,7 +38,7 @@
     width: var(--arrow-width);
     height: var(--arrow-width);
     background: var(--linear-gradient-primary);
-    border: calc((var(--button-height) - var(--arrow-width)) / 2) solid transparent;
+    border: var(--border-width) solid transparent;
     box-sizing: content-box;
   }
 
@@ -53,11 +59,8 @@
   }
 
   &:hover {
-    transition: gap 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
-    gap: 17px;
-
-    span {
-      transition: color 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+    .textContainer {
+      margin-right: calc(-1 * var(--border-width));
     }
 
     .background {
@@ -118,16 +121,12 @@
   .arrowButtonWithText {
     --button-height: 80px;
     --arrow-width: 60px;
-    width: 319px;
+    --button-width: 319px;
     font-size: 18px;
 
     svg {
       width: 18px;
       height: 18px;
-    }
-
-    &:hover {
-      gap: 12px;
     }
   }
 }
@@ -136,17 +135,12 @@
   .arrowButtonWithText {
     --button-height: 120px;
     --arrow-width: 100px;
-    width: 538px;
-    gap: 55px;
+    --button-width: 538px;
     font-size: 30px;
 
     svg {
       width: 30px;
       height: 30px;
-    }
-
-    &:hover {
-      gap: 8px;
     }
   }
 }
@@ -155,17 +149,12 @@
   .arrowButtonWithText {
     --button-height: 50px;
     --arrow-width: 40px;
-    width: 224px;
-    gap: 25px;
+    --button-width: 224px;
     font-size: 12px;
 
     svg {
       width: 13px;
       height: 13px;
-    }
-
-    &:hover {
-      gap: 12px;
     }
   }
 }

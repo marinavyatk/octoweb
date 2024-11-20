@@ -39,15 +39,6 @@
     gap: 72px;
     align-items: flex-start;
     margin-bottom: 240px;
-
-    .arrow {
-      gap: 87px;
-      z-index: 0;
-
-      &:hover {
-        gap: 32px;
-      }
-    }
   }
 }
 
@@ -215,10 +206,6 @@
 }
 
 @media (max-width: 1425px) {
-  .aboutService .container .arrow {
-    gap: 60px;
-  }
-
   .team {
     margin: 125px auto 150px;
   }
