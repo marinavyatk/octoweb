@@ -11,6 +11,7 @@
   font-weight: var(--font-weight-regular-300);
   background-color: #232323;
   transition: all 0.5s;
+  user-select: none;
 
   input {
     border: 1px solid var(--color-light-20);
@@ -43,6 +44,27 @@
       background-image: url(../../../svg/check-icon.svg);
       background-repeat: no-repeat;
       background-position: center;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .radioCheckboxContainer {
+    padding: 6px 12px 6px 6px;
+    font-size: 10px;
+    border-radius: 10px;
+    gap: 6px;
+
+    input {
+      border-radius: 6px;
+      width: 20px;
+      height: 20px;
+    }
+
+    &:has(:checked) {
+      input {
+        background-size: 10px 10px;
+      }
     }
   }
 }

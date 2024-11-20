@@ -3,7 +3,7 @@
 import { ComponentPropsWithoutRef, ElementRef, useRef } from "react";
 import clsx from "clsx";
 import s from "./form.module.scss";
-import { Input } from "../../ui/input/input";
+import { Input } from "@/components/ui/textField/input";
 import { useForm } from "react-hook-form";
 import { Checkbox } from "../../ui/checkbox/checkbox";
 import { z } from "zod";

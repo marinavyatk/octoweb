@@ -1,22 +1,19 @@
-import React, { ComponentPropsWithoutRef, ElementType, Ref } from "react";
+import React, { ComponentPropsWithoutRef, Ref } from "react";
 import clsx from "clsx";
-import s from "./input.module.scss";
+import s from "./textField.module.scss";
 import ErrorIcon from "@/svg/error.svg";
 import { Label } from "../label/label";
 import InputMask from "@mona-health/react-input-mask";
 
-export type InputProps<T extends ElementType> = {
-  as?: T;
+export type InputProps = {
   label?: string;
   isRequiredField?: boolean;
   errorMessage?: string | undefined;
   divProps?: ComponentPropsWithoutRef<"div">;
-} & ComponentPropsWithoutRef<T>;
+} & ComponentPropsWithoutRef<'input'>;
 
-export const Input = React.forwardRef(
-  <T extends ElementType = "input">(props: InputProps<T>, ref: Ref<HTMLInputElement>) => {
+export const Input = React.forwardRef((props: InputProps, ref: Ref<HTMLInputElement>) => {
     const {
-      as: Component = "input",
       isRequiredField,
       label,
       errorMessage,
@@ -49,7 +46,7 @@ export const Input = React.forwardRef(
               ref={ref}
             />
           ) : (
-            <Component
+            <input
               {...restProps}
               className={s.input}
               name={restProps?.name}

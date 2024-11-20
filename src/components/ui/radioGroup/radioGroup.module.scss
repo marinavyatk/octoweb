@@ -24,6 +24,7 @@
   font-size: 18px;
   font-weight: var(--font-weight-regular-300);
   transition: all 0.5s;
+  user-select: none;
 
   &:hover {
     border-color: var(--color-accent);
@@ -50,6 +51,7 @@
   border-radius: 50%;
   transition: all 0.5s;
   cursor: pointer;
+  box-sizing: border-box;
 
   &[data-state="checked"] {
     border: 8px solid var(--color-dark-primary);
@@ -70,4 +72,29 @@
   width: 100%;
   margin-bottom: -35px;
   padding-top: 3px;
+}
+
+@media (max-width: 767px) {
+  .radioRoot {
+    gap: 14px;
+  }
+  .radioItems {
+    gap: 10px;
+  }
+
+  .radioItem {
+    padding: 6px 12px 6px 6px;
+    border-radius: 32px;
+    gap: 6px;
+    font-size: 10px;
+  }
+
+  .radioSign {
+    width: 20px;
+    height: 20px;
+
+    &[data-state="checked"] {
+      border-width: 5px;
+    }
+  }
 }

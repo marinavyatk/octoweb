@@ -5,16 +5,16 @@ import s from "./radioCheckbox.module.scss";
 export type RadioCheckboxProps = {
   label: string;
   value?: string;
-  divProps?: ComponentPropsWithoutRef<"div">;
+  containerProps?: ComponentPropsWithoutRef<"label">;
 } & ComponentPropsWithoutRef<"input">;
 
 export const RadioCheckbox = React.forwardRef(
   (props: RadioCheckboxProps, ref: Ref<HTMLInputElement>) => {
-    const { label, divProps, value, className, ...restProps } = props;
+    const { label, containerProps, value, className, ...restProps } = props;
     const classNames = clsx(s.radioCheckboxContainer, className);
 
     return (
-      <div className={classNames} {...divProps}>
+      <label className={classNames} {...containerProps}>
         <input
           type={"checkbox"}
           id={value}
@@ -23,8 +23,8 @@ export const RadioCheckbox = React.forwardRef(
           value={value}
           ref={ref}
         />
-        <label htmlFor={value}>{label}</label>
-      </div>
+        {label}
+      </label>
     );
   },
 );

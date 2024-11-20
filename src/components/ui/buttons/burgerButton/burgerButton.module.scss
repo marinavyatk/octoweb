@@ -1,0 +1,53 @@
+.burgerButton {
+  width: 18px;
+  height: 12px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.icon {
+  width: 18px;
+  height: 2px;
+  border-radius: 10px;
+  background-color: var(--color-dark-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: background-color 0.3s;
+}
+
+.burgerButton:before, .burgerButton:after {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 10px;
+  background-color: var(--color-dark-primary);
+  flex-shrink: 0;
+  transition: width 0.3s, transform 0.3s;
+}
+
+.open {
+  &.burgerButton {
+    height: 18px;
+  }
+
+  .icon {
+    background-color: transparent;
+  }
+
+  &.burgerButton:before {
+    transform: rotate(45deg);
+    transform-origin: left top;
+    width: 25px;
+  }
+
+  &.burgerButton:after {
+    transform: rotate(-45deg);
+    transform-origin: left bottom;
+    width: 25px;
+  }
+}

@@ -10,7 +10,7 @@ export const FooterWithoutForm = (props: FooterWithoutFormProps) => {
   const classNames = clsx(s.footerWithoutForm, className);
   return (
     <div {...restProps} className={classNames}>
-      <img src={'/footerForm.png'} className={s.FooterFormImg} alt="" />
+      <img src={'/footerForm.png'} className={s.footerFormImg} alt="" />
       <Footer />
     </div>
   );

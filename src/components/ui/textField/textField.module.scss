@@ -6,6 +6,7 @@
   width: 100%;
   position: relative;
   transition: all 0.5s;
+  box-sizing: border-box;
 
   &:focus-within {
     border-bottom: 1px solid var(--color-primary);

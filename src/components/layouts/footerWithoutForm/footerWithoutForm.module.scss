@@ -6,10 +6,17 @@
   justify-content: flex-end;
 }
 
-.FooterFormImg {
+.footerFormImg {
   width: 100%;
   height: 100%;
   top: 0;
   position: absolute;
   z-index: -2;
+}
+
+
+@media (max-width: 767px) {
+  .footerWithoutForm {
+    padding-top: 50px;
+  }
 }

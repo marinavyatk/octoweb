@@ -20,7 +20,6 @@ export const Header = (props: HeaderProps) => {
         <div className={s.headerMobile}>
           <HeaderMobile />
         </div>
-
         <div className={s.headerDesktop}>
           <Logo />
           <div className={s.rightBlock}>
