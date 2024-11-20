@@ -11,7 +11,7 @@ export const FooterWithoutForm = (props: FooterWithoutFormProps) => {
   return (
     <div {...restProps} className={classNames}>
       <img src={'/footerForm.png'} className={s.footerFormImg} alt="" />
-      <Footer />
+      <Footer needBriefLink={false} />
     </div>
   );
 };

@@ -5,17 +5,17 @@ import { ContactLinks } from "../contactLinks/contactLinks";
 import { ButtonWithStroke } from "@/components/ui/buttons/buttonWithStroke/buttonWithStroke";
 import { ArrowNavigationButton } from "@/components/ui/buttons/arrowNavigationButton/arrowNavigationButton";
 
-export type FooterProps = ComponentPropsWithoutRef<"div">;
+export type FooterProps = { needBriefLink?: boolean } & ComponentPropsWithoutRef<"div">;
 
 export const Footer = (props: FooterProps) => {
-  const { className, ...restProps } = props;
+  const { needBriefLink = true, className, ...restProps } = props;
   const classNames = clsx(s.footer, className);
 
   return (
     <div {...restProps} className={classNames}>
       <div className={s.container}>
         <ContactLinks />
-        <ButtonWithStroke variant={"secondary"} />
+        {needBriefLink && <ButtonWithStroke variant={"secondary"} />}
         <div className={s.contacts}>
           <a href="mailto:info@octoweb.ru">info@octoweb.ru</a>
           <br />
@@ -31,8 +31,8 @@ export const Footer = (props: FooterProps) => {
         <div className={s.arrow}>
           <ArrowNavigationButton
             variant={"up"}
-            as={'a'}
-            href={'#top'}
+            as={"a"}
+            href={"#top"}
           />
         </div>
 

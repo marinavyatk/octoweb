@@ -53,7 +53,11 @@ export const BlogCard = (props: BlogCardProps) => {
           />
         </div>
       </div>
-      <h2 className={s.header}>{header}</h2>
+      <h2 className={s.header}>
+        <a href={`/blog/${articleId}`} {...linkProps}>
+          {header}
+        </a>
+      </h2>
       <p className={s.description}>{description}</p>
     </div>
   );

@@ -152,6 +152,10 @@
 
 @media (max-width: 767px) {
   .card {
+    .container,  img {
+      border-radius: 17px;
+    }
+
     .header {
       font-size: 14px;
       margin-top: 16px;

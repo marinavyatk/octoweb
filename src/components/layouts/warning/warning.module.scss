@@ -8,7 +8,7 @@
   align-items: center;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 1001;
 }
 
 .formNotification {
@@ -48,4 +48,27 @@
 .buttonsBlock {
   display: flex;
   gap: 20px;
+}
+
+@media (max-width: 767px) {
+  .formNotification {
+    max-width: 288px;
+    padding: 28px 16px ;
+    gap: 30px;
+    margin-top: 0;
+
+    p {
+      font-size: 12px;
+      margin-top: 0;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 12px;
+    }
+  }
+
+  .buttonsBlock {
+    gap: 10px;
+  }
 }
