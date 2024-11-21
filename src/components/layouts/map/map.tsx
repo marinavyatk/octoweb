@@ -19,9 +19,6 @@ import { useEffect, useState } from "react";
 function Map() {
   const [zoom, setZoom] = useState<number>(18);
   useEffect(() => {
-
-    throw new Error('errrooorrr!!!')
-
     if (window.innerWidth < 768) setZoom(15.4);
   }, []);
 
