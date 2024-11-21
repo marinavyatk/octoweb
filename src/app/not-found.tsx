@@ -1,5 +1,5 @@
 import Image from "next/image";
-import s from "./not-found.module.scss";
+import s from "./error.module.scss";
 import { ContactButton } from "@/components/ui/buttons/contactButton/contactButton";
 
 export default function NotFound() {

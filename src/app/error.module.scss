@@ -25,12 +25,12 @@
     position: absolute;
     top: -30px;
     left: -150px;
+    z-index: -1;
 
     &:last-of-type {
       top: 300px;
       right: -100px;
       left: unset;
-      z-index: -1;
     }
   }
 
@@ -43,7 +43,6 @@
   img {
     object-fit: contain;
   }
-
 }
 
 @media (max-width: 1920px) {
