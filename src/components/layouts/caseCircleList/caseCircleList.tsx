@@ -1,9 +1,11 @@
-'use client'
+"use client";
 
 import clsx from "clsx";
 import s from "./caseCircleList.module.scss";
 import { CaseCircle } from "@/components/layouts/caseCircle/caseCircle";
-import  ScrollContainer  from "react-indiana-drag-scroll";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode } from "swiper/modules";
+import "swiper/css";
 
 export type CaseCircleProps = {
   caseCircles: CaseCircle[];
@@ -15,16 +17,21 @@ export const CaseCircleList = (props: CaseCircleProps) => {
   const classNames = clsx(s.circles, className);
   const CaseCircles = caseCircles.map((circle) => {
     return (
-      <CaseCircle
-        img={circle.img}
-        caseId={circle.caseId}
-        category={circle.category}
-        key={circle.caseId}
-      />
+      <SwiperSlide key={circle.caseId} className={s.slide}>
+        <CaseCircle {...circle} />
+      </SwiperSlide>
     );
   });
 
   return (
-    <ScrollContainer className={classNames}>{CaseCircles}</ScrollContainer>
+    <Swiper
+      modules={[FreeMode]}
+      freeMode
+      slidesPerView={"auto"}
+      grabCursor
+      className={classNames}
+    >
+      {CaseCircles}
+    </Swiper>
   );
 };

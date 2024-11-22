@@ -1,27 +1,22 @@
 export const linksData = [
     {
-        number: "01",
         header: "Промо-Сайт",
-        href: "#", //change later
+        mainLink: 'website-development/promo-site'
     },
     {
-        number: "02",
         header: "Лэндинг",
-        href: "#", //change later
+        mainLink: 'website-development/landing'
     },
     {
-        number: "03",
         header: "Многостраничный сайт",
-        href: "#", //change later
+        mainLink: 'website-development/multi-page-website'
     },
     {
-        number: "04",
         header: "Сайт Каталог",
-        href: "#", //change later
+        mainLink: 'website-development/catalog-website'
     },
     {
-        number: "05",
         header: "Интернет-Магазин",
-        href: "#", //change later
+        mainLink: 'website-development/online-store'
     },
 ];

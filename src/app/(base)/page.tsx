@@ -2,7 +2,7 @@ import { GreetingDescription } from "@/components/layouts/greetingDescription/gr
 import { AboutCard } from "@/components/layouts/aboutCard/aboutCard";
 import { AdvantageCards } from "@/components/layouts/advantageCards/advantageCards";
 import { CaseCard, Size } from "@/components/layouts/caseCard/caseCard";
-import { linksData, ServicesLinksList } from "@/components/layouts/servicesLinksList/servicesLinksList";
+import { ServicesLinksList } from "@/components/layouts/servicesLinksList/servicesLinksList";
 import { StepCards } from "@/components/layouts/stepCards/stepCards";
 import s from "./page.module.scss";
 import { routes } from "@/common/routes";
@@ -10,6 +10,7 @@ import { mainPageCases } from "@/common/componentsData/mainPageCases";
 import { ArrowButtonWithText } from "@/components/ui/buttons/ArrowButtonWithText/arrowButtonWithText";
 import Link from "next/link";
 import { Greeting } from "@/components/sections/greeting/greeting";
+import { linksData } from "@/common/componentsData/servicesLinks";
 
 
 export default function Home() {

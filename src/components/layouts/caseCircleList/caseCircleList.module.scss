@@ -1,16 +1,29 @@
 .circles {
-  display: flex;
-  gap: 32px;
+  --slides-gap: 32px;
   user-select: none;
+
+  .slide {
+    width: fit-content;
+    margin-right: var(--slides-gap);
+  }
+
+  .slide:first-child {
+    margin-left: var(--offset-x);
+  }
+
+  .slide:last-child {
+    margin-right: var(--offset-x);
+  }
 }
 
 @media (max-width: 1905px) {
   .circles {
-    gap: 24px;
+    --slides-gap: 24px;
   }
 }
+
 @media (max-width: 767px) {
   .circles {
-    gap: 10px;
+    --slides-gap: 10px;
   }
 }

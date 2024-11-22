@@ -1,55 +1,39 @@
 .cards {
-  display: flex;
-  gap: 110px;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  user-select: none;
+  --extreme-slide-offset: 224px;
+  --slides-gap: 110px;
 
-  &::-webkit-scrollbar {
-    width: 0;
-    height: 0;
+  .slide {
+    width: fit-content;
+    margin-right: var(--slides-gap);
+    user-select: none;
   }
-}
 
-.card:first-child {
-  margin-left: 224px;
-}
-.card:last-child {
-  margin-right: 224px;
+  .slide:first-child {
+    margin-left: var(--extreme-slide-offset);
+  }
+
+  .slide:last-child {
+    margin-right: var(--extreme-slide-offset);
+  }
 }
 
 @media (max-width: 1925px) {
   .cards {
-    gap: 128px;
-  }
-  .card:first-child {
-    margin-left: 212px;
-  }
-  .card:last-child {
-    margin-right: 212px;
+    --extreme-slide-offset: 212px;
+    --slides-gap: 128px;
   }
 }
+
 @media (max-width: 1265px) {
   .cards {
-    gap: 96px;
-  }
-  .card:first-child {
-    margin-left: 200px;
-  }
-  .card:last-child {
-    margin-right: 200px;
+    --extreme-slide-offset: 200px;
+    --slides-gap: 96px;
   }
 }
 
 @media (max-width: 767px) {
   .cards {
-    gap: 29px;
-  }
-  .card:first-child {
-    margin-left: 90px;
-  }
-  .card:last-child {
-    margin-right: 90px;
+    --extreme-slide-offset: 90px;
+    --slides-gap: 29px;
   }
 }
