@@ -98,18 +98,17 @@
 
 @media (max-width: 767px) {
   .blogPage {
-
     .header {
       margin: 50px 0 30px;
     }
 
-    .firstArticle {
-      margin-bottom: 50px;
+    .firstArticle,  .articles{
+      max-width: var(--small-screen-max-width);
+      margin: 0 auto 50px;
     }
 
     .articles {
-      row-gap: 30px;
-      margin-bottom: 50px;
+      row-gap: 50px;
     }
 
     .loadMoreButton {

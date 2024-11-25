@@ -3,14 +3,14 @@ import { clsx } from "clsx";
 import s from "./accentTable.module.scss";
 import ArrowIcon from "@/svg/arrow.svg";
 
-export type AudienceCardProps = {
+export type AccentTableProps = {
   items: string[];
   header: string;
 } & ComponentPropsWithoutRef<"div">;
 
-export const AccentTable = (props: AudienceCardProps) => {
+export const AccentTable = (props: AccentTableProps) => {
   const { header, items, className, ...restProps } = props;
-  const classNames = clsx(s.audienceCard, className);
+  const classNames = clsx(s.accentTable, className);
 
   const itemsList = items.map((item) => {
     return (

@@ -49,7 +49,7 @@ export default function Service() {
         <AccentTable
           header={serviceData.audience.header}
           items={serviceData.audience.items}
-          className={s.audience}
+          className={s.table}
         />
         <Team
           teamMembersInfo={serviceData.team.teamMembersInfo}

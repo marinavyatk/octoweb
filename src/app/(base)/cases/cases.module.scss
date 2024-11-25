@@ -115,6 +115,7 @@
   .casesList {
     row-gap: 30px;
     margin: 0 auto 70px;
+    max-width: var(--small-screen-max-width);
   }
   .showMoreButton {
     margin: 0 auto 70px;

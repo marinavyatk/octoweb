@@ -176,7 +176,7 @@
 
 @media (max-width: 767px) {
   .articlePage {
-    --article-max-width: unset;
+    --article-max-width: var(--small-screen-max-width);
     --article-offset: 0;
 
     h1 {
@@ -200,9 +200,7 @@
     }
 
     .imgContainer {
-      height: 150px;
-      border-radius: 17px;
-      margin-bottom: 30px;
+      height: 300px;
     }
 
     .article {
@@ -234,6 +232,17 @@
 
     .faq {
       margin-bottom: 60px;
+    }
+  }
+}
+
+
+@media (max-width: 500px) {
+  .articlePage {
+    .imgContainer {
+      height: 150px;
+      border-radius: 17px;
+      margin-bottom: 30px;
     }
   }
 }

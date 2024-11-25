@@ -61,11 +61,6 @@
 }
 
 .map {
-  position: relative;
-  margin: auto;
-  min-height: 599px;
-  height: 100%;
-
   p {
     font-weight: var(--font-weight-regular-300);
     font-size: 24px;
@@ -130,8 +125,6 @@
   }
   .map {
     max-width: 1224px;
-    min-height: 460px;
-    height: 100%;
 
     p {
       font-size: 18px;
@@ -239,7 +232,6 @@
     }
   }
   .map {
-    min-height: 400px;
     max-width: 1100px;
 
     p {
@@ -254,7 +246,6 @@
 
 @media (max-width: 850px) {
   .map {
-    min-height: 300px;
     max-width: 1100px;
 
     .imgContainer {
@@ -269,7 +260,6 @@
     border-radius: 18px;
     margin: 0 auto 60px;
     width: 100vw;
-    max-width: 400px;
     overflow: hidden;
 
     .text {
@@ -314,18 +304,33 @@
     }
   }
   .map {
-    min-height: 125px;
-
     p {
       font-size: 10px;
     }
+  }
+}
 
+@media (max-width: 700px) {
+  .map {
+    .imgContainer {
+      height: 230px;
+    }
+  }
+}
+
+
+@media (max-width: 500px) {
+  .map {
+    .imgContainer {
+      height: 180px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .map {
     .imgContainer {
       height: 125px;
-
-      img {
-        transform: scale(1.3);
-      }
     }
   }
 }

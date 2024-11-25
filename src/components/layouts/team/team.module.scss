@@ -170,6 +170,11 @@
     }
   }
 
+  .teamContainer{
+    max-width: var(--small-screen-max-width);
+    margin: 0 auto;
+  }
+
   .teamMemberContainer {
     height: 259px;
     border-radius: 12px;

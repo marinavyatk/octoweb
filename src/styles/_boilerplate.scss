@@ -1,4 +1,5 @@
 :root {
+  --small-screen-max-width: 450px;
   --offset-x: 116px; //124 - scrollbar width/2
   @media (max-width: 1905px) {
     --offset-x: 100px; //108 - scrollbar width/2
@@ -142,9 +143,5 @@ h2 {
   }
   h2 {
     font-size: 16px;
-  }
-  .mainContainer {
-    max-width: 400px;
-    margin: auto;
   }
 }

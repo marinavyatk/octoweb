@@ -1,4 +1,4 @@
-.audienceCard {
+.accentTable {
   border-radius: 72px;
   padding: 91px 142px 117px;
   background-color: var(--color-primary);
@@ -50,7 +50,7 @@
 }
 
 @media (max-width: 1905px) {
-  .audienceCard {
+  .accentTable {
     border-radius: 48px;
     padding: 64px 104px 88px;
 
@@ -79,7 +79,7 @@
 }
 
 @media (max-width: 1425px) {
-  .audienceCard {
+  .accentTable {
     padding: 50px 50px 70px;
 
     ul {
@@ -97,7 +97,7 @@
 }
 
 @media (max-width: 1265px) {
-  .audienceCard {
+  .accentTable {
     padding: 70px 38px;
     width: calc(100% + 32px);
     margin-left: -16px;
@@ -114,9 +114,10 @@
 }
 
 @media (max-width: 767px) {
-  .audienceCard {
+  .accentTable {
     padding: 40px 16px;
     border-radius: 18px;
+    max-width: var(--small-screen-max-width);
 
     h2 {
       font-size: 14px;

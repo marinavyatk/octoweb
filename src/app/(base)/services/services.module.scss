@@ -59,7 +59,7 @@
   .secondRow {
     flex-direction: column;
   }
-  .serviceCard:nth-child(2){
+  .serviceCard:nth-child(2) {
     align-self: flex-end;
   }
 
@@ -69,11 +69,22 @@
 }
 
 @media (max-width: 767px) {
-  .servicesPage {
-    max-width: 550px;
+  .firstRow,
+  .secondRow {
+    flex-direction: row;
   }
 
   .cardContainer {
     margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 560px) {
+  .firstRow,
+  .secondRow {
+    flex-direction: column;
+  }
+  .serviceCard:nth-child(2) {
+    align-self: flex-end;
   }
 }
