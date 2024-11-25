@@ -1,6 +1,7 @@
 import { AnimatedField } from "../../ui/animatedField/animatedField";
 import s from "./greetingDescription.module.scss";
 import ArrowIcon from "@/svg/arrow.svg";
+import HappySymbol from "@/svg/happy-symbol.svg";
 
 export const GreetingDescription = () => {
   return (
@@ -16,8 +17,7 @@ export const GreetingDescription = () => {
       </AnimatedField>
       <div>бизнеса</div>
       <AnimatedField animation={"left"} className={s.happySymbol}>
-        {" "}
-        ⌢⌣
+        <HappySymbol/>
       </AnimatedField>
       <div>на</div>
       <AnimatedField animation={"left"} className={s.kaomojiSymbol}>

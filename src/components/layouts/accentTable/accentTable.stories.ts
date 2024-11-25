@@ -1,11 +1,11 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {AudienceCard} from '@/components/layouts/audienceCard/audienceCard';
+import {AccentTable} from '@/components/layouts/accentTable/accentTable';
 
 const meta = {
-    title: 'Layouts/AudienceCard',
-    component: AudienceCard,
+    title: 'Layouts/AccentTable',
+    component: AccentTable,
     tags: ['autodocs'],
-} satisfies Meta<typeof AudienceCard>;
+} satisfies Meta<typeof AccentTable>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

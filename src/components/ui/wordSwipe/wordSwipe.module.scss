@@ -88,6 +88,10 @@
     font-size: 33px;
     padding: 3px 20px;
     --word-height: 42px;
+
+    span {
+      animation: bounce-small-screen 1.5s ease infinite forwards;
+    }
   }
 }
 
@@ -96,14 +100,10 @@
     font-size: 14px;
     padding: 2px 9px;
     --word-height: 17px;
-
-    span {
-      animation: bounce767 1.5s ease infinite forwards;
-    }
   }
 }
 
-@keyframes bounce767 {
+@keyframes bounce-small-screen {
   0%, 40%, 100% {
     transform: translateY(10px);
   }

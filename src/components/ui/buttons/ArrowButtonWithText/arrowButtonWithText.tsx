@@ -20,13 +20,8 @@ export const ArrowButtonWithText = <T extends ElementType = "button">(props: Arr
   const textRef = useRef<HTMLDivElement | null>(null);
   const textContainerRef = useRef<HTMLDivElement | null>(null);
   const componentRef = useRef<ComponentPropsWithRef<T>["ref"]>(null);
-  const isHover = useRef<boolean>(false);
 
   const handleHover = () => {
-    if (isHover.current) {
-      return;
-    }
-    isHover.current = true;
     if (textRef.current && textContainerRef.current) {
       const textWidth = textRef.current.clientWidth;
       const textContainerWidth = textContainerRef.current.scrollWidth;
@@ -36,7 +31,6 @@ export const ArrowButtonWithText = <T extends ElementType = "button">(props: Arr
   };
 
   const cancelHover = () => {
-    isHover.current = false;
     if (textRef.current)
       textRef.current.style.margin = `0`;
   };
@@ -47,7 +41,7 @@ export const ArrowButtonWithText = <T extends ElementType = "button">(props: Arr
       className={classNames}
       rel={"nofollow"}
       ref={componentRef}
-      onMouseOver={handleHover}
+      onMouseEnter={handleHover}
       onMouseLeave={cancelHover}
     >
       <div className={s.textContainer} ref={textContainerRef}>

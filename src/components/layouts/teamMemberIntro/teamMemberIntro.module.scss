@@ -1,174 +1,142 @@
-.teamMember {
-  width: 100%;
-  position: relative;
+.info {
   display: flex;
-  align-items: flex-end;
-  padding-top: 68px;
-  height: 580px;
-  border-radius: 45px;
-  overflow: hidden;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 513px;
+  padding: 48px 0 48px 56px;
+  max-width: 370px;
 
-  .info {
+  span {
+    display: inline-block;
+  }
+
+  div {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 513px;
-    padding: 48px 0 48px 56px;
-    max-width: 370px;
-
-    span {
-      display: inline-block;
-    }
-
-    div {
-      display: flex;
-      flex-direction: column;
-    }
   }
+}
 
-  .workExperience {
-    font-weight: var(--font-weight-regular-300);
-    font-size: 24px;
-    line-height: var(--line-height-120);
-    color: var(--color-dark-primary-60);
-    margin-bottom: 24px;
-  }
+.workExperience {
+  font-weight: var(--font-weight-regular-300);
+  font-size: 24px;
+  line-height: var(--line-height-120);
+  color: var(--color-dark-primary-60);
+  margin-bottom: 24px;
+}
 
-  .name {
-    font-weight: var(--font-weight-regular-500);
-    font-size: 32px;
-    line-height: var(--line-height-140);
-    color: var(--color-dark-primary);
-    margin-bottom: 8px;
-  }
+.name {
+  font-weight: var(--font-weight-regular-500);
+  font-size: 32px;
+  line-height: var(--line-height-140);
+  color: var(--color-dark-primary);
+  margin-bottom: 8px;
+}
 
-  .specialization {
-    font-weight: var(--font-weight-regular-300);
-    font-size: 24px;
-    line-height: var(--line-height-120);
-    color: var(--color-dark-primary);
-  }
+.specialization {
+  font-weight: var(--font-weight-regular-300);
+  font-size: 24px;
+  line-height: var(--line-height-120);
+  color: var(--color-dark-primary);
+}
 
-  p {
-    font-weight: var(--font-weight-regular-300);
-    font-size: 24px;
-    line-height: var(--line-height-160);
-    color: var(--color-dark-primary);
-  }
+.description {
+  font-weight: var(--font-weight-regular-300);
+  font-size: 24px;
+  line-height: var(--line-height-160);
+  color: var(--color-dark-primary);
+}
 
-  .imgContainer {
-    position: absolute;
-    right: 0;
-  }
+.imgContainer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
 
-  .imgPositionContainer {
-    position: relative;
-    width: 370px;
-    height: 512px;
+.imgPositionContainer {
+  position: relative;
+  width: 370px;
+  height: 512px;
 
-    img {
-      object-fit: contain;
-      object-position: right bottom;
-    }
-  }
-
-  .background {
-    z-index: -1;
-    object-fit: fill;
+  img {
+    object-fit: contain;
+    object-position: right bottom;
   }
 }
 
 @media (max-width: 1675px) {
-  .teamMember {
-    padding-top: 88px;
-    height: 486px;
+  .info {
+    height: 436px;
+    padding: 48px 0 48px 40px;
+    max-width: 311px;
+  }
 
-    .info {
-      height: 436px;
-      padding: 48px 0 48px 40px;
-      max-width: 311px;
-    }
+  .workExperience {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
 
-    .workExperience {
-      font-size: 18px;
-      margin-bottom: 16px;
-    }
+  .name {
+    font-size: 24px;
+  }
 
-    .name {
-      font-size: 24px;
-    }
+  .specialization {
+    font-size: 18px;
+  }
 
-    .specialization {
-      font-size: 18px;
-    }
+  .description {
+    font-size: 16px;
+    padding-right: 26px;
+  }
 
-    p {
-      font-size: 16px;
-      padding-right: 26px;
-    }
-
-    .imgPositionContainer {
-      width: 288px;
-      height: 398px;
-    }
+  .imgPositionContainer {
+    width: 288px;
+    height: 398px;
   }
 }
 
 @media (max-width: 970px) {
-  .teamMember {
-    max-width: 800px;
-    margin: auto;
-    height: 622px;
+  .info {
+    height: 568px;
+    max-width: 370px;
+  }
 
-    .info {
-      height: 568px;
-      max-width: 370px;
-    }
+  .imgPositionContainer {
+    width: 368px;
+    height: 510px;
+  }
 
-    .imgPositionContainer {
-      width: 368px;
-      height: 510px;
-    }
-
-    p {
-      font-size: 18px;
-    }
+  .description {
+    font-size: 18px;
   }
 }
 
-
 @media (max-width: 767px) {
-  .teamMember {
-    height: 259px;
-    border-radius: 12px;
+  .info {
+    height: 232px;
+    max-width: 180px;
+    padding: 16px 0 16px 16px;
+  }
 
-    .info {
-      height: 232px;
-      max-width: 180px;
-      padding: 16px 0 16px 16px;
-    }
+  .imgPositionContainer {
+    width: 153px;
+    height: 212px;
+  }
 
-    .imgPositionContainer {
-      width: 153px;
-      height: 212px;
-    }
+  .workExperience {
+    font-size: 10px;
+    margin-bottom: 4px;
+  }
 
-    .workExperience {
-      font-size: 10px;
-      margin-bottom: 4px;
-    }
+  .name {
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
 
-    .name {
-      font-size: 15px;
-      margin-bottom: 4px;
-    }
+  .specialization {
+    font-size: 10px;
+  }
 
-    .specialization {
-      font-size: 10px;
-    }
-
-    p {
-      font-size: 10px;
-    }
+  .description {
+    font-size: 10px;
   }
 }

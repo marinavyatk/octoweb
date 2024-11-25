@@ -34,10 +34,8 @@ export const TeamMemberIntro = (props: TeamMemberIntroProps) => {
           <h3 className={s.name}>{name}</h3>
           <span className={s.specialization}>{specialization}</span>
         </div>
-        <p>{description}</p>
+        <p className={s.description}>{description}</p>
       </div>
-      <Image src={"/teamMemberBackground.webp"} alt={""} className={s.background} fill
-             sizes={"100vw"} key='team-member-background'/>
       <div className={s.imgContainer}>
         <div className={s.imgPositionContainer}>
           <Image src={img} alt={name} fill

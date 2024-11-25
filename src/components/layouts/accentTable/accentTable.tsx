@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef } from "react";
 import { clsx } from "clsx";
-import s from "./audienceCard.module.scss";
+import s from "./accentTable.module.scss";
 import ArrowIcon from "@/svg/arrow.svg";
 
 export type AudienceCardProps = {
@@ -8,7 +8,7 @@ export type AudienceCardProps = {
   header: string;
 } & ComponentPropsWithoutRef<"div">;
 
-export const AudienceCard = (props: AudienceCardProps) => {
+export const AccentTable = (props: AudienceCardProps) => {
   const { header, items, className, ...restProps } = props;
   const classNames = clsx(s.audienceCard, className);
 

@@ -3,7 +3,7 @@ import { Team } from "@/components/layouts/team/team";
 import { StepCards } from "@/components/layouts/stepCards/stepCards";
 import { FAQ } from "@/components/layouts/faq/faq";
 import ArrowIconForPrices from "@/svg/arrow4.svg";
-import { AudienceCard } from "@/components/layouts/audienceCard/audienceCard";
+import { AccentTable } from "@/components/layouts/accentTable/accentTable";
 import { PriceTable } from "@/components/layouts/priceTable/priceTable";
 import { CooperationCard } from "@/components/layouts/cooperationCard/cooperationCard";
 import { AdvantageSection } from "@/components/layouts/advantageSection/advantageSection";
@@ -46,7 +46,7 @@ export default function Service() {
       <CooperationCard />
       <div className={'mainContainer'}>
         <AdvantageSection />
-        <AudienceCard
+        <AccentTable
           header={serviceData.audience.header}
           items={serviceData.audience.items}
           className={s.audience}

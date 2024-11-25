@@ -28,6 +28,12 @@
       width: 303px;
       background: linear-gradient(345deg, #a330ff 0%, #ff37df 100%);
       font-weight: var(--font-weight-bold-800);
+
+      svg {
+        width: 113px;
+        height: 84px;
+        color: var(--color-dark-primary);
+      }
     }
 
     .kaomojiSymbol {
@@ -203,6 +209,11 @@
 
       .happySymbol {
         width: 167px;
+
+        svg {
+          width: 60px;
+          height: 30px;
+        }
       }
 
       .kaomojiSymbol {
@@ -228,11 +239,23 @@
     }
   }
   .map {
-    min-height: 300px;
+    min-height: 400px;
+    max-width: 1100px;
 
     p {
       font-size: 24px;
     }
+
+    .imgContainer {
+      height: 400px;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .map {
+    min-height: 300px;
+    max-width: 1100px;
 
     .imgContainer {
       height: 300px;
@@ -261,6 +284,11 @@
 
       .happySymbol {
         width: 69px;
+
+        svg {
+          width: 30px;
+          height: 15px;
+        }
       }
 
       .kaomojiSymbol {

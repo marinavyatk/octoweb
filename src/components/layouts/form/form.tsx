@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import { ComponentPropsWithoutRef, ElementRef, useRef } from "react";
+import { ComponentPropsWithoutRef, ElementRef, useRef, useState } from "react";
 import clsx from "clsx";
 import s from "./form.module.scss";
 import { Input } from "@/components/ui/textField/input";
@@ -9,27 +9,25 @@ import { Checkbox } from "../../ui/checkbox/checkbox";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowButtonWithText } from "@/components/ui/buttons/ArrowButtonWithText/arrowButtonWithText";
-
-// import emailjs from "@emailjs/browser";
 import { InputWithCounter } from "../../ui/inputWithCounter/inputWithCounter";
-// import { FormNotification } from "@/components/layouts/formNotification/formNotification";
-import {formSchema} from '@/common/validation';
-// import { Warning } from "../../primitive/warning/warning";
-// import { useBlocker } from "react-router-dom";
+import { formSchema } from "@/common/validation";
+import { FormNotification } from "@/components/layouts/formNotification/formNotification";
 
 type FormValues = z.infer<typeof formSchema>;
 export type FormProps = ComponentPropsWithoutRef<"div">;
 
+
 export const Form = (props: FormProps) => {
-  // const [isFormNotificationShown, setIsFormNotificationShown] = useState(false);
-  const form = useRef<ElementRef<"form">>(null);
   const { className, ...restProps } = props;
   const classNames = clsx(s.form, className);
+  const [isFormNotificationShown, setIsFormNotificationShown] = useState(false);
+  const form = useRef<ElementRef<"form">>(null);
+
   const {
     register,
     handleSubmit,
-    formState: { errors },
-    // reset,
+    formState: { errors, isDirty },
+    reset,
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -38,54 +36,29 @@ export const Form = (props: FormProps) => {
       tel: "",
       projectDescription: "",
       projectDescriptionFile: {} as FileList,
-      mailing: false,
+      mailing: false
     },
-    mode: "onBlur",
+    mode: "onBlur"
   });
 
   console.log(errors);
+  console.log('isDirty', isDirty);
 
   const onSubmit = (data: FormValues) => {
     console.log(data);
-
-    // setIsFormNotificationShown(true);
-    // if (form.current) {
-    //   emailjs
-    //     .sendForm("service_lxgyeoc", "template_o1vilzd", form.current, {
-    //       publicKey: "BXCsYOL3OfUW1Zrlv",
-    //     })
-    //     .then(
-    //       () => {
-    //         console.log("SUCCESS!");
-    //       },
-    //       (error) => {
-    //         console.log("FAILED...", error.text);
-    //       },
-    //     );
-    // } else {
-    //   console.log("'Form element is not available'");
-    // }
+    //if ok
+    setIsFormNotificationShown(true)
   };
 
-  // const handleCloseNotification = () => {
-  //   setIsFormNotificationShown(false);
-  //   reset();
-  // };
-  // const blocker = useBlocker(
-  //   ({ currentLocation, nextLocation }) =>
-  //     isDirty && currentLocation.pathname !== nextLocation.pathname,
-  // );
+  const handleCloseNotification = () => {
+    setIsFormNotificationShown(false);
+    reset();
+  };
 
   return (
     <div {...restProps} className={classNames}>
-      {/*{blocker.state === "blocked" ? (*/}
-      {/*  <Warning*/}
-      {/*    onConfirmButtonClick={() => blocker.proceed()}*/}
-      {/*    onCancelButtonClick={() => blocker.reset()}*/}
-      {/*  />*/}
-      {/*) : null}*/}
-      {/*{isFormNotificationShown && <FormNotification onButtonClick={handleCloseNotification} />}*/}
-      <form onSubmit={handleSubmit(onSubmit)} ref={form}>
+      {isFormNotificationShown && <FormNotification onButtonClick={handleCloseNotification} />}
+      <form onSubmit={handleSubmit(onSubmit)} ref={form} autoComplete="off">
         <div className={s.mainInfo}>
           <Input
             label={"Имя"}
@@ -123,7 +96,7 @@ export const Form = (props: FormProps) => {
           fileProps={{ ...register("projectDescriptionFile") }}
           errorMessage={[
             errors.projectDescription?.message,
-            errors.projectDescriptionFile?.message,
+            errors.projectDescriptionFile?.message
           ]}
           className={s.inputWithCounter}
         />

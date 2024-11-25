@@ -16,9 +16,9 @@ import { getBriefSchema } from "@/common/validation";
 import { useState } from "react";
 import { FormNotification } from "@/components/layouts/formNotification/formNotification";
 import { Element } from "react-scroll";
-import { PreventNavigation } from "@/components/layouts/warning/PreventNavigation ";
 import { allFields, defaultBriefValues, DirtyField, SectionName } from "@/common/briefHelpers";
 import { TextArea } from "@/components/ui/textField/textarea";
+import { PreventNavigation } from "@/components/layouts/warning/preventNavigation ";
 
 
 let materialsDevelopmentCurrentValue = "";
@@ -53,6 +53,7 @@ export default function Brief() {
 
   const onSubmit = (data: FormValues) => {
     console.log(data);
+    //if ok
     setIsFormNotificationShown(true);
   };
 
@@ -171,7 +172,7 @@ export default function Brief() {
           <span className={s.time}>Примерное время заполнения — 15-30 мин.</span>
         </section>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
           <div className={s.formWithNavigation}>
             <BriefNavbar navItems={briefSections} className={s.navbar} />
             <div className={s.fields}>
@@ -315,21 +316,21 @@ export default function Brief() {
                     {...register("about.shortCompanyInfo")}
                     errorMessage={errors.about?.shortCompanyInfo?.message}
                   />
-                  <Input
+                  <TextArea
                     label={allFields.about.site.label}
                     isRequiredField={allFields.about.site.required}
                     placeholder={allFields.about.site.placeholder}
                     {...register("about.site")}
                     errorMessage={errors.about?.site?.message}
                   />
-                  <Input
+                  <TextArea
                     label={allFields.about.socialNetworks.label}
                     isRequiredField={allFields.about.socialNetworks.required}
                     placeholder={allFields.about.socialNetworks.placeholder}
                     {...register("about.socialNetworks")}
                     errorMessage={errors.about?.socialNetworks?.message}
                   />
-                  <Input
+                  <TextArea
                     label={allFields.about.competitors.label}
                     isRequiredField={allFields.about.competitors.required}
                     placeholder={allFields.about.competitors.placeholder}
@@ -413,7 +414,7 @@ export default function Brief() {
                     ]}
                     errorMessage={errors.details?.usersTargetAction?.message}
                   />
-                  <Input
+                  <TextArea
                     label={allFields.details.competitorsSites.label}
                     isRequiredField={allFields.details.competitorsSites.required}
                     placeholder={allFields.details.competitorsSites.placeholder}
@@ -429,9 +430,9 @@ export default function Brief() {
                   />
                   <div className={s.fieldWithAccent}>
                     <label htmlFor="details.disadvantagesCompetitorsSites" className={s.label}>
-                      Чем <span className={s.accent}>не</span> нравятся сайты конкурентов
+                      Чем <span className={s.accent}>не</span> нравятся сайты конкурентов{" "}
                       {allFields.details.disadvantagesCompetitorsSites.required && (
-                        <sup className={s.required}> *</sup>
+                        <sup className={s.required}>{" "} *</sup>
                       )}
                     </label>
                     <TextArea
@@ -441,7 +442,7 @@ export default function Brief() {
                       errorMessage={errors.details?.disadvantagesCompetitorsSites?.message}
                     />
                   </div>
-                  <Input
+                  <TextArea
                     label={allFields.details.sitesYouLike.label}
                     isRequiredField={allFields.details.sitesYouLike.required}
                     placeholder={allFields.details.sitesYouLike.placeholder}
@@ -455,7 +456,7 @@ export default function Brief() {
                         <sup className={s.required}> *</sup>
                       )}
                     </label>
-                    <Input
+                    <TextArea
                       placeholder={allFields.details.sitesYouDislike.placeholder}
                       {...register("details.sitesYouDislike")}
                       errorMessage={errors.details?.sitesYouDislike?.message}
@@ -547,7 +548,7 @@ export default function Brief() {
                     ]}
                     errorMessage={errors.details?.siteFunctionality?.message}
                   />
-                  <Input
+                  <TextArea
                     label={allFields.details.specificSystem.label}
                     isRequiredField={allFields.details.specificSystem.required}
                     placeholder={allFields.details.specificSystem.placeholder}
@@ -671,7 +672,7 @@ export default function Brief() {
                     ]}
                   />
                   {materialsDevelopmentCurrentValue === "yes" && (
-                    <Input
+                    <TextArea
                       label={allFields.materials.materialsToDevelop.label}
                       isRequiredField={allFields.materials.materialsToDevelop.required}
                       placeholder={allFields.materials.materialsToDevelop.placeholder}
@@ -746,9 +747,9 @@ export default function Brief() {
             </div>
           </div>
           <section className={s.submit}>
-            <p>
+            <p className={s.terms}>
               Я принимаю условия{" "}
-              <a href={"#"} rel={"nofollow"} download>
+              <a href={"#"} rel={"nofollow"} className={s.privacyPolicy} download>
                 Политика ООО OctoWeb в отношении обработки данных
               </a>{" "}
               и, нажимая на кнопку “Отправить”, даю согласие на обработку компанией указанных мной

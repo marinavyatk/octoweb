@@ -2,6 +2,7 @@ import s from "./cooperationCard.module.scss";
 import { AnimatedField } from "../../ui/animatedField/animatedField";
 import ArrowIcon from "@/svg/arrow.svg";
 import Image from "next/image";
+import HappySymbol from "@/svg/happy-symbol.svg";
 
 export const CooperationCard = () => {
   return (
@@ -13,7 +14,9 @@ export const CooperationCard = () => {
         </AnimatedField>
         <div>ВЕБ-СТУДИЯ</div>
         <div>ОРИЕНТИРОВАНА</div>
-        <AnimatedField className={s.happySymbol}>⌢⌣</AnimatedField>
+        <AnimatedField className={s.happySymbol}>
+          <HappySymbol />
+        </AnimatedField>
         <div>на</div>
         <AnimatedField className={s.kaomojiSymbol}>くコ:彡</AnimatedField>
         <AnimatedField variant={"dark"} className={s.emojiSymbol}>

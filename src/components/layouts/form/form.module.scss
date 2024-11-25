@@ -45,7 +45,7 @@
     }
 
     .arrowButton {
-      z-index: 0;
+      --button-width: 347px;
     }
   }
 }
@@ -82,6 +82,10 @@
       p {
         font-size: 12px;
         max-width: 504px;
+      }
+
+      .arrowButton {
+        --button-width: 240px;
       }
     }
   }

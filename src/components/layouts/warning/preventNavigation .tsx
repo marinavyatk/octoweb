@@ -64,11 +64,7 @@ export const PreventNavigation = ({ isDirty }: PreventNavigationProps) => {
       }
     };
     document.querySelectorAll("a").forEach((link) => {
-      console.log(link);
-      console.log(!link.className.includes("navigationButton"));
-
       if (!link.className.includes("briefNavigationLink") && !link.className.includes("navigationButton")) {
-
         link.addEventListener("click", handleClick);
       }
     });

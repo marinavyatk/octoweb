@@ -43,15 +43,26 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-
-    li {
-      cursor: pointer;
-    }
-
-    .active {
-      color: var(--color-accent);
-    }
   }
+}
+
+.active {
+  color: var(--color-accent);
+}
+
+.teamMemberContainer {
+  position: relative;
+  height: 580px;
+  width: 100%;
+  border-radius: 45px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.background {
+  z-index: -1;
+  object-fit: fill;
 }
 
 @media (max-width: 1905px) {
@@ -80,6 +91,9 @@
   }
   .desktopIntro {
     max-width: 338px;
+  }
+  .teamMemberContainer {
+    height: 486px;
   }
 }
 
@@ -129,6 +143,11 @@
       gap: 20px;
     }
   }
+  .teamMemberContainer {
+    max-width: 800px;
+    margin: auto;
+    height: 622px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -149,5 +168,10 @@
       font-size: 12px;
       gap: 10px;
     }
+  }
+
+  .teamMemberContainer {
+    height: 259px;
+    border-radius: 12px;
   }
 }
