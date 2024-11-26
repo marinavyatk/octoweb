@@ -26,7 +26,6 @@
     "react-dom": "^18",
     "react-headroom": "^3.2.1",
     "react-hook-form": "^7.53.0",
-    "react-indiana-drag-scroll": "3.0.3-alpha",
     "react-scroll": "^1.9.0",
     "react-textarea-autosize": "^8.5.3",
     "sass": "^1.79.4",

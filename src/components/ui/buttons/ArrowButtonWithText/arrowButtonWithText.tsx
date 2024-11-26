@@ -1,23 +1,56 @@
+"use client";
+
 import clsx from "clsx";
 import s from "./arrowButtonWithText.module.scss";
-import { ComponentPropsWithoutRef } from "react";
+import { ComponentPropsWithoutRef, ComponentPropsWithRef, ElementType, useRef } from "react";
 import ArrowIcon from "@/svg/arrow.svg";
 
-export type ArrowButtonWithTextProps = {
+export type ArrowButtonWithTextProps<T extends ElementType> = {
+  as?: T
+  variant?: "colored" | "dark";
   text: string;
-} & ComponentPropsWithoutRef<"button">;
+} & ComponentPropsWithoutRef<T>;
 
-export const ArrowButtonWithText = (props: ArrowButtonWithTextProps) => {
-  const { text, className, ...restProps } = props;
-  const classNames = clsx(s.arrowButtonWithText, className);
+export const ArrowButtonWithText = <T extends ElementType = "button">(props: ArrowButtonWithTextProps<T>) => {
+  const { as: Component = "button", variant = "colored", text, className, ...restProps } = props;
+  const classNames = clsx(
+    s.arrowButtonWithText,
+    className, s[variant]
+  );
+  const textRef = useRef<HTMLDivElement | null>(null);
+  const textContainerRef = useRef<HTMLDivElement | null>(null);
+  const componentRef = useRef<ComponentPropsWithRef<T>["ref"]>(null);
+
+  const handleHover = () => {
+    if (textRef.current && textContainerRef.current) {
+      const textWidth = textRef.current.clientWidth;
+      const textContainerWidth = textContainerRef.current.scrollWidth;
+      const margin = (textContainerWidth - textWidth) / 2;
+      textRef.current.style.margin = `0 ${margin}px`;
+    }
+  };
+
+  const cancelHover = () => {
+    if (textRef.current)
+      textRef.current.style.margin = `0`;
+  };
 
   return (
-    <button {...restProps} className={classNames}>
-      <span>{text}</span>
+    <Component
+      {...restProps}
+      className={classNames}
+      rel={"nofollow"}
+      ref={componentRef}
+      onMouseEnter={handleHover}
+      onMouseLeave={cancelHover}
+    >
+      <div className={s.textContainer} ref={textContainerRef}>
+        <div className={s.text} ref={textRef}>{text}</div>
+      </div>
       <div className={s.background}></div>
       <div className={s.arrow}>
         <ArrowIcon />
       </div>
-    </button>
+    </Component>
   );
 };

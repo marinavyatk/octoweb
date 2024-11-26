@@ -1,16 +1,17 @@
 .contactButton {
+  --button-width: 310px;
+  --padding-horizontal: 6px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 15px;
-  width: 310px;
-  padding: 6px;
+  width: var(--button-width);
+  padding: 0 var(--padding-horizontal);
   background-color: var(--color-primary);
   border-radius: 72px;
   position: relative;
   height: 80px;
   transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
-  text-decoration: none;
 
   span {
     font-weight: var(--font-weight-regular-400);
@@ -51,31 +52,28 @@
   }
 
   &:hover {
-    transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
     padding: 0;
+    width: calc(var(--button-width) + 2 * var(--padding-horizontal));
 
     span {
       color: var(--color-dark-primary);
-      transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
     }
 
     svg {
       stroke: var(--color-primary);
       transform: rotate(45deg);
-      transition: transform 0.4s;
     }
 
     .background {
       width: 100%;
       height: 100%;
-      transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
     }
   }
 }
 
-@media (max-width: 1905px) {
+@media (max-width: 1905px), (max-width: 1279px) {
   .contactButton {
-    width: 288px;
+    --button-width: 288px;
     height: 60px;
     gap: 28px;
 
@@ -103,7 +101,7 @@
 
 @media (max-width: 1425px) {
   .contactButton {
-    width: 226px;
+    --button-width: 226px;
     height: 48px;
     gap: 14px;
 

@@ -7,12 +7,10 @@
   border: 1px solid var(--color-dark-additional);
   border-radius: 500px;
   padding: 6px 16px;
-  text-decoration: none;
-  width: fit-content;
   display: flex;
-  gap: 20px;
   align-items: center;
-  height: fit-content;
+  justify-content: center;
+  gap: 16px;
 }
 
 .color {
@@ -32,6 +30,7 @@
   background-color: var(--color-dark-secondary);
   color: var(--color-light-100);
   line-height: var(--line-height-160);
+  align-self: baseline;
 }
 
 @media (max-width: 1905px) {
@@ -46,20 +45,18 @@
 
 @media (max-width: 1265px) {
   .tag {
-    font-size: 24px;
-    padding: 9px 20px;
-    border-width: 0.5px;
+    font-size: 20px;
   }
   .monochromeSecondary {
-    font-size: 24px;
-    padding: 6px 10px;
+    font-size: 20px;
   }
 }
 
 @media (max-width: 767px) {
   .tag {
     font-size: 10px;
-    padding: 6px 15px;
+    padding: 6px 10px;
+    gap: 8px;
   }
   .monochromeSecondary {
     font-size: 10px;

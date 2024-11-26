@@ -10,20 +10,44 @@
   border: none;
   background: var(--linear-gradient-primary);
 
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.primary {
+  background-color: var(--linear-gradient-primary);
+
+  svg {
+    stroke: var(--color-light-100);
+    transition: transform 0.4s;
+  }
+
   &:hover {
     svg {
       transform: rotate(45deg);
       stroke: var(--color-accent);
     }
   }
+}
+
+.secondary {
+  background: var(--color-accent);
 
   svg {
-    transition: transform 0.4s;
-    stroke: var(--color-light-100);
-    width: 24px;
-    height: 24px;
+    stroke: var(--color-dark-primary);
+    transition: all 0.3s cubic-bezier(1, 1.65, 0.265, 1.55);
+  }
+
+  &:hover {
+    svg {
+      transform: rotate(45deg);
+      stroke: var(--color-primary);
+    }
   }
 }
+
 @media (max-width: 1265px) {
   .arrowButton {
     width: 57px;

@@ -7,16 +7,24 @@ import { Tag } from "../../tag/tag";
 import ShareIcon from "@/svg/shareIcon.svg";
 
 export type ShareButtonProps = ComponentPropsWithoutRef<"div">;
+
 export const ShareButton = (props: ShareButtonProps) => {
   const { className, ...restProps } = props;
   const classNames = clsx(s.shareButton, className);
   const url = document.location.href;
   const [isCopied, setIsCopied] = useState(false);
+  const shareData = {
+    title: "Octoweb.ru - Создание и продвижений сайтов",
+    text: "Посмотри эту статью. Мы подготовили для тебя много полезной информации!",
+    url: url,
+  }
+
   const copyUrl = async () => {
     try {
       await navigator.clipboard.writeText(url);
       setIsCopied(true);
       setTimeout(() => setIsCopied(false), 2000);
+      await navigator.share(shareData);
     } catch (err) {
       console.error("Failed to copy: ", err);
     }

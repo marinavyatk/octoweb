@@ -3,7 +3,7 @@ import React, {
   ComponentPropsWithoutRef,
   Ref,
   useRef,
-  useState,
+  useState
 } from "react";
 import clsx from "clsx";
 import s from "./inputWithCounter.module.scss";
@@ -11,19 +11,15 @@ import { InputFile, InputFileProps } from "../inputFile/inputFile";
 import { AttachedFile } from "../attachedFile/attachedFile";
 import TextareaAutosize from "react-textarea-autosize";
 import { Label } from "../label/label";
-import { useCombinedRef } from '@/common/customHooks';
+import { useCombinedRef } from "@/common/customHooks";
 
-type Style = {
-  height?: number;
-  width?: number | string;
-};
 export type InputProps = {
   label: string;
   isRequiredField: boolean;
   containerProps?: ComponentPropsWithoutRef<"div">;
   errorMessage?: (string | undefined)[];
   fileProps?: InputFileProps;
-} & ComponentPropsWithoutRef<"textarea">;
+} & Omit<ComponentPropsWithoutRef<"textarea">, "style">;
 
 export const InputWithCounter = React.forwardRef(
   (props: InputProps, ref: Ref<HTMLTextAreaElement>) => {
@@ -65,7 +61,7 @@ export const InputWithCounter = React.forwardRef(
       const filesFromInput = event.target.files;
       if (filesFromInput) {
         // setFile([...filesFromInput][0]);
-          setFile(Array.from(filesFromInput)[0]);
+        setFile(Array.from(filesFromInput)[0]);
       }
     };
 
@@ -89,7 +85,6 @@ export const InputWithCounter = React.forwardRef(
               onInput={(event: ChangeEvent<HTMLTextAreaElement>) => {
                 handleInput(event);
               }}
-              style={restProps?.style as Style}
             />
             <InputFile
               {...fileProps}
@@ -105,7 +100,7 @@ export const InputWithCounter = React.forwardRef(
         </div>
       </div>
     );
-  },
+  }
 );
 
-InputWithCounter.displayName = 'InputWithCounter'
+InputWithCounter.displayName = "InputWithCounter";

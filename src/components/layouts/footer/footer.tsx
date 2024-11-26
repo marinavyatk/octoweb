@@ -5,21 +5,21 @@ import { ContactLinks } from "../contactLinks/contactLinks";
 import { ButtonWithStroke } from "@/components/ui/buttons/buttonWithStroke/buttonWithStroke";
 import { ArrowNavigationButton } from "@/components/ui/buttons/arrowNavigationButton/arrowNavigationButton";
 
-export type FooterProps = ComponentPropsWithoutRef<"div">;
+export type FooterProps = { needBriefLink?: boolean } & ComponentPropsWithoutRef<"div">;
 
 export const Footer = (props: FooterProps) => {
-  const { className, ...restProps } = props;
+  const { needBriefLink = true, className, ...restProps } = props;
   const classNames = clsx(s.footer, className);
 
   return (
     <div {...restProps} className={classNames}>
       <div className={s.container}>
         <ContactLinks />
-        <ButtonWithStroke variant={"secondary"} />
+        {needBriefLink && <ButtonWithStroke variant={"secondary"}/>}
         <div className={s.contacts}>
-          <span>info@octoweb.ru</span>
+          <a href="mailto:info@octoweb.ru">info@octoweb.ru</a>
           <br />
-          <span>+7 905 407-78-32</span>
+          <a href="tel:+79054077832">+7 905 407-78-32</a>
           <address>
             <span>КРАСНОДАР </span>
             <br />
@@ -28,12 +28,14 @@ export const Footer = (props: FooterProps) => {
         </div>
       </div>
       <div className={s.panelUp}>
-        <ArrowNavigationButton
-          variant={"up"}
-          className={s.arrow}
-            as={'a'}
-          href={'#top'}
-        />
+        <div className={s.arrow}>
+          <ArrowNavigationButton
+            variant={"up"}
+            as={"a"}
+            href={"#top"}
+          />
+        </div>
+
         <div className={s.bottomCaption}>
           <span>Политика конфиденциальности</span>
           <span>© OctoWeb 2023 — Все права защищены</span>

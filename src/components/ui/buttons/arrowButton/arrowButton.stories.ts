@@ -5,12 +5,16 @@ const meta = {
   title: "UI/Buttons/ArrowButton",
   component: ArrowButton,
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {}
 } satisfies Meta<typeof ArrowButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  args: {},
+  args: {}
+};
+
+export const Secondary: Story = {
+  args: { variant: "secondary" }
 };

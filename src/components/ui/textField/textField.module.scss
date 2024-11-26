@@ -1,0 +1,121 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--color-light-40);
+  align-items: flex-start;
+  width: 100%;
+  position: relative;
+  transition: all 0.5s;
+  box-sizing: border-box;
+
+  &:focus-within {
+    border-bottom: 1px solid var(--color-primary);
+
+    .mainLabel {
+      color: var(--color-light-100);
+    }
+  }
+}
+
+.position {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.errorIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.input {
+  color: var(--color-light-100);
+  font-size: 24px;
+  font-weight: var(--font-weight-regular-400);
+  line-height: var(--line-height-180);
+  background-color: transparent;
+  flex-grow: 2;
+  position: relative;
+  display: inline-block;
+  border: none;
+  padding: 16px 0;
+  caret-color: var(--color-primary);
+  scrollbar-width: none;
+  resize: none;
+
+  &::placeholder {
+    color: var(--color-light-20);
+  }
+
+  &:focus {
+    outline: none;
+    border: none;
+    color: var(--color-accent);
+  }
+
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px var(--color-dark-primary) inset;
+    -webkit-text-fill-color: var(--color-light-100);
+  }
+}
+
+.error {
+  border-bottom: 1px solid var(--color-error);
+
+  &:focus-within {
+    border-bottom: 1px solid var(--color-error);
+  }
+
+  input {
+    color: var(--color-error);
+  }
+
+  .errorMessage {
+    color: var(--color-error);
+    font-size: 14px;
+    font-weight: var(--font-weight-regular-300);
+    position: absolute;
+    bottom: 0;
+    margin-bottom: -22px;
+  }
+}
+
+@media (max-width: 1905px) {
+  .input {
+    font-size: 18px;
+    padding: 8px 0;
+  }
+}
+
+@media (max-width: 1425px) {
+  .input {
+    font-size: 16px;
+    padding: 4px 0;
+  }
+}
+
+@media (max-width: 1265px) {
+  .input {
+    font-size: 24px;
+    padding: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .input {
+    font-size: 16px;
+  }
+  .errorIcon {
+    width: 13px;
+    height: 13px;
+  }
+  .error {
+    .errorMessage {
+      font-size: 8px;
+      bottom: 0;
+      margin-bottom: -12px;
+    }
+  }
+}

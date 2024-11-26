@@ -50,3 +50,48 @@
     width: 0;
   }
 }
+
+
+@media (max-width: 1265px) {
+  .buttonContainer {
+    width: 45px;
+    height: 45px;
+
+    .horizontal,
+    .vertical {
+      height: 3px;
+      width: 18px;
+    }
+  }
+
+  .opened .closedBackground {
+      width: 45px;
+      height: 45px;
+    }
+
+  .opened .horizontal {
+    width: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .buttonContainer {
+    width: 19px;
+    height: 19px;
+
+    .horizontal,
+    .vertical {
+      height: 1px;
+      width: 8px;
+    }
+  }
+
+  .opened .closedBackground {
+    width: 19px;
+    height: 19px;
+    }
+
+  .opened .horizontal {
+    width: 0;
+  }
+}

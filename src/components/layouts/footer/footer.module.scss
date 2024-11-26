@@ -37,11 +37,10 @@
   }
 
   .panelUp {
-    margin: auto;
-
     .arrow {
-      margin: auto;
-      margin-bottom: -20px;
+      margin-bottom: -45px;
+      display: flex;
+      justify-content: center;
     }
 
     .bottomCaption {
@@ -135,7 +134,7 @@
 
     .panelUp {
       .arrow {
-        margin-bottom: -15px;
+        margin-bottom: -25px;
       }
 
       .bottomCaption {
@@ -151,7 +150,7 @@
 @media (max-width: 767px) {
   .footer {
     .container {
-      padding: 0 31px;
+      padding: 0 27px;
     }
 
     .contacts {
@@ -169,7 +168,7 @@
 
     .panelUp {
       .arrow {
-        margin-bottom: -6px;
+        margin-bottom: -10px;
       }
 
       .bottomCaption {

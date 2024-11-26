@@ -8,8 +8,9 @@
   align-items: center;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 1001;
 }
+
 .formNotification {
   max-width: 536px;
   width: 100%;
@@ -40,10 +41,34 @@
     font-size: 18px;
     border: none;
     color: var(--color-dark-primary);
+    text-align: center;
   }
 }
 
 .buttonsBlock {
   display: flex;
   gap: 20px;
+}
+
+@media (max-width: 767px) {
+  .formNotification {
+    max-width: 288px;
+    padding: 28px 16px ;
+    gap: 30px;
+    margin-top: 0;
+
+    p {
+      font-size: 12px;
+      margin-top: 0;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 12px;
+    }
+  }
+
+  .buttonsBlock {
+    gap: 10px;
+  }
 }

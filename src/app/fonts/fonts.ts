@@ -2,9 +2,12 @@ import {Montserrat, Unbounded} from 'next/font/google';
 
 export const unbounded = Unbounded({
     subsets: ['cyrillic'],
-    variable: '--unbounded'
+    variable: '--unbounded',
+    display: 'auto',
+    fallback: ['sans-serif','Calibri', 'Arial']
 });
 export const montserrat = Montserrat({
     subsets: ['cyrillic'],
-    variable: '--montserrat'
+    variable: '--montserrat',
+    fallback: ['sans-serif', 'Arial', 'Calibri']
 })

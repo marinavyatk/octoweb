@@ -67,20 +67,27 @@
   text-decoration: none;
 }
 
-.next {
+.next, .previous {
   background-color: var(--color-accent);
+  transition: background-color 0.4s;
 
   svg {
     stroke: var(--color-dark-primary);
+    transition: stroke 0.4s;
   }
 }
 
 .previous {
   transform: rotate(-90deg);
-  background-color: var(--color-dark-secondary);
+}
 
-  svg {
-    stroke: var(--color-accent);
+.navigationButton:disabled {
+  .next, .previous {
+    background-color: var(--color-dark-secondary);
+
+    svg {
+      stroke: var(--color-accent);
+    }
   }
 }
 

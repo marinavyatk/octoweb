@@ -15,6 +15,7 @@ export type RadioGroupComponentProps = {
   radioItems: radioItem[];
   errorMessage?: string;
 } & RadioGroupProps;
+
 export const RadioGroupComponent = forwardRef<HTMLDivElement, RadioGroupComponentProps>(
   (props: RadioGroupComponentProps, ref) => {
     const { errorMessage, mainLabel, isRequiredField, radioItems = [], className, ...rest } = props;
@@ -26,25 +27,25 @@ export const RadioGroupComponent = forwardRef<HTMLDivElement, RadioGroupComponen
           {radioItems.length &&
             radioItems.map((item) => {
               return (
-                <div className={s.radioItem} key={item.value}>
-                  <RadioGroup.Item
-                    className={s.radioSign}
-                    value={item.value}
-                    id={rest.name + item.value}
-                  >
-                    <RadioGroup.Indicator className={s.radioIndicator} />
-                  </RadioGroup.Item>
-                  <label className={s.radioLabel} htmlFor={rest.name + item.value}>
+                <RadioGroup.Item
+                  value={item.value}
+                  id={rest.name + item.value}
+                  className={s.radioItem}
+                  key={item.value}
+                >
+                  <RadioGroup.Indicator className={s.radioIndicator} />
+                  <div className={s.content}>
+                    <div className={s.radioSign} />
                     {item.label}
-                  </label>
-                </div>
+                  </div>
+                </RadioGroup.Item>
               );
             })}
         </div>
         {errorMessage && <div className={s.error}>{errorMessage}</div>}
       </RadioGroup.Root>
     );
-  },
+  }
 );
 
 RadioGroupComponent.displayName = "RadioGroupComponent";

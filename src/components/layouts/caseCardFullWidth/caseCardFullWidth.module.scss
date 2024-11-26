@@ -1,35 +1,14 @@
 .card {
   position: relative;
-  text-decoration: none;
   display: block;
   width: 100%;
   height: 1000px;
-  max-width: 1920px;
-  margin: auto;
-
-  .textContainer {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    padding-top: 90px;
-    width: 100%;
-    max-width: 613px;
-    align-items: center;
-
-    &:first-child {
-      left: 124px;
-    }
-  }
 
   .imgContainer {
     overflow: hidden;
     background-color: var(--color-dark-secondary);
     width: 100%;
-    height: 1000px;
-    margin: auto;
+    height: 100%;
     mask-image: url(../../../svg/caseCardFullWidthShape.svg);
     -webkit-mask-image: url(../../../svg/caseCardFullWidthShape.svg);
     mask-size: 100% 100%;
@@ -38,26 +17,34 @@
     -webkit-mask-repeat: no-repeat;
   }
 
+  .category {
+    position: absolute;
+    top: 90px;
+    left: var(--offset-x);
+  }
+
   .caption {
-    padding: 20px;
+    padding: 20px 40px 0;
     display: flex;
     flex-direction: column;
     height: 195px;
     align-items: center;
     justify-content: center;
     gap: 16px;
+    position: absolute;
+    bottom: 0;
+    min-width: 32%;
+    background-color: black;
+    background-image: url(/noise-texture.webp);
+    background-size: cover;
+    border-top-right-radius: 36px;
   }
 
   .tagList {
     display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
     justify-content: center;
-    text-align: center;
-
-    span {
-      display: block;
-    }
+    gap: 12px;
+    flex-wrap: wrap-reverse;
   }
 
   .header {
@@ -67,7 +54,22 @@
     color: var(--color-light-100);
     line-height: var(--line-height-120);
     text-transform: none;
-    padding-left: 0;
+    text-align: center;
+  }
+
+  .angle {
+    --angle-width: 60px;
+    position: absolute;
+    bottom: 0;
+    right: calc(-1 * var(--angle-width) + 1px);
+    height: var(--angle-width);
+    width: var(--angle-width);
+    mask-image: radial-gradient(circle at top right, transparent 70%, black 71%);
+    background-color: black;
+  }
+
+  .angleMobile {
+    display: none;
   }
 }
 
@@ -75,17 +77,6 @@
   .card {
     height: 976px;
 
-    .textContainer {
-      padding-top: 80px;
-      max-width: 524px;
-
-      &:first-child {
-        left: 108px;
-      }
-    }
-    .imgContainer {
-      height: 976px;
-    }
     .header {
       font-size: 32px;
     }
@@ -94,15 +85,97 @@
 
 @media (max-width: 1440px) {
   .card {
+    height: 976px;
+
     .imgContainer {
       mask-image: url(../../../svg/caseCardFullWidthShape1440.svg);
       -webkit-mask-image: url(../../../svg/caseCardFullWidthShape1440.svg);
-      mask-size: 100% 100%;
-      -webkit-mask-size: 100% 100%;
-      height: 976px;
     }
+
     .caption {
       height: 170px;
+    }
+  }
+}
+
+@media (max-width: 1265px) {
+  .card {
+    height: 520px;
+
+    .category {
+      top: 38px;
+      left: 38px;
+    }
+
+    .caption {
+      padding: 0;
+      display: block;
+      height: unset;
+      background-image: unset;
+      background-color: unset;
+    }
+
+    .tagList {
+      justify-content: flex-start;
+      padding: 16px 38px;
+    }
+
+    .headerContainer {
+      position: relative;
+      width: fit-content;
+    }
+
+    .header {
+      font-size: 32px;
+      height: 90px;
+      background-color: black;
+      background-image: url(/noise-texture.webp);
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top-right-radius: 28px;
+      padding: 0 16px;
+    }
+
+    .angle {
+      --angle-width: 30px;
+      right: calc(-1 * var(--angle-width));
+    }
+
+    .angleDesktop {
+      display: none;
+    }
+
+    .angleMobile {
+      display: block;
+    }
+  }
+}
+
+
+@media (max-width: 767px) {
+  .card {
+    height: 217px;
+
+    .category {
+      top: 16px;
+      left: 16px;
+    }
+
+    .tagList {
+      padding: 7px 16px;
+    }
+
+    .header {
+      font-size: 12px;
+      height: 38px;
+      border-top-right-radius: 7px;
+    }
+
+    .angle {
+      --angle-width: 10px;
+      right: calc(-1 * var(--angle-width));
     }
   }
 }

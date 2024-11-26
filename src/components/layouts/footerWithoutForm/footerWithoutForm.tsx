@@ -2,6 +2,7 @@ import { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 import s from "./footerWithoutForm.module.scss";
 import { Footer } from "../footer/footer";
+import Image from "next/image";
 
 export type FooterWithoutFormProps = ComponentPropsWithoutRef<"div">;
 
@@ -10,8 +11,8 @@ export const FooterWithoutForm = (props: FooterWithoutFormProps) => {
   const classNames = clsx(s.footerWithoutForm, className);
   return (
     <div {...restProps} className={classNames}>
-      <img src={'/footerForm.png'} className={s.FooterFormImg} alt="" />
-      <Footer />
+      <Image src={"/footerForm.png"} className={s.footerFormImg} alt="" fill sizes='100vw'/>
+      <Footer needBriefLink={false} />
     </div>
   );
 };

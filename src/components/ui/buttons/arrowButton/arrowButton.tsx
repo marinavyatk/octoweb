@@ -6,12 +6,13 @@ import ArrowIcon from "@/svg/arrow.svg";
 
 export type ArrowButtonProps<T extends ElementType> = {
   as?: T;
+  variant?: "primary" | "secondary";
 } & ComponentPropsWithoutRef<T>;
 export const ArrowButton = <T extends ElementType>(
-  props: ArrowButtonProps<T>,
+  props: ArrowButtonProps<T>
 ) => {
-  const { as: Component = "a", className, ...restProps } = props;
-  const classNames = clsx(s.arrowButton, className);
+  const { as: Component = "a", variant = "primary", className, ...restProps } = props;
+  const classNames = clsx(s.arrowButton, className, s[variant]);
 
   return (
     <Component {...restProps} className={classNames} rel={"nofollow"}>

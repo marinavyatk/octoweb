@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import {
   YMap,
@@ -7,21 +7,27 @@ import {
   YMapDefaultFeaturesLayer,
   YMapDefaultSchemeLayer,
   YMapMarker,
-  YMapZoomControl,
+  YMapZoomControl
 } from "ymap3-components";
 import { apiKey, location as LOCATION, markerLocation } from "./helpers";
 import s from "./map.module.scss";
 import PlaceMarker from "@/svg/placeMark.svg";
 import customizationStyles from "./mapCustomization.json";
 import { LngLat, VectorCustomizationItem } from "@yandex/ymaps3-types";
+import { useEffect, useState } from "react";
 
 function Map() {
+  const [zoom, setZoom] = useState<number>(18);
+  useEffect(() => {
+    if (window.innerWidth < 768) setZoom(15.4);
+  }, []);
+
   return (
     <div className={s.innerYandexMap}>
       <YMapComponentsProvider apiKey={apiKey} lang="ru_RU">
         <YMap
           key="map"
-          location={LOCATION}
+          location={{ center: LOCATION.center, zoom }}
           mode="vector"
           theme="dark"
           behaviors={["drag", "dblClick", "pinchRotate", "pinchZoom"]}
@@ -37,7 +43,7 @@ function Map() {
             </div>
           </YMapMarker>
           <YMapControls position="bottom">
-            <YMapZoomControl />
+            <YMapZoomControl/>
           </YMapControls>
         </YMap>
       </YMapComponentsProvider>

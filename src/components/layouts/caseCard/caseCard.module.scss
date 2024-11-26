@@ -152,18 +152,22 @@
 
 @media (max-width: 767px) {
   .card {
+    .container,  img {
+      border-radius: 17px;
+    }
+
     .header {
       font-size: 14px;
       margin-top: 16px;
     }
     .category {
       top: 12px;
-      left: 12px;
+      left: 8px;
     }
     .tagList {
       gap: 10px;
       bottom: 12px;
-      left: 12px;
+      left: 8px;
     }
   }
 

@@ -1,6 +1,6 @@
 import s from './aboutPage.module.scss';
-import {StackList} from '@/components/layouts/stackList/stackList';
-import {TeamMemberCards} from '@/components/layouts/teamMembersCards/teamMembersCards';
+import {StackList} from '@/components/sections/stackList/stackList';
+import {TeamMemberCards} from '@/components/sections/teamMembersCards/teamMembersCards';
 import {teamMembersInfo} from '@/common/componentsData/teamMembersInfo';
 import Image from 'next/image';
 
@@ -9,17 +9,16 @@ export default function  About (){
   return (
     <div className={s.aboutPage}>
       <div className={s.aboutPageContent}>
-        <div className={s.mainContainer}>
+        <div className={'mainContainer'}>
           <h1>
             О веб-студии <br /> OctoWeb
           </h1>
           <p>Раскроем подробности о том, кто стоит за реализацией проектов</p>
         </div>
         <div className={s.imageContainer}>
-          <Image src={"/teamMainPhoto.webp"} alt={'Команда'} fill/>
+          <Image src={"/teamMainPhoto.webp"} alt={'Команда'} fill priority/>
         </div>
-
-        <div className={s.mainContainer}>
+        <div className={'mainContainer'}>
           <div className={s.aboutCompany}>
             <h2>О компании</h2>
             <p>

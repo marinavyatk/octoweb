@@ -13,8 +13,8 @@ export const AdvantageItem = (props: AdvantageItemProps) => {
 
   return (
     <div {...restProps} className={classNames}>
-      <span className={s.number}>{number}</span> <br />
-      <span className={s.description}>{description}</span>
+      <span className={s.number}>{number}</span>
+      <p className={s.description}>{description}</p>
     </div>
   );
 };

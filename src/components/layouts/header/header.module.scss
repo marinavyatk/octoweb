@@ -1,11 +1,19 @@
-.header {
+.headerContainer {
+  z-index: 1001;
+  position: relative;
+}
+
+.header, .headerMobile, .headerDesktop {
   display: flex;
   justify-content: space-between;
   max-width: 1670px;
-  width: 87%;
   margin: auto;
+  width: 100%;
+}
+
+.header {
+  width: 87%;
   position: sticky;
-  top: 32px;
   z-index: 20;
   padding-top: 32px;
 
@@ -15,13 +23,40 @@
   }
 }
 
+.headerMobile {
+  display: none;
+}
+
 @media (max-width: 1905px) {
   .header {
     width: 85%;
   }
 }
+
 @media (max-width: 1425px) {
   .header {
     width: 81%;
+  }
+}
+
+@media (max-width: 1279px) {
+  .header {
+    width: 96%;
+  }
+  .headerMobile {
+    display: block;
+  }
+  .headerDesktop {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    width: 95%;
+    padding-top: 20px;
+  }
+  .headerMobile {
+    padding: 0;
   }
 }

@@ -13,7 +13,7 @@ export const Label = (props: LabelProps) => {
 
   return (
     <label {...restProps} className={classNames}>
-      {text}
+      {text}&nbsp;
       {isRequiredField && <sup className={s.required}> *</sup>}
     </label>
   );

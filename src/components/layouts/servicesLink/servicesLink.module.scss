@@ -1,22 +1,9 @@
 .servicesLink {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-bottom: 1px solid var(--color-primary);
   position: relative;
-  max-width: 1428px;
-  width: 100%;
-  padding: 20px 0;
   overflow: hidden;
   z-index: 0;
-}
-
-.innerContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  border-bottom: 1px solid var(--color-primary);
-  padding: 10px 0 40px 0;
+  padding: 30px 0 40px 0;
 
   .header {
     display: flex;
@@ -42,7 +29,7 @@
   }
 
   .header {
-    transition: all 0.5s;
+    transition: color 0.5s;
   }
 
   .number {
@@ -56,24 +43,26 @@
     margin-top: 48px;
   }
 
-  .imgContainer{
+  .imgContainer {
     width: 394px;
-    height: 20px;
-    border-radius: 16px;
+    height: 0;
     position: absolute;
     right: 0;
-    bottom: 40px;
-    object-fit: cover;
+    bottom: 12px;
     z-index: -1;
     margin-bottom: -224px;
     transition: all 0.5s;
     opacity: 0;
   }
 
-  .imgPositionContainer{
+  .imgPositionContainer {
     position: relative;
     width: 100%;
     height: 100%;
+
+    img {
+      border-radius: 16px;
+    }
   }
 
   &:hover {
@@ -111,16 +100,12 @@
     }
   }
 
-  .innerContainer {
-    padding: 10px 0 24px;
+  .text {
+    gap: 24px;
+  }
 
-    .text {
-      gap: 24px;
-    }
-
-    .tagList {
-      margin-top: 32px;
-    }
+  .tagList {
+    margin-top: 32px;
   }
 }
 
@@ -130,28 +115,22 @@
     .header {
       font-size: 30px;
     }
-  }
-  .innerContainer {
-    padding: 40px 0;
+      .text {
+        gap: 24px;
+      }
 
-    .text {
-      gap: 24px;
-    }
+      .tagList {
+        gap: 10px 24px;
+        margin-top: 21px;
+      }
 
-    .tagList {
-      gap: 10px 24px;
-      margin-top: 21px;
-    }
-
-    .imgContainer {
-      width: 220px;
-      height: 20px;
-      bottom: 40px;
-    }
+      .imgContainer {
+        width: 220px;
+      }
 
     &:hover {
       .imgContainer {
-        height: 110px;
+        height: 180px;
       }
     }
   }
@@ -159,13 +138,12 @@
 
 @media (max-width: 767px) {
   .servicesLink {
+    padding: 6px 0 6px 0;
+
     .number,
     .header {
-      font-size: 14px;
+      font-size: 12px;
     }
-  }
-  .innerContainer {
-    padding: 10px 0 6px;
 
     .text {
       gap: 7px;
@@ -173,6 +151,22 @@
 
     .tagList {
       gap: 10px;
+      margin-top: 14px;
+    }
+
+    .imgContainer {
+      width: 180px;
+      bottom: 6px;
+
+      img {
+        border-radius: 8px;
+      }
+    }
+
+    &:hover {
+      .imgContainer {
+        height: calc(100% - 6px);
+      }
     }
   }
 }

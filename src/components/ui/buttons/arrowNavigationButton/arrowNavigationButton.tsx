@@ -17,7 +17,7 @@ export const ArrowNavigationButton = <T extends ElementType = "button">(
     className,
     ...restProps
   } = props;
-  const classNames = clsx(s.navigationButton, className);
+  const classNames = clsx(s.navigationButton, className, 'navigationButton');
   const arrowClassNames = clsx(s.buttonContainer, className, {
     [s.up]: variant === "up",
     [s.next]: variant === "next",

@@ -9,6 +9,7 @@
   .required {
     color: var(--color-accent);
     width: fit-content;
+    white-space: nowrap;
   }
 }
 
@@ -17,13 +18,9 @@
     font-size: 14px;
   }
 }
-@media (max-width: 1265px) {
-  .label {
-    font-size: 24px;
-  }
-}
+
 @media (max-width: 767px) {
   .label {
-    font-size: 10px;
+    font-size: 12px;
   }
 }

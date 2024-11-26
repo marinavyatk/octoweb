@@ -5,4 +5,74 @@
   border-radius: 32px;
   background-color: var(--color-dark-secondary);
   padding: 24px;
+  max-width: 426px;
+  flex-shrink: 0;
+}
+
+.mobileControl{
+  display: none;
+}
+
+@media (max-width: 1425px) {
+  .briefNavbar {
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 1099px) {
+  .container{
+    z-index: 1;
+    width: fit-content;
+  }
+
+  .hidden{
+    .overlay{
+      display: none;
+    }
+
+    .mobileControl{
+      width: 339px;
+      display: flex;
+    }
+
+    .briefNavbar{
+      margin-left: -288px;
+    }
+  }
+
+
+  .briefNavbar {
+    width: 288px;
+    padding: 55px 16px 16px;
+    border-radius: 22px;
+    position: relative;
+    transition: all 0.6s;
+    margin-left: 0;
+  }
+
+  .overlay{
+    background: #0c0c0c;
+    opacity: 0.7;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .mobileControl {
+    width: 288px;
+    height: 40px;
+    border-radius: 0 10px 10px 0;
+    background-color: var(--color-accent);
+    padding: 12px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: all 0.3s;
+  }
 }

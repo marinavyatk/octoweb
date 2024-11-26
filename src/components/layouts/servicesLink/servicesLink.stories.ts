@@ -16,13 +16,28 @@ export const Primary: Story = {
     number: "01",
     header: "Первый контакт",
     tags: [
-      "Промо-сайт",
-      "Лендинг",
-      "Многостраничный сайт",
-      "Сайт-каталог",
-      "Интернет-магазин",
+      {
+        text: "Промо-сайт",
+        subLink: "promo-site"
+      },
+      {
+        text: "Лендинг",
+        subLink: "landing"
+      },
+      {
+        text: "Многостраничный сайт",
+        subLink: "multi-page-website"
+      },
+      {
+        text: "Сайт-каталог",
+        subLink: "catalog-website"
+      },
+      {
+        text: "Интернет-магазин",
+        subLink: "online-store"
+      }
     ],
-    href: "#",
+    mainLink: "website-development",
     img: '/link-botanica.webp',
   },
 };

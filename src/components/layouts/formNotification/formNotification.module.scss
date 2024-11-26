@@ -8,7 +8,7 @@
   align-items: center;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 1001;
 }
 .formNotification {
   max-width: 536px;
@@ -36,6 +36,7 @@
 
     svg {
       width: 76px;
+      height: 54px;
     }
   }
 
@@ -61,5 +62,42 @@
     font-weight: var(--font-weight-regular-300);
     font-size: 18px;
     border: none;
+    box-sizing: border-box;
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .formNotification {
+    max-width: 288px;
+    max-height: 619px;
+    height: unset;
+    padding: 28px 16px;
+    gap: 20px;
+    margin-top: 0;
+
+    .submittedIcon {
+      width: 50px;
+      height: 50px;
+
+      svg {
+        width: 30px;
+        height: 21px;
+      }
+    }
+
+    span {
+      font-size: 18px;
+    }
+
+    .message {
+      font-size: 12px;
+      margin: 12px 0 0;
+    }
+
+    button {
+      padding: 12px;
+      font-size: 12px;
+    }
   }
 }

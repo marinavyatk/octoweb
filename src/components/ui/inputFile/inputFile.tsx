@@ -29,6 +29,7 @@ export const InputFile = React.forwardRef(
           className={s.inputFile}
           {...restProps}
           ref={ref}
+          aria-label="Прикрепить файл"
         />
         <label htmlFor={restProps?.name}>
           <AttachIcon />

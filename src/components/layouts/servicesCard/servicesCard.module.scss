@@ -1,5 +1,7 @@
 .card {
   min-height: 588px;
+  height: 100%;
+  width: 100%;
   position: relative;
 
   .number {
@@ -15,7 +17,6 @@
     font-size: 48px;
     font-weight: var(--font-weight-regular-500);
     text-transform: none;
-    display: inline-block;
   }
 
   .tagList {
@@ -27,20 +28,10 @@
 
 .small {
   max-width: 678px;
-  width: 100%;
-
-  .blur {
-    max-width: 678px;
-  }
 }
 
 .medium {
   max-width: 820px;
-  width: 100%;
-
-  .blur {
-    max-width: 820px;
-  }
 }
 
 .blur {
@@ -48,8 +39,7 @@
   backdrop-filter: blur(50px);
   background-color: rgba(255, 255, 255, 0.08);
   border-radius: 48px;
-  min-height: 588px;
-  z-index: -10;
+  z-index: -10; //change later
   width: 100%;
   height: 100%;
 }
@@ -59,44 +49,78 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100%;
-  min-height: 588px;
+  height: 100%;
+  min-height: inherit;
 }
 
 @media (max-width: 1905px) {
   .card {
     min-height: 500px;
 
-    .number {
-      font-size: 40px;
-    }
-
-    .header {
+    .number, .header {
       font-size: 40px;
     }
 
     .content {
       padding: 50px 56px 56px;
-      min-height: 500px;
     }
   }
   .small {
     max-width: 496px;
-
-    .blur {
-      max-width: 496px;
-    }
   }
 
   .medium {
     max-width: 600px;
+  }
+}
 
-    .blur {
-      max-width: 600px;
+@media (max-width: 1425px) {
+  .card  .content {
+      padding: 30px 36px 36px;
+  }
+}
+
+
+@media (max-width: 1265px) {
+  .card {
+    min-height: 686px;
+  }
+
+  .small {
+    max-width: 590px;
+  }
+
+  .medium {
+    max-width: 691px;
+  }
+}
+
+@media (max-width: 767px) {
+  .card {
+    min-height: 286px;
+
+    .number, .header {
+      font-size: 16px;
+    }
+
+    .content {
+      padding: 30px;
+    }
+
+    .tagList {
+      gap: 9px;
     }
   }
 
+  .small {
+    max-width: 245px;
+  }
+
+  .medium {
+    max-width: 288px;
+  }
+
   .blur {
-    min-height: 500px;
+    border-radius: 26px;
   }
 }

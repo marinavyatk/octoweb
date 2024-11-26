@@ -1,49 +1,54 @@
-import { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 import s from "./servicesLink.module.scss";
 import { ArrowButton } from "@/components/ui/buttons/arrowButton/arrowButton";
 import { Tag } from "../../ui/tag/tag";
-import Image from 'next/image';
+import Image from "next/image";
+import Link from "next/link";
+import { TagLink } from "@/common/types";
+import { ComponentPropsWithoutRef } from "react";
 
 export type ServicesLinkProps = {
   number: string;
   header: string;
-  tags?: string[];
-  href: string;
+  tags?: TagLink[];
+  mainLink: string;
   img?: string;
+  linkProps?: ComponentPropsWithoutRef<"a">
 } & ComponentPropsWithoutRef<"div">;
 
 export const ServicesLink = (props: ServicesLinkProps) => {
-  const { number, header, tags, href, img, className, ...restProps } = props;
+  const { number, header, tags, mainLink, linkProps, img, className, ...restProps } = props;
   const classNames = clsx(s.servicesLink, className);
   const tagList =
     tags &&
     tags.map((tag) => {
       return (
-        <Tag key={tag} variant={"monochrome-secondary"}>
-          {tag}
+        <Tag key={tag.text}
+             variant={"monochrome-secondary"}
+             as={Link}
+             href={`/services/${mainLink}/${tag.subLink}`}
+        >
+          {tag.text}
         </Tag>
       );
     });
 
   return (
     <div {...restProps} className={classNames}>
-      <div className={s.innerContainer}>
-        <div className={s.header}>
-          <div className={s.text}>
-            <span className={s.number}>{number}</span>
-            <h3 className={s.header}>{header}</h3>
-          </div>
-          <ArrowButton href={href} />
+      <div className={s.header}>
+        <div className={s.text}>
+          <span className={s.number}>{number}</span>
+          <h3 className={s.header}>{header}</h3>
         </div>
-        {tags && <div className={s.tagList}>{tagList}</div>}
-        {img &&
-            <div className={s.imgContainer}>
-              <div className={s.imgPositionContainer}>
-            <Image src={img} alt={header} fill/>
-            </div>
-    </div>}
+        <ArrowButton href={`/services/${mainLink}`} {...linkProps}/>
       </div>
+      {tags && <div className={s.tagList}>{tagList}</div>}
+      {img &&
+        <div className={s.imgContainer}>
+          <div className={s.imgPositionContainer}>
+            <Image src={img} alt={header} fill sizes={"394px"} />
+          </div>
+        </div>}
     </div>
   );
 };

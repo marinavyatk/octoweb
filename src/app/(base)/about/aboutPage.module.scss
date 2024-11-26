@@ -33,7 +33,7 @@
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 154px;
-    gap: 25px;
+    gap: 150px;
 
     h2 {
       max-width: fit-content;
@@ -102,9 +102,6 @@
 }
 
 @media (max-width: 767px) {
-  .mainContainer {
-    padding: 0 16px;
-  }
   .aboutPageContent {
     p {
       font-size: 12px;
@@ -113,7 +110,7 @@
 
     .imageContainer {
       border-radius: 18px;
-      height: 220px;
+      height: 350px;
       margin-bottom: 60px;
     }
 
@@ -124,6 +121,14 @@
 
     .aboutTeam {
       margin: 60px 0;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .aboutPageContent {
+    .imageContainer {
+      height: 220px;
     }
   }
 }

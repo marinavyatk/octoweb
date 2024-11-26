@@ -1,6 +1,5 @@
 import type {Metadata} from 'next';
 import '../styles/index.scss'
-import 'react-indiana-drag-scroll/dist/style.css'
 import {clsx} from 'clsx';
 import {ReactNode} from 'react';
 import {montserrat, unbounded} from '@/app/fonts/fonts';

@@ -73,7 +73,7 @@ export const InputAdditionalFile = React.forwardRef(
         {attachedFiles.length > 0 && (
           <div className={s.attachedFiles}>{attachedFiles}</div>
         )}
-        <div className={s.inputAdditionalFile}>
+        <label className={s.inputAdditionalFile}>
           <input
             type="file"
             multiple
@@ -84,11 +84,9 @@ export const InputAdditionalFile = React.forwardRef(
             ref={finalInputFileRef}
             onChange={handleChange}
           />
-          <label htmlFor={restProps?.name}>
             <LoadIcon />
             Загрузить
-          </label>
-        </div>
+        </label>
       </div>
     );
   },

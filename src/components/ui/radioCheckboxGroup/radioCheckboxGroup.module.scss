@@ -18,3 +18,18 @@
   left: 0;
   right: 0;
 }
+
+
+@media (max-width: 767px) {
+  .answerVariants {
+    gap: 10px;
+    margin: 14px 0 5px;
+  }
+
+  .error {
+    font-size: 8px;
+    padding-top: 1px;
+    left: 0;
+    right: 0;
+  }
+}

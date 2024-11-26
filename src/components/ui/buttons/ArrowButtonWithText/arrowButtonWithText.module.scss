@@ -1,25 +1,31 @@
 .arrowButtonWithText {
+  --button-height: 100px;
+  --button-width: 426px;
+  --arrow-width: 80px;
+  --border-width: calc((var(--button-height) - var(--arrow-width)) / 2);
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 32px;
-  width: 426px;
-  height: 100px;
+  min-width: var(--button-width);
+  height: var(--button-height);
   position: relative;
-  transition: gap 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
-  text-decoration: none;
-  background-color: transparent;
-  border: none;
+  font-size: 24px;
+  font-weight: var(--font-weight-regular-300);
+  line-height: var(--line-height-200);
+  text-transform: uppercase;
 
-  span {
-    font-weight: var(--font-weight-regular-300);
-    font-size: 24px;
-    line-height: var(--line-height-200);
-    text-transform: uppercase;
-    color: var(--color-light-100);
+  .textContainer {
+    min-width: calc(var(--button-width) - var(--arrow-width) - var(--border-width) * 2);
     z-index: 2;
-    transition: color 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+    transition: margin 0.4s;
+  }
+
+  .text {
+    transition: color 0.4s, margin 0.4s;;
+    white-space: nowrap;
+    width: fit-content;
+    margin: 0 var(--border-width) 0 0;
   }
 
   .arrow {
@@ -29,23 +35,23 @@
     align-items: center;
     border-radius: 50%;
     flex-shrink: 0;
-    width: 80px;
-    height: 80px;
+    width: var(--arrow-width);
+    height: var(--arrow-width);
     background: var(--linear-gradient-primary);
-    border: 10px solid var(--color-accent);
+    border: var(--border-width) solid transparent;
     box-sizing: content-box;
+  }
 
-    svg {
-      width: 24px;
-      height: 24px;
-      stroke: var(--color-light-100);
-      transition: transform 0.4s;
-    }
+  svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--color-light-100);
+    transition: transform 0.4s;
   }
 
   .background {
-    width: 100px;
-    height: 100px;
+    width: var(--button-height);
+    height: var(--button-height);
     border-radius: 72px;
     position: absolute;
     z-index: 1;
@@ -53,19 +59,13 @@
   }
 
   &:hover {
-    transition: gap 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
-    gap: 17px;
-
-    span {
-      color: var(--color-dark-primary);
-      transition: color 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+    .textContainer {
+      margin-right: calc(-1 * var(--border-width));
     }
 
     .background {
       width: 100%;
-      height: 100%;
       border-radius: 72px;
-      background-color: var(--color-accent);
       transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
     }
 
@@ -77,101 +77,84 @@
   }
 }
 
-@media (max-width: 1905px) {
-  .arrowButtonWithText {
-    width: 300px;
-    height: 80px;
+.colored {
+  color: var(--color-light-100);
 
-    span {
-      font-size: 18px;
-    }
+  .arrow {
+    border-color: var(--color-accent);
+  }
+
+  .background {
+    background-color: var(--color-accent);
+  }
+
+  &:hover {
+    color: var(--color-dark-primary);
 
     .arrow {
-      width: 64px;
-      height: 64px;
-      border-width: 8px;
+      border-color: var(--color-accent);
     }
+  }
+}
 
-    .background {
-      height: 80px;
-      width: 80px;
+.dark {
+  color: var(--color-dark-primary);
+
+  .arrow {
+    border-color: var(--color-dark-primary);
+  }
+
+  .background {
+    background-color: var(--color-dark-primary);
+  }
+
+  &:hover {
+    color: var(--color-light-100);
+
+    .arrow {
+      border-color: var(--color-dark-primary);
     }
   }
 }
 
 @media (max-width: 1425px) {
   .arrowButtonWithText {
-    width: 240px;
-    height: 64px;
+    --button-height: 80px;
+    --arrow-width: 60px;
+    --button-width: 319px;
+    font-size: 18px;
 
-    .arrow {
-      width: 48px;
-      height: 48px;
-    }
-
-    .background {
-      height: 64px;
-      width: 64px;
+    svg {
+      width: 18px;
+      height: 18px;
     }
   }
 }
 
 @media (max-width: 1265px) {
   .arrowButtonWithText {
-    width: 144px;
-    height: 38px;
-    gap: 19px;
+    --button-height: 120px;
+    --arrow-width: 100px;
+    --button-width: 538px;
+    font-size: 30px;
 
-    span {
-      font-size: 10px;
-    }
-
-    .arrow {
-      width: 28px;
-      height: 28px;
-      border-width: 5px;
-
-      svg {
-        width: 11px;
-        height: 11px;
-      }
-    }
-
-    .background {
-      height: 38px;
-      width: 38px;
+    svg {
+      width: 30px;
+      height: 30px;
     }
   }
 }
 
 @media (max-width: 767px) {
   .arrowButtonWithText {
-    width: 72px;
-    height: 20px;
-    gap: 7px;
+    --button-height: 50px;
+    --arrow-width: 40px;
+    --button-width: 224px;
+    font-size: 12px;
 
-    span {
-      font-size: 5px;
-    }
-
-    .arrow {
-      width: 14px;
-      height: 14px;
-      border-width: 3px;
-
-      svg {
-        width: 5px;
-        height: 5px;
-      }
-    }
-
-    .background {
-      height: 20px;
-      width: 20px;
-    }
-
-    &:hover {
-      gap: 3px;
+    svg {
+      width: 13px;
+      height: 13px;
     }
   }
 }

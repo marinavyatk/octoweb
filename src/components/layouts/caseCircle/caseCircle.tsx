@@ -1,8 +1,8 @@
 import { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 import s from "./caseCircle.module.scss";
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from "next/link";
+import Image from "next/image";
 
 
 export type Category = "All projects" | "Web" | "Seo" | "Ads";
@@ -23,8 +23,11 @@ export const CaseCircle = (props: CaseCircleProps) => {
       className={classNames}
       rel={"nofollow"}
       draggable={false}
+      onDragStart={(event) => {
+        event.preventDefault();
+      }}
     >
-      <Image src={img} alt="caseId" draggable={false} fill/>
+      <Image src={img} alt="caseId" draggable={false} fill />
     </Link>
   );
 };
