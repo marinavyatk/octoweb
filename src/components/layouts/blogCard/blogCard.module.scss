@@ -218,18 +218,22 @@
 @media (max-width: 767px) {
   .blogCard {
     .imgContainer .markContainer {
-      padding: 10px 24px;
+      padding: 10px;
       flex-direction: row;
       gap: 10px;
     }
 
+    .imgContainer {
+      border-radius: 10px;
+    }
+
     .header {
-      font-size: 14px;
+      font-size: 15px;
       margin-top: 10px;
     }
 
     .description {
-      font-size: 10px;
+      font-size: 12px;
       margin-top: 10px;
     }
   }
@@ -244,13 +248,12 @@
 
   .fullWidth {
     .imgContainer {
-      border-radius: 10px;
       height: 150px;
     }
+
     .imgContainer .markContainer {
-      padding: 10px;
       flex-direction: column-reverse;
-      gap: 10px;
+      gap: 12px;
 
       .tagList {
         justify-content: flex-end;

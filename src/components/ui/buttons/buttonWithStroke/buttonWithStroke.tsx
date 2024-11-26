@@ -20,7 +20,7 @@ export const ButtonWithStroke = (props: ButtonWithStrokeProps) => {
   return (
     <div {...restProps} className={classNames}>
       <Stroke className={s.stroke} />
-      <Link href={routes.brief} className={s.arrowLink} rel={"nofollow"} target={"_blank"}>
+      <Link href={routes.brief} className={s.arrowLink} rel={"nofollow"} target={"_blank"} aria-label="Заполнить бриф">
         <ArrowIcon />
       </Link>
     </div>

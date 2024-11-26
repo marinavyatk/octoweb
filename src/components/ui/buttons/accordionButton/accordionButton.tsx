@@ -16,6 +16,7 @@ export const AccordionButton = (props: AccordionButtonProps) => {
       {...restProps}
       className={classNames}
       onClick={() => setOpened(!opened)}
+      aria-label={opened ? "Скрыть ответ" : "Показать ответ"}
     >
       <div className={s.closedBackground}></div>
       <div className={s.horizontal}></div>

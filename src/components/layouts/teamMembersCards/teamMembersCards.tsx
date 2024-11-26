@@ -68,11 +68,13 @@ export const TeamMemberCards = (props: TeamMemberCardsProps) => {
             variant={"previous"}
             onClick={handlePrevButtonClick}
             disabled={isBeginning}
+            aria-label="Назад"
           />
           <ArrowNavigationButton
             variant={"next"}
             onClick={handleNextButtonClick}
             disabled={isEnd}
+            aria-label="Вперёд"
           />
         </div>
       </div>

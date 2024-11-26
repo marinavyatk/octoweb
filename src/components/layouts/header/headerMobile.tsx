@@ -21,7 +21,7 @@ export const HeaderMobile = () => {
   return <>
     <div className={s.mainHeader}>
       <Logo />
-      <button >
+      <button aria-label="Открыть навигационное меню">
         <OpenMenuIcon onClick={() => setOpen(true)} className={s.menuButton}/>
       </button>
     </div>
@@ -31,7 +31,7 @@ export const HeaderMobile = () => {
           <div>
             <div className={s.sideMenuHeader}>
               <Logo onClick={close} sideMenuLogo/>
-              <button onClick={close}>
+              <button onClick={close} aria-label="Закрыть навигационное меню">
                 <CloseIcon />
               </button>
             </div>

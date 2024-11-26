@@ -13,10 +13,11 @@ export type ServicesLinkProps = {
   tags?: TagLink[];
   mainLink: string;
   img?: string;
+  linkProps?: ComponentPropsWithoutRef<"a">
 } & ComponentPropsWithoutRef<"div">;
 
 export const ServicesLink = (props: ServicesLinkProps) => {
-  const { number, header, tags, mainLink, img, className, ...restProps } = props;
+  const { number, header, tags, mainLink, linkProps, img, className, ...restProps } = props;
   const classNames = clsx(s.servicesLink, className);
   const tagList =
     tags &&
@@ -39,7 +40,7 @@ export const ServicesLink = (props: ServicesLinkProps) => {
           <span className={s.number}>{number}</span>
           <h3 className={s.header}>{header}</h3>
         </div>
-        <ArrowButton href={`/services/${mainLink}`} />
+        <ArrowButton href={`/services/${mainLink}`} {...linkProps}/>
       </div>
       {tags && <div className={s.tagList}>{tagList}</div>}
       {img &&

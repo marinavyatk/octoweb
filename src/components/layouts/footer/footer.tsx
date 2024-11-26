@@ -15,7 +15,7 @@ export const Footer = (props: FooterProps) => {
     <div {...restProps} className={classNames}>
       <div className={s.container}>
         <ContactLinks />
-        {needBriefLink && <ButtonWithStroke variant={"secondary"} />}
+        {needBriefLink && <ButtonWithStroke variant={"secondary"}/>}
         <div className={s.contacts}>
           <a href="mailto:info@octoweb.ru">info@octoweb.ru</a>
           <br />

@@ -50,11 +50,12 @@ export const BlogCard = (props: BlogCardProps) => {
                        className={s.arrow}
                        {...linkProps}
                        href={`/blog/${articleId}`}
+                       aria-label={`Смотреть статью "${header}"`}
           />
         </div>
       </div>
       <h2 className={s.header}>
-        <a href={`/blog/${articleId}`} {...linkProps}>
+        <a href={`/blog/${articleId}`} {...linkProps} >
           {header}
         </a>
       </h2>

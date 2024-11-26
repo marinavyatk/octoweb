@@ -12,34 +12,37 @@
 }
 
 .radioItem {
-  display: flex;
   padding: 12px 24px 12px 12px;
   border-radius: 32px;
-  align-items: center;
-  gap: 10px;
   background-color: #232323;
   border: 1px solid var(--color-light-20);
-  width: fit-content;
   color: var(--color-light-100);
   font-size: 18px;
   font-weight: var(--font-weight-regular-300);
   transition: all 0.5s;
   user-select: none;
 
-  &:hover {
+  &:hover:not([data-state="checked"]) {
     border-color: var(--color-accent);
     color: var(--color-accent);
     background-color: #2a2d1c;
-
-    .radioSign:not([data-state="checked"]) {
-      border-color: var(--color-accent);
-    }
   }
 
   &:has([data-state="checked"]) {
     background-color: var(--color-accent);
     color: var(--color-dark-primary);
+
+    .radioSign {
+      border: 8px solid var(--color-dark-primary);
+      background-color: var(--color-accent);
+    }
   }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .radioSign {
@@ -50,17 +53,6 @@
   appearance: none;
   border-radius: 50%;
   transition: all 0.5s;
-  cursor: pointer;
-  box-sizing: border-box;
-
-  &[data-state="checked"] {
-    border: 8px solid var(--color-dark-primary);
-    background-color: var(--color-accent);
-  }
-}
-
-.radioIndicator {
-  display: none;
 }
 
 .error {
@@ -87,14 +79,17 @@
     border-radius: 32px;
     gap: 6px;
     font-size: 10px;
+
+
+    &:has([data-state="checked"]) {
+      .radioSign {
+        border-width: 5px;
+      }
+    }
   }
 
   .radioSign {
     width: 20px;
     height: 20px;
-
-    &[data-state="checked"] {
-      border-width: 5px;
-    }
   }
 }
