@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {AboutCard} from '@/components/layouts/aboutCard/aboutCard';
+import {AboutCard} from '@/components/sections/aboutCard/aboutCard';
 
 const meta = {
-    title: "Layouts/AboutCard",
+    title: "Sections/AboutCard",
     component: AboutCard,
     tags: ["autodocs"],
     argTypes: {},

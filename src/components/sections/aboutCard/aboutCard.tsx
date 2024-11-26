@@ -4,7 +4,7 @@ import { ArrowButtonWithText } from "@/components/ui/buttons/ArrowButtonWithText
 
 export const AboutCard = () => {
   return (
-    <div className={s.about}>
+    <section className={s.about}>
       <div className={s.text}>
         <h2>
           ВЕБ-студия <br />
@@ -15,7 +15,6 @@ export const AboutCard = () => {
           интернет-магазинов и бизнес-сайтов
         </p>
       </div>
-
       <div className={s.imageWithButton}>
         <div className={s.imgContainer}>
             <Image src={'/teamMainPhoto.webp'} alt={"Команда"} fill sizes={'(max-width: 767px) 736px, (max-width: 1280px) 1152px, (max-width: 1440px) 1328px, 1816px'} />
@@ -28,6 +27,6 @@ export const AboutCard = () => {
           className={s.arrowButton}
         />
       </div>
-    </div>
+    </section>
   );
 };

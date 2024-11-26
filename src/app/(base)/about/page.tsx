@@ -1,6 +1,6 @@
 import s from './aboutPage.module.scss';
-import {StackList} from '@/components/layouts/stackList/stackList';
-import {TeamMemberCards} from '@/components/layouts/teamMembersCards/teamMembersCards';
+import {StackList} from '@/components/sections/stackList/stackList';
+import {TeamMemberCards} from '@/components/sections/teamMembersCards/teamMembersCards';
 import {teamMembersInfo} from '@/common/componentsData/teamMembersInfo';
 import Image from 'next/image';
 

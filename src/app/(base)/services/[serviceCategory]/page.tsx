@@ -1,9 +1,9 @@
 import s from "./serviceCategory.module.scss";
-import { ServicesLinksList } from "@/components/layouts/servicesLinksList/servicesLinksList";
-import { StepCards } from "@/components/layouts/stepCards/stepCards";
-import { FAQ } from "@/components/layouts/faq/faq";
-import { AdvantageSection } from "@/components/layouts/advantageSection/advantageSection";
-import { CooperationCard } from "@/components/layouts/cooperationCard/cooperationCard";
+import { ServicesLinksList } from "@/components/sections/servicesLinksList/servicesLinksList";
+import { StepCards } from "@/components/sections/stepCards/stepCards";
+import { FAQ } from "@/components/sections/faq/faq";
+import { Advantages } from "@/components/sections/advantages/advantages";
+import { CooperationCard } from "@/components/sections/cooperationCard/cooperationCard";
 import { linksData } from "@/common/componentsData/links";
 import { faqData } from "@/common/componentsData/faq";
 import { Greeting } from "@/components/sections/greeting/greeting";
@@ -22,7 +22,7 @@ export default function ServiceCategory() {
     <>
       <Greeting textContent={textContent} className={"mainContainer"} />
       <ServicesLinksList linksData={linksData} header={'Услуги разработки'}/>
-      <AdvantageSection className={clsx(s.advantagesSection, "mainContainer")} />
+      <Advantages className={clsx(s.advantagesSection, "mainContainer")} />
       <CooperationCard />
       <StepCards className={s.steps} />
       <FAQ faqData={faqData} className={clsx(s.faq, "mainContainer")} />

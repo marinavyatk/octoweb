@@ -1,9 +1,9 @@
 import { GreetingDescription } from "@/components/layouts/greetingDescription/greetingDescription";
-import { AboutCard } from "@/components/layouts/aboutCard/aboutCard";
+import { AboutCard } from "@/components/sections/aboutCard/aboutCard";
 import { AdvantageCards } from "@/components/layouts/advantageCards/advantageCards";
 import { CaseCard, Size } from "@/components/layouts/caseCard/caseCard";
-import { ServicesLinksList } from "@/components/layouts/servicesLinksList/servicesLinksList";
-import { StepCards } from "@/components/layouts/stepCards/stepCards";
+import { ServicesLinksList } from "@/components/sections/servicesLinksList/servicesLinksList";
+import { StepCards } from "@/components/sections/stepCards/stepCards";
 import s from "./page.module.scss";
 import { routes } from "@/common/routes";
 import { mainPageCases } from "@/common/componentsData/mainPageCases";

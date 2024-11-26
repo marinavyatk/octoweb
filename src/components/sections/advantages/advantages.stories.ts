@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { AdvantageSection } from "@/components/layouts/advantageSection/advantageSection";
+import { Advantages } from "@/components/sections/advantages/advantages";
 
 const meta = {
-    title: "Layouts/AdvantageSection",
-    component: AdvantageSection,
+    title: "Sections/Advantages",
+    component: Advantages,
     tags: ["autodocs"],
     argTypes: {},
-} satisfies Meta<typeof AdvantageSection>;
+} satisfies Meta<typeof Advantages>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -3,7 +3,7 @@ import { Question } from "@/components/layouts/question/question";
 
 export type FAQProps = {
   faqData: { question: string; answer: string }[];
-} & ComponentPropsWithoutRef<"div">;
+} & ComponentPropsWithoutRef<"section">;
 
 export const FAQ = (props: FAQProps) => {
   const { faqData, ...restProps } = props;
@@ -14,5 +14,5 @@ export const FAQ = (props: FAQProps) => {
     );
   });
 
-  return <div {...restProps}>{questions}</div>;
+  return <section {...restProps}>{questions}</section>;
 };

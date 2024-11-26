@@ -13,7 +13,7 @@ import "swiper/css";
 
 export type TeamMemberCardsProps = {
   teamMembers: TeamMember[];
-  className: string;
+  className?: string;
 };
 
 export const TeamMemberCards = (props: TeamMemberCardsProps) => {
@@ -60,7 +60,7 @@ export const TeamMemberCards = (props: TeamMemberCardsProps) => {
   const handleNextButtonClick = () => swiperRef.current?.slideNext();
 
   return (
-    <div className={classNames} id={"team"}>
+    <section className={classNames} id={"team"}>
       <div className={s.header}>
         <h2>КОМАНДА</h2>
         <div className={s.buttons}>
@@ -87,6 +87,6 @@ export const TeamMemberCards = (props: TeamMemberCardsProps) => {
       >
         {teamMemberList}
       </Swiper>
-    </div>
+    </section>
   );
 };

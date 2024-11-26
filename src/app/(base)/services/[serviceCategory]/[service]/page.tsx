@@ -1,22 +1,22 @@
 import s from "./service.module.scss";
-import { Team } from "@/components/layouts/team/team";
-import { StepCards } from "@/components/layouts/stepCards/stepCards";
-import { FAQ } from "@/components/layouts/faq/faq";
+import { Team } from "@/components/sections/team/team";
+import { StepCards } from "@/components/sections/stepCards/stepCards";
+import { FAQ } from "@/components/sections/faq/faq";
 import ArrowIconForPrices from "@/svg/arrow4.svg";
 import { AccentTable } from "@/components/layouts/accentTable/accentTable";
 import { PriceTable } from "@/components/layouts/priceTable/priceTable";
-import { CooperationCard } from "@/components/layouts/cooperationCard/cooperationCard";
-import { AdvantageSection } from "@/components/layouts/advantageSection/advantageSection";
+import { CooperationCard } from "@/components/sections/cooperationCard/cooperationCard";
 import { serviceData } from "@/common/componentsData/service";
 import { faqData } from "@/common/componentsData/faq";
 import Image from "next/image";
 import { ArrowButtonWithText } from "@/components/ui/buttons/ArrowButtonWithText/arrowButtonWithText";
+import { Advantages } from "@/components/sections/advantages/advantages";
 
 
 export default function Service() {
   return (
     <div className={s.servicePage}>
-      <div className={'mainContainer'}>
+      <div className={"mainContainer"}>
         <h1>{serviceData.serviceName}</h1>
         <div className={s.discussProject}>
           <p>{serviceData.description}</p>
@@ -28,7 +28,7 @@ export default function Service() {
           />
         </div>
         <div className={s.serviceImg}>
-          <Image src={"/onlineStoreImg.webp"} alt={""} fill sizes={'100vw'} priority/>
+          <Image src={"/onlineStoreImg.webp"} alt={""} fill sizes={"100vw"} priority />
         </div>
         <div className={s.aboutService}>
           <h2>ОБ УСЛУГЕ</h2>
@@ -44,8 +44,8 @@ export default function Service() {
         </div>
       </div>
       <CooperationCard />
-      <div className={'mainContainer'}>
-        <AdvantageSection />
+      <div className={"mainContainer"}>
+        <Advantages />
         <AccentTable
           header={serviceData.audience.header}
           items={serviceData.audience.items}
@@ -79,7 +79,7 @@ export default function Service() {
           <PriceTable priceItems={serviceData.priceTable} />
         </div>
       </section>
-      <div className={'mainContainer'}>
+      <div className={"mainContainer"}>
         <FAQ className={s.faq} faqData={faqData} />
       </div>
     </div>

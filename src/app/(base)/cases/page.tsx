@@ -4,7 +4,7 @@ import s from "./cases.module.scss";
 import { CaseCircle, Category } from "@/components/layouts/caseCircle/caseCircle";
 import { FilterButton } from "@/components/ui/buttons/filterButton/filterButton";
 import { useState } from "react";
-import { CaseCircleList } from "@/components/layouts/caseCircleList/caseCircleList";
+import { CaseCircleList } from "@/components/sections/caseCircleList/caseCircleList";
 import { CaseCardFullWidth } from "@/components/layouts/caseCardFullWidth/caseCardFullWidth";
 import { CaseCard, Size } from "@/components/layouts/caseCard/caseCard";
 import { buttons, casesData, circles, sizes } from "@/common/componentsData/cases";
