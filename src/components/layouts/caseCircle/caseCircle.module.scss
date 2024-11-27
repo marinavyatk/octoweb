@@ -6,6 +6,7 @@
   display: inline-block;
   flex-shrink: 0;
   position: relative;
+  overflow: hidden;
 }
 
 @media (max-width: 1905px) {

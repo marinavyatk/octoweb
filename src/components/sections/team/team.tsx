@@ -54,8 +54,11 @@ export const Team = (props: TeamProps) => {
         <div className={s.firstCol}>
           <p className={s.desktopIntro}>{intro}</p>
           <div className={s.teamMemberContainer}>
-            <Image src={"/teamMemberBackground.webp"} alt={""} className={s.background} fill
-                   sizes={"100vw"} key="team-member-background" />
+            <Image src={"/teamMemberBackground.webp"} alt={""}
+                   className={s.background}
+                   fill
+                   sizes={"(max-width: 450px) 100vw, (max-width:767px) 450px, (max-width: 970px) 800px, (max-width: 1675px) 600px, 820px"}
+                   key="team-member-background" />
             {currentMemberCard}
           </div>
         </div>

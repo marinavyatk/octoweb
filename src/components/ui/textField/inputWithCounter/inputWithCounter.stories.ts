@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { InputWithCounter } from "./inputWithCounter";
 
 const meta = {
-  title: "UI/InputWithCounter",
+  title: "UI/TextField/InputWithCounter",
   component: InputWithCounter,
   tags: ["autodocs"],
   argTypes: {},

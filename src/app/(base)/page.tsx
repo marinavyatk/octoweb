@@ -37,8 +37,8 @@ export default function Home() {
         <section className={s.advantages}>
           <h2>ПОЧЕМУ МЫ?</h2>
           <div className={s.arrow}></div>
-          <span>くコ:彡</span>
-          <span>くコ:彡</span>
+          <span className={s.backgroundSymbol}>くコ:彡</span>
+          <span className={s.backgroundSymbol}>くコ:彡</span>
           <div className={s.advantagesCards}>
             <AdvantageCards />
           </div>

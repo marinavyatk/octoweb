@@ -40,7 +40,7 @@ export const Input = React.forwardRef((props: InputProps, ref: Ref<HTMLInputElem
             <InputMask
               mask="+7\ (999) 999-99-99"
               {...restProps}
-              className={s.input}
+              className={s.textField}
               name={restProps?.name}
               id={restProps?.name}
               ref={ref}
@@ -48,7 +48,7 @@ export const Input = React.forwardRef((props: InputProps, ref: Ref<HTMLInputElem
           ) : (
             <input
               {...restProps}
-              className={s.input}
+              className={s.textField}
               name={restProps?.name}
               id={restProps?.name}
               ref={ref}

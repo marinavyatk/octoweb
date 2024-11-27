@@ -49,13 +49,12 @@ export default function Cases() {
         caseId={card.caseId}
       />
     ) : (
-      <div className={s.fullWidthContainer}>
+      <div className={s.fullWidthContainer} key={uuid()}>
         <CaseCardFullWidth
           category={card.category}
           tags={card.tags}
           img={card.img}
           header={card.header}
-          key={uuid()}
           caseId={card.caseId}
         />
       </div>

@@ -95,6 +95,7 @@
 
     a:nth-of-type(2n) {
       align-self: flex-end;
+      padding: 0 var(--offset-x);
     }
 
     .fullWidthContainer{

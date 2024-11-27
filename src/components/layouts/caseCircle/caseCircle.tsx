@@ -2,7 +2,7 @@ import { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 import s from "./caseCircle.module.scss";
 import Link from "next/link";
-import Image from "next/image";
+import { Picture } from "@/components/ui/picture/picture";
 
 
 export type Category = "All projects" | "Web" | "Seo" | "Ads";
@@ -27,7 +27,8 @@ export const CaseCircle = (props: CaseCircleProps) => {
         event.preventDefault();
       }}
     >
-      <Image src={img} alt="caseId" draggable={false} fill />
+      <Picture src={img} alt="caseId" draggable={false} fill
+               sizes={"(max-width: 767px) 76px,(max-width: 1905px) 170px, 232px"} />
     </Link>
   );
 };

@@ -8,6 +8,7 @@ import { useState } from "react";
 import { ArrowButtonWithText } from "@/components/ui/buttons/ArrowButtonWithText/arrowButtonWithText";
 import { tempData } from "@/common/componentsData/blog";
 import { clsx } from "clsx";
+import { v4 as uuid } from "uuid";
 
 export default function Blog() {
   const [currentFilter, setCurrentFilter] = useState<Category>("All projects");
@@ -26,11 +27,11 @@ export default function Blog() {
   });
   const articles = tempData.map((article, index) => {
     if (index === 0) {
-      return <BlogCard {...article} size={"fullWidth"} key={article.id} />;
+      return <BlogCard {...article} size={"fullWidth"} key={uuid()} priority />;
     }
 
     if (index === 1) {
-      return <BlogCard {...article} size={"small"} key={article.id} />;
+      return <BlogCard {...article} size={"small"} key={uuid()} />;
     }
 
     const modIndex = (index - 2) % 4;
@@ -41,7 +42,7 @@ export default function Blog() {
       size = "small";
     }
 
-    return <BlogCard {...article} size={size as Size} key={article.id} />;
+    return <BlogCard {...article} size={size as Size} key={uuid()} />;
   });
 
   const handleLoadMore = () => {

@@ -9,7 +9,7 @@ import { Checkbox } from "../../ui/checkbox/checkbox";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowButtonWithText } from "@/components/ui/buttons/ArrowButtonWithText/arrowButtonWithText";
-import { InputWithCounter } from "../../ui/inputWithCounter/inputWithCounter";
+import { InputWithCounter } from "@/components/ui/textField/inputWithCounter/inputWithCounter";
 import { formSchema } from "@/common/validation";
 import { FormNotification } from "@/components/layouts/formNotification/formNotification";
 

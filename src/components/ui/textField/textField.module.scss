@@ -30,7 +30,7 @@
   height: 24px;
 }
 
-.input {
+.textField {
   color: var(--color-light-100);
   font-size: 24px;
   font-weight: var(--font-weight-regular-400);
@@ -68,7 +68,7 @@
     border-bottom: 1px solid var(--color-error);
   }
 
-  input {
+  .textField {
     color: var(--color-error);
   }
 
@@ -83,28 +83,28 @@
 }
 
 @media (max-width: 1905px) {
-  .input {
+  .textField {
     font-size: 18px;
     padding: 8px 0;
   }
 }
 
 @media (max-width: 1425px) {
-  .input {
+  .textField {
     font-size: 16px;
     padding: 4px 0;
   }
 }
 
 @media (max-width: 1265px) {
-  .input {
+  .textField {
     font-size: 24px;
     padding: 0;
   }
 }
 
 @media (max-width: 767px) {
-  .input {
+  .textField {
     font-size: 16px;
   }
   .errorIcon {

@@ -52,15 +52,22 @@
   bottom: 0;
 }
 
-.imgPositionContainer {
+.imgContainer .imgPositionContainer {
   position: relative;
   width: 370px;
   height: 512px;
+  background-color: unset;
 
   img {
     object-fit: contain;
     object-position: right bottom;
+    z-index: -1;
   }
+}
+
+.imgContainer .loader {
+  border: 5px solid black;
+  border-bottom-color: var(--color-primary);
 }
 
 @media (max-width: 1675px) {
@@ -88,7 +95,7 @@
     padding-right: 26px;
   }
 
-  .imgPositionContainer {
+  .imgContainer .imgPositionContainer {
     width: 288px;
     height: 398px;
   }
@@ -100,7 +107,7 @@
     max-width: 370px;
   }
 
-  .imgPositionContainer {
+  .imgContainer .imgPositionContainer {
     width: 368px;
     height: 510px;
   }
@@ -117,7 +124,7 @@
     padding: 16px 0 16px 16px;
   }
 
-  .imgPositionContainer {
+  .imgContainer .imgPositionContainer {
     width: 153px;
     height: 212px;
   }

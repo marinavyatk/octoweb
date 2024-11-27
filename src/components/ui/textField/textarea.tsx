@@ -9,7 +9,7 @@ export type TextAreaProps = {
   label?: string;
   isRequiredField?: boolean;
   errorMessage?: string | undefined;
-  divProps?: ComponentPropsWithoutRef<"div">;
+  containerProps?: ComponentPropsWithoutRef<"div">;
 } & Omit<ComponentPropsWithoutRef<"textarea">, "style">;
 
 export const TextArea = React.forwardRef(
@@ -18,7 +18,7 @@ export const TextArea = React.forwardRef(
       isRequiredField,
       label,
       errorMessage,
-      divProps,
+      containerProps,
       className,
       ...restProps
     } = props;
@@ -27,7 +27,7 @@ export const TextArea = React.forwardRef(
     });
 
     return (
-      <div className={classNames} {...divProps}>
+      <div className={classNames} {...containerProps}>
         {label && (
           <Label
             text={label}
@@ -39,7 +39,7 @@ export const TextArea = React.forwardRef(
         <div className={s.position}>
           <TextareaAutosize
             {...restProps}
-            className={s.input}
+            className={s.textField}
             name={restProps?.name}
             id={restProps?.name}
             ref={ref}

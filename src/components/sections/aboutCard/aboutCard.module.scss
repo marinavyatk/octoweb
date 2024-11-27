@@ -45,9 +45,7 @@
   }
 
   .imgContainer {
-    background-color: var(--color-dark-secondary);
     height: 966px;
-    width: 100%;
     mask-image: url(../../../svg/mainPagePhotoShape.svg);
     -webkit-mask-image: url(../../../svg/mainPagePhotoShape.svg);
     mask-size: 100% 100%;
@@ -55,7 +53,6 @@
     mask-repeat: no-repeat;
     -webkit-mask-repeat: no-repeat;
     overflow: hidden;
-    position: relative;
     z-index: -1;
 
     img {

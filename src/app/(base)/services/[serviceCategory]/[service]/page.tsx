@@ -8,9 +8,9 @@ import { PriceTable } from "@/components/layouts/priceTable/priceTable";
 import { CooperationCard } from "@/components/sections/cooperationCard/cooperationCard";
 import { serviceData } from "@/common/componentsData/service";
 import { faqData } from "@/common/componentsData/faq";
-import Image from "next/image";
 import { ArrowButtonWithText } from "@/components/ui/buttons/ArrowButtonWithText/arrowButtonWithText";
 import { Advantages } from "@/components/sections/advantages/advantages";
+import { Picture } from "@/components/ui/picture/picture";
 
 
 export default function Service() {
@@ -27,9 +27,8 @@ export default function Service() {
             className={s.arrowLink}
           />
         </div>
-        <div className={s.serviceImg}>
-          <Image src={"/onlineStoreImg.webp"} alt={""} fill sizes={"100vw"} priority />
-        </div>
+        <Picture src={"/onlineStoreImg.webp"} alt={""} fill sizes={"100vw"} priority
+                 containerProps={{ className: s.serviceImg }} />
         <div className={s.aboutService}>
           <h2>ОБ УСЛУГЕ</h2>
           <div className={s.container}>
