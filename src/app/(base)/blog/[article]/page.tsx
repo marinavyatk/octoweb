@@ -1,12 +1,12 @@
-import s from './article.module.scss';
-import {Tag} from '@/components/ui/tag/tag';
-import {ShareButton} from '@/components/ui/buttons/shareButton/shareButton';
-import {FAQ} from '@/components/sections/faq/faq';
-import {ElementType} from 'react';
-import {articleData} from '@/common/componentsData/article';
-import {faqData} from '@/common/componentsData/faq';
-import Image from 'next/image';
+import s from "./article.module.scss";
+import { Tag } from "@/components/ui/tag/tag";
+import { ShareButton } from "@/components/ui/buttons/shareButton/shareButton";
+import { FAQ } from "@/components/sections/faq/faq";
+import { ElementType } from "react";
+import { articleData } from "@/common/componentsData/article";
+import { faqData } from "@/common/componentsData/faq";
 import { clsx } from "clsx";
+import { Picture } from "@/components/ui/picture/picture";
 
 
 export default function Article(){
@@ -56,9 +56,7 @@ export default function Article(){
         </div>
         <ShareButton />
       </div>
-      <div className={s.imgContainer}>
-        <Image src={articleData.mainPhoto} alt="" fill />
-      </div>
+      <Picture src={articleData.mainPhoto} alt="" fill containerProps={{className: s.imgContainer}} priority/>
       <div className={s.article}>
         {articleContent}
       </div>

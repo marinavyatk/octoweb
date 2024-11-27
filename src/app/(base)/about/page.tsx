@@ -1,8 +1,8 @@
-import s from './aboutPage.module.scss';
-import {StackList} from '@/components/sections/stackList/stackList';
-import {TeamMemberCards} from '@/components/sections/teamMembersCards/teamMembersCards';
-import {teamMembersInfo} from '@/common/componentsData/teamMembersInfo';
-import Image from 'next/image';
+import s from "./aboutPage.module.scss";
+import { StackList } from "@/components/sections/stackList/stackList";
+import { TeamMemberCards } from "@/components/sections/teamMembersCards/teamMembersCards";
+import { teamMembersInfo } from "@/common/componentsData/teamMembersInfo";
+import { Picture } from "@/components/ui/picture/picture";
 
 export default function  About (){
 
@@ -16,7 +16,7 @@ export default function  About (){
           <p>Раскроем подробности о том, кто стоит за реализацией проектов</p>
         </div>
         <div className={s.imageContainer}>
-          <Image src={"/teamMainPhoto.webp"} alt={'Команда'} fill priority/>
+          <Picture src={"/teamMainPhoto.webp"} alt={'Команда'} fill priority/>
         </div>
         <div className={'mainContainer'}>
           <div className={s.aboutCompany}>

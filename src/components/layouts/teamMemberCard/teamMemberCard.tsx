@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 import s from "./teamMemberCard.module.scss";
-import Image from 'next/image';
+import { Picture } from "@/components/ui/picture/picture";
 
 export type TeamMember = {
   workExperience: string;
@@ -28,7 +28,7 @@ export const TeamMemberCard = (props: TeamMemberCardProps) => {
   return (
     <div {...restProps} className={classNames}>
       <div className={s.frontSide + " " + s.card}>
-        <Image src={img} alt={specialization} width={536} height={536} />
+        <Picture src={img} alt={specialization} width={536} height={536} />
         <div className={s.about}>
           <h3 className={s.name}>{name}</h3>
           <span className={s.specialization}>{specialization}</span>

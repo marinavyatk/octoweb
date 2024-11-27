@@ -2,8 +2,8 @@ import s from "./case.module.scss";
 import { Tag } from "@/components/ui/tag/tag";
 import { WebsiteLink } from "@/components/ui/websiteLink/websiteLink";
 import { caseData } from "@/common/componentsData/case";
-import Image from "next/image";
 import { clsx } from "clsx";
+import { Picture } from "@/components/ui/picture/picture";
 
 export default function Case() {
   const tagList = caseData.tags.map((tag) => {
@@ -39,9 +39,7 @@ export default function Case() {
         </div>
       </div>
       <div className={s.mainInfoContainer}>
-      <div className={s.mainImgContainer}>
-        <Image src={caseData.img.main} alt="" fill />
-      </div>
+        <Picture src={caseData.img.main} alt="" fill containerProps={{className: s.mainImgContainer}} priority sizes={'100vw'}/>
       <div className={s.descriptionContainer}>
       <p className={s.description}>{caseData.description}</p>
     </div>
@@ -52,19 +50,13 @@ export default function Case() {
             <p className={s.taskDescription}>{caseData.taskDescription}</p>
           </div>
           <div className={s.images}>
-            <div className={s.smallImg}>
-              <Image src={caseData.img.small} alt="" fill
-                     sizes={"(max-width: 767px) 228px,(max-width: 1425px) 547px,(max-width: 1905px) 392px,536px"} />
-            </div>
-            <div className={s.mediumImg}>
-              <Image src={caseData.img.medium} alt="" fill
-                     sizes={"(max-width: 767px) 288px,(max-width: 1425px) 691px,(max-width: 1905px) 808px, 1104px"} />
-            </div>
-        </div>
+            <Picture src={caseData.img.small} alt="" fill
+                     sizes={"(max-width: 767px) 228px,(max-width: 1425px) 547px,(max-width: 1905px) 392px,536px"} containerProps={{className: s.smallImg}} />
+            <Picture src={caseData.img.medium} alt="" fill
+                     sizes={"(max-width: 767px) 288px,(max-width: 1425px) 691px,(max-width: 1905px) 808px, 1104px"} containerProps={{className: s.mediumImg}}/>
+          </div>
       </div>
-      <div className={s.bigImg}>
-        <Image src={caseData.img.big} alt="" fill sizes={"100vw"} />
-      </div>
+      <Picture src={caseData.img.big} alt="" fill sizes={"100vw"} containerProps={{className: s.bigImg}}/>
       <div className={clsx("mainContainer", s.resultBlock)}>
           <div className={s.resultInfo}>
             <h2>Результат</h2>

@@ -1,8 +1,8 @@
 import s from "./cooperationCard.module.scss";
 import { AnimatedField } from "../../ui/animatedField/animatedField";
 import ArrowIcon from "@/svg/arrow.svg";
-import Image from "next/image";
 import HappySymbol from "@/svg/happy-symbol.svg";
+import { Picture } from "@/components/ui/picture/picture";
 
 export const CooperationCard = () => {
   return (
@@ -32,10 +32,10 @@ export const CooperationCard = () => {
         </AnimatedField>
       </div>
       <div className={s.map}>
-        <div className={s.imgContainer}>
-          <Image src={"/map.webp"} alt={"Карта"} fill
-                 sizes={"(max-width: 767px) 375px,(max-width: 1265px) 736px, (max-width: 1425px) 1193px, (max-width: 1905px) 1224px, 1655px"} />
-        </div>
+        <Picture src={"/map.webp"} alt={"Карта"} fill
+                 sizes={"(max-width: 767px) 375px,(max-width: 1265px) 736px, (max-width: 1425px) 1193px, (max-width: 1905px) 1224px, 1655px"}
+                 containerProps={{ className: s.imgContainer }}
+        />
         <p>
           Мы базируемся в Краснодаре и эффективно сотрудничаем с клиентами по
           всей России на удаленной основе.

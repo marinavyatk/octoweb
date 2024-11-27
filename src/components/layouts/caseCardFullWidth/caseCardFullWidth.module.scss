@@ -6,9 +6,6 @@
 
   .imgContainer {
     overflow: hidden;
-    background-color: var(--color-dark-secondary);
-    width: 100%;
-    height: 100%;
     mask-image: url(../../../svg/caseCardFullWidthShape.svg);
     -webkit-mask-image: url(../../../svg/caseCardFullWidthShape.svg);
     mask-size: 100% 100%;

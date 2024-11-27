@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 import s from "./teamMemberIntro.module.scss";
-import Image from "next/image";
+import { Picture } from "@/components/ui/picture/picture";
 
 export type TeamMember = {
   id: string;
@@ -37,10 +37,11 @@ export const TeamMemberIntro = (props: TeamMemberIntroProps) => {
         <p className={s.description}>{description}</p>
       </div>
       <div className={s.imgContainer}>
-        <div className={s.imgPositionContainer}>
-          <Image src={img} alt={name} fill
-                 sizes={"(max-width: 767px) 154px, 370px"} />
-        </div>
+        <Picture src={img} alt={name} fill
+                 sizes={"(max-width: 767px) 154px, 370px"}
+                 containerProps={{ className: s.imgPositionContainer }}
+                 loaderProps={{ className: s.loader }}
+        />
       </div>
     </div>
   );

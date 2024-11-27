@@ -1,7 +1,7 @@
-import {ComponentPropsWithoutRef} from 'react';
-import {clsx} from 'clsx';
-import s from './advantageCard.module.scss';
-import Image from 'next/image';
+import { ComponentPropsWithoutRef } from "react";
+import { clsx } from "clsx";
+import s from "./advantageCard.module.scss";
+import { Picture } from "@/components/ui/picture/picture";
 
 export type AdvantagesCardProps = {
   icon: string;
@@ -15,9 +15,7 @@ export const AdvantageCard = (props: AdvantagesCardProps) => {
   return (
     <div className={classNames} {...restProps}>
       <figure>
-        <div className={s.imgContainer}>
-            <Image src={icon} alt='' fill sizes={'max-width: (767px) 67px, max-width: (1425px) 160px, 130px'}/>
-        </div>
+          <Picture src={icon} alt='' fill sizes={'max-width: (767px) 67px, max-width: (1425px) 160px, 130px'} containerProps={{className: s.imgContainer}}/>
         <figcaption>{header}</figcaption>
       </figure>
       <p>{paragraph}</p>

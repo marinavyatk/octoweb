@@ -27,7 +27,7 @@
     width: 338px;
   }
 
-  span {
+  .backgroundSymbol {
     position: absolute;
     color: var(--color-primary);
     font-weight: var(--font-weight-regular-500);
@@ -38,7 +38,7 @@
     transform: rotate(68deg) scaleY(-1);
   }
 
-  span + span {
+  .backgroundSymbol + .backgroundSymbol {
     font-size: 32px;
     left: 330px;
     top: 535px;
@@ -112,11 +112,11 @@
       justify-content: flex-end;
     }
 
-    span {
+    .backgroundSymbol {
       left: -50px;
     }
 
-    span + span {
+    .backgroundSymbol + .backgroundSymbol {
       left: 20px;
     }
 
@@ -164,11 +164,11 @@
       margin-bottom: 60px;
     }
 
-    span {
+    .backgroundSymbol {
       left: -20px;
     }
 
-    span + span {
+    .backgroundSymbol + .backgroundSymbol {
       left: 33px;
     }
   }
@@ -213,11 +213,11 @@
       left: 25px;
     }
 
-    span {
+    .backgroundSymbol {
       left: -20px;
     }
 
-    span + span {
+    .backgroundSymbol + .backgroundSymbol {
       left: 33px;
     }
   }
@@ -265,13 +265,13 @@
       margin-bottom: 50px;
     }
 
-    span {
+    .backgroundSymbol {
       left: -20px;
       height: 80px;
       font-size: 29px;
     }
 
-    span + span {
+    .backgroundSymbol + .backgroundSymbol {
       left: -25px;
       font-size: 23px;
     }

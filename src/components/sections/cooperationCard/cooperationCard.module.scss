@@ -61,6 +61,8 @@
 }
 
 .map {
+  margin: 0 auto;
+
   p {
     font-weight: var(--font-weight-regular-300);
     font-size: 24px;
@@ -70,7 +72,6 @@
   }
 
   .imgContainer {
-    width: 100%;
     height: 599px;
     mask-image: url(../../../svg/mapShape.svg);
     -webkit-mask-image: url(../../../svg/mapShape.svg);
@@ -78,7 +79,6 @@
     -webkit-mask-size: 100% 100%;
     mask-repeat: no-repeat;
     -webkit-mask-repeat: no-repeat;
-    background-color: var(--color-dark-secondary);
     position: relative;
     shape-outside: polygon(100% 0%, 100% 100%, 37% 100%, 37% 78%, 0% 78%, 0% 0%);
     float: right;
