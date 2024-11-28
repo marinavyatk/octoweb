@@ -4,12 +4,12 @@
   align-items: center;
   gap: 10px;
   width: fit-content;
-  border: 1px solid #454748;
+  border: 1px solid var(--color-light-20);
   border-radius: 18px;
   color: var(--color-light-100);
   font-size: 18px;
   font-weight: var(--font-weight-regular-300);
-  background-color: #232323;
+  background-color: var(--color-inactive-element);
   transition: all 0.5s;
   user-select: none;
 
@@ -19,13 +19,13 @@
     width: 32px;
     height: 32px;
     appearance: none;
-    background-color: rgba(22, 22, 22, 0.2);
+    background-color: var(--color-dark-primary-20);
     cursor: pointer;
     transition: border-color 0.5s;
   }
 
   &:hover:not(:has(:checked)) {
-    background-color: #221a2c;
+    background-color: var(--color-inactive-element-hover);
     border-color: var(--color-primary);
     color: var(--color-primary);
     transition: all 0.5s;
@@ -37,7 +37,7 @@
   }
 
   &:has(:checked) {
-    background: linear-gradient(351deg, #a330ff 0%, #ff37df 100%);
+    background: linear-gradient(351deg, var(--color-primary) 0%, var(--color-primary-bright) 100%);
 
     input {
       background-color: var(--color-dark-primary);

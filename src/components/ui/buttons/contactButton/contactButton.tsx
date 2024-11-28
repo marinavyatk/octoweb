@@ -10,9 +10,9 @@ export const ContactButton = (props: ContactButtonProps) => {
   const classNames = clsx(s.contactButton, className);
   return (
     <a  className={classNames} rel={"nofollow"} href={"#form" } {...restProps}>
-      <span>{text}</span>
+      <span className={s.text}>{text}</span>
       <div className={s.background}></div>
-      <div className={s.arrow}>
+      <div className={s.arrowContainer}>
         <ArrowIcon />
       </div>
     </a>

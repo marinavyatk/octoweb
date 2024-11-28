@@ -24,7 +24,7 @@ export const ServicesLink = (props: ServicesLinkProps) => {
     tags.map((tag) => {
       return (
         <Tag key={tag.text}
-             variant={"monochrome-secondary"}
+             variant={"monochromeSecondary"}
              as={Link}
              href={`/services/${mainLink}/${tag.subLink}`}
         >

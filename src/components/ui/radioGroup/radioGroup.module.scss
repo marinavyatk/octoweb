@@ -14,7 +14,7 @@
 .radioItem {
   padding: 12px 24px 12px 12px;
   border-radius: 32px;
-  background-color: #232323;
+  background-color: var(--color-inactive-element);
   border: 1px solid var(--color-light-20);
   color: var(--color-light-100);
   font-size: 18px;

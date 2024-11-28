@@ -1,5 +1,5 @@
 import s from "./briefOffer.module.scss";
-import { ButtonWithStroke } from "@/components/ui/buttons/buttonWithStroke/buttonWithStroke";
+import { BriefButton } from "@/components/ui/buttons/briefButton/briefButton";
 import { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 
@@ -9,7 +9,7 @@ export const BriefOffer = (props: BriefOfferProps) => {
 
   return (
     <div className={classNames}>
-      <ButtonWithStroke aria-label="Заполнить бриф"/>
+      <BriefButton aria-label="Заполнить бриф"/>
       <div className={s.offerText}>
         <span className={s.heading}>
           Получите скидку <span className={s.accent}>5000 рублей!</span>

@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { Checkbox } from "../../ui/checkbox/checkbox";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ArrowButtonWithText } from "@/components/ui/buttons/ArrowButtonWithText/arrowButtonWithText";
+import { Button } from "@/components/ui/buttons/button/button";
 import { InputWithCounter } from "@/components/ui/textField/inputWithCounter/inputWithCounter";
 import { formSchema } from "@/common/validation";
 import { FormNotification } from "@/components/layouts/formNotification/formNotification";
@@ -114,7 +114,7 @@ export const Form = (props: FormProps) => {
             и, нажимая на кнопку “Отправить”, даю согласие на обработку компанией указанных мной
             персональных данных
           </p>
-          <ArrowButtonWithText text={"Отправить"} type={"submit"} className={s.arrowButton} />
+          <Button text={"Отправить"} type={"submit"} className={s.arrowButton} />
         </div>
       </form>
     </div>

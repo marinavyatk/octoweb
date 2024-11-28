@@ -3,11 +3,8 @@
 import { MutableRefObject, useRef, useState } from "react";
 import clsx from "clsx";
 import s from "./teamMembersCards.module.scss";
-import {
-  TeamMember,
-  TeamMemberCard
-} from "@/components/layouts/teamMemberCard/teamMemberCard";
-import { ArrowNavigationButton } from "@/components/ui/buttons/arrowNavigationButton/arrowNavigationButton";
+import { TeamMember, TeamMemberCard } from "@/components/layouts/teamMemberCard/teamMemberCard";
+import { NavigationButton } from "@/components/ui/buttons/navigationButton/navigationButton";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
@@ -64,13 +61,13 @@ export const TeamMemberCards = (props: TeamMemberCardsProps) => {
       <div className={s.header}>
         <h2>КОМАНДА</h2>
         <div className={s.buttons}>
-          <ArrowNavigationButton
+          <NavigationButton
             variant={"previous"}
             onClick={handlePrevButtonClick}
             disabled={isBeginning}
             aria-label="Назад"
           />
-          <ArrowNavigationButton
+          <NavigationButton
             variant={"next"}
             onClick={handleNextButtonClick}
             disabled={isEnd}

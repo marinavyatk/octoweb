@@ -1,6 +1,7 @@
 .contactButton {
   --button-width: 310px;
   --padding-horizontal: 6px;
+  --arrow-container-width: 68px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -13,49 +14,11 @@
   height: 80px;
   transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
 
-  span {
-    font-weight: var(--font-weight-regular-400);
-    font-size: 16px;
-    line-height: var(--line-height-140);
-    text-transform: uppercase;
-    color: var(--color-light-100);
-    z-index: 2;
-    transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
-  }
-
-  .arrow {
-    width: 68px;
-    height: 68px;
-    z-index: 2;
-    background-color: var(--color-accent);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-
-    svg {
-      width: 19px;
-      height: 19px;
-      stroke: var(--color-dark-secondary);
-      transition: transform 0.4s;
-    }
-  }
-
-  .background {
-    width: 68px;
-    height: 68px;
-    background-color: var(--color-accent);
-    border-radius: 72px;
-    position: absolute;
-    z-index: 1;
-    transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
-  }
-
   &:hover {
     padding: 0;
     width: calc(var(--button-width) + 2 * var(--padding-horizontal));
 
-    span {
+    .text {
       color: var(--color-dark-primary);
     }
 
@@ -71,30 +34,61 @@
   }
 }
 
+.text {
+  font-weight: var(--font-weight-regular-400);
+  font-size: 16px;
+  line-height: var(--line-height-140);
+  text-transform: uppercase;
+  color: var(--color-light-100);
+  z-index: 2;
+  transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+}
+
+.arrowContainer {
+  width: var(--arrow-container-width);
+  height: var(--arrow-container-width);
+  z-index: 2;
+  background-color: var(--color-accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  svg {
+    width: 19px;
+    height: 19px;
+    stroke: var(--color-dark-secondary);
+    transition: transform 0.4s;
+  }
+}
+
+.background {
+  width: var(--arrow-container-width);
+  height: var(--arrow-container-width);
+  background-color: var(--color-accent);
+  border-radius: 72px;
+  position: absolute;
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+}
+
 @media (max-width: 1905px), (max-width: 1279px) {
   .contactButton {
     --button-width: 288px;
+    --arrow-container-width: 48px;
     height: 60px;
     gap: 28px;
 
-    span {
+    .text {
       font-weight: var(--font-weight-regular-300);
       font-size: 14px;
     }
 
-    .arrow {
-      width: 48px;
-      height: 48px;
-
+    .arrowContainer {
       svg {
         width: 14px;
         height: 14px;
       }
-    }
-
-    .background {
-      width: 48px;
-      height: 48px;
     }
   }
 }
@@ -102,21 +96,12 @@
 @media (max-width: 1425px) {
   .contactButton {
     --button-width: 226px;
+    --arrow-container-width: 40px;
     height: 48px;
     gap: 14px;
 
-    span {
+    .text {
       font-size: 12px;
-    }
-
-    .arrow {
-      width: 40px;
-      height: 40px;
-    }
-
-    .background {
-      width: 40px;
-      height: 40px;
     }
   }
 }

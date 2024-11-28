@@ -8,9 +8,6 @@
     opacity: 0;
   }
 
-  label {
-    cursor: pointer;
-  }
   svg {
     width: 27px;
     height: 27px;
@@ -36,36 +33,20 @@
 }
 
 @media (max-width: 1905px) {
-  .fileInputContainer {
-    svg {
-      width: 20px;
-      height: 20px;
-    }
-  }
-  .error {
-    svg {
-      width: 20px;
-      height: 20px;
-    }
+  .fileInputContainer svg, .error svg {
+    width: 20px;
+    height: 20px;
   }
 }
-@media (max-width: 767px) {
-  .fileInputContainer {
-    svg {
-      width: 13px;
-      height: 13px;
-    }
-  }
-  .error {
-    svg {
-      width: 13px;
-      height: 13px;
-    }
 
-    .errorIcon {
-      margin-left: 2px;
-      width: 13px;
-      height: 13px;
-    }
+
+@media (max-width: 767px) {
+  .fileInputContainer svg, .error svg, .error .errorIcon {
+    width: 13px;
+    height: 13px;
+  }
+
+  .error .errorIcon {
+    margin-left: 2px;
   }
 }

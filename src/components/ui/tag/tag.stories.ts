@@ -27,7 +27,7 @@ export const Colored: Story = {
 
 export const MonochromePrimary: Story = {
   args: {
-    variant: "monochrome-primary",
+    variant: "monochromePrimary",
     title: "Monochrome-primary",
     children: "Tag",
   },
@@ -35,7 +35,7 @@ export const MonochromePrimary: Story = {
 
 export const MonochromeSecondary: Story = {
   args: {
-    variant: "monochrome-secondary",
+    variant: "monochromeSecondary",
     title: "Monochrome-secondary",
     children: "Tag",
   },
@@ -43,7 +43,7 @@ export const MonochromeSecondary: Story = {
 
 export const MonochromeSecondaryAsLink: Story = {
   args: {
-    variant: "monochrome-secondary",
+    variant: "monochromeSecondary",
     title: "Monochrome-secondary",
     children: "Link",
     as: "a",

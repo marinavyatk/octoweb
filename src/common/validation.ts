@@ -107,7 +107,7 @@ export const getAdditionalInfo = (allFields: AllFields) => (z.object({
   additionalFiles: multipleFilesSchema.optional()
 }));
 
-export const getBriefSchema = (allFields: AllFields)=>(z.object({
+export const getBriefSchema = (allFields: AllFields) => (z.object({
   contactInfo: getContactInfo(allFields),
   about: getAbout(allFields),
   details: getDetails(allFields),

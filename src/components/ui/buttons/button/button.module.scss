@@ -1,4 +1,4 @@
-.arrowButtonWithText {
+.button {
   --button-height: 100px;
   --button-width: 426px;
   --arrow-width: 80px;
@@ -15,47 +15,11 @@
   line-height: var(--line-height-200);
   text-transform: uppercase;
 
-  .textContainer {
-    min-width: calc(var(--button-width) - var(--arrow-width) - var(--border-width) * 2);
-    z-index: 2;
-    transition: margin 0.4s;
-  }
-
-  .text {
-    transition: color 0.4s, margin 0.4s;;
-    white-space: nowrap;
-    width: fit-content;
-    margin: 0 var(--border-width) 0 0;
-  }
-
-  .arrow {
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    flex-shrink: 0;
-    width: var(--arrow-width);
-    height: var(--arrow-width);
-    background: var(--linear-gradient-primary);
-    border: var(--border-width) solid transparent;
-    box-sizing: content-box;
-  }
-
   svg {
     width: 24px;
     height: 24px;
     stroke: var(--color-light-100);
     transition: transform 0.4s;
-  }
-
-  .background {
-    width: var(--button-height);
-    height: var(--button-height);
-    border-radius: 72px;
-    position: absolute;
-    z-index: 1;
-    transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
   }
 
   &:hover {
@@ -77,10 +41,46 @@
   }
 }
 
+.textContainer {
+  min-width: calc(var(--button-width) - var(--arrow-width) - var(--border-width) * 2);
+  z-index: 2;
+  transition: margin 0.4s;
+}
+
+.text {
+  transition: color 0.4s, margin 0.4s;;
+  white-space: nowrap;
+  width: fit-content;
+  margin: 0 var(--border-width) 0 0;
+}
+
+.arrowContainer {
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+  width: var(--arrow-width);
+  height: var(--arrow-width);
+  background: var(--linear-gradient-primary);
+  border: var(--border-width) solid transparent;
+  box-sizing: content-box;
+}
+
+.background {
+  width: var(--button-height);
+  height: var(--button-height);
+  border-radius: 72px;
+  position: absolute;
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+}
+
 .colored {
   color: var(--color-light-100);
 
-  .arrow {
+  .arrowContainer {
     border-color: var(--color-accent);
   }
 
@@ -91,7 +91,7 @@
   &:hover {
     color: var(--color-dark-primary);
 
-    .arrow {
+    .arrowContainer {
       border-color: var(--color-accent);
     }
   }
@@ -100,7 +100,7 @@
 .dark {
   color: var(--color-dark-primary);
 
-  .arrow {
+  .arrowContainer {
     border-color: var(--color-dark-primary);
   }
 
@@ -111,14 +111,14 @@
   &:hover {
     color: var(--color-light-100);
 
-    .arrow {
+    .arrowContainer {
       border-color: var(--color-dark-primary);
     }
   }
 }
 
 @media (max-width: 1425px) {
-  .arrowButtonWithText {
+  .button {
     --button-height: 80px;
     --arrow-width: 60px;
     --button-width: 319px;
@@ -132,7 +132,7 @@
 }
 
 @media (max-width: 1265px) {
-  .arrowButtonWithText {
+  .button {
     --button-height: 120px;
     --arrow-width: 100px;
     --button-width: 538px;
@@ -146,7 +146,7 @@
 }
 
 @media (max-width: 767px) {
-  .arrowButtonWithText {
+  .button {
     --button-height: 50px;
     --arrow-width: 40px;
     --button-width: 224px;

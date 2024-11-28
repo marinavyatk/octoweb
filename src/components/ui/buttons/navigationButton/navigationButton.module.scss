@@ -1,12 +1,7 @@
 .navigationButton {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  border-radius: 50%;
-  border: none;
-  background-color: transparent;
-  text-decoration: none;
 
   svg {
     width: 24px;
@@ -16,14 +11,12 @@
   &:hover {
     .upCaption {
       color: var(--color-dark-primary);
-      transition: all 0.4s;
     }
 
     .up {
       svg {
         stroke: var(--color-accent);
         transform: rotate(-45deg);
-        transition: all 0.4s;
       }
     }
   }
@@ -64,7 +57,6 @@
   text-transform: uppercase;
   color: var(--color-light-100);
   transition: all 0.4s;
-  text-decoration: none;
 }
 
 .next, .previous {
@@ -95,7 +87,7 @@
   .upCaption {
     font-size: 18px;
     font-weight: var(--font-weight-regular-300);
-    margin: 0 auto 16px;
+    margin-bottom: 16px;
   }
 }
 
@@ -114,9 +106,10 @@
   .up {
     border-width: 5px;
   }
+
   .upCaption {
     font-size: 10px;
-    margin: 0 auto 10px;
+    margin-bottom: 10px;
   }
 }
 
@@ -127,6 +120,7 @@
       height: 5px;
     }
   }
+
   .buttonContainer {
     width: 20px;
     height: 20px;
@@ -135,9 +129,10 @@
   .up {
     border-width: 2px;
   }
+
   .upCaption {
     font-size: 8px;
-    margin: 0 auto 5px;
+    margin-bottom: 5px;
   }
 
   .next,

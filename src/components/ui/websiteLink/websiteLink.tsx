@@ -15,7 +15,7 @@ export const WebsiteLink = (props: WebsiteLinkProps) => {
     <div {...divProps} className={classNames}>
       <span className={s.caption}>Сайт</span>
       <a className={s.linkWithName} href="" {...restProps} rel={"nofollow"} target={"_blank"}>
-        <span>{webSiteName}</span>
+        {webSiteName}
         <div className={s.iconContainer}>
           <LinkIcon />
         </div>

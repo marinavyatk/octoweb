@@ -5,12 +5,12 @@
   line-height: var(--line-height-140);
   text-transform: uppercase;
   width: fit-content;
+}
 
-  .required {
-    color: var(--color-accent);
-    width: fit-content;
-    white-space: nowrap;
-  }
+.required {
+  color: var(--color-accent);
+  width: fit-content;
+  white-space: nowrap;
 }
 
 @media (max-width: 1425px) {

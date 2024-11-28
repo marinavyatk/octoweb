@@ -14,7 +14,7 @@ import { useCombinedRef } from '@/common/customHooks';
 
 export type InputAdditionalFileProps = {
   label: string;
-  divProps?: ComponentPropsWithoutRef<"div">;
+  containerProps?: ComponentPropsWithoutRef<"div">;
   onFilesChange?: (files: File[]) => void;
 } & ComponentPropsWithoutRef<"input">;
 
@@ -23,7 +23,7 @@ export const InputAdditionalFile = React.forwardRef(
     props: InputAdditionalFileProps,
     ref: ForwardedRef<HTMLInputElement | null>,
   ) => {
-    const { label, divProps, className, onFilesChange, ...restProps } = props;
+    const { label, containerProps, className, onFilesChange, ...restProps } = props;
     const classNames = clsx(s.inputContainer, className);
     const [files, setFiles] = useState<File[]>([]);
     const inputFileRef = useRef<HTMLInputElement>(null);
@@ -68,8 +68,8 @@ export const InputAdditionalFile = React.forwardRef(
     const finalInputFileRef = useCombinedRef(inputFileRef, ref);
 
     return (
-      <div className={classNames} {...divProps}>
-        <Label text={label} isRequiredField={false} />
+      <div className={classNames} {...containerProps}>
+        <Label text={label} isRequiredField={false} htmlFor={restProps?.name}/>
         {attachedFiles.length > 0 && (
           <div className={s.attachedFiles}>{attachedFiles}</div>
         )}

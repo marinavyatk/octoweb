@@ -10,12 +10,15 @@ export type AccordionButtonProps = {
 export const AccordionButton = (props: AccordionButtonProps) => {
   const { opened, setOpened, className, ...restProps } = props;
   const classNames = clsx(s.buttonContainer, className, { [s.opened]: opened });
+  const toggleOpen = () => {
+    setOpened(!opened);
+  };
 
   return (
     <button
       {...restProps}
       className={classNames}
-      onClick={() => setOpened(!opened)}
+      onClick={toggleOpen}
       aria-label={opened ? "Скрыть ответ" : "Показать ответ"}
     >
       <div className={s.closedBackground}></div>

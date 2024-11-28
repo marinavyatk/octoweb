@@ -2,8 +2,8 @@ import { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 import s from "./footer.module.scss";
 import { ContactLinks } from "../contactLinks/contactLinks";
-import { ButtonWithStroke } from "@/components/ui/buttons/buttonWithStroke/buttonWithStroke";
-import { ArrowNavigationButton } from "@/components/ui/buttons/arrowNavigationButton/arrowNavigationButton";
+import { BriefButton } from "@/components/ui/buttons/briefButton/briefButton";
+import { NavigationButton } from "@/components/ui/buttons/navigationButton/navigationButton";
 
 export type FooterProps = { needBriefLink?: boolean } & ComponentPropsWithoutRef<"div">;
 
@@ -15,7 +15,7 @@ export const Footer = (props: FooterProps) => {
     <div {...restProps} className={classNames}>
       <div className={s.container}>
         <ContactLinks />
-        {needBriefLink && <ButtonWithStroke variant={"secondary"}/>}
+        {needBriefLink && <BriefButton variant={"secondary"} />}
         <div className={s.contacts}>
           <a href="mailto:info@octoweb.ru">info@octoweb.ru</a>
           <br />
@@ -29,13 +29,12 @@ export const Footer = (props: FooterProps) => {
       </div>
       <div className={s.panelUp}>
         <div className={s.arrow}>
-          <ArrowNavigationButton
+          <NavigationButton
             variant={"up"}
             as={"a"}
             href={"#top"}
           />
         </div>
-
         <div className={s.bottomCaption}>
           <span>Политика конфиденциальности</span>
           <span>© OctoWeb 2023 — Все права защищены</span>

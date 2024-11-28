@@ -8,7 +8,7 @@ import { Picture } from "@/components/ui/picture/picture";
 export default function Case() {
   const tagList = caseData.tags.map((tag) => {
     return (
-      <Tag variant={"monochrome-secondary"} key={tag} className={s.tag}>
+      <Tag variant={"monochromeSecondary"} key={tag} className={s.tag}>
         {tag}
       </Tag>
     );
