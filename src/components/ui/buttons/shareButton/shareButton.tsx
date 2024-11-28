@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { clsx } from "clsx";
 import s from "./shareButton.module.scss";
@@ -16,15 +16,17 @@ export const ShareButton = (props: ShareButtonProps) => {
   const shareData = {
     title: "Octoweb.ru - Создание и продвижений сайтов",
     text: "Посмотри эту статью. Мы подготовили для тебя много полезной информации!",
-    url: url,
-  }
+    url: url
+  };
 
   const copyUrl = async () => {
     try {
       await navigator.clipboard.writeText(url);
       setIsCopied(true);
       setTimeout(() => setIsCopied(false), 2000);
-      await navigator.share(shareData);
+      if (window.innerWidth <= 768) {
+        await navigator.share(shareData);
+      }
     } catch (err) {
       console.error("Failed to copy: ", err);
     }
@@ -32,7 +34,7 @@ export const ShareButton = (props: ShareButtonProps) => {
 
   return (
     <div className={classNames} {...restProps}>
-      <Tag as={"button"} variant={"monochrome-secondary"} onClick={copyUrl}>
+      <Tag as={"button"} variant={"monochromeSecondary"} onClick={copyUrl}>
         Поделиться <ShareIcon />
       </Tag>
       {isCopied && <span className={s.underline}>Ссылка скопирована!</span>}

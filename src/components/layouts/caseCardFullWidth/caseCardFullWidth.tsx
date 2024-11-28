@@ -38,7 +38,7 @@ export const CaseCardFullWidth = (props: CaseCardProps) => {
                fill
                sizes="(max-width: 450px) 100vw, (max-width: 767px) 450px, 100vw "
                containerProps={{ className: s.imgContainer }} />
-      <Tag variant={"monochrome-primary"} className={s.category}>
+      <Tag variant={"monochromePrimary"} className={s.category}>
         {category}
       </Tag>
       <div className={s.caption}>

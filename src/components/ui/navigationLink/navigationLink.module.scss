@@ -3,13 +3,13 @@
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-regular-300);
   line-height: var(--line-height-180);
-  text-decoration: none;
   color: var(--color-light-100);
   padding: 10px 22px 11px 22px;
   border-radius: 80px;
   display: inline-block;
   white-space: nowrap;
   transition: color 0.4s cubic-bezier(1, 1.65, 0.265, 1.55);
+
   &:hover {
     color: var(--color-accent);
     transition: color 0.4s cubic-bezier(1, 1.65, 0.265, 1.55);
@@ -31,6 +31,7 @@
     padding: 7px 22px;
   }
 }
+
 @media (max-width: 1425px) {
   .navigationLink {
     font-size: 12px;

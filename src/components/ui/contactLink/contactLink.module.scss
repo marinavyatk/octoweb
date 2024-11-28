@@ -8,22 +8,20 @@
   display: flex;
   align-items: center;
   gap: 32px;
-  transition: color 0.4s cubic-bezier(1, 1.65, 0.265, 1.55);
+  transition: color 0.4s;
 
   svg {
     width: 64px;
     height: 64px;
     fill: var(--color-light-100);
-    transition: fill 0.4s cubic-bezier(1, 1.65, 0.265, 1.55);
+    transition: fill 0.4s;
   }
 
   &:hover {
     color: var(--color-dark-primary);
-    transition: color 0.4s cubic-bezier(1, 1.65, 0.265, 1.55);
 
     svg {
       fill: var(--color-accent);
-      transition: fill 0.4s cubic-bezier(1, 1.65, 0.265, 1.55);
     }
   }
 }
@@ -51,6 +49,7 @@
     }
   }
 }
+
 @media (max-width: 1265px) {
   .contactLink {
     gap: 10px;

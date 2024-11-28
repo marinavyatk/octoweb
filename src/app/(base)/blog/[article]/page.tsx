@@ -47,10 +47,10 @@ export default function Article(){
       <div className={s.caption}>
         <div className={s.tagList}>
           {tags}
-          <Tag variant={"monochrome-secondary"} className={s.tag}>
+          <Tag variant={"monochromeSecondary"} className={s.tag}>
             {articleData.creationData}
           </Tag>
-          <Tag variant={"monochrome-secondary"} className={s.tag}>
+          <Tag variant={"monochromeSecondary"} className={s.tag}>
             {articleData.timeToRead} мин. чтения
           </Tag>
         </div>
@@ -63,7 +63,7 @@ export default function Article(){
       <div className={s.caption + " " + s.bottomCaption}>
         <div className={s.tagList}>
           {tags}
-          <Tag variant={"monochrome-secondary"} className={s.tag}>
+          <Tag variant={"monochromeSecondary"} className={s.tag}>
             {articleData.creationData}
           </Tag>
         </div>

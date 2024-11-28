@@ -9,7 +9,7 @@ import { CaseCardFullWidth } from "@/components/layouts/caseCardFullWidth/caseCa
 import { CaseCard, Size } from "@/components/layouts/caseCard/caseCard";
 import { buttons, casesData, circles, sizes } from "@/common/componentsData/cases";
 import { v4 as uuid } from "uuid";
-import { ArrowButtonWithText } from "@/components/ui/buttons/ArrowButtonWithText/arrowButtonWithText";
+import { Button } from "@/components/ui/buttons/button/button";
 
 
 export default function Cases() {
@@ -75,7 +75,7 @@ export default function Cases() {
         className={s.caseCircleList}
       />
       <div className={s.casesList}>{cases}</div>
-      <ArrowButtonWithText text={"Показать ещё"} className={s.showMoreButton} />
+      <Button text={"Показать ещё"} className={s.showMoreButton} />
     </div>
   );
 };

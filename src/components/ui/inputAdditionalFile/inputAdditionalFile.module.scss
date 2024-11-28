@@ -2,12 +2,12 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
+}
 
-  .attachedFiles {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
+.attachedFiles {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .inputAdditionalFile {
@@ -41,12 +41,13 @@
   .inputContainer {
     gap: 14px;
 
-    .attachedFiles {
-      gap: 9px;
+  }
 
-      div:last-child{
-        margin-bottom: 16px;
-      }
+  .attachedFiles {
+    gap: 9px;
+
+    div:last-child{
+      margin-bottom: 16px;
     }
   }
 

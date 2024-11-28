@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, ElementType } from "react";
 import clsx from "clsx";
-import s from "./arrowNavigationButton.module.scss";
+import s from "./navigationButton.module.scss";
 import ArrowIcon from "@/svg/arrow.svg";
 
 export type ArrowNavigationButtonProps<T extends ElementType> = {
@@ -8,7 +8,7 @@ export type ArrowNavigationButtonProps<T extends ElementType> = {
   variant?: "up" | "next" | "previous";
 } & ComponentPropsWithoutRef<T>;
 
-export const ArrowNavigationButton = <T extends ElementType = "button">(
+export const NavigationButton = <T extends ElementType = "button">(
   props: ArrowNavigationButtonProps<T>,
 ) => {
   const {
@@ -18,11 +18,7 @@ export const ArrowNavigationButton = <T extends ElementType = "button">(
     ...restProps
   } = props;
   const classNames = clsx(s.navigationButton, className, 'navigationButton');
-  const arrowClassNames = clsx(s.buttonContainer, className, {
-    [s.up]: variant === "up",
-    [s.next]: variant === "next",
-    [s.previous]: variant === "previous",
-  });
+  const arrowClassNames = clsx(s.buttonContainer, s[variant]);
 
   return (
     <Component {...restProps} className={classNames}>

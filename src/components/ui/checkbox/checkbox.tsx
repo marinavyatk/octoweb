@@ -1,5 +1,5 @@
 import React, { ComponentPropsWithoutRef, Ref } from "react";
-import clsx from "clsx";
+import { clsx } from "clsx";
 import s from "./checkbox.module.scss";
 
 export type CheckboxProps = {
@@ -14,11 +14,10 @@ export const Checkbox = React.forwardRef(
     return (
       <div {...divProps} className={classNames}>
         <input {...restProps} type={"checkbox"} id={restProps.name} ref={ref} />
-        <label htmlFor={restProps.name}></label>
         <label htmlFor={restProps.name}>{text}</label>
       </div>
     );
-  },
+  }
 );
 
 Checkbox.displayName = "Checkbox";

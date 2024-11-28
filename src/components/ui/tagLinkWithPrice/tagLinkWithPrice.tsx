@@ -70,7 +70,7 @@ export const TagLinkWithPrice = (props: TagLinkWithPriceProps) => {
   return (
     <div className={classNames} ref={containerRef}>
       <Tag
-        variant={"monochrome-secondary"}
+        variant={"monochromeSecondary"}
         as={Link}
         href={`/services/${category}/${serviceId}`}
         className={s.tag}

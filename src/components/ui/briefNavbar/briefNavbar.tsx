@@ -34,7 +34,6 @@ export const BriefNavbar = (props: BriefNavbarProps) => {
 
   useClose({close, elementRef: navRef, direction: "left", open});
 
-
   return (
     <div className={classNames} {...restProps} >
       <div className={s.overlay}></div>

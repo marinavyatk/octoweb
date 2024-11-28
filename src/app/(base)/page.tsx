@@ -7,7 +7,7 @@ import { StepCards } from "@/components/sections/stepCards/stepCards";
 import s from "./page.module.scss";
 import { routes } from "@/common/routes";
 import { mainPageCases } from "@/common/componentsData/mainPageCases";
-import { ArrowButtonWithText } from "@/components/ui/buttons/ArrowButtonWithText/arrowButtonWithText";
+import { Button } from "@/components/ui/buttons/button/button";
 import Link from "next/link";
 import { Greeting } from "@/components/sections/greeting/greeting";
 import { linksData } from "@/common/componentsData/servicesLinks";
@@ -59,7 +59,7 @@ export default function Home() {
             {...mainPageCases[3]}
             className={s.fourCard}
           />
-          <ArrowButtonWithText as={Link} text={"Больше кейсов"} href={routes.cases} className={s.arrowLink} />
+          <Button as={Link} text={"Больше кейсов"} href={routes.cases} className={s.arrowLink} />
         </section>
       </div>
       <ServicesLinksList linksData={linksData} />

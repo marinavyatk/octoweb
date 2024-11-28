@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { ContactLink } from "./contactLink";
+import TelegramIcon from "@/svg/socials/telegram.svg";
 
 const meta = {
   title: "UI/ContactLink",
@@ -14,6 +15,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    children: "Telegram",
+    children: <><TelegramIcon/> Telegram</> ,
   },
 };

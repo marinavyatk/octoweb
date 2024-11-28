@@ -4,13 +4,12 @@ import s from "./attachedFile.module.scss";
 import AttachIcon from "@/svg/attach.svg";
 import DeleteIcon from "@/svg/deleteIcon.svg";
 
-export type InputAdditionalFileProps = {
+export type AttachedFileProps = {
   fileName: string;
-  AttachedFile?: string;
   onDeleteClick: () => void;
 } & ComponentPropsWithoutRef<"div">;
 
-export const AttachedFile = (props: InputAdditionalFileProps) => {
+export const AttachedFile = (props: AttachedFileProps) => {
   const { fileName, onDeleteClick, className, ...restProps } = props;
   const classNames = clsx(s.attachedFile, className);
 
@@ -18,7 +17,9 @@ export const AttachedFile = (props: InputAdditionalFileProps) => {
     <div className={classNames} {...restProps}>
       <AttachIcon className={s.attachIcon} />
       {fileName}
-      <DeleteIcon className={s.deleteIcon} onClick={onDeleteClick} />
+      <button onClick={onDeleteClick} aria-label="Удалить прикрепленный файл">
+        <DeleteIcon className={s.deleteIcon} />
+      </button>
     </div>
   );
 };

@@ -2,121 +2,80 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  --logo-width: 80px;
+}
 
-  .logoImgContainer {
-    position: relative;
+.logoImgContainer {
+  position: relative;
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 0;
-      height: 0;
-      border-radius: 50%;
-      transition: background-color 0.5s cubic-bezier(0.85, 0.01, 0.58, 1),
-      width 0.5s cubic-bezier(0.85, 0.01, 0.58, 1),
-      height 0.5s cubic-bezier(0.85, 0.01, 0.58, 1);
-    }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    transition: background-color 0.5s cubic-bezier(0.85, 0.01, 0.58, 1),
+    width 0.5s cubic-bezier(0.85, 0.01, 0.58, 1),
+    height 0.5s cubic-bezier(0.85, 0.01, 0.58, 1);
   }
+}
 
-  .logoImg {
-    width: 80px;
-    height: 80px;
-    color: var(--color-light-100);
-    transition: all 0.5s cubic-bezier(0.85, 0.01, 0.58, 1);
-    position: relative;
-  }
+.logoImg {
+  width: var(--logo-width);
+  height: var(--logo-width);
+  color: var(--color-light-100);
+  transition: all 0.5s cubic-bezier(0.85, 0.01, 0.58, 1);
+}
 
-  .logoText {
-    width: 158px;
-  }
+.logoText {
+  width: 158px;
 }
 
 .hoverable:hover {
   .logoImgContainer::before {
-    content: "";
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+    width: var(--logo-width);
+    height: var(--logo-width);
     background-color: var(--color-accent);
-    transition: background-color 0.5s cubic-bezier(0.85, 0.01, 0.58, 1),
-    width 0.5s cubic-bezier(0.85, 0.01, 0.58, 1),
-    height 0.5s cubic-bezier(0.85, 0.01, 0.58, 1);
   }
 
   .logoImg {
     transform: scale(0.625);
     color: var(--color-dark-primary);
-    transition: all 0.5s cubic-bezier(0.85, 0.01, 0.58, 1);
   }
 }
-
 
 @media (max-width: 1905px) {
   .logo {
     gap: 9px;
-
-    .logoImg {
-      width: 60px;
-      height: 60px;
-    }
-
-    .logoText {
-      width: 115px;
-    }
+    --logo-width: 60px;
   }
 
-  .hoverable:hover {
-    .logoImgContainer::before {
-      width: 60px;
-      height: 60px;
-    }
+  .logoText {
+    width: 115px;
   }
 }
 
 @media (max-width: 1425px) {
   .logo {
-
-    .logoImg {
-      width: 48px;
-      height: 48px;
-    }
+    --logo-width: 48px;
   }
 
   .logoText {
     width: 95px;
-  }
-
-  .hoverable:hover {
-    .logoImgContainer::before {
-      width: 48px;
-      height: 48px;
-    }
   }
 }
 
 @media (max-width: 1279px) {
   .logo {
     gap: 12px;
-
-    .logoImg {
-      width: 101px;
-      height: 101px;
-    }
-
-    .logoText {
-      width: 201px;
-    }
+    --logo-width: 101px;
   }
 
-  .hoverable:hover {
-    .logoImgContainer::before {
-      width: 90px;
-      height: 90px;
-    }
+  .logoText {
+    width: 201px;
   }
 
   .sideMenuLogo {
@@ -134,23 +93,15 @@
 }
 
 @media (max-width: 767px) {
-  .logo, .sideMenuLogo {
-    gap: 7px;
-
-    .logoImg {
-      width: 44px;
-      height: 44px;
-    }
-
-    .logoText {
-      width: 85px;
-    }
+  .logo {
+    --logo-width: 44px;
   }
 
-  .hoverable:hover {
-    .logoImgContainer::before {
-      width: 44px;
-      height: 44px;
-    }
+  .logo, .sideMenuLogo {
+    gap: 7px;
+  }
+
+  .logoText {
+    width: 85px;
   }
 }

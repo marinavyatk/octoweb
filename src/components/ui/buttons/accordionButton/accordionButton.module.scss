@@ -1,36 +1,37 @@
 .buttonContainer {
-  width: 80px;
-  height: 80px;
-  background-color: var(--color-accent);
+  --button-width: 80px;
+  width: var(--button-width);
+  height: var(--button-width);
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
+  background-color: var(--color-accent);
   border-radius: 50%;
   position: relative;
   transition: transform 0.5s ease-in;
-  flex-shrink: 0;
+}
 
-  .closedBackground {
-    opacity: 0;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    transition: all 0.5s ease-in;
-  }
+.closedBackground {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  transition: all 0.5s ease-in;
+}
 
-  .horizontal,
-  .vertical {
-    height: 5px;
-    width: 38px;
-    border-radius: 3px;
-    background-color: var(--color-dark-primary);
-    position: absolute;
-    transition: all 0.5s ease-in;
-  }
+.horizontal,
+.vertical {
+  height: 5px;
+  width: 38px;
+  border-radius: 3px;
+  background-color: var(--color-dark-primary);
+  position: absolute;
+  transition: all 0.5s ease-in;
+}
 
-  .vertical {
-    transform: rotate(90deg);
-  }
+.vertical {
+  transform: rotate(90deg);
 }
 
 .opened {
@@ -40,58 +41,37 @@
   .closedBackground {
     background-color: var(--color-primary);
     opacity: 1;
-    width: 80px;
-    height: 80px;
+    width: var(--button-width);
+    height: var(--button-width);
     border-radius: 50%;
     transition: all 0.5s ease-in;
   }
 
   .horizontal {
-    width: 0;
+    width: 0 !important;
   }
 }
 
-
 @media (max-width: 1265px) {
   .buttonContainer {
-    width: 45px;
-    height: 45px;
-
-    .horizontal,
-    .vertical {
-      height: 3px;
-      width: 18px;
-    }
+    --button-width: 45px;
   }
 
-  .opened .closedBackground {
-      width: 45px;
-      height: 45px;
-    }
-
-  .opened .horizontal {
-    width: 0;
+  .horizontal,
+  .vertical {
+    height: 3px;
+    width: 18px;
   }
 }
 
 @media (max-width: 767px) {
   .buttonContainer {
-    width: 19px;
-    height: 19px;
-
-    .horizontal,
-    .vertical {
-      height: 1px;
-      width: 8px;
-    }
+    --button-width: 19px;
   }
 
-  .opened .closedBackground {
-    width: 19px;
-    height: 19px;
-    }
-
-  .opened .horizontal {
-    width: 0;
+  .horizontal,
+  .vertical {
+    height: 1px;
+    width: 8px;
   }
 }

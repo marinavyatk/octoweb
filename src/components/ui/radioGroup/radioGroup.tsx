@@ -20,27 +20,30 @@ export const RadioGroupComponent = forwardRef<HTMLDivElement, RadioGroupComponen
   (props: RadioGroupComponentProps, ref) => {
     const { errorMessage, mainLabel, isRequiredField, radioItems = [], className, ...rest } = props;
     const classNames = clsx(s.radioRoot, className);
+
+    const items = radioItems.length &&
+      radioItems.map((item) => {
+        return (
+          <RadioGroup.Item
+            value={item.value}
+            id={rest.name + item.value}
+            className={s.radioItem}
+            key={item.value}
+          >
+            <RadioGroup.Indicator className={s.radioIndicator} />
+            <div className={s.content}>
+              <div className={s.radioSign} />
+              {item.label}
+            </div>
+          </RadioGroup.Item>
+        );
+      });
+
     return (
       <RadioGroup.Root className={classNames} {...rest} ref={ref}>
         <Label text={mainLabel} isRequiredField={isRequiredField} />
         <div className={s.radioItems}>
-          {radioItems.length &&
-            radioItems.map((item) => {
-              return (
-                <RadioGroup.Item
-                  value={item.value}
-                  id={rest.name + item.value}
-                  className={s.radioItem}
-                  key={item.value}
-                >
-                  <RadioGroup.Indicator className={s.radioIndicator} />
-                  <div className={s.content}>
-                    <div className={s.radioSign} />
-                    {item.label}
-                  </div>
-                </RadioGroup.Item>
-              );
-            })}
+          {items}
         </div>
         {errorMessage && <div className={s.error}>{errorMessage}</div>}
       </RadioGroup.Root>

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ArrowNavigationButton } from "./arrowNavigationButton";
+import { NavigationButton } from "./navigationButton";
 
 const meta = {
-  title: "UI/Buttons/ArrowNavigationButton",
-  component: ArrowNavigationButton,
+  title: "UI/Buttons/NavigationButton",
+  component: NavigationButton,
   tags: ["autodocs"],
-} satisfies Meta<typeof ArrowNavigationButton>;
+} satisfies Meta<typeof NavigationButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

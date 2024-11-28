@@ -1,25 +1,21 @@
 "use client";
 
 import clsx from "clsx";
-import s from "./arrowButtonWithText.module.scss";
-import { ComponentPropsWithoutRef, ComponentPropsWithRef, ElementType, useRef } from "react";
+import s from "./button.module.scss";
+import { ComponentPropsWithoutRef, ElementType, useRef } from "react";
 import ArrowIcon from "@/svg/arrow.svg";
 
-export type ArrowButtonWithTextProps<T extends ElementType> = {
+export type ButtonProps<T extends ElementType> = {
   as?: T
   variant?: "colored" | "dark";
   text: string;
 } & ComponentPropsWithoutRef<T>;
 
-export const ArrowButtonWithText = <T extends ElementType = "button">(props: ArrowButtonWithTextProps<T>) => {
+export const Button = <T extends ElementType = "button">(props: ButtonProps<T>) => {
   const { as: Component = "button", variant = "colored", text, className, ...restProps } = props;
-  const classNames = clsx(
-    s.arrowButtonWithText,
-    className, s[variant]
-  );
+  const classNames = clsx(s.button, className, s[variant]);
   const textRef = useRef<HTMLDivElement | null>(null);
   const textContainerRef = useRef<HTMLDivElement | null>(null);
-  const componentRef = useRef<ComponentPropsWithRef<T>["ref"]>(null);
 
   const handleHover = () => {
     if (textRef.current && textContainerRef.current) {
@@ -40,7 +36,6 @@ export const ArrowButtonWithText = <T extends ElementType = "button">(props: Arr
       {...restProps}
       className={classNames}
       rel={"nofollow"}
-      ref={componentRef}
       onMouseEnter={handleHover}
       onMouseLeave={cancelHover}
     >
@@ -48,7 +43,7 @@ export const ArrowButtonWithText = <T extends ElementType = "button">(props: Arr
         <div className={s.text} ref={textRef}>{text}</div>
       </div>
       <div className={s.background}></div>
-      <div className={s.arrow}>
+      <div className={s.arrowContainer}>
         <ArrowIcon />
       </div>
     </Component>

@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, CSSProperties } from "react";
+import { ComponentPropsWithoutRef } from "react";
 import { clsx } from "clsx";
 import s from "./wordSwipe.module.scss";
 import { v4 as uuid } from "uuid";
@@ -32,8 +32,9 @@ export const WordSwipe = (props: WordSwipeProps) => {
       {getCharacters(word)}
     </div>;
   });
+
   return (
-    <div {...restProps} className={classNames} style={{ "--wordsQty": words.length } as CSSProperties}>
+    <div {...restProps} className={classNames}>
       <div className={s.inner}>
         {wordsList}
       </div>

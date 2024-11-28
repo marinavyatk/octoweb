@@ -9,13 +9,6 @@ export type AnimatedFieldProps = {
 
 export const AnimatedField = (props: AnimatedFieldProps) => {
   const { variant = "primary", animation, className, ...restProps } = props;
-  const classNames = clsx(s.animatedField, className, {
-    [s.primary]: variant === "primary",
-    [s.secondary]: variant === "secondary",
-    [s.dark]: variant === "dark",
-    [s.light]: variant === "light",
-    [s.right]: animation === "right",
-    [s.left]: animation === "left",
-  });
+  const classNames = clsx(s.animatedField, className, s[variant], animation && s[animation] );
   return <div {...restProps} className={classNames}></div>;
 };

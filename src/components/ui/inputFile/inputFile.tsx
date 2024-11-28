@@ -10,18 +10,18 @@ import ErrorIcon from "@/svg/error.svg";
 
 export type InputFileProps = {
   error?: boolean;
-  divProps?: ComponentPropsWithoutRef<"div">;
+  containerProps?: ComponentPropsWithoutRef<"div">;
 } & ComponentPropsWithRef<"input">;
 
 export const InputFile = React.forwardRef(
   (props: InputFileProps, ref: Ref<HTMLInputElement>) => {
-    const { error, divProps, className, ...restProps } = props;
+    const { error, containerProps, className, ...restProps } = props;
     const classNames = clsx(s.fileInputContainer, className, {
       [s.error]: error,
     });
 
     return (
-      <div className={classNames} {...divProps}>
+      <div className={classNames} {...containerProps}>
         <input
           type={"file"}
           id={restProps?.name}

@@ -5,10 +5,10 @@ import { BlogCard, Size } from "@/components/layouts/blogCard/blogCard";
 import { FilterButton } from "@/components/ui/buttons/filterButton/filterButton";
 import { Category } from "@/components/layouts/caseCircle/caseCircle";
 import { useState } from "react";
-import { ArrowButtonWithText } from "@/components/ui/buttons/ArrowButtonWithText/arrowButtonWithText";
 import { tempData } from "@/common/componentsData/blog";
 import { clsx } from "clsx";
 import { v4 as uuid } from "uuid";
+import { Button } from "@/components/ui/buttons/button/button";
 
 export default function Blog() {
   const [currentFilter, setCurrentFilter] = useState<Category>("All projects");
@@ -60,7 +60,7 @@ export default function Blog() {
       </div>
       <div className={s.firstArticle}>{firstArticle}</div>
       <div className={s.articles}>{articles}</div>
-      <ArrowButtonWithText
+      <Button
         text={"Загрузить ещё"}
         className={s.loadMoreButton}
         onClick={handleLoadMore}

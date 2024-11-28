@@ -2,32 +2,30 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   border-radius: 72px;
   padding: 8px 8px 8px 24px;
   gap: 28px;
-  text-decoration: none;
   font-weight: var(--font-weight-regular-300);
   font-size: 18px;
   line-height: var(--line-height-160);
   color: var(--color-light-100);
   box-sizing: border-box;
+}
 
-  .indicator {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid rgba(214, 255, 65, 0.2);
-    background-color: rgba(22, 22, 22, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
+.indicator {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-accent-20);
+  background-color: var(--color-dark-primary-20);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 
-    svg {
-      width: 15px;
-      height: 9px;
-    }
+  svg {
+    width: 15px;
+    height: 9px;
   }
 }
 
@@ -45,20 +43,20 @@
     font-size: 12px;
     padding: 8px 6px 8px 16px;
     gap: 10px;
+  }
 
-    .text {
-      text-align: center;
-      width: 100%;
-    }
+  .text {
+    text-align: center;
+    width: 100%;
+  }
 
-    .indicator {
-      width: 27px;
-      height: 27px;
+  .indicator {
+    width: 27px;
+    height: 27px;
 
-      svg {
-        width: 10px;
-        height: 6px;
-      }
+    svg {
+      width: 10px;
+      height: 6px;
     }
   }
 }

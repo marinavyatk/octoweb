@@ -9,7 +9,7 @@ type FormRadioGroupProps<T extends FieldValues> = {
 export const FormRadioGroup = <T extends FieldValues>(props: FormRadioGroupProps<T>) => {
   const { name, control, ...rest } = props;
   const {
-    field: { onChange, value, ...fields },
+    field: { onChange, ...fields },
     fieldState: { error },
   } = useController({
     name,
@@ -19,8 +19,6 @@ export const FormRadioGroup = <T extends FieldValues>(props: FormRadioGroupProps
   return (
     <RadioGroupComponent
       onValueChange={onChange}
-      value={value}
-      // name={name}
       {...fields}
       {...rest}
       errorMessage={error?.message}

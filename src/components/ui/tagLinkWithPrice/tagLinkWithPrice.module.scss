@@ -1,46 +1,47 @@
 .tagLink {
   position: relative;
+}
 
-  .tag {
-    transition: all 0.6s ease-out 0.4s;
+.tag {
+  transition: all 0.6s ease-out 0.4s;
 
-    &:hover {
-      color: var(--color-dark-primary);
-      background-color: var(--color-accent);
-      transition: all 0.5s ease;
-    }
-  }
-
-  .tag:hover + .price {
-    transition: opacity 0.5s ease 0.2s;
-    opacity: 1;
-    display: block;
-  }
-
-  .price {
-    border-radius: 16px;
-    padding: 16px 24px 18px 24px;
-    backdrop-filter: blur(40px);
-    background-color: rgba(22, 22, 22, 0.08);
-    color: var(--color-accent);
-    font-size: 32px;
-    position: absolute;
-    bottom: -100px;
-    opacity: 0;
-    display: none;
-    z-index: 10;
-    white-space: nowrap;
-    transition: opacity 0.5s ease;
-
-    &.left {
-      left: 80px;
-    }
-
-    &.right {
-      right: 80px;
-    }
+  &:hover {
+    color: var(--color-dark-primary);
+    background-color: var(--color-accent);
+    transition: all 0.5s ease;
   }
 }
+
+.tag:hover + .price {
+  transition: opacity 0.5s ease 0.2s;
+  opacity: 1;
+  display: block;
+}
+
+.price {
+  border-radius: 16px;
+  padding: 16px 24px 18px 24px;
+  backdrop-filter: blur(40px);
+  background-color: rgba(22, 22, 22, 0.08);
+  color: var(--color-accent);
+  font-size: 32px;
+  position: absolute;
+  bottom: -100px;
+  opacity: 0;
+  display: none;
+  z-index: 10;
+  white-space: nowrap;
+  transition: opacity 0.5s ease;
+
+  &.left {
+    left: 80px;
+  }
+
+  &.right {
+    right: 80px;
+  }
+}
+
 
 @media (max-width: 1905px) {
   .tagLink {

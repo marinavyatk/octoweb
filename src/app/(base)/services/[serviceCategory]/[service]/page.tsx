@@ -8,7 +8,7 @@ import { PriceTable } from "@/components/layouts/priceTable/priceTable";
 import { CooperationCard } from "@/components/sections/cooperationCard/cooperationCard";
 import { serviceData } from "@/common/componentsData/service";
 import { faqData } from "@/common/componentsData/faq";
-import { ArrowButtonWithText } from "@/components/ui/buttons/ArrowButtonWithText/arrowButtonWithText";
+import { Button } from "@/components/ui/buttons/button/button";
 import { Advantages } from "@/components/sections/advantages/advantages";
 import { Picture } from "@/components/ui/picture/picture";
 
@@ -20,7 +20,7 @@ export default function Service() {
         <h1>{serviceData.serviceName}</h1>
         <div className={s.discussProject}>
           <p>{serviceData.description}</p>
-          <ArrowButtonWithText
+          <Button
             text={"ОБСУДИТЬ ПРОЕКТ"}
             as={"a"}
             href={"#form"}
@@ -33,7 +33,7 @@ export default function Service() {
           <h2>ОБ УСЛУГЕ</h2>
           <div className={s.container}>
             <p>{serviceData.aboutService}</p>
-            <ArrowButtonWithText
+            <Button
               as={"a"}
               text={"Консультация"}
               className={s.arrow}
@@ -62,7 +62,7 @@ export default function Service() {
           <div className={s.cost}>
             Стоимость <br />от <span className={s.price}>{serviceData.cost} ₽</span>
           </div>
-          <ArrowButtonWithText
+          <Button
             as={"a"}
             text={"Обсудить проект"}
             className={s.arrow}

@@ -4,7 +4,7 @@ import s from "./brief.module.scss";
 import { BriefNavbar } from "@/components/ui/briefNavbar/briefNavbar";
 import { Input } from "@/components/ui/textField/input";
 import { FromInputAdditionalFile } from "@/components/ui/inputAdditionalFile/formInputAdditionalFile";
-import { ArrowButtonWithText } from "@/components/ui/buttons/ArrowButtonWithText/arrowButtonWithText";
+import { Button } from "@/components/ui/buttons/button/button";
 import { z } from "zod";
 import { useForm, UseFormReturn } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -216,27 +216,27 @@ export default function Brief() {
                       {
                         label: "Telegram",
                         value: "telegram",
-                        rest: { ...register("contactInfo.communicationWay") }
+                         ...register("contactInfo.communicationWay")
                       },
                       {
                         label: "Skype",
                         value: "skype",
-                        rest: { ...register("contactInfo.communicationWay") }
+                         ...register("contactInfo.communicationWay")
                       },
                       {
                         label: "WhatsApp",
                         value: "whatsApp",
-                        rest: { ...register("contactInfo.communicationWay") }
+                         ...register("contactInfo.communicationWay")
                       },
                       {
                         label: "Email",
                         value: "email",
-                        rest: { ...register("contactInfo.communicationWay") }
+                         ...register("contactInfo.communicationWay")
                       },
                       {
                         label: "Звонок",
                         value: "call",
-                        rest: { ...register("contactInfo.communicationWay") }
+                         ...register("contactInfo.communicationWay")
                       }
                     ]}
                     errorMessage={errors.contactInfo?.communicationWay?.message}
@@ -374,42 +374,42 @@ export default function Brief() {
                       {
                         label: "Купить",
                         value: "buy",
-                        rest: { ...register("details.usersTargetAction") }
+                         ...register("details.usersTargetAction")
                       },
                       {
                         label: "Зарегистрироваться",
                         value: "register",
-                        rest: { ...register("details.usersTargetAction") }
+                         ...register("details.usersTargetAction")
                       },
                       {
                         label: "Забронировать",
                         value: "book",
-                        rest: { ...register("details.usersTargetAction") }
+                         ...register("details.usersTargetAction")
                       },
                       {
                         label: "Заказать",
                         value: "order",
-                        rest: { ...register("details.usersTargetAction") }
+                         ...register("details.usersTargetAction")
                       },
                       {
                         label: "Подписаться",
                         value: "subscribe",
-                        rest: { ...register("details.usersTargetAction") }
+                         ...register("details.usersTargetAction")
                       },
                       {
                         label: "Оставить заявку",
-                        value: "submitApplication ",
-                        rest: { ...register("details.usersTargetAction") }
+                        value: "submitApplication",
+                         ...register("details.usersTargetAction")
                       },
                       {
                         label: "Позвонить",
-                        value: "call ",
-                        rest: { ...register("details.usersTargetAction") }
+                        value: "call",
+                         ...register("details.usersTargetAction")
                       },
                       {
                         label: "Другое",
-                        value: "other ",
-                        rest: { ...register("details.usersTargetAction") }
+                        value: "other",
+                         ...register("details.usersTargetAction")
                       }
                     ]}
                     errorMessage={errors.details?.usersTargetAction?.message}
@@ -483,67 +483,67 @@ export default function Brief() {
                       {
                         label: "CRM",
                         value: "crm",
-                        rest: { ...register("details.siteFunctionality") }
+                        ...register("details.siteFunctionality")
                       },
                       {
                         label: "Корзина и оплата",
                         value: "shoppingCartAndPayment",
-                        rest: { ...register("details.siteFunctionality") }
+                        ...register("details.siteFunctionality")
                       },
                       {
                         label: "Формы сбора контактов",
                         value: "contactCollectionForms",
-                        rest: { ...register("details.siteFunctionality") }
+                         ...register("details.siteFunctionality")
                       },
                       {
                         label: "Калькулятор",
                         value: "calculator",
-                        rest: { ...register("details.siteFunctionality") }
+                         ...register("details.siteFunctionality")
                       },
                       {
                         label: "Настройка рассылки",
                         value: "mailingSetup",
-                        rest: { ...register("details.siteFunctionality") }
+                        ...register("details.siteFunctionality")
                       },
                       {
                         label: "Интеграция Getcourse",
                         value: "getcourseIntegration",
-                        rest: { ...register("details.siteFunctionality") }
+                        ...register("details.siteFunctionality")
                       },
                       {
                         label: "Личный кабинет",
                         value: "personalAccount",
-                        rest: { ...register("details.siteFunctionality") }
+                         ...register("details.siteFunctionality")
                       },
                       {
                         label: "Получение заявок на почту",
                         value: "receivingApplicationsByMail",
-                        rest: { ...register("details.siteFunctionality") }
+                         ...register("details.siteFunctionality")
                       },
                       {
                         label: "Получение заявок в телеграм",
                         value: "receivingApplicationsByTelegram",
-                        rest: { ...register("details.siteFunctionality") }
+                         ...register("details.siteFunctionality")
                       },
                       {
                         label: "Каталог",
                         value: "catalog",
-                        rest: { ...register("details.siteFunctionality") }
+                         ...register("details.siteFunctionality")
                       },
                       {
                         label: "Сохранение информации в Google документы",
                         value: "savingInfoToGoogleDocs",
-                        rest: { ...register("details.siteFunctionality") }
+                         ...register("details.siteFunctionality")
                       },
                       {
                         label: "Нужна консультация",
                         value: "needConsultation",
-                        rest: { ...register("details.siteFunctionality") }
+                         ...register("details.siteFunctionality")
                       },
                       {
                         label: "Другие",
                         value: "other",
-                        rest: { ...register("details.siteFunctionality") }
+                         ...register("details.siteFunctionality")
                       }
                     ]}
                     errorMessage={errors.details?.siteFunctionality?.message}
@@ -755,7 +755,7 @@ export default function Brief() {
               и, нажимая на кнопку “Отправить”, даю согласие на обработку компанией указанных мной
               персональных данных
             </p>
-            <ArrowButtonWithText text={"Отправить"} type={"submit"} className={s.arrowButton} />
+            <Button text={"Отправить"} type={"submit"} className={s.arrowButton} />
           </section>
         </form>
       </div>

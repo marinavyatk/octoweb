@@ -1,25 +1,24 @@
 .attachedFile {
   display: flex;
   align-items: center;
-  width: fit-content;
   font-weight: var(--font-weight-regular-300);
   font-size: 18px;
   line-height: var(--line-height-160);
   color: var(--color-light-100);
+}
 
-  .attachIcon {
-    fill: var(--color-light-20);
-    margin-right: 26px;
-    width: 27px;
-  }
+.attachIcon {
+  fill: var(--color-light-20);
+  margin-right: 26px;
+  width: 27px;
+}
 
-  .deleteIcon {
-    margin-left: 18px;
-    fill: var(--color-error);
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-  }
+.deleteIcon {
+  margin-left: 18px;
+  fill: var(--color-error);
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
 }
 
 @media (max-width: 1425px) {
@@ -31,15 +30,15 @@
 @media (max-width: 767px) {
   .attachedFile {
     font-size: 10px;
+  }
 
-    .attachIcon {
-      width: 12px;
-      margin-right: 6px;
-    }
+  .attachIcon {
+    width: 12px;
+    margin-right: 6px;
+  }
 
-    .deleteIcon {
-      width: 10px;
-      margin-left: 5px;
-    }
+  .deleteIcon {
+    width: 10px;
+    margin-left: 5px;
   }
 }

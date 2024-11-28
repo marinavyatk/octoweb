@@ -35,7 +35,7 @@ export const BlogCard = (props: BlogCardProps) => {
 
   const tagList = tags.map((tag) => {
     return (
-      <Tag variant={"monochrome-secondary"} key={tag} className={s.tag}>
+      <Tag variant={"monochromeSecondary"} key={tag} className={s.tag}>
         {tag}
       </Tag>
     );

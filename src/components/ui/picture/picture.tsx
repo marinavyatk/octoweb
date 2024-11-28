@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { ComponentPropsWithoutRef, ElementType, useState } from "react";
 import s from "./picture.module.scss";
@@ -31,7 +31,7 @@ export const Picture = <CT extends ElementType>(props: PictureProps<CT>) => {
   return (
     <ContainerComponent {...containerProps} className={classNames}>
       {loading && <Loader {...loaderProps} className={clsx(s.loader, loaderProps?.className)} />}
-      <Image onLoad={handleImageLoaded}  {...restProps} />
+      <Image onLoad={handleImageLoaded} {...restProps} />
     </ContainerComponent>
   );
 };

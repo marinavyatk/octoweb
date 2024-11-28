@@ -65,7 +65,7 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
       rel={"nofollow"}
     >
       <div className={sizeClassName}>
-        <Tag variant={"monochrome-primary"} className={s.category}>
+        <Tag variant={"monochromePrimary"} className={s.category}>
           {category}
         </Tag>
         <Picture src={img} alt={header} fill sizes={getSizes(size)} />

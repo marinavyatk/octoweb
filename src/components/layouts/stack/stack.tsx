@@ -14,7 +14,7 @@ export const Stack = (props: StackProps) => {
   const classNames = clsx(s.stack, className);
   const tagList = tags.map((tag) => {
     return (
-      <Tag key={tag} variant={"monochrome-secondary"}>
+      <Tag key={tag} variant={"monochromeSecondary"}>
         {tag}
       </Tag>
     );
