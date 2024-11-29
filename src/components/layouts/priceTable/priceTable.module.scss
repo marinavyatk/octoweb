@@ -9,21 +9,21 @@
   flex-direction: column;
   gap: 43px;
 
-  .priceRow {
-    display: flex;
-    justify-content: space-between;
-  }
-
   h3 {
     font-weight: var(--font-weight-regular-400);
     font-size: inherit;
     line-height: var(--line-height-140);
   }
+}
 
-  .price {
-    font-weight: var(--font-weight-regular-600);
-    color: var(--color-primary);
-  }
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price {
+  font-weight: var(--font-weight-regular-600);
+  color: var(--color-primary);
 }
 
 @media (max-width: 1905px) {

@@ -13,7 +13,7 @@ export const AdvantageCards = (props: AdvantageCardsProps) => {
             <AdvantageCard
                 icon={card.icon}
                 header={card.header}
-                paragraph={card.paragraph}
+                text={card.paragraph}
                 key={card.header}
             />
         );

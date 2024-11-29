@@ -16,7 +16,6 @@ import { FormNotification } from "@/components/layouts/formNotification/formNoti
 type FormValues = z.infer<typeof formSchema>;
 export type FormProps = ComponentPropsWithoutRef<"div">;
 
-
 export const Form = (props: FormProps) => {
   const { className, ...restProps } = props;
   const classNames = clsx(s.form, className);
@@ -26,7 +25,7 @@ export const Form = (props: FormProps) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isDirty },
+    formState: { errors },
     reset,
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -42,7 +41,6 @@ export const Form = (props: FormProps) => {
   });
 
   console.log(errors);
-  console.log('isDirty', isDirty);
 
   const onSubmit = (data: FormValues) => {
     console.log(data);

@@ -1,18 +1,16 @@
-import { clsx } from "clsx";
 import s from "./formNotification.module.scss";
-import { ComponentPropsWithoutRef } from "react";
 import SubmittedIcon from "@/svg/submittedIcon.svg";
+import { Modal } from "@/components/ui/modal/modal";
 
 export type FormNotificationProps = {
   onButtonClick?: () => void;
-} & ComponentPropsWithoutRef<"div">;
+}
+
 export const FormNotification = (props: FormNotificationProps) => {
-  const { onButtonClick, className, ...restProps } = props;
-  const classNames = clsx(s.modal, className);
+  const { onButtonClick } = props;
 
   return (
-    <div className={classNames} {...restProps}>
-      <div className={s.formNotification}>
+    <Modal className={s.content}>
         <div className={s.submittedIcon}>
           <SubmittedIcon />
         </div>
@@ -23,7 +21,6 @@ export const FormNotification = (props: FormNotificationProps) => {
           </p>
         </div>
         <button onClick={onButtonClick}>ОТЛИЧНО!</button>
-      </div>
-    </div>
+    </Modal>
   );
 };

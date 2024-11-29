@@ -3,160 +3,164 @@
   border-radius: 72px;
   padding: 64px 110px 85px;
   overflow-x: hidden;
+}
 
-  .mainInfo {
-    display: flex;
-    justify-content: space-between;
-    gap: 39px;
-    margin-bottom: 56px;
+.mainInfo {
+  display: flex;
+  justify-content: space-between;
+  gap: 39px;
+  margin-bottom: 56px;
+}
 
-    .item {
-      max-width: 458px;
-      width: 100%;
+.item {
+  max-width: 458px;
+  width: 100%;
+}
+
+.inputWithCounter {
+  max-width: 100%;
+}
+
+.checkbox {
+  margin: 56px 0 33px;
+}
+
+.submit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+
+  p {
+    max-width: 852px;
+    width: 100%;
+    font-weight: var(--font-weight-regular-300);
+    font-size: 14px;
+    line-height: var(--line-height-200);
+    color: var(--color-light-100);
+
+    a {
+      font-weight: var(--font-weight-regular-400);
+      color: var(--color-accent);
     }
   }
 
-  .inputWithCounter {
-    max-width: 100%;
-  }
-
-  .checkbox {
-    margin: 56px 0 33px;
-  }
-
-  .submit {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-
-    p {
-      max-width: 852px;
-      width: 100%;
-      font-weight: var(--font-weight-regular-300);
-      font-size: 14px;
-      line-height: var(--line-height-200);
-      color: var(--color-light-100);
-
-      a {
-        font-weight: var(--font-weight-regular-400);
-        color: var(--color-accent);
-      }
-    }
-
-    .arrowButton {
-      --button-width: 347px;
-    }
+  .arrowButton {
+    --button-width: 347px;
   }
 }
+
 
 @media (max-width: 1905px) {
   .form {
     padding: 56px 80px 62px;
+  }
 
-    .mainInfo {
-      gap: 24px;
-    }
+  .mainInfo {
+    gap: 24px;
+  }
 
-    .item {
-      max-width: 312px;
-    }
+  .item {
+    max-width: 312px;
+  }
 
-    .submit {
-      p {
-        max-width: 728px;
-      }
+  .submit {
+    p {
+      max-width: 728px;
     }
   }
 }
+
 
 @media (max-width: 1425px) {
   .form {
     padding: 56px 89px 66px;
+  }
 
-    .item {
-      max-width: 239px;
+  .item {
+    max-width: 239px;
+  }
+
+  .submit {
+    p {
+      font-size: 12px;
+      max-width: 504px;
     }
 
-    .submit {
-      p {
-        font-size: 12px;
-        max-width: 504px;
-      }
-
-      .arrowButton {
-        --button-width: 240px;
-      }
+    .arrowButton {
+      --button-width: 240px;
     }
   }
 }
+
 
 @media (max-width: 1265px) {
   .form {
     padding: 33px 52px 40px;
+  }
 
-    .mainInfo {
-      flex-direction: column;
-      gap: 30px;
-      margin-bottom: 30px;
+  .mainInfo {
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
 
-      .item {
-        max-width: unset;
-      }
+  .item {
+    max-width: unset;
+  }
+
+  .submit {
+    gap: 30px;
+
+    p {
+      font-size: 10px;
+      max-width: unset;
     }
 
-    .submit {
-      gap: 30px;
+    .arrowButton {
+      --button-height: 48px;
+      --button-width: 172px;
+      --arrow-width: 35px;
+      font-size: 12px;
 
-      p {
-        font-size: 10px;
-        max-width: unset;
-      }
-
-      .arrowButton {
-        --button-height: 48px;
-        --button-width: 172px;
-        --arrow-width: 35px;
-        font-size: 12px;
-
-        svg {
-          width: 13px;
-          height: 13px;
-        }
+      svg {
+        width: 13px;
+        height: 13px;
       }
     }
   }
 }
+
 
 @media (max-width: 767px) {
   .form {
     padding: 20px;
     border-radius: 12px;
+  }
 
-    .mainInfo {
-      gap: 14px;
-      margin-bottom: 14px;
+  .mainInfo {
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .checkbox {
+    margin: 19px 0;
+  }
+
+  .submit {
+    p {
+      font-size: 4px;
     }
 
-    .checkbox {
-      margin: 19px 0;
-    }
+    .arrowButton {
+      --button-height: 20px;
+      --button-width: 72px;
+      --arrow-width: 14px;
+      font-size: 5px;
 
-    .submit {
-      p {
-        font-size: 4px;
-      }
-
-      .arrowButton {
-        --button-height: 20px;
-        --button-width: 72px;
-        --arrow-width: 14px;
-        font-size: 5px;
-
-        svg {
-          width: 5px;
-          height: 5px;
-        }
+      svg {
+        width: 5px;
+        height: 5px;
       }
     }
   }

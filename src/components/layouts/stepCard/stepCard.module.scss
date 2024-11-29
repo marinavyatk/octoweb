@@ -6,40 +6,32 @@
   border-left: 1px solid var(--color-accent);
   display: flex;
   flex-direction: column;
-  font-family: var(--font-family-primary);
   justify-content: space-between;
-  align-items: flex-start;
-
-  .cardHeader {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .stepNumber {
-    color: var(--color-accent);
-    font-weight: var(--font-weight-bold-900);
-    font-size: 80px;
-    font-family: var(--font-family-primary);
-    line-height: var(--line-height-120);
-  }
-
-  .header {
-    font-weight: var(--font-weight-regular-300);
-    font-size: 24px;
-    line-height: var(--line-height-180);
-    color: var(--color-accent);
-    font-family: var(--font-family-primary);
-    text-transform: none;
-  }
 
   p {
     font-weight: var(--font-weight-regular-600);
     font-size: 32px;
     line-height: var(--line-height-160);
     color: var(--color-light-100);
-    margin: 0;
   }
+}
+
+.cardHeader {
+  color: var(--color-accent);
+}
+
+.stepNumber {
+  font-weight: var(--font-weight-bold-900);
+  font-size: 80px;
+  line-height: var(--line-height-120);
+  margin-bottom: 12px;
+}
+
+.header {
+  font-weight: var(--font-weight-regular-300);
+  font-size: 24px;
+  line-height: var(--line-height-180);
+  text-transform: none;
 }
 
 @media (max-width: 1905px) {
@@ -47,17 +39,17 @@
     width: 392px;
     height: 540px;
 
-    .stepNumber {
-      font-size: 48px;
-    }
-
-    .header {
-      font-size: 18px;
-    }
-
     p {
       font-size: 24px;
     }
+  }
+
+  .stepNumber {
+    font-size: 48px;
+  }
+
+  .header {
+    font-size: 18px;
   }
 }
 
@@ -78,17 +70,17 @@
     width: 296px;
     height: 414px;
 
-    .stepNumber {
-      font-size: 40px;
-    }
-
-    .header {
-      font-size: 24px;
-    }
-
     p {
       font-size: 20px;
     }
+  }
+
+  .stepNumber {
+    font-size: 40px;
+  }
+
+  .header {
+    font-size: 24px;
   }
 }
 
@@ -98,20 +90,20 @@
     height: 172px;
     padding-left: 9px;
 
-    .cardHeader {
-      gap: 5px;
-    }
-
-    .stepNumber {
-      font-size: 17px;
-    }
-
-    .header {
-      font-size: 10px;
-    }
-
     p {
       font-size: 8px;
     }
+  }
+
+  .cardHeader {
+    gap: 5px;
+  }
+
+  .stepNumber {
+    font-size: 17px;
+  }
+
+  .header {
+    font-size: 10px;
   }
 }

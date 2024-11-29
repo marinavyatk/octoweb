@@ -15,7 +15,7 @@ export const Primary: Story = {
     args: {
         icon: '/advantage-simplicity.webp',
         header: 'Просто о сложном',
-        paragraph:
+        text:
             'Переводим технические моменты на "человеческий язык", чтобы вы могли понимать окончательный результат.',
     },
 };

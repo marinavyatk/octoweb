@@ -1,39 +1,40 @@
 .card {
   display: block;
-
-  .container {
-    position: relative;
-    border-radius: 33px;
-    overflow: hidden;
-  }
-
-  .category {
-    position: absolute;
-    top: 24px;
-    left: 24px;
-    z-index: 1;
-  }
-
-  .tagList {
-    position: absolute;
-    bottom: 24px;
-    left: 24px;
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .header {
-    font-weight: var(--font-weight-regular-500);
-    font-family: var(--font-family-primary);
-    font-size: 40px;
-    color: var(--color-light-100);
-    line-height: var(--line-height-120);
-    text-transform: none;
-    padding-left: 0;
-    margin-top: 30px;
-  }
 }
+
+.container {
+  position: relative;
+  border-radius: 33px;
+  overflow: hidden;
+}
+
+.category {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 1;
+}
+
+.tagList {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.header {
+  font-weight: var(--font-weight-regular-500);
+  font-family: var(--font-family-primary);
+  font-size: 40px;
+  color: var(--color-light-100);
+  line-height: var(--line-height-120);
+  text-transform: none;
+  padding-left: 0;
+  margin-top: 30px;
+}
+
 
 .small {
   width: 536px;
@@ -56,10 +57,8 @@
 }
 
 @media (max-width: 1905px) {
-  .card {
-    .header {
-      font-size: 24px;
-    }
+  .header {
+    font-size: 24px;
   }
 
   .small {
@@ -106,20 +105,21 @@
 }
 
 @media (max-width: 1265px) {
-  .card {
-    .header {
-      font-size: 32px;
-    }
-    .category {
-      top: 31px;
-      left: 31px;
-    }
-    .tagList {
-      gap: 24px;
-      bottom: 31px;
-      left: 31px;
-    }
+  .header {
+    font-size: 32px;
   }
+
+  .category {
+    top: 31px;
+    left: 31px;
+  }
+
+  .tagList {
+    gap: 24px;
+    bottom: 31px;
+    left: 31px;
+  }
+
   .small {
     width: 509px;
     height: 636px;
@@ -142,24 +142,24 @@
 }
 
 @media (max-width: 767px) {
-  .card {
-    .container {
-      border-radius: 17px;
-    }
+  .container {
+    border-radius: 17px;
+  }
 
-    .header {
-      font-size: 14px;
-      margin-top: 16px;
-    }
-    .category {
-      top: 12px;
-      left: 8px;
-    }
-    .tagList {
-      gap: 10px;
-      bottom: 12px;
-      left: 8px;
-    }
+  .header {
+    font-size: 14px;
+    margin-top: 16px;
+  }
+
+  .category {
+    top: 12px;
+    left: 8px;
+  }
+
+  .tagList {
+    gap: 10px;
+    bottom: 12px;
+    left: 8px;
   }
 
   .small {

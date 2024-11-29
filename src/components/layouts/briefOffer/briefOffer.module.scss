@@ -3,40 +3,37 @@
   gap: 58px;
   align-items: center;
   padding-left: 142px;
-
-  .offerText {
-    font-family: var(--font-family-secondary);
-    line-height: var(--line-height-160);
-    color: var(--color-light-100);
-
-    .heading {
-      font-weight: var(--font-weight-regular-500);
-      font-size: 32px;
-    }
-
-    .accent {
-      color: var(--color-accent);
-    }
-
-    .description {
-      font-weight: var(--font-weight-regular-300);
-      font-size: 24px;
-      opacity: 0.8;
-    }
-  }
 }
 
-@media (max-width: 1905px) {
-  .briefOffer {
-    .offerText {
-      .heading {
-        font-size: 24px;
-      }
+.offerText {
+  font-family: var(--font-family-secondary);
+  line-height: var(--line-height-160);
+  color: var(--color-light-100);
+}
 
-      .description {
-        font-size: 16px;
-      }
-    }
+.heading {
+  font-weight: var(--font-weight-regular-500);
+  font-size: 32px;
+}
+
+.accent {
+  color: var(--color-accent);
+}
+
+.description {
+  font-weight: var(--font-weight-regular-300);
+  font-size: 24px;
+  opacity: 0.8;
+}
+
+
+@media (max-width: 1905px) {
+  .heading {
+    font-size: 24px;
+  }
+
+  .description {
+    font-size: 16px;
   }
 }
 
@@ -44,16 +41,14 @@
   .briefOffer {
     padding-left: 0;
     gap: 40px;
+  }
 
-    .offerText {
-      .heading {
-        font-size: 30px;
-      }
+  .heading {
+    font-size: 30px;
+  }
 
-      .description {
-        font-size: 24px;
-      }
-    }
+  .description {
+    font-size: 24px;
   }
 }
 
@@ -61,17 +56,17 @@
   .briefOffer {
     padding-left: 0;
     gap: 16px;
+  }
 
-    .offerText {
-      line-height: unset;
+  .offerText {
+    line-height: unset;
+  }
 
-      .heading {
-        font-size: 12px;
-      }
+  .heading {
+    font-size: 12px;
+  }
 
-      .description {
-        font-size: 10px;
-      }
-    }
+  .description {
+    font-size: 10px;
   }
 }

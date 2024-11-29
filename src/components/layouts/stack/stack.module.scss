@@ -3,73 +3,70 @@
   justify-content: space-between;
   align-items: center;
   max-width: 1672px;
-  width: 100%;
   min-height: 100px;
   border-bottom: 1px solid var(--color-primary);
   gap: 30px;
+}
 
-  .text {
-    margin-bottom: 40px;
-    white-space: nowrap;
+.text {
+  margin-bottom: 40px;
+  white-space: nowrap;
+}
 
-    .number,
-    .header {
-      color: var(--color-light-100);
-      font-weight: var(--font-weight-regular-500);
-      font-size: 48px;
-      line-height: var(--line-height-120);
-    }
+.number,
+.header {
+  color: var(--color-light-100);
+  font-weight: var(--font-weight-regular-500);
+  font-size: 48px;
+  line-height: var(--line-height-120);
+}
 
-    .header {
-      text-transform: none;
-      display: inline-block;
-    }
+.header {
+  text-transform: none;
+  display: inline;
+}
 
-    .number {
-      opacity: 0.2;
-      margin-right: 40px;
-    }
-  }
+.number {
+  opacity: 0.2;
+  margin-right: 40px;
+}
 
-  .tagList {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap-reverse;
-    margin-bottom: 40px;
-    justify-content: flex-end;
-  }
+.tagList {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap-reverse;
+  margin-bottom: 40px;
+  justify-content: flex-end;
 }
 
 @media (max-width: 1425px) {
-  .stack {
-    .number,
-    .header {
-      font-size: 40px;
-    }
+  .number,
+  .header {
+    font-size: 40px;
   }
 }
 
 @media (max-width: 1265px) {
   .stack {
     min-height: 53px;
+  }
 
-    .text {
-      margin-bottom: 17px;
+  .text {
+    margin-bottom: 17px;
+  }
 
-      .number,
-      .header {
-        font-size: 30px;
-      }
+  .number,
+  .header {
+    font-size: 30px;
+  }
 
-      .number {
-        margin-right: 11px;
-      }
-    }
+  .number {
+    margin-right: 11px;
+  }
 
-    .tagList {
-      gap: 12px;
-      margin-bottom: 17px;
-    }
+  .tagList {
+    gap: 12px;
+    margin-bottom: 17px;
   }
 }
 
@@ -77,23 +74,23 @@
   .stack {
     min-height: 21px;
     gap: 10px;
+  }
 
-    .text {
-      margin-bottom: 7px;
+  .text {
+    margin-bottom: 7px;
+  }
 
-      .number,
-      .header {
-        font-size: 12px;
-      }
+  .number,
+  .header {
+    font-size: 12px;
+  }
 
-      .number {
-        margin-right: 5px;
-      }
-    }
+  .number {
+    margin-right: 5px;
+  }
 
-    .tagList {
-      gap: 5px;
-      margin-bottom: 7px;
-    }
+  .tagList {
+    gap: 5px;
+    margin-bottom: 7px;
   }
 }

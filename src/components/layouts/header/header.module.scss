@@ -16,11 +16,11 @@
   position: sticky;
   z-index: 20;
   padding-top: 32px;
+}
 
-  .rightBlock {
-    display: flex;
-    gap: 24px;
-  }
+.rightBlock {
+  display: flex;
+  gap: 24px;
 }
 
 .headerMobile {
@@ -43,9 +43,11 @@
   .header {
     width: 96%;
   }
+
   .headerMobile {
     display: block;
   }
+
   .headerDesktop {
     display: none;
   }
@@ -55,8 +57,5 @@
   .header {
     width: 95%;
     padding-top: 20px;
-  }
-  .headerMobile {
-    padding: 0;
   }
 }

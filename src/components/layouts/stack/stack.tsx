@@ -12,6 +12,7 @@ export type StackProps = {
 export const Stack = (props: StackProps) => {
   const { number, header, tags, className, ...restProps } = props;
   const classNames = clsx(s.stack, className);
+
   const tagList = tags.map((tag) => {
     return (
       <Tag key={tag} variant={"monochromeSecondary"}>

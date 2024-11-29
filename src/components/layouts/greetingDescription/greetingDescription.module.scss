@@ -42,11 +42,7 @@
   width: 400px;
 }
 
-.emojiSymbol {
-  width: 162px;
-}
-
-.kissSymbol {
+.emojiSymbol, .kissSymbol {
   width: 162px;
 }
 
@@ -55,6 +51,7 @@
     font-size: 64px;
     row-gap: 20px;
   }
+
   .starsSymbols {
     width: 431px;
   }
@@ -76,11 +73,7 @@
     width: 373px;
   }
 
-  .emojiSymbol {
-    width: 153px;
-  }
-
-  .kissSymbol {
+  .emojiSymbol, .kissSymbol {
     width: 153px;
   }
 }
@@ -89,15 +82,12 @@
   .greetingDescription {
     font-size: 56px;
   }
+
   .starsSymbols {
     width: 333px;
   }
 
-  .arrowSymbol {
-    width: 161px;
-  }
-
-  .happySymbol {
+  .arrowSymbol, .happySymbol {
     width: 161px;
   }
 
@@ -105,11 +95,7 @@
     width: 285px;
   }
 
-  .emojiSymbol {
-    width: 111px;
-  }
-
-  .kissSymbol {
+  .emojiSymbol, .kissSymbol {
     width: 111px;
   }
 }
@@ -147,11 +133,7 @@
     width: 147px;
   }
 
-  .emojiSymbol {
-    width: 56px;
-  }
-
-  .kissSymbol {
+  .emojiSymbol, .kissSymbol {
     width: 56px;
   }
 }
@@ -188,11 +170,7 @@
     width: 61px;
   }
 
-  .emojiSymbol {
-    width: 22px;
-  }
-
-  .kissSymbol {
+  .emojiSymbol, .kissSymbol {
     width: 22px;
   }
 }
