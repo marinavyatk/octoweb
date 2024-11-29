@@ -1,3 +1,5 @@
+"use client";
+
 import clsx from "clsx";
 import s from "./servicesLink.module.scss";
 import { ArrowButton } from "@/components/ui/buttons/arrowButton/arrowButton";
@@ -5,7 +7,7 @@ import { Tag } from "../../ui/tag/tag";
 import Image from "next/image";
 import Link from "next/link";
 import { TagLink } from "@/common/types";
-import { ComponentPropsWithoutRef } from "react";
+import { ComponentPropsWithoutRef, useEffect, useState } from "react";
 
 export type ServicesLinkProps = {
   number: string;
@@ -17,6 +19,7 @@ export type ServicesLinkProps = {
 } & ComponentPropsWithoutRef<"div">;
 
 export const ServicesLink = (props: ServicesLinkProps) => {
+  const [hoverable, setHoverable] = useState(false);
   const { number, header, tags, mainLink, linkProps, img, className, ...restProps } = props;
   const classNames = clsx(s.servicesLink, className);
   const tagList =
@@ -33,17 +36,23 @@ export const ServicesLink = (props: ServicesLinkProps) => {
       );
     });
 
+  useEffect(() => {
+    if (window.innerWidth > 768) {
+      setHoverable(true);
+    }
+  }, []);
+
   return (
     <div {...restProps} className={classNames}>
-      <div className={s.header}>
+      <a className={s.header} href={`/services/${mainLink}`} {...linkProps}>
         <div className={s.text}>
           <span className={s.number}>{number}</span>
           <h3 className={s.header}>{header}</h3>
         </div>
-        <ArrowButton href={`/services/${mainLink}`} {...linkProps}/>
-      </div>
+        <ArrowButton href={`/services/${mainLink}`} {...linkProps} />
+      </a>
       {tags && <div className={s.tagList}>{tagList}</div>}
-      {img &&
+      {img && hoverable &&
         <div className={s.imgContainer}>
           <div className={s.imgPositionContainer}>
             <Image src={img} alt={header} fill sizes={"394px"} />

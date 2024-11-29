@@ -1,55 +1,52 @@
-.blogCard {
-  .imgContainer {
-    border-radius: 32px;
-    background-color: var(--color-dark-secondary);
-    overflow: hidden;
-    position: relative;
+.imgContainer {
+  border-radius: 32px;
+  background-color: var(--color-dark-secondary);
+  overflow: hidden;
+  position: relative;
+}
 
-    .markContainer {
-      display: flex;
-      padding: 32px;
-      justify-content: space-between;
-      align-items: flex-end;
-      position: absolute;
-      gap: 10px;
-      bottom: 0;
-      width: 100%;
-    }
+.markContainer {
+  display: flex;
+  padding: 32px;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: absolute;
+  gap: 10px;
+  bottom: 0;
+  width: 100%;
+}
 
-    .tagList {
-      display: flex;
-      flex-wrap: wrap-reverse;
-      gap: 8px;
+.tagList {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  gap: 8px;
+}
 
-      .tag {
-        transition: all 0.4s cubic-bezier(0.72, 0.01, 0.58, 1);
+.tag {
+  transition: all 0.4s cubic-bezier(0.72, 0.01, 0.58, 1);
 
-        &:hover {
-          background-color: var(--color-accent);
-          border-color: var(--color-accent);
-          color: var(--color-dark-primary);
-          transition: all 0.4s cubic-bezier(0.72, 0.01, 0.58, 1);
-        }
-      }
-    }
+  &:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-dark-primary);
   }
+}
 
-  .header {
-    font-weight: var(--font-weight-regular-600);
-    font-size: 32px;
-    line-height: var(--line-height-160);
-    color: var(--color-light-100);
-    text-transform: none;
-    margin-top: 40px;
-  }
+.header {
+  font-weight: var(--font-weight-regular-600);
+  font-size: 32px;
+  line-height: var(--line-height-160);
+  color: var(--color-light-100);
+  text-transform: none;
+  margin-top: 40px;
+}
 
-  .description {
-    font-weight: var(--font-weight-regular-300);
-    font-size: 18px;
-    line-height: var(--line-height-200);
-    color: var(--color-light-100);
-    margin-top: 24px;
-  }
+.description {
+  font-weight: var(--font-weight-regular-300);
+  font-size: 18px;
+  line-height: var(--line-height-200);
+  color: var(--color-light-100);
+  margin-top: 24px;
 }
 
 .small {
@@ -83,11 +80,11 @@
     -webkit-mask-size: 100% 100%;
     mask-repeat: no-repeat;
     -webkit-mask-repeat: no-repeat;
+  }
 
-    .markContainer {
-      width: 50%;
-      right: 0;
-    }
+  .markContainer {
+    width: 50%;
+    right: 0;
   }
 
   .header {
@@ -128,21 +125,19 @@
 }
 
 @media (max-width: 1425px) {
-  .blogCard {
-    .imgContainer .markContainer {
-      padding: 16px;
-      flex-direction: column-reverse;
-      gap: 24px;
-    }
+  .markContainer {
+    padding: 16px;
+    flex-direction: column-reverse;
+    gap: 24px;
+  }
 
-    .header {
-      font-size: 24px;
-    }
+  .header {
+    font-size: 24px;
+  }
 
-    .description {
-      font-size: 18px;
-      margin-top: 16px;
-    }
+  .description {
+    font-size: 18px;
+    margin-top: 16px;
   }
 
   .small {
@@ -174,15 +169,13 @@
 
 
 @media (max-width: 1000px) {
-  .blogCard {
-    .header {
-      font-size: 32px;
-    }
+  .header {
+    font-size: 32px;
+  }
 
-    .description {
-      font-size: 18px;
-      margin-top: 24px;
-    }
+  .description {
+    font-size: 18px;
+    margin-top: 24px;
   }
 
   .small {
@@ -216,26 +209,24 @@
 }
 
 @media (max-width: 767px) {
-  .blogCard {
-    .imgContainer .markContainer {
-      padding: 10px;
-      flex-direction: row;
-      gap: 10px;
-    }
+  .markContainer {
+    padding: 10px;
+    flex-direction: row;
+    gap: 10px;
+  }
 
-    .imgContainer {
-      border-radius: 10px;
-    }
+  .imgContainer {
+    border-radius: 10px;
+  }
 
-    .header {
-      font-size: 15px;
-      margin-top: 10px;
-    }
+  .header {
+    font-size: 15px;
+    margin-top: 10px;
+  }
 
-    .description {
-      font-size: 12px;
-      margin-top: 10px;
-    }
+  .description {
+    font-size: 12px;
+    margin-top: 10px;
   }
 
   .small, .medium {
@@ -251,7 +242,7 @@
       height: 150px;
     }
 
-    .imgContainer .markContainer {
+    .markContainer {
       flex-direction: column-reverse;
       gap: 12px;
 
@@ -259,6 +250,5 @@
         justify-content: flex-end;
       }
     }
-
   }
 }

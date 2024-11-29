@@ -27,7 +27,10 @@ export const CaseCircle = (props: CaseCircleProps) => {
         event.preventDefault();
       }}
     >
-      <Picture src={img} alt="caseId" draggable={false} fill
+      <Picture src={img}
+               alt={caseId}
+               draggable={false}
+               fill
                sizes={"(max-width: 767px) 76px,(max-width: 1905px) 170px, 232px"} />
     </Link>
   );

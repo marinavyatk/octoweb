@@ -1,37 +1,26 @@
 .card {
   min-height: 588px;
-  height: 100%;
-  width: 100%;
   position: relative;
-
-  .number {
-    opacity: 1;
-    color: var(--color-primary);
-    font-size: 48px;
-    font-weight: var(--font-weight-regular-300);
-  }
-
-  .header {
-    color: var(--color-light-100);
-    line-height: var(--line-height-120);
-    font-size: 48px;
-    font-weight: var(--font-weight-regular-500);
-    text-transform: none;
-  }
-
-  .tagList {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
 }
 
-.small {
-  max-width: 678px;
+.number {
+  color: var(--color-primary);
+  font-size: 48px;
+  font-weight: var(--font-weight-regular-300);
 }
 
-.medium {
-  max-width: 820px;
+.header {
+  color: var(--color-light-100);
+  line-height: var(--line-height-120);
+  font-size: 48px;
+  font-weight: var(--font-weight-regular-500);
+  text-transform: none;
+}
+
+.tagList {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 .blur {
@@ -53,18 +42,28 @@
   min-height: inherit;
 }
 
+.small {
+  max-width: 678px;
+}
+
+.medium {
+  max-width: 820px;
+}
+
+
 @media (max-width: 1905px) {
   .card {
     min-height: 500px;
-
-    .number, .header {
-      font-size: 40px;
-    }
-
-    .content {
-      padding: 50px 56px 56px;
-    }
   }
+
+  .number, .header {
+    font-size: 40px;
+  }
+
+  .content {
+    padding: 50px 56px 56px;
+  }
+
   .small {
     max-width: 496px;
   }
@@ -75,8 +74,8 @@
 }
 
 @media (max-width: 1425px) {
-  .card  .content {
-      padding: 30px 36px 36px;
+  .content {
+    padding: 30px 36px 36px;
   }
 }
 
@@ -98,18 +97,18 @@
 @media (max-width: 767px) {
   .card {
     min-height: 286px;
+  }
 
-    .number, .header {
-      font-size: 16px;
-    }
+  .number, .header {
+    font-size: 16px;
+  }
 
-    .content {
-      padding: 30px;
-    }
+  .content {
+    padding: 30px;
+  }
 
-    .tagList {
-      gap: 9px;
-    }
+  .tagList {
+    gap: 9px;
   }
 
   .small {

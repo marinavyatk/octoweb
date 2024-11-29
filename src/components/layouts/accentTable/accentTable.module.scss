@@ -9,6 +9,11 @@
     margin-bottom: 105px;
   }
 
+  h3 {
+    font-weight: var(--font-weight-regular-500);
+    hyphens: auto;
+  }
+
   ul {
     list-style: none;
     font-size: 48px;
@@ -24,30 +29,26 @@
     align-items: center;
     gap: 40px;
     text-transform: uppercase;
-
-    h3 {
-      font-weight: var(--font-weight-regular-500);
-      hyphens: auto;
-    }
-  }
-
-  .arrow {
-    background-color: var(--color-accent);
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-
-    svg {
-      width: 24px;
-      height: 24px;
-      stroke: var(--color-dark-primary);
-    }
   }
 }
+
+.arrow {
+  background-color: var(--color-accent);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--color-dark-primary);
+  }
+}
+
 
 @media (max-width: 1905px) {
   .accentTable {
@@ -58,22 +59,22 @@
       margin-bottom: 70px;
     }
 
+    h3 {
+      font-size: 40px;
+    }
+
     ul {
       gap: 38px;
+    }
+  }
 
-      h3 {
-        font-size: 40px;
-      }
+  .arrow {
+    width: 64px;
+    height: 64px;
 
-      .arrow {
-        width: 64px;
-        height: 64px;
-
-        svg {
-          width: 18px;
-          height: 18px;
-        }
-      }
+    svg {
+      width: 18px;
+      height: 18px;
     }
   }
 }
@@ -84,14 +85,14 @@
 
     ul {
       gap: 38px;
+    }
 
-      h3 {
-        font-size: 30px;
-      }
+    h3 {
+      font-size: 30px;
+    }
 
-      li {
-        gap: 20px;
-      }
+    li {
+      gap: 20px;
     }
   }
 }
@@ -123,24 +124,23 @@
 
     ul {
       gap: 10px;
+    }
 
-      li {
-        gap: 8px;
-      }
+    li {
+      gap: 8px;
+    }
 
-      h3 {
-        font-size: 12px;
-      }
+    h3 {
+      font-size: 12px;
+    }
+  }
+  .arrow {
+    width: 19px;
+    height: 19px;
 
-      .arrow {
-        width: 19px;
-        height: 19px;
-
-        svg {
-          width: 5px;
-          height: 5px;
-        }
-      }
+    svg {
+      width: 5px;
+      height: 5px;
     }
   }
 }

@@ -4,68 +4,60 @@
   line-height: var(--line-height-124);
   text-transform: uppercase;
   color: var(--color-light-100);
-
   display: flex;
   flex-direction: column;
   gap: 16px;
   white-space: nowrap;
-  //position: relative;
+}
 
-  .firstLine {
-    padding-left: 140px;
-  }
+.firstLine {
+  padding-left: 140px;
+}
 
-  .secondLine {
-    display: flex;
-    gap: 50px;
-    align-items: center;
-  }
+.secondLine {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
 
-  .thirdLine {
-    padding-left: 265px;
-  }
-
-  //.arrow {
-  //  position: absolute;
-  //  left: 125px;
-  //  bottom: 0;
-  //}
+.thirdLine {
+  padding-left: 265px;
 }
 
 @media (max-width: 1905px) {
   .greetingText {
     font-size: 72px;
     line-height: var(--line-height-140);
+  }
 
-    .firstLine {
-      padding-left: 118px;
-    }
+  .firstLine {
+    padding-left: 118px;
+  }
 
-    .secondLine {
-      gap: 32px;
-    }
+  .secondLine {
+    gap: 32px;
+  }
 
-    .thirdLine {
-      padding-left: 200px;
-    }
+  .thirdLine {
+    padding-left: 200px;
   }
 }
 
 @media (max-width: 1425px) {
   .greetingText {
     font-size: 64px;
+  }
 
-    .firstLine {
-      padding-left: 59px;
-    }
+  .firstLine {
+    padding-left: 59px;
+  }
 
-    .secondLine {
-      gap: 24px;
-    }
+  .secondLine {
+    gap: 24px;
+  }
 
-    .thirdLine {
-      padding-left: 150px;
-    }
+  .thirdLine {
+    padding-left: 150px;
   }
 }
 
@@ -73,31 +65,32 @@
   .greetingText {
     font-size: 40px;
     gap: 5px;
+  }
 
-    .firstLine {
-      padding-left: 49px;
-    }
+  .firstLine {
+    padding-left: 49px;
+  }
 
-    .secondLine {
-      gap: 26px;
-    }
+  .secondLine {
+    gap: 26px;
   }
 }
 
 @media (max-width: 767px) {
   .greetingText {
     font-size: 17px;
+  }
 
-    .firstLine {
-      padding-left: 26px;
-    }
+  .firstLine {
+    padding-left: 26px;
+  }
 
-    .secondLine {
-      gap: 10px;
-    }
+  .secondLine {
+    gap: 10px;
+  }
 
-    .thirdLine {
-      padding-left: 60px;
-    }
+  .thirdLine {
+    padding-left: 60px;
   }
 }
+

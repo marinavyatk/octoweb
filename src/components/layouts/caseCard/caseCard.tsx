@@ -25,17 +25,12 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
     header,
     className,
     caseId,
-    as: HeaderType = "h2",
+    as: Header = "h2",
     ...restProps
   } = props;
   const classNames = clsx(s.card, className);
 
-  const sizeClassName = clsx(s.container, {
-    [s.small]: size === "small",
-    [s.medium]: size === "medium",
-    [s.large]: size === "large",
-    [s.extraLarge]: size === "extraLarge"
-  });
+  const sizeClassName = clsx(s.container, s[size]);
   const tagList = tags.map((tag) => {
     return (
       <Tag variant={"colored"} key={tag}>
@@ -71,7 +66,7 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
         <Picture src={img} alt={header} fill sizes={getSizes(size)} />
         <div className={s.tagList}>{tagList}</div>
       </div>
-      <HeaderType className={s.header}>{header}</HeaderType>
+      <Header className={s.header}>{header}</Header>
     </Link>
   );
 };

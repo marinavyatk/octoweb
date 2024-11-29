@@ -1,31 +1,24 @@
 .footerWithForm {
   position: relative;
-  width: 100%;
-  max-width: 1920px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+}
 
-  .formContainer {
-    width: 100%;
-    padding: 56px 124px 137px;
-    background-image: url(/primaryFolderForm.png);
-    border-radius: 72px;
-    background-size: cover;
-    margin-bottom: 65px;
-  }
+.formContainer {
+  padding: 56px 124px 137px;
+  background-image: url(/primaryFolderForm.png);
+  border-radius: 72px;
+  background-size: cover;
+  margin-bottom: 65px;
+}
 
-  .title {
-    font-weight: var(--font-weight-bold-900);
-    font-size: 56px;
-    line-height: var(--line-height-140);
-    text-transform: uppercase;
-    color: var(--color-dark-primary);
-    display: inline-block;
-    max-width: 1017px;
-    padding: 0 0 72px;
-  }
+.title {
+  font-weight: var(--font-weight-bold-900);
+  font-size: 56px;
+  line-height: var(--line-height-140);
+  text-transform: uppercase;
+  color: var(--color-dark-primary);
+  display: inline-block;
+  max-width: 1017px;
+  padding: 0 0 72px;
 }
 
 .secondaryFormImg {
@@ -40,105 +33,88 @@
 }
 
 @media (max-width: 1905px) {
-  .footerWithForm {
-    .formContainer {
-      padding: 40px 108px 96px;
-      background-image: url(/primaryFolderForm1440.png);
-    }
+  .formContainer {
+    padding: 40px 108px 96px;
+    background-image: url(/primaryFolderForm1440.png);
+  }
 
-    .title {
-      font-size: 48px;
-      max-width: 872px;
-      padding: 0 0 49px;
-    }
+  .title {
+    font-size: 48px;
+    max-width: 872px;
+    padding: 0 0 49px;
+  }
 
-    .secondaryFormImg {
-      background-image: url(/secondaryFolderForm1440.png);
-      top: 40px;
-      height: calc(100% - 40px);
-    }
+  .secondaryFormImg {
+    background-image: url(/secondaryFolderForm1440.png);
+    top: 40px;
+    height: calc(100% - 40px);
   }
 }
 
 @media (max-width: 1425px) {
-  .footerWithForm {
-    .formContainer {
-      padding: 40px 124px 92px;
-    }
+  .formContainer {
+    padding: 40px 124px 92px;
+  }
 
-    .title {
-      font-size: 40px;
-      max-width: 749px;
-      padding: 0 0 71px;
-    }
+  .title {
+    font-size: 40px;
+    max-width: 749px;
+    padding: 0 0 71px;
   }
 }
 
 
 @media (max-width: 1265px) {
-  .footerWithForm {
-    .formContainer {
-      background-image: url(/primaryFolderForm320.png);
-    }
+  .formContainer {
+    background-image: url(/primaryFolderForm320.png);
+  }
 
-    .secondaryFormImg {
-      background-image: url(/secondaryFolderForm320.png);
-    }
+  .secondaryFormImg {
+    background-image: url(/secondaryFolderForm320.png);
   }
 }
 
 @media (max-width: 1150px) {
-  .footerWithForm {
-    .formContainer {
-      padding: 36px 64px;
-    }
+  .formContainer {
+    padding: 36px 64px;
+  }
 
-    .title {
-      font-size: 28px;
-      max-width: 550px;
-      padding: 0 0 55px;
-    }
-
-    .secondaryFormImg {
-    }
+  .title {
+    font-size: 28px;
+    max-width: 550px;
+    padding: 0 0 55px;
   }
 }
 
 @media (max-width: 1000px) {
-  .footerWithForm {
-    .title {
-      padding: 0 0 35px;
-    }
+  .title {
+    padding: 0 0 35px;
   }
 }
 
 @media (max-width: 767px) {
-  .footerWithForm {
-    .formContainer {
-      padding: 27px;
-      border-radius: 18px;
-      margin-bottom: 23px;
-      background-size: cover;
-    }
+  .formContainer {
+    padding: 27px;
+    border-radius: 18px;
+    margin-bottom: 23px;
+    background-size: cover;
+  }
 
-    .title {
-      font-size: 12px;
-      max-width: 228px;
-      padding: 0 0 14px;
-      margin: 10px 0 30px;
-    }
+  .title {
+    font-size: 12px;
+    max-width: 228px;
+    padding: 0 0 14px;
+    margin: 10px 0 30px;
+  }
 
-    .secondaryFormImg {
-      top: 10px;
-      height: calc(100% - 10px);
-    }
+  .secondaryFormImg {
+    top: 10px;
+    height: calc(100% - 10px);
   }
 }
 
 @media (max-width: 500px) {
-  .footerWithForm {
-    .title {
-      margin: 0;
-    }
+  .title {
+    margin: 0;
   }
 }

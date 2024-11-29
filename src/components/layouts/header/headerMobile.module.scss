@@ -2,8 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  height: fit-content;
 }
 
 .menuButton {
@@ -19,7 +17,7 @@
   position: fixed;
   height: 100dvh;
   width: 100vw;
-  background-color: rgba(9, 9, 9, 0.5);
+  background-color: var(--color-overlay);
   top: 0;
   left: 0;
   transition: background-color 0.3s;
@@ -50,7 +48,6 @@
   .content {
     width: 0;
     height: 100vh;
-    transition: width 0.3s;
   }
 }
 
@@ -69,10 +66,12 @@
     width: 23px;
     height: 15px;
   }
+
   .content {
     padding: 30px 16px 40px;
     max-width: unset;
   }
+
   .sideMenuHeader {
     margin-bottom: 80px;
   }

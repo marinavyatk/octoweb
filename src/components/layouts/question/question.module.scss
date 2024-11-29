@@ -1,67 +1,60 @@
 .questionContainer {
   padding-top: 48px;
   border-top: 1px solid var(--color-dark-additional);
+}
 
-  .accordion {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-  }
+.accordion {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
 
-  .question {
-    font-size: 48px;
-    font-weight: var(--font-weight-regular-500);
-    line-height: var(--line-height-120);
-    color: var(--color-light-100);
-    margin-bottom: 110px;
-    text-transform: none;
-    width: 85%;
-    display: block;
-    transition: margin-bottom 1s;
-  }
+.question {
+  font-size: 48px;
+  font-weight: var(--font-weight-regular-500);
+  line-height: var(--line-height-120);
+  color: var(--color-light-100);
+  margin-bottom: 110px;
+  text-transform: none;
+  width: 85%;
+  transition: margin-bottom 1s;
+}
 
-  .answer {
-    font-size: 24px;
-    font-weight: var(--font-weight-regular-300);
-    line-height: var(--line-height-200);
-    color: var(--color-light-100);
-    margin: 0;
-    display: block;
-    max-height: 0;
-    overflow: hidden;
-    width: 85%;
-    transition: max-height 1s,
-    margin-bottom 1s;
-  }
+.answer {
+  font-size: 24px;
+  font-weight: var(--font-weight-regular-300);
+  line-height: var(--line-height-200);
+  color: var(--color-light-100);
+  margin: 0;
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  width: 85%;
+  transition: max-height 1s,
+  margin-bottom 1s;
 }
 
 .opened {
   .question {
     margin-bottom: 70px;
-    transition: margin-bottom 1s;
   }
 
   .answer {
-    transition: max-height 1s,
-    margin-bottom 1s;
     margin-bottom: 88px;
   }
 }
 
 @media (max-width: 1905px) {
-  .questionContainer {
-    .question {
-      margin-bottom: 70px;
-    }
+  .question {
+    margin-bottom: 70px;
   }
 }
 
 @media (max-width: 1425px) {
-  .questionContainer {
-    .question {
-      font-size: 40px;
-    }
+  .question {
+    font-size: 40px;
   }
+
   .opened {
     .question {
       margin-bottom: 40px;
@@ -76,12 +69,13 @@
 @media (max-width: 1265px) {
   .questionContainer {
     padding-top: 20px;
-
-    .question {
-      font-size: 30px;
-      margin-bottom: 40px;
-    }
   }
+
+  .question {
+    font-size: 30px;
+    margin-bottom: 40px;
+  }
+
   .opened {
     .question {
       margin-bottom: 30px;
@@ -96,15 +90,17 @@
 @media (max-width: 767px) {
   .questionContainer {
     padding-top: 8px;
-
-    .question {
-      font-size: 14px;
-      margin-bottom: 16px;
-    }
-    .answer {
-      font-size: 12px;
-    }
   }
+
+  .question {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .answer {
+    font-size: 12px;
+  }
+
   .opened {
     .question {
       margin-bottom: 12px;

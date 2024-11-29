@@ -3,28 +3,29 @@
   height: 800px;
   background-color: var(--color-dark-secondary);
 
-  .placeMarkContainer {
-    font-weight: var(--font-weight-regular-400);
-    font-size: 24px;
-    line-height: var(--line-height-140);
-    color: var(--color-light-100);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    width: 400px;
-    margin-left: -15px;
-    margin-top: -10px;
-  }
-
-  .placeMarker {
-    width: 56px;
-    height: 56px;
-  }
-
   :global(.ymaps3x0--map-copyrights) {
     margin-right: 20px;
   }
 }
+
+.placeMarkContainer {
+  font-weight: var(--font-weight-regular-400);
+  font-size: 24px;
+  line-height: var(--line-height-140);
+  color: var(--color-light-100);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 400px;
+  margin-left: -15px;
+  margin-top: -10px;
+}
+
+.placeMarker {
+  width: 56px;
+  height: 56px;
+}
+
 
 @media (max-width: 1265px) {
   .innerYandexMap {
@@ -36,23 +37,23 @@
   .innerYandexMap {
     height: 220px;
 
-    .placeMarkContainer {
-      font-size: 12px;
-
-      svg {
-        width: 30px;
-        height: 30px;
-      }
+    :global(.ymaps3x0--map-copyrights) {
+      margin: 0 auto;
+      width: 100%;
+      justify-content: center;
     }
 
     :global(.ymaps3x0--controls) {
       padding-bottom: 22px;
     }
+  }
 
-    :global(.ymaps3x0--map-copyrights) {
-      margin: 0 auto;
-      width: 100%;
-      justify-content: center;
+  .placeMarkContainer {
+    font-size: 12px;
+
+    svg {
+      width: 30px;
+      height: 30px;
     }
   }
 }

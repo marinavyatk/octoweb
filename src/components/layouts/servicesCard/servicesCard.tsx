@@ -14,10 +14,8 @@ export type ServicesCardProps = {
 
 export const ServicesCard = (props: ServicesCardProps) => {
   const { serviceCategory, number, header, tags, size = "small", className, ...restProps } = props;
-  const classNames = clsx(s.card, className, {
-    [s.small]: size === "small",
-    [s.medium]: size === "medium",
-  });
+  const classNames = clsx(s.card, className, s[size]);
+
   const tagList = tags.map((tag) => {
     return (
       <TagLinkWithPrice key={tag.tag} tag={tag.tag} price={tag.price} category={serviceCategory} serviceId={tag.serviceId}>
