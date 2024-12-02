@@ -28,11 +28,7 @@ export const TeamMemberCards = (props: TeamMemberCardsProps) => {
         className={s.swiperSlide}
       >
         <TeamMemberCard
-          workExperience={member.workExperience}
-          name={member.name}
-          specialization={member.specialization}
-          description={member.description}
-          img={member.img}
+          {...member}
           className={s.cardItem}
         />
       </SwiperSlide>
@@ -43,16 +39,9 @@ export const TeamMemberCards = (props: TeamMemberCardsProps) => {
     swiperRef.current = swiper;
   };
   const handleUpdateButtonsState = (swiper: SwiperClass) => {
-    if (swiper.isBeginning) {
-      setIsBeginning(true);
-    } else if (swiper.isEnd) {
-      setIsEnd(true);
-    } else {
-      setIsBeginning(false);
-      setIsEnd(false);
-    }
+    setIsBeginning(swiper.isBeginning);
+    setIsEnd(swiper.isEnd);
   };
-
   const handlePrevButtonClick = () => swiperRef.current?.slidePrev();
   const handleNextButtonClick = () => swiperRef.current?.slideNext();
 
@@ -78,7 +67,6 @@ export const TeamMemberCards = (props: TeamMemberCardsProps) => {
       <Swiper
         className={s.cards}
         slidesPerView={"auto"}
-        spaceBetween={24}
         onSwiper={(swiper) => handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>)}
         onProgress={handleUpdateButtonsState}
       >

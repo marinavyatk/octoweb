@@ -3,15 +3,15 @@ import ArrowPointerSmall from "@/svg/arrow3.svg";
 import { clsx } from "clsx";
 import { advantageData } from "@/common/componentsData/advantageItems";
 import { AdvantageItem } from "@/components/layouts/advantageItem/advantageItem";
+import { ComponentPropsWithoutRef } from "react";
 
-type AdvantageSectionProps = {
-  className?: string;
-};
+type AdvantageSectionProps = ComponentPropsWithoutRef<"div">;
+
 export const Advantages = (props: AdvantageSectionProps) => {
-  const { className } = props;
+  const { className, ...restProps } = props;
   const classNames = clsx(s.advantages, className);
 
-  const advantageItemsList = advantageData.map((item) => {
+  const advantagesItems = advantageData.map((item) => {
     return (
       <AdvantageItem
         number={item.number}
@@ -22,7 +22,7 @@ export const Advantages = (props: AdvantageSectionProps) => {
   });
 
   return (
-    <section className={classNames}>
+    <section className={classNames} {...restProps}>
       <div className={s.title}>
         <h2>
           <span>РАБОТАТЬ С НАМИ </span>
@@ -32,7 +32,7 @@ export const Advantages = (props: AdvantageSectionProps) => {
         <ArrowPointerSmall className={s.arrow} />
       </div>
       <div className={s.advantagesItems}>
-        {advantageItemsList}
+        {advantagesItems}
       </div>
     </section>
   );

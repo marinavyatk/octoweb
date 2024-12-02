@@ -16,9 +16,14 @@ export const AboutCard = () => {
         </p>
       </div>
       <div className={s.imageWithButton}>
-        <Picture src={'/teamMainPhoto.webp'} alt={"Команда"} fill priority sizes={'(max-width: 767px) 736px, (max-width: 1280px) 1152px, (max-width: 1440px) 1328px, 1816px'} containerProps={{className: s.imgContainer}}/>
+        <Picture src={"/teamMainPhoto.webp"}
+                 alt={"Команда"}
+                 fill
+                 priority
+                 sizes={"(max-width: 767px) 736px, (max-width: 1280px) 1152px, (max-width: 1440px) 1328px, 1816px"}
+                 containerProps={{ className: s.imgContainer }} />
         <Button
-          as={'a'}
+          as={"a"}
           variant={"dark"}
           text={"Заказать проект"}
           href={"#form"}

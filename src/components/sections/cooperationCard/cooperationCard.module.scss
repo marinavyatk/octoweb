@@ -1,63 +1,62 @@
-.location {
+.cooperationCard {
   padding: 112px 124px 100px;
   background-color: var(--color-accent);
   border-radius: 72px;
   margin: 0 auto 162px;
   max-width: 1920px;
+}
 
-  .text {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    white-space: pre-wrap;
-    font-weight: var(--font-weight-bold-800);
-    font-size: 96px;
-    line-height: var(--line-height-150);
-    text-transform: uppercase;
+.text {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  white-space: pre-wrap;
+  font-weight: var(--font-weight-bold-800);
+  font-size: 96px;
+  line-height: var(--line-height-150);
+  text-transform: uppercase;
+  color: var(--color-dark-primary);
+  word-wrap: break-word;
+  margin-bottom: 69px;
+}
+
+.starsSymbols {
+  width: 387px;
+}
+
+.happySymbol {
+  width: 303px;
+  background: linear-gradient(345deg, #a330ff 0%, #ff37df 100%);
+  font-weight: var(--font-weight-bold-800);
+
+  svg {
+    width: 113px;
+    height: 84px;
     color: var(--color-dark-primary);
-    word-wrap: break-word;
-    margin-bottom: 69px;
-
-    .starsSymbols {
-      width: 387px;
-    }
-
-    .happySymbol {
-      width: 303px;
-      background: linear-gradient(345deg, #a330ff 0%, #ff37df 100%);
-      font-weight: var(--font-weight-bold-800);
-
-      svg {
-        width: 113px;
-        height: 84px;
-        color: var(--color-dark-primary);
-      }
-    }
-
-    .kaomojiSymbol {
-      width: 380px;
-    }
-
-    .emojiSymbol {
-      width: 198px;
-    }
-
-    .arrowSymbol {
-      width: 208px;
-
-      svg {
-        width: 37px;
-        stroke: var(--color-accent);
-        height: 37px;
-      }
-    }
-
-    .kissSymbol {
-      width: 208px;
-    }
   }
+}
+
+.kaomojiSymbol {
+  width: 380px;
+}
+
+.emojiSymbol {
+  width: 198px;
+}
+
+.arrowSymbol {
+  width: 208px;
+
+  svg {
+    width: 37px;
+    stroke: var(--color-accent);
+    height: 37px;
+  }
+}
+
+.kissSymbol {
+  width: 208px;
 }
 
 .map {
@@ -74,55 +73,51 @@
   .imgContainer {
     height: 599px;
     mask-image: url(../../../svg/mapShape.svg);
-    -webkit-mask-image: url(../../../svg/mapShape.svg);
     mask-size: 100% 100%;
-    -webkit-mask-size: 100% 100%;
     mask-repeat: no-repeat;
-    -webkit-mask-repeat: no-repeat;
-    position: relative;
     shape-outside: polygon(100% 0%, 100% 100%, 37% 100%, 37% 78%, 0% 78%, 0% 0%);
     float: right;
   }
 }
 
 @media (max-width: 1905px) {
-  .location {
+  .cooperationCard {
     padding: 80px 108px 108px;
     border-radius: 48px;
     margin: 0 auto 86px;
+  }
 
-    .text {
-      width: 1224px;
-      font-size: 64px;
-      margin: 0 auto 56px;
+  .text {
+    width: 1224px;
+    font-size: 64px;
+    margin: 0 auto 56px;
+  }
+  .starsSymbols {
+    width: 353px;
+  }
 
-      .starsSymbols {
-        width: 353px;
-      }
+  .happySymbol {
+    width: 297px;
+  }
 
-      .happySymbol {
-        width: 297px;
-      }
+  .kaomojiSymbol {
+    width: 283px;
+  }
 
-      .kaomojiSymbol {
-        width: 283px;
-      }
+  .arrowSymbol {
+    width: 186px;
 
-      .arrowSymbol {
-        width: 186px;
-
-        svg {
-          width: 37px;
-          stroke: var(--color-accent);
-          height: 37px;
-        }
-      }
-
-      .kissSymbol {
-        width: 186px;
-      }
+    svg {
+      width: 37px;
+      stroke: var(--color-accent);
+      height: 37px;
     }
   }
+
+  .kissSymbol {
+    width: 186px;
+  }
+
   .map {
     max-width: 1224px;
 
@@ -137,44 +132,45 @@
 }
 
 @media (max-width: 1425px) {
-  .location {
+  .cooperationCard {
     padding: 80px var(--offset-x) var(--offset-x);
+  }
 
-    .text {
-      width: 1031px;
-      font-size: 52px;
-      margin-bottom: 40px;
+  .text {
+    width: 1031px;
+    font-size: 52px;
+    margin-bottom: 40px;
+  }
 
-      .starsSymbols {
-        width: 330px;
-      }
+  .starsSymbols {
+    width: 330px;
+  }
 
-      .happySymbol {
-        width: 250px;
-      }
+  .happySymbol {
+    width: 250px;
+  }
 
-      .kaomojiSymbol {
-        width: 250px;
-      }
+  .kaomojiSymbol {
+    width: 250px;
+  }
 
-      .emojiSymbol {
-        width: 150px;
-      }
+  .emojiSymbol {
+    width: 150px;
+  }
 
-      .arrowSymbol {
-        width: 160px;
+  .arrowSymbol {
+    width: 160px;
 
-        svg {
-          width: 37px;
-          height: 37px;
-        }
-      }
-
-      .kissSymbol {
-        width: 160px;
-      }
+    svg {
+      width: 37px;
+      height: 37px;
     }
   }
+
+  .kissSymbol {
+    width: 160px;
+  }
+
   .map {
     p {
       font-size: 18px;
@@ -187,50 +183,50 @@
 }
 
 @media (max-width: 1265px) {
-  .location {
+  .cooperationCard {
     padding: 80px var(--offset-x) 80px;
+  }
 
-    .text {
-      width: 736px;
-      font-size: 36px;
-      margin-bottom: 70px;
+  .text {
+    width: 736px;
+    font-size: 36px;
+    margin-bottom: 70px;
+  }
 
+  .starsSymbols {
+    width: 200px;
+  }
 
-      .starsSymbols {
-        width: 200px;
-      }
+  .happySymbol {
+    width: 167px;
 
-      .happySymbol {
-        width: 167px;
-
-        svg {
-          width: 60px;
-          height: 30px;
-        }
-      }
-
-      .kaomojiSymbol {
-        width: 160px;
-      }
-
-      .emojiSymbol {
-        width: 112px;
-      }
-
-      .arrowSymbol {
-        width: 105px;
-
-        svg {
-          width: 21px;
-          height: 21px;
-        }
-      }
-
-      .kissSymbol {
-        width: 105px;
-      }
+    svg {
+      width: 60px;
+      height: 30px;
     }
   }
+
+  .kaomojiSymbol {
+    width: 160px;
+  }
+
+  .emojiSymbol {
+    width: 112px;
+  }
+
+  .arrowSymbol {
+    width: 105px;
+
+    svg {
+      width: 21px;
+      height: 21px;
+    }
+  }
+
+  .kissSymbol {
+    width: 105px;
+  }
+
   .map {
     max-width: 1100px;
 
@@ -255,82 +251,71 @@
 }
 
 @media (max-width: 767px) {
-  .location {
+  .cooperationCard {
     padding: 40px var(--offset-x);
     border-radius: 18px;
     margin: 0 auto 60px;
-    width: 100vw;
-    overflow: hidden;
+  }
 
-    .text {
-      width: 288px;
-      font-size: 14px;
-      margin-bottom: 30px;
+  .text {
+    width: 288px;
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
 
+  .starsSymbols {
+    width: 83px;
+  }
 
-      .starsSymbols {
-        width: 83px;
-      }
+  .happySymbol {
+    width: 69px;
 
-      .happySymbol {
-        width: 69px;
-
-        svg {
-          width: 30px;
-          height: 15px;
-        }
-      }
-
-      .kaomojiSymbol {
-        width: 66px;
-      }
-
-      .emojiSymbol {
-        width: 46px;
-      }
-
-      .arrowSymbol {
-        width: 43px;
-
-        svg {
-          width: 9px;
-          height: 9px;
-        }
-      }
-
-      .kissSymbol {
-        width: 43px;
-      }
+    svg {
+      width: 30px;
+      height: 15px;
     }
   }
-  .map {
-    p {
-      font-size: 10px;
+
+  .kaomojiSymbol {
+    width: 66px;
+  }
+
+  .emojiSymbol {
+    width: 46px;
+  }
+
+  .arrowSymbol {
+    width: 43px;
+
+    svg {
+      width: 9px;
+      height: 9px;
     }
+  }
+
+  .kissSymbol {
+    width: 43px;
+  }
+
+  .map p {
+    font-size: 10px;
   }
 }
 
 @media (max-width: 700px) {
-  .map {
-    .imgContainer {
-      height: 230px;
-    }
+  .map .imgContainer {
+    height: 230px;
   }
 }
 
-
 @media (max-width: 500px) {
-  .map {
-    .imgContainer {
-      height: 180px;
-    }
+  .map .imgContainer {
+    height: 180px;
   }
 }
 
 @media (max-width: 400px) {
-  .map {
-    .imgContainer {
-      height: 125px;
-    }
+  .map .imgContainer {
+    height: 125px;
   }
 }

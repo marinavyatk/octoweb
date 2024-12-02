@@ -37,12 +37,7 @@ export const Team = (props: TeamProps) => {
     .find((member) => member.id === currentMember);
 
   const currentMemberCard = currentMemberInfo && <TeamMemberIntro
-    id={currentMemberInfo.id}
-    workExperience={currentMemberInfo.workExperience}
-    name={currentMemberInfo.name}
-    specialization={currentMemberInfo.specialization}
-    description={currentMemberInfo.description}
-    img={currentMemberInfo.img}
+    {...currentMemberInfo}
     key={currentMemberInfo.id}
   />;
 

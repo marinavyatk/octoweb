@@ -3,7 +3,6 @@
   background-color: var(--color-dark-secondary);
   padding: 120px 266px 160px;
   position: relative;
-  width: 100%;
   max-width: 1920px;
   margin: 0 auto 132px;
 
@@ -27,6 +26,7 @@
       margin-bottom: 91px;
     }
   }
+
   .list {
     gap: 20px;
   }
@@ -41,6 +41,7 @@
       margin-bottom: 57px;
     }
   }
+
   .list {
     gap: 36px;
   }
@@ -56,6 +57,7 @@
       margin-bottom: 30px;
     }
   }
+
   .list {
     gap: 52px;
   }
@@ -65,7 +67,6 @@
   .services {
     padding: 50px 16px;
     margin: 0 auto 60px;
-    //max-width: 400px;
 
     h2 {
       margin-bottom: 10px;

@@ -6,7 +6,7 @@ import { Picture } from "@/components/ui/picture/picture";
 
 export const CooperationCard = () => {
   return (
-    <section className={s.location}>
+    <section className={s.cooperationCard}>
       <div className={s.text}>
         <div>НАША</div>
         <AnimatedField variant={"light"} className={s.starsSymbols}>

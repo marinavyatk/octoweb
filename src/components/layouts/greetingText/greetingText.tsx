@@ -1,17 +1,11 @@
 import s from "./greetingText.module.scss";
-import { WordSwipe, WordSwipeProps } from "../../ui/wordSwipe/wordSwipe";
+import { WordSwipe } from "../../ui/wordSwipe/wordSwipe";
 import { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
-
-export type Content = {
-  firstLine: string,
-  secondLine: string,
-  thirdLine: string,
-  wordSwipeProps: WordSwipeProps
-}
+import { TextContent } from "@/common/types";
 
 export type GreetingTextProps =
-  { textContent: Content }
+  { textContent: TextContent }
   & ComponentPropsWithoutRef<"div">;
 
 export const GreetingText = (props: GreetingTextProps) => {

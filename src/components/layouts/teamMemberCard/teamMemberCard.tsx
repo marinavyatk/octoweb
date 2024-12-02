@@ -28,7 +28,8 @@ export const TeamMemberCard = (props: TeamMemberCardProps) => {
   return (
     <div {...restProps} className={classNames}>
       <div className={s.frontSide + " " + s.card}>
-        <Picture src={img} alt={specialization} width={536} height={536} containerProps={{className: s.imgContainer}}/>
+        <Picture src={img} alt={specialization} fill containerProps={{ className: s.imgContainer }}
+                 sizes="(max-width: 767px) 288px, 536px" />
         <div className={s.about}>
           <h3 className={s.name}>{name}</h3>
           <span className={s.specialization}>{specialization}</span>
