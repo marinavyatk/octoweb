@@ -44,13 +44,13 @@ export const ServicesLink = (props: ServicesLinkProps) => {
 
   return (
     <div {...restProps} className={classNames}>
-      <a className={s.header} href={`/services/${mainLink}`} {...linkProps}>
-        <div className={s.text}>
+      <div className={s.header}>
+        <a className={s.text} href={`/services/${mainLink}`} {...linkProps}>
           <span className={s.number}>{number}</span>
           <h3 className={s.header}>{header}</h3>
-        </div>
+        </a>
         <ArrowButton href={`/services/${mainLink}`} {...linkProps} />
-      </a>
+      </div>
       {tags && <div className={s.tagList}>{tagList}</div>}
       {img && hoverable &&
         <div className={s.imgContainer}>

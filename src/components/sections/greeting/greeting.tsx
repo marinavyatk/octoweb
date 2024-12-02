@@ -1,11 +1,12 @@
 import s from "./greeting.module.scss";
 import ArrowPointerSmall from "@/svg/arrowPointerSmall.svg";
-import { Content, GreetingText } from "@/components/layouts/greetingText/greetingText";
+import { GreetingText } from "@/components/layouts/greetingText/greetingText";
 import { BriefOffer } from "@/components/layouts/briefOffer/briefOffer";
 import { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
+import { TextContent } from "@/common/types";
 
-type GreetingProps = { textContent: Content } & ComponentPropsWithoutRef<"section">;
+type GreetingProps = { textContent: TextContent } & ComponentPropsWithoutRef<"section">;
 
 export const Greeting = (props: GreetingProps) => {
   const {  textContent, ...restProps } = props;
