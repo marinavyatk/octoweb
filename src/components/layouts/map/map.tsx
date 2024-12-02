@@ -14,16 +14,22 @@ import s from "./map.module.scss";
 import PlaceMarker from "@/svg/placeMark.svg";
 import customizationStyles from "./mapCustomization.json";
 import { LngLat, VectorCustomizationItem } from "@yandex/ymaps3-types";
-import { useEffect, useState } from "react";
+import { ComponentPropsWithoutRef, useEffect, useState } from "react";
+import { clsx } from "clsx";
 
-function Map() {
+type MapProps = ComponentPropsWithoutRef<"div">;
+
+function Map(props: MapProps) {
+  const { className, ...restProps } = props;
+  const classNames = clsx(s.map, className);
+
   const [zoom, setZoom] = useState<number>(18);
   useEffect(() => {
     if (window.innerWidth < 768) setZoom(15.4);
   }, []);
 
   return (
-    <div className={s.innerYandexMap}>
+    <div className={classNames} {...restProps}>
       <YMapComponentsProvider apiKey={apiKey} lang="ru_RU">
         <YMap
           key="map"
@@ -43,7 +49,7 @@ function Map() {
             </div>
           </YMapMarker>
           <YMapControls position="bottom">
-            <YMapZoomControl/>
+            <YMapZoomControl />
           </YMapControls>
         </YMap>
       </YMapComponentsProvider>

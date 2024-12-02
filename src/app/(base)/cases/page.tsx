@@ -39,23 +39,15 @@ export default function Cases() {
 
     return (index + 1) % 5 !== 0 ? (
       <CaseCard
-        category={card.category}
-        tags={card.tags}
-        img={card.img}
         size={size as Size}
-        header={card.header}
         className={cardClassName}
         key={uuid()}
-        caseId={card.caseId}
+        {...card}
       />
     ) : (
       <div className={s.fullWidthContainer} key={uuid()}>
         <CaseCardFullWidth
-          category={card.category}
-          tags={card.tags}
-          img={card.img}
-          header={card.header}
-          caseId={card.caseId}
+          {...card}
         />
       </div>
       //container need for correct cards order on small screens

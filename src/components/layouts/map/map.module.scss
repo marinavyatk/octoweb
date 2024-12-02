@@ -1,4 +1,4 @@
-.innerYandexMap {
+.map {
   width: 100%;
   height: 800px;
   background-color: var(--color-dark-secondary);
@@ -28,13 +28,13 @@
 
 
 @media (max-width: 1265px) {
-  .innerYandexMap {
+  .map {
     height: 432px;
   }
 }
 
 @media (max-width: 767px) {
-  .innerYandexMap {
+  .map {
     height: 220px;
 
     :global(.ymaps3x0--map-copyrights) {

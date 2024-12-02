@@ -19,9 +19,7 @@ export default function Contacts() {
           </div>
         </div>
       </div>
-      <div className={s.map}>
-        <Map />
-      </div>
+        <Map className={s.map}/>
     </div>
   );
 };

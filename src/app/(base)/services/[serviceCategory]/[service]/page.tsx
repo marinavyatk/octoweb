@@ -19,7 +19,7 @@ export default function Service() {
       <div className={"mainContainer"}>
         <h1>{serviceData.serviceName}</h1>
         <div className={s.discussProject}>
-          <p>{serviceData.description}</p>
+          <p className={s.description}>{serviceData.description}</p>
           <Button
             text={"ОБСУДИТЬ ПРОЕКТ"}
             as={"a"}
@@ -31,12 +31,11 @@ export default function Service() {
                  containerProps={{ className: s.serviceImg }} />
         <div className={s.aboutService}>
           <h2>ОБ УСЛУГЕ</h2>
-          <div className={s.container}>
-            <p>{serviceData.aboutService}</p>
+          <div className={s.serviceContainer}>
+            <p className={s.description}>{serviceData.aboutService}</p>
             <Button
               as={"a"}
               text={"Консультация"}
-              className={s.arrow}
               href={"#form"}
             />
           </div>
@@ -58,14 +57,13 @@ export default function Service() {
       </div>
       <StepCards className={s.stepCards} />
       <section className={s.prices}>
-        <div className={s.container}>
+        <div className={s.pricesContainer}>
           <div className={s.cost}>
             Стоимость <br />от <span className={s.price}>{serviceData.cost} ₽</span>
           </div>
           <Button
             as={"a"}
             text={"Обсудить проект"}
-            className={s.arrow}
             href={"#form"}
           />
           <div className={s.background}></div>

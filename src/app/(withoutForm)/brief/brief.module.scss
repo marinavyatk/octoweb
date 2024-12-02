@@ -13,7 +13,6 @@
   }
 }
 
-//startSection
 .startSection {
   border-bottom: 1px solid var(--color-light-40);
   position: relative;
@@ -61,7 +60,7 @@
 }
 
 .navbar {
-  margin: 80px 0;
+  margin: 80px 0 0;
   position: sticky;
   top: 120px;
   width: 100%;
@@ -85,7 +84,6 @@
 
   .required {
     color: var(--color-accent);
-    width: fit-content;
     position: absolute;
   }
 }
@@ -128,8 +126,6 @@
   color: var(--color-accent);
 }
 
-
-
 .twoColumns {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -166,14 +162,13 @@
   }
 
   .navbar {
-    margin: 50px 0;
+    margin: 50px 0 0;
   }
   .submit {
     gap: 70px;
     margin-top: 100px;
   }
 }
-
 
 @media (max-width: 1425px) {
   .section {
@@ -184,6 +179,7 @@
     font-size: 14px;
     margin-bottom: 0;
   }
+
   .submit .arrowButton {
     --button-width: 240px;
   }
@@ -193,9 +189,11 @@
   .formWithNavigation {
     gap: 40px;
   }
+
   .navbar {
     top: 150px;
   }
+
   .twoColumns {
     display: flex;
     flex-direction: column;

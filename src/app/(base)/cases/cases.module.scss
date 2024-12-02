@@ -28,18 +28,18 @@
   column-gap: 174px;
   row-gap: 182px;
   margin: 0 auto 252px;
+}
 
-  .large {
-    margin-top: 156px;
-  }
+.large {
+  margin-top: 156px;
+}
 
-  .small {
-    margin-top: -180px;
-  }
+.small {
+  margin-top: -180px;
+}
 
-  .fullWidthContainer {
-    width: 100%;
-  }
+.fullWidthContainer {
+  width: 100%;
 }
 
 .showMoreButton {
@@ -50,12 +50,15 @@
   .header {
     margin-top: 100px;
   }
+
   .filterButtons {
     gap: 8px;
   }
+
   .caseCircleList {
     margin: 76px 0 140px;
   }
+
   .casesList {
     column-gap: 128px;
     row-gap: 144px;
@@ -68,9 +71,11 @@
   .header {
     margin-top: 68px;
   }
+
   .casesList {
     margin: 0 auto 140px;
   }
+
   .showMoreButton {
     margin: 0 auto 150px;
   }
@@ -80,28 +85,29 @@
   .caseCircleList {
     margin: 50px auto 100px;
   }
+
   .casesList {
     flex-direction: column;
     row-gap: 75px;
     padding: 0 var(--offset-x);
 
-    .large {
-      margin-top: 0;
-    }
-
-    .small {
-      margin-top: 0;
-    }
-
     a:nth-of-type(2n) {
       align-self: flex-end;
       padding: 0 var(--offset-x);
     }
+  }
 
-    .fullWidthContainer{
-      width: calc(100% + 32px);
-      margin-left: -16px;
-    }
+  .large {
+    margin-top: 0;
+  }
+
+  .small {
+    margin-top: 0;
+  }
+
+  .fullWidthContainer {
+    width: calc(100% + 32px);
+    margin-left: -16px;
   }
 }
 
@@ -110,14 +116,17 @@
     margin-top: 50px;
     gap: 10px;
   }
+
   .caseCircleList {
     margin: 30px auto 50px;
   }
+
   .casesList {
     row-gap: 30px;
     margin: 0 auto 70px;
     max-width: var(--small-screen-max-width);
   }
+
   .showMoreButton {
     margin: 0 auto 70px;
   }

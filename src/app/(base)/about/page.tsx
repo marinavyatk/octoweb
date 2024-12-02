@@ -7,17 +7,19 @@ import { Picture } from "@/components/ui/picture/picture";
 export default function  About (){
 
   return (
-    <div className={s.aboutPage}>
-      <div className={s.aboutPageContent}>
+      <div className={s.aboutPage}>
         <div className={'mainContainer'}>
           <h1>
             О веб-студии <br /> OctoWeb
           </h1>
           <p>Раскроем подробности о том, кто стоит за реализацией проектов</p>
         </div>
-        <div className={s.imageContainer}>
-          <Picture src={"/teamMainPhoto.webp"} alt={'Команда'} fill priority/>
-        </div>
+          <Picture src={"/teamMainPhoto.webp"}
+                   alt={'Команда'}
+                   fill
+                   priority
+                   containerProps={{className: s.imageContainer}}
+          />
         <div className={'mainContainer'}>
           <div className={s.aboutCompany}>
             <h2>О компании</h2>
@@ -30,10 +32,7 @@ export default function  About (){
           </div>
           <StackList />
         </div>
-        <div className={s.aboutTeam}>
           <TeamMemberCards teamMembers={teamMembersInfo} className={s.teamCards} />
-        </div>
       </div>
-    </div>
   );
 };

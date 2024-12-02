@@ -8,7 +8,7 @@ export default function Services() {
   return (
     <div className={clsx(s.servicesPage, "mainContainer")}>
       <h1>УСЛУГИ</h1>
-      <div className={s.cardContainer}>
+      <div className={s.cardsContainer}>
         <div className={s.firstRow}>
           <ServicesCard
             serviceCategory={"website-development"}

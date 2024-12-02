@@ -25,14 +25,10 @@ export default function Home() {
     <div className={s.mainPage}>
       <div className={"mainContainer"}>
         <Greeting textContent={content} />
-        <section className={s.greetingDescription}>
-          <h1>Создаем сайты для бизнеса</h1>
-          <GreetingDescription />
-        </section>
+        <h1 className={s.hiddenHeader}>Создаем сайты для бизнеса</h1>
+        <GreetingDescription className={s.greetingDescription} />
       </div>
-      <section className={s.about}>
-        <AboutCard />
-      </section>
+      <AboutCard className={s.about} />
       <div className={"mainContainer"}>
         <section className={s.advantages}>
           <h2>ПОЧЕМУ МЫ?</h2>
@@ -63,9 +59,7 @@ export default function Home() {
         </section>
       </div>
       <ServicesLinksList linksData={linksData} />
-      <section className={s.steps}>
-        <StepCards />
-      </section>
+      <StepCards className={s.steps} />
     </div>
   );
 };

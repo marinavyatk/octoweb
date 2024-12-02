@@ -430,9 +430,9 @@ export default function Brief() {
                   />
                   <div className={s.fieldWithAccent}>
                     <label htmlFor="details.disadvantagesCompetitorsSites" className={s.label}>
-                      Чем <span className={s.accent}>не</span> нравятся сайты конкурентов{" "}
+                      Чем <span className={s.accent}>не</span> нравятся сайты конкурентов&nbsp;
                       {allFields.details.disadvantagesCompetitorsSites.required && (
-                        <sup className={s.required}>{" "} *</sup>
+                        <sup className={s.required}> *</sup>
                       )}
                     </label>
                     <TextArea
@@ -451,7 +451,7 @@ export default function Brief() {
                   />
                   <div className={s.fieldWithAccent}>
                     <label htmlFor="details.sitesYouDislike" className={s.label}>
-                      Сайты, которые <span className={s.accent}>не</span> нравятся
+                      Сайты, которые <span className={s.accent}>не</span> нравятся&nbsp;
                       {allFields.details.sitesYouDislike.required && (
                         <sup className={s.required}> *</sup>
                       )}

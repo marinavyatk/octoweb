@@ -5,20 +5,11 @@
   margin: 50px 0 64px;
 }
 
-.discussProject p {
-  font-weight: var(--font-weight-regular-250);
-  font-size: 24px;
-  line-height: var(--line-height-200);
-  color: var(--color-light-100);
-}
-
 .servicePage .serviceImg {
   border-radius: 48px;
-  width: 100%;
   height: 680px;
   background-color: var(--color-dark-secondary);
   margin-bottom: 187px;
-  position: relative;
   overflow: hidden;
 }
 
@@ -26,182 +17,167 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-
-  h2 {
-    max-width: fit-content;
-  }
-
-  .container {
-    max-width: 962px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 72px;
-    align-items: flex-start;
-    margin-bottom: 240px;
-  }
 }
 
-.container p {
+.serviceContainer {
+  max-width: 962px;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  align-items: flex-start;
+  margin-bottom: 240px;
+}
+
+.description {
   font-weight: var(--font-weight-regular-250);
   font-size: 24px;
   line-height: var(--line-height-200);
   color: var(--color-light-100);
 }
 
-//table
 .table {
   margin-top: 172px;
 }
 
-//team
 .team {
   margin: 236px 0;
 }
 
-//stepCards
 .stepCards {
   margin: 0 0 292px 0;
 }
 
-//prices
 .prices {
   position: relative;
   margin: auto;
+}
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    padding: 195px 0;
-    margin: 0 auto 112px;
+.pricesContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 195px 0;
+  margin: 0 auto 112px;
+}
 
-    .cost {
-      max-width: fit-content;
-      font-size: 80px;
-      font-weight: var(--font-weight-bold-900);
-      line-height: var(--line-height-120);
-      color: var(--color-light-100);
-      margin-bottom: 80px;
-      text-align: center;
+.cost {
+  font-size: 80px;
+  font-weight: var(--font-weight-bold-900);
+  line-height: var(--line-height-120);
+  color: var(--color-light-100);
+  margin-bottom: 80px;
+  text-align: center;
 
-      br {
-        display: none;
-      }
-
-      .price {
-        color: var(--color-accent);
-        white-space: nowrap;
-      }
-    }
-
-    .arrow {
-      margin: auto;
-      z-index: 0;
-    }
+  br {
+    display: none;
   }
 
-  .background {
-    position: absolute;
-    background: linear-gradient(351deg, #a330ff 0%, #ff37df 100%);
-    transform: rotate(-2deg);
-    border-radius: 56px;
-    height: 594px;
-    z-index: -1;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    width: 150vw;
+  .price {
+    color: var(--color-accent);
+    white-space: nowrap;
   }
+}
 
-  .additionalServices {
-    padding: 0 266px;
-    position: relative;
-    max-width: 1920px;
-    width: 100%;
-    margin: auto;
+.background {
+  position: absolute;
+  background: linear-gradient(320deg, var(--color-primary) 30%, var(--color-primary-bright) 100%);
+  transform: rotate(-2deg);
+  border-radius: 56px;
+  height: 594px;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 150vw;
+}
 
-    h2 {
-      text-align: right;
-      margin-bottom: 140px;
-    }
+.additionalServices {
+  padding: 0 266px;
+  position: relative;
+  margin: auto;
 
-    .arrow {
-      position: absolute;
-      top: 269px;
-      right: 450px;
-      z-index: 0;
-      width: 161px;
-      height: 192px;
-    }
+  h2 {
+    text-align: right;
+    margin-bottom: 140px;
   }
+}
+
+.arrow {
+  position: absolute;
+  top: 269px;
+  right: 450px;
+  z-index: 0;
+  width: 161px;
+  height: 192px;
 }
 
 .faq {
   margin: 260px 0 234px;
 }
 
-.arrowLink {
-  z-index: 0;
-}
-
 @media (max-width: 1905px) {
- .servicePage .serviceImg {
+  .servicePage .serviceImg {
     border-radius: 48px;
     height: 500px;
     margin-bottom: 64px;
   }
-  .aboutService {
-    .container {
-      max-width: 600px;
-      gap: 56px;
-      margin-bottom: 112px;
-    }
+
+  .serviceContainer {
+    gap: 56px;
+    margin-bottom: 112px;
   }
+
   .table {
     margin-top: 115px;
   }
+
   .team {
     margin: 125px auto 220px;
   }
+
   .stepCards {
     margin: 0 0 161px 0;
   }
 
-  .prices {
-    .container {
-      padding: 177px 0;
+  .pricesContainer {
+    padding: 177px 0;
+  }
 
-      .cost {
-        font-size: 56px;
-        margin-bottom: 55px;
-      }
-    }
+  .cost {
+    font-size: 56px;
+    margin-bottom: 55px;
+  }
 
-    .background {
-      height: 490px;
-    }
+  .background {
+    height: 490px;
+  }
 
-    .additionalServices {
-      padding: 0 212px;
+  .additionalServices {
+    padding: 0 212px;
 
-      h2 {
-        margin-bottom: 80px;
-      }
-
-      .arrow {
-        top: 150px;
-        right: 220px;
-        width: 137px;
-        height: 203px;
-      }
+    h2 {
+      margin-bottom: 80px;
     }
   }
+
+  .arrow {
+    top: 150px;
+    right: 220px;
+    width: 137px;
+    height: 203px;
+  }
+
   .faq {
     margin: 152px 0 234px;
+  }
+}
+
+@media (max-width: 1650px) {
+  .serviceContainer {
+    max-width: 600px;
   }
 }
 
@@ -210,14 +186,12 @@
     margin: 125px auto 150px;
   }
 
-  .prices .additionalServices {
-    .arrow {
-      height: 150px;
-      width: 100px;
-      transform: scale(1, -1) rotate(90deg);
-      top: 30px;
-      right: 800px;
-    }
+  .arrow {
+    height: 150px;
+    width: 100px;
+    transform: scale(1, -1) rotate(90deg);
+    top: 30px;
+    right: 800px;
   }
 
   .faq {
@@ -232,7 +206,7 @@
     align-items: center;
   }
 
- .servicePage .serviceImg {
+  .servicePage .serviceImg {
     height: 422px;
     margin-bottom: 100px;
     position: relative;
@@ -244,56 +218,48 @@
     h2 {
       margin-bottom: 50px;
     }
-
-    .container {
-      max-width: unset;
-      margin-bottom: 100px;
-      gap: 40px;
-      align-items: center;
-    }
   }
 
-  .servicePage .table {
+  .serviceContainer {
+    max-width: unset;
+    margin-bottom: 100px;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .table {
     width: calc(100% + 32px);
     margin-left: -16px;
   }
 
-  //prices
-  .prices {
-    .container {
-      padding: 120px 0;
-      margin-bottom: 100px;
+  .pricesContainer {
+    padding: 120px 0;
+    margin-bottom: 100px;
+  }
 
-      .cost {
-        font-size: 48px;
-        margin-bottom: 30px;
+  .cost {
+    font-size: 48px;
+    margin-bottom: 30px;
 
-        br {
-          display: inline;
-        }
-      }
-
-      .arrow {
-        margin: auto;
-        z-index: 0;
-      }
+    br {
+      display: inline;
     }
+  }
 
-    .background {
-      height: 450px;
+  .background {
+    height: 450px;
+  }
+
+  .additionalServices {
+    padding: 0 var(--offset-x);
+
+    h2 {
+      margin-bottom: 65px;
     }
+  }
 
-    .additionalServices {
-      padding: 0 var(--offset-x);
-
-      h2 {
-        margin-bottom: 65px;
-      }
-
-      .arrow {
-        right: 600px;
-      }
-    }
+  .arrow {
+    right: 600px;
   }
 }
 
@@ -303,29 +269,28 @@
     margin: 20px 0 50px;
   }
 
-  .discussProject p, .container p {
+  .description {
     font-size: 12px;
   }
 
- .servicePage .serviceImg {
+  .servicePage .serviceImg {
     height: 300px;
     margin-bottom: 50px;
     border-radius: 18px;
-    //max-width: var(--small-screen-max-width);
   }
 
   .aboutService {
     h2 {
       margin-bottom: 20px;
     }
-
-    .container {
-      margin-bottom: 50px;
-      gap: 20px;
-    }
   }
 
-  .servicePage .table {
+  .serviceContainer {
+    margin-bottom: 50px;
+    gap: 20px;
+  }
+
+  .table {
     margin: 50px auto 0;
     width: 100%;
     max-width: var(--small-screen-max-width);
@@ -334,43 +299,40 @@
   .team {
     margin: 50px auto 60px;
   }
+
   .stepCards {
     margin: 0 0 50px 0;
   }
 
-  //prices
-  .prices {
-    .container {
-      padding: 50px 0;
-      margin-bottom: 60px;
-      width: 100vw;
-      left: 50%;
-      transform: translateX(-50%);
+  .pricesContainer {
+    padding: 50px 0;
+    margin-bottom: 60px;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
-      .cost {
-        font-size: 20px;
-        margin-bottom: 15px;
-      }
+  .cost {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .background {
+    height: 188px;
+    border-radius: 18px;
+  }
+
+  .additionalServices {
+    h2 {
+      margin-bottom: 30px;
     }
+  }
 
-    .background {
-      height: 188px;
-      border-radius: 18px;
-    }
-
-    .additionalServices {
-
-      h2 {
-        margin-bottom: 30px;
-      }
-
-      .arrow {
-        right: 245px;
-        height: 50px;
-        width: 40px;
-        top: 15px;
-      }
-    }
+  .arrow {
+    right: 245px;
+    height: 50px;
+    width: 40px;
+    top: 15px;
   }
 
   .faq {
@@ -378,15 +340,14 @@
   }
 }
 
-
 @media (max-width: 500px) {
- .servicePage .serviceImg {
+  .servicePage .serviceImg {
     height: 176px;
   }
 }
 
 @media (max-width: 450px) {
-  .servicePage .table {
+  .table {
     margin-left: -16px;
     width: calc(100% + 32px);
   }

@@ -2,10 +2,17 @@ import { AnimatedField } from "../../ui/animatedField/animatedField";
 import s from "./greetingDescription.module.scss";
 import ArrowIcon from "@/svg/arrow.svg";
 import HappySymbol from "@/svg/happy-symbol.svg";
+import { ComponentPropsWithoutRef } from "react";
+import { clsx } from "clsx";
 
-export const GreetingDescription = () => {
+type GreetingDescriptionProps = ComponentPropsWithoutRef<'div'>
+
+export const GreetingDescription = (props: GreetingDescriptionProps) => {
+  const { className, ...restProps } = props;
+  const classNames = clsx(s.greetingDescription, className);
+
   return (
-    <div className={s.greetingDescription}>
+    <div className={classNames} {...restProps}>
       <div>создаем</div>
       <AnimatedField variant={"secondary"} animation={"right"} className={s.starsSymbols}>
         ★ ★ ★ ★ ★

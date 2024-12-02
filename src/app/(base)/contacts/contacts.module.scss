@@ -9,7 +9,6 @@
 }
 
 .contacts {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   gap: 40px;
@@ -18,14 +17,14 @@
   font-size: 24px;
   line-height: var(--line-height-200);
   color: var(--color-light-100);
+}
 
-  .links {
-    text-align: end;
-    white-space: nowrap;
+.links {
+  text-align: end;
+  white-space: nowrap;
 
-    a {
-      display: block;
-    }
+  a {
+    display: block;
   }
 }
 
