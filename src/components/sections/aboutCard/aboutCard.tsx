@@ -1,10 +1,17 @@
 import s from "./aboutCard.module.scss";
 import { Button } from "@/components/ui/buttons/button/button";
 import { Picture } from "@/components/ui/picture/picture";
+import { clsx } from "clsx";
+import { ComponentPropsWithoutRef } from "react";
 
-export const AboutCard = () => {
+type AboutCardProps = ComponentPropsWithoutRef<"div">
+
+export const AboutCard = (props: AboutCardProps) => {
+  const { className, ...restProps } = props;
+  const classNames = clsx(s.about, className);
+
   return (
-    <section className={s.about}>
+    <section className={classNames} {...restProps}>
       <div className={s.text}>
         <h2>
           ВЕБ-студия <br />

@@ -1,19 +1,15 @@
-//greetingDescription
 .greetingDescription {
-  margin-bottom: 228px;
-
-  h1 {
-    display: none;
-  }
+  margin: 0 auto 228px;
 }
 
-// about
+.hiddenHeader {
+  display: none;
+}
+
 .about {
-  max-width: 1920px;
   margin: 0 auto 163px;
 }
 
-// advantages
 .advantages {
   padding-left: 142px;
   gap: 15px;
@@ -26,38 +22,37 @@
   h2 {
     width: 338px;
   }
-
-  .backgroundSymbol {
-    position: absolute;
-    color: var(--color-primary);
-    font-weight: var(--font-weight-regular-500);
-    line-height: var(--line-height-200);
-    font-size: 40px;
-    left: 180px;
-    top: 374px;
-    transform: rotate(68deg) scaleY(-1);
-  }
-
-  .backgroundSymbol + .backgroundSymbol {
-    font-size: 32px;
-    left: 330px;
-    top: 535px;
-    transform: rotate(112deg);
-  }
-
-  .arrow {
-    position: absolute;
-    left: 284px;
-    top: 181px;
-    background-image: url(../../svg/arrowPointer.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 175px;
-    height: 88px;
-  }
 }
 
-//cases
+.backgroundSymbol {
+  position: absolute;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-regular-500);
+  line-height: var(--line-height-200);
+  font-size: 40px;
+  left: 180px;
+  top: 374px;
+  transform: rotate(68deg) scaleY(-1);
+}
+
+.backgroundSymbol + .backgroundSymbol {
+  font-size: 32px;
+  left: 330px;
+  top: 535px;
+  transform: rotate(112deg);
+}
+
+.arrow {
+  position: absolute;
+  left: 284px;
+  top: 181px;
+  background-image: url(../../svg/arrowPointer.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 175px;
+  height: 88px;
+}
+
 .cases {
   height: 2248px;
   margin: 0 auto;
@@ -70,35 +65,28 @@
   h2 {
     padding-left: 142px;
   }
-
-  .secondCard {
-    align-self: flex-end;
-  }
-
-  .arrowLink {
-    margin-top: 195px;
-  }
 }
 
-//steps
+.secondCard {
+  align-self: flex-end;
+}
+
+.arrowLink {
+  margin-top: 195px;
+}
+
 .steps {
   margin-bottom: 372px;
 }
 
-.arrowLink {
-  z-index: 0;
-}
-
 @media (max-width: 1905px) {
   .greetingDescription {
-    margin: 0 auto 170px;
+    margin-bottom: 170px;
     max-width: 1224px;
   }
 
-  //advantages
   .advantages {
     display: block;
-    justify-content: flex-end;
     padding-left: 0;
     margin-bottom: 234px;
 
@@ -106,29 +94,29 @@
       margin-bottom: 97px;
       width: fit-content;
     }
-
-    .advantagesCards {
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .backgroundSymbol {
-      left: -50px;
-    }
-
-    .backgroundSymbol + .backgroundSymbol {
-      left: 20px;
-    }
-
-    .arrow {
-      left: 45px;
-      background-image: url(../../svg/arrow-main-advantages-1440.svg);
-      width: 88px;
-      height: 175px;
-      top: 90px;
-    }
   }
-  //cases
+
+  .advantagesCards {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .backgroundSymbol {
+    left: -50px;
+  }
+
+  .backgroundSymbol + .backgroundSymbol {
+    left: 20px;
+  }
+
+  .arrow {
+    left: 45px;
+    background-image: url(../../svg/arrow-main-advantages-1440.svg);
+    width: 88px;
+    height: 175px;
+    top: 90px;
+  }
+
   .cases {
     height: 1702px;
     width: fit-content;
@@ -143,37 +131,31 @@
     }
   }
 
-  //steps
   .steps {
     margin-bottom: 140px;
   }
 }
 
-///////////////////////////
-//////////////////////////
-//////////////////////////
 @media (max-width: 1425px) {
   .greetingDescription {
-    margin: 0 auto 115px;
+    margin-bottom: 115px;
     max-width: 1032px;
   }
 
-  //advantages
   .advantages {
     h2 {
       margin-bottom: 60px;
     }
-
-    .backgroundSymbol {
-      left: -20px;
-    }
-
-    .backgroundSymbol + .backgroundSymbol {
-      left: 33px;
-    }
   }
 
-  //cases
+  .backgroundSymbol {
+    left: -20px;
+  }
+
+  .backgroundSymbol + .backgroundSymbol {
+    left: 33px;
+  }
+
   .cases {
     gap: 112px;
 
@@ -181,47 +163,41 @@
       margin-top: 115px;
     }
   }
-  //steps
+
   .steps {
     margin-bottom: 165px;
   }
 }
 
-//////////////////////////////////
-//////////////////////////////////
-/////////////////////////////////
-//Current
 @media (max-width: 1265px) {
   .greetingDescription {
-    margin: 0 auto 100px;
+    margin-bottom: 100px;
     max-width: 691px;
   }
 
   .about {
-    margin: 0 auto 100px;
+    margin-bottom: 100px;
   }
 
-  //advantages
   .advantages {
     margin-bottom: 100px;
 
     h2 {
       margin-bottom: 40px;
     }
-
-    .arrow {
-      left: 25px;
-    }
-
-    .backgroundSymbol {
-      left: -20px;
-    }
-
-    .backgroundSymbol + .backgroundSymbol {
-      left: 33px;
-    }
   }
-  //cases
+  .arrow {
+    left: 25px;
+  }
+
+  .backgroundSymbol {
+    left: -20px;
+  }
+
+  .backgroundSymbol + .backgroundSymbol {
+    left: 33px;
+  }
+
   .cases {
     width: 100%;
     margin-bottom: 100px;
@@ -239,64 +215,58 @@
     }
   }
 
-  //steps
   .steps {
     margin-bottom: 100px;
   }
 }
 
-//////////////////////////////////
-//////////////////////////////////
-/////////////////////////////////
-//MOBILE!!!
 @media (max-width: 767px) {
   .greetingDescription {
-    margin: 0 auto 60px;
+    margin-bottom: 60px;
     max-width: 288px;
   }
+
   .about {
-    margin: 0 auto 60px;
+    margin-bottom: 60px;
   }
-  //advantages
+
   .advantages {
     margin-bottom: 60px;
 
     h2 {
       margin-bottom: 50px;
     }
-
-    .backgroundSymbol {
-      left: -20px;
-      height: 80px;
-      font-size: 29px;
-    }
-
-    .backgroundSymbol + .backgroundSymbol {
-      left: -25px;
-      font-size: 23px;
-    }
-
-    .arrow {
-      width: 42px;
-      height: 81px;
-      left: 10px;
-      top: 40px;
-    }
-
-    .advantagesCards{
-      max-width: var(--small-screen-max-width);
-      margin: auto;
-    }
   }
 
-  //cases
+  .backgroundSymbol {
+    left: -20px;
+    height: 80px;
+    font-size: 29px;
+  }
+
+  .backgroundSymbol + .backgroundSymbol {
+    left: -25px;
+    font-size: 23px;
+  }
+
+  .arrow {
+    width: 42px;
+    height: 81px;
+    left: 10px;
+    top: 40px;
+  }
+
+  .advantagesCards {
+    max-width: var(--small-screen-max-width);
+    margin: auto;
+  }
+
   .cases {
     gap: 36px;
     margin: 0 auto 60px;
     max-width: var(--small-screen-max-width);
   }
 
-  //steps
   .steps {
     margin-bottom: 60px;
   }
