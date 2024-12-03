@@ -27,7 +27,7 @@ export const AboutCard = (props: AboutCardProps) => {
                  alt={"Команда"}
                  fill
                  priority
-                 sizes={"(max-width: 767px) 736px, (max-width: 1280px) 1152px, (max-width: 1440px) 1328px, 1816px"}
+                 sizes={"(max-width: 767px) 100vw, (max-width: 1280px) 1152px, (max-width: 1440px) 1328px, 1816px"}
                  containerProps={{ className: s.imgContainer }} />
         <Button
           as={"a"}

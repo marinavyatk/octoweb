@@ -13,6 +13,7 @@ export const FooterWithForm = (props: FooterWithFormProps) => {
   return (
     <div {...restProps} className={classNames} id={"form"}>
       <div className={s.secondaryFormImg}></div>
+
       <div className={s.formContainer}>
         <span className={s.title}>Давайте начнем работать прямо сейчас</span>
         <Form />
