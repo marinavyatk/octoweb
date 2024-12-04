@@ -19,6 +19,7 @@ import { Element } from "react-scroll";
 import { allFields, defaultBriefValues, DirtyField, SectionName } from "@/common/briefHelpers";
 import { TextArea } from "@/components/ui/textField/textarea";
 import { PreventNavigation } from "@/components/layouts/warning/preventNavigation ";
+import { clsx } from "clsx";
 
 
 let materialsDevelopmentCurrentValue = "";
@@ -216,27 +217,27 @@ export default function Brief() {
                       {
                         label: "Telegram",
                         value: "telegram",
-                         ...register("contactInfo.communicationWay")
+                        ...register("contactInfo.communicationWay")
                       },
                       {
                         label: "Skype",
                         value: "skype",
-                         ...register("contactInfo.communicationWay")
+                        ...register("contactInfo.communicationWay")
                       },
                       {
                         label: "WhatsApp",
                         value: "whatsApp",
-                         ...register("contactInfo.communicationWay")
+                        ...register("contactInfo.communicationWay")
                       },
                       {
                         label: "Email",
                         value: "email",
-                         ...register("contactInfo.communicationWay")
+                        ...register("contactInfo.communicationWay")
                       },
                       {
                         label: "Звонок",
                         value: "call",
-                         ...register("contactInfo.communicationWay")
+                        ...register("contactInfo.communicationWay")
                       }
                     ]}
                     errorMessage={errors.contactInfo?.communicationWay?.message}
@@ -374,42 +375,42 @@ export default function Brief() {
                       {
                         label: "Купить",
                         value: "buy",
-                         ...register("details.usersTargetAction")
+                        ...register("details.usersTargetAction")
                       },
                       {
                         label: "Зарегистрироваться",
                         value: "register",
-                         ...register("details.usersTargetAction")
+                        ...register("details.usersTargetAction")
                       },
                       {
                         label: "Забронировать",
                         value: "book",
-                         ...register("details.usersTargetAction")
+                        ...register("details.usersTargetAction")
                       },
                       {
                         label: "Заказать",
                         value: "order",
-                         ...register("details.usersTargetAction")
+                        ...register("details.usersTargetAction")
                       },
                       {
                         label: "Подписаться",
                         value: "subscribe",
-                         ...register("details.usersTargetAction")
+                        ...register("details.usersTargetAction")
                       },
                       {
                         label: "Оставить заявку",
                         value: "submitApplication",
-                         ...register("details.usersTargetAction")
+                        ...register("details.usersTargetAction")
                       },
                       {
                         label: "Позвонить",
                         value: "call",
-                         ...register("details.usersTargetAction")
+                        ...register("details.usersTargetAction")
                       },
                       {
                         label: "Другое",
                         value: "other",
-                         ...register("details.usersTargetAction")
+                        ...register("details.usersTargetAction")
                       }
                     ]}
                     errorMessage={errors.details?.usersTargetAction?.message}
@@ -493,12 +494,12 @@ export default function Brief() {
                       {
                         label: "Формы сбора контактов",
                         value: "contactCollectionForms",
-                         ...register("details.siteFunctionality")
+                        ...register("details.siteFunctionality")
                       },
                       {
                         label: "Калькулятор",
                         value: "calculator",
-                         ...register("details.siteFunctionality")
+                        ...register("details.siteFunctionality")
                       },
                       {
                         label: "Настройка рассылки",
@@ -513,37 +514,37 @@ export default function Brief() {
                       {
                         label: "Личный кабинет",
                         value: "personalAccount",
-                         ...register("details.siteFunctionality")
+                        ...register("details.siteFunctionality")
                       },
                       {
                         label: "Получение заявок на почту",
                         value: "receivingApplicationsByMail",
-                         ...register("details.siteFunctionality")
+                        ...register("details.siteFunctionality")
                       },
                       {
                         label: "Получение заявок в телеграм",
                         value: "receivingApplicationsByTelegram",
-                         ...register("details.siteFunctionality")
+                        ...register("details.siteFunctionality")
                       },
                       {
                         label: "Каталог",
                         value: "catalog",
-                         ...register("details.siteFunctionality")
+                        ...register("details.siteFunctionality")
                       },
                       {
                         label: "Сохранение информации в Google документы",
                         value: "savingInfoToGoogleDocs",
-                         ...register("details.siteFunctionality")
+                        ...register("details.siteFunctionality")
                       },
                       {
                         label: "Нужна консультация",
                         value: "needConsultation",
-                         ...register("details.siteFunctionality")
+                        ...register("details.siteFunctionality")
                       },
                       {
                         label: "Другие",
                         value: "other",
-                         ...register("details.siteFunctionality")
+                        ...register("details.siteFunctionality")
                       }
                     ]}
                     errorMessage={errors.details?.siteFunctionality?.message}
@@ -749,7 +750,7 @@ export default function Brief() {
           <section className={s.submit}>
             <p className={s.terms}>
               Я принимаю условия{" "}
-              <a href={"#"} rel={"nofollow"} className={s.privacyPolicy} download>
+              <a href={"#"} rel={"nofollow"} className={clsx(s.privacyPolicy, "noRoutingLink")} download>
                 Политика ООО OctoWeb в отношении обработки данных
               </a>{" "}
               и, нажимая на кнопку “Отправить”, даю согласие на обработку компанией указанных мной

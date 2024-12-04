@@ -3,13 +3,13 @@ import s from "./contactButton.module.scss";
 import { ComponentPropsWithoutRef } from "react";
 import ArrowIcon from "@/svg/arrow.svg";
 
-export type ContactButtonProps = {text?: string} & ComponentPropsWithoutRef<"a">;
+export type ContactButtonProps = { text?: string } & ComponentPropsWithoutRef<"a">;
 
 export const ContactButton = (props: ContactButtonProps) => {
-  const { text = 'ОБСУДИТЬ ПРОЕКТ', className, ...restProps } = props;
-  const classNames = clsx(s.contactButton, className);
+  const { text = "ОБСУДИТЬ ПРОЕКТ", className, ...restProps } = props;
+  const classNames = clsx(s.contactButton, className, "noRoutingLink");
   return (
-    <a  className={classNames} rel={"nofollow"} href={"#form" } {...restProps}>
+    <a className={classNames} rel={"nofollow"} href={"#form"} {...restProps}>
       <span className={s.text}>{text}</span>
       <div className={s.background}></div>
       <div className={s.arrowContainer}>

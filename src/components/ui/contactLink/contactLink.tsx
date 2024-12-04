@@ -6,7 +6,7 @@ export type ContactLinkProps = ComponentPropsWithoutRef<"a">;
 
 export const ContactLink = (props: ContactLinkProps) => {
   const { className, ...restProps } = props;
-  const classNames = clsx(s.contactLink, className);
+  const classNames = clsx(s.contactLink, className, "noRoutingLink");
   return (
     <a
       {...restProps}

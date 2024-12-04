@@ -38,10 +38,9 @@ export const PreventNavigation = ({ isDirty }: PreventNavigationProps) => {
   useEffect(() => {
 
     const handlePopState = () => {
-
       const currentHash = window.location.hash;
       if (currentHash) {
-          return;
+        return;
       }
 
       if (isDirty) {
@@ -64,7 +63,7 @@ export const PreventNavigation = ({ isDirty }: PreventNavigationProps) => {
       }
     };
     document.querySelectorAll("a").forEach((link) => {
-      if (!link.className.includes("briefNavigationLink") && !link.className.includes("navigationButton")) {
+      if (!link.className.includes("noRoutingLink")) {
         link.addEventListener("click", handleClick);
       }
     });

@@ -13,7 +13,7 @@ export type BriefNavigationLinkProps = {
 
 export const BriefNavigationLink = (props: BriefNavigationLinkProps) => {
   const { text, completed, className, sectionId, ...restProps } = props;
-  const classNames = clsx(s.briefNavigationLink, "briefNavigationLink", className);
+  const classNames = clsx(s.briefNavigationLink, "noRoutingLink", className);
 
   return (
     <Link

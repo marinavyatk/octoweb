@@ -17,7 +17,7 @@ export const NavigationButton = <T extends ElementType = "button">(
     className,
     ...restProps
   } = props;
-  const classNames = clsx(s.navigationButton, className, 'navigationButton');
+  const classNames = clsx(s.navigationButton, className, 'noRoutingLink');
   const arrowClassNames = clsx(s.buttonContainer, s[variant]);
 
   return (
