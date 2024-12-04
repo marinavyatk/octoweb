@@ -9,20 +9,19 @@ export const BigBubbleScene = () => {
   return (
     <div className={s.canvasScene}>
       <Canvas>
-        <directionalLight intensity={1} position={[-3, 7, 0]} />
+        {/*<directionalLight intensity={1} position={[-3, 7, 0]} />*/}
         <Environment preset={"city"} />
         <BigBubble />
-        <SmallBubble />
       </Canvas>
     </div>
   );
 };
 
-export const SmallBubbleScene = () => {
+export const Scene = () => {
   return (
     <div className={s.canvasScene}>
-      <Canvas>
-        <directionalLight intensity={1} position={[-3, 7, 0]} />
+      <Canvas camera={{zoom: 1.5}}>
+        {/*<directionalLight intensity={1} position={[-3, 7, 0]} />*/}
         <Environment preset={"city"} />
         <SmallBubble />
       </Canvas>

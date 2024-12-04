@@ -1,6 +1,7 @@
 import {ReactNode} from 'react';
 import {Header} from '@/components/layouts/header/header';
 import {FooterWithForm} from '@/components/layouts/footerWithForm/footerWithForm';
+import { BigBubbleScene, Scene } from "@/components/3d/scene/scene";
 
 export default function RootLayout({
   children,
@@ -11,6 +12,8 @@ export default function RootLayout({
       <>
       <Header />
         {children}
+        <Scene/>
+        <BigBubbleScene/>
       <FooterWithForm />
 </>
   );
