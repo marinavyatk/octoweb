@@ -3,7 +3,7 @@ import { useLayoutEffect, useRef } from "react";
 
 export const SmallBubble = () => {
   const bubbleRef = useRef(null);
-  const { nodes, animations } = useGLTF("medias/smallBubble.glb");
+  const { nodes, animations } = useGLTF("models/smallBubble.glb");
   const { actions, names } = useAnimations(animations, bubbleRef);
   console.log("animations", animations);
 
@@ -31,13 +31,13 @@ export const SmallBubble = () => {
     roughness: 0,
     transmission: 1,
     ior: 1.2,
-    chromaticAberration: 0.02,
+    chromaticAberration: 1,
     backside: true,
   };
 
   return (
-    <group ref={bubbleRef} dispose={null} position={[-3, 3, 0]} scale={1}>
-      <mesh {...nodes.Object_11001} position={[-12, 2, 0]}>
+    <group ref={bubbleRef} dispose={null} position={[-2, 2, 0]} >
+      <mesh {...nodes.Object_11001}>
         <MeshTransmissionMaterial {...materialProps} />
       </mesh>
     </group>
