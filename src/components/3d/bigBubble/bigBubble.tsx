@@ -1,20 +1,20 @@
 import { MeshTransmissionMaterial, useAnimations, useGLTF } from "@react-three/drei";
 // import { useControls } from "leva";
 import { useLayoutEffect, useRef } from "react";
-import { useThree } from "@react-three/fiber";
+// import { useThree } from "@react-three/fiber";
 
 export const BigBubble = () => {
   const bubbleRef = useRef(null);
-  const { nodes, animations } = useGLTF("../models/bigBubble.glb");
+  const { nodes, animations } = useGLTF("/models/bigBubble.glb");
   const { actions, names } = useAnimations(animations, bubbleRef);
   console.log("animations", animations);
 
 
 
-  const {viewport} = useThree()
+  // const {viewport} = useThree()
 
 
-  console.log('viewport.width', viewport.width);
+  // console.log('viewport.width', viewport.width);
   useLayoutEffect(() => {
     names.forEach((animation) => {
       const action = actions?.[animation]?.play();
