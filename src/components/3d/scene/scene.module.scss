@@ -9,13 +9,3 @@
   z-index: -11;
   //position: fixed;
 }
-
-.canvasSceneLeft {
-  margin-left: calc(-1 * var(--offset-x));
-  margin-top: -180px;
-}
-
-.canvasSmallRight{
-  top: unset;
-  margin-left:  var(--offset-x);
-}
