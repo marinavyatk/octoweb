@@ -11,6 +11,13 @@ import { Button } from "@/components/ui/buttons/button/button";
 import Link from "next/link";
 import { Greeting } from "@/components/sections/greeting/greeting";
 import { linksData } from "@/common/componentsData/servicesLinks";
+import {
+  BigBubbleScene,
+  BigBubbleSceneLeft,
+  Scene,
+  SmallBubbleScene,
+  SmallBubbleSceneRight
+} from "@/components/3d/scene/scene";
 
 
 export default function Home() {
@@ -23,6 +30,8 @@ export default function Home() {
 
   return (
     <div className={s.mainPage}>
+      <Scene/>
+      <BigBubbleScene/>
       <div className={"mainContainer"}>
         <Greeting textContent={content} />
         <h1 className={s.hiddenHeader}>Создаем сайты для бизнеса</h1>
@@ -32,6 +41,8 @@ export default function Home() {
       <div className={"mainContainer"}>
         <section className={s.advantages}>
           <h2>ПОЧЕМУ МЫ?</h2>
+          <BigBubbleSceneLeft/>
+          <SmallBubbleScene/>
           <div className={s.arrow}></div>
           <span className={s.backgroundSymbol}>くコ:彡</span>
           <span className={s.backgroundSymbol}>くコ:彡</span>
@@ -56,9 +67,14 @@ export default function Home() {
             className={s.fourCard}
           />
           <Button as={Link} text={"Больше кейсов"} href={routes.cases} className={s.arrowLink} />
+          <SmallBubbleSceneRight/>
         </section>
       </div>
       <ServicesLinksList linksData={linksData} />
+      <div className={s.bubbleContainer}>
+        <BigBubbleSceneLeft/>
+      </div>
+
       <StepCards className={s.steps} />
     </div>
   );
