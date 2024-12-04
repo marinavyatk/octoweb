@@ -17,9 +17,9 @@ export const Footer = (props: FooterProps) => {
         <ContactLinks />
         {needBriefLink && <BriefButton variant={"secondary"} />}
         <div className={s.contacts}>
-          <a href="mailto:info@octoweb.ru">info@octoweb.ru</a>
+          <a href="mailto:info@octoweb.ru" className="noRoutingLink" target='_blank'>info@octoweb.ru</a>
           <br />
-          <a href="tel:+79054077832">+7 905 407-78-32</a>
+          <a href="tel:+79054077832" className="noRoutingLink" target='_blank'>+7 905 407-78-32</a>
           <address>
             <span>КРАСНОДАР </span>
             <br />
