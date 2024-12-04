@@ -10,19 +10,22 @@ import { ContactButton } from "@/components/ui/buttons/contactButton/contactButt
 import { useRef, useState } from "react";
 import { useClose } from "@/common/customHooks/useClose";
 
-export const HeaderMobile = () => {
+type HeaderMobileProps = { needContactButton?: boolean }
+
+export const HeaderMobile = (props: HeaderMobileProps) => {
+  const { needContactButton = true } = props;
   const [open, setOpen] = useState(false);
   const sideMenuRef = useRef<HTMLDivElement>(null);
   const close = () => {
     setOpen(false);
   };
-  useClose({close, elementRef: sideMenuRef, direction: "right", open});
+  useClose({ close, elementRef: sideMenuRef, direction: "right", open });
 
   return <>
     <div className={s.mainHeader}>
       <Logo />
       <button aria-label="Открыть навигационное меню">
-        <OpenMenuIcon onClick={() => setOpen(true)} className={s.menuButton}/>
+        <OpenMenuIcon onClick={() => setOpen(true)} className={s.menuButton} />
       </button>
     </div>
     <div className={clsx(s.sideMenu, !open && s.hidden)}>
@@ -30,14 +33,14 @@ export const HeaderMobile = () => {
         <div className={s.content} ref={sideMenuRef}>
           <div>
             <div className={s.sideMenuHeader}>
-              <Logo onClick={close} sideMenuLogo/>
+              <Logo onClick={close} sideMenuLogo />
               <button onClick={close} aria-label="Закрыть навигационное меню">
                 <CloseIcon />
               </button>
             </div>
             <Navbar className={s.navbar} onEveryLinkClick={close} />
           </div>
-          <ContactButton className={s.contactButton} onClick={close} />
+          {needContactButton && <ContactButton className={s.contactButton} onClick={close} />}
         </div>
       </div>
     </div>

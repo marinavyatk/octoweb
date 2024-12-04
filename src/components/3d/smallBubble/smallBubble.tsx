@@ -3,7 +3,7 @@ import { useLayoutEffect, useRef } from "react";
 
 export const SmallBubble = () => {
   const bubbleRef = useRef(null);
-  const { nodes, animations } = useGLTF("models/smallBubble.glb");
+  const { nodes, animations } = useGLTF("../models/smallBubble.glb");
   const { actions, names } = useAnimations(animations, bubbleRef);
   console.log("animations", animations);
 
