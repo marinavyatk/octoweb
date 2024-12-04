@@ -5,7 +5,7 @@ import { useThree } from "@react-three/fiber";
 
 export const BigBubble = () => {
   const bubbleRef = useRef(null);
-  const { nodes, animations } = useGLTF("models/bigBubble.glb");
+  const { nodes, animations } = useGLTF("../models/bigBubble.glb");
   const { actions, names } = useAnimations(animations, bubbleRef);
   console.log("animations", animations);
 

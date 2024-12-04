@@ -10,7 +10,7 @@ export default function RootLayout({
 }>) {
   return (
       <>
-      <Header />
+      <Header needContactButton={false}/>
         {children}
       <FooterWithoutForm />
 </>
