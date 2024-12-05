@@ -14,7 +14,7 @@ export type StepCardsProps = {
 
 export const StepCards = (props: StepCardsProps) => {
   const { className } = props;
-  const classNames = clsx(s.cards, className);
+  const classNames = clsx(s.stepsPlaceholder, className);
 
   const cardsList = stepCards.map((card) => {
     return (
@@ -28,12 +28,16 @@ export const StepCards = (props: StepCardsProps) => {
     );
   });
 
-  return <Swiper
-    modules={[FreeMode]}
-    slidesPerView={"auto"}
-    freeMode
-    grabCursor
-    className={classNames}
-  >
-    {cardsList} </Swiper>;
+  return <div className={classNames}>
+    <div className={s.stepsContainer}>
+      <Swiper
+        modules={[FreeMode]}
+        slidesPerView={"auto"}
+        freeMode
+        grabCursor
+        className={s.cards}
+      >
+        {cardsList} </Swiper>;
+    </div>
+  </div>;
 };

@@ -58,7 +58,7 @@ export default function Home() {
           <Button as={Link} text={"Больше кейсов"} href={routes.cases} className={s.arrowLink} />
         </section>
       </div>
-      <ServicesLinksList linksData={linksData} />
+      <ServicesLinksList linksData={linksData} className={s.services}/>
        <StepCards className={s.steps} />
     </div>
   );

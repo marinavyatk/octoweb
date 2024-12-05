@@ -15,7 +15,7 @@ export type CaseCircleProps = {
 
 export const CaseCircleList = (props: CaseCircleProps) => {
   const { caseCircles, className } = props;
-  const classNames = clsx(s.circles, className);
+  const classNames = clsx(s.circlesPlaceholder, className);
   const CaseCircles = caseCircles.map((circle) => {
     return (
       <SwiperSlide key={uuid()} className={s.slide}>
@@ -25,14 +25,18 @@ export const CaseCircleList = (props: CaseCircleProps) => {
   });
 
   return (
-    <Swiper
-      modules={[FreeMode]}
-      freeMode
-      slidesPerView={"auto"}
-      grabCursor
-      className={classNames}
-    >
-      {CaseCircles}
-    </Swiper>
+    <div className={classNames}>
+      <div className={s.circlesContainer}>
+        <Swiper
+          modules={[FreeMode]}
+          freeMode
+          slidesPerView={"auto"}
+          grabCursor
+          className={s.circles}
+        >
+          {CaseCircles}
+        </Swiper>
+      </div>
+    </div>
   );
 };

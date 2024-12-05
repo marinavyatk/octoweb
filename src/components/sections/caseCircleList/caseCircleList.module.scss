@@ -1,3 +1,13 @@
+.circlesPlaceholder {
+  height: 232px;
+}
+
+.circlesContainer {
+  position: absolute;
+  width: 100vw;
+  left: 0;
+}
+
 .circles {
   --slides-gap: 32px;
   user-select: none;
@@ -17,12 +27,20 @@
 }
 
 @media (max-width: 1905px) {
+  .circlesPlaceholder {
+    height: 170px;
+  }
+
   .circles {
     --slides-gap: 24px;
   }
 }
 
 @media (max-width: 767px) {
+  .circlesPlaceholder {
+    height: 110px;
+  }
+
   .circles {
     --slides-gap: 10px;
   }

@@ -115,6 +115,7 @@
   .header {
     margin-top: 50px;
     gap: 10px;
+    align-items: flex-start;
   }
 
   .caseCircleList {
@@ -129,5 +130,11 @@
 
   .showMoreButton {
     margin: 0 auto 70px;
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    flex-direction: column;
   }
 }

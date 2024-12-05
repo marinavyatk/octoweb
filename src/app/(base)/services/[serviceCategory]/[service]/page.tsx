@@ -27,7 +27,11 @@ export default function Service() {
             className={s.arrowLink}
           />
         </div>
-        <Picture src={"/onlineStoreImg.webp"} alt={""} fill sizes={"100vw"} priority
+        <Picture src={"/onlineStoreImg.webp"}
+                 alt={""}
+                 fill
+                 sizes={"100vw"}
+                 priority
                  containerProps={{ className: s.serviceImg }} />
         <div className={s.aboutService}>
           <h2>ОБ УСЛУГЕ</h2>

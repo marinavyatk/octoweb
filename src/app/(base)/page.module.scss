@@ -76,6 +76,10 @@
   margin-top: 195px;
 }
 
+.services {
+  margin-bottom: 300px;
+}
+
 .steps {
   margin-bottom: 372px;
 }
@@ -132,6 +136,10 @@
     }
   }
 
+  .services {
+    margin-bottom: 108px;
+  }
+
   .steps {
     margin-bottom: 140px;
   }
@@ -163,6 +171,10 @@
     .arrowLink {
       margin-top: 115px;
     }
+  }
+
+  .services {
+    margin-bottom: 120px;
   }
 
   .steps {
@@ -216,7 +228,7 @@
     }
   }
 
-  .steps {
+  .services, .steps {
     margin-bottom: 100px;
   }
 }
@@ -268,7 +280,7 @@
     max-width: var(--small-screen-max-width);
   }
 
-  .steps {
+  .services, .steps {
     margin-bottom: 60px;
   }
 }

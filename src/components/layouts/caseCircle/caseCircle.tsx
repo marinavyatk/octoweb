@@ -31,7 +31,7 @@ export const CaseCircle = (props: CaseCircleProps) => {
                alt={caseId}
                draggable={false}
                fill
-               sizes={"(max-width: 767px) 90px,(max-width: 1905px) 170px, 232px"} />
+               sizes={"(max-width: 767px) 110px,(max-width: 1905px) 170px, 232px"} />
     </Link>
   );
 };
