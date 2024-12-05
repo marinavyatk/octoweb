@@ -272,7 +272,7 @@
 @media (max-width: 767px) {
   .briefPage {
     h2 {
-      font-size: 16px;
+      font-size: 18px;
     }
 
     form {
@@ -281,7 +281,8 @@
   }
 
   .explanation {
-    font-size: 12px;
+    font-size: 14px;
+    line-height: var(--line-height-180);
     gap: 20px;
   }
 
@@ -302,7 +303,11 @@
   }
 
   .time {
-    font-size: 10px;
+    font-size: 12px;
+
+    span {
+      white-space: nowrap;
+    }
   }
 
   .fields {
@@ -336,6 +341,7 @@
   }
 
   .terms {
-    font-size: 10px;
+    font-size: 14px;
+    line-height: var(--line-height-180);
   }
 }

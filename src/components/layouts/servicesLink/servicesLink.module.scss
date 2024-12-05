@@ -134,7 +134,7 @@
 
 @media (max-width: 767px) {
   .servicesLink {
-    padding: 6px 0 6px 0;
+    padding: 6px 0 14px 0;
 
     &:hover {
       .imgContainer {
@@ -145,11 +145,11 @@
 
   .number,
   .header {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .text {
-    gap: 7px;
+    gap: 10px;
   }
 
   .tagList {

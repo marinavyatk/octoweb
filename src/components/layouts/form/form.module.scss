@@ -71,7 +71,6 @@
   }
 }
 
-
 @media (max-width: 1425px) {
   .form {
     padding: 56px 89px 66px;
@@ -92,7 +91,6 @@
     }
   }
 }
-
 
 @media (max-width: 1265px) {
   .form {
@@ -131,7 +129,6 @@
   }
 }
 
-
 @media (max-width: 767px) {
   .form {
     padding: 20px;
@@ -144,24 +141,15 @@
   }
 
   .checkbox {
-    margin: 19px 0;
+    margin: 24px 0;
   }
 
   .submit {
+    flex-direction: column;
+
     p {
-      font-size: 4px;
-    }
-
-    .arrowButton {
-      --button-height: 20px;
-      --button-width: 72px;
-      --arrow-width: 14px;
-      font-size: 5px;
-
-      svg {
-        width: 5px;
-        height: 5px;
-      }
+      text-align: justify;
+      font-size: 12px;
     }
   }
 }

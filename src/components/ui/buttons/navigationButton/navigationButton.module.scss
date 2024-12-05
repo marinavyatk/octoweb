@@ -116,14 +116,14 @@
 @media (max-width: 767px) {
   .navigationButton {
     svg {
-      width: 5px;
-      height: 5px;
+      width: 9px;
+      height: 9px;
     }
   }
 
   .buttonContainer {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
   }
 
   .up {
@@ -131,18 +131,6 @@
   }
 
   .upCaption {
-    font-size: 8px;
-    margin-bottom: 5px;
-  }
-
-  .next,
-  .previous {
-    width: 30px;
-    height: 30px;
-
-    svg {
-      width: 9px;
-      height: 9px;
-    }
+    margin-bottom: 0;
   }
 }

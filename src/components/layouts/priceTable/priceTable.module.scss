@@ -19,11 +19,13 @@
 .priceRow {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .price {
   font-weight: var(--font-weight-regular-600);
   color: var(--color-primary);
+  flex-shrink: 0;
 }
 
 @media (max-width: 1905px) {
@@ -42,7 +44,7 @@
 
 @media (max-width: 767px) {
   .priceTable {
-    font-size: 12px;
-    gap: 10px;
+    font-size: 14px;
+    gap: 14px;
   }
 }

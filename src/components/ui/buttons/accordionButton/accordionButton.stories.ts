@@ -13,13 +13,13 @@ type Story = StoryObj<typeof meta>;
 export const Opened: Story = {
   args: {
     opened: true,
-    setOpened: () => {},
+    toggleOpen: () => {},
   },
 };
 
 export const Closed: Story = {
   args: {
     opened: false,
-    setOpened: () => {},
+    toggleOpen: () => {},
   },
 };

@@ -15,8 +15,14 @@
     gap: 28px;
   }
 }
+
 @media (max-width: 767px) {
   .contactLinks {
-    gap: 10px;
+    width: 100%;
+    gap: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin: 20px auto 30px;
   }
 }

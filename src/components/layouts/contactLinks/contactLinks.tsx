@@ -15,17 +15,17 @@ export const ContactLinks = (props: ContactLinksProps) => {
 
   return (
     <div {...restProps} className={classNames}>
-      <ContactLink href={"https://web.telegram.org/a/"}>
-        <TelegramIcon /> Telegram
+      <ContactLink href={"https://web.telegram.org/a/"} aria-label="Telegram">
+        <TelegramIcon /> <span>Telegram</span>
       </ContactLink>
-      <ContactLink href={"#"}>
-        <InstagramIcon /> Instagram
+      <ContactLink href={"#"} aria-label="Instagram">
+        <InstagramIcon /> <span>Instagram</span>
       </ContactLink>
-      <ContactLink href={"#"}>
-        <WhatsAppIcon /> WhatsApp
+      <ContactLink href={"#"} aria-label="WhatsApp">
+        <WhatsAppIcon /> <span>WhatsApp</span>
       </ContactLink>
-      <ContactLink href={"#"}>
-        <VKIcon /> VK group
+      <ContactLink href={"#"} aria-label="VK group">
+        <VKIcon /> <span>VK group</span>
       </ContactLink>
     </div>
   );

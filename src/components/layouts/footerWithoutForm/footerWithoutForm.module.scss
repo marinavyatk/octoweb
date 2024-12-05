@@ -16,5 +16,21 @@
 @media (max-width: 767px) {
   .footerWithoutForm {
     padding-top: 50px;
+
+    .contactLinks {
+      flex-direction: column;
+      width: fit-content;
+      margin: 0 auto 20px;
+
+      span {
+        display: inline;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .footerWithoutForm .contactLinks span {
+    display: none;
   }
 }

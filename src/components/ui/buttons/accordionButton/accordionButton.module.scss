@@ -66,12 +66,12 @@
 
 @media (max-width: 767px) {
   .buttonContainer {
-    --button-width: 19px;
+    --button-width: 30px;
   }
 
   .horizontal,
   .vertical {
-    height: 1px;
-    width: 8px;
+    height: 2px;
+    width: 12px;
   }
 }

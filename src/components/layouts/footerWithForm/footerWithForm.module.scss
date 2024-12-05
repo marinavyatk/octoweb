@@ -12,7 +12,7 @@
   position: relative;
 }
 
-.primaryFolderForm{
+.primaryFolderForm {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -127,7 +127,17 @@
 }
 
 @media (max-width: 500px) {
+  .formContainer {
+    background-image: url(/primaryFolderShape320.svg);
+  }
+
   .title {
     margin: 0;
+  }
+}
+
+@media (max-width: 350px) {
+  .title {
+    max-width: 200px;
   }
 }
