@@ -93,6 +93,7 @@
 
     a:nth-of-type(2n) {
       align-self: flex-end;
+      padding-right: var(--offset-x);
     }
   }
 
