@@ -21,8 +21,12 @@ export default function ServiceCategory() {
   return (
     <>
       <Greeting textContent={textContent} className={"mainContainer"} />
-      <ServicesLinksList linksData={linksData} header={'Услуги разработки'}/>
-      <Advantages className={clsx(s.advantagesSection, "mainContainer")} />
+      <ServicesLinksList
+        linksData={linksData}
+        header={'Услуги разработки'}
+        className={s.services}
+      />
+      <Advantages className={clsx(s.advantages, "mainContainer")} />
       <CooperationCard />
       <StepCards className={s.steps} />
       <FAQ faqData={faqData} className={clsx(s.faq, "mainContainer")} />

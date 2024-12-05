@@ -1,3 +1,13 @@
+.stepsPlaceholder{
+  height: 670px;
+}
+
+.stepsContainer{
+  position: absolute;
+  width: 100vw;
+  left: 0;
+}
+
 .cards {
   --extreme-slide-offset: 224px;
   --slides-gap: 110px;
@@ -17,14 +27,28 @@
   }
 }
 
-@media (max-width: 1925px) {
+@media (max-width: 1905px) {
+  .stepsPlaceholder{
+    height: 540px;
+  }
+
   .cards {
     --extreme-slide-offset: 212px;
     --slides-gap: 128px;
   }
 }
 
+@media (max-width: 1425px) {
+  .stepsPlaceholder{
+    height: 460px;
+  }
+}
+
 @media (max-width: 1265px) {
+  .stepsPlaceholder{
+    height: 414px;
+  }
+
   .cards {
     --extreme-slide-offset: 200px;
     --slides-gap: 96px;
@@ -32,6 +56,10 @@
 }
 
 @media (max-width: 767px) {
+  .stepsPlaceholder{
+    height: 220px;
+  }
+
   .cards {
     --extreme-slide-offset: 50px;
     --slides-gap: 29px;

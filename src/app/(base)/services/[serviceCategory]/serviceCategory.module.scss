@@ -1,4 +1,8 @@
-.advantagesSection {
+.services {
+  margin-bottom: 160px;
+}
+
+.advantages {
   margin-bottom: 240px;
 }
 
@@ -11,29 +15,21 @@
 }
 
 @media (max-width: 1425px) {
-  .advantagesSection {
+  .services, .advantages, .faq {
     margin-bottom: 120px;
   }
 
   .steps {
     margin: 160px 0 180px;
   }
-
-  .faq {
-    margin-bottom: 120px;
-  }
 }
 
 @media (max-width: 767px) {
-  .advantagesSection {
+  .services, .advantages, .faq {
     margin-bottom: 60px;
   }
 
   .steps {
     margin: 60px 0 80px;
-  }
-
-  .faq {
-    margin-bottom: 60px;
   }
 }
