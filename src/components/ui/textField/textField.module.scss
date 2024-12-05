@@ -44,6 +44,7 @@
   caret-color: var(--color-primary);
   scrollbar-width: none;
   resize: none;
+  max-height: 300px;
 
   &::placeholder {
     color: var(--color-light-20);

@@ -170,7 +170,7 @@ export default function Brief() {
             </p>
           </div>
           <ArrowPointerLeft className={s.arrowLeft} />
-          <span className={s.time}>Примерное время заполнения — 15-30 мин.</span>
+          <span className={s.time}>Примерное время <span>заполнения — 15-30 мин.</span></span>
         </section>
 
         <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">

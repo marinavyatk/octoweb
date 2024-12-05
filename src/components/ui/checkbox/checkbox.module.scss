@@ -72,14 +72,22 @@
 
 @media (max-width: 767px) {
   .checkbox {
-    font-size: 8px;
+    font-size: 12px;
     line-height: var(--line-height-140);
-    gap: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .checkbox {
+    font-size: 10px;
 
     input + label::before {
-      width: 12px;
-      height: 12px;
-      border-radius: 2px;
+      width: 20px;
+      height: 20px;
+    }
+
+    input + label {
+      gap: 10px;
     }
   }
 }

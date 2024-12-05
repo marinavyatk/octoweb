@@ -52,16 +52,13 @@
 
 @media (max-width: 767px) {
   .underText {
-    font-size: 8px;
+    font-size: 10px;
     margin-top: 1px;
   }
 
   .underlineMessage {
-    max-width: calc(100% - 45px);
-
-    div {
-      font-size: 8px;
-    }
+    max-width: calc(100% - 60px);
+    text-align: end;
   }
 
   .fileContainer {

@@ -11,6 +11,8 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .colored {
@@ -54,12 +56,11 @@
 
 @media (max-width: 767px) {
   .tag {
-    font-size: 10px;
+    font-size: 12px;
     padding: 6px 10px;
     gap: 8px;
   }
   .monochromeSecondary {
-    font-size: 10px;
-    padding: 1px 7px;
+    font-size: 12px;
   }
 }

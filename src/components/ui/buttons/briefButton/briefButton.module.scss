@@ -134,39 +134,3 @@
     }
   }
 }
-
-@media (max-width: 767px) {
-  .buttonContainer {
-    .stroke {
-      width: 60px;
-      height: 60px;
-    }
-
-    .arrowContainer {
-      width: 27px;
-      height: 27px;
-
-      svg {
-        width: 8px;
-        height: 8px;
-      }
-    }
-  }
-
-  .secondary {
-    .stroke {
-      width: 38px;
-      height: 38px;
-    }
-
-    .arrowContainer {
-      width: 18px;
-      height: 18px;
-
-      svg {
-        width: 5px;
-        height: 5px;
-      }
-    }
-  }
-}

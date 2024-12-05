@@ -97,13 +97,18 @@
 
 @media (max-width: 767px) {
   .info {
-    height: 232px;
+    height: 241px;
     max-width: 180px;
     padding: 16px 0 16px 16px;
   }
 
   .workExperience, .specialization, .description {
     font-size: 10px;
+  }
+
+  .description {
+    font-size: 12px;
+    padding-right: 10px;
   }
 
   .imgContainer .imgPositionContainer {
@@ -113,6 +118,6 @@
 
   .name {
     font-size: 15px;
-    margin: 4px 0;
+    margin: 0;
   }
 }

@@ -141,25 +141,19 @@
     padding: 20px 15px;
 
     h2 {
-      font-size: 16px;
+      font-size: 18px;
       margin-bottom: 0;
     }
 
     p {
-      font-size: 12px;
+      font-size: 14px;
       width: 288px;
     }
 
     .arrowButton {
-      --button-height: 25px;
-      --button-width: 112px;
-      --arrow-width: 21px;
-      font-size: 7px;
-
-      svg {
-        width: 6px;
-        height: 6px;
-      }
+      position: static;
+      margin: 20px auto 0;
+      width: fit-content;
     }
   }
 

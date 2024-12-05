@@ -83,6 +83,14 @@
   }
 }
 
+@media (min-width: 561px) and (max-width: 630px) {
+  .firstRow,
+  .secondRow {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+}
+
 @media (max-width: 560px) {
   .firstRow,
   .secondRow {

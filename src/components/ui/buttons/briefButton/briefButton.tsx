@@ -15,16 +15,16 @@ export const BriefButton = (props: BriefButtonProps) => {
   const classNames = clsx(s.buttonContainer, className, s[variant]);
   const getSizes = () => {
     if (variant === "primary") {
-      return "(max-width: 767px) 60px,  (max-width: 1265px) 144px, (max-width: 1905px) 185px, 252px";
+      return "(max-width: 1265px) 144px, (max-width: 1905px) 185px, 252px";
     } else {
-      return "(max-width: 767px) 38px,  (max-width: 1265px) 91px, (max-width: 1905px) 185px, 252px";
+      return "(max-width: 1265px) 91px, (max-width: 1905px) 185px, 252px";
     }
   };
 
   return (
     <div {...restProps} className={classNames}>
       <div className={s.stroke}>
-        <Image src="/stroke.webp" alt="" fill sizes={getSizes()} priority/>
+        <Image src="/stroke.webp" alt="" fill sizes={getSizes()} priority />
       </div>
       <Link href={routes.brief} className={s.arrowContainer} rel={"nofollow"} target={"_blank"}
             aria-label="Заполнить бриф">

@@ -2,7 +2,7 @@ import { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 import s from "./footerWithoutForm.module.scss";
 import { Footer } from "../footer/footer";
-import FooterForm from "@/svg/footerForm.svg";
+import FooterShape from "@/svg/footerForm.svg";
 
 export type FooterWithoutFormProps = ComponentPropsWithoutRef<"div">;
 
@@ -12,8 +12,8 @@ export const FooterWithoutForm = (props: FooterWithoutFormProps) => {
 
   return (
     <div {...restProps} className={classNames}>
-      <FooterForm className={s.footerForm} />
-      <Footer needBriefLink={false} />
+      <FooterShape className={s.footerForm} />
+      <Footer needBriefLink={false} contactLinksProps={{ className: s.contactLinks }} />
     </div>
   );
 };

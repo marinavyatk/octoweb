@@ -63,10 +63,16 @@
   }
 
   .heading {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .description {
-    font-size: 10px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 400px) {
+  .offerText {
+    max-width: 154px;
   }
 }

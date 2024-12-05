@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { ComponentPropsWithoutRef, useRef, useState } from "react";
 import { clsx } from "clsx";
@@ -15,7 +15,7 @@ export const Question = (props: QuestionProps) => {
   const [opened, setOpened] = useState(false);
   const { question, answer, className, ...restProps } = props;
   const classNames = clsx(s.questionContainer, className, {
-    [s.opened]: opened,
+    [s.opened]: opened
   });
 
   //necessary so that the height of the answer changes smoothly
@@ -26,11 +26,15 @@ export const Question = (props: QuestionProps) => {
     answerRef.current.style.maxHeight = `0`;
   }
 
+  const toggleOpen = () => {
+    setOpened(!opened);
+  };
+
   return (
     <div {...restProps} className={classNames}>
       <div className={s.accordion}>
-        <h2 className={s.question}>{question}</h2>
-        <AccordionButton opened={opened} setOpened={setOpened} />
+        <h2 className={s.question} onClick={toggleOpen}>{question}</h2>
+        <AccordionButton opened={opened} toggleOpen={toggleOpen} />
       </div>
       <p className={s.answer} ref={answerRef}>
         {answer}
