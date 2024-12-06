@@ -122,8 +122,8 @@
   }
 
   .buttonContainer {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
   }
 
   .up {
@@ -132,5 +132,10 @@
 
   .upCaption {
     margin-bottom: 0;
+  }
+
+  .next, .previous {
+    width: 30px;
+    height: 30px;
   }
 }
