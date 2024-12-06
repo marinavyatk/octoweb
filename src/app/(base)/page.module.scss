@@ -84,6 +84,22 @@
   margin-bottom: 372px;
 }
 
+.video {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.bigTopLeftBubble {
+  top: 200px;
+  right: 0;
+}
+
+.smallTopLeftBubble {
+  top: -200px;
+  left: 220px;
+}
+
 @media (max-width: 1905px) {
   .greetingDescription {
     margin-bottom: 170px;

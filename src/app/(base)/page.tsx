@@ -11,6 +11,8 @@ import { Button } from "@/components/ui/buttons/button/button";
 import Link from "next/link";
 import { Greeting } from "@/components/sections/greeting/greeting";
 import { linksData } from "@/common/componentsData/servicesLinks";
+import { BigBubble } from "@/components/video/bigBubble/bigBubble";
+import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
 
 
 export default function Home() {
@@ -23,6 +25,8 @@ export default function Home() {
 
   return (
     <div className={s.mainPage}>
+      <BigBubble className={s.bigTopLeftBubble}/>
+      <SmallBubble className={s.smallTopLeftBubble}/>
       <div className={"mainContainer"}>
         <Greeting textContent={content} />
         <h1 className={s.hiddenHeader}>Создаем сайты для бизнеса</h1>
