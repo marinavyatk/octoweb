@@ -37,6 +37,7 @@
   transition: width 0.3s;
   overflow-y: scroll;
   scrollbar-width: none;
+  gap: 20px;
 }
 
 .hidden {
@@ -59,6 +60,16 @@
 
 .navbar, .contactButton {
   margin: 0 auto;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  span {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {

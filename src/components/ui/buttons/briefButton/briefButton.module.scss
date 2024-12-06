@@ -134,3 +134,22 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .secondary {
+    .stroke {
+      width: 115px;
+      height: 115px;
+    }
+
+    .arrowContainer {
+      width: 64px;
+      height: 64px;
+
+      svg {
+        width: 19px;
+        height: 19px;
+      }
+    }
+  }
+}

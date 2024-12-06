@@ -35,6 +35,17 @@
   margin-bottom: 192px;
 }
 
+.contactLinks {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 40px;
+  justify-content: flex-start;
+
+  span {
+    display: none;
+  }
+}
+
 @media (max-width: 1265px) {
   .contactsPage {
     h1 {

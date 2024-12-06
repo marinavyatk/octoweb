@@ -1,5 +1,6 @@
 import s from "./contacts.module.scss";
 import Map from "@/components/layouts/map/map";
+import { ContactLinks } from "@/components/layouts/contactLinks/contactLinks";
 
 export default function Contacts() {
   return (
@@ -13,11 +14,13 @@ export default function Contacts() {
               г. Краснодар, ул.&nbsp;Атарбекова&nbsp;7
             </address>
           </div>
+
           <div className={s.links}>
             <a href="mailto:info@octoweb.ru">info@octoweb.ru</a>
             <a href="tel:+79054077832">+7 905 407-78-32</a>
           </div>
         </div>
+        <ContactLinks className={s.contactLinks}/>
       </div>
         <Map className={s.map}/>
     </div>

@@ -9,6 +9,7 @@ import { Navbar } from "@/components/ui/navbar/navbar";
 import { ContactButton } from "@/components/ui/buttons/contactButton/contactButton";
 import { useRef, useState } from "react";
 import { useClose } from "@/common/customHooks/useClose";
+import { ContactLinks } from "@/components/layouts/contactLinks/contactLinks";
 
 type HeaderMobileProps = { needContactButton?: boolean }
 
@@ -40,6 +41,7 @@ export const HeaderMobile = (props: HeaderMobileProps) => {
             </div>
             <Navbar className={s.navbar} onEveryLinkClick={close} />
           </div>
+          <ContactLinks className={s.links}/>
           {needContactButton && <ContactButton className={s.contactButton} onClick={close} />}
         </div>
       </div>
