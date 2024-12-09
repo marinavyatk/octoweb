@@ -1,6 +1,6 @@
 "use client";
 
-import { ComponentPropsWithoutRef, useEffect, useRef } from "react";
+import { ComponentPropsWithoutRef, useEffect, useRef, useState } from "react";
 import { clsx } from "clsx";
 import s from "../video.module.scss";
 import { useIntersectionObserver } from "@/common/customHooks/useIntersectionObserver";
@@ -25,6 +25,29 @@ export const SmallBubble = (props: SmallBubbleProps) => {
     }
 
   }, [isVisible]);
+
+
+  const [showFallback, setShowFallback] = useState(false);
+
+  useEffect(() => {
+    const testVideo = document.createElement("video");
+    const canPlayTransparentWebM = testVideo.canPlayType('video/webm; codecs="vp9"');
+
+    if (!canPlayTransparentWebM) {
+      setShowFallback(true);
+    }
+  }, []);
+
+
+  if (showFallback) {
+    return (
+      <img
+        src="/smallBubble.webp"
+        alt="Small Bubble Animation"
+        className={classNames}
+      />
+    );
+  }
 
   return <video
     src="/smallBubble-1.webm"
