@@ -95,11 +95,15 @@
 .bigBubbleMain {
   top: 200px;
   right: 0;
+  width: 800px;
+  height: 800px;
 }
 
 .smallBubbleMain {
   top: -200px;
   left: 220px;
+  width: 600px;
+  height: 600px;
 }
 
 .advantagesBubbles {
@@ -110,18 +114,24 @@
 
 .bigBubbleAdvantages {
   top: -400px;
-  left: -300px
+  left: -300px;
+  width: 800px;
+  height: 800px;
 }
 
 .advantagesBubbles .smallBubbleAdvantages {
   top: 200px;
   left: 400px;
   z-index: -4;
+  width: 600px;
+  height: 600px;
 }
 
 .bigBubbleCases {
   bottom: 200px;
   right: -400px;
+  width: 800px;
+  height: 800px;
 }
 
 .servicesBubbles {
@@ -131,6 +141,8 @@
 .smallBubbleServices {
   top: -400px;
   left: -50px;
+  width: 600px;
+  height: 600px;
 }
 
 @media (max-width: 1905px) {
