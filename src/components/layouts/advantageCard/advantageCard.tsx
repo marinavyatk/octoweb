@@ -14,6 +14,7 @@ export const AdvantageCard = (props: AdvantagesCardProps) => {
 
   return (
     <div className={classNames} {...restProps}>
+      <div className={s.content}>
       <Picture src={icon} alt=""
                fill
                sizes={"max-width: (767px) 67px, max-width: (1425px) 160px, 130px"}
@@ -21,6 +22,7 @@ export const AdvantageCard = (props: AdvantagesCardProps) => {
       />
       <h3>{header}</h3>
       <p>{text}</p>
+    </div>
     </div>
   );
 };

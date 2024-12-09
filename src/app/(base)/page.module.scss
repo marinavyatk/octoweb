@@ -1,3 +1,11 @@
+.mainPage {
+  :global {
+    .mainContainer {
+      contain: layout;
+    }
+  }
+}
+
 .greetingDescription {
   margin: 0 auto 228px;
 }
@@ -84,20 +92,45 @@
   margin-bottom: 372px;
 }
 
-.video {
-  position: absolute;
-  top: 0;
-  z-index: -1;
-}
-
-.bigTopLeftBubble {
+.bigBubbleMain {
   top: 200px;
   right: 0;
 }
 
-.smallTopLeftBubble {
+.smallBubbleMain {
   top: -200px;
   left: 220px;
+}
+
+.advantagesBubbles {
+  position: relative;
+  contain: layout;
+  z-index: -1;
+}
+
+.bigBubbleAdvantages {
+  top: -400px;
+  left: -300px
+}
+
+.advantagesBubbles .smallBubbleAdvantages {
+  top: 200px;
+  left: 400px;
+  z-index: -4;
+}
+
+.bigBubbleCases {
+  bottom: 200px;
+  right: -400px;
+}
+
+.servicesBubbles {
+  position: relative;
+}
+
+.smallBubbleServices {
+  top: -400px;
+  left: -50px;
 }
 
 @media (max-width: 1905px) {
@@ -196,6 +229,31 @@
   .steps {
     margin-bottom: 165px;
   }
+
+  .bigBubbleMain {
+    top: 200px;
+    transform: translateX(-200px);
+  }
+
+  .smallBubbleMain {
+    top: -200px;
+    left: 0;
+  }
+
+  .bigBubbleAdvantages {
+    top: -400px;
+    left: -300px
+  }
+
+  .advantagesBubbles .smallBubbleAdvantages {
+    top: 600px;
+    left: 50px;
+  }
+
+  .smallBubbleServices {
+    top: -200px;
+    left: -50px;
+  }
 }
 
 @media (max-width: 1265px) {
@@ -246,6 +304,47 @@
 
   .services, .steps {
     margin-bottom: 100px;
+  }
+
+  .bigBubbleMain {
+    top: 200px;
+    transform: translateX(-100px);
+    width: 450px;
+    height: 450px;
+  }
+
+  .smallBubbleMain {
+    top: -50px;
+    left: 100px;
+    width: 300px;
+    height: 300px;
+  }
+
+  .bigBubbleAdvantages {
+    top: -150px;
+    left: unset;
+    right: -150px;
+    width: 400px;
+    height: 400px;
+  }
+
+  .advantagesBubbles .smallBubbleAdvantages {
+    top: 1500px;
+    left: 0;
+    width: 400px;
+    height: 400px;
+  }
+
+  .bigBubbleCases {
+    bottom: 1100px;
+    right: -400px;
+  }
+
+  .smallBubbleServices {
+    top: -150px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
   }
 }
 
@@ -298,5 +397,49 @@
 
   .services, .steps {
     margin-bottom: 60px;
+  }
+
+  .bigBubbleMain {
+    top: 270px;
+    width: 300px;
+    height: 300px;
+    transform: translateX(100px);
+  }
+
+  .smallBubbleMain {
+    top: -50px;
+    left: 0;
+    width: 250px;
+    height: 250px;
+  }
+
+  .bigBubbleAdvantages {
+    top: -100px;
+    left: unset;
+    right: -200px;
+    width: 400px;
+    height: 400px;
+  }
+
+  .advantagesBubbles .smallBubbleAdvantages {
+    top: 900px;
+    left: -100px;
+    width: 350px;
+    height: 350px;
+  }
+
+  .bigBubbleCases {
+    bottom: -200px;
+    right: unset;
+    left: -150px;
+    width: 350px;
+    height: 350px;
+  }
+
+  .smallBubbleServices {
+    top: -150px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
   }
 }
