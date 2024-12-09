@@ -1,6 +1,6 @@
 "use client";
 
-import { ComponentPropsWithoutRef, useEffect, useRef } from "react";
+import { ComponentPropsWithoutRef, useEffect, useRef, useState } from "react";
 import { clsx } from "clsx";
 import s from "../video.module.scss";
 import { useIntersectionObserver } from "@/common/customHooks/useIntersectionObserver";
@@ -24,6 +24,29 @@ export const BigBubble = (props: BigBubbleProps) => {
 
   const { className, ...restProps } = props;
   const classNames = clsx(s.video, className);
+
+  const [showFallback, setShowFallback] = useState(false);
+
+  useEffect(() => {
+    const testVideo = document.createElement("video");
+    const canPlayTransparentWebM = testVideo.canPlayType('video/webm; codecs="vp9"');
+
+    if (!canPlayTransparentWebM) {
+      setShowFallback(true);
+    }
+  }, []);
+
+
+  if (showFallback) {
+    return (
+      <img
+        src="/bigBubble.webp"
+        alt="Big Bubble Animation"
+        className={classNames}
+      />
+    );
+  }
+
   return <video
     src="/bigBubble.webm"
     className={classNames}
