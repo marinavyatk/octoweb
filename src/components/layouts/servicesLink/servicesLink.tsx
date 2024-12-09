@@ -30,6 +30,7 @@ export const ServicesLink = (props: ServicesLinkProps) => {
              variant={"monochromeSecondary"}
              as={Link}
              href={`/services/${mainLink}/${tag.subLink}`}
+             className={s.tag}
         >
           {tag.text}
         </Tag>
