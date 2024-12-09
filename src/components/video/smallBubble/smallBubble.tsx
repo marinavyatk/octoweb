@@ -4,16 +4,18 @@ import { ComponentPropsWithoutRef, useEffect, useRef } from "react";
 import { clsx } from "clsx";
 import s from "../video.module.scss";
 import { useIntersectionObserver } from "@/common/customHooks/useIntersectionObserver";
-import { useCheckVideoSupport } from "@/common/customHooks/useCheckVideoSupport";
+// import { useCheckVideoSupport } from "@/common/customHooks/useCheckVideoSupport";
 
 type SmallBubbleProps = ComponentPropsWithoutRef<"video">
 
 export const SmallBubble = (props: SmallBubbleProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const { checkPassed, showFallback } = useCheckVideoSupport(videoRef);
+  // const {  showFallback } = useCheckVideoSupport(videoRef);
+  const showFallback = true;
   const { className, ...restProps } = props;
   const isVisible = useIntersectionObserver(videoRef, 0.01);
-  const classNames = clsx(s.video, className, !checkPassed && s.hidden);
+  // const classNames = clsx(s.video, className, !checkPassed && s.hidden);
+  const classNames = clsx(s.video, className);
 
   useEffect(() => {
     if (isVisible) {
@@ -47,7 +49,6 @@ type AnimationProps = ComponentPropsWithoutRef<"div">
 const Animation = (props: AnimationProps) => {
   const animationRefSB = useRef<HTMLDivElement>(null);
   const isVisible = useIntersectionObserver(animationRefSB, 0.01);
-  console.log('isVisible', isVisible);
 
   return <div
     {...props}
