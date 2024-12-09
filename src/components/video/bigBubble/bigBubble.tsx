@@ -30,6 +30,7 @@ export const BigBubble = (props: BigBubbleProps) => {
     {...restProps}
     muted
     loop
+    playsInline
     ref={videoRef}
   />;
 };
