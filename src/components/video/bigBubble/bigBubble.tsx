@@ -29,11 +29,43 @@ export const BigBubble = (props: BigBubbleProps) => {
 
   useEffect(() => {
     const testVideo = document.createElement("video");
-    const canPlayTransparentWebM = testVideo.canPlayType('video/webm; codecs="vp9"');
+    const canPlayTransparentWebM = testVideo.canPlayType("video/webm; codecs=\"vp9\"");
 
     if (!canPlayTransparentWebM) {
       setShowFallback(true);
+      return;
     }
+
+    const checkTransparency = async () => {
+      const video = document.createElement("video");
+      video.src = "/bigBubble.webm";
+      video.crossOrigin = "anonymous"; // Включаем CORS для работы с канвасом
+      video.muted = true;
+
+      await new Promise((resolve, reject) => {
+        video.onloadeddata = resolve;
+        video.onerror = reject;
+      });
+
+      const canvas = document.createElement("canvas");
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+
+      const ctx = canvas.getContext("2d");
+      if (!ctx) {
+        setShowFallback(true);
+        return;
+      }
+
+      ctx.drawImage(video, 0, 0);
+
+      const { data } = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const hasTransparency = Array.from(data).some((_, i) => i % 4 === 3 && data[i] < 255);
+
+      setShowFallback(!hasTransparency);
+    };
+
+    checkTransparency().catch(() => setShowFallback(true));
   }, []);
 
 
