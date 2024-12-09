@@ -3,6 +3,8 @@
   padding: 52px;
   background-color: var(--color-accent);
   color: var(--color-dark-primary);
+  z-index: 1;
+  position: relative;
 
   h2 {
     font-weight: var(--font-weight-bold-800);
