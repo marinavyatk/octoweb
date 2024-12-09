@@ -32,6 +32,7 @@ export const SmallBubble = (props: SmallBubbleProps) => {
     {...restProps}
     muted
     loop
+    playsInline
     ref={videoRef}
   />;
 };
