@@ -44,7 +44,7 @@
   margin-top: 48px;
 }
 
-.tag:hover{
+.tag:hover, .tag:focus-visible {
   color: var(--color-dark-primary);
   background-color: var(--color-accent);
   transition: all 0.5s ease;
@@ -72,7 +72,7 @@
   }
 }
 
-.servicesLink:hover {
+.servicesLink:hover, .servicesLink:has(.text:focus-visible), .servicesLink:has(.arrowLink:focus-visible) {
   .header {
     color: var(--color-accent);
   }

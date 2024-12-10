@@ -17,7 +17,7 @@ export const AttachedFile = (props: AttachedFileProps) => {
     <div className={classNames} {...restProps}>
       <AttachIcon className={s.attachIcon} />
       {fileName}
-      <button onClick={onDeleteClick} aria-label="Удалить прикрепленный файл">
+      <button onClick={onDeleteClick} aria-label="Удалить прикрепленный файл" className={s.deleteButton}>
         <DeleteIcon className={s.deleteIcon} />
       </button>
     </div>

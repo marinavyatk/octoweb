@@ -17,6 +17,10 @@
   text-transform: none;
 }
 
+.categoryLink:focus-visible .header {
+  color: var(--color-accent);
+}
+
 .tagList {
   display: flex;
   gap: 16px;

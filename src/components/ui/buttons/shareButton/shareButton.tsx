@@ -34,7 +34,7 @@ export const ShareButton = (props: ShareButtonProps) => {
 
   return (
     <div className={classNames} {...restProps}>
-      <Tag as={"button"} variant={"monochromeSecondary"} onClick={copyUrl}>
+      <Tag as={"button"} variant={"monochromeSecondary"} onClick={copyUrl} className={s.tag}>
         Поделиться <ShareIcon />
       </Tag>
       {isCopied && <span className={s.underline}>Ссылка скопирована!</span>}

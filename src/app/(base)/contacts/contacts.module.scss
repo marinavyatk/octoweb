@@ -26,6 +26,11 @@
 
   a {
     display: block;
+
+    &:focus-visible{
+      text-decoration: underline;
+      text-underline-position: under;
+    }
   }
 }
 

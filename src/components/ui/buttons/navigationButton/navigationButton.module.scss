@@ -8,7 +8,7 @@
     height: 24px;
   }
 
-  &:hover {
+  &:hover, &:focus-visible {
     .upCaption {
       color: var(--color-dark-primary);
     }
@@ -19,6 +19,12 @@
         transform: rotate(-45deg);
       }
     }
+  }
+
+  &:not(:has(.up)):focus-visible {
+    outline: 1px solid var(--color-accent);
+    outline-offset: 5px;
+    border-radius: 50%;
   }
 }
 
