@@ -8,6 +8,8 @@ import { linksData } from "@/common/componentsData/links";
 import { faqData } from "@/common/componentsData/faq";
 import { Greeting } from "@/components/sections/greeting/greeting";
 import { clsx } from "clsx";
+import { BigBubble } from "@/components/video/bigBubble/bigBubble";
+import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
 
 
 export default function ServiceCategory() {
@@ -20,14 +22,24 @@ export default function ServiceCategory() {
 
   return (
     <>
+      <div className={s.mainBubbles}>
+        <BigBubble className={s.bigBubbleMain} />
+        <SmallBubble className={s.smallBubbleMain} />
+      </div>
       <Greeting textContent={textContent} className={"mainContainer"} />
       <ServicesLinksList
         linksData={linksData}
-        header={'Услуги разработки'}
+        header={"Услуги разработки"}
         className={s.services}
       />
+      <div className={s.advantagesBubbles}>
+        <BigBubble className={s.bigBubbleAdvantages} />
+      </div>
       <Advantages className={clsx(s.advantages, "mainContainer")} />
       <CooperationCard />
+      <div className={s.cardBubbles}>
+        <SmallBubble className={s.smallBubbleCard} />
+      </div>
       <StepCards className={s.steps} />
       <FAQ faqData={faqData} className={clsx(s.faq, "mainContainer")} />
     </>

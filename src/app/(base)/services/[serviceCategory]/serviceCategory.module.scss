@@ -14,6 +14,40 @@
   margin-bottom: 150px;
 }
 
+.mainBubbles, .advantagesBubbles, .cardBubbles {
+  position: relative;
+  contain: layout;
+  z-index: -1;
+}
+
+.bigBubbleMain {
+  width: 900px;
+  height: 900px;
+  right: -100px;
+  top: 350px;
+}
+
+.smallBubbleMain {
+  width: 600px;
+  height: 600px;
+  left: 200px;
+  top: 0;
+}
+
+.bigBubbleAdvantages {
+  width: 800px;
+  height: 800px;
+  top: -400px;
+  left: -300px;
+}
+
+.smallBubbleCard {
+  right: 0;
+  width: 600px;
+  height: 600px;
+  top: -200px;
+}
+
 @media (max-width: 1425px) {
   .services, .advantages, .faq {
     margin-bottom: 120px;
@@ -24,6 +58,33 @@
   }
 }
 
+@media (max-width: 1265px) {
+  .bigBubbleMain {
+    width: 700px;
+    height: 700px;
+    top: 150px;
+  }
+
+  .smallBubbleMain {
+    width: 400px;
+    height: 400px;
+    left: 100px;
+    top: -150px;
+  }
+
+  .bigBubbleAdvantages {
+    width: 600px;
+    height: 600px;
+    top: -250px;
+    left: -200px;
+  }
+
+  .smallBubbleCard {
+    right: -200px;
+  }
+}
+
+
 @media (max-width: 767px) {
   .services, .advantages, .faq {
     margin-bottom: 60px;
@@ -31,5 +92,32 @@
 
   .steps {
     margin: 60px 0 80px;
+  }
+
+  .bigBubbleMain {
+    width: 400px;
+    height: 400px;
+    top: 70px;
+  }
+
+  .smallBubbleMain {
+    width: 200px;
+    height: 200px;
+    left: -50px;
+    top: -150px;
+  }
+
+  .bigBubbleAdvantages {
+    width: 300px;
+    height: 300px;
+    top: -50px;
+    left: -100px;
+  }
+
+  .smallBubbleCard {
+    width: 300px;
+    height: 300px;
+    right: -50px;
+    top: -50px;
   }
 }
