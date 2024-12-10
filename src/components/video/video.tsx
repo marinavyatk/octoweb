@@ -15,6 +15,7 @@ export const Video = (props: VideoProps) => {
   const classNames = clsx(s.video, className);
   const videoRef = useRef<HTMLVideoElement>(null);
   const isVisible = useIntersectionObserver(videoRef, 0.01);
+  const isFirstVisible = useIntersectionObserver(videoRef, 0.01, true);
 
   useEffect(() => {
     if (isVisible) {
@@ -27,18 +28,22 @@ export const Video = (props: VideoProps) => {
 
   }, [isVisible]);
 
-  return <>
-    <video className={classNames}
-           {...restProps}
-           ref={videoRef}
-           muted
-           loop
-           playsInline
-    >
-      <source src={src} type='video/webm; codecs="vp9"' />
-      {reserveSrc &&
-        <source src={reserveSrc} type="video/mp4" />
-      }
-    </video>
-  </>;
+  return <video
+    className={classNames}
+    {...restProps}
+    ref={videoRef}
+    muted
+    loop
+    playsInline
+    aria-hidden="true"
+    role="presentation"
+  >
+    {isFirstVisible &&
+      <>
+        <source src={src} type='video/webm; codecs="vp9"' />
+        {reserveSrc &&
+          <source src={reserveSrc} type="video/mp4" />}
+      </>
+    }
+  </video>;
 };
