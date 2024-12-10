@@ -10,6 +10,8 @@ import { CaseCard, Size } from "@/components/layouts/caseCard/caseCard";
 import { buttons, casesData, circles, sizes } from "@/common/componentsData/cases";
 import { v4 as uuid } from "uuid";
 import { Button } from "@/components/ui/buttons/button/button";
+import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
+import { BigBubble } from "@/components/video/bigBubble/bigBubble";
 
 
 export default function Cases() {
@@ -66,8 +68,16 @@ export default function Cases() {
         caseCircles={filteredCases}
         className={s.caseCircleList}
       />
-      <div className={s.casesList}>{cases}</div>
+      <div className={s.smallBubbleCirclesContainer}>
+        <SmallBubble className={s.smallBubbleCircles} />
+      </div>
+      <div className={s.casesList}>{cases}
+        <SmallBubble className={s.smallBubbleCases} />
+      </div>
       <Button text={"Показать ещё"} className={s.showMoreButton} />
+      <div className={s.bigBubbleEndContainer}>
+        <BigBubble className={s.bigBubbleEnd} />
+      </div>
     </div>
   );
 };

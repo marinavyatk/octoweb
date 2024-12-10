@@ -8,6 +8,7 @@ export type AdvantagesCardProps = {
   header: string;
   text: string;
 } & ComponentPropsWithoutRef<"div">;
+
 export const AdvantageCard = (props: AdvantagesCardProps) => {
   const { icon, header, text, className, ...restProps } = props;
   const classNames = clsx(s.card, className);

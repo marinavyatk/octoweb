@@ -7,9 +7,11 @@ import { articleData } from "@/common/componentsData/article";
 import { faqData } from "@/common/componentsData/faq";
 import { clsx } from "clsx";
 import { Picture } from "@/components/ui/picture/picture";
+import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
+import { BigBubble } from "@/components/video/bigBubble/bigBubble";
 
 
-export default function Article(){
+export default function Article() {
 //need to change after server connect
 
   const tags = articleData.tags.map((tag) => {
@@ -35,14 +37,14 @@ export default function Article(){
           })}
         </div>
         {section.sectionImg && (
-          <img src={section.sectionImg} alt=''/>
+          <img src={section.sectionImg} alt="" />
         )}
       </section>
     );
   });
 
   return (
-    <div className={clsx(s.articlePage, 'mainContainer')}>
+    <div className={clsx(s.articlePage, "mainContainer")}>
       <h1>{articleData.mainHeader}</h1>
       <div className={s.caption}>
         <div className={s.tagList}>
@@ -56,8 +58,9 @@ export default function Article(){
         </div>
         <ShareButton />
       </div>
-      <Picture src={articleData.mainPhoto} alt="" fill containerProps={{className: s.imgContainer}} priority/>
+      <Picture src={articleData.mainPhoto} alt="" fill containerProps={{ className: s.imgContainer }} priority />
       <div className={s.article}>
+        <BigBubble className={s.bigBubble}/>
         {articleContent}
       </div>
       <div className={s.caption + " " + s.bottomCaption}>
@@ -68,6 +71,9 @@ export default function Article(){
           </Tag>
         </div>
         <ShareButton />
+      </div>
+      <div className={s.smallBubbleContainer}>
+        <SmallBubble className={s.smallBubble} />
       </div>
       <FAQ faqData={faqData} className={s.faq} />
     </div>

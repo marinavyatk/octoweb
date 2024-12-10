@@ -1,4 +1,6 @@
 .blogPage {
+  contain: layout;
+
   h1 {
     margin-top: 0;
   }
@@ -40,6 +42,25 @@
   z-index: 0;
 }
 
+.bigBubble {
+  width: 800px;
+  height: 800px;
+  right: -200px;
+  top: -300px
+}
+
+.smallBubbleContainer {
+  position: relative;
+  contain: layout;
+  z-index: -1;
+}
+
+.smallBubble {
+  width: 500px;
+  height: 500px;
+  top: -400px;
+  right: 0;
+}
 
 @media (max-width: 1700px) {
   .header {
@@ -89,6 +110,21 @@
       align-self: end;
     }
   }
+
+  .bigBubble {
+    width: 550px;
+    height: 550px;
+    right: -150px;
+    top: -250px
+  }
+
+  .smallBubble {
+    width: 500px;
+    height: 500px;
+    top: -400px;
+    right: unset;
+    left: -100px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -108,6 +144,19 @@
 
   .loadMoreButton {
     margin-bottom: 50px;
+  }
+
+  .bigBubble {
+    width: 350px;
+    height: 350px;
+    right: -100px;
+    top: -150px
+  }
+
+  .smallBubble {
+    width: 300px;
+    height: 300px;
+    top: -250px;
   }
 }
 

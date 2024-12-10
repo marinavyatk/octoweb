@@ -3,7 +3,6 @@ import { clsx } from "clsx";
 import s from "./caseCardFullWidth.module.scss";
 import { Tag } from "../../ui/tag/tag";
 import Link from "next/link";
-import Image from "next/image";
 import { Picture } from "@/components/ui/picture/picture";
 
 export type CaseCardProps = {
@@ -46,11 +45,9 @@ export const CaseCardFullWidth = (props: CaseCardProps) => {
         <div className={s.headerContainer}>
           <h2 className={s.header}>{header}</h2>
           <div className={clsx(s.angle, s.angleMobile)}>
-            <Image src={"/noise-texture.webp"} alt="" fill sizes="(max-width: 767px) 10px, 30px" />
           </div>
         </div>
         <div className={clsx(s.angle, s.angleDesktop)}>
-          <Image src={"/noise-texture.webp"} alt="" fill sizes="60px" />
         </div>
       </div>
     </Link>
