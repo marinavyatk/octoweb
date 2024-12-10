@@ -33,6 +33,8 @@
 .article {
   max-width: var(--article-max-width);
   margin: 0 auto;
+  position: relative;
+  contain: layout;
 
   section {
     margin-bottom: 80px;
@@ -85,6 +87,25 @@
   margin-bottom: 140px;
 }
 
+.bigBubble {
+  width: 700px;
+  height: 700px;
+  top: 10%;
+  left: -550px;
+}
+
+.smallBubbleContainer {
+  position: relative;
+  contain: layout;
+  z-index: -1;
+}
+
+.smallBubble {
+  width: 600px;
+  height: 600px;
+  right: -200px;
+  top: -400px;
+}
 
 @media (max-width: 1905px) {
   .articlePage {
@@ -166,6 +187,20 @@
     width: 100%;
     max-width: unset;
   }
+
+  .bigBubble {
+    width: 500px;
+    height: 500px;
+    top: 10%;
+    left: -250px;
+  }
+
+  .smallBubble {
+    width: 400px;
+    height: 400px;
+    right: -50px;
+    top: -200px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -226,8 +261,14 @@
   .faq {
     margin-bottom: 60px;
   }
-}
 
+  .smallBubble {
+    width: 300px;
+    height: 300px;
+    right: -50px;
+    top: -100px;
+  }
+}
 
 @media (max-width: 500px) {
   .articlePage .imgContainer {

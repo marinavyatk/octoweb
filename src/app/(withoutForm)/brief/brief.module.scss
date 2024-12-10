@@ -16,6 +16,7 @@
 .startSection {
   border-bottom: 1px solid var(--color-light-40);
   position: relative;
+  contain: layout;
 }
 
 .accent {
@@ -148,6 +149,13 @@
   height: 116px;
 }
 
+.bubble {
+  width: 800px;
+  height: 800px;
+  right: -200px;
+  top: -300px;
+}
+
 @media (max-width: 1905px) {
   .explanation {
     font-size: 18px;
@@ -213,6 +221,12 @@
   .terms {
     max-width: unset;
     font-size: 24px;
+  }
+
+  .bubble {
+    width: 600px;
+    height: 600px;
+    top: -200px;
   }
 }
 
@@ -343,5 +357,12 @@
   .terms {
     font-size: 14px;
     line-height: var(--line-height-180);
+  }
+
+  .bubble {
+    width: 400px;
+    height: 400px;
+    right: -150px;
+    top: 100px;
   }
 }

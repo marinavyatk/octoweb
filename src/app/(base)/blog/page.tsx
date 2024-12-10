@@ -9,6 +9,8 @@ import { tempData } from "@/common/componentsData/blog";
 import { clsx } from "clsx";
 import { v4 as uuid } from "uuid";
 import { Button } from "@/components/ui/buttons/button/button";
+import { BigBubble } from "@/components/video/bigBubble/bigBubble";
+import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
 
 export default function Blog() {
   const [currentFilter, setCurrentFilter] = useState<Category>("All projects");
@@ -54,6 +56,7 @@ export default function Blog() {
 
   return (
     <div className={clsx("mainContainer", s.blogPage)}>
+      <BigBubble className={s.bigBubble} />
       <div className={s.header}>
         <h1>Блог</h1>
         <div className={s.filterButtons}>{filterButtons}</div>
@@ -65,6 +68,9 @@ export default function Blog() {
         className={s.loadMoreButton}
         onClick={handleLoadMore}
       />
+      <div className={s.smallBubbleContainer}>
+        <SmallBubble className={s.smallBubble} />
+      </div>
     </div>
   );
 };

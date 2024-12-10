@@ -20,6 +20,7 @@ import { allFields, defaultBriefValues, DirtyField, SectionName } from "@/common
 import { TextArea } from "@/components/ui/textField/textarea";
 import { PreventNavigation } from "@/components/layouts/warning/preventNavigation ";
 import { clsx } from "clsx";
+import { BigBubble } from "@/components/video/bigBubble/bigBubble";
 
 
 let materialsDevelopmentCurrentValue = "";
@@ -169,6 +170,7 @@ export default function Brief() {
               удовольствием порекомендуем подходящих партнеров, способных решить задачи проекта.
             </p>
           </div>
+          <BigBubble className={s.bubble}/>
           <ArrowPointerLeft className={s.arrowLeft} />
           <span className={s.time}>Примерное время <span>заполнения — 15-30 мин.</span></span>
         </section>
