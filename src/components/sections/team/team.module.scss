@@ -50,6 +50,11 @@
   color: var(--color-accent);
 }
 
+.button:focus-visible{
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
 .teamMemberContainer {
   position: relative;
   height: 580px;

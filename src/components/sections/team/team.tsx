@@ -26,7 +26,7 @@ export const Team = (props: TeamProps) => {
         className={member === currentMember ? s.active : ""}
         onClick={() => setCurrentMember(member)}
       >
-        <button>
+        <button className={s.button}>
           {member}
         </button>
       </li>

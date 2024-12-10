@@ -30,7 +30,7 @@ export const ServicesCard = (props: ServicesCardProps) => {
       <div className={s.content}>
         <div className={s.text}>
           <span className={s.number}>{number}</span> <br />
-          <Link href={`/services/${serviceCategory}`}>
+          <Link href={`/services/${serviceCategory}`} className={s.categoryLink}>
             <h2 className={s.header}>{header}</h2>
           </Link>
         </div>

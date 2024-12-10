@@ -25,6 +25,14 @@
   }
 }
 
+.navigationLink:focus-visible {
+  outline: 1px solid var(--color-accent);
+}
+
+.active:focus-visible {
+  outline: 2px solid black;
+}
+
 @media (max-width: 1905px) {
   .navigationLink {
     font-size: 14px;

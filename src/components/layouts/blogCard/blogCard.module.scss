@@ -16,6 +16,10 @@
   width: 100%;
 }
 
+.header:has(a:focus-visible) {
+  color: var(--color-accent);
+}
+
 .tagList {
   display: flex;
   flex-wrap: wrap-reverse;

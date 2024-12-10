@@ -10,6 +10,12 @@
   border-radius: 50%;
   position: relative;
   transition: transform 0.5s ease-in;
+
+  &:focus-visible {
+    outline: 1px solid var(--color-accent);
+    outline-offset: 5px;
+    border-radius: 50%;
+  }
 }
 
 .closedBackground {
@@ -37,6 +43,10 @@
 .opened {
   transform: rotate(90deg);
   border-radius: 50%;
+
+  &:focus-visible {
+    outline-color: var(--color-primary);
+  }
 
   .closedBackground {
     background-color: var(--color-primary);

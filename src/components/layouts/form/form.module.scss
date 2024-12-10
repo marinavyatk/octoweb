@@ -42,6 +42,11 @@
     a {
       font-weight: var(--font-weight-regular-400);
       color: var(--color-accent);
+
+      &:focus-visible{
+        text-decoration: underline;
+        text-underline-position: under;
+      }
     }
   }
 

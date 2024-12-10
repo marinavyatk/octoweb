@@ -39,7 +39,7 @@
     background-size: cover;
   }
 
-  input:hover:not(:checked) + label::before {
+  input:hover:not(:checked) + label::before, input:focus-visible + label::before {
     background-color: rgba(163, 48, 255, 0.2);
     border-color: var(--color-primary);
     transition: all 0.5s;

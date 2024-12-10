@@ -13,6 +13,12 @@
   width: 27px;
 }
 
+.deleteButton:focus-visible .deleteIcon{
+  outline: 1px solid white;
+  outline-offset: 5px;
+  border-radius: 2px;
+}
+
 .deleteIcon {
   margin-left: 18px;
   fill: var(--color-error);
