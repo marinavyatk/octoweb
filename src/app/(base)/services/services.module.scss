@@ -1,4 +1,6 @@
 .servicesPage {
+  contain: layout;
+
   h1 {
     margin-bottom: 72px;
     margin-left: 142px;
@@ -21,6 +23,20 @@
   margin-bottom: 272px;
 }
 
+.bigBubble{
+  width: 1100px;
+  height: 1100px;
+  right: -100px;
+  top: 700px;
+}
+
+.smallBubble{
+  width: 800px;
+  height: 800px;
+  left: -100px;
+  top: 500px;
+}
+
 @media (max-width: 1905px) {
   .firstRow,
   .secondRow {
@@ -31,6 +47,10 @@
   .cardsContainer {
     max-width: 1232px;
     margin: 0 auto 230px;
+  }
+
+  .smallBubble{
+    top: 300px;
   }
 }
 
@@ -46,6 +66,8 @@
   .secondRow {
     justify-content: center;
   }
+
+
 }
 
 @media (max-width: 1265px) {
@@ -70,6 +92,16 @@
   .cardsContainer {
     margin-bottom: 100px;
   }
+
+  .bigBubble{
+    top: unset;
+    bottom: 200px;
+  }
+
+  .smallBubble{
+    left: -50px;
+    top: 500px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -80,6 +112,18 @@
 
   .cardsContainer {
     margin-bottom: 60px;
+  }
+
+  .bigBubble{
+    width: 350px;
+    height: 350px;
+    bottom: 200px;
+  }
+
+  .smallBubble{
+    width: 300px;
+    height: 300px;
+    top: 250px;
   }
 }
 

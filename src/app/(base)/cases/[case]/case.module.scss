@@ -80,6 +80,9 @@
 .taskBlock {
   border-top: 1px solid var(--color-light-40);
   margin-top: 168px;
+  position: relative;
+  contain: layout;
+  z-index: -1;
 }
 
 .taskHeader {
@@ -116,6 +119,8 @@
   justify-content: space-between;
   gap: 209px;
   margin: 120px 0 300px;
+  position: relative;
+  contain: layout;
 }
 
 .resultInfo {
@@ -127,6 +132,20 @@
 .resultDescription {
   font-weight: var(--font-weight-regular-250);
   width: 58%;
+}
+
+.bigBubbleTask {
+  width: 800px;
+  height: 800px;
+  bottom: -100px;
+  left: -100px;
+}
+
+.smallBubbleResult {
+  width: 700px;
+  height: 700px;
+  top: -100px;
+  right: -200px;
 }
 
 @media (max-width: 1905px) {
@@ -273,6 +292,22 @@
   .resultDescription {
     width: 100%;
   }
+
+  .bigBubbleTask {
+    width: 800px;
+    height: 800px;
+    bottom: unset;
+    top: 0;
+    left: unset;
+    right: -300px;
+  }
+
+  .smallBubbleResult {
+    width: 600px;
+    height: 600px;
+    top: 0;
+    right: -200px;
+  }
 }
 
 
@@ -348,6 +383,19 @@
 
   .resultInfo {
     gap: 20px;
+  }
+
+  .bigBubbleTask {
+    width: 450px;
+    height: 450px;
+    bottom: unset;
+    right: -100px;
+  }
+
+  .smallBubbleResult {
+    width: 300px;
+    height: 300px;
+    right: -100px;
   }
 }
 

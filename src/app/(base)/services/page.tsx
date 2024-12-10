@@ -1,12 +1,16 @@
 import s from "./services.module.scss";
 import { ServicesCard } from "@/components/layouts/servicesCard/servicesCard";
 import { clsx } from "clsx";
+import { BigBubble } from "@/components/video/bigBubble/bigBubble";
+import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
 
 
 export default function Services() {
 
   return (
     <div className={clsx(s.servicesPage, "mainContainer")}>
+      <BigBubble className={s.bigBubble}/>
+      <SmallBubble className={s.smallBubble}/>
       <h1>УСЛУГИ</h1>
       <div className={s.cardsContainer}>
         <div className={s.firstRow}>

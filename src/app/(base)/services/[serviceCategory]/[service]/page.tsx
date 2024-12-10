@@ -11,11 +11,17 @@ import { faqData } from "@/common/componentsData/faq";
 import { Button } from "@/components/ui/buttons/button/button";
 import { Advantages } from "@/components/sections/advantages/advantages";
 import { Picture } from "@/components/ui/picture/picture";
+import { BigBubble } from "@/components/video/bigBubble/bigBubble";
+import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
 
 
 export default function Service() {
   return (
     <div className={s.servicePage}>
+      <div className={s.bubblesMain}>
+        <BigBubble className={s.bigBubbleMain} />
+        <SmallBubble className={s.smallBubbleMain} />
+      </div>
       <div className={"mainContainer"}>
         <h1>{serviceData.serviceName}</h1>
         <div className={s.discussProject}>
@@ -47,12 +53,19 @@ export default function Service() {
       </div>
       <CooperationCard />
       <div className={"mainContainer"}>
+        <div className={s.bubblesAdvantages}>
+          <BigBubble className={s.bigBubbleAdvantages} />
+        </div>
         <Advantages />
+
         <AccentTable
           header={serviceData.audience.header}
           items={serviceData.audience.items}
           className={s.table}
         />
+        <div className={s.bubblesTable}>
+          <SmallBubble className={s.smallBubbleTable} />
+        </div>
         <Team
           teamMembersInfo={serviceData.team.teamMembersInfo}
           intro={serviceData.team.intro}
@@ -72,7 +85,12 @@ export default function Service() {
           />
           <div className={s.background}></div>
         </div>
+        <div className={s.bubblesPrices}>
+          <BigBubble className={s.bigBubblePrices} />
+        </div>
         <div className={s.additionalServices}>
+
+
           <h2>
             ДОПОЛНИТЕЛЬНЫЕ <br /> УСЛУГИ
           </h2>

@@ -118,6 +118,47 @@
   margin: 260px 0 234px;
 }
 
+.bubblesMain, .bubblesAdvantages, .bubblesTable, .bubblesPrices {
+  position: relative;
+  contain: layout;
+  z-index: -1;
+}
+
+.bigBubbleMain {
+  left: -200px;
+  width: 800px;
+  height: 800px;
+  top: 1100px;
+}
+
+.smallBubbleMain {
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  top: 0;
+}
+
+.bigBubbleAdvantages {
+  width: 700px;
+  height: 700px;
+  right: -300px;
+  top: -300px;
+}
+
+.smallBubbleTable {
+  width: 500px;
+  height: 500px;
+  bottom: -300px;
+  left: -300px;
+}
+
+.bigBubblePrices {
+  width: 400px;
+  height: 400px;
+  left: -100px;
+  top: -100px;
+}
+
 @media (max-width: 1905px) {
   .servicePage .serviceImg {
     border-radius: 48px;
@@ -197,6 +238,12 @@
   .faq {
     margin: 152px 0 100px;
   }
+
+  .bigBubbleMain {
+    width: 700px;
+    height: 700px;
+    top: 1000px;
+  }
 }
 
 @media (max-width: 1265px) {
@@ -260,6 +307,29 @@
 
   .arrow {
     right: 600px;
+  }
+
+  .bigBubbleMain {
+    width: 500px;
+    height: 500px;
+    top: 1300px;
+  }
+
+  .smallBubbleMain {
+    right: -250px;
+    width: 650px;
+    height: 650px;
+    top: -200px;
+  }
+
+  .smallBubbleTable {
+    width: 300px;
+    height: 300px;
+    left: -50px;
+  }
+
+  .bigBubblePrices {
+    top: 550px;
   }
 }
 
@@ -337,6 +407,32 @@
 
   .faq {
     margin: 60px 0;
+  }
+
+
+  .bigBubbleMain {
+    width: 300px;
+    height: 300px;
+    top: 600px;
+    left: -100px;
+  }
+
+  .smallBubbleMain {
+    right: -50px;
+    width: 350px;
+    height: 350px;
+    top: -90px;
+  }
+
+  .bigBubbleAdvantages {
+    width: 300px;
+    height: 300px;
+    right: -100px;
+    top: -100px;
+  }
+
+  .bigBubblePrices {
+    top: 250px;
   }
 }
 

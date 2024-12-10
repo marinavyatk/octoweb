@@ -4,6 +4,8 @@ import { WebsiteLink } from "@/components/ui/websiteLink/websiteLink";
 import { caseData } from "@/common/componentsData/case";
 import { clsx } from "clsx";
 import { Picture } from "@/components/ui/picture/picture";
+import { BigBubble } from "@/components/video/bigBubble/bigBubble";
+import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
 
 export default function Case() {
   const tagList = caseData.tags.map((tag) => {
@@ -58,9 +60,11 @@ export default function Case() {
                    sizes={"(max-width: 767px) 288px,(max-width: 1425px) 691px,(max-width: 1905px) 808px, 1104px"}
                    containerProps={{ className: s.mediumImg }} />
         </div>
+        <BigBubble className={s.bigBubbleTask}/>
       </div>
       <Picture src={caseData.img.big} alt="" fill sizes={"100vw"} containerProps={{ className: s.bigImg }} />
       <div className={clsx("mainContainer", s.resultBlock)}>
+        <SmallBubble className={s.smallBubbleResult}/>
         <div className={s.resultInfo}>
           <h2>Результат</h2>
           <div>
