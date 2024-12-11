@@ -1,4 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/react';
+import RocketAnimation from "@/lotties/rocket.json";
 
 import {AdvantageCard} from './advantageCard';
 
@@ -13,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     args: {
-        icon: '/advantage-simplicity.webp',
+        icon: RocketAnimation,
         header: 'Просто о сложном',
         text:
             'Переводим технические моменты на "человеческий язык", чтобы вы могли понимать окончательный результат.',

@@ -13,6 +13,7 @@ import { Greeting } from "@/components/sections/greeting/greeting";
 import { linksData } from "@/common/componentsData/servicesLinks";
 import { BigBubble } from "@/components/video/bigBubble/bigBubble";
 import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
+import { SquidIcon } from "@/components/layouts/squidIcon";
 
 
 export default function Home() {
@@ -41,8 +42,8 @@ export default function Home() {
         <section className={s.advantages}>
           <h2>ПОЧЕМУ МЫ?</h2>
           <div className={s.arrow}></div>
-          <span className={s.backgroundSymbol}>くコ:彡</span>
-          <span className={s.backgroundSymbol}>くコ:彡</span>
+          <SquidIcon className={s.backgroundSymbol} />
+          <SquidIcon className={s.backgroundSymbol} />
           <div className={s.advantagesCards}>
             <AdvantageCards />
           </div>
