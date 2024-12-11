@@ -34,20 +34,15 @@
 
 .backgroundSymbol {
   position: absolute;
-  color: var(--color-primary);
-  font-weight: var(--font-weight-regular-500);
-  line-height: var(--line-height-200);
-  font-size: 40px;
   left: 180px;
   top: 374px;
-  transform: rotate(68deg) scaleY(-1);
+  transform: scale(1.3);
 }
 
 .backgroundSymbol + .backgroundSymbol {
-  font-size: 32px;
   left: 330px;
   top: 535px;
-  transform: rotate(112deg);
+  transform: rotate(45deg) ;
 }
 
 .arrow {
@@ -86,6 +81,7 @@
 
 .services {
   margin-bottom: 300px;
+  z-index: 1;
 }
 
 .steps {
@@ -290,7 +286,7 @@
   }
 
   .backgroundSymbol {
-    left: -20px;
+    left: 0;
   }
 
   .backgroundSymbol + .backgroundSymbol {
@@ -379,14 +375,11 @@
   }
 
   .backgroundSymbol {
-    left: -20px;
     height: 80px;
-    font-size: 29px;
   }
 
   .backgroundSymbol + .backgroundSymbol {
-    left: -25px;
-    font-size: 23px;
+    left: 0;
   }
 
   .arrow {
