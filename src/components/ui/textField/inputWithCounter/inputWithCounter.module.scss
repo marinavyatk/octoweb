@@ -1,18 +1,22 @@
 .underText {
-  display: flex;
-  justify-content: space-between;
   font-weight: var(--font-weight-regular-300);
   font-size: 16px;
   line-height: var(--line-height-140);
   color: var(--color-light-40);
   margin-top: 7px;
-  width: 100%;
-  position: relative;
+}
+
+.staticText {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contentLength {
+  display: flex;
+  align-items: center;
 }
 
 .underlineMessage {
-  position: absolute;
-  right: 0;
   display: flex;
   justify-content: flex-end;
   max-width: calc(100% - 78px);
@@ -22,16 +26,10 @@
   }
 }
 
-.fileContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 10px;
-}
-
 .error {
-  .underlineMessage {
+  .errorText {
     color: var(--color-error);
+    margin-top: 5px;
   }
 }
 

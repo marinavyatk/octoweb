@@ -1,0 +1,96 @@
+.cases {
+  height: 2248px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 174px;
+  flex-wrap: wrap;
+  position: relative;
+  contain: layout;
+
+  h2 {
+    padding-left: 142px;
+  }
+}
+
+.secondCard {
+  align-self: flex-end;
+}
+
+.arrowLink {
+  margin-top: 195px;
+}
+
+.bigBubbleCases {
+  bottom: 200px;
+  right: -400px;
+  width: 800px;
+  height: 800px;
+}
+
+@media (max-width: 1905px) {
+  .cases {
+    height: 1702px;
+    width: fit-content;
+    gap: 128px;
+
+    h2 {
+      padding-left: 0;
+    }
+
+    .arrowLink {
+      margin-top: 175px;
+    }
+  }
+}
+
+@media (max-width: 1425px) {
+  .cases {
+    gap: 112px;
+
+    .arrowLink {
+      margin-top: 115px;
+    }
+  }
+}
+
+@media (max-width: 1265px) {
+  .cases {
+    width: 100%;
+    margin-bottom: 100px;
+    height: unset;
+    gap: 80px;
+
+    .arrowLink {
+      margin-top: 0;
+      align-self: center;
+    }
+
+    .secondCard,
+    .fourCard {
+      align-self: flex-end;
+    }
+  }
+
+  .bigBubbleCases {
+    bottom: 1100px;
+    right: -400px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cases {
+    gap: 36px;
+    margin: 0 auto 60px;
+    max-width: var(--small-screen-max-width);
+  }
+
+  .bigBubbleCases {
+    bottom: -200px;
+    right: unset;
+    left: -150px;
+    width: 350px;
+    height: 350px;
+  }
+}

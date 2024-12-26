@@ -16,6 +16,7 @@ export default function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
+
   return (
     <html lang="ru" className={clsx(unbounded.variable, montserrat.variable)}>
       <body >

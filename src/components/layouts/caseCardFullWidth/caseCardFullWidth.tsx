@@ -1,9 +1,11 @@
-import { ComponentPropsWithoutRef } from "react";
+import { ComponentPropsWithoutRef, useRef } from "react";
 import { clsx } from "clsx";
 import s from "./caseCardFullWidth.module.scss";
 import { Tag } from "../../ui/tag/tag";
 import Link from "next/link";
 import { Picture } from "@/components/ui/picture/picture";
+import { useIntersectionObserver } from "@/common/customHooks/useIntersectionObserver";
+import { animated, useSpring } from "@react-spring/web";
 
 export type CaseCardProps = {
   category: string;
@@ -17,6 +19,14 @@ export const CaseCardFullWidth = (props: CaseCardProps) => {
   const { caseId, category, tags, img, header, className, ...restProps } =
     props;
   const classNames = clsx(s.card, className);
+  const cardRef = useRef<HTMLAnchorElement | null>(null);
+  const isVisible = useIntersectionObserver(cardRef, 0.3, true);
+  const AnimatedLink = animated(Link);
+  const styles = useSpring({
+    transform: `translateY(${isVisible ? 0 : 100}px)`,
+    opacity: isVisible ? 1 : 0,
+  });
+
   const tagList = tags.map((tag) => {
     return (
       <Tag variant={"colored"} key={tag}>
@@ -26,11 +36,13 @@ export const CaseCardFullWidth = (props: CaseCardProps) => {
   });
 
   return (
-    <Link
+    <AnimatedLink
       {...restProps}
       className={classNames}
       rel={"nofollow"}
       href={`/cases/${caseId}`}
+      ref={cardRef}
+      style={styles}
     >
       <Picture src={img}
                alt={header}
@@ -50,6 +62,6 @@ export const CaseCardFullWidth = (props: CaseCardProps) => {
         <div className={clsx(s.angle, s.angleDesktop)}>
         </div>
       </div>
-    </Link>
+    </AnimatedLink>
   );
 };

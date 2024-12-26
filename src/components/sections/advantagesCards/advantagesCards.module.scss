@@ -1,0 +1,169 @@
+.advantages {
+  padding-left: 142px;
+  gap: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+  padding-bottom: 301px;
+  overflow: hidden;
+
+  h2 {
+    width: 338px;
+    height: fit-content;
+  }
+}
+
+.backgroundSymbol {
+  position: absolute;
+  left: 180px;
+  top: 374px;
+  transform: scale(1.3);
+}
+
+.backgroundSymbol + .backgroundSymbol {
+  left: 330px;
+  top: 535px;
+  transform: rotate(45deg);
+}
+
+.arrow {
+  position: absolute;
+  left: 284px;
+  top: 181px;
+  background-image: url(../../../svg/arrowPointer.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 175px;
+  height: 88px;
+}
+
+@media (max-width: 1905px) {
+  .advantages {
+    display: block;
+    padding-left: 0;
+    padding-bottom: 234px;
+
+    h2 {
+      margin-bottom: 97px;
+      width: fit-content;
+      height: fit-content;
+    }
+  }
+
+  .advantagesCards {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .backgroundSymbol {
+    left: -50px;
+  }
+
+  .backgroundSymbol + .backgroundSymbol {
+    left: 20px;
+  }
+
+  .arrow {
+    left: 45px;
+    background-image: url(../../../svg/arrow-main-advantages-1440.svg);
+    width: 88px;
+    height: 175px;
+    top: 90px;
+  }
+}
+
+@media (max-width: 1425px) {
+  .advantages {
+    h2 {
+      margin-bottom: 60px;
+    }
+  }
+
+  .backgroundSymbol {
+    left: -20px;
+  }
+
+  .backgroundSymbol + .backgroundSymbol {
+    left: 33px;
+  }
+}
+
+@media (max-width: 1265px) {
+  .advantages {
+    padding-bottom: 100px;
+
+    h2 {
+      margin-bottom: 40px;
+    }
+  }
+  .arrow {
+    left: 25px;
+  }
+
+  .backgroundSymbol {
+    left: 0;
+  }
+
+  .backgroundSymbol + .backgroundSymbol {
+    left: 33px;
+  }
+}
+
+@media (max-width: 767px) {
+  .advantages {
+    padding-bottom: 60px;
+
+    h2 {
+      margin-bottom: 50px;
+    }
+  }
+
+  .backgroundSymbol {
+    height: 80px;
+  }
+
+  .backgroundSymbol + .backgroundSymbol {
+    left: 0;
+  }
+
+  .arrow {
+    width: 42px;
+    height: 81px;
+    left: 10px;
+    top: 40px;
+  }
+
+  .advantagesCards {
+    max-width: var(--small-screen-max-width);
+    margin: auto;
+  }
+}
+
+@media (max-width: 580px) {
+  .advantagesCards {
+    margin: 0 0 0 auto;
+  }
+
+  .backgroundSymbol {
+    left: -10px;
+  }
+
+  .backgroundSymbol + .backgroundSymbol {
+    left: -25px;
+  }
+}
+
+@media (max-width: 450px) {
+  .advantagesCards {
+    margin: auto;
+    justify-content: center;
+  }
+
+  .backgroundSymbol {
+    display: none;
+  }
+  .advantages h2 {
+    margin-bottom: 100px;
+  }
+}

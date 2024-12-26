@@ -2,11 +2,17 @@
   display: block;
   width: fit-content;
 
-  &:focus-visible{
-    .header{
+  &:focus-visible {
+    .header {
       outline: 1px solid var(--color-accent);
       outline-offset: 5px;
       border-radius: 5px;
+    }
+  }
+
+  &:hover {
+    .container {
+      box-shadow: 0 0 20px 10px rgba(240, 228, 250, 0.25);
     }
   }
 }
@@ -15,6 +21,7 @@
   position: relative;
   border-radius: 33px;
   overflow: hidden;
+  transition: box-shadow 0.4s;
 }
 
 .category {

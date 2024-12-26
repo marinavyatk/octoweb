@@ -20,11 +20,6 @@
 }
 
 .error {
-  svg {
-    width: 27px;
-    height: 27px;
-  }
-
   .errorIcon {
     margin-left: 6px;
     width: 24px;
@@ -32,15 +27,12 @@
   }
 }
 
-@media (max-width: 1905px) {
-  .fileInputContainer svg, .error svg {
-    width: 20px;
-    height: 20px;
-  }
-}
-
-
 @media (max-width: 767px) {
+  .fileInputContainer svg, .error .errorIcon{
+    width: 13px;
+    height: 13px;
+  }
+
   .error .errorIcon {
     margin-left: 2px;
   }

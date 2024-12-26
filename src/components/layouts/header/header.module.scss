@@ -6,16 +6,17 @@
 .header, .headerMobile, .headerDesktop {
   display: flex;
   justify-content: space-between;
-  max-width: 1670px;
   margin: auto;
   width: 100%;
 }
 
 .header {
-  width: 87%;
   position: sticky;
   z-index: 20;
-  padding-top: 32px;
+  padding: 32px var(--offset-x) 20px var(--offset-x);
+  background-color: rgba(41, 41, 41, 0.6);
+  border-radius: 0 0 60px 60px;
+  backdrop-filter: blur(5px);
 }
 
 .rightBlock {
@@ -29,19 +30,14 @@
 
 @media (max-width: 1905px) {
   .header {
-    width: 85%;
-  }
-}
-
-@media (max-width: 1425px) {
-  .header {
-    width: 81%;
+    padding: 20px var(--offset-x);
   }
 }
 
 @media (max-width: 1279px) {
   .header {
-    width: 96%;
+    padding: 20px;
+    border-radius: 0 0 50px 50px;
   }
 
   .headerMobile {
@@ -55,7 +51,7 @@
 
 @media (max-width: 767px) {
   .header {
-    width: 95%;
-    padding-top: 20px;
+    padding: 10px;
+    border-radius: 0 0 18px 18px;
   }
 }

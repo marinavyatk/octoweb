@@ -12,6 +12,7 @@ import { TextAreaProps } from "@/components/ui/textField/textarea";
 type InputWithCounterProps = Omit<TextAreaProps, "errorMessage"> & {
   fileProps?: InputFileProps,
   errorMessage?: (string | undefined)[];
+  onDeleteFile?: ()=>void
 }
 
 export const InputWithCounter = React.forwardRef(
@@ -26,6 +27,7 @@ export const InputWithCounter = React.forwardRef(
       errorMessage,
       fileProps,
       className,
+      onDeleteFile,
       ...restProps
     } = props;
     const isError = errorMessage && !!(errorMessage[0] || errorMessage[1]);
@@ -36,26 +38,12 @@ export const InputWithCounter = React.forwardRef(
       if (inputFileRef.current) {
         inputFileRef.current.value = "";
       }
+      onDeleteFile?.()
     };
 
-    const getUnderlineMessage = () => {
-      const errorText = errorMessage?.filter((message) => message).join(". ");
-      if (file) {
-        return <div className={s.fileContainer}>
-          <AttachedFile fileName={file.name} onDeleteClick={handleDeleteFile} />
-          {isError && errorText}
-        </div>;
-      }
-      if (isError) {
-        return <>
-          {errorText}
-        </>;
-      } else {
-        return "Размер файла не более 5mb";
-      }
-    };
-
-    const underlineMessage = getUnderlineMessage();
+    const errorText = errorMessage?.filter((message) => message).join(". ");
+    const underlineMessage = file ?
+      <AttachedFile fileName={file.name} onDeleteClick={handleDeleteFile} /> : "Размер файла не более 5mb";
 
     const handleInput = (event: ChangeEvent<HTMLTextAreaElement>) => {
       const newContent = event.target.value;
@@ -101,8 +89,11 @@ export const InputWithCounter = React.forwardRef(
           </div>
         </div>
         <div className={clsx(s.underText, isError && s.error)}>
-          <span>{content.length}/500</span>
-          <span className={s.underlineMessage}>{underlineMessage}</span>
+          <div className={s.staticText}>
+            <span className={s.contentLength}>{content.length}/500</span>
+            <span className={s.underlineMessage}>{underlineMessage}</span>
+          </div>
+          <div className={s.errorText}>{errorText}</div>
         </div>
       </div>
     );
