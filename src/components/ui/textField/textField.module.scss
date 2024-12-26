@@ -28,6 +28,7 @@
 .errorIcon {
   width: 24px;
   height: 24px;
+  flex-shrink: 0;
 }
 
 .textField {
@@ -45,6 +46,7 @@
   scrollbar-width: none;
   resize: none;
   max-height: 300px;
+  transform: scale(1);
 
   &::placeholder {
     color: var(--color-light-20);
@@ -114,9 +116,13 @@
   }
   .error {
     .errorMessage {
-      font-size: 8px;
+      font-size: 10px;
       bottom: 0;
-      margin-bottom: -12px;
+      margin-bottom: -15px;
     }
+  }
+
+  :global(.ios) .textField {
+    font-size: 16px;
   }
 }

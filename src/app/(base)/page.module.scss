@@ -2,6 +2,7 @@
   :global {
     .mainContainer {
       contain: layout;
+      overflow: hidden;
     }
   }
 }
@@ -16,67 +17,6 @@
 
 .about {
   margin: 0 auto 163px;
-}
-
-.advantages {
-  padding-left: 142px;
-  gap: 15px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  position: relative;
-  margin-bottom: 301px;
-
-  h2 {
-    width: 338px;
-  }
-}
-
-.backgroundSymbol {
-  position: absolute;
-  left: 180px;
-  top: 374px;
-  transform: scale(1.3);
-}
-
-.backgroundSymbol + .backgroundSymbol {
-  left: 330px;
-  top: 535px;
-  transform: rotate(45deg) ;
-}
-
-.arrow {
-  position: absolute;
-  left: 284px;
-  top: 181px;
-  background-image: url(../../svg/arrowPointer.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 175px;
-  height: 88px;
-}
-
-.cases {
-  height: 2248px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 174px;
-  flex-wrap: wrap;
-  position: relative;
-
-  h2 {
-    padding-left: 142px;
-  }
-}
-
-.secondCard {
-  align-self: flex-end;
-}
-
-.arrowLink {
-  margin-top: 195px;
 }
 
 .services {
@@ -123,13 +63,6 @@
   height: 600px;
 }
 
-.bigBubbleCases {
-  bottom: 200px;
-  right: -400px;
-  width: 800px;
-  height: 800px;
-}
-
 .servicesBubbles {
   position: relative;
 }
@@ -147,52 +80,6 @@
     max-width: 1224px;
   }
 
-  .advantages {
-    display: block;
-    padding-left: 0;
-    margin-bottom: 234px;
-
-    h2 {
-      margin-bottom: 97px;
-      width: fit-content;
-    }
-  }
-
-  .advantagesCards {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .backgroundSymbol {
-    left: -50px;
-  }
-
-  .backgroundSymbol + .backgroundSymbol {
-    left: 20px;
-  }
-
-  .arrow {
-    left: 45px;
-    background-image: url(../../svg/arrow-main-advantages-1440.svg);
-    width: 88px;
-    height: 175px;
-    top: 90px;
-  }
-
-  .cases {
-    height: 1702px;
-    width: fit-content;
-    gap: 128px;
-
-    h2 {
-      padding-left: 0;
-    }
-
-    .arrowLink {
-      margin-top: 175px;
-    }
-  }
-
   .services {
     margin-bottom: 108px;
   }
@@ -206,28 +93,6 @@
   .greetingDescription {
     margin-bottom: 115px;
     max-width: 1032px;
-  }
-
-  .advantages {
-    h2 {
-      margin-bottom: 60px;
-    }
-  }
-
-  .backgroundSymbol {
-    left: -20px;
-  }
-
-  .backgroundSymbol + .backgroundSymbol {
-    left: 33px;
-  }
-
-  .cases {
-    gap: 112px;
-
-    .arrowLink {
-      margin-top: 115px;
-    }
   }
 
   .services {
@@ -274,42 +139,6 @@
     margin-bottom: 100px;
   }
 
-  .advantages {
-    margin-bottom: 100px;
-
-    h2 {
-      margin-bottom: 40px;
-    }
-  }
-  .arrow {
-    left: 25px;
-  }
-
-  .backgroundSymbol {
-    left: 0;
-  }
-
-  .backgroundSymbol + .backgroundSymbol {
-    left: 33px;
-  }
-
-  .cases {
-    width: 100%;
-    margin-bottom: 100px;
-    height: unset;
-    gap: 80px;
-
-    .arrowLink {
-      margin-top: 0;
-      align-self: center;
-    }
-
-    .secondCard,
-    .fourCard {
-      align-self: flex-end;
-    }
-  }
-
   .services, .steps {
     margin-bottom: 100px;
   }
@@ -343,11 +172,6 @@
     height: 400px;
   }
 
-  .bigBubbleCases {
-    bottom: 1100px;
-    right: -400px;
-  }
-
   .smallBubbleServices {
     top: -150px;
     left: -100px;
@@ -364,40 +188,6 @@
 
   .about {
     margin-bottom: 60px;
-  }
-
-  .advantages {
-    margin-bottom: 60px;
-
-    h2 {
-      margin-bottom: 50px;
-    }
-  }
-
-  .backgroundSymbol {
-    height: 80px;
-  }
-
-  .backgroundSymbol + .backgroundSymbol {
-    left: 0;
-  }
-
-  .arrow {
-    width: 42px;
-    height: 81px;
-    left: 10px;
-    top: 40px;
-  }
-
-  .advantagesCards {
-    max-width: var(--small-screen-max-width);
-    margin: auto;
-  }
-
-  .cases {
-    gap: 36px;
-    margin: 0 auto 60px;
-    max-width: var(--small-screen-max-width);
   }
 
   .services, .steps {
@@ -429,14 +219,6 @@
   .advantagesBubbles .smallBubbleAdvantages {
     top: 900px;
     left: -100px;
-    width: 350px;
-    height: 350px;
-  }
-
-  .bigBubbleCases {
-    bottom: -200px;
-    right: unset;
-    left: -150px;
     width: 350px;
     height: 350px;
   }

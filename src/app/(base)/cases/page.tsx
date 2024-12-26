@@ -38,6 +38,7 @@ export default function Cases() {
   const cases = casesData.map((card, index) => {
     const size = sizes[index % sizes.length];
     const cardClassName = s[size];
+    const animationIndex = index < 5 ? index : index - Math.trunc(index / 5);
 
     return (index + 1) % 5 !== 0 ? (
       <CaseCard
@@ -45,6 +46,7 @@ export default function Cases() {
         className={cardClassName}
         key={uuid()}
         {...card}
+        index={animationIndex}
       />
     ) : (
       <div className={s.fullWidthContainer} key={uuid()}>

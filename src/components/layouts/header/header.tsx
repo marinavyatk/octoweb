@@ -1,6 +1,6 @@
 "use client";
 
-import { ComponentPropsWithoutRef } from "react";
+import { ComponentPropsWithoutRef, useEffect } from "react";
 import clsx from "clsx";
 import s from "./header.module.scss";
 import { Logo } from "../../ui/logo/logo";
@@ -14,6 +14,14 @@ export type HeaderProps = { needContactButton?: boolean } & ComponentPropsWithou
 export const Header = (props: HeaderProps) => {
   const { needContactButton = true, className, ...restProps } = props;
   const classNames = clsx(s.headerContainer, className);
+
+  useEffect(() => {
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      document.body.classList.add('ios');
+    }
+  }, []);
+
+
   return (
     <Headroom className={classNames}>
       <header {...restProps} className={s.header}>

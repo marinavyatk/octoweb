@@ -28,6 +28,7 @@
     "react-headroom": "^3.2.1",
     "react-hook-form": "^7.53.0",
     "react-scroll": "^1.9.0",
+    "react-spring": "^9.7.5",
     "react-textarea-autosize": "^8.5.3",
     "sass": "^1.79.4",
     "swiper": "^11.1.14",

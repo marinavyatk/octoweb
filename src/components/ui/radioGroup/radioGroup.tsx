@@ -26,7 +26,6 @@ export const RadioGroupComponent = forwardRef<HTMLDivElement, RadioGroupComponen
         return (
           <RadioGroup.Item
             value={item.value}
-            id={rest.name + item.value}
             className={s.radioItem}
             key={item.value}
           >

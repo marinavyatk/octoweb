@@ -3,7 +3,7 @@
 import Lottie from "lottie-react";
 import SquidAnimation from "@/lotties/squid.json";
 
-type SquidIcon = { className: string }
+type SquidIcon = { className?: string }
 
 export const SquidIcon = (props: SquidIcon) => {
   return <Lottie

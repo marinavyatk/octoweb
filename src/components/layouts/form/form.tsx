@@ -27,6 +27,7 @@ export const Form = (props: FormProps) => {
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -97,6 +98,7 @@ export const Form = (props: FormProps) => {
             errors.projectDescriptionFile?.message
           ]}
           className={s.inputWithCounter}
+          onDeleteFile={()=>setValue('projectDescriptionFile', {} as FileList, { shouldValidate: true })}
         />
         <Checkbox
           {...register("mailing")}
