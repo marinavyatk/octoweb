@@ -20,7 +20,7 @@ export const AdvantageCard = (props: AdvantagesCardProps) => {
   const classNames = clsx(s.card, className);
   const cardRef = useRef<HTMLDivElement>(null);
   const isVisible = useIntersectionObserver(cardRef, 0.5, true);
-  const isAnimationVisible = useIntersectionObserver(cardRef, 0.5);
+  const isAnimationVisible = useIntersectionObserver(cardRef, 0.01);
 
   const styles = useSpring({
     transform: `translateY(${isVisible ? 0 : 3000}px)`, //not opacity because of drop-filter property doesn`t animate smoothly

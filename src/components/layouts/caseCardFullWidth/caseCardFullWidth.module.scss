@@ -3,11 +3,17 @@
   display: block;
   height: 1000px;
 
-  &:focus-visible{
-    .header{
+  &:focus-visible {
+    .header {
       outline: 1px solid var(--color-accent);
       outline-offset: 5px;
       border-radius: 5px;
+    }
+  }
+
+  &:hover {
+    .header {
+      color: var(--color-accent);
     }
   }
 }
@@ -55,6 +61,7 @@
   line-height: var(--line-height-120);
   text-transform: none;
   text-align: center;
+  transition: color 0.4s;
 }
 
 .angle {
@@ -80,6 +87,10 @@
 
   .header {
     font-size: 32px;
+  }
+
+  .caption {
+    height: 189px;
   }
 }
 
@@ -129,8 +140,6 @@
     font-size: 32px;
     height: 90px;
     background-color: black;
-    background-image: url(/noise-texture.webp);
-    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;

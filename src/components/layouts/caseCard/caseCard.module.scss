@@ -12,7 +12,11 @@
 
   &:hover {
     .container {
-      box-shadow: 0 0 20px 10px rgba(240, 228, 250, 0.25);
+      box-shadow: 0 0 2px 1px rgba(214, 255, 65, 0.5);
+    }
+
+    .header {
+      color: var(--color-accent);
     }
   }
 }
@@ -50,8 +54,8 @@
   padding-left: 0;
   margin-top: 30px;
   width: fit-content;
+  transition: color 0.4s;
 }
-
 
 .small {
   width: 536px;

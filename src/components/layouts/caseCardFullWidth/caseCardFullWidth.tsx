@@ -24,7 +24,7 @@ export const CaseCardFullWidth = (props: CaseCardProps) => {
   const AnimatedLink = animated(Link);
   const styles = useSpring({
     transform: `translateY(${isVisible ? 0 : 100}px)`,
-    opacity: isVisible ? 1 : 0,
+    opacity: isVisible ? 1 : 0
   });
 
   const tagList = tags.map((tag) => {
@@ -44,11 +44,11 @@ export const CaseCardFullWidth = (props: CaseCardProps) => {
       ref={cardRef}
       style={styles}
     >
-      <Picture src={img}
-               alt={header}
-               fill
-               sizes="(max-width: 450px) 100vw, (max-width: 767px) 450px, 100vw "
-               containerProps={{ className: s.imgContainer }} />
+        <Picture src={img}
+                 alt={header}
+                 fill
+                 sizes="(max-width: 450px) 100vw, (max-width: 767px) 450px, 100vw "
+                 containerProps={{ className: s.imgContainer }} />
       <Tag variant={"monochromePrimary"} className={s.category}>
         {category}
       </Tag>
