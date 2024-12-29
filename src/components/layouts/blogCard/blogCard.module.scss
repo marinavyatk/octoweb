@@ -1,8 +1,19 @@
+.blogCard:has(.header:hover), .blogCard:has(.arrow:hover) {
+  .imgContainer {
+    box-shadow: 0 0 20px 10px rgb(212 255 55 / 32%);
+  }
+
+  .header {
+    color: var(--color-accent);
+  }
+}
+
 .imgContainer {
   border-radius: 32px;
   background-color: var(--color-dark-secondary);
   overflow: hidden;
   position: relative;
+  transition: box-shadow 0.4s;
 }
 
 .markContainer {
@@ -43,6 +54,7 @@
   color: var(--color-light-100);
   text-transform: none;
   margin-top: 40px;
+  transition: color 0.4s;
 }
 
 .description {

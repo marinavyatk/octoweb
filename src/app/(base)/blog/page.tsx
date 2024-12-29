@@ -29,11 +29,11 @@ export default function Blog() {
   });
   const articles = tempData.map((article, index) => {
     if (index === 0) {
-      return <BlogCard {...article} size={"fullWidth"} key={uuid()} priority />;
+      return <BlogCard {...article} size={"fullWidth"} key={uuid()} priority index={index}/>;
     }
 
     if (index === 1) {
-      return <BlogCard {...article} size={"small"} key={uuid()} />;
+      return <BlogCard {...article} size={"small"} key={uuid()} index={index}/>;
     }
 
     const modIndex = (index - 2) % 4;
@@ -44,7 +44,7 @@ export default function Blog() {
       size = "small";
     }
 
-    return <BlogCard {...article} size={size as Size} key={uuid()} />;
+    return <BlogCard {...article} size={size as Size} key={uuid()} index={index}/>;
   });
 
   const handleLoadMore = () => {
