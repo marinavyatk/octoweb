@@ -7,6 +7,8 @@ import { stepCards } from "@/common/componentsData/stepCards";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper/modules";
 import "swiper/css";
+import Lottie from "lottie-react";
+import StepsAnimation from "@/lotties/steps.json";
 
 export type StepCardsProps = {
   className?: string;
@@ -14,7 +16,7 @@ export type StepCardsProps = {
 
 export const StepCards = (props: StepCardsProps) => {
   const { className } = props;
-  const classNames = clsx(s.stepsPlaceholder, className);
+  const classNames = clsx(s.stepsSection, className);
 
   const cardsList = stepCards.map((card) => {
     return (
@@ -28,16 +30,27 @@ export const StepCards = (props: StepCardsProps) => {
     );
   });
 
-  return <div className={classNames}>
-    <div className={s.stepsContainer}>
-      <Swiper
-        modules={[FreeMode]}
-        slidesPerView={"auto"}
-        freeMode
-        grabCursor
-        className={s.cards}
-      >
-        {cardsList} </Swiper>;
+  return <section className={classNames}>
+    <div className={s.stepsPlaceholder}>
+      <div className={s.stepsContainer}>
+        <Swiper
+          modules={[FreeMode]}
+          slidesPerView={"auto"}
+          freeMode
+          grabCursor
+          className={s.cards}
+        >
+          {cardsList} </Swiper>;
+      </div>
     </div>
-  </div>;
+    <div className={s.caption}>
+      <Lottie
+        animationData={StepsAnimation}
+        loop
+        autoplay
+        className={s.animation}
+      />
+      Листайте :)
+    </div>
+  </section>;
 };
