@@ -1,10 +1,10 @@
 "use client";
 
-import { ComponentPropsWithoutRef, useRef } from "react";
+import { ComponentPropsWithoutRef, useEffect, useRef, useState } from "react";
 import { clsx } from "clsx";
 import s from "./advantageCard.module.scss";
 import Lottie from "lottie-react";
-import { animated, useSpring } from "@react-spring/web";
+import { animated, config, useSpring } from "@react-spring/web";
 import { useIntersectionObserver } from "@/common/customHooks/useIntersectionObserver";
 
 export type AdvantagesCardProps = {
@@ -12,19 +12,25 @@ export type AdvantagesCardProps = {
   icon: Record<string, any>;
   header: string;
   text: string;
-  index: number
+  index: number;
+  scrollProgress: number
 } & ComponentPropsWithoutRef<"div">;
 
 export const AdvantageCard = (props: AdvantagesCardProps) => {
-  const { icon, header, text, className, index, ...restProps } = props;
+  const { icon, header, text, className, index, scrollProgress, ...restProps } = props;
   const classNames = clsx(s.card, className);
   const cardRef = useRef<HTMLDivElement>(null);
   const isVisible = useIntersectionObserver(cardRef, 0.5, true);
   const isAnimationVisible = useIntersectionObserver(cardRef, 0.01);
+  const [isTabletOrMobile, setTabletOrMobile] = useState(false);
+
+  useEffect(() => {
+    setTabletOrMobile(window.innerWidth <= 1265);
+  }, []);
 
   const styles = useSpring({
-    transform: `translateY(${isVisible ? 0 : 3000}px)`, //not opacity because of drop-filter property doesn`t animate smoothly
-    delay: typeof window !== "undefined" && window.innerWidth <= 1265 ? 0 : 200 * (index + 1)
+    transform: isTabletOrMobile ? `translateY(${isVisible ? 0 : 3000}px)` : `translateY(${scrollProgress >= (index + 1) * 0.12 ? 0 : 3000}px)`, //not opacity because of drop-filter property doesn`t animate smoothly
+    config: config.slow,
   });
 
   return (

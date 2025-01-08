@@ -1,6 +1,6 @@
 import {BlogCardProps} from '@/components/layouts/blogCard/blogCard';
 
-export const tempData: BlogCardProps[] = [
+export const tempData: Array<Omit< BlogCardProps, 'index'>> = [
     {
         header: 'Как собрать семантику самому, без парсеров',
         tags: ['Seo', 'Ads', 'Web'],
