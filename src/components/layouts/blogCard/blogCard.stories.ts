@@ -20,6 +20,7 @@ export const Small: Story = {
       "Откройте секреты успешной оптимизации веб-сайтов для мобильных устройств.",
     img: '/blogImgOptimization.png',
     articleId: "optimization",
+    index: 0
   },
 };
 
@@ -33,6 +34,7 @@ export const Medium: Story = {
     img: '/blogImgOptimization.png',
     size: "medium",
     articleId: "optimization",
+    index: 0
   },
 };
 
@@ -46,5 +48,6 @@ export const FullWidth: Story = {
     img: '/blogImgOptimization.png',
     size: "fullWidth",
     articleId: "optimization",
+    index: 0
   },
 };
