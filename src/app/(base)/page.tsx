@@ -22,8 +22,10 @@ export default function Home() {
   return (
     <div className={s.mainPage}>
       <div className={"mainContainer"}>
-        <BigBubble className={s.bigBubbleMain} />
-        <SmallBubble className={s.smallBubbleMain} />
+        <div className={s.mainBubblesContainer}>
+          <BigBubble className={s.bigBubbleMain} />
+          <SmallBubble className={s.smallBubbleMain} />
+        </div>
         <Greeting textContent={content} />
         <h1 className={s.hiddenHeader}>Создаем сайты для бизнеса</h1>
         <GreetingDescription className={s.greetingDescription} />
@@ -33,7 +35,7 @@ export default function Home() {
         <BigBubble className={s.bigBubbleAdvantages} />
         <SmallBubble className={s.smallBubbleAdvantages} />
       </div>
-      <div className={"mainContainer"}>
+      <div className={"mainContainer sectionsWrapper"}>
         <AdvantagesCards />
         <Cases />
       </div>

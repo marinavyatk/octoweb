@@ -21,7 +21,6 @@ export const Header = (props: HeaderProps) => {
     }
   }, []);
 
-
   return (
     <Headroom className={classNames}>
       <header {...restProps} className={s.header}>
