@@ -16,7 +16,7 @@
 .cards {
   .slide {
     width: fit-content;
-    margin-right: var(--slides-gap);
+    padding-right: var(--slides-gap);
     user-select: none;
   }
 
@@ -25,7 +25,7 @@
   }
 
   .slide:last-child {
-    margin-right: var(--extreme-slide-offset);
+    padding-right: var(--extreme-slide-offset);
   }
 }
 
