@@ -25,23 +25,37 @@ export const Cases = () => {
     };
   }, []);
 
+  const breakpoint = 1265;
+
   return <section className={s.cases}>
     <h2>КЕЙСЫ</h2>
-    <CaseCard as={"h3"} size={"extraLarge" as Size} {...mainPageCases[0]} index={0} />
+    <CaseCard as={"h3"}
+              size={"extraLarge" as Size}
+              {...mainPageCases[0]}
+              index={0}
+              delay={screenWidth <= breakpoint ? 0 : 500}
+    />
     <CaseCard
       as={"h3"}
       size={"large" as Size}
       {...mainPageCases[1]}
       className={s.secondCard}
-      index={screenWidth <= 1265 ? 1 : 0}
+      index={screenWidth <= breakpoint ? 1 : 0}
+      delay={screenWidth <= breakpoint ? 200 : 1000}
     />
-    <CaseCard as={"h3"} size={"small" as Size} {...mainPageCases[2]} index={screenWidth <= 1265 ? 0 : 1} />
+    <CaseCard as={"h3"}
+              size={"small" as Size}
+              {...mainPageCases[2]}
+              index={screenWidth <= breakpoint ? 0 : 1}
+              delay={screenWidth <= breakpoint ? 300 : 0}
+    />
     <CaseCard
       as={"h3"}
       size={"medium" as Size}
       {...mainPageCases[3]}
       className={s.fourCard}
       index={1}
+      delay={screenWidth <= breakpoint ? 400 : 800}
     />
     <Button as={Link} text={"Больше кейсов"} href={routes.cases} className={s.arrowLink} />
     <BigBubble className={s.bigBubbleCases} />
