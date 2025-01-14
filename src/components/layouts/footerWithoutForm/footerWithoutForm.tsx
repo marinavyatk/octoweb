@@ -13,7 +13,7 @@ export const FooterWithoutForm = (props: FooterWithoutFormProps) => {
   return (
     <div {...restProps} className={classNames}>
       <FooterShape className={s.footerForm} />
-      <Footer needBriefLink={false} contactLinksProps={{ className: s.contactLinks }} />
+      <Footer needBriefLink={false} contactLinksProps={{ className: s.contactLinks, containerProps: {className: s.contactLinksContainer} }} />
     </div>
   );
 };

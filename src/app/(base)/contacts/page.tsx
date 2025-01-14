@@ -20,7 +20,7 @@ export default function Contacts() {
             <a href="tel:+79054077832">+7 905 407-78-32</a>
           </div>
         </div>
-        <ContactLinks className={s.contactLinks}/>
+        <ContactLinks className={s.contactLinks} containerProps={{className: s.contactLinksContainer}} />
       </div>
         <Map className={s.map}/>
     </div>

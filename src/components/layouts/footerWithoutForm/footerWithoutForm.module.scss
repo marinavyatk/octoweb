@@ -17,10 +17,20 @@
   .footerWithoutForm {
     padding-top: 50px;
 
+    .contactLinksContainer {
+      width: fit-content;
+      margin: 0 auto 60px;
+
+      p {
+        position: absolute;
+        right: 16px;
+        left: 16px;
+        max-width: unset;
+      }
+    }
+
     .contactLinks {
       flex-direction: column;
-      width: fit-content;
-      margin: 0 auto 20px;
 
       span {
         display: inline;
