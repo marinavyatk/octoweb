@@ -27,7 +27,7 @@
   a {
     display: block;
 
-    &:focus-visible{
+    &:focus-visible {
       text-decoration: underline;
       text-underline-position: under;
     }
@@ -40,10 +40,18 @@
   margin-bottom: 192px;
 }
 
+.contactLinksContainer {
+  margin-bottom: 40px;
+
+  p {
+    max-width: unset;
+    text-align: unset;
+  }
+}
+
 .contactLinks {
   display: flex;
   flex-direction: row;
-  margin-bottom: 40px;
   justify-content: flex-start;
 
   span {

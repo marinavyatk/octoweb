@@ -4,9 +4,20 @@
   gap: 40px;
 }
 
+.warning {
+  font-size: 12px;
+  max-width: 312px;
+  color: var(--color-light-100);
+  margin-top: 40px;
+}
+
 @media (max-width: 1905px) {
   .contactLinks {
     gap: 32px;
+  }
+
+  .warning {
+    margin-top: 32px;
   }
 }
 
@@ -14,15 +25,31 @@
   .contactLinks {
     gap: 28px;
   }
+
+  .warning {
+    font-size: 8px;
+    max-width: 180px;
+    margin-top: 28px;
+  }
 }
 
 @media (max-width: 767px) {
+  .contactLinksContainer{
+    width: 100%;
+    margin: 20px auto 30px;
+  }
+
   .contactLinks {
     width: 100%;
     gap: 20px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-end;
-    margin: 20px auto 30px;
+  }
+
+  .warning {
+    margin-top: 20px;
+    margin-left: auto;
+    text-align: end;
   }
 }

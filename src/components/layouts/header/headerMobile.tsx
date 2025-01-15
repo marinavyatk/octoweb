@@ -41,7 +41,7 @@ export const HeaderMobile = (props: HeaderMobileProps) => {
             </div>
             <Navbar className={s.navbar} onEveryLinkClick={close} />
           </div>
-          <ContactLinks className={s.links}/>
+          <ContactLinks className={s.links} needWarning={false}/>
           {needContactButton && <ContactButton className={s.contactButton} onClick={close} />}
         </div>
       </div>

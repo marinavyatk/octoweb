@@ -19,6 +19,7 @@ export type CaseCardProps<T extends ElementType> = {
   as?: T;
   caseId: string;
   index: number;
+  delay?: number
 } & ComponentPropsWithoutRef<"a">;
 
 export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
@@ -32,6 +33,7 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
     caseId,
     as: Header = "h2",
     index,
+    delay,
     ...restProps
   } = props;
   const classNames = clsx(s.card, className);
@@ -44,6 +46,17 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
       </Tag>
     );
   });
+
+  const getDelay = (index: number, delay: number | null = null) => {
+    if (delay !== null) {
+      return delay;
+    }
+    if ((index + 1) % 2 === 0) {
+      return 500;
+    } else {
+      return 0;
+    }
+  };
 
   const getSizes = (size: Size) => {
     switch (size) {
@@ -65,7 +78,7 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
   const styles = useSpring({
     transform: (index + 1) % 2 === 0 ? `translateX(${isVisible ? 0 : 100}px)` : `translateX(${isVisible ? 0 : -100}px)`,
     opacity: isVisible ? 1 : 0,
-    delay: (index + 1) % 2 === 0 ? 200 : 0,
+    delay: getDelay(index, delay)
   });
 
   return (
