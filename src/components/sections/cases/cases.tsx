@@ -10,7 +10,7 @@ import { BigBubble } from "@/components/video/bigBubble/bigBubble";
 import { useEffect, useState } from "react";
 
 export const Cases = () => {
-  const [screenWidth, setScreenWidth] = useState<number>(typeof window !== "undefined" ? window.innerWidth : 0);
+  const [screenWidth, setScreenWidth] = useState<number>(0);
 
   useEffect(() => {
     const handleResize = () => {

@@ -1,25 +1,3 @@
-.mainPage {
-  :global {
-    .mainContainer{
-      overflow: hidden;
-    }
-
-    .sectionsWrapper{
-      contain: layout;
-      overflow: hidden;
-    }
-  }
-}
-
-.mainBubblesContainer{
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-}
-
 .greetingDescription {
   margin: 0 auto 228px;
   z-index: 2;
@@ -41,6 +19,16 @@
 
 .steps {
   margin-bottom: 372px;
+}
+
+//bubbles
+.mainBubblesContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
 }
 
 .bigBubbleMain {
@@ -118,6 +106,7 @@
     margin-bottom: 165px;
   }
 
+  //bubbles
   .bigBubbleMain {
     top: 200px;
     transform: translateX(-200px);
@@ -158,6 +147,7 @@
     margin-bottom: 100px;
   }
 
+  //bubbles
   .bigBubbleMain {
     top: 200px;
     transform: translateX(-100px);
@@ -209,6 +199,7 @@
     margin-bottom: 60px;
   }
 
+  //bubbles
   .bigBubbleMain {
     top: 270px;
     width: 300px;

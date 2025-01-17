@@ -35,8 +35,8 @@ export default function Home() {
         <BigBubble className={s.bigBubbleAdvantages} />
         <SmallBubble className={s.smallBubbleAdvantages} />
       </div>
-      <div className={"mainContainer sectionsWrapper"}>
-        <AdvantagesCards />
+      <AdvantagesCards />
+      <div className={"mainContainer"}>
         <Cases />
       </div>
       <ServicesLinksList linksData={linksData} className={s.services} />

@@ -1,12 +1,11 @@
 .advantages {
-  padding-left: 142px;
-  gap: 15px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  gap: 15px;
   position: relative;
-  padding-bottom: 301px;
   overflow: hidden;
+  padding: 0 var(--offset-x) 301px calc(var(--offset-x) + 142px);
 
   h2 {
     width: 338px;
@@ -16,20 +15,20 @@
 
 .backgroundSymbol {
   position: absolute;
-  left: 180px;
+  left: calc(var(--offset-x) + 180px);
   top: 374px;
   transform: scale(1.3);
 }
 
 .backgroundSymbol + .backgroundSymbol {
-  left: 330px;
+  left: calc(var(--offset-x) + 330px);
   top: 535px;
   transform: rotate(45deg);
 }
 
 .arrow {
   position: absolute;
-  left: 284px;
+  left: calc(var(--offset-x) + 284px);
   top: 181px;
   background-image: url(../../../svg/arrowPointer.svg);
   background-size: contain;
@@ -41,8 +40,7 @@
 @media (max-width: 1905px) {
   .advantages {
     display: block;
-    padding-left: 0;
-    padding-bottom: 234px;
+    padding: 0 var(--offset-x) 234px;
 
     h2 {
       margin-bottom: 97px;
@@ -57,15 +55,15 @@
   }
 
   .backgroundSymbol {
-    left: -50px;
+    left: calc(var(--offset-x) - 50px);
   }
 
   .backgroundSymbol + .backgroundSymbol {
-    left: 20px;
+    left: calc(var(--offset-x) + 20px);
   }
 
   .arrow {
-    left: 45px;
+    left: calc(var(--offset-x) + 45px);
     background-image: url(../../../svg/arrow-main-advantages-1440.svg);
     width: 88px;
     height: 175px;
@@ -81,11 +79,11 @@
   }
 
   .backgroundSymbol {
-    left: -20px;
+    left: calc(var(--offset-x) - 20px);
   }
 
   .backgroundSymbol + .backgroundSymbol {
-    left: 33px;
+    left: calc(var(--offset-x) + 33px);
   }
 }
 
@@ -98,15 +96,15 @@
     }
   }
   .arrow {
-    left: 25px;
+    left: calc(var(--offset-x) + 25px);
   }
 
   .backgroundSymbol {
-    left: 0;
+    left: var(--offset-x);
   }
 
   .backgroundSymbol + .backgroundSymbol {
-    left: 33px;
+    left: calc(var(--offset-x) + 33px);
   }
 }
 
@@ -124,7 +122,7 @@
   }
 
   .backgroundSymbol + .backgroundSymbol {
-    left: 0;
+    left: var(--offset-x);
   }
 
   .arrow {
@@ -146,11 +144,11 @@
   }
 
   .backgroundSymbol {
-    left: -10px;
+    left: calc(var(--offset-x) - 10px);
   }
 
   .backgroundSymbol + .backgroundSymbol {
-    left: -25px;
+    left: calc(var(--offset-x) - 25px);
   }
 }
 

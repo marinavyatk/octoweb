@@ -28,8 +28,18 @@ export const AdvantageCard = (props: AdvantagesCardProps) => {
     setTabletOrMobile(window.innerWidth <= 1265);
   }, []);
 
+  const getShowMoment = () => {
+    switch (index) {
+      case 0: return 0.2;
+      case 1: return 0.4;
+      case 2: return 0.6;
+      case 3: return 0.8;
+      default: return 1;
+    }
+  }
+
   const styles = useSpring({
-    transform: isTabletOrMobile ? `translateY(${isVisible ? 0 : 3000}px)` : `translateY(${scrollProgress >= (index + 1) * 0.12 ? 0 : 3000}px)`, //not opacity because of drop-filter property doesn`t animate smoothly
+    transform: isTabletOrMobile ? `translateY(${isVisible ? 0 : 3000}px)` : `translateY(${scrollProgress >= getShowMoment() ? 0 : 3000}px)`, //not opacity because of drop-filter property doesn`t animate smoothly
     config: config.slow,
   });
 
