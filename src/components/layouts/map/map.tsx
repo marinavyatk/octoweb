@@ -1,14 +1,13 @@
 "use client";
 
-import {
-  YMap,
-  YMapComponentsProvider,
-  YMapControls,
-  YMapDefaultFeaturesLayer,
-  YMapDefaultSchemeLayer,
-  YMapMarker,
-  YMapZoomControl
-} from "ymap3-components";
+import dynamic from "next/dynamic";
+const YMap = dynamic(() => import("ymap3-components").then(mod => mod.YMap), { ssr: false });
+const YMapComponentsProvider = dynamic(() => import("ymap3-components").then(mod => mod.YMapComponentsProvider), { ssr: false });
+const YMapControls = dynamic(() => import("ymap3-components").then(mod => mod.YMapControls), { ssr: false });
+const YMapDefaultFeaturesLayer = dynamic(() => import("ymap3-components").then(mod => mod.YMapDefaultFeaturesLayer), { ssr: false });
+const YMapDefaultSchemeLayer = dynamic(() => import("ymap3-components").then(mod => mod.YMapDefaultSchemeLayer), { ssr: false });
+const YMapMarker = dynamic(() => import("ymap3-components").then(mod => mod.YMapMarker), { ssr: false });
+const YMapZoomControl = dynamic(() => import("ymap3-components").then(mod => mod.YMapZoomControl), { ssr: false });
 import { apiKey, location as LOCATION, markerLocation } from "./helpers";
 import s from "./map.module.scss";
 import PlaceMarker from "@/svg/placeMark.svg";
@@ -22,8 +21,8 @@ type MapProps = ComponentPropsWithoutRef<"div">;
 function Map(props: MapProps) {
   const { className, ...restProps } = props;
   const classNames = clsx(s.map, className);
-
   const [zoom, setZoom] = useState<number>(18);
+
   useEffect(() => {
     if (window.innerWidth < 768) setZoom(15.4);
   }, []);
