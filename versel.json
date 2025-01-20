@@ -1,0 +1,10 @@
+{
+  "routes": [
+    {
+      "src": "/(.*)",
+      "headers": {
+        "x-vercel-protection": "octowebDev:devenv1111"
+      }
+    }
+  ]
+}
