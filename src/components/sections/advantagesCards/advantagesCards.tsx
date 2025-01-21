@@ -20,12 +20,10 @@ export const AdvantagesCards = () => {
 
   return (
     <>
-      <div style={{ display: screenWidth && screenWidth > 1265 ? "block" : "none" }}>
-        <AdvantagesCardsDesktop />
-      </div>
-      <div style={{ display: screenWidth && screenWidth <= 1265 ? "block" : "none" }}>
+      {screenWidth && screenWidth > 1265 ?
+        <AdvantagesCardsDesktop /> :
         <AdvantagesCardsMobile />
-      </div>
+      }
     </>
   );
 };
