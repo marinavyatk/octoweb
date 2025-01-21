@@ -3,7 +3,7 @@
 import s from "./cases.module.scss";
 import { CaseCircle, Category } from "@/components/layouts/caseCircle/caseCircle";
 import { FilterButton } from "@/components/ui/buttons/filterButton/filterButton";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CaseCircleList } from "@/components/sections/caseCircleList/caseCircleList";
 import { CaseCardFullWidth } from "@/components/layouts/caseCardFullWidth/caseCardFullWidth";
 import { CaseCard, Size } from "@/components/layouts/caseCard/caseCard";
@@ -12,10 +12,41 @@ import { v4 as uuid } from "uuid";
 import { Button } from "@/components/ui/buttons/button/button";
 import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
 import { BigBubble } from "@/components/video/bigBubble/bigBubble";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { clsx } from "clsx";
+
+gsap.registerPlugin(ScrollTrigger);
 
 
 export default function Cases() {
   const [currentFilter, setCurrentFilter] = useState<Category>("All projects");
+  const container = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    gsap.set(".fullWidth", {
+      y: 100,
+      opacity: 0
+    });
+    gsap.set(".right", {
+      x: 100,
+      opacity: 0
+    });
+    gsap.set(".left", {
+      x: -100,
+      opacity: 0
+    });
+
+    ScrollTrigger.batch(".case", {
+      interval: 0.4,
+      onEnter: (batch) => {
+        gsap.to(
+          batch,
+          { y: 0, x: 0, opacity: 1, stagger: 0.4, overwrite: true }
+        );
+      }
+    });
+  }, []);
 
   const filteredCases: CaseCircle[] =
     currentFilter === "All projects"
@@ -49,7 +80,7 @@ export default function Cases() {
         index={animationIndex}
       />
     ) : (
-      <div className={s.fullWidthContainer} key={uuid()}>
+      <div className={clsx(s.fullWidthContainer, "case", "fullWidth")} key={uuid()}>
         <CaseCardFullWidth
           {...card}
         />
@@ -73,7 +104,7 @@ export default function Cases() {
       <div className={s.smallBubbleCirclesContainer}>
         <SmallBubble className={s.smallBubbleCircles} />
       </div>
-      <div className={s.casesList}>{cases}
+      <div className={s.casesList} ref={container}>{cases}
         <SmallBubble className={s.smallBubbleCases} />
       </div>
       <Button text={"Показать ещё"} className={s.showMoreButton} />
