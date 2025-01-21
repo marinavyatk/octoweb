@@ -4,13 +4,17 @@ import s from "./blog.module.scss";
 import { BlogCard, Size } from "@/components/layouts/blogCard/blogCard";
 import { FilterButton } from "@/components/ui/buttons/filterButton/filterButton";
 import { Category } from "@/components/layouts/caseCircle/caseCircle";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { tempData } from "@/common/componentsData/blog";
 import { clsx } from "clsx";
 import { v4 as uuid } from "uuid";
 import { Button } from "@/components/ui/buttons/button/button";
 import { BigBubble } from "@/components/video/bigBubble/bigBubble";
 import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 
 export default function Blog() {
   const [currentFilter, setCurrentFilter] = useState<Category>("All projects");
@@ -53,6 +57,31 @@ export default function Blog() {
 
   const firstArticle = articles[0];
   articles.shift();
+
+  useEffect(() => {
+    gsap.set(".fullWidth", {
+      y: 100,
+      opacity: 0
+    });
+    gsap.set(".right", {
+      x: 100,
+      opacity: 0
+    });
+    gsap.set(".left", {
+      x: -100,
+      opacity: 0
+    });
+
+    ScrollTrigger.batch(".blogCard", {
+      interval: 0.4,
+      onEnter: (batch) => {
+        gsap.to(
+          batch,
+          { y: 0, x: 0, opacity: 1, stagger: 0.4, overwrite: true }
+        );
+      }
+    });
+  }, []);
 
   return (
     <div className={clsx("mainContainer", s.blogPage)}>

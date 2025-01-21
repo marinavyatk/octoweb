@@ -1,12 +1,10 @@
-import { ComponentPropsWithoutRef, useRef } from "react";
+import { ComponentPropsWithoutRef } from "react";
 import { clsx } from "clsx";
 import s from "./blogCard.module.scss";
 import { Tag } from "../../ui/tag/tag";
 import Link from "next/link";
 import { ArrowButton } from "@/components/ui/buttons/arrowButton/arrowButton";
 import { Picture } from "@/components/ui/picture/picture";
-import { animated, useSpring } from "@react-spring/web";
-import { useIntersectionObserver } from "@/common/customHooks/useIntersectionObserver";
 
 export type Size = "small" | "medium" | "fullWidth";
 export type BlogCardProps = {
@@ -35,9 +33,12 @@ export const BlogCard = (props: BlogCardProps) => {
     index,
     ...restProps
   } = props;
-  const classNames = clsx(s.blogCard, className, s[size]);
-  const cardRef = useRef<HTMLDivElement>(null);
-  const isVisible = useIntersectionObserver(cardRef, 0.5, true);
+  const getClass = (index: number) => {
+    if (index === 0) return 'fullWidth';
+    return (index + 1) % 2 === 0 ? 'left' : 'right';
+  };
+
+  const classNames = clsx(s.blogCard, className, s[size], getClass(index), 'blogCard');
 
   const tagList = tags.map((tag) => {
     return (
@@ -58,19 +59,8 @@ export const BlogCard = (props: BlogCardProps) => {
     }
   };
 
-  const getTransform = (index: number) => {
-    if (index === 0) return `translateY(${isVisible ? 0 : 100}px)`;
-    return (index + 1) % 2 === 0 ? `translateX(${isVisible ? 0 : -100}px)` : `translateX(${isVisible ? 0 : 100}px)`;
-  };
-
-  const styles = useSpring({
-    transform: getTransform(index),
-    opacity: isVisible ? 1 : 0,
-    delay: index !== 0 && (index + 1) % 2 !== 0 ? 200 : 0
-  });
-
   return (
-    <animated.div {...restProps} className={classNames} ref={cardRef} style={styles}>
+    <div {...restProps} className={classNames}>
       <div className={s.imgContainer}>
         <Picture src={img} alt="" fill sizes={getSizes(size)} priority={priority} />
         <div className={s.markContainer}>
@@ -90,6 +80,6 @@ export const BlogCard = (props: BlogCardProps) => {
         </a>
       </h2>
       <p className={s.description}>{description}</p>
-    </animated.div>
+    </div>
   );
 };
