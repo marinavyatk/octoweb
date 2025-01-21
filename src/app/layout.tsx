@@ -4,6 +4,7 @@ import {clsx} from 'clsx';
 import {ReactNode} from 'react';
 import {montserrat, unbounded} from '@/app/fonts/fonts';
 import {PageLoader} from '@/components/ui/linearLoader/pageLoader';
+import { AuthProvider } from "@/common/customHooks/tempPassword";
 
 
 export const metadata: Metadata = {
@@ -18,11 +19,14 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
 
+
   return (
     <html lang="ru" className={clsx(unbounded.variable, montserrat.variable)}>
     <body>
     <PageLoader />
-    {children}
+    <AuthProvider>
+      {children}
+    </AuthProvider>
     </body>
     </html>
   );
