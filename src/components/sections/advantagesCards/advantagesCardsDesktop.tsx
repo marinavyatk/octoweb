@@ -17,15 +17,18 @@ export const AdvantagesCardsDesktop = () => {
 
   useEffect(() => {
     if (window.innerWidth <= 1265) return;
-    ScrollTrigger.create({
+    const trigger = ScrollTrigger.create({
       trigger: ".container",
       start: "-70px top",
       pin: ".container",
       scrub: true,
       end: "+=200%",
-      onUpdate: self => setScrollProgress(self.progress)
+      onUpdate: self => setScrollProgress(self.progress),
     });
 
+    return () => {
+      trigger.kill();
+    };
   }, []);
 
   const headerStyles = useSpring({
