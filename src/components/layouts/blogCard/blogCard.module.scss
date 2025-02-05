@@ -8,6 +8,14 @@
   }
 }
 
+.blogCard {
+  opacity: 0;
+}
+
+.blogCard[data-animated="true"] {
+  opacity: 1;
+}
+
 .imgContainer {
   border-radius: 32px;
   background-color: var(--color-dark-secondary);

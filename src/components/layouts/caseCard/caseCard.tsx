@@ -9,20 +9,20 @@ import { Picture } from "@/components/ui/picture/picture";
 
 export type Size = "small" | "medium" | "large" | "extraLarge";
 export type CaseCardProps<T extends ElementType> = {
+  caseId: string;
   category: string;
-  tags: string[];
+  header: string;
+  services: string[];
   img: string;
   size: Size;
-  header: string;
   as?: T;
-  caseId: string;
   index: number;
 } & ComponentPropsWithoutRef<"a">;
 
 export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
   const {
     category,
-    tags,
+    services,
     img,
     size,
     header,
@@ -35,7 +35,7 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
   const classNames = clsx(s.card, className, "case", (index + 1) % 2 === 0 ? "right" : "left");
 
   const sizeClassName = clsx(s.container, s[size]);
-  const tagList = tags.map((tag) => {
+  const tagList = services?.map((tag) => {
     return (
       <Tag variant={"colored"} key={tag}>
         {tag}
@@ -67,7 +67,9 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
         <Tag variant={"monochromePrimary"} className={s.category}>
           {category}
         </Tag>
-        <Picture src={img} alt={header} fill sizes={getSizes(size)} />
+        {img &&
+          <Picture src={img} alt={header} fill sizes={getSizes(size)} />
+        }
         <div className={s.tagList}>{tagList}</div>
       </div>
       <Header className={s.header}>{header}</Header>

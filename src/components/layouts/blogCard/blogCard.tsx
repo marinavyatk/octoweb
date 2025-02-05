@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from "react";
+import { ComponentPropsWithoutRef, useEffect, useRef } from "react";
 import { clsx } from "clsx";
 import s from "./blogCard.module.scss";
 import { Tag } from "../../ui/tag/tag";
@@ -39,7 +39,7 @@ export const BlogCard = (props: BlogCardProps) => {
   };
 
   const classNames = clsx(s.blogCard, className, s[size], getClass(index), 'blogCard');
-
+ const  cardRef = useRef<HTMLDivElement>(null)
   const tagList = tags.map((tag) => {
     return (
       <Tag variant={"monochromeSecondary"} key={tag} className={s.tag}>
@@ -59,8 +59,12 @@ export const BlogCard = (props: BlogCardProps) => {
     }
   };
 
+  useEffect(() => {
+    cardRef?.current?.setAttribute('data-animated', "true")
+  }, []);
+
   return (
-    <div {...restProps} className={classNames}>
+    <div {...restProps} className={classNames} ref={cardRef}>
       <div className={s.imgContainer}>
         <Picture src={img} alt="" fill sizes={getSizes(size)} priority={priority} />
         <div className={s.markContainer}>

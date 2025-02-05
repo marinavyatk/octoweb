@@ -13,24 +13,25 @@ type Story = StoryObj<typeof meta>;
 
 export const AsH2: Story = {
   args: {
+    caseId: "botanica",
     category: "LANDING PAGE",
-    tags: ["DEVELOP", "UI/UX", "SEO"],
+    header: "ботаника-хилс.рф",
+    services: ["DEVELOP", "UI/UX", "SEO"],
     img: '/case-botanica.webp',
     size: "small",
-    header: "ботаника-хилс.рф",
-    caseId: "botanica",
     index: 0
   },
 };
+
 export const AsH3: Story = {
   args: {
+    caseId: "botanica",
     category: "LANDING PAGE",
-    tags: ["DEVELOP", "UI/UX", "SEO"],
+    header: "ботаника-хилс.рф",
+    services: ["DEVELOP", "UI/UX", "SEO"],
     img: '/case-botanica.webp',
     size: "small",
-    header: "ботаника-хилс.рф",
     as: "h3",
-    caseId: "botanica",
     index: 0
   },
 };

@@ -3,9 +3,7 @@
 import s from "./blog.module.scss";
 import { BlogCard, Size } from "@/components/layouts/blogCard/blogCard";
 import { FilterButton } from "@/components/ui/buttons/filterButton/filterButton";
-import { Category } from "@/components/layouts/caseCircle/caseCircle";
-import { useEffect, useState } from "react";
-import { tempData } from "@/common/componentsData/blog";
+import { useCallback, useEffect, useState } from "react";
 import { clsx } from "clsx";
 import { v4 as uuid } from "uuid";
 import { Button } from "@/components/ui/buttons/button/button";
@@ -13,52 +11,50 @@ import { BigBubble } from "@/components/video/bigBubble/bigBubble";
 import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { api } from "@/common/api";
+import { Article } from "@/common/types";
+import { usePathname, useSearchParams } from "next/navigation";
+import { Loader } from "@/components/ui/loader/loader";
+
 gsap.registerPlugin(ScrollTrigger);
 
 
 export default function Blog() {
-  const [currentFilter, setCurrentFilter] = useState<Category>("All projects");
-  const buttons: Category[] = ["All projects", "Web", "Seo", "Ads"];
-  const filterButtons = buttons.map((button) => {
-    return (
-      <FilterButton
-        key={button}
-        value={button}
-        active={button === currentFilter}
-        onClick={() => setCurrentFilter(button)}
-      >
-        {button}
-      </FilterButton>
-    );
-  });
-  const articles = tempData.map((article, index) => {
-    if (index === 0) {
-      return <BlogCard {...article} size={"fullWidth"} key={uuid()} priority index={index}/>;
-    }
-
-    if (index === 1) {
-      return <BlogCard {...article} size={"small"} key={uuid()} index={index}/>;
-    }
-
-    const modIndex = (index - 2) % 4;
-    let size;
-    if (modIndex === 0 || modIndex === 1) {
-      size = "medium";
-    } else {
-      size = "small";
-    }
-
-    return <BlogCard {...article} size={size as Size} key={uuid()} index={index}/>;
-  });
-
-  const handleLoadMore = () => {
-    //need request new data
-  };
-
-  const firstArticle = articles[0];
-  articles.shift();
+  const defaultFilter = "All";
+  const defaultPage = 1;
+  const [articlesData, setArticles] = useState<Article[]>();
+  const [filters, setFilters] = useState<string[]>([]);
+  const [total, setTotal] = useState<number>(0);
+  const [currentFilter, setCurrentFilter] = useState<string>(defaultFilter);
+  const [page, setPage] = useState(defaultPage);
+  const [loading, setLoading] = useState(false);
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
 
   useEffect(() => {
+    const filter = searchParams.get("filter");
+    if (filter) {
+      setCurrentFilter(filter);
+    }
+
+    const getArticles = async () => {
+      const articles = await api.getArticles(page, filter);
+      setArticles(articles?.posts || []);
+      setTotal(articles?.total || 0);
+    };
+    const getFilters = async () => {
+      const filters = await api.getArticlesFilters();
+      if (!filters) return null;
+      setFilters(filters);
+    };
+
+    getArticles();
+    getFilters();
+  }, []);
+
+  useEffect(() => {
+    if (!articlesData || !articlesData?.length) return;
+
     gsap.set(".fullWidth", {
       y: 100,
       opacity: 0
@@ -72,7 +68,7 @@ export default function Blog() {
       opacity: 0
     });
 
-    ScrollTrigger.batch(".blogCard", {
+   const triggers = ScrollTrigger.batch(".blogCard", {
       interval: 0.4,
       onEnter: (batch) => {
         gsap.to(
@@ -81,7 +77,115 @@ export default function Blog() {
         );
       }
     });
-  }, []);
+
+    return () => {
+      triggers.forEach(trigger => trigger.kill());
+      ScrollTrigger.refresh()
+    };
+  }, [articlesData]);
+
+
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set(name, value);
+
+      return params.toString();
+    },
+    [searchParams]
+  );
+
+
+  if (!articlesData) return null;
+
+  const getMoreArticles = async () => {
+    setLoading(true);
+    const newArticles = await api.getArticles(page + 1, currentFilter);
+    setLoading(false);
+    setPage(page + 1);
+    if (!newArticles) return null;
+    setArticles([...articlesData, ...newArticles.posts]);
+    ScrollTrigger.refresh()
+  };
+
+  const setFilter = async (filter: string) => {
+    if (filter === currentFilter) return null;
+    setLoading(true);
+    setCurrentFilter(filter);
+    const newArticles = await api.getArticles(defaultPage, filter === defaultFilter ? null : filter);
+    setLoading(false);
+    if (filter === defaultFilter) {
+      window.history.replaceState(null, "", pathname);
+    } else {
+      window.history.replaceState(null, "", pathname + "?" + createQueryString("filter", filter));
+    }
+    if (!newArticles) return null;
+    setArticles(newArticles.posts);
+  };
+
+  const filterButtons = filters.map((button) => {
+    return (
+      <FilterButton
+        key={button}
+        value={button}
+        active={button === currentFilter}
+        onClick={() => setFilter(button)}
+      >
+        {button}
+      </FilterButton>
+    );
+  });
+  const articles = articlesData.map((article, index) => {
+    if (index === 0) {
+      return <BlogCard
+        size={"fullWidth"}
+        key={uuid()}
+        priority
+        index={index}
+        articleId={article.slug}
+        tags={article.categories}
+        img={article.image}
+        header={article.title}
+        description={article.excerpt}
+
+      />;
+    }
+
+    if (index === 1) {
+      return <BlogCard
+        size={"small"}
+        key={uuid()}
+        index={index}
+        articleId={article.slug}
+        tags={article.categories}
+        img={article.image}
+        header={article.title}
+        description={article.excerpt}
+      />;
+    }
+
+    const modIndex = (index - 2) % 4;
+    let size;
+    if (modIndex === 0 || modIndex === 1) {
+      size = "medium";
+    } else {
+      size = "small";
+    }
+
+    return <BlogCard
+      size={size as Size}
+      key={uuid()}
+      index={index}
+      articleId={article.id.toString()}
+      tags={article.categories}
+      img={article.image}
+      header={article.title}
+      description={article.excerpt}
+    />;
+  });
+
+  const firstArticle = articles[0];
+  articles.shift();
 
   return (
     <div className={clsx("mainContainer", s.blogPage)}>
@@ -92,11 +196,15 @@ export default function Blog() {
       </div>
       <div className={s.firstArticle}>{firstArticle}</div>
       <div className={s.articles}>{articles}</div>
+      {loading && <div className={s.loaderContainer}>
+        <Loader />
+      </div>}
+      {articles.length < total &&
       <Button
         text={"Загрузить ещё"}
         className={s.loadMoreButton}
-        onClick={handleLoadMore}
-      />
+        onClick={getMoreArticles}
+      />}
       <div className={s.smallBubbleContainer}>
         <SmallBubble className={s.smallBubble} />
       </div>

@@ -10,6 +10,9 @@
   @media (max-width: 1265px) {
     --offset-x: 16px;
   }
+  :root {
+    --header-height: 136px;
+  }
 }
 
 html {
@@ -87,7 +90,7 @@ h1 {
   line-height: var(--line-height-124);
   text-transform: uppercase;
   color: var(--color-light-100);
-  margin-top: 120px;
+  padding-top: 120px;
 }
 
 h2 {
@@ -102,11 +105,29 @@ h2 {
   padding: 0 var(--offset-x);
 }
 
+.overlay{
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  pointer-events: none;
+  opacity: 0;
+  background: black;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.main{
+  min-height: 100vh;
+}
+
 @media (max-width: 1905px) {
   h1 {
     font-size: 72px;
     line-height: var(--line-height-140);
-    margin-top: 100px;
+    padding-top: 100px;
   }
   h2 {
     font-size: 48px;
@@ -116,7 +137,7 @@ h2 {
 @media (max-width: 1425px) {
   h1 {
     font-size: 64px;
-    margin-top: 68px;
+    padding-top: 68px;
   }
   h2 {
     font-size: 40px;
@@ -126,7 +147,7 @@ h2 {
 @media (max-width: 1265px) {
   h1 {
     font-size: 40px;
-    margin-top: 77px;
+    padding-top: 77px;
   }
   h2 {
     font-size: 40px;
@@ -136,7 +157,7 @@ h2 {
 @media (max-width: 767px) {
   h1 {
     font-size: 20px;
-    margin-top: 50px;
+    padding-top: 50px;
   }
   h2 {
     font-size: 18px;

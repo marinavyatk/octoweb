@@ -7,13 +7,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper/modules";
 import "swiper/css";
 import { v4 as uuid } from "uuid";
+import { memo } from "react";
 
 export type CaseCircleProps = {
   caseCircles: CaseCircle[];
   className?: string;
 };
 
-export const CaseCircleList = (props: CaseCircleProps) => {
+export const CaseCircleList = memo((props: CaseCircleProps) => {
   const { caseCircles, className } = props;
   const classNames = clsx(s.circlesPlaceholder, className);
   const CaseCircles = caseCircles.map((circle) => {
@@ -39,4 +40,6 @@ export const CaseCircleList = (props: CaseCircleProps) => {
       </div>
     </div>
   );
-};
+});
+
+CaseCircleList.displayName = "CaseCircleList";

@@ -17,76 +17,68 @@ export const Primary: Story = {
       "Разработка интернет-магазина — это командная работа, где каждый вносит свой профессиональный вклад для успешной реализации проекта.",
     teamMembersInfo: [
       {
-        id: "Руководитель проекта",
-        workExperience: "???",
+        experience: "???",
         name: "Имя Фамилия",
-        specialization: "Руководитель проекта",
+        position: "Руководитель проекта",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        img: '/temp.png',
+        image: '/temp.png',
       },
       {
-        id: "Проектировщик",
-        workExperience: "???",
+        experience: "???",
         name: "Имя Фамилия",
-        specialization: "Проектировщик",
+        position: "Проектировщик",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        img: '/temp.png',
+        image: '/temp.png',
       },
       {
-        id: "Дизайнер",
-        workExperience: "???",
+        experience: "???",
         name: "Имя Фамилия",
-        specialization: "Дизайнер",
+        position: "Дизайнер",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        img: '/temp.png',
+        image: '/temp.png',
       },
       {
-        id: "Front-end-программист",
-        workExperience: "4+ года опыта",
+        experience: "4+ года опыта",
         name: "Елисеев Николай",
-        specialization: "Frontend-Гуру",
+        position: "Frontend-Гуру",
         description:
           'Николай "HTML-Rockstar" Елисеев, фронтенд-гуру с исключительным талантом.',
-        img: '/frontendDev.webp'
+        image: '/frontendDev.webp'
       },
       {
-        id: "Back-end-программист",
-        workExperience: "???",
+        experience: "???",
         name: "Имя Фамилия",
-        specialization: "Back-end-программист",
+        position: "Back-end-программист",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        img: '/temp.png',
+        image: '/temp.png',
       },
       {
-        id: "Тестировщик",
-        workExperience: "???",
+        experience: "???",
         name: "Имя Фамилия",
-        specialization: "Тестировщик",
+        position: "Тестировщик",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        img: '/temp.png',
+        image: '/temp.png',
       },
       {
-        id: "Контент-менеджер",
-        workExperience: "???",
+        experience: "???",
         name: "Имя Фамилия",
-        specialization: "Контент-менеджер",
+        position: "Контент-менеджер",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        img: '/temp.png',
+        image: '/temp.png',
       },
       {
-        id: "SEO-специалист",
-        workExperience: "???",
+        experience: "???",
         name: "Имя Фамилия",
-        specialization: "SEO-специалист",
+        position: "SEO-специалист",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        img: '/temp.png',
+        image: '/temp.png',
       },
     ],
   },

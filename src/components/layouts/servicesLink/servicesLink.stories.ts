@@ -38,6 +38,6 @@ export const Primary: Story = {
       }
     ],
     mainLink: "website-development",
-    img: '/link-botanica.webp',
+    image: '/link-botanica.webp',
   },
 };

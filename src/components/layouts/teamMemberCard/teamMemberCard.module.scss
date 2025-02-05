@@ -75,7 +75,7 @@
   position: absolute;
   backface-visibility: hidden;
 
-  p {
+  .description > * {
     font-size: 24px;
     font-weight: var(--font-weight-regular-400);
     line-height: var(--line-height-180);
@@ -118,7 +118,7 @@
   .backSide {
     padding: 20px 26px;
 
-    p {
+    .description > *  {
       font-size: 12px;
     }
   }

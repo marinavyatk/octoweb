@@ -11,6 +11,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@hookform/resolvers": "^3.9.0",
     "@mona-health/react-input-mask": "^3.0.3",
     "@radix-ui/react-radio-group": "^1.2.1",
@@ -20,6 +21,7 @@
     "@react-three/fiber": "^8.16.8",
     "@types/three": "^0.166.0",
     "@yandex/ymaps3-types": "^0.0.28",
+    "axios": "^1.7.9",
     "clsx": "^2.1.1",
     "file-loader": "^6.2.0",
     "gsap": "^3.12.7",

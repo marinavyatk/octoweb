@@ -1,4 +1,6 @@
 .contactsPage {
+  //padding-bottom: 192px;
+  padding-bottom: 192px;
   h1 {
     margin-bottom: 80px;
   }
@@ -37,7 +39,8 @@
 .map {
   border-radius: 48px;
   overflow: hidden;
-  margin-bottom: 192px;
+  //margin-bottom: 192px;
+  //padding-bottom: 192px;
 }
 
 .contactLinksContainer {
@@ -47,15 +50,16 @@
     max-width: unset;
     text-align: unset;
   }
-}
 
-.contactLinks {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
 
-  span {
-    display: none;
+  .contactLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    span {
+      display: none;
+    }
   }
 }
 
@@ -89,7 +93,6 @@
 
   .contacts {
     margin-bottom: 20px;
-    //font-size: 12px;
     font-size: 14px;
     gap: 16px;
   }

@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     category: "Корпоративный сайт",
-    tags: ["Develop", "ux/ui", "seo"],
+    services: ["Develop", "ux/ui", "seo"],
     img: 'caseCardFullWidth.png',
     header: "de-marko.ru",
     caseId: "demarko",

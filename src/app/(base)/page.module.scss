@@ -18,17 +18,17 @@
 }
 
 .steps {
-  margin-bottom: 372px;
+  padding-bottom: 372px;
 }
 
 //bubbles
 .mainBubblesContainer {
   position: absolute;
-  top: 0;
   left: 0;
   height: 100vh;
   width: 100%;
   overflow: hidden;
+  top: calc(-1* var(--header-height));
 }
 
 .bigBubbleMain {
@@ -41,27 +41,6 @@
 .smallBubbleMain {
   top: -200px;
   left: 220px;
-  width: 600px;
-  height: 600px;
-}
-
-.advantagesBubbles {
-  position: relative;
-  contain: layout;
-  z-index: -1;
-}
-
-.bigBubbleAdvantages {
-  top: -400px;
-  left: -300px;
-  width: 800px;
-  height: 800px;
-}
-
-.advantagesBubbles .smallBubbleAdvantages {
-  top: 200px;
-  left: 400px;
-  z-index: -4;
   width: 600px;
   height: 600px;
 }
@@ -88,7 +67,7 @@
   }
 
   .steps {
-    margin-bottom: 140px;
+    padding-bottom: 140px;
   }
 }
 
@@ -103,7 +82,7 @@
   }
 
   .steps {
-    margin-bottom: 165px;
+    padding-bottom: 165px;
   }
 
   //bubbles
@@ -115,16 +94,6 @@
   .smallBubbleMain {
     top: -200px;
     left: 0;
-  }
-
-  .bigBubbleAdvantages {
-    top: -400px;
-    left: -300px
-  }
-
-  .advantagesBubbles .smallBubbleAdvantages {
-    top: 600px;
-    left: 50px;
   }
 
   .smallBubbleServices {
@@ -143,8 +112,12 @@
     margin-bottom: 100px;
   }
 
-  .services, .steps {
+  .services {
     margin-bottom: 100px;
+  }
+
+  .steps {
+    padding-bottom: 100px;
   }
 
   //bubbles
@@ -160,21 +133,6 @@
     left: 100px;
     width: 300px;
     height: 300px;
-  }
-
-  .bigBubbleAdvantages {
-    top: -150px;
-    left: unset;
-    right: -150px;
-    width: 400px;
-    height: 400px;
-  }
-
-  .advantagesBubbles .smallBubbleAdvantages {
-    top: 1500px;
-    left: 0;
-    width: 400px;
-    height: 400px;
   }
 
   .smallBubbleServices {
@@ -195,7 +153,7 @@
     margin-bottom: 60px;
   }
 
-  .services, .steps {
+  .services {
     margin-bottom: 60px;
   }
 
@@ -212,21 +170,6 @@
     left: 0;
     width: 250px;
     height: 250px;
-  }
-
-  .bigBubbleAdvantages {
-    top: -100px;
-    left: unset;
-    right: -200px;
-    width: 400px;
-    height: 400px;
-  }
-
-  .advantagesBubbles .smallBubbleAdvantages {
-    top: 900px;
-    left: -100px;
-    width: 350px;
-    height: 350px;
   }
 
   .smallBubbleServices {

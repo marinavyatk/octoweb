@@ -1,11 +1,13 @@
 import s from "./aboutPage.module.scss";
 import { StackList } from "@/components/sections/stackList/stackList";
 import { TeamMemberCards } from "@/components/sections/teamMembersCards/teamMembersCards";
-import { teamMembersInfo } from "@/common/componentsData/teamMembersInfo";
 import { Picture } from "@/components/ui/picture/picture";
 import { BigBubble } from "@/components/video/bigBubble/bigBubble";
+import { api } from "@/common/api";
 
-export default function About() {
+
+export default async function About() {
+ const team =  await api.getTeam()
 
   return (
     <div className={s.aboutPage}>
@@ -14,7 +16,7 @@ export default function About() {
         <h1>
           О веб-студии <br /> OctoWeb
         </h1>
-        <p>Раскроем подробности о том, кто стоит за реализацией проектов</p>
+        <p className={s.description}>Раскроем подробности о том, кто стоит за реализацией проектов</p>
       </div>
       <Picture src={"/teamMainPhoto.webp"}
                alt={"Команда"}
@@ -34,7 +36,7 @@ export default function About() {
         </div>
         <StackList />
       </div>
-      <TeamMemberCards teamMembers={teamMembersInfo} className={s.teamCards} />
+      <TeamMemberCards teamMembers={team} className={s.teamCards} />
     </div>
   );
 };

@@ -4,6 +4,9 @@
     font-size: 24px;
     line-height: var(--line-height-200);
     color: var(--color-light-100);
+  }
+
+  .description {
     margin: 50px 0 70px;
   }
 
@@ -38,7 +41,7 @@
 }
 
 .teamCards {
-  margin: 178px 0 290px 0;
+  padding: 178px 0 290px 0;
 }
 
 .bubble {
@@ -78,6 +81,9 @@
   .aboutPage {
     p {
       font-size: 28px;
+    }
+
+    .description {
       margin: 40px 0 46px;
     }
 
@@ -107,6 +113,9 @@
   .aboutPage {
     p {
       font-size: 14px;
+    }
+
+    .description {
       margin: 20px 0 22px;
     }
 

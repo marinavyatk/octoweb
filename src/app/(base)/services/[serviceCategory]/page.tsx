@@ -1,23 +1,29 @@
 import s from "./serviceCategory.module.scss";
 import { ServicesLinksList } from "@/components/sections/servicesLinksList/servicesLinksList";
 import { StepCards } from "@/components/sections/stepCards/stepCards";
-import { FAQ } from "@/components/sections/faq/faq";
 import { Advantages } from "@/components/sections/advantages/advantages";
 import { CooperationCard } from "@/components/sections/cooperationCard/cooperationCard";
-import { linksData } from "@/common/componentsData/links";
-import { faqData } from "@/common/componentsData/faq";
 import { Greeting } from "@/components/sections/greeting/greeting";
 import { clsx } from "clsx";
 import { BigBubble } from "@/components/video/bigBubble/bigBubble";
 import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
+import { api } from "@/common/api";
+import { FAQ } from "@/components/sections/faq/faq";
 
 
-export default function ServiceCategory() {
+export default async function ServiceCategory({ params }: {
+  params: Promise<{ serviceCategory: string }>
+}) {
+  const { serviceCategory } = await params;
+  const serviceCategoryData = await api.getServiceCategory(serviceCategory);
+
+  if (!serviceCategoryData) return null;
+
   const textContent = {
-    firstLine: "Разработка сайтов",
-    secondLine: "для",
-    thirdLine: "в Краснодаре",
-    wordSwipeProps: { words: ["бизнеса"] }
+    firstLine: serviceCategoryData.firstLine,
+    secondLine: serviceCategoryData.secondLine,
+    thirdLine: serviceCategoryData.thirdLine,
+    wordSwipeProps: { words: serviceCategoryData.words }
   };
 
   return (
@@ -28,7 +34,7 @@ export default function ServiceCategory() {
       </div>
       <Greeting textContent={textContent} className={"mainContainer"} />
       <ServicesLinksList
-        linksData={linksData}
+        linksData={serviceCategoryData.linksData}
         header={"Услуги разработки"}
         className={s.services}
       />
@@ -41,7 +47,7 @@ export default function ServiceCategory() {
         <SmallBubble className={s.smallBubbleCard} />
       </div>
       <StepCards className={s.steps} />
-      <FAQ faqData={faqData} className={clsx(s.faq, "mainContainer")} />
+      <FAQ faqData={serviceCategoryData.faq} className={clsx(s.faq, "mainContainer")} />
     </>
   );
 };

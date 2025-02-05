@@ -1,31 +1,29 @@
-"use client";
-
-import { ReactNode, useEffect } from "react";
+import { ReactNode } from "react";
 import { Header } from "@/components/layouts/header/header";
 import { FooterWithForm } from "@/components/layouts/footerWithForm/footerWithForm";
 import { redirect } from "next/navigation";
-
-export default function RootLayout({
-                                     children
-                                   }: Readonly<{
-  children: ReactNode;
-}>) {
+import { api } from "@/common/api";
+import { cookies } from "next/headers";
 
 
-  useEffect(() => {
-    const isAuthorized = localStorage.getItem("isAuthorized");
+export default async function RootLayout({ children }: Readonly<{ children: ReactNode; }>) {
+  const cookieStore = cookies();
+  const isAuthorized = cookieStore.get("isAuthorized");
+  if (!isAuthorized) {
+    redirect("/under-construction");
+  }
 
-    if (!isAuthorized) {
-      redirect("/under-construction");
-    }
-  }, []);
-
+  const contactInfo = await api.getContacts();
+  const socials = contactInfo?.social_links;
 
   return (
     <>
-      <Header />
-      {children}
-      <FooterWithForm />
+      <Header socials={socials || []} />
+      <main className="main">
+        {children}
+        <div className={"overlay"}></div>
+      </main>
+      <FooterWithForm socials={socials || []} />
     </>
   );
 }

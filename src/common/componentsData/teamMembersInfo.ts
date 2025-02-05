@@ -2,66 +2,66 @@ const Temp = '/temp.png';
 const FrontendDev = '/frontendDev.webp'
 export const teamMembersInfo = [
     {
-        workExperience: "???",
+        experience: "???",
         name: "Имя Фамилия",
-        specialization: "Руководитель проекта",
+        position: "Руководитель проекта",
         description:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        img: Temp,
+        imageFull: Temp,
     },
     {
-        workExperience: "???",
+        experience: "???",
         name: "Имя Фамилия",
-        specialization: "Проектировщик",
+        position: "Проектировщик",
         description:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        img: Temp,
+        imageFull: Temp,
     },
     {
-        workExperience: "???",
+        experience: "???",
         name: "Имя Фамилия",
-        specialization: "Дизайнер",
+        position: "Дизайнер",
         description:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        img: Temp,
+        imageFull: Temp,
     },
     {
-        workExperience: "4+ года опыта",
+        experience: "4+ года опыта",
         name: "Елисеев Николай",
-        specialization: "Frontend-Гуру",
+        position: "Frontend-Гуру",
         description: 'Николай "HTML-Rockstar" Елисеев, фронтенд-гуру с исключительным талантом.',
-        img: FrontendDev,
+        imageFull: FrontendDev,
     },
     {
-        workExperience: "???",
+        experience: "???",
         name: "Имя Фамилия",
-        specialization: "Back-end-программист",
+        position: "Back-end-программист",
         description:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        img: Temp,
+        imageFull: Temp,
     },
     {
-        workExperience: "???",
+        experience: "???",
         name: "Имя Фамилия",
-        specialization: "Тестировщик",
+        position: "Тестировщик",
         description:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        img: Temp,
+        imageFull: Temp,
     },
     {
-        workExperience: "???",
+        experience: "???",
         name: "Имя Фамилия",
-        specialization: "Контент-менеджер",
+        position: "Контент-менеджер",
         description:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        img: Temp,
+        imageFull: Temp,
     },
     {
-        workExperience: "???",
+        experience: "???",
         name: "Имя Фамилия",
-        specialization: "SEO-специалист",
+        position: "SEO-специалист",
         description:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        img: Temp,
+        imageFull: Temp,
     },
 ];
