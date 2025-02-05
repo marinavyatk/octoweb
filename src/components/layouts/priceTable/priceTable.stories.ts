@@ -13,12 +13,12 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
     args: {
         priceItems: [
-            { service: "Разработка логотипа", price: "5 000" },
-            { service: "Создание брендбука", price: "5 000" },
-            { service: "Копирайтинг", price: "350" },
-            { service: "Вывод на маркетплейсы", price: "25 000" },
-            { service: "Контекстная реклама", price: "20 000" },
-            { service: "SEO-продвижение", price: "50 000" },
+            { name: "Разработка логотипа", price: "5 000" },
+            { name: "Создание брендбука", price: "5 000" },
+            { name: "Копирайтинг", price: "350" },
+            { name: "Вывод на маркетплейсы", price: "25 000" },
+            { name: "Контекстная реклама", price: "20 000" },
+            { name: "SEO-продвижение", price: "50 000" },
         ],
     }
 };

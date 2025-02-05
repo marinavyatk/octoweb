@@ -1,10 +1,9 @@
-import type {Metadata} from 'next';
-import '../styles/index.scss'
-import {clsx} from 'clsx';
-import {ReactNode} from 'react';
-import {montserrat, unbounded} from '@/app/fonts/fonts';
-import {PageLoader} from '@/components/ui/linearLoader/pageLoader';
-import { AuthProvider } from "@/common/customHooks/tempPassword";
+import type { Metadata } from "next";
+import "../styles/index.scss";
+import { clsx } from "clsx";
+import { ReactNode } from "react";
+import { montserrat, unbounded } from "@/app/fonts/fonts";
+import { PageLoader } from "@/components/ui/linearLoader/pageLoader";
 
 
 export const metadata: Metadata = {
@@ -19,14 +18,11 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
 
-
   return (
     <html lang="ru" className={clsx(unbounded.variable, montserrat.variable)}>
     <body>
     <PageLoader />
-    <AuthProvider>
       {children}
-    </AuthProvider>
     </body>
     </html>
   );

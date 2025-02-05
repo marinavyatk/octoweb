@@ -1,14 +1,6 @@
 "use client";
 
 import dynamic from "next/dynamic";
-const YMap = dynamic(() => import("ymap3-components").then(mod => mod.YMap), { ssr: false });
-const YMapComponentsProvider = dynamic(() => import("ymap3-components").then(mod => mod.YMapComponentsProvider), { ssr: false });
-const YMapControls = dynamic(() => import("ymap3-components").then(mod => mod.YMapControls), { ssr: false });
-const YMapDefaultFeaturesLayer = dynamic(() => import("ymap3-components").then(mod => mod.YMapDefaultFeaturesLayer), { ssr: false });
-const YMapDefaultSchemeLayer = dynamic(() => import("ymap3-components").then(mod => mod.YMapDefaultSchemeLayer), { ssr: false });
-const YMapMarker = dynamic(() => import("ymap3-components").then(mod => mod.YMapMarker), { ssr: false });
-const YMapZoomControl = dynamic(() => import("ymap3-components").then(mod => mod.YMapZoomControl), { ssr: false });
-import { apiKey, location as LOCATION, markerLocation } from "./helpers";
 import s from "./map.module.scss";
 import PlaceMarker from "@/svg/placeMark.svg";
 import customizationStyles from "./mapCustomization.json";
@@ -16,11 +8,28 @@ import { LngLat, VectorCustomizationItem } from "@yandex/ymaps3-types";
 import { ComponentPropsWithoutRef, useEffect, useState } from "react";
 import { clsx } from "clsx";
 
-type MapProps = ComponentPropsWithoutRef<"div">;
+const YMap = dynamic(() => import("ymap3-components").then(mod => mod.YMap), { ssr: false });
+const YMapComponentsProvider = dynamic(() => import("ymap3-components").then(mod => mod.YMapComponentsProvider), { ssr: false });
+const YMapControls = dynamic(() => import("ymap3-components").then(mod => mod.YMapControls), { ssr: false });
+const YMapDefaultFeaturesLayer = dynamic(() => import("ymap3-components").then(mod => mod.YMapDefaultFeaturesLayer), { ssr: false });
+const YMapDefaultSchemeLayer = dynamic(() => import("ymap3-components").then(mod => mod.YMapDefaultSchemeLayer), { ssr: false });
+const YMapMarker = dynamic(() => import("ymap3-components").then(mod => mod.YMapMarker), { ssr: false });
+const YMapZoomControl = dynamic(() => import("ymap3-components").then(mod => mod.YMapZoomControl), { ssr: false });
+
+type MapProps = {
+  markerCoordinates: LngLat
+  locationCoordinates: LngLat
+} & ComponentPropsWithoutRef<"div">;
 
 function Map(props: MapProps) {
-  const { className, ...restProps } = props;
+  const {
+  markerCoordinates,
+    locationCoordinates,
+    className,
+    ...restProps
+  } = props;
   const classNames = clsx(s.map, className);
+  const apiKey = "9e37f796-a14c-440b-8977-8bec80c9f745";
   const [zoom, setZoom] = useState<number>(18);
 
   useEffect(() => {
@@ -32,7 +41,7 @@ function Map(props: MapProps) {
       <YMapComponentsProvider apiKey={apiKey} lang="ru_RU">
         <YMap
           key="map"
-          location={{ center: LOCATION.center, zoom }}
+          location={{ center: locationCoordinates, zoom }}
           mode="vector"
           theme="dark"
           behaviors={["drag", "dblClick", "pinchRotate", "pinchZoom"]}
@@ -41,7 +50,7 @@ function Map(props: MapProps) {
             customization={customizationStyles as VectorCustomizationItem[]}
           />
           <YMapDefaultFeaturesLayer />
-          <YMapMarker coordinates={markerLocation.center as LngLat}>
+          <YMapMarker coordinates={markerCoordinates}>
             <div className={s.placeMarkContainer}>
               <PlaceMarker className={s.placeMarker} />
               <span>Мы здесь!</span>

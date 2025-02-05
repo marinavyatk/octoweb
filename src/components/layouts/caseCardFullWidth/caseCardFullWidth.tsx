@@ -7,18 +7,18 @@ import { Picture } from "@/components/ui/picture/picture";
 
 export type CaseCardProps = {
   category: string;
-  tags: string[];
+  services: string[];
   img: string;
   header: string;
   caseId: string;
 } & ComponentPropsWithoutRef<"a">;
 
 export const CaseCardFullWidth = (props: CaseCardProps) => {
-  const { caseId, category, tags, img, header, className, ...restProps } =
+  const { caseId, category, services, img, header, className, ...restProps } =
     props;
   const classNames = clsx(s.card, className);
 
-  const tagList = tags.map((tag) => {
+  const tagList = services.map((tag) => {
     return (
       <Tag variant={"colored"} key={tag}>
         {tag}
@@ -33,11 +33,13 @@ export const CaseCardFullWidth = (props: CaseCardProps) => {
       rel={"nofollow"}
       href={`/cases/${caseId}`}
     >
+      {img &&
         <Picture src={img}
                  alt={header}
                  fill
                  sizes="(max-width: 450px) 100vw, (max-width: 767px) 450px, 100vw "
                  containerProps={{ className: s.imgContainer }} />
+      }
       <Tag variant={"monochromePrimary"} className={s.category}>
         {category}
       </Tag>

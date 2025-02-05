@@ -14,13 +14,13 @@ export type ServicesLinkProps = {
   header: string;
   tags?: TagLink[];
   mainLink: string;
-  img?: string;
+  image?: string;
   linkProps?: ComponentPropsWithoutRef<"a">
 } & ComponentPropsWithoutRef<"div">;
 
 export const ServicesLink = (props: ServicesLinkProps) => {
   const [hoverable, setHoverable] = useState(false);
-  const { number, header, tags, mainLink, linkProps, img, className, ...restProps } = props;
+  const { number, header, tags, mainLink, linkProps, image, className, ...restProps } = props;
   const classNames = clsx(s.servicesLink, className);
   const tagList =
     tags &&
@@ -53,10 +53,10 @@ export const ServicesLink = (props: ServicesLinkProps) => {
         <ArrowButton href={`/services/${mainLink}`} {...linkProps} className={s.arrowLink}/>
       </div>
       {tags && <div className={s.tagList}>{tagList}</div>}
-      {img && hoverable &&
+      {image && hoverable &&
         <div className={s.imgContainer}>
           <div className={s.imgPositionContainer}>
-            <Image src={img} alt={header} fill sizes={"394px"} />
+            <Image src={image} alt={header} fill sizes={"394px"} />
           </div>
         </div>}
     </div>

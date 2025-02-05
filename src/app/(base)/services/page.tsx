@@ -3,121 +3,69 @@ import { ServicesCard } from "@/components/layouts/servicesCard/servicesCard";
 import { clsx } from "clsx";
 import { BigBubble } from "@/components/video/bigBubble/bigBubble";
 import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
+import { api } from "@/common/api";
+import { ChildService } from "@/common/types";
 
 
-export default function Services() {
+export default async function Services() {
+  const services = await api.getServices();
+  const formattedTags = (tags: ChildService[]) => {
+    return tags.map(tag => {
+      return {
+        tag: tag.title,
+        price: tag.cost,
+        serviceId: tag.serviceId
+      };
+    });
+  };
+
+  if (!services) return null;
 
   return (
     <div className={clsx(s.servicesPage, "mainContainer")}>
-      <BigBubble className={s.bigBubble}/>
-      <SmallBubble className={s.smallBubble}/>
+      <BigBubble className={s.bigBubble} />
+      <SmallBubble className={s.smallBubble} />
       <h1>УСЛУГИ</h1>
       <div className={s.cardsContainer}>
         <div className={s.firstRow}>
-          <ServicesCard
-            serviceCategory={"website-development"}
-            number={"01"}
-            header={"Разработка Веб-Сайтов"}
-            tags={[
-              {
-                tag: "Промо-сайт",
-                price: "40000",
-                serviceId: "promo-website"
-              },
-              {
-                tag: "Лендинг",
-                price: "40000",
-                serviceId: "landing"
-              },
-              {
-                tag: "Многостраничный сайт",
-                price: "40000",
-                serviceId: "multi-page-website"
-              },
-              {
-                tag: "Сайт-каталог",
-                price: "40000",
-                serviceId: "catalog-website"
-              },
-              {
-                tag: "Интернет-магазин",
-                price: "40000",
-                serviceId: "online-store"
-              }
-            ]}
-            size={"medium"}
-            className={s.serviceCard}
-          />
-          <ServicesCard
-            serviceCategory={"internet-marketing"}
-            number={"02"}
-            header={"Интернет-Маркетинг"}
-            tags={[
-              {
-                tag: "Контентное продвижение",
-                price: "40000",
-                serviceId: "content-promotion"
-              },
-              { tag: "SEO", price: "40000", serviceId: "seo" },
-              {
-                tag: "Контекстная реклама",
-                price: "40000",
-                serviceId: "contextual-advertising"
-              },
-              {
-                tag: "Таргетированная реклама",
-                price: "40000",
-                serviceId: "targeted-advertising"
-              }
-            ]}
-            size={"small"}
-            className={s.serviceCard}
-          />
+          {services[0] &&
+            <ServicesCard
+              serviceCategory={services[0].url}
+              number={services[0].service_number}
+              header={services[0].title}
+              tags={formattedTags(services[0].child_services)}
+              size={"medium"}
+              className={s.serviceCard}
+            />}
+          {services[1] &&
+            <ServicesCard
+              serviceCategory={services[1].url}
+              number={services[1].service_number}
+              header={services[1].title}
+              tags={formattedTags(services[1].child_services)}
+              size={"small"}
+              className={s.serviceCard}
+            />}
         </div>
         <div className={s.secondRow}>
-          <ServicesCard
-            serviceCategory={"support&development"}
-            number={"03"}
-            header={"Поддержка и Развитие"}
-            tags={[
-              {
-                tag: "Техническая поддержка",
-                price: "40000",
-                serviceId: "technical-support"
-              },
-              {
-                tag: "Контент поддержка",
-                price: "40000",
-                serviceId: "content-support"
-              },
-              {
-                tag: "Маркетинговая поддержка",
-                price: "40000",
-                serviceId: "marketing-support"
-              }
-            ]}
-            size={"small"}
-            className={s.serviceCard}
-          />
-          <ServicesCard
-            serviceCategory={"additional"}
-            number={"04"}
-            header={"Дополнительные Услуги"}
-            tags={[
-              {
-                tag: "Аудит существующего сайта",
-                price: "40000",
-                serviceId: "audit"
-              },
-              {
-                tag: "Упаковка франшиз",
-                price: "40000",
-                serviceId: "franchise-packaging"
-              }
-            ]}
-            size={"medium"}
-            className={s.serviceCard}
-          />
+          {services[2] &&
+            <ServicesCard
+              serviceCategory={services[2].url}
+              number={services[2].service_number}
+              header={services[2].title}
+              tags={formattedTags(services[2].child_services)}
+              size={"small"}
+              className={s.serviceCard}
+            />}
+          {services[3] &&
+            <ServicesCard
+              serviceCategory={services[3].url}
+              number={services[3].service_number}
+              header={services[3].title}
+              tags={formattedTags(services[3].child_services)}
+              size={"medium"}
+              className={s.serviceCard}
+            />}
         </div>
       </div>
     </div>

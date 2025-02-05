@@ -31,6 +31,16 @@ const nextConfig = {
         );
         return config;
     },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'octow.octoweb.ru',
+                port: '',
+                pathname: '/**',
+            },
+        ],
+    },
 };
 
 export default nextConfig;

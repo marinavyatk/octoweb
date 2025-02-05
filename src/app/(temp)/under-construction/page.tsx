@@ -3,21 +3,15 @@
 import s from "./underConstruction.module.scss";
 import { ContactButton } from "@/components/ui/buttons/contactButton/contactButton";
 import Image from "next/image";
-import { useAuth } from "@/common/customHooks/tempPassword";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
-
-  const { auth } = useAuth();
   const router = useRouter();
-
   const onClickHandler = () => {
     const password = prompt("Для команды");
-    if (password) {
-      const result = auth(password);
-      if (result) {
-        router.push("/");
-      }
+    if (password === "op123en") {
+      document.cookie = "isAuthorized=true; path=/; max-age=2592000";
+      router.push("/");
     }
   };
 

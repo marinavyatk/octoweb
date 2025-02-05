@@ -6,17 +6,17 @@ import { BriefButton } from "@/components/ui/buttons/briefButton/briefButton";
 import { NavigationButton } from "@/components/ui/buttons/navigationButton/navigationButton";
 
 export type FooterProps =
-  { needBriefLink?: boolean, contactLinksProps?: ContactLinksProps }
+  { needBriefLink?: boolean, contactLinksProps: ContactLinksProps }
   & ComponentPropsWithoutRef<"div">;
 
 export const Footer = (props: FooterProps) => {
-  const { needBriefLink = true, className, contactLinksProps,...restProps } = props;
+  const { needBriefLink = true, className, contactLinksProps, ...restProps } = props;
   const classNames = clsx(s.footer, className);
 
   return (
     <div {...restProps} className={classNames}>
       <div className={s.container}>
-        <ContactLinks {...contactLinksProps}/>
+        <ContactLinks {...contactLinksProps} />
         {needBriefLink && <BriefButton variant={"secondary"} className={s.briefButton} />}
         <div className={s.contacts}>
           <a href="mailto:info@octoweb.ru" className={clsx("noRoutingLink", s.email)}

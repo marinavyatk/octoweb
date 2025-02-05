@@ -6,16 +6,22 @@ import ArrowIconForPrices from "@/svg/arrow4.svg";
 import { AccentTable } from "@/components/layouts/accentTable/accentTable";
 import { PriceTable } from "@/components/layouts/priceTable/priceTable";
 import { CooperationCard } from "@/components/sections/cooperationCard/cooperationCard";
-import { serviceData } from "@/common/componentsData/service";
-import { faqData } from "@/common/componentsData/faq";
 import { Button } from "@/components/ui/buttons/button/button";
 import { Advantages } from "@/components/sections/advantages/advantages";
 import { Picture } from "@/components/ui/picture/picture";
 import { BigBubble } from "@/components/video/bigBubble/bigBubble";
 import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
+import { api } from "@/common/api";
 
 
-export default function Service() {
+export default async function Service({ params }: {
+  params: Promise<{ service: string }>
+}) {
+  const { service } = await params;
+  const serviceInfo = await api.getService(service);
+
+  if (!serviceInfo) return null;
+
   return (
     <div className={s.servicePage}>
       <div className={s.bubblesMain}>
@@ -23,9 +29,9 @@ export default function Service() {
         <SmallBubble className={s.smallBubbleMain} />
       </div>
       <div className={"mainContainer"}>
-        <h1>{serviceData.serviceName}</h1>
+        <h1>{serviceInfo.title}</h1>
         <div className={s.discussProject}>
-          <p className={s.description}>{serviceData.description}</p>
+          <div className={s.description} dangerouslySetInnerHTML={{ __html: serviceInfo["first_description"] }}></div>
           <Button
             text={"ОБСУДИТЬ ПРОЕКТ"}
             as={"a"}
@@ -33,16 +39,17 @@ export default function Service() {
             className={s.arrowLink}
           />
         </div>
-        <Picture src={"/onlineStoreImg.webp"}
-                 alt={""}
-                 fill
-                 sizes={"100vw"}
-                 priority
-                 containerProps={{ className: s.serviceImg }} />
+        <Picture
+          src={serviceInfo.image}
+          alt={""}
+          fill
+          sizes={"100vw"}
+          priority
+          containerProps={{ className: s.serviceImg }} />
         <div className={s.aboutService}>
           <h2>ОБ УСЛУГЕ</h2>
           <div className={s.serviceContainer}>
-            <p className={s.description}>{serviceData.aboutService}</p>
+            <div className={s.description} dangerouslySetInnerHTML={{ __html: serviceInfo.content }}></div>
             <Button
               as={"a"}
               text={"Консультация"}
@@ -57,18 +64,17 @@ export default function Service() {
           <BigBubble className={s.bigBubbleAdvantages} />
         </div>
         <Advantages />
-
         <AccentTable
-          header={serviceData.audience.header}
-          items={serviceData.audience.items}
+          header={serviceInfo.for_whom_title}
+          items={serviceInfo.for_whom}
           className={s.table}
         />
         <div className={s.bubblesTable}>
           <SmallBubble className={s.smallBubbleTable} />
         </div>
         <Team
-          teamMembersInfo={serviceData.team.teamMembersInfo}
-          intro={serviceData.team.intro}
+          teamMembersInfo={serviceInfo.team}
+          intro={serviceInfo.team_section_text}
           className={s.team}
         />
       </div>
@@ -76,7 +82,7 @@ export default function Service() {
       <section className={s.prices}>
         <div className={s.pricesContainer}>
           <div className={s.cost}>
-            Стоимость <br />от <span className={s.price}>{serviceData.cost} ₽</span>
+            Стоимость <br />от <span className={s.price}>{serviceInfo.cost} ₽</span>
           </div>
           <Button
             as={"a"}
@@ -89,17 +95,15 @@ export default function Service() {
           <BigBubble className={s.bigBubblePrices} />
         </div>
         <div className={s.additionalServices}>
-
-
           <h2>
             ДОПОЛНИТЕЛЬНЫЕ <br /> УСЛУГИ
           </h2>
           <ArrowIconForPrices className={s.arrow} />
-          <PriceTable priceItems={serviceData.priceTable} />
+          <PriceTable priceItems={serviceInfo.additional_services} />
         </div>
       </section>
       <div className={"mainContainer"}>
-        <FAQ className={s.faq} faqData={faqData} />
+        <FAQ className={s.faq} faqData={serviceInfo.faq} />
       </div>
     </div>
   );

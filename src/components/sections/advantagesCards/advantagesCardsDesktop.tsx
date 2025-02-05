@@ -1,13 +1,12 @@
 "use client";
 
 import s from "./advantagesCards.module.scss";
-import { animated, useSpring, config } from "@react-spring/web";
+import { animated, config, useSpring } from "@react-spring/web";
 import { SquidIcon } from "@/components/layouts/squidIcon";
 import { AdvantageCards } from "@/components/layouts/advantageCards/advantageCards";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { clsx } from "clsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,12 +17,21 @@ export const AdvantagesCardsDesktop = () => {
   useEffect(() => {
     if (window.innerWidth <= 1265) return;
     const trigger = ScrollTrigger.create({
-      trigger: ".container",
+      trigger: ".advantagesContainer",
       start: "-70px top",
-      pin: ".container",
+      pin: ".advantagesContainer",
       scrub: true,
       end: "+=200%",
       onUpdate: self => setScrollProgress(self.progress),
+      pinnedContainer: ".main",
+      once: true,
+      onLeave: (self) => {
+        const start = self.start;
+        self.scroll(start);
+        self.kill();
+        ScrollTrigger.refresh();
+        window.scrollTo(0, start);
+      },
     });
 
     return () => {
@@ -53,7 +61,7 @@ export const AdvantagesCardsDesktop = () => {
   });
 
   return (
-    <section className={clsx(s.advantages, "container")}>
+    <section className={s.advantages}>
       <animated.h2 style={headerStyles}>ПОЧЕМУ МЫ?</animated.h2>
       <animated.div className={s.arrow} style={arrowStyles}></animated.div>
       <animated.div className={s.backgroundSymbol} style={squidStyles}>

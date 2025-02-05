@@ -37,6 +37,27 @@
   height: 88px;
 }
 
+.advantagesBubbles {
+  position: relative;
+  contain: layout;
+  z-index: -1;
+}
+
+.bigBubbleAdvantages {
+  top: -400px;
+  left: -300px;
+  width: 800px;
+  height: 800px;
+}
+
+.advantagesBubbles .smallBubbleAdvantages {
+  top: 200px;
+  left: 400px;
+  z-index: -4;
+  width: 600px;
+  height: 600px;
+}
+
 @media (max-width: 1905px) {
   .advantages {
     display: block;
@@ -85,6 +106,16 @@
   .backgroundSymbol + .backgroundSymbol {
     left: calc(var(--offset-x) + 33px);
   }
+
+  .bigBubbleAdvantages {
+    top: -400px;
+    left: -300px
+  }
+
+  .advantagesBubbles .smallBubbleAdvantages {
+    top: 600px;
+    left: 50px;
+  }
 }
 
 @media (max-width: 1265px) {
@@ -105,6 +136,21 @@
 
   .backgroundSymbol + .backgroundSymbol {
     left: calc(var(--offset-x) + 33px);
+  }
+
+  .bigBubbleAdvantages {
+    top: -150px;
+    left: unset;
+    right: -150px;
+    width: 400px;
+    height: 400px;
+  }
+
+  .advantagesBubbles .smallBubbleAdvantages {
+    top: 1500px;
+    left: 0;
+    width: 400px;
+    height: 400px;
   }
 }
 
@@ -135,6 +181,21 @@
   .advantagesCards {
     max-width: var(--small-screen-max-width);
     margin: auto;
+  }
+
+  .bigBubbleAdvantages {
+    top: -100px;
+    left: unset;
+    right: -200px;
+    width: 400px;
+    height: 400px;
+  }
+
+  .advantagesBubbles .smallBubbleAdvantages {
+    top: 900px;
+    left: -100px;
+    width: 350px;
+    height: 350px;
   }
 }
 

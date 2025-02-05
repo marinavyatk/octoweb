@@ -10,11 +10,12 @@ import { ContactButton } from "@/components/ui/buttons/contactButton/contactButt
 import { useRef, useState } from "react";
 import { useClose } from "@/common/customHooks/useClose";
 import { ContactLinks } from "@/components/layouts/contactLinks/contactLinks";
+import { Social } from "@/common/types";
 
-type HeaderMobileProps = { needContactButton?: boolean }
+type HeaderMobileProps = { needContactButton?: boolean, socials: Social[] }
 
 export const HeaderMobile = (props: HeaderMobileProps) => {
-  const { needContactButton = true } = props;
+  const {socials, needContactButton = true } = props;
   const [open, setOpen] = useState(false);
   const sideMenuRef = useRef<HTMLDivElement>(null);
   const close = () => {
@@ -41,7 +42,7 @@ export const HeaderMobile = (props: HeaderMobileProps) => {
             </div>
             <Navbar className={s.navbar} onEveryLinkClick={close} />
           </div>
-          <ContactLinks className={s.links} needWarning={false}/>
+          <ContactLinks className={s.links} needWarning={false} socials={socials}/>
           {needContactButton && <ContactButton className={s.contactButton} onClick={close} />}
         </div>
       </div>

@@ -6,31 +6,42 @@ import TelegramIcon from "@/svg/socials/telegram.svg";
 import InstagramIcon from "@/svg/socials/instagram.svg";
 import WhatsAppIcon from "@/svg/socials/whatsUp.svg";
 import VKIcon from "@/svg/socials/vk.svg";
+import { Social } from "@/common/types";
 
 export type ContactLinksProps =
-  { containerProps?: ComponentPropsWithoutRef<"div">, needWarning?: boolean }
+  { socials: Social[], containerProps?: ComponentPropsWithoutRef<"div">, needWarning?: boolean }
   & ComponentPropsWithoutRef<"div">;
 
 export const ContactLinks = (props: ContactLinksProps) => {
-  const { className, containerProps, needWarning = true, ...restProps } = props;
+  const { socials, className, containerProps, needWarning = true, ...restProps } = props;
   const containerClassNames = clsx(s.contactLinksContainer, containerProps?.className);
   const classNames = clsx(s.contactLinks, className);
+
+  const contactLinks = socials?.map((social: Social) => {
+    switch (social.name) {
+      case "telegram":
+        return <ContactLink href={social.url} aria-label="Telegram" key={social.name} >
+          <TelegramIcon /> <span>Telegram</span>
+        </ContactLink>;
+      case "instagram":
+        return <ContactLink href={social.url} aria-label="Instagram" key={social.name}>
+          <InstagramIcon /> <span>Instagram*</span>
+        </ContactLink>;
+      case "whatsapp":
+        return <ContactLink href={social.url} aria-label="WhatsApp" key={social.name}>
+          <WhatsAppIcon /> <span>WhatsApp</span>
+        </ContactLink>;
+      case "vk":
+        return <ContactLink href={social.url} aria-label="VK group" key={social.name}>
+          <VKIcon /> <span>VK group</span>
+        </ContactLink>;
+    }
+  });
 
   return (
     <div {...restProps} className={containerClassNames}>
       <div className={classNames}>
-        <ContactLink href={"https://web.telegram.org/a/"} aria-label="Telegram">
-          <TelegramIcon /> <span>Telegram</span>
-        </ContactLink>
-        <ContactLink href={"#"} aria-label="Instagram">
-          <InstagramIcon /> <span>Instagram*</span>
-        </ContactLink>
-        <ContactLink href={"#"} aria-label="WhatsApp">
-          <WhatsAppIcon /> <span>WhatsApp</span>
-        </ContactLink>
-        <ContactLink href={"#"} aria-label="VK group">
-          <VKIcon /> <span>VK group</span>
-        </ContactLink>
+        {contactLinks}
       </div>
       {needWarning &&
         <p className={s.warning}>* Instagram принадлежит компании Meta, признанной экстремистской организацией и

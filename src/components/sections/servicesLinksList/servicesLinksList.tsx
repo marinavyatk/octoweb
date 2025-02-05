@@ -15,7 +15,7 @@ export const ServicesLinksList = (props: ServicesLinksListProps) => {
   const classNames = clsx(s.services, className);
 
   const linkList = linksData.map((link, index) => {
-    const number = formatNumber(index);
+    const number = link.number? link.number : formatNumber(index);
     return <ServicesLink {...link} key={number} number={number} linkProps={{"aria-label": `Перейти к странице "${link.header}"`}}/>;
   });
 

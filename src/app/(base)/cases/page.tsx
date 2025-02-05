@@ -1,13 +1,12 @@
 "use client";
 
 import s from "./cases.module.scss";
-import { CaseCircle, Category } from "@/components/layouts/caseCircle/caseCircle";
+import { CaseCircle } from "@/components/layouts/caseCircle/caseCircle";
 import { FilterButton } from "@/components/ui/buttons/filterButton/filterButton";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CaseCircleList } from "@/components/sections/caseCircleList/caseCircleList";
 import { CaseCardFullWidth } from "@/components/layouts/caseCardFullWidth/caseCardFullWidth";
 import { CaseCard, Size } from "@/components/layouts/caseCard/caseCard";
-import { buttons, casesData, circles, sizes } from "@/common/componentsData/cases";
 import { v4 as uuid } from "uuid";
 import { Button } from "@/components/ui/buttons/button/button";
 import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
@@ -15,15 +14,57 @@ import { BigBubble } from "@/components/video/bigBubble/bigBubble";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { clsx } from "clsx";
+import { api } from "@/common/api";
+import { CaseData } from "@/common/types";
+import { usePathname, useSearchParams } from "next/navigation";
+import { Loader } from "@/components/ui/loader/loader";
 
 gsap.registerPlugin(ScrollTrigger);
 
 
 export default function Cases() {
-  const [currentFilter, setCurrentFilter] = useState<Category>("All projects");
+  const defaultFilter = "All projects";
+  const sizes = ["extraLarge", "large", "small", "medium", "fullWidth"];
+  const defaultPage = 1;
+  const [casesCircles, setCasesCircles] = useState<CaseCircle[]>();
+  const [casesCards, setCasesCards] = useState<CaseData[]>();
+  const [total, setTotal] = useState(0);
+  const [filters, setFilters] = useState<string[]>([]);
+  const [currentFilter, setCurrentFilter] = useState<string>(defaultFilter);
   const container = useRef<HTMLDivElement | null>(null);
+  const [page, setPage] = useState(defaultPage);
+  const [loading, setLoading] = useState(false);
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const casesCirclesMemo = useMemo(() => (casesCircles), [
+    casesCircles
+  ]);
 
   useEffect(() => {
+    const filter = searchParams.get("filter");
+    if (filter) {
+      setCurrentFilter(filter);
+    }
+    const getCases = async () => {
+      const response = await api.getCases(page, filter);
+      console.log("cases response", response);
+      setCasesCards(response?.cases);
+      setCasesCircles(response?.caseCircles);
+      setTotal(response?.total || 0);
+    };
+
+    const getCasesFilters = async () => {
+      const response = await api.getCasesFilters();
+      setFilters(response || []);
+    };
+
+    getCases();
+    getCasesFilters();
+  }, []);
+
+
+  useEffect(() => {
+    if (!casesCards || !casesCards?.length) return;
     gsap.set(".fullWidth", {
       y: 100,
       opacity: 0
@@ -37,7 +78,7 @@ export default function Cases() {
       opacity: 0
     });
 
-    ScrollTrigger.batch(".case", {
+  const triggers =  ScrollTrigger.batch(".case", {
       interval: 0.4,
       onEnter: (batch) => {
         gsap.to(
@@ -46,48 +87,94 @@ export default function Cases() {
         );
       }
     });
-  }, []);
 
-  const filteredCases: CaseCircle[] =
-    currentFilter === "All projects"
-      ? circles
-      : circles.filter((el) => el.category === currentFilter);
+    return () => {
+      triggers.forEach(trigger => trigger.kill());
+      ScrollTrigger.refresh()
+    };
+  }, [casesCards]);
 
-  const filterButtons = buttons.map((button) => {
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set(name, value);
+
+      return params.toString();
+    },
+    [searchParams]
+  );
+
+  if (!casesCards) {
+    return null;
+  }
+
+  const getMoreCases = async () => {
+    setLoading(true);
+    const newCases = await api.getCases(page + 1, currentFilter);
+    setLoading(false);
+    setPage(page + 1);
+    if (!newCases) return null;
+    setCasesCards([...casesCards, ...newCases.cases]);
+    ScrollTrigger.refresh()
+  };
+
+  const setFilter = async (filter: string) => {
+    if (filter === currentFilter) return null;
+    setLoading(true);
+    setCurrentFilter(filter);
+    const newCases = await api.getCases(defaultPage, filter === defaultFilter ? null : filter);
+    setLoading(false);
+
+    if (filter === defaultFilter) {
+      window.history.replaceState(null, "", pathname);
+    } else {
+      window.history.replaceState(null, "", pathname + "?" + createQueryString("filter", filter));
+    }
+
+    if (!newCases) return null;
+    setCasesCards(newCases.cases);
+    setCasesCircles(newCases.caseCircles);
+  };
+
+  const filterButtons = filters.map((button) => {
     return (
       <FilterButton
         key={button}
         value={button}
         active={button === currentFilter}
-        onClick={() => setCurrentFilter(button)}
+        onClick={() => setFilter(button)}
       >
         {button}
       </FilterButton>
     );
   });
 
-  const cases = casesData.map((card, index) => {
+  const cases = casesCards?.map((card, index) => {
     const size = sizes[index % sizes.length];
     const cardClassName = s[size];
     const animationIndex = index < 5 ? index : index - Math.trunc(index / 5);
+    const { img, imgFullWidth, ...commonCardProps } = card;
 
     return (index + 1) % 5 !== 0 ? (
       <CaseCard
+        key={uuid()}
+        index={animationIndex}
         size={size as Size}
         className={cardClassName}
-        key={uuid()}
-        {...card}
-        index={animationIndex}
+        {...commonCardProps}
+        img={img}
       />
     ) : (
       <div className={clsx(s.fullWidthContainer, "case", "fullWidth")} key={uuid()}>
         <CaseCardFullWidth
-          {...card}
+          {...commonCardProps}
+          img={imgFullWidth}
         />
       </div>
       //container need for correct cards order on small screens
     );
   });
+
 
   return (
     <div className={s.casesPage}>
@@ -98,16 +185,22 @@ export default function Cases() {
         </div>
       </div>
       <CaseCircleList
-        caseCircles={filteredCases}
+        caseCircles={casesCirclesMemo || []}
         className={s.caseCircleList}
       />
       <div className={s.smallBubbleCirclesContainer}>
         <SmallBubble className={s.smallBubbleCircles} />
       </div>
-      <div className={s.casesList} ref={container}>{cases}
+      <div className={s.casesList} ref={container}>
+        {cases}
         <SmallBubble className={s.smallBubbleCases} />
       </div>
-      <Button text={"Показать ещё"} className={s.showMoreButton} />
+      {loading && <div className={s.loaderContainer}>
+        <Loader />
+      </div>}
+      {casesCards.length < total &&
+        <Button text={"Показать ещё"} className={s.showMoreButton} onClick={getMoreCases} />
+      }
       <div className={s.bigBubbleEndContainer}>
         <BigBubble className={s.bigBubbleEnd} />
       </div>

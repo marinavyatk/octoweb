@@ -14,6 +14,5 @@ export const Primary: Story = {
   args: {
     img: '/case-circle-botanica.png',
     caseId: "botanica",
-    category: "Web",
   },
 };

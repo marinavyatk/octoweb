@@ -12,8 +12,9 @@ import { Button } from "@/components/ui/buttons/button/button";
 import { InputWithCounter } from "@/components/ui/textField/inputWithCounter/inputWithCounter";
 import { formSchema } from "@/common/validation";
 import { FormNotification } from "@/components/layouts/formNotification/formNotification";
+import { api } from "@/common/api";
 
-type FormValues = z.infer<typeof formSchema>;
+export type FormValues = z.infer<typeof formSchema>;
 export type FormProps = ComponentPropsWithoutRef<"div">;
 
 export const Form = (props: FormProps) => {
@@ -27,7 +28,7 @@ export const Form = (props: FormProps) => {
     handleSubmit,
     formState: { errors },
     reset,
-    setValue,
+    setValue
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -41,16 +42,24 @@ export const Form = (props: FormProps) => {
     mode: "onBlur"
   });
 
-  console.log(errors);
+  console.log("form errors:", errors);
 
   const onSubmit = (data: FormValues) => {
-    console.log(data);
-    //if ok
-    setIsFormNotificationShown(true)
+    console.log('data you send:', data);
+    api.postForm(data).then((response) => {
+      console.log('response from server:', response);
+      if (!("code" in response)) {
+        setIsFormNotificationShown(true);
+        document.body.style.overflow = "hidden";
+      } else {
+        console.log("error from server");
+      }
+    });
   };
 
   const handleCloseNotification = () => {
     setIsFormNotificationShown(false);
+    document.body.style.overflow = "unset";
     reset();
   };
 
@@ -98,7 +107,7 @@ export const Form = (props: FormProps) => {
             errors.projectDescriptionFile?.message
           ]}
           className={s.inputWithCounter}
-          onDeleteFile={()=>setValue('projectDescriptionFile', {} as FileList, { shouldValidate: true })}
+          onDeleteFile={() => setValue("projectDescriptionFile", {} as FileList, { shouldValidate: true })}
         />
         <Checkbox
           {...register("mailing")}

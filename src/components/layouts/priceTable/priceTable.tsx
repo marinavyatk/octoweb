@@ -3,7 +3,7 @@ import {clsx} from 'clsx';
 import s from './priceTable.module.scss';
 
 export type priceItem = {
-    service: string;
+    name: string;
     price: string;
 };
 
@@ -17,8 +17,8 @@ export const PriceTable = (props: PriceTableProps) => {
 
     const priceList = priceItems.map((item) => {
         return (
-            <div className={s.priceRow} key={item.service + ' ' + item.price}>
-                <h3>{item.service}</h3>
+            <div className={s.priceRow} key={item.name + ' ' + item.price}>
+                <h3>{item.name}</h3>
                 <span className={s.price}>от {item.price} ₽</span>
             </div>
         );

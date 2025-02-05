@@ -17,7 +17,7 @@ export type TeamProps = {
 export const Team = (props: TeamProps) => {
   const { teamMembersInfo, intro, className, ...restProps } = props;
   const classNames = clsx(s.team, className);
-  const teamMembers = teamMembersInfo.map((member) => member.id);
+  const teamMembers = teamMembersInfo.map((member) => member.position);
   const [currentMember, setCurrentMember] = useState(teamMembers[0]);
   const teamMembersList = teamMembers.map((member) => {
     return (
@@ -34,20 +34,20 @@ export const Team = (props: TeamProps) => {
   });
 
   const currentMemberInfo = teamMembersInfo
-    .find((member) => member.id === currentMember);
+    .find((member) => member.position === currentMember);
 
   const currentMemberCard = currentMemberInfo && <TeamMemberIntro
     {...currentMemberInfo}
-    key={currentMemberInfo.id}
+    key={currentMemberInfo.name}
   />;
 
   return (
     <section {...restProps} className={classNames}>
       <h2 className={s.mobileHeader}>Над проектом <br /> будут работать</h2>
-      <p className={s.mobileIntro}>{intro}</p>
+      <div className={s.mobileIntro} dangerouslySetInnerHTML={{ __html: intro }} />
       <div className={s.teamContainer}>
         <div className={s.firstCol}>
-          <p className={s.desktopIntro}>{intro}</p>
+          <div className={s.desktopIntro} dangerouslySetInnerHTML={{ __html: intro }}></div>
           <div className={s.teamMemberContainer}>
             <Image src={"/teamMemberBackground.webp"} alt={""}
                    className={s.background}
