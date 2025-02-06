@@ -45,12 +45,11 @@ export const Form = (props: FormProps) => {
   console.log("form errors:", errors);
 
   const onSubmit = (data: FormValues) => {
-    console.log('data you send:', data);
+    console.log("data you send:", data);
     api.postForm(data).then((response) => {
-      console.log('response from server:', response);
+      console.log("response from server:", response);
       if (!("code" in response)) {
         setIsFormNotificationShown(true);
-        document.body.style.overflow = "hidden";
       } else {
         console.log("error from server");
       }
@@ -59,7 +58,6 @@ export const Form = (props: FormProps) => {
 
   const handleCloseNotification = () => {
     setIsFormNotificationShown(false);
-    document.body.style.overflow = "unset";
     reset();
   };
 
