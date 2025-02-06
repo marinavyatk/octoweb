@@ -48,7 +48,7 @@ export const api = {
       const formattedServicesList = response.data.child_services.map(service => {
         return {
           header: service.title,
-          mainLink: response.data.serviceCategory + "/" + service.serviceId,
+          mainLink: response.data.serviceCategory + "/" + service.serviceId
         };
       });
       const formattedData = { ...response.data, linksData: formattedServicesList };
@@ -137,14 +137,30 @@ export const api = {
       console.error("Не удалось загрузить контактную информацию", error);
     }
   },
-  //POST
+//   //POST
   async postForm(form: FormValues) {
+    const file = form.projectDescriptionFile[0] as Blob | undefined;
+    const fileURL = file ? URL.createObjectURL(file) : "";
+
+    const formData = new FormData();
+    formData.append("form_id", "contact-page");
+    formData.append("data[name]", form.name);
+    formData.append("data[email]", form.email);
+    formData.append("data[tel]", form.tel);
+    formData.append("data[projectDescription]", form.projectDescription);
+    formData.append("data[projectDescriptionFile]", fileURL);
+    formData.append("data[mailing]", String(form.mailing));
+
     try {
-      const response = await instance.post("/contact-form", {form_id: 'contact-page', data: form});
+      const response = await instance.post("/contact-form", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      });
       return response.data;
     } catch (error) {
       console.error("Не удалось отправить форму", error);
-      return error
+      return error;
     }
   }
 };
