@@ -1,6 +1,6 @@
 "use client";
 
-import { ComponentPropsWithoutRef, ElementRef, useRef, useState } from "react";
+import { ComponentPropsWithoutRef, useRef, useState } from "react";
 import clsx from "clsx";
 import s from "./form.module.scss";
 import { Input } from "@/components/ui/textField/input";
@@ -13,6 +13,7 @@ import { InputWithCounter } from "@/components/ui/textField/inputWithCounter/inp
 import { formSchema } from "@/common/validation";
 import { FormNotification } from "@/components/layouts/formNotification/formNotification";
 import { api } from "@/common/api";
+import { Loader } from "@/components/ui/loader/loader";
 
 export type FormValues = z.infer<typeof formSchema>;
 export type FormProps = ComponentPropsWithoutRef<"div">;
@@ -21,14 +22,16 @@ export const Form = (props: FormProps) => {
   const { className, ...restProps } = props;
   const classNames = clsx(s.form, className);
   const [isFormNotificationShown, setIsFormNotificationShown] = useState(false);
-  const form = useRef<ElementRef<"form">>(null);
+  const form = useRef<HTMLFormElement>(null);
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     // reset,
-    setValue
+    setValue,
+    setError,
+    setFocus
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -44,16 +47,19 @@ export const Form = (props: FormProps) => {
 
   console.log("form errors:", errors);
 
-  const onSubmit = (data: FormValues) => {
-    console.log("data you send:", data);
-    api.postForm(data).then((response) => {
-      console.log("response from server:", response);
-      if (!("code" in response)) {
-        setIsFormNotificationShown(true);
-      } else {
-        console.log("error from server");
-      }
-    });
+  const onSubmit = async (data: FormValues) => {
+    const response = await api.postForm(data);
+
+    if (!("code" in response)) {
+      setIsFormNotificationShown(true);
+    } else {
+      if (response?.data?.status === 400)
+        Object.entries(response.data.errors).forEach(([key, value], index) => {
+          const typedKey = key as keyof FormValues;
+          setError(typedKey, { type: "server", message: value as string });
+          if (index === 0) setFocus(typedKey);
+        });
+    }
   };
 
   const handleCloseNotification = () => {
@@ -64,7 +70,16 @@ export const Form = (props: FormProps) => {
   return (
     <div {...restProps} className={classNames}>
       {isFormNotificationShown && <FormNotification onButtonClick={handleCloseNotification} />}
-      <form onSubmit={handleSubmit(onSubmit)} ref={form} autoComplete="off">
+      {isSubmitting &&
+        <div className={s.loaderContainer}>
+          <Loader />
+        </div>
+      }
+      <form onSubmit={handleSubmit(onSubmit)}
+            ref={form}
+            noValidate
+      >
+
         <div className={s.mainInfo}>
           <Input
             label={"Имя"}

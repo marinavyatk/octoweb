@@ -16,7 +16,9 @@ export const AdvantagesCardsDesktop = () => {
 
   useEffect(() => {
     if (window.innerWidth <= 1265) return;
+
     const trigger = ScrollTrigger.create({
+      id: "advantagesCards",
       trigger: ".advantagesContainer",
       start: "-70px top",
       pin: ".advantagesContainer",
@@ -31,12 +33,37 @@ export const AdvantagesCardsDesktop = () => {
         self.kill();
         ScrollTrigger.refresh();
         window.scrollTo(0, start);
-      },
+      }
     });
 
     return () => {
       trigger.kill();
     };
+  }, []);
+
+  //need for correct anchor link behaviour on main page
+  useEffect(() => {
+    const contactButtons = document.querySelectorAll("#formAnchor");
+    if (!contactButtons) return;
+
+    const scrollToForm = (e: Event) => {
+      e.preventDefault();
+      setScrollProgress(1);
+      const trigger = ScrollTrigger.getById("advantagesCards");
+      trigger?.kill();
+      const footerTrigger = ScrollTrigger.getById("footer");
+      footerTrigger?.refresh();
+      const form = document.getElementById("form");
+      form?.scrollIntoView({ behavior: "smooth" });
+    };
+
+    contactButtons.forEach(button => {
+      button.addEventListener("click", scrollToForm);
+    });
+
+    return () => contactButtons.forEach(button => {
+      button.removeEventListener("click", scrollToForm);
+    });
   }, []);
 
   const headerStyles = useSpring({

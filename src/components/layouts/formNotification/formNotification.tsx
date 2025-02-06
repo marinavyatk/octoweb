@@ -10,7 +10,7 @@ export const FormNotification = (props: FormNotificationProps) => {
   const { onButtonClick } = props;
 
   return (
-    <Modal className={s.content}>
+    <Modal contentProps={{className: s.content}} modalHeader={'Форма успешно отправлена'} rootProps={{defaultOpen: true}}>
         <div className={s.submittedIcon}>
           <SubmittedIcon />
         </div>

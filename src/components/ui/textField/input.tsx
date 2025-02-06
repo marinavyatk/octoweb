@@ -22,7 +22,7 @@ export const Input = React.forwardRef((props: InputProps, ref: Ref<HTMLInputElem
       ...restProps
     } = props;
     const classNames = clsx(s.inputContainer, className, {
-      [s.error]: errorMessage,
+      [s.error]: !!errorMessage,
     });
 
     return (

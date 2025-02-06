@@ -175,7 +175,7 @@ export default function Brief() {
           <span className={s.time}>Примерное время <span>заполнения — 15-30 мин.</span></span>
         </section>
 
-        <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className={s.formWithNavigation}>
             <BriefNavbar navItems={briefSections} className={s.navbar} />
             <div className={s.fields}>

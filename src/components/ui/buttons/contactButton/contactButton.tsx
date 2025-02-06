@@ -9,7 +9,7 @@ export const ContactButton = (props: ContactButtonProps) => {
   const { text = "ОБСУДИТЬ ПРОЕКТ", className, ...restProps } = props;
   const classNames = clsx(s.contactButton, className, "noRoutingLink");
   return (
-    <a className={classNames} rel={"nofollow"} href={"#form"} {...restProps}>
+    <a className={classNames} rel={"nofollow"} href={"#form"} {...restProps} id="formAnchor">
       <span className={s.text}>{text}</span>
       <div className={s.background}></div>
       <div className={s.arrowContainer}>

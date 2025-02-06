@@ -1,12 +1,15 @@
 import axios from "axios";
 import {
   ArticleData,
-  ArticlePageData, ArticlesFilters,
+  ArticlePageData,
+  ArticlesFilters,
   CasePageData,
   CasesData,
   CasesFiltersData,
-  ContactsData, ServiceCategoryPage,
-  ServicePageData, ServicesData
+  ContactsData,
+  ServiceCategoryPage,
+  ServicePageData,
+  ServicesData
 } from "@/common/types";
 import { FormValues } from "@/components/layouts/form/form";
 
@@ -137,16 +140,18 @@ export const api = {
       console.error("Не удалось загрузить контактную информацию", error);
     }
   },
-//   //POST
+//POST
   async postForm(form: FormValues) {
     const formData = new FormData();
     formData.append("form_id", "contact-page");
-    formData.append("data[name]", form.name);
-    formData.append("data[email]", form.email);
-    formData.append("data[tel]", form.tel);
-    formData.append("data[projectDescription]", form.projectDescription);
-    formData.append("data[projectDescriptionFile]", form.projectDescriptionFile[0]);
-    formData.append("data[mailing]", String(form.mailing));
+
+    Object.entries(form).forEach(([key, value]) => {
+      if (value instanceof FileList) {
+        formData.append(`data[${key}]`, value[0]);
+      } else {
+        formData.append(`data[${key}]`, String(value));
+      }
+    });
 
     try {
       const response = await instance.post("/contact-form", formData, {
@@ -156,8 +161,13 @@ export const api = {
       });
       return response.data;
     } catch (error) {
-      console.error("Не удалось отправить форму", error);
-      return error;
+      if (axios.isAxiosError(error)) {
+        console.error("Не удалось отправить форму", error.response?.data);
+        return error.response?.data;
+      } else {
+        console.error("Неизвестная ошибка", error);
+        return { message: "Произошла неизвестная ошибка" };
+      }
     }
   }
 };
