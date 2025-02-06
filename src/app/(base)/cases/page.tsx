@@ -47,7 +47,6 @@ export default function Cases() {
     }
     const getCases = async () => {
       const response = await api.getCases(page, filter);
-      console.log("cases response", response);
       setCasesCards(response?.cases);
       setCasesCircles(response?.caseCircles);
       setTotal(response?.total || 0);
@@ -65,6 +64,7 @@ export default function Cases() {
 
   useEffect(() => {
     if (!casesCards || !casesCards?.length) return;
+    ScrollTrigger.refresh()
     gsap.set(".fullWidth", {
       y: 100,
       opacity: 0
@@ -90,7 +90,6 @@ export default function Cases() {
 
     return () => {
       triggers.forEach(trigger => trigger.kill());
-      ScrollTrigger.refresh()
     };
   }, [casesCards]);
 

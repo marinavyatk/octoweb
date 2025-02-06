@@ -54,7 +54,7 @@ export default function Blog() {
 
   useEffect(() => {
     if (!articlesData || !articlesData?.length) return;
-
+    ScrollTrigger.refresh()
     gsap.set(".fullWidth", {
       y: 100,
       opacity: 0
@@ -78,9 +78,10 @@ export default function Blog() {
       }
     });
 
+    console.log('triggers', triggers);
+
     return () => {
       triggers.forEach(trigger => trigger.kill());
-      ScrollTrigger.refresh()
     };
   }, [articlesData]);
 
