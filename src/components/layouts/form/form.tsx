@@ -27,7 +27,7 @@ export const Form = (props: FormProps) => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
+    // reset,
     setValue
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -58,7 +58,7 @@ export const Form = (props: FormProps) => {
 
   const handleCloseNotification = () => {
     setIsFormNotificationShown(false);
-    reset();
+    // reset();
   };
 
   return (
