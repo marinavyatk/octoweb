@@ -139,16 +139,13 @@ export const api = {
   },
 //   //POST
   async postForm(form: FormValues) {
-    const file = form.projectDescriptionFile[0] as Blob | undefined;
-    const fileURL = file ? URL.createObjectURL(file) : "";
-
     const formData = new FormData();
     formData.append("form_id", "contact-page");
     formData.append("data[name]", form.name);
     formData.append("data[email]", form.email);
     formData.append("data[tel]", form.tel);
     formData.append("data[projectDescription]", form.projectDescription);
-    formData.append("data[projectDescriptionFile]", fileURL);
+    formData.append("data[projectDescriptionFile]", form.projectDescriptionFile[0]);
     formData.append("data[mailing]", String(form.mailing));
 
     try {
