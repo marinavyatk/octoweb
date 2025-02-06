@@ -39,7 +39,7 @@ export default function Brief() {
     handleSubmit,
     formState: { errors, dirtyFields, isDirty },
     watch,
-    reset
+    // reset
   }: UseFormReturn<FormValues> = useForm<FormValues>({
     resolver: zodResolver(briefSchema),
     defaultValues: defaultBriefValues,
@@ -141,7 +141,7 @@ export default function Brief() {
 
   const handleCloseNotification = () => {
     setIsFormNotificationShown(false);
-    reset();
+    // reset();
   };
 
 
