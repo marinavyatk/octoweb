@@ -8,16 +8,19 @@ export type WarningProps = {
 
 export const Warning = (props: WarningProps) => {
   const { onConfirmButtonClick, onCancelButtonClick } = props;
-
   return (
-    <Modal className={s.content}>
-      <p>
-        Уход со страницы приведет к потере введенных данных. Вы уверены, что
-        хотите выйти?
-      </p>
-      <div className={s.buttonsBlock}>
-        <button onClick={onConfirmButtonClick}>Подтвердить</button>
-        <button onClick={onCancelButtonClick}>Отмена</button>
+    <Modal rootProps={{ defaultOpen: true }} modalHeader={"Подтверждение ухода со страницы"}
+    contentProps={{onInteractOutside: onCancelButtonClick}}
+    >
+      <div className={s.content}>
+        <p>
+          Уход со страницы приведет к потере введенных данных. Вы уверены, что
+          хотите выйти?
+        </p>
+        <div className={s.buttonsBlock}>
+          <button onClick={onConfirmButtonClick}>Подтвердить</button>
+          <button onClick={onCancelButtonClick}>Отмена</button>
+        </div>
       </div>
     </Modal>
   );

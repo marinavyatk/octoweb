@@ -16,7 +16,7 @@ export type FooterWithFormProps = { socials: Social[] } & ComponentPropsWithoutR
 export const FooterWithForm = (props: FooterWithFormProps) => {
   gsap.registerPlugin(ScrollTrigger);
   const { socials, className, ...restProps } = props;
-  const classNames = clsx(s.footerWithForm, className, "footer");
+  const classNames = clsx(s.footerWithForm, className);
   const footerRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
@@ -47,7 +47,7 @@ export const FooterWithForm = (props: FooterWithFormProps) => {
   }, [pathname]);
 
   return (
-    <div ref={footerRef}>
+    <div ref={footerRef} className={"footer"}>
     <div {...restProps} className={classNames} id={"form"} >
       <div className={s.secondaryFormImg}></div>
       <div className={s.formContainer} >

@@ -73,6 +73,7 @@
 
   .textField {
     color: var(--color-error);
+    -webkit-text-fill-color: var(--color-error);
   }
 
   .errorMessage {

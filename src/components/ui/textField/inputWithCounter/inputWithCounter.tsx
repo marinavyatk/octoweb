@@ -30,7 +30,7 @@ export const InputWithCounter = React.forwardRef(
       onDeleteFile,
       ...restProps
     } = props;
-    const isError = errorMessage && !!(errorMessage[0] || errorMessage[1]);
+    const isError = errorMessage && errorMessage.filter(error=>!!error).length > 0;
     const classNames = className;
 
     const handleDeleteFile = () => {

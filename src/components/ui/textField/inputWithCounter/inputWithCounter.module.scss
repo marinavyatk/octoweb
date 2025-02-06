@@ -30,6 +30,7 @@
   .errorText {
     color: var(--color-error);
     margin-top: 5px;
+    font-size: 14px;
   }
 }
 
@@ -61,5 +62,10 @@
 
   .fileContainer {
     gap: 0;
+  }
+  .error {
+    .errorText {
+      font-size: 10px;
+    }
   }
 }
