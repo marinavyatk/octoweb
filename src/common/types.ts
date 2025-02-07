@@ -2,6 +2,9 @@ import { ServicesLinkProps } from "@/components/layouts/servicesLink/servicesLin
 import { WordSwipeProps } from "@/components/ui/wordSwipe/wordSwipe";
 import { LngLat } from "@yandex/ymaps3-types";
 import { CaseCircle } from "@/components/layouts/caseCircle/caseCircle";
+import { allFields } from "@/common/briefHelpers";
+import { getBriefSchema } from "@/common/validation";
+import { z } from "zod";
 
 export type TagLink = {
   text: string;
@@ -181,3 +184,30 @@ export type Social = {
   name: string;
   url: string;
 }
+
+// export type ErrorsFromServer = RequestErrors | ServerErrors
+
+export type RequestErrors = {
+  code: string,
+  message: string,
+  data: {
+    status: number,
+    errors: {
+      name: string,
+      email: string,
+      tel: string,
+      projectDescription: string,
+      projectDescriptionFile: string,
+      mailing: string
+    }
+  }
+}
+
+export type ServerErrors = {
+  code: string,
+  message: string,
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const briefSchema = getBriefSchema(allFields);
+export type BriefValues = Partial<z.infer<typeof briefSchema>>;

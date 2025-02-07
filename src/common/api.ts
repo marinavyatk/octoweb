@@ -3,6 +3,7 @@ import {
   ArticleData,
   ArticlePageData,
   ArticlesFilters,
+  BriefValues,
   CasePageData,
   CasesData,
   CasesFiltersData,
@@ -151,6 +152,38 @@ export const api = {
       } else {
         formData.append(`data[${key}]`, String(value));
       }
+    });
+
+    try {
+      const response = await instance.post("/contact-form", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      });
+      return response.data;
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.error("Не удалось отправить форму", error.response?.data);
+        return error.response?.data;
+      } else {
+        console.error("Неизвестная ошибка", error);
+        return { message: "Произошла неизвестная ошибка" };
+      }
+    }
+  }, async postBrief(form: BriefValues) {
+    const formData = new FormData();
+    formData.append("form_id", "brief");
+
+    Object.entries(form).forEach(([key, value]) => {
+      Object.entries(value).forEach(([subKey, subValue]) => {
+        if (subValue instanceof FileList) {
+          for (let i = 0; i < subValue.length; i++) {
+            formData.append(`data[${key}][${subKey}]`, subValue[i]);
+          }
+        } else {
+          formData.append(`data[${key}][${subKey}]`, String(subValue));
+        }
+      });
     });
 
     try {
