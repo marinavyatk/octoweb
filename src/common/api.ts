@@ -176,9 +176,9 @@ export const api = {
 
     Object.entries(form).forEach(([key, value]) => {
       Object.entries(value).forEach(([subKey, subValue]) => {
-        if (subValue instanceof FileList) {
-          for (let i = 0; i < subValue.length; i++) {
-            formData.append(`data[${key}][${subKey}]`, subValue[i]);
+        if (subKey === "technicalSpecification" || subKey === "additionalFiles") {
+          for (const file of subValue) {
+            formData.append(`data[${key}][${subKey}]`, file);
           }
         } else {
           formData.append(`data[${key}][${subKey}]`, String(subValue));
