@@ -23,6 +23,7 @@ export default function RootLayout({
     <body>
     <PageLoader />
       {children}
+    <script src="https://www.google.com/recaptcha/api.js?render=6Le0rM0qAAAAAIF-8ZPeA5_0RThCMWK1E_PIiv6c" async></script>
     </body>
     </html>
   );

@@ -21,6 +21,7 @@
     "@react-spring/web": "^9.7.5",
     "@react-three/drei": "^9.109.1",
     "@react-three/fiber": "^8.16.8",
+    "@types/grecaptcha": "^3.0.9",
     "@types/three": "^0.166.0",
     "@yandex/ymaps3-types": "^0.0.28",
     "axios": "^1.7.9",
