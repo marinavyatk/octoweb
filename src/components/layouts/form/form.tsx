@@ -48,6 +48,16 @@ export const Form = (props: FormProps) => {
   console.log("form errors:", errors);
 
   const onSubmit = async (data: FormValues) => {
+    grecaptcha.ready(function() {
+      grecaptcha.execute("6Le0rM0qAAAAAIF-8ZPeA5_0RThCMWK1E_PIiv6c", { action: "submit" })
+        .then(function(token: string) {
+          const hiddenElement = document.getElementById("g-recaptcha-response") as HTMLInputElement;
+          if (hiddenElement) {
+            hiddenElement.value = token;
+          }
+        });
+    });
+
     const response = await api.postForm(data);
 
     if (!("code" in response)) {
@@ -79,7 +89,7 @@ export const Form = (props: FormProps) => {
             ref={form}
             noValidate
       >
-
+        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" />
         <div className={s.mainInfo}>
           <Input
             label={"Имя"}

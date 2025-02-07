@@ -251,7 +251,7 @@ export default function Brief() {
     name: defineSchema(allFields.contactInfo.name),
     position: defineSchema(allFields.contactInfo.position),
     tel: defineSchema(allFields.contactInfo.tel).refine((value) => {
-      const phoneDigits = value.replace(/\D/g, '');
+      const phoneDigits = value.replace(/\D/g, "");
       return phoneDigits.length === 11;
     }, { message: "Номер телефона должен содержать 11 цифр" }),
     email: defineSchema(allFields.contactInfo.email).email(),
@@ -345,9 +345,19 @@ export default function Brief() {
   knowTargetAudienceCurrentValue = currentFields[0];
   materialsDevelopmentCurrentValue = currentFields[1];
 
-  // console.log("errors", errors);
+  console.log("errors", errors);
 
   const onSubmit = async (data: BriefValues) => {
+    grecaptcha.ready(function() {
+      grecaptcha.execute("6Le0rM0qAAAAAIF-8ZPeA5_0RThCMWK1E_PIiv6c", { action: "submit" })
+        .then(function(token: string) {
+          const hiddenElement = document.getElementById("g-recaptcha-response") as HTMLInputElement;
+          if (hiddenElement) {
+            hiddenElement.value = token;
+          }
+        });
+    });
+
     const response = await api.postBrief(data);
     console.log(data);
     // console.log("response", response);
@@ -459,7 +469,7 @@ export default function Brief() {
       <PreventNavigation
         isDirty={isDirty}
       />
-      {isSubmitting && <LinearLoader/>}
+      {isSubmitting && <LinearLoader />}
       <div className={"mainContainer"}>
         <section className={s.startSection}>
           <h1>
@@ -485,6 +495,7 @@ export default function Brief() {
         </section>
 
         <form onSubmit={handleSubmit(onSubmit)}>
+          <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" />
           <div className={s.formWithNavigation}>
             <BriefNavbar navItems={briefSections} className={s.navbar} />
             <div className={s.fields}>
@@ -1067,7 +1078,7 @@ export default function Brief() {
               и, нажимая на кнопку “Отправить”, даю согласие на обработку компанией указанных мной
               персональных данных
             </p>
-            <Button text={"Отправить"} type={"submit"} className={s.arrowButton} disabled={isSubmitting}/>
+            <Button text={"Отправить"} type={"submit"} className={s.arrowButton} disabled={isSubmitting} />
           </section>
         </form>
       </div>
