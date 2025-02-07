@@ -11,6 +11,13 @@
   form {
     margin-bottom: 100px;
   }
+
+  input{
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px black inset;
+      -webkit-text-fill-color: var(--color-light-100);
+    }
+  }
 }
 
 .startSection {

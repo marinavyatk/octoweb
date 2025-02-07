@@ -28,10 +28,11 @@ import { PreventNavigation } from "@/components/layouts/warning/preventNavigatio
 import { clsx } from "clsx";
 import { BigBubble } from "@/components/video/bigBubble/bigBubble";
 import { api } from "@/common/api";
+import { LinearLoader } from "@/components/ui/linearLoader/linearLoader";
 
 
-let materialsDevelopmentCurrentValue = "";
-let knowTargetAudienceCurrentValue = "";
+let materialsDevelopmentCurrentValue = "yes";
+let knowTargetAudienceCurrentValue = "yes";
 
 export default function Brief() {
   const [isFormNotificationShown, setIsFormNotificationShown] = useState(false);
@@ -249,7 +250,10 @@ export default function Brief() {
   const contactInfo = z.object({
     name: defineSchema(allFields.contactInfo.name),
     position: defineSchema(allFields.contactInfo.position),
-    tel: defineSchema(allFields.contactInfo.tel),
+    tel: defineSchema(allFields.contactInfo.tel).refine((value) => {
+      const phoneDigits = value.replace(/\D/g, '');
+      return phoneDigits.length === 11;
+    }, { message: "Номер телефона должен содержать 11 цифр" }),
     email: defineSchema(allFields.contactInfo.email).email(),
     communicationWay: checkboxGroupOptional
   });
@@ -324,7 +328,7 @@ export default function Brief() {
     register,
     control,
     handleSubmit,
-    formState: { errors, dirtyFields, isDirty },
+    formState: { errors, dirtyFields, isDirty, isSubmitting },
     watch,
     setError,
     setFocus,
@@ -341,12 +345,12 @@ export default function Brief() {
   knowTargetAudienceCurrentValue = currentFields[0];
   materialsDevelopmentCurrentValue = currentFields[1];
 
-  console.log("errors", errors);
+  // console.log("errors", errors);
 
   const onSubmit = async (data: BriefValues) => {
     const response = await api.postBrief(data);
     console.log(data);
-    console.log("response", response);
+    // console.log("response", response);
     if (!response) return null;
 
     if (!("code" in response)) {
@@ -377,18 +381,17 @@ export default function Brief() {
   }
 
   const checkSectionDone = (sectionName: SectionName) => {
-    if (materialsDevelopmentCurrentValue !== "yes" && sectionName === "materials") {
+    if (materialsDevelopmentCurrentValue === "no" && sectionName === "materials") {
       return true;
     }
 
-    if (knowTargetAudienceCurrentValue !== "yes" && sectionName === "targetGroup") {
+    if (knowTargetAudienceCurrentValue === "no" && sectionName === "targetGroup") {
       return true;
     }
 
     const requiredFields = Object.keys(allFields[sectionName]).filter(
       (fieldName) => allFields[sectionName][fieldName].required
     );
-
 
     const isRequiredFieldsNonEmpty = requiredFields.every((fieldName) => {
       if (
@@ -456,6 +459,7 @@ export default function Brief() {
       <PreventNavigation
         isDirty={isDirty}
       />
+      {isSubmitting && <LinearLoader/>}
       <div className={"mainContainer"}>
         <section className={s.startSection}>
           <h1>
@@ -1063,7 +1067,7 @@ export default function Brief() {
               и, нажимая на кнопку “Отправить”, даю согласие на обработку компанией указанных мной
               персональных данных
             </p>
-            <Button text={"Отправить"} type={"submit"} className={s.arrowButton} />
+            <Button text={"Отправить"} type={"submit"} className={s.arrowButton} disabled={isSubmitting}/>
           </section>
         </form>
       </div>

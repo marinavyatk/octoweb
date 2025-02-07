@@ -30,7 +30,10 @@ export const multipleFilesSchema = z.custom<FileList>().optional();
 export const formSchema = z.object({
   name: requiredString,
   email: requiredString.email({ message: "Некорректный email" }),
-  tel: requiredString,
+  tel: requiredString.refine((value) => {
+    const phoneDigits = value.replace(/\D/g, '');
+    return phoneDigits.length === 11;
+  }, { message: "Номер телефона должен содержать 11 цифр" }),
   projectDescription: requiredString,
   projectDescriptionFile: fileSchema,
   mailing: z.boolean()
