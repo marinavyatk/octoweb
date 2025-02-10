@@ -7,7 +7,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper/modules";
 import "swiper/css";
 import Lottie from "lottie-react";
-import StepsAnimation from "@/lotties/steps.json";
+// import StepsAnimation from "@/lotties/steps.json";
+import StepsAnimation from "@/lotties/swipe.json";
 import { Step } from "@/common/types";
 
 export type StepCardsProps = {
