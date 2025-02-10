@@ -7,11 +7,10 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  white-space: nowrap;
 }
 
 .firstLine {
-  padding-left: 140px;
+  text-align: end;
 }
 
 .secondLine {
@@ -21,7 +20,7 @@
 }
 
 .thirdLine {
-  padding-left: 265px;
+  text-align: center;
 }
 
 @media (max-width: 1905px) {
@@ -30,16 +29,8 @@
     line-height: var(--line-height-140);
   }
 
-  .firstLine {
-    padding-left: 118px;
-  }
-
   .secondLine {
     gap: 32px;
-  }
-
-  .thirdLine {
-    padding-left: 200px;
   }
 }
 
@@ -48,16 +39,8 @@
     font-size: 64px;
   }
 
-  .firstLine {
-    padding-left: 59px;
-  }
-
   .secondLine {
     gap: 24px;
-  }
-
-  .thirdLine {
-    padding-left: 150px;
   }
 }
 
@@ -65,10 +48,6 @@
   .greetingText {
     font-size: 40px;
     gap: 5px;
-  }
-
-  .firstLine {
-    padding-left: 49px;
   }
 
   .secondLine {
@@ -81,16 +60,8 @@
     font-size: 17px;
   }
 
-  .firstLine {
-    padding-left: 26px;
-  }
-
   .secondLine {
     gap: 10px;
-  }
-
-  .thirdLine {
-    padding-left: 60px;
   }
 }
 

@@ -1,6 +1,4 @@
 .greetingBlock {
-  margin: auto;
-  width: fit-content;
   position: relative;
 }
 
@@ -10,8 +8,6 @@
 
 .greetingText {
   padding: 120px 0 67px 0;
-  margin: auto;
-  width: fit-content;
 }
 
 .arrow {
@@ -27,6 +23,11 @@
 }
 
 @media (max-width: 1905px) {
+  .greetingBlock {
+    margin: auto;
+    width: fit-content;
+  }
+
   .arrow {
     left: 90px;
   }

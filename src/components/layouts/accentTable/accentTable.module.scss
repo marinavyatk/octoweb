@@ -46,6 +46,14 @@
     width: 24px;
     height: 24px;
     stroke: var(--color-dark-primary);
+    transition: transform 0.3s cubic-bezier(1, 1.65, 0.265, 1.55);
+  }
+
+  &:hover {
+    svg {
+      transform: rotate(45deg);
+      stroke: var(--color-primary);
+    }
   }
 }
 

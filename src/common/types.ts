@@ -11,6 +11,12 @@ export type TagLink = {
   subLink: string;
 };
 
+export type Step = {
+  stepNumber: string;
+  header: string;
+  description: string;
+}
+
 export type linkData = Omit<ServicesLinkProps, "number"> & { number?: string };
 
 export type TextContent = {
@@ -51,6 +57,7 @@ export type ServiceCategoryPage = {
   thirdLine: string,
   words: string[],
   faq: Faq[],
+  work_stages: {[key: string]: {title: string, text: string}}
 }
 
 export type CategoryServices = {
@@ -61,17 +68,18 @@ export type CategoryServices = {
 export type ServicePageData = {
   id: number,
   title: string,
+  full_name: string,
   first_description: string,
   image: string,
   for_whom_title: string,
   for_whom: string[],
   content: string,
   team: TeamMemberData[],
-  team_section_text: string,
+  team_text: string,
   cost: string,
   additional_services: AdditionalService[]
   faq: Faq[],
-  // interaction_stages: []
+  work_stages: {[key: string]: {title: string, text: string}}
 }
 
 export type AdditionalService = {

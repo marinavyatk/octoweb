@@ -19,8 +19,12 @@ export default async function Service({ params }: {
 }) {
   const { service } = await params;
   const serviceInfo = await api.getService(service);
-
   if (!serviceInfo) return null;
+
+  const stepCards = Object.entries(serviceInfo.work_stages)
+    .sort(([a], [b]) => Number(a) - Number(b))
+    .map(([stepNumber, { title, text }]) => ({ stepNumber: stepNumber, header: title, description: text }));
+
 
   return (
     <div className={s.servicePage}>
@@ -29,7 +33,7 @@ export default async function Service({ params }: {
         <SmallBubble className={s.smallBubbleMain} />
       </div>
       <div className={"mainContainer"}>
-        <h1>{serviceInfo.title}</h1>
+        <h1>{serviceInfo.full_name}</h1>
         <div className={s.discussProject}>
           <div className={s.description} dangerouslySetInnerHTML={{ __html: serviceInfo["first_description"] }}></div>
           <Button
@@ -74,11 +78,11 @@ export default async function Service({ params }: {
         </div>
         <Team
           teamMembersInfo={serviceInfo.team}
-          intro={serviceInfo.team_section_text}
+          intro={serviceInfo.team_text}
           className={s.team}
         />
       </div>
-      <StepCards className={s.stepCards} />
+      <StepCards className={s.stepCards} stepCards={stepCards}/>
       <section className={s.prices}>
         <div className={s.pricesContainer}>
           <div className={s.cost}>

@@ -39,7 +39,7 @@ export const Footer = (props: FooterProps) => {
         </div>
         <div className={s.bottomCaption}>
           <span>Политика конфиденциальности</span>
-          <span className={s.copyright}>© OctoWeb 2023 — Все права защищены</span>
+          <span className={s.copyright}>© OctoWeb {new Date().getFullYear()} — Все права защищены</span>
         </div>
       </div>
     </div>
