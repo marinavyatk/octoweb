@@ -27,6 +27,12 @@ export type TextContent = {
 }
 
 //SERVER RESPONSES
+export type WorkStage = {
+  number: number,
+  title: string,
+  text: string
+}
+
 //SERVICES
 export type ServicesData = {
   id: number,
@@ -57,7 +63,7 @@ export type ServiceCategoryPage = {
   thirdLine: string,
   words: string[],
   faq: Faq[],
-  work_stages: {[key: string]: {title: string, text: string}}
+  work_stages: WorkStage[]
 }
 
 export type CategoryServices = {
@@ -79,7 +85,7 @@ export type ServicePageData = {
   cost: string,
   additional_services: AdditionalService[]
   faq: Faq[],
-  work_stages: {[key: string]: {title: string, text: string}}
+  work_stages: WorkStage[]
 }
 
 export type AdditionalService = {

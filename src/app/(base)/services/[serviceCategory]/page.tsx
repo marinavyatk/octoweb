@@ -18,9 +18,11 @@ export default async function ServiceCategory({ params }: {
   const serviceCategoryData = await api.getServiceCategory(serviceCategory);
   if (!serviceCategoryData) return null;
 
-  const stepCards = Object.entries(serviceCategoryData.work_stages)
-    .sort(([a], [b]) => Number(a) - Number(b))
-    .map(([stepNumber, { title, text }]) => ({ stepNumber: stepNumber, header: title, description: text }));
+  const stepCards = serviceCategoryData.work_stages.map((stage) => ({
+      stepNumber: String(stage.number),
+      header: stage.title,
+      description: stage.text
+  }));
 
   const textContent = {
     firstLine: serviceCategoryData.firstLine,
@@ -49,7 +51,7 @@ export default async function ServiceCategory({ params }: {
       <div className={s.cardBubbles}>
         <SmallBubble className={s.smallBubbleCard} />
       </div>
-      <StepCards className={s.steps} stepCards={stepCards}/>
+      <StepCards className={s.steps} stepCards={stepCards} />
       <FAQ faqData={serviceCategoryData.faq} className={clsx(s.faq, "mainContainer")} />
     </>
   );
