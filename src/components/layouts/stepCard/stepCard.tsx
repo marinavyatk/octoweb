@@ -1,12 +1,9 @@
 import { ComponentPropsWithoutRef } from "react";
 import s from "./stepCard.module.scss";
 import { clsx } from "clsx";
+import { Step } from "@/common/types";
 
-export type StepCardProps = {
-  stepNumber: string;
-  header: string;
-  description: string;
-} & ComponentPropsWithoutRef<"div">;
+export type StepCardProps = Step & ComponentPropsWithoutRef<"div">;
 
 export const StepCard = (props: StepCardProps) => {
   const { stepNumber, header, description, className, ...restProps } = props;

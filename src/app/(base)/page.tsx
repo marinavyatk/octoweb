@@ -12,7 +12,7 @@ import { api } from "@/common/api";
 
 
 export default async function Home() {
-  const [cases, services] = await Promise.all([api.getCases(1, null), api.getServices()])
+  const [cases, services, stages] = await Promise.all([api.getCases(1, null), api.getServices(), api.getInteractionStages()])
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const casesForSection = cases?.cases.splice(0, 4).map(({ imgFullWidth, projectCategories, ...rest }) => rest);
   const formattedServices = services?.map(serviceCategory => {
@@ -54,7 +54,7 @@ export default async function Home() {
       <div className={s.servicesBubbles}>
         <SmallBubble className={s.smallBubbleServices} />
       </div>
-      <StepCards className={s.steps} />
+      <StepCards className={s.steps} stepCards={stages}/>
     </div>
   );
 };

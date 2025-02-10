@@ -3,20 +3,23 @@
 import { StepCard } from "@/components/layouts/stepCard/stepCard";
 import clsx from "clsx";
 import s from "./stepCards.module.scss";
-import { stepCards } from "@/common/componentsData/stepCards";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper/modules";
 import "swiper/css";
 import Lottie from "lottie-react";
 import StepsAnimation from "@/lotties/steps.json";
+import { Step } from "@/common/types";
 
 export type StepCardsProps = {
   className?: string;
+  stepCards: Step[]
 };
 
 export const StepCards = (props: StepCardsProps) => {
-  const { className } = props;
+  const { stepCards, className } = props;
   const classNames = clsx(s.stepsSection, className);
+
+  if(!stepCards || !stepCards.length) return null;
 
   const cardsList = stepCards.map((card) => {
     return (

@@ -13,60 +13,55 @@
   .inner {
     height: var(--word-height);
     overflow: hidden;
-    margin-bottom: 0;
+  }
+
+  .words {
+    display: flex;
+    flex-direction: column;
   }
 
   .word {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: var(--word-height);
+    height: var(--word-height);
   }
 
-  span {
-    animation: bounce 1.5s ease infinite forwards;
+  .animate {
+    animation: show 3s linear;
   }
 
-  .firstWord {
-    animation: show 3s linear infinite;
+  .charAnimate{
+    animation: bounce 1.5s ease;
   }
 }
 
+.placeholder{
+  opacity: 0;
+}
+
+
 @keyframes show {
   0% {
-    margin-top: calc(-4 * var(--word-height));
+    transform: translateY(-100%);
   }
-  12% {
-    margin-top: calc(-2 * var(--word-height) - 10px);
-  }
-  40% {
-    margin-top: calc(-2 * var(--word-height) - 10px);
-  }
-  62% {
-    margin-top: -10px;
-  }
-  90% {
-    margin-top: -10px;
-  }
-  99% {
-    margin-top: var(--word-height);
-  }
-  99.99% {
-    margin-top: var(--word-height);
+  10%, 90% {
+    transform: translateY(0%);
   }
   100% {
-    margin-top: calc(-4 * var(--word-height));
+    transform: translateY(100%);
   }
 }
 
 @keyframes bounce {
   0%, 40%, 100% {
-    transform: translateY(10px);
+    transform: translateY(0px);
   }
   20% {
     transform: translateY(25px);
   }
 }
+
 
 @media (max-width: 1905px) {
   .wordSwipe {
