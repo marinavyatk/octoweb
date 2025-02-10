@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from "react";
+import { ComponentPropsWithoutRef, useEffect, useRef } from "react";
 import { clsx } from "clsx";
 import s from "./caseCardFullWidth.module.scss";
 import { Tag } from "../../ui/tag/tag";
@@ -17,7 +17,7 @@ export const CaseCardFullWidth = (props: CaseCardProps) => {
   const { caseId, category, services, img, header, className, ...restProps } =
     props;
   const classNames = clsx(s.card, className);
-
+  const cardRef = useRef<HTMLAnchorElement>(null);
   const tagList = services.map((tag) => {
     return (
       <Tag variant={"colored"} key={tag}>
@@ -26,12 +26,17 @@ export const CaseCardFullWidth = (props: CaseCardProps) => {
     );
   });
 
+  useEffect(() => {
+    cardRef?.current?.setAttribute("data-animated", "true");
+  }, []);
+
   return (
     <Link
       {...restProps}
       className={classNames}
       rel={"nofollow"}
       href={`/cases/${caseId}`}
+      ref={cardRef}
     >
       {img &&
         <Picture src={img}
