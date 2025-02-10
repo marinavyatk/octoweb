@@ -154,6 +154,17 @@ export const api = {
       }
     });
 
+    const validationToken = await new Promise<string | undefined>((resolve) => {
+      grecaptcha.ready(() => {
+        grecaptcha.execute("6Le0rM0qAAAAAIF-8ZPeA5_0RThCMWK1E_PIiv6c", { action: "submit" })
+          .then((token: string) => {
+            resolve(token);
+          })
+      });
+    });
+
+    formData.append("g-recaptcha-response", validationToken || '');
+
     try {
       const response = await instance.post("/contact-form", formData, {
         headers: {
@@ -185,6 +196,17 @@ export const api = {
         }
       });
     });
+
+    const validationToken = await new Promise<string | undefined>((resolve) => {
+      grecaptcha.ready(() => {
+        grecaptcha.execute("6Le0rM0qAAAAAIF-8ZPeA5_0RThCMWK1E_PIiv6c", { action: "submit" })
+          .then((token: string) => {
+            resolve(token);
+          })
+      });
+    });
+
+    formData.append("g-recaptcha-response", validationToken || '');
 
     try {
       const response = await instance.post("/contact-form", formData, {

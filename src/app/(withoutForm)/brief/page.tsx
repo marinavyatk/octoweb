@@ -348,16 +348,6 @@ export default function Brief() {
   console.log("errors", errors);
 
   const onSubmit = async (data: BriefValues) => {
-    grecaptcha.ready(function() {
-      grecaptcha.execute("6Le0rM0qAAAAAIF-8ZPeA5_0RThCMWK1E_PIiv6c", { action: "submit" })
-        .then(function(token: string) {
-          const hiddenElement = document.getElementById("g-recaptcha-response") as HTMLInputElement;
-          if (hiddenElement) {
-            hiddenElement.value = token;
-          }
-        });
-    });
-
     const response = await api.postBrief(data);
     console.log(data);
     // console.log("response", response);
