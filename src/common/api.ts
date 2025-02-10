@@ -185,17 +185,34 @@ export const api = {
     const formData = new FormData();
     formData.append("form_id", "brief");
 
+    // Object.entries(form).forEach(([key, value]) => {
+    //   Object.entries(value).forEach(([subKey, subValue]) => {
+    //     if (subKey === "technicalSpecification" || subKey === "additionalFiles") {
+    //       for (const file of subValue) {
+    //         formData.append(`data[${key}][${subKey}]`, file);
+    //       }
+    //     } else {
+    //       formData.append(`data[${key}][${subKey}]`, String(subValue));
+    //     }
+    //   });
+    // });
+
     Object.entries(form).forEach(([key, value]) => {
       Object.entries(value).forEach(([subKey, subValue]) => {
         if (subKey === "technicalSpecification" || subKey === "additionalFiles") {
-          for (const file of subValue) {
-            formData.append(`data[${key}][${subKey}]`, file);
+          if (Array.isArray(subValue) && subValue.length > 0) {
+            for (const file of subValue) {
+              formData.append(`data[${key}][${subKey}]`, file);
+            }
+          } else {
+            formData.append(`data[${key}][${subKey}]`, "");
           }
         } else {
-          formData.append(`data[${key}][${subKey}]`, String(subValue));
+          formData.append(`data[${key}][${subKey}]`, String(subValue ?? ""));
         }
       });
     });
+
 
     const validationToken = await new Promise<string | undefined>((resolve) => {
       grecaptcha.ready(() => {

@@ -356,7 +356,7 @@ export default function Brief() {
     if (!("code" in response)) {
       setIsFormNotificationShown(true);
     } else {
-      if (response?.data?.status === 400)
+      if (response?.data?.status === 400 && response.data.errors)
         Object.entries(response.data.errors).forEach(([key, value], index) => {
           const typedKey = key as keyof BriefValues;
           Object.entries(value as Record<string, string>).forEach(([subKey, subValue], subIndex) => {
