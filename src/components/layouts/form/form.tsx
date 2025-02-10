@@ -52,7 +52,7 @@ export const Form = (props: FormProps) => {
     if (!("code" in response)) {
       setIsFormNotificationShown(true);
     } else {
-      if (response?.data?.status === 400)
+      if (response?.data?.status === 400 && response.data.errors)
         Object.entries(response.data.errors).forEach(([key, value], index) => {
           const typedKey = key as keyof FormValues;
           setError(typedKey, { type: "server", message: value as string });
