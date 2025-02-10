@@ -2,6 +2,7 @@
   position: relative;
   display: block;
   height: 1000px;
+  opacity: 0;
 
   &:focus-visible {
     .header {
@@ -15,6 +16,10 @@
     .header {
       color: var(--color-accent);
     }
+  }
+
+  &[data-animated="true"] {
+    opacity: 1;
   }
 }
 

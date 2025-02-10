@@ -1,6 +1,7 @@
 .card {
   display: block;
   width: fit-content;
+  opacity: 0;
 
   &:focus-visible {
     .header {
@@ -18,6 +19,10 @@
     .header {
       color: var(--color-accent);
     }
+  }
+
+  &[data-animated="true"] {
+    opacity: 1;
   }
 }
 

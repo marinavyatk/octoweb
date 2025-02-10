@@ -22,7 +22,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Blog() {
   const defaultFilter = "All";
   const defaultPage = 1;
-  const [articlesData, setArticles] = useState<Article[]>();
+  const [articlesData, setArticles] = useState<(Article & { isNew: boolean })[]>();
   const [filters, setFilters] = useState<string[]>([]);
   const [total, setTotal] = useState<number>(0);
   const [currentFilter, setCurrentFilter] = useState<string>(defaultFilter);
@@ -39,9 +39,13 @@ export default function Blog() {
 
     const getArticles = async () => {
       const articles = await api.getArticles(page, filter);
-      setArticles(articles?.posts || []);
+      const startArticles = articles?.posts?.map(article => ({ ...article, isNew: true }));
       setTotal(articles?.total || 0);
+      setTimeout(() => {
+        setArticles(startArticles);
+      }, 400);
     };
+
     const getFilters = async () => {
       const filters = await api.getArticlesFilters();
       if (!filters) return null;
@@ -54,21 +58,22 @@ export default function Blog() {
 
   useEffect(() => {
     if (!articlesData || !articlesData?.length) return;
-    ScrollTrigger.refresh()
-    gsap.set(".fullWidth", {
+
+    ScrollTrigger.refresh();
+    gsap.set(".fullWidth.new", {
       y: 100,
       opacity: 0
     });
-    gsap.set(".right", {
+    gsap.set(".right.new", {
       x: 100,
       opacity: 0
     });
-    gsap.set(".left", {
+    gsap.set(".left.new", {
       x: -100,
       opacity: 0
     });
 
-   const triggers = ScrollTrigger.batch(".blogCard", {
+    const triggers = ScrollTrigger.batch(".blogCard.new", {
       interval: 0.4,
       onEnter: (batch) => {
         gsap.to(
@@ -77,8 +82,6 @@ export default function Blog() {
         );
       }
     });
-
-    console.log('triggers', triggers);
 
     return () => {
       triggers.forEach(trigger => trigger.kill());
@@ -96,7 +99,6 @@ export default function Blog() {
     [searchParams]
   );
 
-
   if (!articlesData) return null;
 
   const getMoreArticles = async () => {
@@ -105,8 +107,9 @@ export default function Blog() {
     setLoading(false);
     setPage(page + 1);
     if (!newArticles) return null;
-    setArticles([...articlesData, ...newArticles.posts]);
-    ScrollTrigger.refresh()
+    setArticles([...articlesData.map(article => ({ ...article, isNew: false })),
+      ...newArticles?.posts?.map(article => ({ ...article, isNew: true }))]);
+    ScrollTrigger.refresh();
   };
 
   const setFilter = async (filter: string) => {
@@ -121,7 +124,7 @@ export default function Blog() {
       window.history.replaceState(null, "", pathname + "?" + createQueryString("filter", filter));
     }
     if (!newArticles) return null;
-    setArticles(newArticles.posts);
+    setArticles(newArticles.posts.map(article => ({ ...article, isNew: true })));
   };
 
   const filterButtons = filters.map((button) => {
@@ -148,7 +151,7 @@ export default function Blog() {
         img={article.image}
         header={article.title}
         description={article.excerpt}
-
+        className={article.isNew ? "new" : ""}
       />;
     }
 
@@ -162,6 +165,7 @@ export default function Blog() {
         img={article.image}
         header={article.title}
         description={article.excerpt}
+        className={article.isNew ? "new" : ""}
       />;
     }
 
@@ -182,6 +186,7 @@ export default function Blog() {
       img={article.image}
       header={article.title}
       description={article.excerpt}
+      className={article.isNew ? "new" : ""}
     />;
   });
 
@@ -200,12 +205,13 @@ export default function Blog() {
       {loading && <div className={s.loaderContainer}>
         <Loader />
       </div>}
-      {articles.length < total &&
-      <Button
-        text={"Загрузить ещё"}
-        className={s.loadMoreButton}
-        onClick={getMoreArticles}
-      />}
+      {articles.length + 1 < total &&
+        <Button
+          text={"Загрузить ещё"}
+          className={s.loadMoreButton}
+          onClick={getMoreArticles}
+        />
+      }
       <div className={s.smallBubbleContainer}>
         <SmallBubble className={s.smallBubble} />
       </div>

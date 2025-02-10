@@ -27,7 +27,7 @@ export default function Cases() {
   const sizes = ["extraLarge", "large", "small", "medium", "fullWidth"];
   const defaultPage = 1;
   const [casesCircles, setCasesCircles] = useState<CaseCircle[]>();
-  const [casesCards, setCasesCards] = useState<CaseData[]>();
+  const [casesCards, setCasesCards] = useState<(CaseData & { isNew: boolean })[]>();
   const [total, setTotal] = useState(0);
   const [filters, setFilters] = useState<string[]>([]);
   const [currentFilter, setCurrentFilter] = useState<string>(defaultFilter);
@@ -47,9 +47,12 @@ export default function Cases() {
     }
     const getCases = async () => {
       const response = await api.getCases(page, filter);
-      setCasesCards(response?.cases);
+      const startCases = response?.cases?.map(el => ({ ...el, isNew: true }));
       setCasesCircles(response?.caseCircles);
       setTotal(response?.total || 0);
+      setTimeout(() => {
+        setCasesCards(startCases);
+      }, 400);
     };
 
     const getCasesFilters = async () => {
@@ -64,21 +67,21 @@ export default function Cases() {
 
   useEffect(() => {
     if (!casesCards || !casesCards?.length) return;
-    ScrollTrigger.refresh()
-    gsap.set(".fullWidth", {
+    ScrollTrigger.refresh();
+    gsap.set(".fullWidth.new", {
       y: 100,
       opacity: 0
     });
-    gsap.set(".right", {
+    gsap.set(".right.new", {
       x: 100,
       opacity: 0
     });
-    gsap.set(".left", {
+    gsap.set(".left.new", {
       x: -100,
       opacity: 0
     });
 
-  const triggers =  ScrollTrigger.batch(".case", {
+    const triggers = ScrollTrigger.batch(".case.new", {
       interval: 0.4,
       onEnter: (batch) => {
         gsap.to(
@@ -113,8 +116,12 @@ export default function Cases() {
     setLoading(false);
     setPage(page + 1);
     if (!newCases) return null;
-    setCasesCards([...casesCards, ...newCases.cases]);
-    ScrollTrigger.refresh()
+    setCasesCards([...casesCards.map(card => ({ ...card, isNew: false })), ...newCases.cases.map(card => ({
+      ...card,
+      isNew: true
+    }))]);
+
+    ScrollTrigger.refresh();
   };
 
   const setFilter = async (filter: string) => {
@@ -131,7 +138,7 @@ export default function Cases() {
     }
 
     if (!newCases) return null;
-    setCasesCards(newCases.cases);
+    setCasesCards(newCases.cases.map(card => ({ ...card, isNew: true })));
     setCasesCircles(newCases.caseCircles);
   };
 
@@ -152,19 +159,19 @@ export default function Cases() {
     const size = sizes[index % sizes.length];
     const cardClassName = s[size];
     const animationIndex = index < 5 ? index : index - Math.trunc(index / 5);
-    const { img, imgFullWidth, ...commonCardProps } = card;
+    const { img, imgFullWidth, isNew, ...commonCardProps } = card;
 
     return (index + 1) % 5 !== 0 ? (
       <CaseCard
         key={uuid()}
         index={animationIndex}
         size={size as Size}
-        className={cardClassName}
+        className={clsx(cardClassName, isNew ? "new" : "")}
         {...commonCardProps}
         img={img}
       />
     ) : (
-      <div className={clsx(s.fullWidthContainer, "case", "fullWidth")} key={uuid()}>
+      <div className={clsx(s.fullWidthContainer, "case", "fullWidth", isNew ? "new" : "")} key={uuid()}>
         <CaseCardFullWidth
           {...commonCardProps}
           img={imgFullWidth}

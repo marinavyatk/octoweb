@@ -1,6 +1,6 @@
 "use client";
 
-import { ComponentPropsWithoutRef, ElementType } from "react";
+import { ComponentPropsWithoutRef, ElementType, useEffect, useRef } from "react";
 import { clsx } from "clsx";
 import s from "./caseCard.module.scss";
 import { Tag } from "../../ui/tag/tag";
@@ -33,8 +33,8 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
     ...restProps
   } = props;
   const classNames = clsx(s.card, className, "case", (index + 1) % 2 === 0 ? "right" : "left");
-
   const sizeClassName = clsx(s.container, s[size]);
+  const cardRef = useRef<HTMLAnchorElement>(null);
   const tagList = services?.map((tag) => {
     return (
       <Tag variant={"colored"} key={tag}>
@@ -56,12 +56,17 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
     }
   };
 
+  useEffect(() => {
+    cardRef?.current?.setAttribute("data-animated", "true");
+  }, []);
+
   return (
     <Link
       {...restProps}
       className={classNames}
       href={`/cases/${caseId}`}
       rel={"nofollow"}
+      ref={cardRef}
     >
       <div className={sizeClassName}>
         <Tag variant={"monochromePrimary"} className={s.category}>
