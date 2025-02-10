@@ -21,10 +21,11 @@ export default async function Service({ params }: {
   const serviceInfo = await api.getService(service);
   if (!serviceInfo) return null;
 
-  const stepCards = Object.entries(serviceInfo.work_stages)
-    .sort(([a], [b]) => Number(a) - Number(b))
-    .map(([stepNumber, { title, text }]) => ({ stepNumber: stepNumber, header: title, description: text }));
-
+  const stepCards = serviceInfo.work_stages.map((stage) => ({
+    stepNumber: String(stage.number || ''),
+    header: stage.title,
+    description: stage.text
+  }));
 
   return (
     <div className={s.servicePage}>
