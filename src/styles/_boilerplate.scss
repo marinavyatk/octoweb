@@ -10,6 +10,7 @@
   @media (max-width: 1265px) {
     --offset-x: 16px;
   }
+
   :root {
     --header-height: 136px;
   }
@@ -105,7 +106,7 @@ h2 {
   padding: 0 var(--offset-x);
 }
 
-.overlay{
+.overlay {
   position: absolute;
   z-index: 2;
   top: 0;
@@ -119,8 +120,13 @@ h2 {
   transition: opacity 0.2s ease-in-out;
 }
 
-.main{
+.main {
   min-height: 100vh;
+}
+
+.footer {
+  position: relative;
+  z-index: 3;
 }
 
 @media (max-width: 1905px) {
