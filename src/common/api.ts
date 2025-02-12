@@ -7,7 +7,7 @@ import {
   CasePageData,
   CasesData,
   CasesFiltersData,
-  ContactsData,
+  ContactsData, PrivacyPolicyData,
   ServiceCategoryPage,
   ServicePageData,
   ServicesData
@@ -141,6 +141,16 @@ export const api = {
       console.error("Не удалось загрузить контактную информацию", error);
     }
   },
+//PRIVACY POLICY
+  async getPrivacyPolicy() {
+    try {
+      const response = await instance.get<PrivacyPolicyData>("/privacy-policy");
+      return response.data;
+    } catch (error) {
+      console.error("Не удалось загрузить политику конфиденциальности", error);
+    }
+  },
+
 //POST
   async postForm(form: FormValues) {
     const formData = new FormData();
@@ -159,11 +169,11 @@ export const api = {
         grecaptcha.execute("6Le0rM0qAAAAAIF-8ZPeA5_0RThCMWK1E_PIiv6c", { action: "submit" })
           .then((token: string) => {
             resolve(token);
-          })
+          });
       });
     });
 
-    formData.append("g-recaptcha-response", validationToken || '');
+    formData.append("g-recaptcha-response", validationToken || "");
 
     try {
       const response = await instance.post("/contact-form", formData, {
@@ -184,19 +194,6 @@ export const api = {
   }, async postBrief(form: BriefValues) {
     const formData = new FormData();
     formData.append("form_id", "brief");
-
-    // Object.entries(form).forEach(([key, value]) => {
-    //   Object.entries(value).forEach(([subKey, subValue]) => {
-    //     if (subKey === "technicalSpecification" || subKey === "additionalFiles") {
-    //       for (const file of subValue) {
-    //         formData.append(`data[${key}][${subKey}]`, file);
-    //       }
-    //     } else {
-    //       formData.append(`data[${key}][${subKey}]`, String(subValue));
-    //     }
-    //   });
-    // });
-
     Object.entries(form).forEach(([key, value]) => {
       Object.entries(value).forEach(([subKey, subValue]) => {
         if (subKey === "technicalSpecification" || subKey === "additionalFiles") {
@@ -213,17 +210,16 @@ export const api = {
       });
     });
 
-
     const validationToken = await new Promise<string | undefined>((resolve) => {
       grecaptcha.ready(() => {
         grecaptcha.execute("6Le0rM0qAAAAAIF-8ZPeA5_0RThCMWK1E_PIiv6c", { action: "submit" })
           .then((token: string) => {
             resolve(token);
-          })
+          });
       });
     });
 
-    formData.append("g-recaptcha-response", validationToken || '');
+    formData.append("g-recaptcha-response", validationToken || "");
 
     try {
       const response = await instance.post("/contact-form", formData, {

@@ -14,6 +14,8 @@ import { formSchema } from "@/common/validation";
 import { FormNotification } from "@/components/layouts/formNotification/formNotification";
 import { api } from "@/common/api";
 import { Loader } from "@/components/ui/loader/loader";
+import Link from "next/link";
+import { routes } from "@/common/routes";
 
 export type FormValues = z.infer<typeof formSchema>;
 export type FormProps = ComponentPropsWithoutRef<"div">;
@@ -129,9 +131,9 @@ export const Form = (props: FormProps) => {
         <div className={s.submit}>
           <p>
             Я принимаю условия{" "}
-            <a href={"#"} rel={"nofollow"}>
+            <Link href={routes.privacyPolicy} rel={"nofollow"} target="_blank">
               Политики ООО OctoWeb в отношении обработки данных
-            </a>{" "}
+            </Link>{" "}
             и, нажимая на кнопку “Отправить”, даю согласие на обработку компанией указанных мной
             персональных данных
           </p>

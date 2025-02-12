@@ -10,4 +10,5 @@ export const routes = {
   service: "/services/:serviceName",
   article: "blog/:articleName",
   serviceCategory: "services/category/:serviceCategory",
+  privacyPolicy: "/privacy-policy",
 };

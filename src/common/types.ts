@@ -33,6 +33,36 @@ export type WorkStage = {
   text: string
 }
 
+export type OgImage = {
+  width: number,
+  height: number,
+  url: string,
+  type: string
+}
+
+export type Robots = {
+  index: string,
+  follow: string,
+  "max-snippet": string,
+  "max-image-preview": string,
+  "max-video-preview": string
+}
+
+export type SeoData = {
+  title: string,
+  description: string,
+  keywords: string[],
+  canonical: string,
+  og_title: string,
+  og_description: string,
+  og_image: OgImage[],
+  twitter_title: string,
+  twitter_description: string,
+  twitter_image: string,
+  robots: Robots,
+  schema: string
+}
+
 //SERVICES
 export type ServicesData = {
   id: number,
@@ -150,6 +180,7 @@ export type CasePageData = {
   },
   tech_stack: string,
   project_text: string,
+  seo_data: SeoData
 }
 
 //BLOG
@@ -199,27 +230,10 @@ export type Social = {
   url: string;
 }
 
-// export type ErrorsFromServer = RequestErrors | ServerErrors
-
-export type RequestErrors = {
-  code: string,
-  message: string,
-  data: {
-    status: number,
-    errors: {
-      name: string,
-      email: string,
-      tel: string,
-      projectDescription: string,
-      projectDescriptionFile: string,
-      mailing: string
-    }
-  }
-}
-
-export type ServerErrors = {
-  code: string,
-  message: string,
+//PRIVACY POLICY
+export type PrivacyPolicyData = {
+  title: string,
+  content: string
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
