@@ -1,18 +1,23 @@
 :root {
   --small-screen-max-width: 450px;
   --offset-x: 116px; //124 - scrollbar width/2
+  --header-height: 136px;
+  --first-el-offset: 120px;
+
   @media (max-width: 1905px) {
     --offset-x: 100px; //108 - scrollbar width/2
+    --first-el-offset: 100px;
   }
   @media (max-width: 1425px) {
     --offset-x: 116px; //124 - scrollbar width/2
+    --first-el-offset: 68px;
   }
   @media (max-width: 1265px) {
     --offset-x: 16px;
+    --first-el-offset: 77px;
   }
-
-  :root {
-    --header-height: 136px;
+  @media (max-width: 767px) {
+    --first-el-offset: 50px;
   }
 }
 
@@ -91,7 +96,8 @@ h1 {
   line-height: var(--line-height-124);
   text-transform: uppercase;
   color: var(--color-light-100);
-  padding-top: 120px;
+  padding-top: var(--first-el-offset);
+  hyphens: auto;
 }
 
 h2 {
@@ -133,7 +139,6 @@ h2 {
   h1 {
     font-size: 72px;
     line-height: var(--line-height-140);
-    padding-top: 100px;
   }
   h2 {
     font-size: 48px;
@@ -143,7 +148,6 @@ h2 {
 @media (max-width: 1425px) {
   h1 {
     font-size: 64px;
-    padding-top: 68px;
   }
   h2 {
     font-size: 40px;
@@ -153,7 +157,6 @@ h2 {
 @media (max-width: 1265px) {
   h1 {
     font-size: 40px;
-    padding-top: 77px;
   }
   h2 {
     font-size: 40px;
@@ -163,7 +166,6 @@ h2 {
 @media (max-width: 767px) {
   h1 {
     font-size: 20px;
-    padding-top: 50px;
   }
   h2 {
     font-size: 18px;

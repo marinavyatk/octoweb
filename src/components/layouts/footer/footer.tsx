@@ -4,6 +4,8 @@ import s from "./footer.module.scss";
 import { ContactLinks, ContactLinksProps } from "../contactLinks/contactLinks";
 import { BriefButton } from "@/components/ui/buttons/briefButton/briefButton";
 import { NavigationButton } from "@/components/ui/buttons/navigationButton/navigationButton";
+import Link from "next/link";
+import { routes } from "@/common/routes";
 
 export type FooterProps =
   { needBriefLink?: boolean, contactLinksProps: ContactLinksProps }
@@ -38,7 +40,7 @@ export const Footer = (props: FooterProps) => {
           />
         </div>
         <div className={s.bottomCaption}>
-          <span>Политика конфиденциальности</span>
+          <Link href={routes.privacyPolicy} rel={"nofollow"} target={"_blank"}> Политика конфиденциальности </Link>
           <span className={s.copyright}>© OctoWeb {new Date().getFullYear()} — Все права защищены</span>
         </div>
       </div>

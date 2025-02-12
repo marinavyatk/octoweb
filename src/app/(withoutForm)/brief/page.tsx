@@ -29,6 +29,8 @@ import { clsx } from "clsx";
 import { BigBubble } from "@/components/video/bigBubble/bigBubble";
 import { api } from "@/common/api";
 import { LinearLoader } from "@/components/ui/linearLoader/linearLoader";
+import { routes } from "@/common/routes";
+import Link from "next/link";
 
 
 let materialsDevelopmentCurrentValue = "yes";
@@ -1062,9 +1064,10 @@ export default function Brief() {
           <section className={s.submit}>
             <p className={s.terms}>
               Я принимаю условия{" "}
-              <a href={"#"} rel={"nofollow"} className={clsx(s.privacyPolicy, "noRoutingLink")} download>
-                Политика ООО OctoWeb в отношении обработки данных
-              </a>{" "}
+              <Link href={routes.privacyPolicy} rel={"nofollow"} className={clsx(s.privacyPolicy, "noRoutingLink")}
+                    target="_blank">
+                Политики ООО OctoWeb в отношении обработки данных
+              </Link>{" "}
               и, нажимая на кнопку “Отправить”, даю согласие на обработку компанией указанных мной
               персональных данных
             </p>
