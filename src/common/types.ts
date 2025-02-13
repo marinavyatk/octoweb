@@ -48,13 +48,22 @@ export type Robots = {
   "max-video-preview": string
 }
 
+export type SEO = {
+  yoast_head_json: SeoData,
+  yoast_head: string
+}
+
 export type SeoData = {
   title: string,
   description: string,
   keywords: string[],
   canonical: string,
+  og_locale: string,
+  og_type: string,
   og_title: string,
   og_description: string,
+  og_url: string,
+  og_site_name: string,
   og_image: OgImage[],
   twitter_title: string,
   twitter_description: string,

@@ -7,7 +7,9 @@ import {
   CasePageData,
   CasesData,
   CasesFiltersData,
-  ContactsData, PrivacyPolicyData,
+  ContactsData,
+  PrivacyPolicyData,
+  SEO,
   ServiceCategoryPage,
   ServicePageData,
   ServicesData
@@ -236,6 +238,15 @@ export const api = {
         console.error("Неизвестная ошибка", error);
         return { message: "Произошла неизвестная ошибка" };
       }
+    }
+  },
+  //SEO
+  async getCaseSeo(id: string) {
+    try {
+      const response = await axios.get<SEO[]>(`https://octow.octoweb.ru/wp-json/wp/v2/cases?slug=${id}`);
+      return response.data;
+    } catch (error) {
+      console.error("Не удалось загрузить SEO данные", error);
     }
   }
 };
