@@ -18,11 +18,19 @@ import { api } from "@/common/api";
 import { CaseData } from "@/common/types";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Loader } from "@/components/ui/loader/loader";
+import { Suspense } from "react";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
+export default function CasesPage() {
+  return <Suspense fallback={null}>
+    <Cases />
+  </Suspense>;
+}
 
-export default function Cases() {
+
+function Cases() {
   const defaultFilter = "All projects";
   const sizes = ["extraLarge", "large", "small", "medium", "fullWidth"];
   const defaultPage = 1;
@@ -184,6 +192,7 @@ export default function Cases() {
 
   return (
     <div className={s.casesPage}>
+      <Suspense></Suspense>
       <div className={"mainContainer"}>
         <div className={s.header}>
           <h1>КЕЙСЫ</h1>
@@ -212,4 +221,4 @@ export default function Cases() {
       </div>
     </div>
   );
-};
+}
