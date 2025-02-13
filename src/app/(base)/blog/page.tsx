@@ -3,7 +3,7 @@
 import s from "./blog.module.scss";
 import { BlogCard, Size } from "@/components/layouts/blogCard/blogCard";
 import { FilterButton } from "@/components/ui/buttons/filterButton/filterButton";
-import { useCallback, useEffect, useState } from "react";
+import { Suspense, useCallback, useEffect, useState } from "react";
 import { clsx } from "clsx";
 import { v4 as uuid } from "uuid";
 import { Button } from "@/components/ui/buttons/button/button";
@@ -19,7 +19,13 @@ import { Loader } from "@/components/ui/loader/loader";
 gsap.registerPlugin(ScrollTrigger);
 
 
-export default function Blog() {
+export default function BlogPage() {
+  return <Suspense fallback={null}>
+    <Blog />
+  </Suspense>;
+}
+
+function Blog() {
   const defaultFilter = "All";
   const defaultPage = 1;
   const [articlesData, setArticles] = useState<(Article & { isNew: boolean })[]>();
