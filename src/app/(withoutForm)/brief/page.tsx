@@ -31,6 +31,7 @@ import { api } from "@/common/api";
 import { LinearLoader } from "@/components/ui/linearLoader/linearLoader";
 import { routes } from "@/common/routes";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 
 let materialsDevelopmentCurrentValue = "yes";
@@ -351,9 +352,10 @@ export default function Brief() {
 
   const onSubmit = async (data: BriefValues) => {
     const response = await api.postBrief(data);
-    console.log(data);
-    // console.log("response", response);
-    if (!response) return null;
+    if (!response) {
+      toast.error("Что-то пошло не так");
+      return;
+    }
 
     if (!("code" in response)) {
       setIsFormNotificationShown(true);
@@ -367,6 +369,12 @@ export default function Brief() {
             if (index === 0 && subIndex === 0) setFocus(fieldPath);
           });
         });
+    }
+    if (response?.code === "recaptcha_failed") {
+      toast.error("Вы не прошли проверку recaptcha");
+    }
+    if (response?.data?.status === 500) {
+      toast.error(response?.message || "Что-то пошло не так");
     }
   };
 

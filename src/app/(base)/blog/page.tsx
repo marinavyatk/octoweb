@@ -15,6 +15,8 @@ import { api } from "@/common/api";
 import { Article } from "@/common/types";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Loader } from "@/components/ui/loader/loader";
+import Script from "next/script";
+import { HeadCustom } from "@/common/head";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,6 +36,8 @@ function Blog() {
   const [currentFilter, setCurrentFilter] = useState<string>(defaultFilter);
   const [page, setPage] = useState(defaultPage);
   const [loading, setLoading] = useState(false);
+  const [seo, setSeo] = useState<string>();
+  const [schema, setSchema] = useState<string>();
   const searchParams = useSearchParams();
   const pathname = usePathname();
 
@@ -58,8 +62,16 @@ function Blog() {
       setFilters(filters);
     };
 
-    getArticles();
-    getFilters();
+    const getSeo = async () => {
+      const seo = await api.getBlogSeo();
+      if (!seo) return null;
+      const schema = seo?.[0]?.yoast_head_json?.schema;
+      const meta = seo?.[0]?.yoast_head;
+      setSeo(meta);
+      setSchema(schema);
+    };
+
+    Promise.all([getArticles(), getFilters(), getSeo()]);
   }, []);
 
   useEffect(() => {
@@ -200,27 +212,40 @@ function Blog() {
   articles.shift();
 
   return (
-    <div className={clsx("mainContainer", s.blogPage)}>
-      <BigBubble className={s.bigBubble} />
-      <div className={s.header}>
-        <h1>Блог</h1>
-        <div className={s.filterButtons}>{filterButtons}</div>
+    <>
+      <div className={clsx("mainContainer", s.blogPage)}>
+        <BigBubble className={s.bigBubble} />
+        <div className={s.header}>
+          <h1>Блог</h1>
+          <div className={s.filterButtons}>{filterButtons}</div>
+        </div>
+        <div className={s.firstArticle}>{firstArticle}</div>
+        <div className={s.articles}>{articles}</div>
+        {loading && <div className={s.loaderContainer}>
+          <Loader />
+        </div>}
+        {articles.length + 1 < total &&
+          <Button
+            text={"Загрузить ещё"}
+            className={s.loadMoreButton}
+            onClick={getMoreArticles}
+          />
+        }
+        <div className={s.smallBubbleContainer}>
+          <SmallBubble className={s.smallBubble} />
+        </div>
       </div>
-      <div className={s.firstArticle}>{firstArticle}</div>
-      <div className={s.articles}>{articles}</div>
-      {loading && <div className={s.loaderContainer}>
-        <Loader />
-      </div>}
-      {articles.length + 1 < total &&
-        <Button
-          text={"Загрузить ещё"}
-          className={s.loadMoreButton}
-          onClick={getMoreArticles}
-        />
+      {schema &&
+        <Script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          id="blog"
+          strategy="beforeInteractive"
+        ></Script>
       }
-      <div className={s.smallBubbleContainer}>
-        <SmallBubble className={s.smallBubble} />
-      </div>
-    </div>
+      {seo &&
+        <HeadCustom seoString={seo} />
+      }
+    </>
   );
 };

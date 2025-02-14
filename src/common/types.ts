@@ -41,11 +41,12 @@ export type OgImage = {
 }
 
 export type Robots = {
-  index: string,
-  follow: string,
-  "max-snippet": string,
-  "max-image-preview": string,
-  "max-video-preview": string
+  index?: string,
+  follow?: string,
+  nocache?: string;
+  "max-snippet"?: string,
+  "max-image-preview"?: string,
+  "max-video-preview"?: string
 }
 
 export type SEO = {
@@ -54,22 +55,25 @@ export type SEO = {
 }
 
 export type SeoData = {
-  title: string,
-  description: string,
-  keywords: string[],
-  canonical: string,
-  og_locale: string,
-  og_type: string,
-  og_title: string,
-  og_description: string,
-  og_url: string,
-  og_site_name: string,
-  og_image: OgImage[],
-  twitter_title: string,
-  twitter_description: string,
-  twitter_image: string,
-  robots: Robots,
-  schema: string
+  title?: string,
+  description?: string,
+  keywords?: string[],
+  canonical?: string,
+  og_locale?: string,
+  og_type?: string,
+  og_title?: string,
+  og_description?: string,
+  og_url?: string,
+  og_site_name?: string,
+  article_modified_time?: string,
+  og_image?: OgImage[],
+  robots?: Robots,
+  twitter_card?: string;
+  twitter_misc?: Record<string, string>;
+  twitter_title?: string,
+  twitter_description?: string,
+  twitter_image?: string,
+  schema?: string,
 }
 
 //SERVICES

@@ -5,10 +5,22 @@ import { BigBubble } from "@/components/video/bigBubble/bigBubble";
 import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
 import { api } from "@/common/api";
 import { ChildService } from "@/common/types";
+import Script from "next/script";
+import { getMetaDataObj } from "@/common/commonFunctions";
+
+
+export async function generateMetadata() {
+  const response = await api.getServicesSeo();
+  if (!response) return {};
+  const metadata = response?.[0].yoast_head_json;
+
+  return getMetaDataObj(metadata);
+}
 
 
 export default async function Services() {
-  const services = await api.getServices();
+  const [services, seo] = await Promise.all([api.getServices(), api.getServicesSeo()]);
+  const schema = seo?.[0].yoast_head_json?.schema
   const formattedTags = (tags: ChildService[]) => {
     return tags.map(tag => {
       return {
@@ -22,6 +34,7 @@ export default async function Services() {
   if (!services) return null;
 
   return (
+    <>
     <div className={clsx(s.servicesPage, "mainContainer")}>
       <BigBubble className={s.bigBubble} />
       <SmallBubble className={s.smallBubble} />
@@ -69,5 +82,14 @@ export default async function Services() {
         </div>
       </div>
     </div>
+      {schema &&
+        <Script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          id="services"
+          strategy="beforeInteractive"
+        ></Script>
+      }
+    </>
   );
 };

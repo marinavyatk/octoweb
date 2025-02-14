@@ -34,6 +34,7 @@ export const AboutCard = (props: AboutCardProps) => {
           variant={"dark"}
           text={"Заказать проект"}
           href={"#form"}
+          id="formAnchor"
           className={s.arrowButton}
         />
       </div>

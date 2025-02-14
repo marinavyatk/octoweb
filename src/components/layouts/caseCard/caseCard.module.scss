@@ -1,6 +1,7 @@
 .card {
   display: block;
   width: fit-content;
+  height: fit-content;
   opacity: 0;
 
   &:focus-visible {

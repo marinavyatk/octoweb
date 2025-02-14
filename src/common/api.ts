@@ -20,6 +20,10 @@ const instance = axios.create({
   baseURL: "https://octow.octoweb.ru/wp-json/api/v1"
 });
 
+const seoInstance = axios.create({
+  baseURL: "https://octow.octoweb.ru/wp-json/wp/v2/"
+});
+
 export const api = {
   async getInteractionStages() {
     try {
@@ -241,12 +245,84 @@ export const api = {
     }
   },
   //SEO
-  async getCaseSeo(id: string) {
+  async getMainSeo() {
     try {
-      const response = await axios.get<SEO[]>(`https://octow.octoweb.ru/wp-json/wp/v2/cases?slug=${id}`);
+      const response = await seoInstance.get<SEO[]>(`/pages?slug=glavnaya`);
       return response.data;
     } catch (error) {
       console.error("Не удалось загрузить SEO данные", error);
     }
-  }
+  },
+  async getAboutSeo() {
+    try {
+      const response = await seoInstance.get<SEO[]>(`/pages?slug=about`);
+      return response.data;
+    } catch (error) {
+      console.error("Не удалось загрузить SEO данные", error);
+    }
+  },
+  async getServicesSeo() {
+    try {
+      const response = await seoInstance.get<SEO[]>(`/pages?slug=services`);
+      return response.data;
+    } catch (error) {
+      console.error("Не удалось загрузить SEO данные", error);
+    }
+  },
+  async getServicesCategorySeo(category: string) {
+    try {
+      const response = await seoInstance.get<SEO[]>(`/service_category?slug=${category}`);
+      return response.data;
+    } catch (error) {
+      console.error("Не удалось загрузить SEO данные", error);
+    }
+  },
+  async getServiceSeo(id: string) {
+    try {
+      const response = await seoInstance.get<SEO[]>(`/services?slug=${id}`);
+      return response.data;
+    } catch (error) {
+      console.error("Не удалось загрузить SEO данные", error);
+    }
+  },
+  async getCasesSeo() {
+    try {
+      const response = await seoInstance.get<SEO[]>(`/pages?slug=cases`);
+      return response.data;
+    } catch (error) {
+      console.error("Не удалось загрузить SEO данные", error);
+    }
+  },
+  async getCaseSeo(id: string) {
+    try {
+      const response = await seoInstance.get<SEO[]>(`/cases?slug=${id}`);
+      return response.data;
+    } catch (error) {
+      console.error("Не удалось загрузить SEO данные", error);
+    }
+  },
+  async getBlogSeo() {
+    try {
+      const response = await seoInstance.get<SEO[]>(`/pages?slug=blog`);
+      return response.data;
+    } catch (error) {
+      console.error("Не удалось загрузить SEO данные", error);
+    }
+  },
+  async getArticleSeo(id: string) {
+    try {
+      const response = await seoInstance.get<SEO[]>(`/posts?slug=${id}`);
+      return response.data;
+    } catch (error) {
+      console.error("Не удалось загрузить SEO данные", error);
+    }
+  },
+  async getContactsSeo() {
+    try {
+      const response = await seoInstance.get<SEO[]>(`/pages?slug=contacts`);
+      return response.data;
+    } catch (error) {
+      console.error("Не удалось загрузить SEO данные", error);
+    }
+  },
 };

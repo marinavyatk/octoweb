@@ -9,19 +9,31 @@ import { BigBubble } from "@/components/video/bigBubble/bigBubble";
 import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
 import { api } from "@/common/api";
 import { FAQ } from "@/components/sections/faq/faq";
+import { getMetaDataObj } from "@/common/commonFunctions";
+import Script from "next/script";
+
+export async function generateMetadata({ params }: { params: { serviceCategory: string } }) {
+  const { serviceCategory } = await params;
+  const response = await api.getServicesCategorySeo(serviceCategory);
+  if (!response) return {};
+  const metadata = response?.[0].yoast_head_json;
+
+  return getMetaDataObj(metadata);
+}
 
 
 export default async function ServiceCategory({ params }: {
   params: Promise<{ serviceCategory: string }>
 }) {
   const { serviceCategory } = await params;
-  const serviceCategoryData = await api.getServiceCategory(serviceCategory);
+  const [serviceCategoryData, seo] = await Promise.all([api.getServiceCategory(serviceCategory), api.getServicesCategorySeo(serviceCategory)]);
   if (!serviceCategoryData) return null;
+  const schema = seo?.[0]?.yoast_head_json?.schema;
 
   const stepCards = serviceCategoryData.work_stages.map((stage) => ({
-      stepNumber: String(stage.number),
-      header: stage.title,
-      description: stage.text
+    stepNumber: String(stage.number),
+    header: stage.title,
+    description: stage.text
   }));
 
   const textContent = {
@@ -53,6 +65,14 @@ export default async function ServiceCategory({ params }: {
       </div>
       <StepCards className={s.steps} stepCards={stepCards} />
       <FAQ faqData={serviceCategoryData.faq} className={clsx(s.faq, "mainContainer")} />
+      {schema &&
+        <Script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          id="case"
+          strategy="beforeInteractive"
+        ></Script>
+      }
     </>
   );
 };

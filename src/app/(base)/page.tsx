@@ -10,12 +10,24 @@ import { AdvantagesCards } from "@/components/sections/advantagesCards/advantage
 import { Cases } from "@/components/sections/cases/cases";
 import { api } from "@/common/api";
 import { WorkStage } from "@/common/types";
+import { getMetaDataObj } from "@/common/commonFunctions";
+import Script from "next/script";
+
+
+export async function generateMetadata() {
+  const response = await api.getMainSeo();
+  if (!response) return {};
+  const metadata = response?.[0]?.yoast_head_json;
+
+  return getMetaDataObj(metadata);
+}
 
 
 export default async function Home() {
-  const [cases, services, stages] = await Promise.all([api.getCases(1, null), api.getServices(), api.getInteractionStages()]);
+  const [cases, services, stages, seo] = await Promise.all([api.getCases(1, null), api.getServices(), api.getInteractionStages(), api.getMainSeo()]);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const casesForSection = cases?.cases.splice(0, 4).map(({ imgFullWidth, projectCategories, ...rest }) => rest);
+
   const formattedServices = services?.map(serviceCategory => {
     return {
       number: serviceCategory.service_number,
@@ -41,7 +53,10 @@ export default async function Home() {
     wordSwipeProps: { words: ["web", "seo"] }
   };
 
+  const schema = seo?.[0]?.yoast_head_json?.schema
+
   return (
+    <>
     <div className={s.mainPage}>
       <div className={"mainContainer"}>
         <div className={s.mainBubblesContainer}>
@@ -63,5 +78,14 @@ export default async function Home() {
       </div>
       <StepCards className={s.steps} stepCards={stepCards} />
     </div>
+      {schema &&
+        <Script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          id="main"
+          strategy="beforeInteractive"
+        ></Script>
+      }
+    </>
   );
 };

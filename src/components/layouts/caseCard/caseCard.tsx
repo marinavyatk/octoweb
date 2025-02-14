@@ -43,19 +43,6 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
     );
   });
 
-  const getSizes = (size: Size) => {
-    switch (size) {
-      case "small":
-        return "(max-width: 767px) 212px,(max-width: 1265px)  509px, (max-width: 1425px) 328px, (max-width: 1905px) 392px, 536px";
-      case "medium":
-        return "(max-width: 767px) 265px,(max-width: 1265px)  638px, (max-width: 1425px) 416px, (max-width: 1905px) 496px, 678px";
-      case "large":
-        return "(max-width: 767px) 288px,(max-width: 1265px)  636px, (max-width: 1425px) 416px, (max-width: 1905px) 496px, 678px";
-      case "extraLarge":
-        return "(max-width: 767px) 266px,(max-width: 1265px)  691px, (max-width: 1425px) 520px, (max-width: 1905px) 600px, 820px";
-    }
-  };
-
   useEffect(() => {
     cardRef?.current?.setAttribute("data-animated", "true");
   }, []);
@@ -73,7 +60,7 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
           {category}
         </Tag>
         {img &&
-          <Picture src={img} alt={header} fill sizes={getSizes(size)} />
+          <Picture src={img} alt={header} fill sizes="100vw" />
         }
         <div className={s.tagList}>{tagList}</div>
       </div>

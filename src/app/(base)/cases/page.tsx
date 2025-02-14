@@ -3,7 +3,7 @@
 import s from "./cases.module.scss";
 import { CaseCircle } from "@/components/layouts/caseCircle/caseCircle";
 import { FilterButton } from "@/components/ui/buttons/filterButton/filterButton";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CaseCircleList } from "@/components/sections/caseCircleList/caseCircleList";
 import { CaseCardFullWidth } from "@/components/layouts/caseCardFullWidth/caseCardFullWidth";
 import { CaseCard, Size } from "@/components/layouts/caseCard/caseCard";
@@ -18,7 +18,8 @@ import { api } from "@/common/api";
 import { CaseData } from "@/common/types";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Loader } from "@/components/ui/loader/loader";
-import { Suspense } from "react";
+import Script from "next/script";
+import { HeadCustom } from "@/common/head";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -42,12 +43,14 @@ function Cases() {
   const container = useRef<HTMLDivElement | null>(null);
   const [page, setPage] = useState(defaultPage);
   const [loading, setLoading] = useState(false);
+  const [seo, setSeo] = useState<string>();
+  const [schema, setSchema] = useState<string>();
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const casesCirclesMemo = useMemo(() => (casesCircles), [
     casesCircles
   ]);
-
+  console.log('schema', schema);
   useEffect(() => {
     const filter = searchParams.get("filter");
     if (filter) {
@@ -68,8 +71,16 @@ function Cases() {
       setFilters(response || []);
     };
 
-    getCases();
-    getCasesFilters();
+    const getSeo = async () => {
+      const seo = await api.getCasesSeo();
+      if (!seo) return null;
+      const schema = seo?.[0]?.yoast_head_json?.schema;
+      const meta = seo?.[0]?.yoast_head;
+      setSeo(meta);
+      setSchema(schema);
+    };
+
+    Promise.all([getCases(), getCasesFilters(), getSeo()]);
   }, []);
 
 
@@ -191,34 +202,47 @@ function Cases() {
 
 
   return (
-    <div className={s.casesPage}>
-      <Suspense></Suspense>
-      <div className={"mainContainer"}>
-        <div className={s.header}>
-          <h1>КЕЙСЫ</h1>
-          <div className={s.filterButtons}>{filterButtons}</div>
+    <>
+      <div className={s.casesPage}>
+        <Suspense></Suspense>
+        <div className={"mainContainer"}>
+          <div className={s.header}>
+            <h1>КЕЙСЫ</h1>
+            <div className={s.filterButtons}>{filterButtons}</div>
+          </div>
+        </div>
+        <CaseCircleList
+          caseCircles={casesCirclesMemo || []}
+          className={s.caseCircleList}
+        />
+        <div className={s.smallBubbleCirclesContainer}>
+          <SmallBubble className={s.smallBubbleCircles} />
+        </div>
+        <div className={s.casesList} ref={container}>
+          {cases}
+          <SmallBubble className={s.smallBubbleCases} />
+        </div>
+        {loading && <div className={s.loaderContainer}>
+          <Loader />
+        </div>}
+        {casesCards.length < total &&
+          <Button text={"Показать ещё"} className={s.showMoreButton} onClick={getMoreCases} />
+        }
+        <div className={s.bigBubbleEndContainer}>
+          <BigBubble className={s.bigBubbleEnd} />
         </div>
       </div>
-      <CaseCircleList
-        caseCircles={casesCirclesMemo || []}
-        className={s.caseCircleList}
-      />
-      <div className={s.smallBubbleCirclesContainer}>
-        <SmallBubble className={s.smallBubbleCircles} />
-      </div>
-      <div className={s.casesList} ref={container}>
-        {cases}
-        <SmallBubble className={s.smallBubbleCases} />
-      </div>
-      {loading && <div className={s.loaderContainer}>
-        <Loader />
-      </div>}
-      {casesCards.length < total &&
-        <Button text={"Показать ещё"} className={s.showMoreButton} onClick={getMoreCases} />
+      {schema &&
+        <Script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          id="cases"
+          strategy="beforeInteractive"
+        ></Script>
       }
-      <div className={s.bigBubbleEndContainer}>
-        <BigBubble className={s.bigBubbleEnd} />
-      </div>
-    </div>
+      {seo &&
+        <HeadCustom seoString={seo} />
+      }
+    </>
   );
 }

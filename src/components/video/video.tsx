@@ -37,6 +37,7 @@ export const Video = (props: VideoProps) => {
     playsInline
     aria-hidden="true"
     role="presentation"
+    preload={"auto"}
   >
     {isFirstVisible &&
       <>
