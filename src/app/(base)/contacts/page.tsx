@@ -2,39 +2,61 @@ import s from "./contacts.module.scss";
 import Map from "@/components/layouts/map/map";
 import { ContactLinks } from "@/components/layouts/contactLinks/contactLinks";
 import { api } from "@/common/api";
-import { formatPhoneNumber } from "@/common/commonFunctions";
+import { formatPhoneNumber, getMetaDataObj } from "@/common/commonFunctions";
+import Script from "next/script";
+
+export async function generateMetadata() {
+  const response = await api.getContactsSeo();
+  if (!response) return {};
+  const metadata = response?.[0]?.yoast_head_json;
+
+  return getMetaDataObj(metadata);
+}
+
 
 export default async function Contacts() {
-  const contactInfo = await api.getContacts();
+  const [contactInfo, seo] = await Promise.all([api.getContacts(), api.getContactsSeo()]);
 
-  if(!contactInfo) return null;
+  if (!contactInfo) return null;
+
+  const schema = seo?.[0]?.yoast_head_json?.schema;
 
   return (
-    <div className={s.contactsPage}>
-      <div className={"mainContainer"}>
-        <h1>КОНТАКТЫ </h1>
-        <div className={s.contacts}>
-          <div>
-            {contactInfo?.working_hours}<br />
-            <address>
-              {contactInfo?.address}
-            </address>
+    <>
+      <div className={s.contactsPage}>
+        <div className={"mainContainer"}>
+          <h1>КОНТАКТЫ </h1>
+          <div className={s.contacts}>
+            <div>
+              {contactInfo?.working_hours}<br />
+              <address>
+                {contactInfo?.address}
+              </address>
+            </div>
+            <div className={s.links}>
+              <a href={`mailto:${contactInfo?.email}`}>{contactInfo?.email}</a>
+              <a href={contactInfo?.phone && `tel:${formatPhoneNumber(contactInfo.phone)}`}>{contactInfo?.phone}</a>
+            </div>
           </div>
-          <div className={s.links}>
-            <a href={`mailto:${contactInfo?.email}`}>{contactInfo?.email}</a>
-            <a href={contactInfo?.phone && `tel:${formatPhoneNumber(contactInfo.phone)}`}>{contactInfo?.phone}</a>
-          </div>
+          {contactInfo?.social_links &&
+            <ContactLinks socials={contactInfo.social_links}
+                          className={s.contactLinks}
+                          containerProps={{ className: s.contactLinksContainer }}
+            />}
         </div>
-        {contactInfo?.social_links &&
-          <ContactLinks socials={contactInfo.social_links}
-                        className={s.contactLinks}
-                        containerProps={{ className: s.contactLinksContainer }}
-          />}
+        <Map className={s.map}
+             locationCoordinates={contactInfo?.map_place_coordinates}
+             markerCoordinates={contactInfo?.map_coordinates}
+        />
       </div>
-      <Map className={s.map}
-           locationCoordinates={contactInfo?.map_place_coordinates}
-           markerCoordinates={contactInfo?.map_coordinates}
-      />
-    </div>
+      {schema &&
+        <Script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          id="main"
+          strategy="beforeInteractive"
+        ></Script>
+      }
+    </>
   );
 };

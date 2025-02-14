@@ -39,6 +39,7 @@
     "react-scroll": "^1.9.0",
     "react-spring": "^9.7.5",
     "react-textarea-autosize": "^8.5.3",
+    "react-toastify": "^11.0.3",
     "sass": "^1.79.4",
     "swiper": "^11.1.14",
     "ymap3-components": "^1.1.6",

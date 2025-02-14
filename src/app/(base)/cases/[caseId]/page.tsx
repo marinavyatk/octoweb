@@ -15,9 +15,8 @@ export async function generateMetadata({ params }: { params: { caseId: string } 
   const response = await api.getCaseSeo(caseId);
   if (!response) return {};
   const metadata = response?.[0].yoast_head_json;
-  const meta = getMetaDataObj(metadata);
 
-  return meta;
+  return getMetaDataObj(metadata);
 }
 
 
@@ -25,13 +24,10 @@ export default async function Case({ params }: {
   params: Promise<{ caseId: string }>
 }) {
   const { caseId } = await params;
-  const casePage = await api.getCase(caseId);
-  if (!casePage) return;
-  const response = await api.getCaseSeo(caseId);
-  if (!response) return;
-  const seoData = response[0];
+  const [casePage, response] = await Promise.all([api.getCase(caseId), api.getCaseSeo(caseId)]);
+  if (!casePage || !response) return;
 
-
+  const schema = response?.[0]?.yoast_head_json?.schema;
   const smallImg = casePage.images.small;
   const mediumImg = casePage.images.medium;
   const bigImg = casePage.images.big;
@@ -103,12 +99,11 @@ export default async function Case({ params }: {
           <div className={s.resultDescription} dangerouslySetInnerHTML={{ __html: casePage["project_text"] }}></div>
         </div>
       </div>
-      {seoData.yoast_head_json.schema &&
+      {schema &&
         <Script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(seoData.yoast_head_json.schema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
           id="case"
-          async
           strategy="beforeInteractive"
         ></Script>
       }

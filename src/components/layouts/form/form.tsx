@@ -16,6 +16,7 @@ import { api } from "@/common/api";
 import { Loader } from "@/components/ui/loader/loader";
 import Link from "next/link";
 import { routes } from "@/common/routes";
+import { toast } from "react-toastify";
 
 export type FormValues = z.infer<typeof formSchema>;
 export type FormProps = ComponentPropsWithoutRef<"div">;
@@ -51,6 +52,10 @@ export const Form = (props: FormProps) => {
 
   const onSubmit = async (data: FormValues) => {
     const response = await api.postForm(data);
+    if (!response) {
+      toast.error("Что-то пошло не так");
+      return;
+    }
     if (!("code" in response)) {
       setIsFormNotificationShown(true);
     } else {
@@ -60,6 +65,12 @@ export const Form = (props: FormProps) => {
           setError(typedKey, { type: "server", message: value as string });
           if (index === 0) setFocus(typedKey);
         });
+      if (response?.code === "recaptcha_failed") {
+        toast.error("Вы не прошли проверку recaptcha");
+      }
+      if (response?.data?.status === 500) {
+        toast.error(response?.message || "Что-то пошло не так");
+      }
     }
   };
 

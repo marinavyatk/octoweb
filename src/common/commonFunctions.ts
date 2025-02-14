@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { OpenGraph, OpenGraphType } from "next/dist/lib/metadata/types/opengraph-types";
 import { Robots } from "next/dist/lib/metadata/types/metadata-types";
 import type { Twitter } from "next/dist/lib/metadata/types/twitter-types";
+import { SeoData } from "@/common/types";
 
 export const formatNumber = (index: number) => {
   const number = index + 1;
@@ -12,35 +13,10 @@ export const formatPhoneNumber = (number: string) => {
   return number.replace(/[^\d+]+/g, "");
 };
 
-type YoastRobots = {
-  index?: string;
-  follow?: string;
-  nocache?: string;
-  ["max-snippet"]?: string;
-  ["max-video-preview"]?: string;
-  ["max-image-preview"]?: string;
-};
-
-type YoastJson = {
-  title?: string;
-  description?: string;
-  canonical?: string;
-  og_locale?: string;
-  og_type?: string;
-  og_title?: string;
-  og_description?: string;
-  og_url?: string;
-  og_site_name?: string;
-  og_image?: { url: string; width?: number; height?: number; alt?: string }[];
-  robots?: YoastRobots;
-  twitter_card?: string;
-  twitter_misc?: Record<string, string>;
-};
-
-
-export const getMetaDataObj = (yoastJson: YoastJson) => {
+export const getMetaDataObj = (yoastJson: SeoData) => {
   const meta: Metadata = {};
-  if (yoastJson.title) {
+  if (!yoastJson) return {};
+  if (yoastJson.title !== undefined) {
     meta.title = yoastJson.title;
   }
   if (yoastJson.description) {
@@ -81,6 +57,12 @@ export const getMetaDataObj = (yoastJson: YoastJson) => {
     meta.openGraph = meta.openGraph || {};
     meta.openGraph.images = yoastJson.og_image;
   }
+  if (yoastJson.article_modified_time) {
+    meta.openGraph = meta.openGraph || {};
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    meta.openGraph.modifiedTime = yoastJson.article_modified_time;
+  }
   //robots
   if (yoastJson.robots?.index === "index") {
     meta.robots = (meta.robots || {}) as Robots;
@@ -89,10 +71,6 @@ export const getMetaDataObj = (yoastJson: YoastJson) => {
   if (yoastJson.robots?.follow === "follow") {
     meta.robots = (meta.robots || {}) as Robots;
     meta.robots.follow = true;
-  }
-  if (yoastJson.robots?.nocache === "nocache") {
-    meta.robots = (meta.robots || {}) as Robots;
-    meta.robots.nocache = true;
   }
   if (yoastJson.robots?.["max-snippet"]) {
     meta.robots = (meta.robots || {}) as Robots;
@@ -104,18 +82,17 @@ export const getMetaDataObj = (yoastJson: YoastJson) => {
   if (yoastJson.robots?.["max-video-preview"]) {
     meta.robots = (meta.robots || {}) as Robots;
     meta.robots.googleBot = meta.robots.googleBot || {};
-    const splittedString = yoastJson.robots?.["max-video-preview"].split(":");
-    const value = splittedString[splittedString.length - 1];
+    const splitString = yoastJson.robots?.["max-video-preview"].split(":");
+    const value = splitString[splitString.length - 1];
     (meta.robots.googleBot as Record<string, unknown>)["max-video-preview"] = value;
   }
   if (yoastJson.robots?.["max-image-preview"]) {
     meta.robots = (meta.robots || {}) as Robots;
     meta.robots.googleBot = meta.robots.googleBot || {};
-    const splittedString = yoastJson.robots?.["max-image-preview"].split(":");
-    const value = splittedString[splittedString.length - 1];
+    const splitString = yoastJson.robots?.["max-image-preview"].split(":");
+    const value = splitString[splitString.length - 1];
     (meta.robots.googleBot as Record<string, unknown>)["max-image-preview"] = value;
   }
-
 //twitter
   if (yoastJson.twitter_card) {
     meta.twitter = (meta.twitter || {}) as Twitter;
@@ -124,12 +101,15 @@ export const getMetaDataObj = (yoastJson: YoastJson) => {
     meta.twitter.card = yoastJson.twitter_card;
   }
   if (yoastJson.twitter_misc) {
-    meta.twitter = (meta.twitter || {}) as Twitter;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    meta.twitter.misc = yoastJson.twitter_misc
-  }
+    meta.other = meta.other || {};
 
+    Object.entries(yoastJson.twitter_misc).forEach(([label, data], index) => {
+      const labelKey = `twitter:label${index + 1}`;
+      const dataKey = `twitter:data${index + 1}`;
+      meta.other![labelKey] = label;
+      meta.other![dataKey] = data;
+    });
+  }
 
   return meta;
 };
