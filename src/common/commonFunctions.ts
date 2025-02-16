@@ -3,6 +3,7 @@ import { OpenGraph, OpenGraphType } from "next/dist/lib/metadata/types/opengraph
 import { Robots } from "next/dist/lib/metadata/types/metadata-types";
 import type { Twitter } from "next/dist/lib/metadata/types/twitter-types";
 import { SeoData } from "@/common/types";
+import { ReadonlyURLSearchParams } from "next/dist/client/components/navigation.react-server";
 
 export const formatNumber = (index: number) => {
   const number = index + 1;
@@ -11,6 +12,13 @@ export const formatNumber = (index: number) => {
 
 export const formatPhoneNumber = (number: string) => {
   return number.replace(/[^\d+]+/g, "");
+};
+
+export const createQueryString = (name: string, value: string, searchParams: ReadonlyURLSearchParams) => {
+  const params = new URLSearchParams(searchParams.toString());
+  params.set(name, value);
+
+  return params.toString();
 };
 
 export const getMetaDataObj = (yoastJson: SeoData) => {

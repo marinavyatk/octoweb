@@ -11,6 +11,7 @@
   fill: var(--color-light-20);
   margin-right: 26px;
   width: 27px;
+  flex-shrink: 0;
 }
 
 .deleteButton:focus-visible .deleteIcon{

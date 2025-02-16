@@ -14,9 +14,8 @@ import Script from "next/script";
 
 export async function generateMetadata({ params }: { params: { serviceCategory: string } }) {
   const { serviceCategory } = await params;
-  const response = await api.getServicesCategorySeo(serviceCategory);
-  if (!response) return {};
-  const metadata = response?.[0].yoast_head_json;
+  const metadata = await api.getServicesCategorySeo(serviceCategory);
+  if (!metadata) return {};
 
   return getMetaDataObj(metadata);
 }
@@ -28,7 +27,7 @@ export default async function ServiceCategory({ params }: {
   const { serviceCategory } = await params;
   const [serviceCategoryData, seo] = await Promise.all([api.getServiceCategory(serviceCategory), api.getServicesCategorySeo(serviceCategory)]);
   if (!serviceCategoryData) return null;
-  const schema = seo?.[0]?.yoast_head_json?.schema;
+  const schema = seo?.schema;
 
   const stepCards = serviceCategoryData.work_stages.map((stage) => ({
     stepNumber: String(stage.number),
@@ -49,7 +48,9 @@ export default async function ServiceCategory({ params }: {
         <BigBubble className={s.bigBubbleMain} />
         <SmallBubble className={s.smallBubbleMain} />
       </div>
-      <Greeting textContent={textContent} className={"mainContainer"} />
+      <div className={"mainContainer"}>
+        <Greeting textContent={textContent} />
+      </div>
       <ServicesLinksList
         linksData={serviceCategoryData.linksData}
         header={"Услуги разработки"}

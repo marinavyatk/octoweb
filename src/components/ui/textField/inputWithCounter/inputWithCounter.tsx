@@ -91,7 +91,7 @@ export const InputWithCounter = React.forwardRef(
         <div className={clsx(s.underText, isError && s.error)}>
           <div className={s.staticText}>
             <span className={s.contentLength}>{content.length}/500</span>
-            <span className={s.underlineMessage}>{underlineMessage}</span>
+            <span className={clsx(s.underlineMessage, file && s.hasFile)}>{underlineMessage}</span>
           </div>
           <div className={s.errorText}>{errorText}</div>
         </div>

@@ -18,9 +18,8 @@ import { getMetaDataObj } from "@/common/commonFunctions";
 
 export async function generateMetadata({ params }: { params: { service: string } }) {
   const { service } = params;
-  const response = await api.getServiceSeo(service);
-  if (!response) return {};
-  const metadata = response?.[0]?.yoast_head_json;
+  const metadata = await api.getServiceSeo(service);
+  if (!metadata) return {};
 
   return getMetaDataObj(metadata);
 }
@@ -32,7 +31,7 @@ export default async function Service({ params }: {
   const { service } = await params;
   const [serviceInfo, seo] = await Promise.all([api.getService(service), api.getServiceSeo(service)]);
   if (!serviceInfo) return null;
-  const schema = seo?.[0]?.yoast_head_json?.schema;
+  const schema = seo?.schema;
 
   const stepCards = serviceInfo.work_stages.map((stage) => ({
     stepNumber: String(stage.number || ""),

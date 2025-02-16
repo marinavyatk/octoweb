@@ -6,9 +6,8 @@ import { formatPhoneNumber, getMetaDataObj } from "@/common/commonFunctions";
 import Script from "next/script";
 
 export async function generateMetadata() {
-  const response = await api.getContactsSeo();
-  if (!response) return {};
-  const metadata = response?.[0]?.yoast_head_json;
+  const metadata = await api.getContactsSeo();
+  if (!metadata) return {};
 
   return getMetaDataObj(metadata);
 }
@@ -19,7 +18,7 @@ export default async function Contacts() {
 
   if (!contactInfo) return null;
 
-  const schema = seo?.[0]?.yoast_head_json?.schema;
+  const schema = seo?.schema;
 
   return (
     <>

@@ -15,9 +15,8 @@ import Script from "next/script";
 
 
 export async function generateMetadata() {
-  const response = await api.getMainSeo();
-  if (!response) return {};
-  const metadata = response?.[0]?.yoast_head_json;
+  const metadata = await api.getMainSeo();
+  if (!metadata) return {};
 
   return getMetaDataObj(metadata);
 }
@@ -25,8 +24,9 @@ export async function generateMetadata() {
 
 export default async function Home() {
   const [cases, services, stages, seo] = await Promise.all([api.getCases(1, null), api.getServices(), api.getInteractionStages(), api.getMainSeo()]);
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const casesForSection = cases?.cases.splice(0, 4).map(({ imgFullWidth, projectCategories, ...rest }) => rest);
+  const casesForSection = cases?.cases.splice(0, 4).map(({ imgFullWidth, ...rest }) => rest);
 
   const formattedServices = services?.map(serviceCategory => {
     return {
@@ -53,31 +53,31 @@ export default async function Home() {
     wordSwipeProps: { words: ["web", "seo"] }
   };
 
-  const schema = seo?.[0]?.yoast_head_json?.schema
+  const schema = seo?.schema;
 
   return (
     <>
-    <div className={s.mainPage}>
-      <div className={"mainContainer"}>
-        <div className={s.mainBubblesContainer}>
-          <BigBubble className={s.bigBubbleMain} />
-          <SmallBubble className={s.smallBubbleMain} />
+      <div className={s.mainPage}>
+        <div className={"mainContainer"}>
+          <div className={s.mainBubblesContainer}>
+            <BigBubble className={s.bigBubbleMain} />
+            <SmallBubble className={s.smallBubbleMain} />
+          </div>
+          <Greeting textContent={content} />
+          <h1 className={s.hiddenHeader}>Создаем сайты для бизнеса</h1>
+          <GreetingDescription className={s.greetingDescription} />
         </div>
-        <Greeting textContent={content} />
-        <h1 className={s.hiddenHeader}>Создаем сайты для бизнеса</h1>
-        <GreetingDescription className={s.greetingDescription} />
+        <AboutCard className={s.about} />
+        <AdvantagesCards />
+        <div className={"mainContainer"}>
+          <Cases cases={casesForSection || []} />
+        </div>
+        <ServicesLinksList linksData={formattedServices || []} className={s.services} />
+        <div className={s.servicesBubbles}>
+          <SmallBubble className={s.smallBubbleServices} />
+        </div>
+        <StepCards className={s.steps} stepCards={stepCards} />
       </div>
-      <AboutCard className={s.about} />
-      <AdvantagesCards />
-      <div className={"mainContainer"}>
-        <Cases cases={casesForSection || []} />
-      </div>
-      <ServicesLinksList linksData={formattedServices || []} className={s.services} />
-      <div className={s.servicesBubbles}>
-        <SmallBubble className={s.smallBubbleServices} />
-      </div>
-      <StepCards className={s.steps} stepCards={stepCards} />
-    </div>
       {schema &&
         <Script
           type="application/ld+json"

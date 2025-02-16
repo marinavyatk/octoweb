@@ -248,7 +248,7 @@ export const api = {
   async getMainSeo() {
     try {
       const response = await seoInstance.get<SEO[]>(`/pages?slug=glavnaya`);
-      return response.data;
+      return response.data?.[0]?.yoast_head_json;
     } catch (error) {
       console.error("Не удалось загрузить SEO данные", error);
     }
@@ -256,7 +256,7 @@ export const api = {
   async getAboutSeo() {
     try {
       const response = await seoInstance.get<SEO[]>(`/pages?slug=about`);
-      return response.data;
+      return response.data?.[0]?.yoast_head_json;
     } catch (error) {
       console.error("Не удалось загрузить SEO данные", error);
     }
@@ -264,7 +264,7 @@ export const api = {
   async getServicesSeo() {
     try {
       const response = await seoInstance.get<SEO[]>(`/pages?slug=services`);
-      return response.data;
+      return response.data?.[0]?.yoast_head_json;
     } catch (error) {
       console.error("Не удалось загрузить SEO данные", error);
     }
@@ -272,7 +272,7 @@ export const api = {
   async getServicesCategorySeo(category: string) {
     try {
       const response = await seoInstance.get<SEO[]>(`/service_category?slug=${category}`);
-      return response.data;
+      return response.data?.[0]?.yoast_head_json;
     } catch (error) {
       console.error("Не удалось загрузить SEO данные", error);
     }
@@ -280,7 +280,7 @@ export const api = {
   async getServiceSeo(id: string) {
     try {
       const response = await seoInstance.get<SEO[]>(`/services?slug=${id}`);
-      return response.data;
+      return response.data?.[0]?.yoast_head_json;
     } catch (error) {
       console.error("Не удалось загрузить SEO данные", error);
     }
@@ -288,7 +288,9 @@ export const api = {
   async getCasesSeo() {
     try {
       const response = await seoInstance.get<SEO[]>(`/pages?slug=cases`);
-      return response.data;
+      const meta = response.data?.[0]?.yoast_head;
+      const schema = response.data?.[0]?.yoast_head_json.schema;
+      return { meta, schema };
     } catch (error) {
       console.error("Не удалось загрузить SEO данные", error);
     }
@@ -296,7 +298,7 @@ export const api = {
   async getCaseSeo(id: string) {
     try {
       const response = await seoInstance.get<SEO[]>(`/cases?slug=${id}`);
-      return response.data;
+      return response.data?.[0]?.yoast_head_json;
     } catch (error) {
       console.error("Не удалось загрузить SEO данные", error);
     }
@@ -304,7 +306,9 @@ export const api = {
   async getBlogSeo() {
     try {
       const response = await seoInstance.get<SEO[]>(`/pages?slug=blog`);
-      return response.data;
+      const meta = response.data?.[0]?.yoast_head;
+      const schema = response.data?.[0]?.yoast_head_json.schema;
+      return { meta, schema };
     } catch (error) {
       console.error("Не удалось загрузить SEO данные", error);
     }
@@ -312,7 +316,7 @@ export const api = {
   async getArticleSeo(id: string) {
     try {
       const response = await seoInstance.get<SEO[]>(`/posts?slug=${id}`);
-      return response.data;
+      return response.data?.[0]?.yoast_head_json;
     } catch (error) {
       console.error("Не удалось загрузить SEO данные", error);
     }
@@ -320,9 +324,9 @@ export const api = {
   async getContactsSeo() {
     try {
       const response = await seoInstance.get<SEO[]>(`/pages?slug=contacts`);
-      return response.data;
+      return response.data?.[0]?.yoast_head_json;
     } catch (error) {
       console.error("Не удалось загрузить SEO данные", error);
     }
-  },
+  }
 };

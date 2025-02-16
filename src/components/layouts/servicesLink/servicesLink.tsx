@@ -45,7 +45,7 @@ export const ServicesLink = (props: ServicesLinkProps) => {
 
   return (
     <div {...restProps} className={classNames}>
-      <div className={s.header}>
+      <div className={s.headerContainer}>
         <a className={s.text} href={`/services/${mainLink}`} {...linkProps}>
           <span className={s.number}>{number}</span>
           <h3 className={s.header}>{header}</h3>
