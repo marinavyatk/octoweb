@@ -10,9 +10,8 @@ import { getMetaDataObj } from "@/common/commonFunctions";
 
 
 export async function generateMetadata() {
-  const response = await api.getServicesSeo();
-  if (!response) return {};
-  const metadata = response?.[0].yoast_head_json;
+  const metadata = await api.getServicesSeo();
+  if (!metadata) return {};
 
   return getMetaDataObj(metadata);
 }
@@ -20,7 +19,7 @@ export async function generateMetadata() {
 
 export default async function Services() {
   const [services, seo] = await Promise.all([api.getServices(), api.getServicesSeo()]);
-  const schema = seo?.[0].yoast_head_json?.schema
+  const schema = seo?.schema
   const formattedTags = (tags: ChildService[]) => {
     return tags.map(tag => {
       return {

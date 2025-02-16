@@ -9,9 +9,8 @@ import Script from "next/script";
 
 
 export async function generateMetadata() {
-  const response = await api.getAboutSeo();
-  if (!response) return {};
-  const metadata = response?.[0]?.yoast_head_json;
+  const metadata = await api.getAboutSeo();
+  if (!metadata) return {};
 
   return getMetaDataObj(metadata);
 }
@@ -20,8 +19,7 @@ export async function generateMetadata() {
 export default async function About() {
   const [team, seo] = await Promise.all([api.getTeam(), api.getAboutSeo()]);
 
-  console.log('seo', seo);
-  const schema = seo?.[0]?.yoast_head_json?.schema;
+  const schema = seo?.schema;
 
   return (
     <>

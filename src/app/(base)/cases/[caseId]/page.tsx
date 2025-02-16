@@ -12,9 +12,8 @@ import { getMetaDataObj } from "@/common/commonFunctions";
 
 export async function generateMetadata({ params }: { params: { caseId: string } }) {
   const { caseId } = await params;
-  const response = await api.getCaseSeo(caseId);
-  if (!response) return {};
-  const metadata = response?.[0].yoast_head_json;
+  const metadata = await api.getCaseSeo(caseId);
+  if (!metadata) return {};
 
   return getMetaDataObj(metadata);
 }
@@ -24,10 +23,10 @@ export default async function Case({ params }: {
   params: Promise<{ caseId: string }>
 }) {
   const { caseId } = await params;
-  const [casePage, response] = await Promise.all([api.getCase(caseId), api.getCaseSeo(caseId)]);
-  if (!casePage || !response) return;
+  const [casePage, seo] = await Promise.all([api.getCase(caseId), api.getCaseSeo(caseId)]);
+  if (!casePage) return;
 
-  const schema = response?.[0]?.yoast_head_json?.schema;
+  const schema = seo?.schema;
   const smallImg = casePage.images.small;
   const mediumImg = casePage.images.medium;
   const bigImg = casePage.images.big;

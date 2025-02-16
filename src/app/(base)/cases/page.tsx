@@ -20,6 +20,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { Loader } from "@/components/ui/loader/loader";
 import Script from "next/script";
 import { HeadCustom } from "@/common/head";
+import { createQueryString } from "@/common/commonFunctions";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -50,7 +51,7 @@ function Cases() {
   const casesCirclesMemo = useMemo(() => (casesCircles), [
     casesCircles
   ]);
-  console.log('schema', schema);
+
   useEffect(() => {
     const filter = searchParams.get("filter");
     if (filter) {
@@ -66,21 +67,19 @@ function Cases() {
       }, 400);
     };
 
-    const getCasesFilters = async () => {
+    const getFilters = async () => {
       const response = await api.getCasesFilters();
       setFilters(response || []);
     };
 
     const getSeo = async () => {
-      const seo = await api.getCasesSeo();
-      if (!seo) return null;
-      const schema = seo?.[0]?.yoast_head_json?.schema;
-      const meta = seo?.[0]?.yoast_head;
-      setSeo(meta);
-      setSchema(schema);
+      const response = await api.getCasesSeo();
+      if (!response) return null;
+      setSeo(response.meta);
+      setSchema(response.schema);
     };
 
-    Promise.all([getCases(), getCasesFilters(), getSeo()]);
+    Promise.all([getCases(), getFilters(), getSeo()]);
   }, []);
 
 
@@ -115,19 +114,12 @@ function Cases() {
     };
   }, [casesCards]);
 
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set(name, value);
-
-      return params.toString();
-    },
-    [searchParams]
+  const createQueryStringMemo = useCallback(
+    createQueryString,
+    []
   );
 
-  if (!casesCards) {
-    return null;
-  }
+  if (!casesCards) return null;
 
   const getMoreCases = async () => {
     setLoading(true);
@@ -139,7 +131,6 @@ function Cases() {
       ...card,
       isNew: true
     }))]);
-
     ScrollTrigger.refresh();
   };
 
@@ -153,7 +144,7 @@ function Cases() {
     if (filter === defaultFilter) {
       window.history.replaceState(null, "", pathname);
     } else {
-      window.history.replaceState(null, "", pathname + "?" + createQueryString("filter", filter));
+      window.history.replaceState(null, "", pathname + "?" + createQueryStringMemo("filter", filter, searchParams));
     }
 
     if (!newCases) return null;

@@ -31,12 +31,12 @@
     animation: show 3s linear;
   }
 
-  .charAnimate{
+  .charAnimate {
     animation: bounce 1.5s ease;
   }
 }
 
-.placeholder{
+.placeholder {
   opacity: 0;
 }
 
@@ -84,8 +84,8 @@
     padding: 3px 20px;
     --word-height: 42px;
 
-    span {
-      animation: bounce-small-screen 1.5s ease infinite forwards;
+    .charAnimate {
+      animation: bounce-small-screen 1.5s ease;
     }
   }
 }
@@ -100,9 +100,9 @@
 
 @keyframes bounce-small-screen {
   0%, 40%, 100% {
-    transform: translateY(10px);
+    transform: translateY(0px);
   }
   20% {
-    transform: translateY(15px);
+    transform: translateY(10px);
   }
 }

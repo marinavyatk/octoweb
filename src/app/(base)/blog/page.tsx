@@ -17,6 +17,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { Loader } from "@/components/ui/loader/loader";
 import Script from "next/script";
 import { HeadCustom } from "@/common/head";
+import { createQueryString } from "@/common/commonFunctions";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,10 +66,8 @@ function Blog() {
     const getSeo = async () => {
       const seo = await api.getBlogSeo();
       if (!seo) return null;
-      const schema = seo?.[0]?.yoast_head_json?.schema;
-      const meta = seo?.[0]?.yoast_head;
-      setSeo(meta);
-      setSchema(schema);
+      setSeo(seo.meta);
+      setSchema(seo.schema);
     };
 
     Promise.all([getArticles(), getFilters(), getSeo()]);
@@ -107,14 +106,9 @@ function Blog() {
   }, [articlesData]);
 
 
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set(name, value);
-
-      return params.toString();
-    },
-    [searchParams]
+  const createQueryStringMemo = useCallback(
+    createQueryString,
+    []
   );
 
   if (!articlesData) return null;
@@ -139,7 +133,7 @@ function Blog() {
     if (filter === defaultFilter) {
       window.history.replaceState(null, "", pathname);
     } else {
-      window.history.replaceState(null, "", pathname + "?" + createQueryString("filter", filter));
+      window.history.replaceState(null, "", pathname + "?" + createQueryStringMemo("filter", filter, searchParams));
     }
     if (!newArticles) return null;
     setArticles(newArticles.posts.map(article => ({ ...article, isNew: true })));
@@ -248,4 +242,4 @@ function Blog() {
       }
     </>
   );
-};
+}

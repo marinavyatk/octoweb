@@ -13,9 +13,8 @@ import Script from "next/script";
 
 export async function generateMetadata({ params }: { params: { article: string } }) {
   const { article } = await params;
-  const response = await api.getArticleSeo(article);
-  if (!response) return {};
-  const metadata = response?.[0]?.yoast_head_json;
+  const metadata = await api.getArticleSeo(article);
+  if (!metadata) return {};
 
   return getMetaDataObj(metadata);
 }
@@ -25,12 +24,11 @@ export default async function Article({ params }: {
   params: Promise<{ article: string }>
 }) {
   const { article } = await params;
-  const articleInfo = await api.getArticle(article);
+  const [articleInfo, seo] = await Promise.all([api.getArticle(article), api.getArticleSeo(article)]);
 
   if (!articleInfo) return null;
 
-  const response = await api.getArticleSeo(article);
-  const schema = response?.[0]?.yoast_head_json.schema;
+  const schema = seo?.schema;
 
   const tags = articleInfo.categories.map((tag) => {
     return (
