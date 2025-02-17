@@ -91,7 +91,6 @@ export const Form = (props: FormProps) => {
             ref={form}
             noValidate
       >
-        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" />
         <div className={s.mainInfo}>
           <Input
             label={"Имя"}
