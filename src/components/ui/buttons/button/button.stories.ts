@@ -26,6 +26,12 @@ export const ColoredLink: Story = {
   args: {
     variant: "colored",
     text: "Больше кейсов",
-    as: 'a'
+    as: "a"
+  }
+};
+export const Disabled: Story = {
+  args: {
+    text: "Больше кейсов",
+    disabled: true
   }
 };
