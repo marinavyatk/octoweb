@@ -35,6 +35,7 @@ export const TagLinkWithPrice = (props: TagLinkWithPriceProps) => {
     const offset = 80;
 
     const handleMouseEnter = () => {
+      tooltip.style.transition = "unset";
       tooltip.style.opacity = "0";
       tooltip.style.display = "block";
 
@@ -51,9 +52,8 @@ export const TagLinkWithPrice = (props: TagLinkWithPriceProps) => {
         } else {
           setTooltipPosition("left");
         }
-        setTimeout(()=>{
-          tooltip.style.opacity = "1";
-        }, 10)
+        tooltip.style.transition = "opacity 0.5s ease";
+        tooltip.style.opacity = "1";
       }
     };
 
