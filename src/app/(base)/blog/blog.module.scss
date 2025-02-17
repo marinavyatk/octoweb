@@ -11,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  padding: 120px 0 86px;
+  padding: var(--first-el-offset) 0 86px;
 }
 
 .filterButtons {
@@ -30,7 +30,7 @@
   grid-template-columns: 1fr 1fr;
   row-gap: 113px;
   column-gap: 32px;
-  margin-bottom: 120px;
+  padding-bottom: 120px;
 
   div:nth-child(2n) {
     justify-self: end;
@@ -39,11 +39,11 @@
 
 .loadMoreButton {
   margin: 0 auto;
-  padding-bottom: 210px;
+  padding-bottom: var(--last-el-offset);
   z-index: 0;
 }
 
-.loaderContainer{
+.loaderContainer {
   display: flex;
   justify-content: center;
   height: 30vh;
@@ -71,7 +71,7 @@
 
 @media (max-width: 1700px) {
   .header {
-    padding: 100px 0 76px;
+    padding-bottom: 76px;
   }
 
   .filterButtons {
@@ -82,30 +82,18 @@
     row-gap: 80px;
     column-gap: 16px;
   }
-
-  .loadMoreButton {
-    padding-bottom: 150px;
-  }
 }
 
 @media (max-width: 1425px) {
-  .header {
-    padding-top: 68px;
-  }
-
   .articles {
     row-gap: 80px;
     column-gap: 16px;
-  }
-
-  .loadMoreButton {
-    padding-bottom: 150px;
   }
 }
 
 @media (max-width: 1000px) {
   .header {
-    padding: 100px 0 50px;
+    padding-bottom: 50px;
   }
 
   .articles {
@@ -136,20 +124,19 @@
 
 @media (max-width: 767px) {
   .header {
-    padding: 50px 0 30px;
+    padding-bottom: 30px;
     align-items: flex-start;
   }
 
-  .firstArticle, .articles {
+  .firstArticle {
     max-width: var(--small-screen-max-width);
     margin: 0 auto 50px;
   }
 
   .articles {
+    max-width: var(--small-screen-max-width);
     row-gap: 50px;
-  }
-
-  .loadMoreButton {
+    margin: 0 auto;
     padding-bottom: 50px;
   }
 

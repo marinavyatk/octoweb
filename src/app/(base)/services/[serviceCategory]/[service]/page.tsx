@@ -76,7 +76,7 @@ export default async function Service({ params }: {
             </div>
           </div>
         </div>
-        <CooperationCard />
+        <CooperationCard className={s.cooperationCard}/>
         <div className={"mainContainer"}>
           <div className={s.bubblesAdvantages}>
             <BigBubble className={s.bigBubbleAdvantages} />

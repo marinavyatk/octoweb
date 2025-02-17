@@ -8,6 +8,7 @@
 .headerContainer {
   display: flex;
   justify-content: space-between;
+  gap: 5px;
   text-shadow: 0 0 2px var(--color-dark-secondary);
   color: var(--color-light-100);
   font-weight: var(--font-weight-regular-500);

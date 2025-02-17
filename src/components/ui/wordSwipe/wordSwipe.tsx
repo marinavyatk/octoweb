@@ -26,7 +26,7 @@ export const WordSwipe = ({ className, words, ...restProps }: WordSwipeProps) =>
 
     const interval = setInterval(() => {
       setWordIndex((prev) => (prev! + 1) % words.length);
-    }, 3000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [words]);

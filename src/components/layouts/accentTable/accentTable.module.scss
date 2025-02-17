@@ -27,7 +27,7 @@
   li {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
     text-transform: uppercase;
   }
 }
@@ -98,10 +98,6 @@
     h3 {
       font-size: 30px;
     }
-
-    li {
-      gap: 20px;
-    }
   }
 }
 
@@ -116,6 +112,14 @@
 
     ul {
       gap: 24px;
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  .accentTable {
+    h3 {
+      font-size: 24px;
     }
   }
 }

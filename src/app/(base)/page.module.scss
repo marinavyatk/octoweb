@@ -18,7 +18,7 @@
 }
 
 .steps {
-  padding-bottom: 372px;
+  padding-bottom: var(--last-el-offset);
 }
 
 //bubbles
@@ -81,10 +81,6 @@
     margin-bottom: 120px;
   }
 
-  .steps {
-    padding-bottom: 165px;
-  }
-
   //bubbles
   .bigBubbleMain {
     top: 200px;
@@ -115,10 +111,6 @@
   .services {
     margin-bottom: 100px;
   }
-
-  //.steps {
-  //  padding-bottom: 100px;
-  //}
 
   //bubbles
   .bigBubbleMain {

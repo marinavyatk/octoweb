@@ -41,7 +41,7 @@
 }
 
 .teamCards {
-  padding: 178px 0 290px 0;
+  padding: 178px 0 var(--last-el-offset);
 }
 
 .bubble {
@@ -66,7 +66,7 @@
   }
 
   .teamCards {
-    margin: 100px 0 150px;
+    padding: 100px 0 var(--last-el-offset);
   }
 
   .bubble {
@@ -104,7 +104,7 @@
   }
 
   .teamCards {
-    margin: 100px 0;
+    padding-top: 100px
   }
 
 }
@@ -132,7 +132,7 @@
   }
 
   .teamCards {
-    margin: 60px 0;
+    padding-top: 60px;
   }
 
   .bubble {

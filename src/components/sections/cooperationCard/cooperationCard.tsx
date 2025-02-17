@@ -3,10 +3,16 @@ import { AnimatedField } from "../../ui/animatedField/animatedField";
 import ArrowIcon from "@/svg/arrow.svg";
 import HappySymbol from "@/svg/happy-symbol.svg";
 import { Picture } from "@/components/ui/picture/picture";
+import { ComponentPropsWithoutRef } from "react";
+import { clsx } from "clsx";
 
-export const CooperationCard = () => {
+type CooperationCardProps = ComponentPropsWithoutRef<"div">
+
+export const CooperationCard = (props: CooperationCardProps) => {
+  const { className, ...restProps } = props;
+  const classNames = clsx(s.cooperationCard, className);
   return (
-    <section className={s.cooperationCard}>
+    <section className={classNames} {...restProps}>
       <div className={s.text}>
         <div>НАША</div>
         <AnimatedField variant={"light"} className={s.starsSymbols}>
