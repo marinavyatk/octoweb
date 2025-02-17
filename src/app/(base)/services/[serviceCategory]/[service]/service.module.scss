@@ -35,6 +35,10 @@
   color: var(--color-light-100);
 }
 
+.cooperationCard {
+  margin: 0 auto 162px;
+}
+
 .table {
   margin-top: 172px;
 }
@@ -115,7 +119,7 @@
 }
 
 .faq {
-  padding: 260px 0 234px;
+  padding: 260px 0 var(--last-el-offset);
 }
 
 .bubblesMain, .bubblesAdvantages, .bubblesTable, .bubblesPrices {
@@ -171,6 +175,10 @@
     margin-bottom: 112px;
   }
 
+  .cooperationCard {
+    margin-bottom: 86px;
+  }
+
   .table {
     margin-top: 115px;
   }
@@ -212,7 +220,7 @@
   }
 
   .faq {
-    padding: 152px 0 234px;
+    padding-top: 152px;
   }
 }
 
@@ -233,10 +241,6 @@
     transform: scale(1, -1) rotate(90deg);
     top: 30px;
     right: 800px;
-  }
-
-  .faq {
-    padding: 152px 0 100px;
   }
 
   .bigBubbleMain {
@@ -358,6 +362,10 @@
   .serviceContainer {
     margin-bottom: 50px;
     gap: 20px;
+  }
+
+  .cooperationCard {
+    margin-bottom: 60px;
   }
 
   .table {

@@ -82,6 +82,7 @@
 .navigationButton:disabled {
   .next, .previous {
     background-color: var(--color-dark-secondary);
+    cursor: default;
 
     svg {
       stroke: var(--color-accent);

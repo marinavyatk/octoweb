@@ -24,7 +24,7 @@ export const TeamMemberCards = (props: TeamMemberCardsProps) => {
     return (
       <SwiperSlide
         virtualIndex={index}
-        key={member.position}
+        key={member.name}
         className={s.swiperSlide}
       >
         <TeamMemberCard

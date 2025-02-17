@@ -1,6 +1,7 @@
 .articlePage {
   --article-max-width: 1104px;
   --article-offset: 142px;
+  padding-bottom: var(--last-el-offset);
 
   h1 {
     font-size: 80px;
@@ -39,7 +40,6 @@
   section {
     margin-bottom: 80px;
     max-width: var(--article-max-width);
-    padding: 0 var(--article-offset);
   }
 
   h2 {
@@ -48,6 +48,7 @@
     line-height: var(--line-height-120);
     margin-bottom: 32px;
     text-transform: none;
+    padding: 0 var(--article-offset);
   }
 
   h3 {
@@ -56,6 +57,7 @@
     font-size: 24px;
     line-height: var(--line-height-140);
     margin-bottom: 24px;
+    padding: 0 var(--article-offset);
   }
 
   p {
@@ -64,6 +66,7 @@
     font-size: 18px;
     line-height: var(--line-height-200);
     margin-bottom: 56px;
+    padding: 0 var(--article-offset);
   }
 
   img {
@@ -81,10 +84,6 @@
   padding: 0 var(--article-offset);
   margin: 100px auto 312px;
   max-width: var(--article-max-width);
-}
-
-.faq {
-  margin-bottom: 140px;
 }
 
 .bigBubble {
@@ -152,7 +151,7 @@
   }
 }
 
-@media (max-width: 1265px) {
+@media (max-width: 1060px) {
   .articlePage {
     --article-max-width: 650px;
     --article-offset: 80px;
@@ -256,10 +255,6 @@
 
   .bottomCaption {
     margin: 40px 0 70px;
-  }
-
-  .faq {
-    margin-bottom: 60px;
   }
 
   .smallBubble {

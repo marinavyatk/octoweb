@@ -11,7 +11,7 @@
 }
 
 .faq {
-  padding-bottom: 150px;
+  padding-bottom: var(--last-el-offset);
 }
 
 .mainBubbles, .advantagesBubbles, .cardBubbles {

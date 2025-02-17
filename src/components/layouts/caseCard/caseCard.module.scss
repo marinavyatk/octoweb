@@ -25,6 +25,11 @@
   &[data-animated="true"] {
     opacity: 1;
   }
+
+  --small-width: 536px;
+  --medium-width: 678px;
+  --large-width: 678px;
+  --extraLarge-width: 820px;
 }
 
 .container {
@@ -64,74 +69,103 @@
 }
 
 .small {
-  width: 536px;
+  width: var(--small-width);
   height: 554px;
+}
+
+.smallHeader {
+  max-width: var(--small-width);
 }
 
 .medium {
-  width: 678px;
+  width: var(--medium-width);
   height: 554px;
 }
 
+.mediumHeader {
+  max-width: var(--medium-width);
+}
+
 .large {
-  width: 678px;
+  width: var(--large-width);
   height: 700px;
+}
+
+.largeHeader {
+  max-width: var(--large-width);
 }
 
 .extraLarge {
-  width: 820px;
+  width: var(--extraLarge-width);
   height: 700px;
 }
 
+.extraLargeHeader {
+  max-width: var(--extraLarge-width);
+}
+
 @media (max-width: 1905px) {
+  .card {
+    --small-width: 392px;
+    --medium-width: 496px;
+    --large-width: 496px;
+    --extraLarge-width: 600px;
+  }
+
   .header {
     font-size: 24px;
   }
 
   .small {
-    width: 392px;
     height: 404px;
   }
 
   .medium {
-    width: 496px;
     height: 424px;
   }
 
   .large {
-    width: 496px;
     height: 512px;
   }
 
   .extraLarge {
-    width: 600px;
     height: 578px;
   }
 }
 
 @media (max-width: 1425px) {
+  .card {
+    --small-width: 328px;
+    --medium-width: 416px;
+    --large-width: 416px;
+    --extraLarge-width: 520px;
+  }
+
   .small {
-    width: 328px;
     height: 404px;
   }
 
   .medium {
-    width: 416px;
     height: 424px;
   }
 
   .large {
-    width: 416px;
     height: 512px;
   }
 
   .extraLarge {
-    width: 520px;
     height: 512px;
   }
 }
 
 @media (max-width: 1265px) {
+  .card {
+    --small-width: 509px;
+    --medium-width: 638px;
+    --large-width: 636px;
+    --extraLarge-width: 691px;
+  }
+
   .header {
     font-size: 32px;
   }
@@ -148,27 +182,30 @@
   }
 
   .small {
-    width: 509px;
     height: 636px;
   }
 
   .medium {
-    width: 638px;
     height: 806px;
   }
 
   .large {
-    width: 636px;
     height: 667px;
   }
 
   .extraLarge {
-    width: 691px;
     height: 655px;
   }
 }
 
 @media (max-width: 767px) {
+  .card {
+    --small-width: 212px;
+    --medium-width: 265px;
+    --large-width: 288px;
+    --extraLarge-width: 266px;
+  }
+
   .container {
     border-radius: 17px;
   }
@@ -190,22 +227,18 @@
   }
 
   .small {
-    width: 212px;
     height: 265px;
   }
 
   .medium {
-    width: 265px;
     height: 278px;
   }
 
   .large {
-    width: 288px;
     height: 273px;
   }
 
   .extraLarge {
-    width: 266px;
     height: 336px;
   }
 }

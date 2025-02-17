@@ -18,9 +18,7 @@ export type TagLinkWithPriceProps = TagLink & ComponentPropsWithoutRef<"a">;
 export const TagLinkWithPrice = (props: TagLinkWithPriceProps) => {
   const { tag, category, price, serviceId, className, ...restProps } = props;
   const classNames = clsx(s.tagLink, className);
-  const [tooltipPosition, setTooltipPosition] = useState<"left" | "right">(
-    "left"
-  );
+  const [tooltipPosition, setTooltipPosition] = useState<"left" | "right">("left");
   const tooltipRef = useRef<HTMLSpanElement>(null);
   const tooltipRect = useRef<DOMRect | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -37,7 +35,9 @@ export const TagLinkWithPrice = (props: TagLinkWithPriceProps) => {
     const offset = 80;
 
     const handleMouseEnter = () => {
+      tooltip.style.opacity = "0";
       tooltip.style.display = "block";
+
       if (tooltipRect.current === null) {
         tooltipRect.current = tooltip.getBoundingClientRect();
       }
@@ -51,6 +51,9 @@ export const TagLinkWithPrice = (props: TagLinkWithPriceProps) => {
         } else {
           setTooltipPosition("left");
         }
+        setTimeout(()=>{
+          tooltip.style.opacity = "1";
+        }, 10)
       }
     };
 

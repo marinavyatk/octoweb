@@ -34,6 +34,8 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
   } = props;
   const classNames = clsx(s.card, className, "case", (index + 1) % 2 === 0 ? "right" : "left");
   const sizeClassName = clsx(s.container, s[size]);
+  const headerSize = `${size}Header`
+  const headerClassName = clsx(s.header, s[headerSize]);
   const cardRef = useRef<HTMLAnchorElement>(null);
   const tagList = services?.map((tag) => {
     return (
@@ -64,7 +66,7 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
         }
         <div className={s.tagList}>{tagList}</div>
       </div>
-      <Header className={s.header}>{header}</Header>
+      <Header className={headerClassName}>{header}</Header>
     </Link>
   );
 };

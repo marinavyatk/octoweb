@@ -1,6 +1,6 @@
 .contactsPage {
-  //padding-bottom: 192px;
-  padding-bottom: 192px;
+  padding-bottom: var(--last-el-offset);
+
   h1 {
     margin-bottom: 80px;
   }
@@ -39,8 +39,6 @@
 .map {
   border-radius: 48px;
   overflow: hidden;
-  //margin-bottom: 192px;
-  //padding-bottom: 192px;
 }
 
 .contactLinksContainer {
