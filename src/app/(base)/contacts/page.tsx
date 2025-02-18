@@ -4,9 +4,14 @@ import { ContactLinks } from "@/components/layouts/contactLinks/contactLinks";
 import { api } from "@/common/api";
 import { formatPhoneNumber, getMetaDataObj } from "@/common/commonFunctions";
 import Script from "next/script";
+import {cache} from "react";
+
+const getCachedSeo = cache(async () => {
+  return await api.getContactsSeo();
+});
 
 export async function generateMetadata() {
-  const metadata = await api.getContactsSeo();
+  const metadata = await getCachedSeo();
   if (!metadata) return {};
 
   return getMetaDataObj(metadata);
@@ -14,7 +19,7 @@ export async function generateMetadata() {
 
 
 export default async function Contacts() {
-  const [contactInfo, seo] = await Promise.all([api.getContacts(), api.getContactsSeo()]);
+  const [contactInfo, seo] = await Promise.all([api.getContacts(), getCachedSeo()]);
 
   if (!contactInfo) return null;
 

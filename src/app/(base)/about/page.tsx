@@ -6,10 +6,14 @@ import { BigBubble } from "@/components/video/bigBubble";
 import { api } from "@/common/api";
 import { getMetaDataObj } from "@/common/commonFunctions";
 import Script from "next/script";
+import {cache} from "react";
 
+const getCachedSeo = cache(async () => {
+  return await api.getAboutSeo();
+});
 
 export async function generateMetadata() {
-  const metadata = await api.getAboutSeo();
+  const metadata = await getCachedSeo();
   if (!metadata) return {};
 
   return getMetaDataObj(metadata);
@@ -17,7 +21,7 @@ export async function generateMetadata() {
 
 
 export default async function About() {
-  const [team, teamPhoto, seo] = await Promise.all([api.getTeam(), api.getTeamPhoto(), api.getAboutSeo()]);
+  const [team, teamPhoto, seo] = await Promise.all([api.getTeam(), api.getTeamPhoto(), getCachedSeo()]);
 
   const schema = seo?.schema;
 

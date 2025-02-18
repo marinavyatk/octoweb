@@ -7,10 +7,14 @@ import { api } from "@/common/api";
 import { ChildService } from "@/common/types";
 import Script from "next/script";
 import { getMetaDataObj } from "@/common/commonFunctions";
+import {cache} from "react";
 
+const getCachedSeo = cache(async () => {
+  return await api.getServicesSeo();
+});
 
 export async function generateMetadata() {
-  const metadata = await api.getServicesSeo();
+  const metadata = await getCachedSeo();
   if (!metadata) return {};
 
   return getMetaDataObj(metadata);
@@ -18,7 +22,7 @@ export async function generateMetadata() {
 
 
 export default async function Services() {
-  const [services, seo] = await Promise.all([api.getServices(), api.getServicesSeo()]);
+  const [services, seo] = await Promise.all([api.getServices(), getCachedSeo()]);
   const schema = seo?.schema
   const formattedTags = (tags: ChildService[]) => {
     return tags.map(tag => {

@@ -11,10 +11,15 @@ import { api } from "@/common/api";
 import { FAQ } from "@/components/sections/faq/faq";
 import { getMetaDataObj } from "@/common/commonFunctions";
 import Script from "next/script";
+import {cache} from "react";
+
+const getCachedSeo = cache(async (serviceCategory: string) => {
+    return await api.getServicesCategorySeo(serviceCategory);
+});
 
 export async function generateMetadata({ params }: { params: { serviceCategory: string } }) {
   const { serviceCategory } = await params;
-  const metadata = await api.getServicesCategorySeo(serviceCategory);
+  const metadata = await getCachedSeo(serviceCategory);
   if (!metadata) return {};
 
   return getMetaDataObj(metadata);
@@ -25,7 +30,7 @@ export default async function ServiceCategory({ params }: {
   params: Promise<{ serviceCategory: string }>
 }) {
   const { serviceCategory } = await params;
-  const [serviceCategoryData, seo] = await Promise.all([api.getServiceCategory(serviceCategory), api.getServicesCategorySeo(serviceCategory)]);
+  const [serviceCategoryData, seo] = await Promise.all([api.getServiceCategory(serviceCategory), getCachedSeo(serviceCategory)]);
   if (!serviceCategoryData) return null;
   const schema = seo?.schema;
 
