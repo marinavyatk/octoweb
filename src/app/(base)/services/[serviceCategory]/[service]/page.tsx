@@ -14,11 +14,15 @@ import { SmallBubble } from "@/components/video/smallBubble";
 import { api } from "@/common/api";
 import Script from "next/script";
 import { getMetaDataObj } from "@/common/commonFunctions";
+import {cache} from "react";
 
+const getCachedSeo = cache(async (service: string) => {
+  return await api.getServiceSeo(service);
+});
 
 export async function generateMetadata({ params }: { params: { service: string } }) {
   const { service } = params;
-  const metadata = await api.getServiceSeo(service);
+  const metadata = await getCachedSeo(service);
   if (!metadata) return {};
 
   return getMetaDataObj(metadata);
@@ -29,7 +33,7 @@ export default async function Service({ params }: {
   params: Promise<{ service: string }>
 }) {
   const { service } = await params;
-  const [serviceInfo, seo] = await Promise.all([api.getService(service), api.getServiceSeo(service)]);
+  const [serviceInfo, seo] = await Promise.all([api.getService(service), getCachedSeo(service)]);
   if (!serviceInfo) return null;
   const schema = seo?.schema;
 

@@ -8,11 +8,15 @@ import { SmallBubble } from "@/components/video/smallBubble";
 import { api } from "@/common/api";
 import Script from "next/script";
 import { getMetaDataObj } from "@/common/commonFunctions";
+import {cache} from "react";
 
+const getCachedSeo = cache(async (caseId: string) => {
+  return await api.getCaseSeo(caseId);
+});
 
 export async function generateMetadata({ params }: { params: { caseId: string } }) {
   const { caseId } = await params;
-  const metadata = await api.getCaseSeo(caseId);
+  const metadata = await getCachedSeo(caseId);
   if (!metadata) return {};
 
   return getMetaDataObj(metadata);
@@ -23,7 +27,7 @@ export default async function Case({ params }: {
   params: Promise<{ caseId: string }>
 }) {
   const { caseId } = await params;
-  const [casePage, seo] = await Promise.all([api.getCase(caseId), api.getCaseSeo(caseId)]);
+  const [casePage, seo] = await Promise.all([api.getCase(caseId), getCachedSeo(caseId)]);
   if (!casePage) return;
 
   const schema = seo?.schema;
