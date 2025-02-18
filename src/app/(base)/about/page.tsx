@@ -2,7 +2,7 @@ import s from "./aboutPage.module.scss";
 import { StackList } from "@/components/sections/stackList/stackList";
 import { TeamMemberCards } from "@/components/sections/teamMembersCards/teamMembersCards";
 import { Picture } from "@/components/ui/picture/picture";
-import { BigBubble } from "@/components/video/bigBubble/bigBubble";
+import { BigBubble } from "@/components/video/bigBubble";
 import { api } from "@/common/api";
 import { getMetaDataObj } from "@/common/commonFunctions";
 import Script from "next/script";
@@ -17,7 +17,7 @@ export async function generateMetadata() {
 
 
 export default async function About() {
-  const [team, seo] = await Promise.all([api.getTeam(), api.getAboutSeo()]);
+  const [team, teamPhoto, seo] = await Promise.all([api.getTeam(), api.getTeamPhoto(), api.getAboutSeo()]);
 
   const schema = seo?.schema;
 
@@ -31,12 +31,14 @@ export default async function About() {
           </h1>
           <p className={s.description}>Раскроем подробности о том, кто стоит за реализацией проектов</p>
         </div>
-        <Picture src={"/teamMainPhoto.webp"}
+        {teamPhoto &&
+        <Picture src={teamPhoto}
                  alt={"Команда"}
                  fill
                  priority
                  containerProps={{ className: s.imageContainer }}
         />
+        }
         <div className={"mainContainer"}>
           <div className={s.aboutCompany}>
             <h2>О компании</h2>

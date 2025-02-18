@@ -4,8 +4,8 @@ import { ServicesLinksList } from "@/components/sections/servicesLinksList/servi
 import { StepCards } from "@/components/sections/stepCards/stepCards";
 import s from "./page.module.scss";
 import { Greeting } from "@/components/sections/greeting/greeting";
-import { BigBubble } from "@/components/video/bigBubble/bigBubble";
-import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
+import { BigBubble } from "@/components/video/bigBubble";
+import { SmallBubble } from "@/components/video/smallBubble";
 import { AdvantagesCards } from "@/components/sections/advantagesCards/advantagesCards";
 import { Cases } from "@/components/sections/cases/cases";
 import { api } from "@/common/api";
@@ -23,7 +23,7 @@ export async function generateMetadata() {
 
 
 export default async function Home() {
-  const [cases, services, stages, seo] = await Promise.all([api.getCases(1, null), api.getServices(), api.getInteractionStages(), api.getMainSeo()]);
+  const [cases, services, stages, teamPhoto, seo] = await Promise.all([api.getCases(1, null), api.getServices(), api.getInteractionStages(), api.getTeamPhoto(), api.getMainSeo()]);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const casesForSection = cases?.cases.splice(0, 4).map(({ imgFullWidth, ...rest }) => rest);
@@ -67,7 +67,9 @@ export default async function Home() {
           <h1 className={s.hiddenHeader}>Создаем сайты для бизнеса</h1>
           <GreetingDescription className={s.greetingDescription} />
         </div>
-        <AboutCard className={s.about} />
+        {teamPhoto &&
+          <AboutCard className={s.about} teamPhoto={teamPhoto} />
+        }
         <AdvantagesCards />
         <div className={"mainContainer"}>
           <Cases cases={casesForSection || []} />

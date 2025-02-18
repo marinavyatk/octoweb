@@ -7,7 +7,7 @@ import {
   CasePageData,
   CasesData,
   CasesFiltersData,
-  ContactsData,
+  ContactsData, Photo,
   PrivacyPolicyData,
   SEO,
   ServiceCategoryPage,
@@ -17,11 +17,13 @@ import {
 import { FormValues } from "@/components/layouts/form/form";
 
 const instance = axios.create({
-  baseURL: "https://octow.octoweb.ru/wp-json/api/v1"
+  baseURL: "https://octow.octoweb.ru/wp-json/api/v1",
+  adapter: ['fetch', 'xhr', 'http'],
 });
 
 const seoInstance = axios.create({
-  baseURL: "https://octow.octoweb.ru/wp-json/wp/v2/"
+  baseURL: "https://octow.octoweb.ru/wp-json/wp/v2/",
+  adapter: ['fetch', 'xhr', 'http'],
 });
 
 export const api = {
@@ -31,6 +33,14 @@ export const api = {
       return response.data;
     } catch (error) {
       console.error("Не удалось загрузить этапы взаимодействия", error);
+    }
+  },
+  async getTeamPhoto() {
+    try {
+      const response = await instance.get<Photo>("/team-options");
+      return response.data?.team_general_image;
+    } catch (error) {
+      console.error("Не удалось загрузить фото команды", error);
     }
   },
   //ABOUT

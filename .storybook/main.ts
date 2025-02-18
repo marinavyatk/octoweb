@@ -8,7 +8,7 @@ const config: StorybookConfig = {
     ],
     framework: '@storybook/nextjs',
     addons: ['@storybook/addon-docs'],
-    staticDirs: ['../public'],
+    staticDirs: ['public'],
     webpackFinal: async (config) => {
         const rules = config.module?.rules as RuleSetRule[] | undefined;
         if (rules) {

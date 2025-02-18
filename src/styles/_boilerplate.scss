@@ -1,16 +1,16 @@
 :root {
   --small-screen-max-width: 450px;
-  --offset-x: 116px; //124 - scrollbar width/2
+  --offset-x: 116px;
   --header-height: 136px;
   --first-el-offset: 120px;
   --last-el-offset: 350px;
 
   @media (max-width: 1905px) {
-    --offset-x: 100px; //108 - scrollbar width/2
+    --offset-x: 100px;
     --first-el-offset: 100px;
   }
   @media (max-width: 1425px) {
-    --offset-x: 116px; //124 - scrollbar width/2
+    --offset-x: 116px;
     --first-el-offset: 68px;
     --last-el-offset: 150px;
   }
