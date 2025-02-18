@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/textField/input";
 import { FromInputAdditionalFile } from "@/components/ui/inputAdditionalFile/formInputAdditionalFile";
 import { Button } from "@/components/ui/buttons/button/button";
 import { z } from "zod";
-import { Path, useForm, UseFormReturn } from "react-hook-form";
+import { useForm, UseFormReturn } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormRadioGroup } from "@/components/ui/radioGroup/formRadioGroup";
 import { RadioCheckboxGroup } from "@/components/ui/radioCheckboxGroup/radioCheckboxGroup";
@@ -580,22 +580,22 @@ export default function Brief() {
     if (!("code" in response)) {
       setIsFormNotificationShown(true);
     } else {
-      if (response?.data?.status === 400 && response.data.errors)
+      if (response?.data?.status === 400 && response.data.errors) {
         Object.entries(response.data.errors).forEach(([key, value], index) => {
-          const typedKey = key as keyof BriefValues;
-          Object.entries(value as Record<string, string>).forEach(([subKey, subValue], subIndex) => {
-            const fieldPath = `${typedKey}.${subKey}` as Path<BriefValues>;
-            setError(fieldPath, { type: "server", message: subValue as string });
-            if (index === 0 && subIndex === 0) setFocus(fieldPath);
-          });
+          const fieldName = key.split("_").join(".") as keyof BriefValues;
+          setError(fieldName, { type: "server", message: value as string });
+          if (index === 0) setFocus(fieldName);
         });
+
+      }
+      if (response?.code === "recaptcha_failed") {
+        toast.error("Вы не прошли проверку recaptcha");
+      }
+      if (response?.data?.status === 500) {
+        toast.error(response?.message || "Что-то пошло не так");
+      }
     }
-    if (response?.code === "recaptcha_failed") {
-      toast.error("Вы не прошли проверку recaptcha");
-    }
-    if (response?.data?.status === 500) {
-      toast.error(response?.message || "Что-то пошло не так");
-    }
+
   };
 
   if (materialsDevelopmentCurrentValue !== "yes") {
