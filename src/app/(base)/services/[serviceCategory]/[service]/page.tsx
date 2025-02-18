@@ -9,8 +9,8 @@ import { CooperationCard } from "@/components/sections/cooperationCard/cooperati
 import { Button } from "@/components/ui/buttons/button/button";
 import { Advantages } from "@/components/sections/advantages/advantages";
 import { Picture } from "@/components/ui/picture/picture";
-import { BigBubble } from "@/components/video/bigBubble/bigBubble";
-import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
+import { BigBubble } from "@/components/video/bigBubble";
+import { SmallBubble } from "@/components/video/smallBubble";
 import { api } from "@/common/api";
 import Script from "next/script";
 import { getMetaDataObj } from "@/common/commonFunctions";

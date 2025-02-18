@@ -27,6 +27,10 @@ export type TextContent = {
 }
 
 //SERVER RESPONSES
+export type Photo = {
+  team_general_image: string;
+}
+
 export type WorkStage = {
   number: number,
   title: string,

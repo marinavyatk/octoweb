@@ -4,10 +4,10 @@ import { Picture } from "@/components/ui/picture/picture";
 import { clsx } from "clsx";
 import { ComponentPropsWithoutRef } from "react";
 
-type AboutCardProps = ComponentPropsWithoutRef<"div">
+type AboutCardProps = {teamPhoto: string} & ComponentPropsWithoutRef<"div">
 
 export const AboutCard = (props: AboutCardProps) => {
-  const { className, ...restProps } = props;
+  const { teamPhoto, className, ...restProps } = props;
   const classNames = clsx(s.about, className);
 
   return (
@@ -23,7 +23,7 @@ export const AboutCard = (props: AboutCardProps) => {
         </p>
       </div>
       <div className={s.imageWithButton}>
-        <Picture src={"/teamMainPhoto.webp"}
+        <Picture src={teamPhoto}
                  alt={"Команда"}
                  fill
                  priority

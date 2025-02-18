@@ -1,8 +1,8 @@
 import s from "./services.module.scss";
 import { ServicesCard } from "@/components/layouts/servicesCard/servicesCard";
 import { clsx } from "clsx";
-import { BigBubble } from "@/components/video/bigBubble/bigBubble";
-import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
+import { BigBubble } from "@/components/video/bigBubble";
+import { SmallBubble } from "@/components/video/smallBubble";
 import { api } from "@/common/api";
 import { ChildService } from "@/common/types";
 import Script from "next/script";

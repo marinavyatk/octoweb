@@ -26,7 +26,7 @@ import { AllFields, defaultBriefValues, DirtyField, SectionName } from "@/common
 import { TextArea } from "@/components/ui/textField/textarea";
 import { PreventNavigation } from "@/components/layouts/warning/preventNavigation ";
 import { clsx } from "clsx";
-import { BigBubble } from "@/components/video/bigBubble/bigBubble";
+import { BigBubble } from "@/components/video/bigBubble";
 import { api } from "@/common/api";
 import { LinearLoader } from "@/components/ui/linearLoader/linearLoader";
 import { routes } from "@/common/routes";
@@ -251,10 +251,10 @@ export default function Brief() {
 
   const allFields: AllFields = useMemo(() => ({
     contactInfo: {
-      name: { required: true, label: "Как к Вам обращаться?", placeholder: "" },
-      position: { required: false, label: "Должность", placeholder: "" },
-      tel: { required: true, label: "Номер телефона", placeholder: "" },
-      email: { required: true, label: "email", placeholder: "" },
+      name: { required: true, label: "Как к Вам обращаться?", placeholder: "Ваше имя" },
+      position: { required: false, label: "Должность", placeholder: "Ваша должность" },
+      tel: { required: true, label: "Номер телефона", placeholder: "+7 (900) 000-00-00" },
+      email: { required: true, label: "email", placeholder: "Электронная почта" },
       communicationWay: {
         required: false,
         label: "Предпочитаемый способ связи"
@@ -264,7 +264,7 @@ export default function Brief() {
       companyName: {
         required: true,
         label: "Название компании",
-        placeholder: ""
+        placeholder: "Укажите название компании"
       },
       semantics: {
         required: false,
@@ -272,11 +272,11 @@ export default function Brief() {
         placeholder:
           "Семантическое значение названия компании, которое поможет лучше понять суть бренда и подчеркнуть сильные стороны"
       },
-      field: { required: true, label: "Ниша", placeholder: "" },
+      field: { required: true, label: "Ниша", placeholder: "В какой сфере вы работаете" },
       productsAndServices: {
         required: true,
         label: "Ряд продуктов и услуг",
-        placeholder: ""
+        placeholder: "Какие товары или услуги вы предлагаете"
       },
       productsAndServicesDescription: {
         required: true,
@@ -286,7 +286,7 @@ export default function Brief() {
       priorityProductsAndServices: {
         required: true,
         label: "Приоритетные товары и услуги",
-        placeholder: ""
+        placeholder: "Что для вас в приоритете"
       },
       offerUniqueness: {
         required: true,
@@ -296,7 +296,7 @@ export default function Brief() {
       disadvantages: {
         required: true,
         label: "Недостатки услуги или продукта",
-        placeholder: ""
+        placeholder: "Что можно улучшить"
       },
       geography: {
         required: true,
@@ -306,7 +306,7 @@ export default function Brief() {
       shortCompanyInfo: {
         required: false,
         label: "Краткая информация о компании",
-        placeholder: ""
+        placeholder: "Что важно знать о вашей компании"
       },
       site: {
         required: false,
@@ -321,7 +321,7 @@ export default function Brief() {
       competitors: {
         required: true,
         label: "Прямые конкуренты",
-        placeholder: ""
+        placeholder: "Перечислите основных конкурентов"
       }
     },
     details: {

@@ -5,7 +5,7 @@ import { CaseCard, Size } from "@/components/layouts/caseCard/caseCard";
 import { Button } from "@/components/ui/buttons/button/button";
 import Link from "next/link";
 import { routes } from "@/common/routes";
-import { BigBubble } from "@/components/video/bigBubble/bigBubble";
+import { BigBubble } from "@/components/video/bigBubble";
 import { useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";

@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { AdvantagesCardsMobile } from "@/components/sections/advantagesCards/avantagesCardsMobile";
 import { AdvantagesCardsDesktop } from "@/components/sections/advantagesCards/advantagesCardsDesktop";
 import s from "./advantagesCards.module.scss";
-import { BigBubble } from "@/components/video/bigBubble/bigBubble";
-import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
+import { BigBubble } from "@/components/video/bigBubble";
+import { SmallBubble } from "@/components/video/smallBubble";
 
 
 export const AdvantagesCards = () => {

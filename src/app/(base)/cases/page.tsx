@@ -9,8 +9,8 @@ import { CaseCardFullWidth } from "@/components/layouts/caseCardFullWidth/caseCa
 import { CaseCard, Size } from "@/components/layouts/caseCard/caseCard";
 import { v4 as uuid } from "uuid";
 import { Button } from "@/components/ui/buttons/button/button";
-import { SmallBubble } from "@/components/video/smallBubble/smallBubble";
-import { BigBubble } from "@/components/video/bigBubble/bigBubble";
+import { SmallBubble } from "@/components/video/smallBubble";
+import { BigBubble } from "@/components/video/bigBubble";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { clsx } from "clsx";
