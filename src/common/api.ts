@@ -3,11 +3,11 @@ import {
   ArticleData,
   ArticlePageData,
   ArticlesFilters,
-  BriefValues,
   CasePageData,
   CasesData,
   CasesFiltersData,
-  ContactsData, Photo,
+  ContactsData,
+  Photo,
   PrivacyPolicyData,
   SEO,
   ServiceCategoryPage,
@@ -207,7 +207,8 @@ export const api = {
         return { message: "Произошла неизвестная ошибка" };
       }
     }
-  }, async postBrief(form: BriefValues) {
+  },
+  async postBrief(form: Record<string, Record<string, unknown>>) {
     const formData = new FormData();
     formData.append("form_id", "brief");
     Object.entries(form).forEach(([key, value]) => {

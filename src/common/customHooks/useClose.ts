@@ -13,7 +13,6 @@ export const useClose = (args: useCloseArgs) => {
   const touchEnd = useRef<number | null>(null);
 
   const outsideClickHandler = useCallback((event: MouseEvent) => {
-    console.log('outsideClickHandler');
     if (!elementRef?.current?.contains(event.target as Element)) {
       close();
     }
@@ -22,7 +21,6 @@ export const useClose = (args: useCloseArgs) => {
   const minSwipeDistance = 50;
 
   const onTouchStart = useCallback((e: TouchEvent) => {
-    console.log('onTouchStart');
     touchEnd.current = null;
     touchStart.current = e.targetTouches[0].clientX;
   }, []);
