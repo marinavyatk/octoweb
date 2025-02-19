@@ -1,4 +1,3 @@
-import axios from "axios";
 import {
     ArticleData,
     ArticlePageData,
@@ -16,27 +15,25 @@ import {
 } from "@/common/types";
 import {FormValues} from "@/components/layouts/form/form";
 
-const instance = axios.create({
-    baseURL: "https://octow.octoweb.ru/wp-json/api/v1",
-});
 
-const seoInstance = axios.create({
-    baseURL: "https://octow.octoweb.ru/wp-json/wp/v2/",
-});
+const baseUrl = "https://octow.octoweb.ru/wp-json/api/v1"
+const baseSeoUrl = "https://octow.octoweb.ru/wp-json/wp/v2"
 
 export const api = {
     async getInteractionStages() {
         try {
-            const response = await instance.get("/interaction-stages");
-            return response.data;
+            const response = await fetch(`${baseUrl}/interaction-stages`);
+            const data = await response.json();
+            return data;
         } catch (error) {
             console.error("Не удалось загрузить этапы взаимодействия", error);
         }
     },
     async getTeamPhoto() {
         try {
-            const response = await instance.get<Photo>("/team-options");
-            return response.data?.team_general_image;
+            const response = await fetch(`${baseUrl}/team-options`);
+            const data: Photo = await response.json();
+            return data?.team_general_image;
         } catch (error) {
             console.error("Не удалось загрузить фото команды", error);
         }
@@ -44,8 +41,9 @@ export const api = {
     //ABOUT
     async getTeam() {
         try {
-            const response = await instance.get("/team");
-            return response.data;
+            const response = await fetch(`${baseUrl}/team`);
+            const data = await response.json();
+            return data;
         } catch (error) {
             console.error("Не удалось загрузить команду", error);
         }
@@ -53,23 +51,25 @@ export const api = {
     //SERVICES
     async getServices() {
         try {
-            const response = await instance.get<ServicesData[]>(`/services`);
-            return response.data;
+            const response = await fetch(`${baseUrl}/services`);
+            const data: ServicesData[] = await response.json();
+            return data;
         } catch (error) {
             console.error("Не удалось загрузить услуги", error);
         }
     },
     async getServiceCategory(id: string) {
         try {
-            const response = await instance.get<ServiceCategoryPage>(`/services/category/${id}`);
+            const response = await fetch(`${baseUrl}/services/category/${id}`);
+            const data: ServiceCategoryPage = await response.json();
 
-            const formattedServicesList = response.data.child_services.map(service => {
+            const formattedServicesList = data.child_services.map(service => {
                 return {
                     header: service.title,
-                    mainLink: response.data.serviceCategory + "/" + service.serviceId
+                    mainLink: data.serviceCategory + "/" + service.serviceId
                 };
             });
-            const formattedData = {...response.data, linksData: formattedServicesList};
+            const formattedData = {...data, linksData: formattedServicesList};
             return formattedData;
         } catch (error) {
             console.error("Не удалось загрузить категорию услуг", error);
@@ -77,20 +77,25 @@ export const api = {
     },
     async getService(id: string) {
         try {
-            const response = await instance.get<ServicePageData>(`/services/${id}`);
-            return response.data;
+            const response = await fetch(`${baseUrl}/services/${id}`);
+            const data: ServicePageData = await response.json();
+            return data;
         } catch (error) {
             console.error("Не удалось загрузить услуги", error);
         }
     },
     //CASES
     async getCases(page: number, filter: string | null) {
-        const params = filter ? {page, filter} : {page};
+        const params = new URLSearchParams({page: String(page)});
+
+        if (filter) {
+            params.append("filter", filter);
+        }
+
         try {
-            const response = await instance.get<CasesData>("/cases", {
-                params: params
-            });
-            return response.data;
+            const response = await fetch(`${baseUrl}/cases?${params.toString()}`);
+            const data: CasesData = await response.json();
+            return data;
 
         } catch (error) {
             console.error("Не удалось загрузить кейсы", error);
@@ -98,8 +103,9 @@ export const api = {
     },
     async getCasesFilters() {
         try {
-            const response = await instance.get<CasesFiltersData[]>("/cases/filter");
-            const filters = response.data.map(filter => filter.name);
+            const response = await fetch(`${baseUrl}/cases/filter`);
+            const data: CasesFiltersData[] = await response.json();
+            const filters = data.map(filter => filter.name);
             const filtersWithDefault = ["All projects", ...filters];
             return filtersWithDefault;
 
@@ -109,8 +115,9 @@ export const api = {
     },
     async getCase(caseId: string) {
         try {
-            const response = await instance.get<CasePageData>(`/cases/${caseId}`);
-            return response.data;
+            const response = await fetch(`${baseUrl}/cases/${caseId}`);
+            const data: CasePageData = await response.json();
+            return data
 
         } catch (error) {
             console.error("Не удалось загрузить кейс", error);
@@ -118,20 +125,27 @@ export const api = {
     },
     //BLOG
     async getArticles(page: number, filter: string | null) {
-        const params = filter ? {page, filter} : {page};
+        const params = new URLSearchParams({page: String(page)});
+
+        if (filter) {
+            params.append("filter", filter);
+        }
+
         try {
-            const response = await instance.get<ArticleData>("/posts", {
-                params: params
-            });
-            return response.data;
+            const response = await fetch(`${baseUrl}/posts?${params.toString()}`);
+            const data: ArticleData = await response.json();
+            return data
+
         } catch (error) {
             console.error("Не удалось загрузить статьи блога", error);
         }
     },
     async getArticlesFilters() {
         try {
-            const response = await instance.get<ArticlesFilters>("/posts/filter");
-            const filters = response.data.categories.map(filter => filter.name);
+            const response = await fetch(`${baseUrl}/posts/filter`);
+            const data: ArticlesFilters = await response.json();
+
+            const filters = data.categories.map(filter => filter.name);
             const filtersWithDefault = ["All", ...filters];
             return filtersWithDefault;
         } catch (error) {
@@ -140,8 +154,9 @@ export const api = {
     },
     async getArticle(id: string) {
         try {
-            const response = await instance.get<ArticlePageData>(`/posts/${id}`);
-            return response.data;
+            const response = await fetch(`${baseUrl}/posts/${id}`);
+            const data: ArticlePageData = await response.json();
+            return data;
         } catch (error) {
             console.error("Не удалось загрузить статью", error);
         }
@@ -149,8 +164,9 @@ export const api = {
 //CONTACTS
     async getContacts() {
         try {
-            const response = await instance.get<ContactsData>("/contacts");
-            return response.data;
+            const response = await fetch(`${baseUrl}/contacts`);
+            const data: ContactsData = await response.json();
+            return data
         } catch (error) {
             console.error("Не удалось загрузить контактную информацию", error);
         }
@@ -158,8 +174,9 @@ export const api = {
 //PRIVACY POLICY
     async getPrivacyPolicy() {
         try {
-            const response = await instance.get<PrivacyPolicyData>("/privacy-policy");
-            return response.data;
+            const response = await fetch(`${baseUrl}/privacy-policy`);
+            const data: PrivacyPolicyData = await response.json();
+            return data
         } catch (error) {
             console.error("Не удалось загрузить политику конфиденциальности", error);
         }
@@ -190,20 +207,16 @@ export const api = {
         formData.append("g-recaptcha-response", validationToken || "");
 
         try {
-            const response = await instance.post("/contact-form", formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data"
-                }
+            const response = await fetch(`${baseUrl}/contact-form`, {
+                method: "POST",
+                body: formData
             });
-            return response.data;
+            const data = await response.json();
+            return data
+
         } catch (error) {
-            if (axios.isAxiosError(error)) {
-                console.error("Не удалось отправить форму", error.response?.data);
-                return error.response?.data;
-            } else {
-                console.error("Неизвестная ошибка", error);
-                return {message: "Произошла неизвестная ошибка"};
-            }
+            console.error("Неизвестная ошибка", error);
+            return {message: "Произошла неизвестная ошибка"};
         }
     },
     async postBrief(form: Record<string, Record<string, unknown>>) {
@@ -237,68 +250,69 @@ export const api = {
         formData.append("g-recaptcha-response", validationToken || "");
 
         try {
-            const response = await instance.post("/contact-form", formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data"
-                }
+            const response = await fetch(`${baseUrl}/contact-form`, {
+                method: "POST",
+                body: formData
             });
-            return response.data;
+            const data = await response.json();
+            return data
         } catch (error) {
-            if (axios.isAxiosError(error)) {
-                console.error("Не удалось отправить форму", error.response?.data);
-                return error.response?.data;
-            } else {
-                console.error("Неизвестная ошибка", error);
-                return {message: "Произошла неизвестная ошибка"};
-            }
+            console.error("Неизвестная ошибка", error);
+            return {message: "Произошла неизвестная ошибка"};
         }
     },
     //SEO
     async getMainSeo() {
         try {
-            const response = await seoInstance.get<SEO[]>(`/pages?slug=glavnaya`);
-            return response.data?.[0]?.yoast_head_json;
+            const response = await fetch(`${baseSeoUrl}/pages?slug=glavnaya`)
+            const data: SEO[]  = await response.json()
+            return data?.[0]?.yoast_head_json;
         } catch (error) {
             console.error("Не удалось загрузить SEO данные", error);
         }
     },
     async getAboutSeo() {
         try {
-            const response = await seoInstance.get<SEO[]>(`/pages?slug=about`);
-            return response.data?.[0]?.yoast_head_json;
+            const response = await fetch(`${baseSeoUrl}/pages?slug=about`)
+            const data: SEO[]  = await response.json()
+            return data?.[0]?.yoast_head_json;
         } catch (error) {
             console.error("Не удалось загрузить SEO данные", error);
         }
     },
     async getServicesSeo() {
         try {
-            const response = await seoInstance.get<SEO[]>(`/pages?slug=services`);
-            return response.data?.[0]?.yoast_head_json;
+            const response = await fetch(`${baseSeoUrl}/pages?slug=services`)
+            const data: SEO[]  = await response.json()
+            return data?.[0]?.yoast_head_json;
         } catch (error) {
             console.error("Не удалось загрузить SEO данные", error);
         }
     },
     async getServicesCategorySeo(category: string) {
         try {
-            const response = await seoInstance.get<SEO[]>(`/service_category?slug=${category}`);
-            return response.data?.[0]?.yoast_head_json;
+            const response = await fetch(`${baseSeoUrl}/service_category?slug=${category}`)
+            const data: SEO[]  = await response.json()
+            return data?.[0]?.yoast_head_json;
         } catch (error) {
             console.error("Не удалось загрузить SEO данные", error);
         }
     },
     async getServiceSeo(id: string) {
         try {
-            const response = await seoInstance.get<SEO[]>(`/services?slug=${id}`);
-            return response.data?.[0]?.yoast_head_json;
+            const response = await fetch(`${baseSeoUrl}/services?slug=${id}`)
+            const data: SEO[]  = await response.json()
+            return data?.[0]?.yoast_head_json;
         } catch (error) {
             console.error("Не удалось загрузить SEO данные", error);
         }
     },
     async getCasesSeo() {
         try {
-            const response = await seoInstance.get<SEO[]>(`/pages?slug=cases`);
-            const meta = response.data?.[0]?.yoast_head;
-            const schema = response.data?.[0]?.yoast_head_json.schema;
+            const response = await fetch(`${baseSeoUrl}/pages?slug=cases`)
+            const data: SEO[]  = await response.json()
+            const meta = data?.[0]?.yoast_head;
+            const schema = data?.[0]?.yoast_head_json.schema;
             return {meta, schema};
         } catch (error) {
             console.error("Не удалось загрузить SEO данные", error);
@@ -306,17 +320,19 @@ export const api = {
     },
     async getCaseSeo(id: string) {
         try {
-            const response = await seoInstance.get<SEO[]>(`/cases?slug=${id}`);
-            return response.data?.[0]?.yoast_head_json;
+            const response = await fetch(`${baseSeoUrl}/cases?slug=${id}`)
+            const data: SEO[]  = await response.json()
+            return data?.[0]?.yoast_head_json;
         } catch (error) {
             console.error("Не удалось загрузить SEO данные", error);
         }
     },
     async getBlogSeo() {
         try {
-            const response = await seoInstance.get<SEO[]>(`/pages?slug=blog`);
-            const meta = response.data?.[0]?.yoast_head;
-            const schema = response.data?.[0]?.yoast_head_json.schema;
+            const response = await fetch(`${baseSeoUrl}/pages?slug=blog`)
+            const data: SEO[]  = await response.json()
+            const meta = data?.[0]?.yoast_head;
+            const schema = data?.[0]?.yoast_head_json.schema;
             return {meta, schema};
         } catch (error) {
             console.error("Не удалось загрузить SEO данные", error);
@@ -324,16 +340,18 @@ export const api = {
     },
     async getArticleSeo(id: string) {
         try {
-            const response = await seoInstance.get<SEO[]>(`/posts?slug=${id}`);
-            return response.data?.[0]?.yoast_head_json;
+            const response = await fetch(`${baseSeoUrl}/posts?slug=${id}`)
+            const data: SEO[] = await response.json()
+            return data?.[0]?.yoast_head_json;
         } catch (error) {
             console.error("Не удалось загрузить SEO данные", error);
         }
     },
     async getContactsSeo() {
         try {
-            const response = await seoInstance.get<SEO[]>(`/pages?slug=contacts`);
-            return response.data?.[0]?.yoast_head_json;
+            const response = await fetch(`${baseSeoUrl}/pages?slug=contacts`)
+            const data: SEO[]  = await response.json()
+            return data?.[0]?.yoast_head_json;
         } catch (error) {
             console.error("Не удалось загрузить SEO данные", error);
         }

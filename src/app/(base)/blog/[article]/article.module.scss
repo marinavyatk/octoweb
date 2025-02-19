@@ -82,7 +82,7 @@
 
 .bottomCaption {
   padding: 0 var(--article-offset);
-  margin: 100px auto 312px;
+  margin: 100px auto 0;
   max-width: var(--article-max-width);
 }
 
@@ -111,10 +111,6 @@
     h1 {
       font-size: 52px;
     }
-  }
-
-  .bottomCaption {
-    margin-bottom: 200px;
   }
 }
 
@@ -181,7 +177,7 @@
   }
 
   .bottomCaption {
-    margin: 60px 0 100px;
+    margin-top: 60px;
     padding: 0;
     width: 100%;
     max-width: unset;
@@ -254,7 +250,7 @@
   }
 
   .bottomCaption {
-    margin: 40px 0 70px;
+    margin-top: 40px;
   }
 
   .smallBubble {
