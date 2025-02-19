@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 type CasesProps = {
   cases: Omit<CaseData, 'imgFullWidth' | 'projectCategories'>[]
 }
-export const Cases = (props: CasesProps) => {
+const Cases = (props: CasesProps) => {
   const { cases } = props;
   const [screenWidth, setScreenWidth] = useState<number>(0);
 
@@ -87,3 +87,5 @@ export const Cases = (props: CasesProps) => {
     <BigBubble className={s.bigBubbleCases} />
   </section>;
 };
+
+export default Cases
