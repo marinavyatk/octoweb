@@ -37,7 +37,7 @@ export default async function Service({ params }: {
   if (!serviceInfo) return null;
   const schema = seo?.schema;
 
-  const stepCards = serviceInfo.work_stages.map((stage) => ({
+  const stepCards = serviceInfo?.work_stages?.map((stage) => ({
     stepNumber: String(stage.number || ""),
     header: stage.title,
     description: stage.text
