@@ -21,6 +21,13 @@ export const FooterWithForm = (props: FooterWithFormProps) => {
   const pathname = usePathname();
 
   useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "instant",
+    });
+  }, [pathname]);
+
+  useEffect(() => {
     const footer = footerRef.current;
     if (!footer) return;
 
