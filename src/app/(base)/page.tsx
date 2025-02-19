@@ -1,18 +1,20 @@
 import {GreetingDescription} from "@/components/layouts/greetingDescription/greetingDescription";
 import {AboutCard} from "@/components/sections/aboutCard/aboutCard";
 import {ServicesLinksList} from "@/components/sections/servicesLinksList/servicesLinksList";
-import {StepCards} from "@/components/sections/stepCards/stepCards";
+import StepCards from "@/components/sections/stepCards/stepCards";
 import s from "./page.module.scss";
 import {Greeting} from "@/components/sections/greeting/greeting";
 import {BigBubble} from "@/components/video/bigBubble";
 import {SmallBubble} from "@/components/video/smallBubble";
 import {AdvantagesCards} from "@/components/sections/advantagesCards/advantagesCards";
-import {Cases} from "@/components/sections/cases/cases";
 import {api} from "@/common/api";
 import {WorkStage} from "@/common/types";
 import {getMetaDataObj} from "@/common/commonFunctions";
 import Script from "next/script";
 import {cache} from "react";
+import dynamic from "next/dynamic";
+const Cases = dynamic(() => import("@/components/sections/cases/cases"), {ssr: false});
+
 
 const getCachedSeo = cache(async () => {
     return await api.getMainSeo();
