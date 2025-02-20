@@ -17,6 +17,8 @@ export const AdvantagesCardsDesktop = () => {
   useEffect(() => {
     if (window.innerWidth <= 1265) return;
 
+    let caseTriggers: ReturnType<typeof ScrollTrigger.batch> | undefined ;
+
     const trigger = ScrollTrigger.create({
       id: "advantagesCards",
       trigger: ".advantagesContainer",
@@ -27,17 +29,32 @@ export const AdvantagesCardsDesktop = () => {
       onUpdate: self => setScrollProgress(self.progress),
       pinnedContainer: ".main",
       once: true,
+      onEnter: () => {
+        ScrollTrigger.refresh();
+      },
       onLeave: (self) => {
         const start = self.start;
         self.scroll(start);
         self.kill();
         ScrollTrigger.refresh();
         window.scrollTo(0, start);
+        //cases animation here because of flickering of scroll trigger case animation before it become visible
+        gsap.set(".right", { x: 100, opacity: 0 });
+        gsap.set(".left", { x: -100, opacity: 0 });
+        caseTriggers = ScrollTrigger.batch(".case", {
+          interval: 0.4,
+          onEnter: (batch) => {
+            gsap.to(batch, { x: 0, opacity: 1, stagger: 0.4, overwrite: true });
+          }
+        });
       }
     });
 
     return () => {
       trigger.kill();
+      if (caseTriggers && Array.isArray(caseTriggers)) {
+          caseTriggers.forEach((trigger) => trigger.kill());
+      }
     };
   }, []);
 

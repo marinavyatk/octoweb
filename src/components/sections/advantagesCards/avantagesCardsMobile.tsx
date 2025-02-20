@@ -5,6 +5,8 @@ import { animated, useSpring, config } from "@react-spring/web";
 import { SquidIcon } from "@/components/layouts/squidIcon";
 import { AdvantageCards } from "@/components/layouts/advantageCards/advantageCards";
 import { useState, useEffect, useRef } from "react";
+import {gsap} from "gsap";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
 
 export const AdvantagesCardsMobile = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -28,6 +30,22 @@ export const AdvantagesCardsMobile = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+      gsap.set(".right", { x: 100, opacity: 0 });
+      gsap.set(".left", { x: -100, opacity: 0 });
+     const caseTriggers = ScrollTrigger.batch(".case", {
+        interval: 0.4,
+        onEnter: (batch) => {
+          gsap.to(batch, { x: 0, opacity: 1, stagger: 0.4, overwrite: true });
+        }
+      });
+    return () => {
+        if (caseTriggers && Array.isArray(caseTriggers)) {
+            caseTriggers.forEach((trigger) => trigger.kill());
+        }
+    }
   }, []);
 
   const headerStyles = useSpring({
