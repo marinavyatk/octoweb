@@ -22,7 +22,7 @@ const baseSeoUrl = "https://octow.octoweb.ru/wp-json/wp/v2"
 export const api = {
     async getInteractionStages() {
         try {
-            const response = await fetch(`${baseUrl}/interaction-stages`);
+            const response = await fetch(`${baseUrl}/interaction-stages`, { next: { revalidate: 60 } });
             const data = await response.json();
             return data;
         } catch (error) {
@@ -31,7 +31,7 @@ export const api = {
     },
     async getTeamPhoto() {
         try {
-            const response = await fetch(`${baseUrl}/team-options`);
+            const response = await fetch(`${baseUrl}/team-options`, { next: { revalidate: 60 } });
             const data: Photo = await response.json();
             return data?.team_general_image;
         } catch (error) {
@@ -41,7 +41,7 @@ export const api = {
     //ABOUT
     async getTeam() {
         try {
-            const response = await fetch(`${baseUrl}/team`);
+            const response = await fetch(`${baseUrl}/team`, { next: { revalidate: 60 } });
             const data = await response.json();
             return data;
         } catch (error) {
@@ -51,7 +51,7 @@ export const api = {
     //SERVICES
     async getServices() {
         try {
-            const response = await fetch(`${baseUrl}/services`);
+            const response = await fetch(`${baseUrl}/services`, { next: { revalidate: 60 } });
             const data: ServicesData[] = await response.json();
             return data;
         } catch (error) {
@@ -60,7 +60,7 @@ export const api = {
     },
     async getServiceCategory(id: string) {
         try {
-            const response = await fetch(`${baseUrl}/services/category/${id}`);
+            const response = await fetch(`${baseUrl}/services/category/${id}`, { next: { revalidate: 60 } });
             const data: ServiceCategoryPage = await response.json();
 
             const formattedServicesList = data.child_services.map(service => {
@@ -77,7 +77,7 @@ export const api = {
     },
     async getService(id: string) {
         try {
-            const response = await fetch(`${baseUrl}/services/${id}`);
+            const response = await fetch(`${baseUrl}/services/${id}`, { next: { revalidate: 60 } });
             const data: ServicePageData = await response.json();
             return data;
         } catch (error) {
@@ -103,7 +103,7 @@ export const api = {
     },
     async getCasesFilters() {
         try {
-            const response = await fetch(`${baseUrl}/cases/filter`);
+            const response = await fetch(`${baseUrl}/cases/filter`, { next: { revalidate: 60 } });
             const data: CasesFiltersData[] = await response.json();
             const filters = data.map(filter => filter.name);
             const filtersWithDefault = ["All projects", ...filters];
@@ -115,7 +115,7 @@ export const api = {
     },
     async getCase(caseId: string) {
         try {
-            const response = await fetch(`${baseUrl}/cases/${caseId}`);
+            const response = await fetch(`${baseUrl}/cases/${caseId}`, { next: { revalidate: 60 } });
             const data: CasePageData = await response.json();
             return data
 
@@ -142,7 +142,7 @@ export const api = {
     },
     async getArticlesFilters() {
         try {
-            const response = await fetch(`${baseUrl}/posts/filter`);
+            const response = await fetch(`${baseUrl}/posts/filter`, { next: { revalidate: 60 } });
             const data: ArticlesFilters = await response.json();
 
             const filters = data.categories.map(filter => filter.name);
@@ -154,7 +154,7 @@ export const api = {
     },
     async getArticle(id: string) {
         try {
-            const response = await fetch(`${baseUrl}/posts/${id}`);
+            const response = await fetch(`${baseUrl}/posts/${id}`, { next: { revalidate: 60 } });
             const data: ArticlePageData = await response.json();
             return data;
         } catch (error) {
@@ -164,7 +164,7 @@ export const api = {
 //CONTACTS
     async getContacts() {
         try {
-            const response = await fetch(`${baseUrl}/contacts`);
+            const response = await fetch(`${baseUrl}/contacts`, { next: { revalidate: 60 } });
             const data: ContactsData = await response.json();
             return data
         } catch (error) {
@@ -174,7 +174,7 @@ export const api = {
 //PRIVACY POLICY
     async getPrivacyPolicy() {
         try {
-            const response = await fetch(`${baseUrl}/privacy-policy`);
+            const response = await fetch(`${baseUrl}/privacy-policy`, { next: { revalidate: 60 } });
             const data: PrivacyPolicyData = await response.json();
             return data
         } catch (error) {
