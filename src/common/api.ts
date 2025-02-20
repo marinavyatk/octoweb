@@ -115,7 +115,7 @@ export const api = {
     },
     async getCase(caseId: string) {
         try {
-            const response = await fetch(`${baseUrl}/cases/${caseId}`, { next: { revalidate: 60 } });
+            const response = await fetch(`${baseUrl}/cases/${caseId}`, { cache: 'no-store' });
             const data: CasePageData = await response.json();
             return data
 
