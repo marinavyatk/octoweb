@@ -115,7 +115,7 @@ export const api = {
     },
     async getCase(caseId: string) {
         try {
-            const response = await fetch(`${baseUrl}/cases/${caseId}`, { cache: 'no-store' });
+            const response = await fetch(`${baseUrl}/cases/${caseId}`, { next: { revalidate: 60 } });
             const data: CasePageData = await response.json();
             return data
 
@@ -264,7 +264,7 @@ export const api = {
     //SEO
     async getMainSeo() {
         try {
-            const response = await fetch(`${baseSeoUrl}/pages?slug=glavnaya`)
+            const response = await fetch(`${baseSeoUrl}/pages?slug=glavnaya`, { next: { revalidate: 60 } })
             const data: SEO[]  = await response.json()
             return data?.[0]?.yoast_head_json;
         } catch (error) {
@@ -273,7 +273,7 @@ export const api = {
     },
     async getAboutSeo() {
         try {
-            const response = await fetch(`${baseSeoUrl}/pages?slug=about`)
+            const response = await fetch(`${baseSeoUrl}/pages?slug=about`, { next: { revalidate: 60 } })
             const data: SEO[]  = await response.json()
             return data?.[0]?.yoast_head_json;
         } catch (error) {
@@ -282,7 +282,7 @@ export const api = {
     },
     async getServicesSeo() {
         try {
-            const response = await fetch(`${baseSeoUrl}/pages?slug=services`)
+            const response = await fetch(`${baseSeoUrl}/pages?slug=services`, { next: { revalidate: 60 } })
             const data: SEO[]  = await response.json()
             return data?.[0]?.yoast_head_json;
         } catch (error) {
@@ -291,7 +291,7 @@ export const api = {
     },
     async getServicesCategorySeo(category: string) {
         try {
-            const response = await fetch(`${baseSeoUrl}/service_category?slug=${category}`)
+            const response = await fetch(`${baseSeoUrl}/service_category?slug=${category}`, { next: { revalidate: 60 } })
             const data: SEO[]  = await response.json()
             return data?.[0]?.yoast_head_json;
         } catch (error) {
@@ -300,7 +300,7 @@ export const api = {
     },
     async getServiceSeo(id: string) {
         try {
-            const response = await fetch(`${baseSeoUrl}/services?slug=${id}`)
+            const response = await fetch(`${baseSeoUrl}/services?slug=${id}`, { next: { revalidate: 60 } })
             const data: SEO[]  = await response.json()
             return data?.[0]?.yoast_head_json;
         } catch (error) {
@@ -309,7 +309,7 @@ export const api = {
     },
     async getCasesSeo() {
         try {
-            const response = await fetch(`${baseSeoUrl}/pages?slug=cases`)
+            const response = await fetch(`${baseSeoUrl}/pages?slug=cases`, { next: { revalidate: 60 } })
             const data: SEO[]  = await response.json()
             const meta = data?.[0]?.yoast_head;
             const schema = data?.[0]?.yoast_head_json.schema;
@@ -320,7 +320,7 @@ export const api = {
     },
     async getCaseSeo(id: string) {
         try {
-            const response = await fetch(`${baseSeoUrl}/cases?slug=${id}`)
+            const response = await fetch(`${baseSeoUrl}/cases?slug=${id}`, { next: { revalidate: 60 } })
             const data: SEO[]  = await response.json()
             return data?.[0]?.yoast_head_json;
         } catch (error) {
@@ -329,7 +329,7 @@ export const api = {
     },
     async getBlogSeo() {
         try {
-            const response = await fetch(`${baseSeoUrl}/pages?slug=blog`)
+            const response = await fetch(`${baseSeoUrl}/pages?slug=blog`, { next: { revalidate: 60 } })
             const data: SEO[]  = await response.json()
             const meta = data?.[0]?.yoast_head;
             const schema = data?.[0]?.yoast_head_json.schema;
@@ -340,7 +340,7 @@ export const api = {
     },
     async getArticleSeo(id: string) {
         try {
-            const response = await fetch(`${baseSeoUrl}/posts?slug=${id}`)
+            const response = await fetch(`${baseSeoUrl}/posts?slug=${id}`, { next: { revalidate: 60 } })
             const data: SEO[] = await response.json()
             return data?.[0]?.yoast_head_json;
         } catch (error) {
@@ -349,7 +349,7 @@ export const api = {
     },
     async getContactsSeo() {
         try {
-            const response = await fetch(`${baseSeoUrl}/pages?slug=contacts`)
+            const response = await fetch(`${baseSeoUrl}/pages?slug=contacts`, { next: { revalidate: 60 } })
             const data: SEO[]  = await response.json()
             return data?.[0]?.yoast_head_json;
         } catch (error) {
