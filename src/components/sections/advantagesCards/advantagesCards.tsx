@@ -8,7 +8,7 @@ import { BigBubble } from "@/components/video/bigBubble";
 import { SmallBubble } from "@/components/video/smallBubble";
 
 
-export const AdvantagesCards = () => {
+const AdvantagesCards = () => {
   const [screenWidth, setScreenWidth] = useState<number | null>(null);
 
   useEffect(() => {
@@ -34,3 +34,5 @@ export const AdvantagesCards = () => {
     </div>
   );
 };
+
+export default AdvantagesCards

@@ -7,11 +7,7 @@ import Link from "next/link";
 import { routes } from "@/common/routes";
 import { BigBubble } from "@/components/video/bigBubble";
 import { useEffect, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CaseData } from "@/common/types";
-
-gsap.registerPlugin(ScrollTrigger);
 
 type CasesProps = {
   cases: Omit<CaseData, 'imgFullWidth' | 'projectCategories'>[]
@@ -34,24 +30,6 @@ const Cases = (props: CasesProps) => {
   }, []);
 
   const breakpoint = 1265;
-
-  useEffect(() => {
-    gsap.set(".right", { x: 100, opacity: 0 });
-    gsap.set(".left", { x: -100, opacity: 0 });
-
-    const triggers = ScrollTrigger.batch(".case", {
-      interval: 0.4,
-      onEnter: (batch) => {
-        gsap.to(batch, { x: 0, opacity: 1, stagger: 0.4, overwrite: true });
-      }
-    });
-
-    return () => {
-      if (triggers && Array.isArray(triggers)) {
-        triggers.forEach((trigger) => trigger.kill());
-      }
-    };
-  }, [screenWidth]);
 
   return <section className={s.cases}>
     <h2>КЕЙСЫ</h2>
