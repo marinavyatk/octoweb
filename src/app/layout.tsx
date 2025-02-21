@@ -16,6 +16,8 @@ export default function RootLayout({
   return (
     <html lang="ru" className={clsx(unbounded.variable, montserrat.variable)}>
     <head>
+      <meta name="yandex-verification" content="95ff48d9d265e496"/>
+      <meta name="google-site-verification" content="XkW01Etlnf_YfOjAl88IWB6pZv0HX1ufldP2mTJ5qiY"/>
       <noscript>
         <div>
           <img
