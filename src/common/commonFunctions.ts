@@ -118,9 +118,6 @@ export const getMetaDataObj = (yoastJson: SeoData) => {
       meta.other![dataKey] = data;
     });
   }
-  meta.other = meta.other || {};
-  meta.other["yandex-verification"] = "95ff48d9d265e496";
-  meta.other["google-site-verification"] = "XkW01Etlnf_YfOjAl88IWB6pZv0HX1ufldP2mTJ5qiY";
 
   return meta;
 };
