@@ -1,13 +1,9 @@
 'use client'
 import Image from "next/image";
 import s from "./error.module.scss";
-import { clsx } from "clsx";
-import { montserrat, unbounded } from "@/app/fonts/fonts";
 
-export default function GlobalError() {
+export default function Error() {
   return (
-    <html lang="ru" className={clsx(unbounded.variable, montserrat.variable)}>
-    <body>
     <div className={s.notFound}>
       <h1>Упс!</h1>
       <p>Произошла ошибка. <br />
@@ -25,7 +21,5 @@ export default function GlobalError() {
         </div>
       </div>
     </div>
-    </body>
-    </html>
   )
 }
