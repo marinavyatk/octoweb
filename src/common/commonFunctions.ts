@@ -2,8 +2,9 @@ import { Metadata } from "next";
 import { OpenGraph, OpenGraphType } from "next/dist/lib/metadata/types/opengraph-types";
 import { Robots } from "next/dist/lib/metadata/types/metadata-types";
 import type { Twitter } from "next/dist/lib/metadata/types/twitter-types";
-import { SeoData } from "@/common/types";
+import {SeoData, ServerError} from "@/common/types";
 import { ReadonlyURLSearchParams } from "next/dist/client/components/navigation.react-server";
+import {notFound} from "next/navigation";
 
 export const formatNumber = (index: number) => {
   const number = index + 1;
@@ -20,6 +21,17 @@ export const createQueryString = (name: string, value: string, searchParams: Rea
 
   return params.toString();
 };
+
+export const checkError = (serverResponse: ServerError | unknown) => {
+  if (!serverResponse) return null
+  if (typeof serverResponse === "object" && 'code' in serverResponse) {
+    const typedResponse = serverResponse as unknown as ServerError;
+    if (typedResponse?.data?.status === 404) {
+      notFound()
+    }
+    return null;
+  }
+}
 
 export const getMetaDataObj = (yoastJson: SeoData) => {
   const meta: Metadata = {};

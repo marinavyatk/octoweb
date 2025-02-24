@@ -1,4 +1,4 @@
-.notFound {
+.errorContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,21 +46,21 @@
 }
 
 @media (max-width: 1920px) {
-  .notFound {
+  .errorContainer {
     contain: layout;
   }
 }
 
 
 @media (max-width: 1400px) {
-  .notFound .bubbleContainer {
+  .errorContainer .bubbleContainer {
     width: 530px;
     height: 590px;
   }
 }
 
 @media (max-width: 1100px) {
-  .notFound {
+  .errorContainer {
 
     .positionContainer {
       position: absolute;

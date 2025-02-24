@@ -1,17 +1,19 @@
 import s from "./serviceCategory.module.scss";
-import { ServicesLinksList } from "@/components/sections/servicesLinksList/servicesLinksList";
-import { StepCards } from "@/components/sections/stepCards/stepCards";
-import { Advantages } from "@/components/sections/advantages/advantages";
-import { CooperationCard } from "@/components/sections/cooperationCard/cooperationCard";
-import { Greeting } from "@/components/sections/greeting/greeting";
-import { clsx } from "clsx";
-import { BigBubble } from "@/components/video/bigBubble";
-import { SmallBubble } from "@/components/video/smallBubble";
-import { api } from "@/common/api";
-import { FAQ } from "@/components/sections/faq/faq";
-import { getMetaDataObj } from "@/common/commonFunctions";
+import {ServicesLinksList} from "@/components/sections/servicesLinksList/servicesLinksList";
+import {StepCards} from "@/components/sections/stepCards/stepCards";
+import {Advantages} from "@/components/sections/advantages/advantages";
+import {CooperationCard} from "@/components/sections/cooperationCard/cooperationCard";
+import {Greeting} from "@/components/sections/greeting/greeting";
+import {clsx} from "clsx";
+import {BigBubble} from "@/components/video/bigBubble";
+import {SmallBubble} from "@/components/video/smallBubble";
+import {api} from "@/common/api";
+import {FAQ} from "@/components/sections/faq/faq";
+import {getMetaDataObj} from "@/common/commonFunctions";
 import Script from "next/script";
 import {cache} from "react";
+import {ServerError} from "@/common/types";
+import {notFound} from "next/navigation";
 
 const getCachedSeo = cache(async (serviceCategory: string) => {
     return await api.getServicesCategorySeo(serviceCategory);
@@ -31,7 +33,16 @@ export default async function ServiceCategory({ params }: {
 }) {
   const { serviceCategory } = await params;
   const [serviceCategoryData, seo] = await Promise.all([api.getServiceCategory(serviceCategory), getCachedSeo(serviceCategory)]);
-  if (!serviceCategoryData) return null;
+
+    if (!serviceCategoryData) return null
+    if (typeof serviceCategoryData === "object" && 'code' in serviceCategoryData) {
+        const typedResponse = serviceCategoryData as unknown as ServerError;
+        if (typedResponse?.data?.status === 404) {
+            notFound()
+        }
+        return null;
+    }
+
   const schema = seo?.schema;
 
   const stepCards = serviceCategoryData.work_stages.map((stage) => ({
@@ -57,7 +68,7 @@ export default async function ServiceCategory({ params }: {
         <Greeting textContent={textContent} />
       </div>
       <ServicesLinksList
-        linksData={serviceCategoryData.linksData}
+        linksData={serviceCategoryData?.linksData}
         header={"Услуги разработки"}
         className={s.services}
       />

@@ -1,19 +1,19 @@
 import s from "./service.module.scss";
-import { Team } from "@/components/sections/team/team";
-import { StepCards } from "@/components/sections/stepCards/stepCards";
-import { FAQ } from "@/components/sections/faq/faq";
+import {Team} from "@/components/sections/team/team";
+import {StepCards} from "@/components/sections/stepCards/stepCards";
+import {FAQ} from "@/components/sections/faq/faq";
 import ArrowIconForPrices from "@/svg/arrow4.svg";
-import { AccentTable } from "@/components/layouts/accentTable/accentTable";
-import { PriceTable } from "@/components/layouts/priceTable/priceTable";
-import { CooperationCard } from "@/components/sections/cooperationCard/cooperationCard";
-import { Button } from "@/components/ui/buttons/button/button";
-import { Advantages } from "@/components/sections/advantages/advantages";
-import { Picture } from "@/components/ui/picture/picture";
-import { BigBubble } from "@/components/video/bigBubble";
-import { SmallBubble } from "@/components/video/smallBubble";
-import { api } from "@/common/api";
+import {AccentTable} from "@/components/layouts/accentTable/accentTable";
+import {PriceTable} from "@/components/layouts/priceTable/priceTable";
+import {CooperationCard} from "@/components/sections/cooperationCard/cooperationCard";
+import {Button} from "@/components/ui/buttons/button/button";
+import {Advantages} from "@/components/sections/advantages/advantages";
+import {Picture} from "@/components/ui/picture/picture";
+import {BigBubble} from "@/components/video/bigBubble";
+import {SmallBubble} from "@/components/video/smallBubble";
+import {api} from "@/common/api";
 import Script from "next/script";
-import { getMetaDataObj } from "@/common/commonFunctions";
+import {checkError, getMetaDataObj} from "@/common/commonFunctions";
 import {cache} from "react";
 
 const getCachedSeo = cache(async (service: string) => {
@@ -34,7 +34,10 @@ export default async function Service({ params }: {
 }) {
   const { service } = await params;
   const [serviceInfo, seo] = await Promise.all([api.getService(service), getCachedSeo(service)]);
+
   if (!serviceInfo) return null;
+  checkError(serviceInfo)
+
   const schema = seo?.schema;
 
   const stepCards = serviceInfo?.work_stages?.map((stage) => ({

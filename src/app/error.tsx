@@ -4,7 +4,7 @@ import s from "./error.module.scss";
 
 export default function Error() {
   return (
-    <div className={s.notFound}>
+    <div className={s.errorContainer}>
       <h1>Упс!</h1>
       <p>Произошла ошибка. <br />
         Попробуйте перезагрузить страницу</p>

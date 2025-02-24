@@ -249,3 +249,12 @@ export type PrivacyPolicyData = {
   title: string,
   content: string
 }
+
+//ERRORS
+export type ServerError = {
+  code: string,
+  message: string,
+  data: {
+  status: number
+    }
+}
