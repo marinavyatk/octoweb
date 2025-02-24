@@ -4,7 +4,7 @@ import { ContactButton } from "@/components/ui/buttons/contactButton/contactButt
 
 export default function NotFound() {
   return (
-    <div className={s.notFound}>
+    <div className={s.errorContainer}>
       <h1>404</h1>
       <p>Страница не существует. <br />
         Перейти на главную страницу?</p>

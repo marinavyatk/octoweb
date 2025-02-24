@@ -7,7 +7,7 @@ import {Picture} from "@/components/ui/picture/picture";
 import {SmallBubble} from "@/components/video/smallBubble";
 import {BigBubble} from "@/components/video/bigBubble";
 import {api} from "@/common/api";
-import {getMetaDataObj} from "@/common/commonFunctions";
+import {checkError, getMetaDataObj} from "@/common/commonFunctions";
 import Script from "next/script";
 import {cache} from "react";
 
@@ -30,11 +30,12 @@ export default async function Article({params}: {
     const {article} = await params;
     const [articleInfo, seo] = await Promise.all([api.getArticle(article), getCachedSeo(article)]);
 
-    if (!articleInfo) return null;
+    if (!articleInfo) return null
+    checkError(articleInfo)
 
     const schema = seo?.schema;
 
-    const tags = articleInfo.categories.map((tag) => {
+    const tags = articleInfo?.categories?.map((tag) => {
         return (
             <Tag key={tag} variant={"colored"} className={s.tag}>
                 {tag}

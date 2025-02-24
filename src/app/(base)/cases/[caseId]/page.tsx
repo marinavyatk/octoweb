@@ -1,13 +1,13 @@
 import s from "./case.module.scss";
-import { Tag } from "@/components/ui/tag/tag";
-import { WebsiteLink } from "@/components/ui/websiteLink/websiteLink";
-import { clsx } from "clsx";
-import { Picture } from "@/components/ui/picture/picture";
-import { BigBubble } from "@/components/video/bigBubble";
-import { SmallBubble } from "@/components/video/smallBubble";
-import { api } from "@/common/api";
+import {Tag} from "@/components/ui/tag/tag";
+import {WebsiteLink} from "@/components/ui/websiteLink/websiteLink";
+import {clsx} from "clsx";
+import {Picture} from "@/components/ui/picture/picture";
+import {BigBubble} from "@/components/video/bigBubble";
+import {SmallBubble} from "@/components/video/smallBubble";
+import {api} from "@/common/api";
 import Script from "next/script";
-import { getMetaDataObj } from "@/common/commonFunctions";
+import {checkError, getMetaDataObj} from "@/common/commonFunctions";
 import {cache} from "react";
 
 const getCachedSeo = cache(async (caseId: string) => {
@@ -28,7 +28,9 @@ export default async function Case({ params }: {
 }) {
   const { caseId } = await params;
   const [casePage, seo] = await Promise.all([api.getCase(caseId), getCachedSeo(caseId)]);
-  if (!casePage) return;
+
+  if (!casePage) return null
+  checkError(casePage)
 
   const schema = seo?.schema;
   const smallImg = casePage.images.small;

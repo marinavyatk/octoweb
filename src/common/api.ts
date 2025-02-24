@@ -62,14 +62,16 @@ export const api = {
         try {
             const response = await fetch(`${baseUrl}/services/category/${id}`, { next: { revalidate: 60 } });
             const data: ServiceCategoryPage = await response.json();
-
+            if (data && 'code' in data) {
+                return data
+            }
             const formattedServicesList = data.child_services.map(service => {
                 return {
                     header: service.title,
                     mainLink: data.serviceCategory + "/" + service.serviceId
                 };
             });
-            const formattedData = {...data, linksData: formattedServicesList};
+            const formattedData: ServiceCategoryPage & {linksData: {header: string, mainLink: string}[]} = {...data, linksData: formattedServicesList};
             return formattedData;
         } catch (error) {
             console.error("Не удалось загрузить категорию услуг", error);
