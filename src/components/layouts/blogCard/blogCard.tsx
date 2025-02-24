@@ -48,17 +48,6 @@ export const BlogCard = (props: BlogCardProps) => {
     );
   });
 
-  const getSizes = (size: Size) => {
-    switch (size) {
-      case "small":
-        return "(max-width: 450px) 100vw, (max-width: 767px) 450px, (max-width: 1000px) 550px, (max-width: 1425px) 399px, (max-width: 1700px) 532px, 678px";
-      case "medium":
-        return "(max-width: 450px) 100vw, (max-width: 767px) 450px, (max-width: 1000px) 650px, (max-width: 1425px) 532px, (max-width: 1700px) 665px, 820px";
-      case "fullWidth":
-        return "(max-width: 450px) 100vw, (max-width: 767px) 450px, (max-width: 1000px) 100vw, 1665px";
-    }
-  };
-
   useEffect(() => {
     cardRef?.current?.setAttribute('data-animated', "true")
   }, []);
@@ -66,7 +55,7 @@ export const BlogCard = (props: BlogCardProps) => {
   return (
     <div {...restProps} className={classNames} ref={cardRef}>
       <div className={s.imgContainer}>
-        <Picture src={img} alt="" fill sizes={getSizes(size)} priority={priority} />
+        <Picture src={img} alt="" fill priority={priority} sizes="(max-width: 450px) 100vw, (max-width: 767px) 450px, (max-width: 1000px) 100vw, 1665px"/>
         <div className={s.markContainer}>
           <div className={s.tagList}>{tagList}</div>
           <ArrowButton as={Link}
