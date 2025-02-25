@@ -37,6 +37,8 @@
   position: relative;
   contain: layout;
   color: var(--color-light-100);
+  font-weight: var(--font-weight-regular-300);
+  line-height: var(--line-height-200);
 
   & > * {
     padding: 0 var(--article-offset);
@@ -63,9 +65,7 @@
   }
 
   p, ul, ol {
-    font-weight: var(--font-weight-regular-300);
     font-size: 18px;
-    line-height: var(--line-height-200);
     margin-bottom: 56px;
     list-style-position: inside;
   }
@@ -75,7 +75,6 @@
     border-radius: 32px;
     height: 500px;
     background-color: var(--color-dark-primary);
-    margin-top: 80px;
     overflow: hidden;
     margin-left: calc(-1 * var(--article-offset));
   }
@@ -139,7 +138,6 @@
 
     img {
       height: 450px;
-      margin-top: 30px;
     }
   }
 
@@ -173,7 +171,6 @@
 
     img {
       height: 320px;
-      margin-top: 30px;
     }
   }
 
@@ -245,7 +242,6 @@
     img {
       border-radius: 17px;
       height: 150px;
-      margin-top: 20px;
       width: 100%;
     }
   }
