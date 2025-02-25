@@ -193,7 +193,7 @@ function Blog() {
       size={size as Size}
       key={uuid()}
       index={index}
-      articleId={article.id.toString()}
+      articleId={article.slug}
       tags={article.categories}
       img={article.image}
       header={article.title}
