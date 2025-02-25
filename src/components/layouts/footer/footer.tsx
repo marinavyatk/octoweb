@@ -41,7 +41,8 @@ export const Footer = (props: FooterProps) => {
         </div>
         <div className={s.bottomCaption}>
           <Link href={routes.privacyPolicy} rel={"nofollow"} target={"_blank"}> Политика конфиденциальности </Link>
-          <span className={s.copyright}>© OctoWeb {new Date().getFullYear()} — Все права защищены</span>
+          {/*<span className={s.copyright}>© OctoWeb {new Date().getFullYear()} — Все права защищены</span>*/}
+          <span className={s.copyright}>© OctoWeb {new Date().getSeconds()} — Все права защищены</span>
         </div>
       </div>
     </div>
