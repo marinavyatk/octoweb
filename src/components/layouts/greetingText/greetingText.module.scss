@@ -1,6 +1,10 @@
+:global(.mainPage) .greetingText {
+  font-size: 100px;
+}
+
 .greetingText {
   font-weight: var(--font-weight-bold-900);
-  font-size: 100px;
+  font-size: 85px;
   line-height: var(--line-height-124);
   text-transform: uppercase;
   color: var(--color-light-100);
@@ -11,7 +15,8 @@
 
 .firstLine {
   text-align: end;
-  font-size: 100px;
+  font-size: inherit;
+  padding-top: 0;
 }
 
 .secondLine {
@@ -25,13 +30,13 @@
 }
 
 @media (max-width: 1905px) {
-  .greetingText {
+  :global(.mainPage) .greetingText {
     font-size: 72px;
-    line-height: var(--line-height-140);
   }
 
-  .firstLine {
-    font-size: 72px;
+  .greetingText {
+    font-size: 64px;
+    line-height: var(--line-height-140);
   }
 
   .secondLine {
@@ -40,12 +45,12 @@
 }
 
 @media (max-width: 1425px) {
-  .greetingText {
+  :global(.mainPage) .greetingText {
     font-size: 64px;
   }
 
-  .firstLine {
-    font-size: 64px;
+  .greetingText {
+    font-size: 54px;
   }
 
   .secondLine {
@@ -54,13 +59,13 @@
 }
 
 @media (max-width: 1265px) {
-  .greetingText {
+  :global(.mainPage) .greetingText {
     font-size: 40px;
-    gap: 5px;
   }
 
-  .firstLine {
-    font-size: 40px;
+  .greetingText {
+    font-size: 38px;
+    gap: 5px;
   }
 
   .secondLine {
@@ -68,13 +73,27 @@
   }
 }
 
-@media (max-width: 767px) {
+ @media (max-width: 767px) {
+  :global(.mainPage) .greetingText {
+    font-size: 26px;
+  }
+
   .greetingText {
+    font-size: 24px;
+  }
+
+  .secondLine {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  :global(.mainPage) .greetingText {
     font-size: 17px;
   }
 
-  .firstLine {
-    font-size: 17px;
+  .greetingText {
+    font-size: 15px;
   }
 
   .secondLine {

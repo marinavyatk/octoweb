@@ -65,11 +65,10 @@ export default async function ServiceCategory({ params }: {
         <SmallBubble className={s.smallBubbleMain} />
       </div>
       <div className={"mainContainer"}>
-        <Greeting textContent={textContent} />
+        <Greeting greetingTextProps={{textContent: textContent}} />
       </div>
       <ServicesLinksList
         linksData={serviceCategoryData?.linksData}
-        header={"Услуги разработки"}
         className={s.services}
       />
       <div className={s.advantagesBubbles}>
