@@ -1,40 +1,36 @@
 .wordSwipe {
   background-color: var(--color-accent);
-  border-radius: 100px;
-  padding: 10px 50px;
-  width: fit-content;
   color: var(--color-dark-primary);
+  border-radius: 100px;
+  width: fit-content;
+  padding: 10px 50px;
   font-weight: var(--font-weight-bold-900);
-  font-size: 100px;
+  font-size: inherit;
   line-height: var(--line-height-124);
   text-transform: uppercase;
-  --word-height: 124px;
-
-  .inner {
-    height: var(--word-height);
-    overflow: hidden;
-  }
-
-  .words {
-    display: flex;
-    flex-direction: column;
-  }
+  overflow: hidden;
 
   .word {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: var(--word-height);
+  }
+
+  .animate {
     animation: show 2s linear;
+
+    .charAnimate {
+      animation: bounce 1.5s ease;
+    }
   }
 
-  .charAnimate {
-    animation: bounce 1.5s ease;
+  .hidden {
+    display: none;
   }
-}
 
-.placeholder {
-  opacity: 0;
+  .placeholder {
+    opacity: 0;
+    overflow: hidden;
+  }
 }
 
 
@@ -59,47 +55,46 @@
   }
 }
 
-
 @media (max-width: 1905px) {
   .wordSwipe {
-    font-size: 72px;
     padding: 10px 40px;
-    --word-height: 89px;
-  }
-}
-
-@media (max-width: 1425px) {
-  .wordSwipe {
-    font-size: 64px;
-    --word-height: 79px;
   }
 }
 
 @media (max-width: 1265px) {
   .wordSwipe {
-    font-size: 33px;
     padding: 3px 20px;
-    --word-height: 42px;
 
-    .charAnimate {
-      animation: bounce-small-screen 1.5s ease;
+    .animate .charAnimate {
+      animation: bounce-1265 1.5s ease;
     }
   }
 }
 
-@media (max-width: 767px) {
-  .wordSwipe {
-    font-size: 14px;
-    padding: 2px 9px;
-    --word-height: 17px;
-  }
-}
-
-@keyframes bounce-small-screen {
+@keyframes bounce-1265 {
   0%, 40%, 100% {
     transform: translateY(0px);
   }
   20% {
     transform: translateY(7px);
+  }
+}
+
+@media (max-width: 767px) {
+  .wordSwipe {
+    padding: 2px 9px;
+
+    .animate .charAnimate {
+      animation: bounce-767 1.5s ease;
+    }
+  }
+}
+
+@keyframes bounce-767 {
+  0%, 40%, 100% {
+    transform: translateY(0px);
+  }
+  20% {
+    transform: translateY(5px);
   }
 }
