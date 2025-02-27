@@ -141,7 +141,7 @@ export const Form = (props: FormProps) => {
         <div className={s.submit}>
           <p>
             Я принимаю условия{" "}
-            <Link href={routes.privacyPolicy} rel={"nofollow"} target="_blank">
+            <Link href={routes.privacyPolicy} target="_blank">
               Политики ООО OctoWeb в отношении обработки данных
             </Link>{" "}
             и, нажимая на кнопку “Отправить”, даю согласие на обработку компанией указанных мной

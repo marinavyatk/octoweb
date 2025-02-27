@@ -61,6 +61,7 @@ export default async function Service({ params }: {
               text={"ОБСУДИТЬ ПРОЕКТ"}
               as={"a"}
               href={"#form"}
+              rel={"nofollow"}
               className={s.arrowLink}
             />
           </div>
@@ -79,6 +80,7 @@ export default async function Service({ params }: {
                 as={"a"}
                 text={"Консультация"}
                 href={"#form"}
+                rel={"nofollow"}
               />
             </div>
           </div>
@@ -113,6 +115,7 @@ export default async function Service({ params }: {
               as={"a"}
               text={"Обсудить проект"}
               href={"#form"}
+              rel={"nofollow"}
             />
             <div className={s.background}></div>
           </div>

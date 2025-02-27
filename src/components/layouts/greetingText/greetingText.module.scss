@@ -11,6 +11,7 @@
 
 .firstLine {
   text-align: end;
+  font-size: 100px;
 }
 
 .secondLine {
@@ -29,6 +30,10 @@
     line-height: var(--line-height-140);
   }
 
+  .firstLine {
+    font-size: 72px;
+  }
+
   .secondLine {
     gap: 32px;
   }
@@ -36,6 +41,10 @@
 
 @media (max-width: 1425px) {
   .greetingText {
+    font-size: 64px;
+  }
+
+  .firstLine {
     font-size: 64px;
   }
 
@@ -50,6 +59,10 @@
     gap: 5px;
   }
 
+  .firstLine {
+    font-size: 40px;
+  }
+
   .secondLine {
     gap: 26px;
   }
@@ -57,6 +70,10 @@
 
 @media (max-width: 767px) {
   .greetingText {
+    font-size: 17px;
+  }
+
+  .firstLine {
     font-size: 17px;
   }
 

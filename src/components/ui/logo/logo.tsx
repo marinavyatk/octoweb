@@ -18,7 +18,6 @@ export const Logo = (props: LogoProps) => {
       href={routes.main}
       {...restProps}
       className={classNames}
-      rel={"nofollow"}
       aria-label="Перейти на главную страницу"
     >
       <div className={s.logoImgContainer}>

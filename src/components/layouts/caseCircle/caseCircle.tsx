@@ -25,7 +25,6 @@ export const CaseCircle = (props: CaseCircleProps) => {
       href={`/cases/${caseId}`}
       {...restProps}
       className={classNames}
-      rel={"nofollow"}
       draggable={false}
       onDragStart={(event) => {
         event.preventDefault();

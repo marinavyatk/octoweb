@@ -54,7 +54,6 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
       {...restProps}
       className={classNames}
       href={`/cases/${caseId}`}
-      rel={"nofollow"}
       ref={cardRef}
     >
       <div className={sizeClassName}>
