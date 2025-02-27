@@ -17,7 +17,6 @@ export const NavigationLink = (props: NavigationLinkProps) => {
   return (
     <Link
       {...restProps}
-      rel={"nofollow"}
       className={classNames}
     />
   );

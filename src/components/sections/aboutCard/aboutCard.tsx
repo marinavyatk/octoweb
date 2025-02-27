@@ -35,6 +35,7 @@ export const AboutCard = (props: AboutCardProps) => {
           href={"#form"}
           id="formAnchor"
           className={s.arrowButton}
+          rel={"nofollow"}
         />
       </div>
     </section>

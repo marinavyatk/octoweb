@@ -35,7 +35,6 @@ export const Button = <T extends ElementType = "button">(props: ButtonProps<T>) 
     <Component
       {...restProps}
       className={classNames}
-      rel={"nofollow"}
       onMouseEnter={handleHover}
       onMouseLeave={cancelHover}
     >

@@ -1292,7 +1292,7 @@ export default function Brief() {
           <section className={s.submit}>
             <p className={s.terms}>
               Я принимаю условия{" "}
-              <Link href={routes.privacyPolicy} rel={"nofollow"} className={clsx(s.privacyPolicy, "noRoutingLink")}
+              <Link href={routes.privacyPolicy} className={clsx(s.privacyPolicy, "noRoutingLink")}
                     target="_blank">
                 Политики ООО OctoWeb в отношении обработки данных
               </Link>{" "}

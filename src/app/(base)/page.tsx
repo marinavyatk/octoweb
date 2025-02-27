@@ -69,7 +69,7 @@ export default async function Home() {
                         <BigBubble className={s.bigBubbleMain}/>
                         <SmallBubble className={s.smallBubbleMain}/>
                     </div>
-                    <Greeting textContent={content}/>
+                    <Greeting textContent={content} firstLine={"div"}/>
                     <h1 className={s.hiddenHeader}>Создаем сайты для бизнеса</h1>
                     <GreetingDescription className={s.greetingDescription}/>
                 </div>

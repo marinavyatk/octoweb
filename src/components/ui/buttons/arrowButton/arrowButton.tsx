@@ -14,7 +14,7 @@ export const ArrowButton = <T extends ElementType>(props: ArrowButtonProps<T>) =
   const classNames = clsx(s.arrowButton, className, s[variant]);
 
   return (
-    <Component {...restProps} className={classNames} rel={"nofollow"}>
+    <Component {...restProps} className={classNames}>
       <ArrowIcon />
     </Component>
   );

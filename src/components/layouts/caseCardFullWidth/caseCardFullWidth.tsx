@@ -34,7 +34,6 @@ export const CaseCardFullWidth = (props: CaseCardProps) => {
     <Link
       {...restProps}
       className={classNames}
-      rel={"nofollow"}
       href={`/cases/${caseId}`}
       ref={cardRef}
     >

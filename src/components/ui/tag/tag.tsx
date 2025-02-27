@@ -16,5 +16,5 @@ export const Tag = <T extends ElementType>(props: TagProps<T>) => {
   } = props;
   const classNames = clsx(s.tag, s[variant], className);
 
-  return <Component {...restProps} className={classNames} rel={"nofollow"} />;
+  return <Component {...restProps} className={classNames} />;
 };
