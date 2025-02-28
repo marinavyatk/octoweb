@@ -39,16 +39,18 @@ export const FooterWithForm = (props: FooterWithFormProps) => {
     tl.to(footer, { yPercent: `-${footerHeight}px` }, 0)
       .to(".overlay", { opacity: 1 }, 0);
 
-    window.scroll({
-      top: 0,
-      behavior: "instant",
-    });
-
     return () => {
       ScrollTrigger.getById("footer")?.kill();
       ScrollTrigger?.refresh();
     };
 
+  }, [pathname]);
+
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "instant",
+    });
   }, [pathname]);
 
   return (
