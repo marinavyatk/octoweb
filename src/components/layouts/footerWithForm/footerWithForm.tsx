@@ -46,6 +46,13 @@ export const FooterWithForm = (props: FooterWithFormProps) => {
 
   }, [pathname]);
 
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "instant",
+    });
+  }, [pathname]);
+
   return (
     <div ref={footerRef} className={"footer"}>
     <div {...restProps} className={classNames} id={"form"} >
