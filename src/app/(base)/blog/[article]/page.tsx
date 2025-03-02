@@ -10,6 +10,7 @@ import {api} from "@/common/api";
 import {checkError, getMetaDataObj} from "@/common/commonFunctions";
 import Script from "next/script";
 import {cache} from "react";
+import {ArticleContent} from "@/app/(base)/blog/[article]/content";
 
 const getCachedSeo = cache(async (article: string) => {
     return await api.getArticleSeo(article);
@@ -64,7 +65,7 @@ export default async function Article({params}: {
                 <Picture src={articleInfo.image} alt="" fill containerProps={{className: s.imgContainer}} priority/>
                 <div className={s.article}>
                     <BigBubble className={s.bigBubble}/>
-                    <div dangerouslySetInnerHTML={{__html: articleInfo.content}}></div>
+                    <ArticleContent content={articleInfo.content}/>
                 </div>
                 <div className={s.caption + " " + s.bottomCaption}>
                     <div className={s.tagList}>

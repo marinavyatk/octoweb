@@ -39,6 +39,7 @@
   color: var(--color-light-100);
   font-weight: var(--font-weight-regular-300);
   line-height: var(--line-height-200);
+  font-size: 18px;
 
   & > * {
     padding: 0 var(--article-offset);
@@ -53,21 +54,29 @@
     font-weight: var(--font-weight-regular-500);
     font-size: 40px;
     line-height: var(--line-height-120);
-    margin-bottom: 32px;
     text-transform: none;
+    margin-top: 80px;
+    margin-bottom: 32px;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
-  h3 {
+  h3, dt {
     font-weight: var(--font-weight-regular-600);
     font-size: 24px;
     line-height: var(--line-height-140);
+    margin-top: 56px;
     margin-bottom: 24px;
   }
 
-  p, ul, ol {
-    font-size: 18px;
-    margin-bottom: 56px;
+  ul, ol {
     list-style-position: inside;
+  }
+
+  li, p, dd {
+    margin-bottom: 20px;
   }
 
   img {
@@ -77,6 +86,34 @@
     background-color: var(--color-dark-primary);
     overflow: hidden;
     margin-left: calc(-1 * var(--article-offset));
+  }
+
+  .tableWrapper {
+    width: var(--article-max-width);
+    margin-left: calc(-1 * var(--article-offset));
+    overflow-x: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    position: relative;
+
+    &::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 5px;
+    }
+  }
+
+  table {
+    border-collapse: collapse;
+    line-height: var(--line-height-140);
+    margin-bottom: 5px;
+  }
+
+  th, td {
+    border: 1px solid white;
+    padding: 10px;
   }
 }
 
@@ -129,11 +166,12 @@
     }
 
     h2 {
+      margin-top: 40px;
       margin-bottom: 30px;
     }
 
-    p, ul, ol {
-      margin-bottom: 24px;
+    h3, dt {
+      margin-top: 24px;
     }
 
     img {
@@ -225,18 +263,28 @@
   }
 
   .article {
+    font-size: 14px;
+
     h2 {
       font-size: 18px;
       margin-bottom: 14px;
     }
 
-    h3 {
+    h3, dt {
       font-size: 16px;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
-    p, ul, ol {
-      font-size: 14px;
+    li, p, dd {
+      margin-bottom: 15px;
+    }
+
+    .tableWrapper {
+      max-width: 100%;
+    }
+
+    th, td {
+      padding: 5px;
     }
 
     img {
