@@ -68,6 +68,7 @@ export const AdvantagesCardsDesktop = () => {
       setScrollProgress(1);
       const trigger = ScrollTrigger.getById("advantagesCards");
       trigger?.kill();
+      gsap.set(".case", { x: 0, opacity: 1 });
       const footerTrigger = ScrollTrigger.getById("footer");
       footerTrigger?.refresh();
       const form = document.getElementById("form");
