@@ -23,7 +23,7 @@ export const TextArea = React.forwardRef(
       ...restProps
     } = props;
     const classNames = clsx(s.inputContainer, className, {
-      [s.error]: errorMessage
+      [s.error]: errorMessage,
     });
 
     return (
@@ -49,7 +49,7 @@ export const TextArea = React.forwardRef(
         {errorMessage && <span className={s.errorMessage}>{errorMessage}</span>}
       </div>
     );
-  }
+  },
 );
 
 TextArea.displayName = "TextArea";

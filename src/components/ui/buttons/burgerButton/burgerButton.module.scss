@@ -14,15 +14,18 @@
   transition: background-color 0.3s;
 }
 
-.burgerButton:before, .burgerButton:after {
-  content: '';
+.burgerButton:before,
+.burgerButton:after {
+  content: "";
   display: block;
   width: 18px;
   height: 2px;
   border-radius: 10px;
   background-color: var(--color-dark-primary);
   flex-shrink: 0;
-  transition: all 0.3s, transform 0.3s;
+  transition:
+    all 0.3s,
+    transform 0.3s;
 }
 
 .open {

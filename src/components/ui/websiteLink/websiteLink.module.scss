@@ -5,7 +5,8 @@
   width: fit-content;
   color: var(--color-light-100);
 
-  &:hover, &:has(:focus-visible) {
+  &:hover,
+  &:has(:focus-visible) {
     .iconContainer {
       background-color: var(--color-accent);
 
@@ -105,5 +106,4 @@
       width: 14px;
     }
   }
-
 }

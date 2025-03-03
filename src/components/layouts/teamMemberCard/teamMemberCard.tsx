@@ -28,8 +28,13 @@ export const TeamMemberCard = (props: TeamMemberCardProps) => {
   return (
     <div {...restProps} className={classNames}>
       <div className={s.frontSide + " " + s.card}>
-        <Picture src={image} alt={position} fill containerProps={{ className: s.imgContainer }}
-                 sizes="(max-width: 767px) 288px, 536px" />
+        <Picture
+          src={image}
+          alt={position}
+          fill
+          containerProps={{ className: s.imgContainer }}
+          sizes="(max-width: 767px) 288px, 536px"
+        />
         <div className={s.about}>
           <h3 className={s.name}>{name}</h3>
           <span className={s.specialization}>{position}</span>
@@ -41,7 +46,10 @@ export const TeamMemberCard = (props: TeamMemberCardProps) => {
           <h3 className={s.name}>{name}</h3>
           <span className={s.specialization}>{position}</span>
         </div>
-        <div dangerouslySetInnerHTML={{ __html: description }} className={s.description} />
+        <div
+          dangerouslySetInnerHTML={{ __html: description }}
+          className={s.description}
+        />
       </div>
     </div>
   );

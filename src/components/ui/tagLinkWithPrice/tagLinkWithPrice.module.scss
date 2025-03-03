@@ -5,13 +5,15 @@
 .tag {
   transition: all 0.2s ease-out;
 
-  &:hover, &:focus-visible {
+  &:hover,
+  &:focus-visible {
     color: var(--color-dark-primary);
     background-color: var(--color-accent);
   }
 }
 
-.tag:hover + .price, .tag:focus-visible + .price {
+.tag:hover + .price,
+.tag:focus-visible + .price {
   transition: opacity 0.5s ease 0.2s;
   opacity: 1;
   display: block;
@@ -40,7 +42,6 @@
     right: 80px;
   }
 }
-
 
 @media (max-width: 1905px) {
   .tagLink {

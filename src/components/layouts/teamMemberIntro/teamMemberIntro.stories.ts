@@ -19,6 +19,6 @@ export const Primary: Story = {
     position: "Frontend-Гуру",
     description:
       'Николай "HTML-Rockstar" Елисеев, фронтенд-гуру с исключительным талантом.',
-    image: '/frontendDev.webp',
+    image: "/frontendDev.webp",
   },
 };

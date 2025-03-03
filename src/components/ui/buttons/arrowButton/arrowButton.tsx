@@ -9,8 +9,15 @@ export type ArrowButtonProps<T extends ElementType> = {
   variant?: "primary" | "secondary";
 } & ComponentPropsWithoutRef<T>;
 
-export const ArrowButton = <T extends ElementType>(props: ArrowButtonProps<T>) => {
-  const { as: Component = "a", variant = "primary", className, ...restProps } = props;
+export const ArrowButton = <T extends ElementType>(
+  props: ArrowButtonProps<T>,
+) => {
+  const {
+    as: Component = "a",
+    variant = "primary",
+    className,
+    ...restProps
+  } = props;
   const classNames = clsx(s.arrowButton, className, s[variant]);
 
   return (

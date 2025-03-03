@@ -9,7 +9,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-
 export type QuestionProps = {
   question: string;
   answer: string;
@@ -20,7 +19,7 @@ export const Question = (props: QuestionProps) => {
   const [opened, setOpened] = useState(false);
   const { question, answer, className, ...restProps } = props;
   const classNames = clsx(s.questionContainer, className, {
-    [s.opened]: opened
+    [s.opened]: opened,
   });
 
   const toggleOpen = () => {
@@ -29,7 +28,6 @@ export const Question = (props: QuestionProps) => {
     const footer = document.querySelector(".footer") as HTMLElement;
     if (!answerRef.current || !footer) return;
     const startBefore = footer.getBoundingClientRect().top;
-
 
     const adjustScroll = () => {
       const main = document.querySelector(".main") as HTMLElement;
@@ -89,14 +87,20 @@ export const Question = (props: QuestionProps) => {
 
     requestAnimationFrame(() => {
       const startAfter = footer.getBoundingClientRect().top;
-      gsap.fromTo(".footer", { bottom: `${-startBefore + startAfter}px`, duration: 1 }, { bottom: 0 });
+      gsap.fromTo(
+        ".footer",
+        { bottom: `${-startBefore + startAfter}px`, duration: 1 },
+        { bottom: 0 },
+      );
     });
   };
 
   return (
     <div {...restProps} className={classNames}>
       <div className={s.accordion}>
-        <h2 className={s.question} onClick={toggleOpen}>{question}</h2>
+        <h2 className={s.question} onClick={toggleOpen}>
+          {question}
+        </h2>
         <AccordionButton opened={opened} toggleOpen={toggleOpen} />
       </div>
       <p className={s.answer} ref={answerRef}>

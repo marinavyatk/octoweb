@@ -6,7 +6,7 @@ import { Picture } from "@/components/ui/picture/picture";
 import { ComponentPropsWithoutRef } from "react";
 import { clsx } from "clsx";
 
-type CooperationCardProps = ComponentPropsWithoutRef<"div">
+type CooperationCardProps = ComponentPropsWithoutRef<"div">;
 
 export const CooperationCard = (props: CooperationCardProps) => {
   const { className, ...restProps } = props;
@@ -38,9 +38,14 @@ export const CooperationCard = (props: CooperationCardProps) => {
         </AnimatedField>
       </div>
       <div className={s.map}>
-        <Picture src={"/map.webp"} alt={"Карта"} fill
-                 sizes={"(max-width: 767px) 375px,(max-width: 1265px) 736px, (max-width: 1425px) 1193px, (max-width: 1905px) 1224px, 1655px"}
-                 containerProps={{ className: s.imgContainer }}
+        <Picture
+          src={"/map.webp"}
+          alt={"Карта"}
+          fill
+          sizes={
+            "(max-width: 767px) 375px,(max-width: 1265px) 736px, (max-width: 1425px) 1193px, (max-width: 1905px) 1224px, 1655px"
+          }
+          containerProps={{ className: s.imgContainer }}
         />
         <p>
           Мы базируемся в Краснодаре и эффективно сотрудничаем с клиентами по

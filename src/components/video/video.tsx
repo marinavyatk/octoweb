@@ -8,7 +8,7 @@ import { useIntersectionObserver } from "@/common/customHooks/useIntersectionObs
 type VideoProps = {
   src: string;
   reserveSrc?: string;
-} & ComponentPropsWithoutRef<"video">
+} & ComponentPropsWithoutRef<"video">;
 
 export const Video = (props: VideoProps) => {
   const { src, reserveSrc, className, ...restProps } = props;
@@ -25,26 +25,26 @@ export const Video = (props: VideoProps) => {
     } else {
       videoRef.current?.pause();
     }
-
   }, [isVisible]);
 
-  return <video
-    className={classNames}
-    {...restProps}
-    ref={videoRef}
-    muted
-    loop
-    playsInline
-    aria-hidden="true"
-    role="presentation"
-    preload={"auto"}
-  >
-    {isFirstVisible &&
-      <>
-        <source src={src} type='video/webm; codecs="vp9"' />
-        {reserveSrc &&
-          <source src={reserveSrc} type="video/mp4" />}
-      </>
-    }
-  </video>;
+  return (
+    <video
+      className={classNames}
+      {...restProps}
+      ref={videoRef}
+      muted
+      loop
+      playsInline
+      aria-hidden="true"
+      role="presentation"
+      preload={"auto"}
+    >
+      {isFirstVisible && (
+        <>
+          <source src={src} type='video/webm; codecs="vp9"' />
+          {reserveSrc && <source src={reserveSrc} type="video/mp4" />}
+        </>
+      )}
+    </video>
+  );
 };

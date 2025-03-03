@@ -30,8 +30,9 @@
   max-height: 0;
   overflow: hidden;
   width: 85%;
-  transition: max-height 1s,
-  margin-bottom 1s;
+  transition:
+    max-height 1s,
+    margin-bottom 1s;
 }
 
 .opened {

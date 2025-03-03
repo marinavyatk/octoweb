@@ -1,6 +1,6 @@
 declare global {
   interface Window {
-    grecaptcha: ReCaptchaInstance
-    captchaOnLoad: () => void
+    grecaptcha: ReCaptchaInstance;
+    captchaOnLoad: () => void;
   }
 }

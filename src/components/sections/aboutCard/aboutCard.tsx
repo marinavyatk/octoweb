@@ -4,7 +4,7 @@ import { Picture } from "@/components/ui/picture/picture";
 import { clsx } from "clsx";
 import { ComponentPropsWithoutRef } from "react";
 
-type AboutCardProps = {teamPhoto: string} & ComponentPropsWithoutRef<"div">
+type AboutCardProps = { teamPhoto: string } & ComponentPropsWithoutRef<"div">;
 
 export const AboutCard = (props: AboutCardProps) => {
   const { teamPhoto, className, ...restProps } = props;
@@ -18,16 +18,20 @@ export const AboutCard = (props: AboutCardProps) => {
           OCTOWEB
         </h2>
         <p>
-          С 2018 года специализируемся на разработке, сопровождении и развитии IT-продуктов,
-          интернет-магазинов и бизнес-сайтов
+          С 2018 года специализируемся на разработке, сопровождении и развитии
+          IT-продуктов, интернет-магазинов и бизнес-сайтов
         </p>
       </div>
       <div className={s.imageWithButton}>
-        <Picture src={teamPhoto}
-                 alt={"Команда"}
-                 fill
-                 sizes={"(max-width: 767px) 100vw, (max-width: 1280px) 1152px, (max-width: 1440px) 1328px, 1816px"}
-                 containerProps={{ className: s.imgContainer }} />
+        <Picture
+          src={teamPhoto}
+          alt={"Команда"}
+          fill
+          sizes={
+            "(max-width: 767px) 100vw, (max-width: 1280px) 1152px, (max-width: 1440px) 1328px, 1816px"
+          }
+          containerProps={{ className: s.imgContainer }}
+        />
         <Button
           as={"a"}
           variant={"dark"}

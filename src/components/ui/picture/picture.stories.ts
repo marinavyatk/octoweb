@@ -4,7 +4,7 @@ import { Picture } from "@/components/ui/picture/picture";
 const meta = {
   title: "UI/Picture",
   component: Picture,
-  tags: ["autodocs"]
+  tags: ["autodocs"],
 } satisfies Meta<typeof Picture>;
 
 export default meta;
@@ -20,8 +20,8 @@ export const Primary: Story = {
         width: "400px",
         height: "400px",
         borderRadius: "30px",
-        overflow: "hidden"
-      }
-    }
-  }
+        overflow: "hidden",
+      },
+    },
+  },
 };

@@ -4,7 +4,6 @@ import s from "./caseCircle.module.scss";
 import Link from "next/link";
 import { Picture } from "@/components/ui/picture/picture";
 
-
 export type CaseCircle = {
   img: string;
   caseId: string;
@@ -30,13 +29,15 @@ export const CaseCircle = (props: CaseCircleProps) => {
         event.preventDefault();
       }}
     >
-      {img &&
-        <Picture src={img}
-                 alt={caseId}
-                 draggable={false}
-                 fill
-                 sizes={"(max-width: 767px) 110px,(max-width: 1905px) 170px, 232px"} />
-      }
+      {img && (
+        <Picture
+          src={img}
+          alt={caseId}
+          draggable={false}
+          fill
+          sizes={"(max-width: 767px) 110px,(max-width: 1905px) 170px, 232px"}
+        />
+      )}
     </Link>
   );
 };

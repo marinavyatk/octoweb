@@ -17,9 +17,9 @@ export const AsH2: Story = {
     category: "LANDING PAGE",
     header: "ботаника-хилс.рф",
     services: ["DEVELOP", "UI/UX", "SEO"],
-    img: '/case-botanica.webp',
+    img: "/case-botanica.webp",
     size: "small",
-    index: 0
+    index: 0,
   },
 };
 
@@ -29,9 +29,9 @@ export const AsH3: Story = {
     category: "LANDING PAGE",
     header: "ботаника-хилс.рф",
     services: ["DEVELOP", "UI/UX", "SEO"],
-    img: '/case-botanica.webp',
+    img: "/case-botanica.webp",
     size: "small",
     as: "h3",
-    index: 0
+    index: 0,
   },
 };

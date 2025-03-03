@@ -14,7 +14,9 @@
   padding-bottom: var(--last-el-offset);
 }
 
-.mainBubbles, .advantagesBubbles, .cardBubbles {
+.mainBubbles,
+.advantagesBubbles,
+.cardBubbles {
   position: relative;
   contain: layout;
   z-index: -3;
@@ -49,7 +51,9 @@
 }
 
 @media (max-width: 1425px) {
-  .services, .advantages, .faq {
+  .services,
+  .advantages,
+  .faq {
     margin-bottom: 120px;
   }
 
@@ -84,9 +88,10 @@
   }
 }
 
-
 @media (max-width: 767px) {
-  .services, .advantages, .faq {
+  .services,
+  .advantages,
+  .faq {
     margin-bottom: 60px;
   }
 

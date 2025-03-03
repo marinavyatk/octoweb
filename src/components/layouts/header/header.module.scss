@@ -3,7 +3,9 @@
   position: relative;
 }
 
-.header, .headerMobile, .headerDesktop {
+.header,
+.headerMobile,
+.headerDesktop {
   display: flex;
   justify-content: space-between;
   margin: auto;
@@ -11,7 +13,7 @@
   max-width: 1920px;
 }
 
-:global(.headroom--pinned){
+:global(.headroom--pinned) {
   .header {
     background-color: rgba(41, 41, 41, 0.6);
     backdrop-filter: blur(5px);

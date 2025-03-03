@@ -1,10 +1,13 @@
 import { Metadata } from "next";
-import { OpenGraph, OpenGraphType } from "next/dist/lib/metadata/types/opengraph-types";
+import {
+  OpenGraph,
+  OpenGraphType,
+} from "next/dist/lib/metadata/types/opengraph-types";
 import { Robots } from "next/dist/lib/metadata/types/metadata-types";
 import type { Twitter } from "next/dist/lib/metadata/types/twitter-types";
-import {SeoData, ServerError} from "@/common/types";
+import { SeoData, ServerError } from "@/common/types";
 import { ReadonlyURLSearchParams } from "next/dist/client/components/navigation.react-server";
-import {notFound} from "next/navigation";
+import { notFound } from "next/navigation";
 
 export const formatNumber = (index: number) => {
   const number = index + 1;
@@ -15,7 +18,11 @@ export const formatPhoneNumber = (number: string) => {
   return number.replace(/[^\d+]+/g, "");
 };
 
-export const createQueryString = (name: string, value: string, searchParams: ReadonlyURLSearchParams) => {
+export const createQueryString = (
+  name: string,
+  value: string,
+  searchParams: ReadonlyURLSearchParams,
+) => {
   const params = new URLSearchParams(searchParams.toString());
   params.set(name, value);
 
@@ -23,15 +30,15 @@ export const createQueryString = (name: string, value: string, searchParams: Rea
 };
 
 export const checkError = (serverResponse: ServerError | unknown) => {
-  if (!serverResponse) return null
-  if (typeof serverResponse === "object" && 'code' in serverResponse) {
+  if (!serverResponse) return null;
+  if (typeof serverResponse === "object" && "code" in serverResponse) {
     const typedResponse = serverResponse as unknown as ServerError;
     if (typedResponse?.data?.status === 404) {
-      notFound()
+      notFound();
     }
     return null;
   }
-}
+};
 
 export const getMetaDataObj = (yoastJson: SeoData) => {
   const meta: Metadata = {};
@@ -97,23 +104,26 @@ export const getMetaDataObj = (yoastJson: SeoData) => {
     meta.robots.googleBot = meta.robots.googleBot || {};
     const splittedString = yoastJson.robots?.["max-snippet"].split(":");
     const value = splittedString[splittedString.length - 1];
-    (meta.robots.googleBot as Record<string, unknown>)["max-snippet"] = Number(value);
+    (meta.robots.googleBot as Record<string, unknown>)["max-snippet"] =
+      Number(value);
   }
   if (yoastJson.robots?.["max-video-preview"]) {
     meta.robots = (meta.robots || {}) as Robots;
     meta.robots.googleBot = meta.robots.googleBot || {};
     const splitString = yoastJson.robots?.["max-video-preview"].split(":");
     const value = splitString[splitString.length - 1];
-    (meta.robots.googleBot as Record<string, unknown>)["max-video-preview"] = value;
+    (meta.robots.googleBot as Record<string, unknown>)["max-video-preview"] =
+      value;
   }
   if (yoastJson.robots?.["max-image-preview"]) {
     meta.robots = (meta.robots || {}) as Robots;
     meta.robots.googleBot = meta.robots.googleBot || {};
     const splitString = yoastJson.robots?.["max-image-preview"].split(":");
     const value = splitString[splitString.length - 1];
-    (meta.robots.googleBot as Record<string, unknown>)["max-image-preview"] = value;
+    (meta.robots.googleBot as Record<string, unknown>)["max-image-preview"] =
+      value;
   }
-//twitter
+  //twitter
   if (yoastJson.twitter_card) {
     meta.twitter = (meta.twitter || {}) as Twitter;
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment

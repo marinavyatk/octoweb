@@ -7,7 +7,10 @@
   font-size: 18px;
   line-height: var(--line-height-160);
   color: var(--color-light-100);
-  transition: color 0.3s cubic-bezier(0.61, 0.01, 0.58, 1), border-color 0.3s cubic-bezier(0.61, 0.01, 0.58, 1), background-color 0.3s cubic-bezier(0.61, 0.01, 0.58, 1);
+  transition:
+    color 0.3s cubic-bezier(0.61, 0.01, 0.58, 1),
+    border-color 0.3s cubic-bezier(0.61, 0.01, 0.58, 1),
+    background-color 0.3s cubic-bezier(0.61, 0.01, 0.58, 1);
 
   &:hover:not(.active) {
     color: var(--color-primary);
@@ -23,7 +26,11 @@
 }
 
 .active {
-  background: linear-gradient(351deg, var(--color-primary) 0%, var(--color-primary-bright) 100%);
+  background: linear-gradient(
+    351deg,
+    var(--color-primary) 0%,
+    var(--color-primary-bright) 100%
+  );
   border-color: transparent;
 }
 

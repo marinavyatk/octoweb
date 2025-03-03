@@ -5,7 +5,7 @@ import parse, { domToReact } from "html-react-parser";
 
 type HeadProps = {
   seoString: string;
-}
+};
 
 export const HeadCustom = (props: HeadProps) => {
   const { seoString } = props;

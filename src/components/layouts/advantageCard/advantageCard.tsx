@@ -13,11 +13,12 @@ export type AdvantagesCardProps = {
   header: string;
   text: string;
   index: number;
-  scrollProgress: number
+  scrollProgress: number;
 } & ComponentPropsWithoutRef<"div">;
 
 export const AdvantageCard = (props: AdvantagesCardProps) => {
-  const { icon, header, text, className, index, scrollProgress, ...restProps } = props;
+  const { icon, header, text, className, index, scrollProgress, ...restProps } =
+    props;
   const classNames = clsx(s.card, className);
   const cardRef = useRef<HTMLDivElement>(null);
   const isVisible = useIntersectionObserver(cardRef, 0.5, true);
@@ -30,16 +31,23 @@ export const AdvantageCard = (props: AdvantagesCardProps) => {
 
   const getShowMoment = () => {
     switch (index) {
-      case 0: return 0.2;
-      case 1: return 0.4;
-      case 2: return 0.6;
-      case 3: return 0.8;
-      default: return 1;
+      case 0:
+        return 0.2;
+      case 1:
+        return 0.4;
+      case 2:
+        return 0.6;
+      case 3:
+        return 0.8;
+      default:
+        return 1;
     }
-  }
+  };
 
   const styles = useSpring({
-    transform: isTabletOrMobile ? `translateY(${isVisible ? 0 : 3000}px)` : `translateY(${scrollProgress >= getShowMoment() ? 0 : 3000}px)`, //not opacity because of drop-filter property doesn`t animate smoothly
+    transform: isTabletOrMobile
+      ? `translateY(${isVisible ? 0 : 3000}px)`
+      : `translateY(${scrollProgress >= getShowMoment() ? 0 : 3000}px)`, //not opacity because of drop-filter property doesn`t animate smoothly
     config: config.slow,
   });
 
@@ -47,16 +55,16 @@ export const AdvantageCard = (props: AdvantagesCardProps) => {
     <div ref={cardRef}>
       <animated.div className={classNames} {...restProps} style={styles}>
         <div className={s.content}>
-          {isAnimationVisible ?
+          {isAnimationVisible ? (
             <Lottie
               className={s.imgContainer}
               animationData={icon}
               loop
               autoplay
             />
-            :
+          ) : (
             <div className={s.imgContainer}></div>
-          }
+          )}
           <h3>{header}</h3>
           <p>{text}</p>
         </div>

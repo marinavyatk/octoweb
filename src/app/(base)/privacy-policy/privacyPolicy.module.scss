@@ -15,14 +15,16 @@
     hyphens: auto;
   }
 
-  h3, li:has(h3)::before {
+  h3,
+  li:has(h3)::before {
     font-size: 24px;
     color: var(--color-accent);
     font-weight: bold;
     display: inline;
   }
 
-  ol > li, p {
+  ol > li,
+  p {
     margin: 30px 0;
   }
 
@@ -118,12 +120,14 @@
       font-size: 20px;
     }
 
-    h3, li:has(h3)::before {
+    h3,
+    li:has(h3)::before {
       font-size: 18px;
       hyphens: auto;
     }
 
-    ol > li, p {
+    ol > li,
+    p {
       margin: 15px 0;
     }
 

@@ -10,10 +10,10 @@ import { useCombinedRef } from "@/common/customHooks";
 import { TextAreaProps } from "@/components/ui/textField/textarea";
 
 type InputWithCounterProps = Omit<TextAreaProps, "errorMessage"> & {
-  fileProps?: InputFileProps,
+  fileProps?: InputFileProps;
   errorMessage?: (string | undefined)[];
-  onDeleteFile?: ()=>void
-}
+  onDeleteFile?: () => void;
+};
 
 export const InputWithCounter = React.forwardRef(
   (props: InputWithCounterProps, ref: Ref<HTMLTextAreaElement>) => {
@@ -30,7 +30,8 @@ export const InputWithCounter = React.forwardRef(
       onDeleteFile,
       ...restProps
     } = props;
-    const isError = errorMessage && errorMessage.filter(error=>!!error).length > 0;
+    const isError =
+      errorMessage && errorMessage.filter((error) => !!error).length > 0;
     const classNames = className;
 
     const handleDeleteFile = () => {
@@ -38,12 +39,15 @@ export const InputWithCounter = React.forwardRef(
       if (inputFileRef.current) {
         inputFileRef.current.value = "";
       }
-      onDeleteFile?.()
+      onDeleteFile?.();
     };
 
     const errorText = errorMessage?.filter((message) => message).join(". ");
-    const underlineMessage = file ?
-      <AttachedFile fileName={file.name} onDeleteClick={handleDeleteFile} /> : "Размер файла не более 5mb";
+    const underlineMessage = file ? (
+      <AttachedFile fileName={file.name} onDeleteClick={handleDeleteFile} />
+    ) : (
+      "Размер файла не более 5mb"
+    );
 
     const handleInput = (event: ChangeEvent<HTMLTextAreaElement>) => {
       const newContent = event.target.value;
@@ -61,7 +65,12 @@ export const InputWithCounter = React.forwardRef(
 
     return (
       <div className={classNames} {...containerProps}>
-        <div className={clsx(commonStyles.inputContainer, isError && commonStyles.error)}>
+        <div
+          className={clsx(
+            commonStyles.inputContainer,
+            isError && commonStyles.error,
+          )}
+        >
           {label && (
             <Label
               text={label}
@@ -91,13 +100,15 @@ export const InputWithCounter = React.forwardRef(
         <div className={clsx(s.underText, isError && s.error)}>
           <div className={s.staticText}>
             <span className={s.contentLength}>{content.length}/500</span>
-            <span className={clsx(s.underlineMessage, file && s.hasFile)}>{underlineMessage}</span>
+            <span className={clsx(s.underlineMessage, file && s.hasFile)}>
+              {underlineMessage}
+            </span>
           </div>
           <div className={s.errorText}>{errorText}</div>
         </div>
       </div>
     );
-  }
+  },
 );
 
 InputWithCounter.displayName = "InputWithCounter";

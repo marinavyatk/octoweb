@@ -33,13 +33,19 @@ export const TeamMemberIntro = (props: TeamMemberIntroProps) => {
           <h3 className={s.name}>{name}</h3>
           <span className={s.specialization}>{position}</span>
         </div>
-        <div className={s.description} dangerouslySetInnerHTML={{__html: description}}/>
+        <div
+          className={s.description}
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
       </div>
       <div className={s.imgContainer}>
-        <Picture src={image} alt={name} fill
-                 sizes={"(max-width: 767px) 154px, 370px"}
-                 containerProps={{ className: s.imgPositionContainer }}
-                 loaderProps={{ className: s.loader }}
+        <Picture
+          src={image}
+          alt={name}
+          fill
+          sizes={"(max-width: 767px) 154px, 370px"}
+          containerProps={{ className: s.imgPositionContainer }}
+          loaderProps={{ className: s.loader }}
         />
       </div>
     </div>

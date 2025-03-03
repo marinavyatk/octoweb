@@ -12,7 +12,9 @@
     mask-repeat: no-repeat;
   }
 
-  .smallImg, .mediumImg, .bigImg {
+  .smallImg,
+  .mediumImg,
+  .bigImg {
     border-radius: 48px;
     overflow: hidden;
   }
@@ -158,7 +160,9 @@
       mask-image: url(../../../../svg/caseMainPhotoShape1440.svg);
     }
 
-    .smallImg, .mediumImg, .bigImg {
+    .smallImg,
+    .mediumImg,
+    .bigImg {
       border-radius: 32px;
     }
 
@@ -221,12 +225,21 @@
     font-size: 24px;
 
     .mainImgContainer {
-      shape-outside: polygon(0% 0%, 100% 0%, 100% 100%, 61% 100%, 61% 87%, 0% 87%);
+      shape-outside: polygon(
+        0% 0%,
+        100% 0%,
+        100% 100%,
+        61% 100%,
+        61% 87%,
+        0% 87%
+      );
       float: right;
       height: 967px;
     }
 
-    .smallImg, .mediumImg, .bigImg {
+    .smallImg,
+    .mediumImg,
+    .bigImg {
       border-radius: 77px;
     }
 
@@ -311,7 +324,6 @@
   }
 }
 
-
 @media (max-width: 767px) {
   .subheader {
     font-size: 12px;
@@ -324,7 +336,9 @@
       height: 400px;
     }
 
-    .smallImg, .mediumImg, .bigImg {
+    .smallImg,
+    .mediumImg,
+    .bigImg {
       border-radius: 32px;
     }
 
@@ -403,7 +417,14 @@
 @media (max-width: 450px) {
   .casePage {
     .mainImgContainer {
-      shape-outside: polygon(0% 0%, 100% 0%, 100% 100%, 55% 100%, 55% 88%, 0% 88%);
+      shape-outside: polygon(
+        0% 0%,
+        100% 0%,
+        100% 100%,
+        55% 100%,
+        55% 88%,
+        0% 88%
+      );
       mask-image: url(../../../../svg/caseMainPhotoShape320.svg);
     }
 

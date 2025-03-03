@@ -3,7 +3,10 @@
 import { MutableRefObject, useRef, useState } from "react";
 import clsx from "clsx";
 import s from "./teamMembersCards.module.scss";
-import { TeamMember, TeamMemberCard } from "@/components/layouts/teamMemberCard/teamMemberCard";
+import {
+  TeamMember,
+  TeamMemberCard,
+} from "@/components/layouts/teamMemberCard/teamMemberCard";
 import { NavigationButton } from "@/components/ui/buttons/navigationButton/navigationButton";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -27,15 +30,15 @@ export const TeamMemberCards = (props: TeamMemberCardsProps) => {
         key={member.name}
         className={s.swiperSlide}
       >
-        <TeamMemberCard
-          {...member}
-          className={s.cardItem}
-        />
+        <TeamMemberCard {...member} className={s.cardItem} />
       </SwiperSlide>
     );
   });
 
-  const handleSwiper = (swiper: SwiperClass, swiperRef: MutableRefObject<SwiperClass>) => {
+  const handleSwiper = (
+    swiper: SwiperClass,
+    swiperRef: MutableRefObject<SwiperClass>,
+  ) => {
     swiperRef.current = swiper;
   };
   const handleUpdateButtonsState = (swiper: SwiperClass) => {
@@ -67,7 +70,9 @@ export const TeamMemberCards = (props: TeamMemberCardsProps) => {
       <Swiper
         className={s.cards}
         slidesPerView={"auto"}
-        onSwiper={(swiper) => handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>)}
+        onSwiper={(swiper) =>
+          handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>)
+        }
         onProgress={handleUpdateButtonsState}
       >
         {teamMemberList}

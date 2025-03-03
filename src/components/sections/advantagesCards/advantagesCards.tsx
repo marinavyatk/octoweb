@@ -7,7 +7,6 @@ import s from "./advantagesCards.module.scss";
 import { BigBubble } from "@/components/video/bigBubble";
 import { SmallBubble } from "@/components/video/smallBubble";
 
-
 const AdvantagesCards = () => {
   const [screenWidth, setScreenWidth] = useState<number | null>(null);
 
@@ -22,17 +21,18 @@ const AdvantagesCards = () => {
   }, []);
 
   return (
-    <div className={'advantagesContainer'}>
+    <div className={"advantagesContainer"}>
       <div className={s.advantagesBubbles}>
         <BigBubble className={s.bigBubbleAdvantages} />
         <SmallBubble className={s.smallBubbleAdvantages} />
       </div>
-      {screenWidth && screenWidth > 1265 ?
-        <AdvantagesCardsDesktop /> :
+      {screenWidth && screenWidth > 1265 ? (
+        <AdvantagesCardsDesktop />
+      ) : (
         <AdvantagesCardsMobile />
-      }
+      )}
     </div>
   );
 };
 
-export default AdvantagesCards
+export default AdvantagesCards;

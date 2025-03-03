@@ -4,7 +4,7 @@ import { GreetingDescription } from "@/components/layouts/greetingDescription/gr
 const meta = {
   title: "Layouts/GreetingDescription",
   component: GreetingDescription,
-  tags: ["autodocs"]
+  tags: ["autodocs"],
 } satisfies Meta<typeof GreetingDescription>;
 
 export default meta;

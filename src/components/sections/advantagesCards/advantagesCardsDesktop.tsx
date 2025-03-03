@@ -10,14 +10,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-
 export const AdvantagesCardsDesktop = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     if (window.innerWidth <= 1265) return;
 
-    let caseTriggers: ReturnType<typeof ScrollTrigger.batch> | undefined ;
+    let caseTriggers: ReturnType<typeof ScrollTrigger.batch> | undefined;
 
     const trigger = ScrollTrigger.create({
       id: "advantagesCards",
@@ -26,7 +25,7 @@ export const AdvantagesCardsDesktop = () => {
       pin: ".advantagesContainer",
       scrub: true,
       end: "+=200%",
-      onUpdate: self => setScrollProgress(self.progress),
+      onUpdate: (self) => setScrollProgress(self.progress),
       pinnedContainer: ".main",
       once: true,
       onEnter: () => {
@@ -45,15 +44,15 @@ export const AdvantagesCardsDesktop = () => {
           interval: 0.4,
           onEnter: (batch) => {
             gsap.to(batch, { x: 0, opacity: 1, stagger: 0.4, overwrite: true });
-          }
+          },
         });
-      }
+      },
     });
 
     return () => {
       trigger.kill();
       if (caseTriggers && Array.isArray(caseTriggers)) {
-          caseTriggers.forEach((trigger) => trigger.kill());
+        caseTriggers.forEach((trigger) => trigger.kill());
       }
     };
   }, []);
@@ -75,34 +74,35 @@ export const AdvantagesCardsDesktop = () => {
       form?.scrollIntoView({ behavior: "smooth" });
     };
 
-    contactButtons.forEach(button => {
+    contactButtons.forEach((button) => {
       button.addEventListener("click", scrollToForm);
     });
 
-    return () => contactButtons.forEach(button => {
-      button.removeEventListener("click", scrollToForm);
-    });
+    return () =>
+      contactButtons.forEach((button) => {
+        button.removeEventListener("click", scrollToForm);
+      });
   }, []);
 
   const headerStyles = useSpring({
     transform: `translateY(${scrollProgress >= 0.1 ? 0 : 100}px)`,
     opacity: scrollProgress >= 0.1 ? 1 : 0,
-    config: config.slow
+    config: config.slow,
   });
   const arrowStyles = useSpring({
     transform: `translateY(${scrollProgress >= 0.15 ? 0 : 100}px)`,
     opacity: scrollProgress >= 0.15 ? 1 : 0,
-    config: config.slow
+    config: config.slow,
   });
   const squidStyles = useSpring({
     transform: `translateY(${scrollProgress >= 0.2 ? 0 : 100}px)`,
     opacity: scrollProgress >= 0.3 ? 1 : 0,
-    config: config.slow
+    config: config.slow,
   });
   const squid2Styles = useSpring({
     transform: `translateY(${scrollProgress >= 0.4 ? 0 : 100}px)`,
     opacity: scrollProgress >= 0.5 ? 1 : 0,
-    config: config.slow
+    config: config.slow,
   });
 
   return (

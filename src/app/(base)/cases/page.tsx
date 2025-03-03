@@ -3,7 +3,14 @@
 import s from "./cases.module.scss";
 import { CaseCircle } from "@/components/layouts/caseCircle/caseCircle";
 import { FilterButton } from "@/components/ui/buttons/filterButton/filterButton";
-import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  Suspense,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { CaseCircleList } from "@/components/sections/caseCircleList/caseCircleList";
 import { CaseCardFullWidth } from "@/components/layouts/caseCardFullWidth/caseCardFullWidth";
 import { CaseCard, Size } from "@/components/layouts/caseCard/caseCard";
@@ -22,22 +29,23 @@ import Script from "next/script";
 import { HeadCustom } from "@/common/head";
 import { createQueryString } from "@/common/commonFunctions";
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 export default function CasesPage() {
-  return <Suspense fallback={null}>
-    <Cases />
-  </Suspense>;
+  return (
+    <Suspense fallback={null}>
+      <Cases />
+    </Suspense>
+  );
 }
-
 
 function Cases() {
   const defaultFilter = "All projects";
   const sizes = ["extraLarge", "large", "small", "medium", "fullWidth"];
   const defaultPage = 1;
   const [casesCircles, setCasesCircles] = useState<CaseCircle[]>();
-  const [casesCards, setCasesCards] = useState<(CaseData & { isNew: boolean })[]>();
+  const [casesCards, setCasesCards] =
+    useState<(CaseData & { isNew: boolean })[]>();
   const [total, setTotal] = useState(0);
   const [filters, setFilters] = useState<string[]>([]);
   const [currentFilter, setCurrentFilter] = useState<string>(defaultFilter);
@@ -48,9 +56,7 @@ function Cases() {
   const [schema, setSchema] = useState<string>();
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const casesCirclesMemo = useMemo(() => (casesCircles), [
-    casesCircles
-  ]);
+  const casesCirclesMemo = useMemo(() => casesCircles, [casesCircles]);
 
   useEffect(() => {
     const filter = searchParams.get("filter");
@@ -59,7 +65,7 @@ function Cases() {
     }
     const getCases = async () => {
       const response = await api.getCases(page, filter);
-      const startCases = response?.cases?.map(el => ({ ...el, isNew: true }));
+      const startCases = response?.cases?.map((el) => ({ ...el, isNew: true }));
       setCasesCircles(response?.caseCircles);
       setTotal(response?.total || 0);
       setTimeout(() => {
@@ -82,42 +88,41 @@ function Cases() {
     Promise.all([getCases(), getFilters(), getSeo()]);
   }, []);
 
-
   useEffect(() => {
     if (!casesCards || !casesCards?.length) return;
     ScrollTrigger.refresh();
     gsap.set(".fullWidth.new", {
       y: 100,
-      opacity: 0
+      opacity: 0,
     });
     gsap.set(".right.new", {
       x: 100,
-      opacity: 0
+      opacity: 0,
     });
     gsap.set(".left.new", {
       x: -100,
-      opacity: 0
+      opacity: 0,
     });
 
     const triggers = ScrollTrigger.batch(".case.new", {
       interval: 0.4,
       onEnter: (batch) => {
-        gsap.to(
-          batch,
-          { y: 0, x: 0, opacity: 1, stagger: 0.4, overwrite: true }
-        );
-      }
+        gsap.to(batch, {
+          y: 0,
+          x: 0,
+          opacity: 1,
+          stagger: 0.4,
+          overwrite: true,
+        });
+      },
     });
 
     return () => {
-      triggers.forEach(trigger => trigger.kill());
+      triggers.forEach((trigger) => trigger.kill());
     };
   }, [casesCards]);
 
-  const createQueryStringMemo = useCallback(
-    createQueryString,
-    []
-  );
+  const createQueryStringMemo = useCallback(createQueryString, []);
 
   if (!casesCards) return null;
 
@@ -127,10 +132,13 @@ function Cases() {
     setLoading(false);
     setPage(page + 1);
     if (!newCases) return null;
-    setCasesCards([...casesCards.map(card => ({ ...card, isNew: false })), ...newCases.cases.map(card => ({
-      ...card,
-      isNew: true
-    }))]);
+    setCasesCards([
+      ...casesCards.map((card) => ({ ...card, isNew: false })),
+      ...newCases.cases.map((card) => ({
+        ...card,
+        isNew: true,
+      })),
+    ]);
     ScrollTrigger.refresh();
   };
 
@@ -138,17 +146,24 @@ function Cases() {
     if (filter === currentFilter) return null;
     setLoading(true);
     setCurrentFilter(filter);
-    const newCases = await api.getCases(defaultPage, filter === defaultFilter ? null : filter);
+    const newCases = await api.getCases(
+      defaultPage,
+      filter === defaultFilter ? null : filter,
+    );
     setLoading(false);
 
     if (filter === defaultFilter) {
       window.history.replaceState(null, "", pathname);
     } else {
-      window.history.replaceState(null, "", pathname + "?" + createQueryStringMemo("filter", filter, searchParams));
+      window.history.replaceState(
+        null,
+        "",
+        pathname + "?" + createQueryStringMemo("filter", filter, searchParams),
+      );
     }
 
     if (!newCases) return null;
-    setCasesCards(newCases.cases.map(card => ({ ...card, isNew: true })));
+    setCasesCards(newCases.cases.map((card) => ({ ...card, isNew: true })));
     setCasesCircles(newCases.caseCircles);
   };
 
@@ -181,16 +196,20 @@ function Cases() {
         img={img}
       />
     ) : (
-      <div className={clsx(s.fullWidthContainer, "case", "fullWidth", isNew ? "new" : "")} key={uuid()}>
-        <CaseCardFullWidth
-          {...commonCardProps}
-          img={imgFullWidth}
-        />
+      <div
+        className={clsx(
+          s.fullWidthContainer,
+          "case",
+          "fullWidth",
+          isNew ? "new" : "",
+        )}
+        key={uuid()}
+      >
+        <CaseCardFullWidth {...commonCardProps} img={imgFullWidth} />
       </div>
       //container need for correct cards order on small screens
     );
   });
-
 
   return (
     <>
@@ -213,27 +232,31 @@ function Cases() {
           {cases}
           <SmallBubble className={s.smallBubbleCases} />
         </div>
-        {loading && <div className={s.loaderContainer}>
-          <Loader />
-        </div>}
-        {casesCards.length < total &&
-          <Button text={"Показать ещё"} className={s.showMoreButton} onClick={getMoreCases} />
-        }
+        {loading && (
+          <div className={s.loaderContainer}>
+            <Loader />
+          </div>
+        )}
+        {casesCards.length < total && (
+          <Button
+            text={"Показать ещё"}
+            className={s.showMoreButton}
+            onClick={getMoreCases}
+          />
+        )}
         <div className={s.bigBubbleEndContainer}>
           <BigBubble className={s.bigBubbleEnd} />
         </div>
       </div>
-      {schema &&
+      {schema && (
         <Script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
           id="cases"
           strategy="beforeInteractive"
         ></Script>
-      }
-      {seo &&
-        <HeadCustom seoString={seo} />
-      }
+      )}
+      {seo && <HeadCustom seoString={seo} />}
     </>
   );
 }

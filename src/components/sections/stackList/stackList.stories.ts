@@ -4,7 +4,7 @@ import { StackList } from "@/components/sections/stackList/stackList";
 const meta = {
   title: "Sections/StackList",
   component: StackList,
-  tags: ["autodocs"]
+  tags: ["autodocs"],
 } satisfies Meta<typeof StackList>;
 
 export default meta;

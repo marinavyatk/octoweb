@@ -18,7 +18,9 @@ export type TagLinkWithPriceProps = TagLink & ComponentPropsWithoutRef<"a">;
 export const TagLinkWithPrice = (props: TagLinkWithPriceProps) => {
   const { tag, category, price, serviceId, className, ...restProps } = props;
   const classNames = clsx(s.tagLink, className);
-  const [tooltipPosition, setTooltipPosition] = useState<"left" | "right">("left");
+  const [tooltipPosition, setTooltipPosition] = useState<"left" | "right">(
+    "left",
+  );
   const tooltipRef = useRef<HTMLSpanElement>(null);
   const tooltipRect = useRef<DOMRect | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -46,7 +48,9 @@ export const TagLinkWithPrice = (props: TagLinkWithPriceProps) => {
         containerRect.current = container.getBoundingClientRect();
       }
       if (containerRect.current?.left && tooltipRect.current?.width) {
-        const isOverScreen = (containerRect.current?.left + tooltipRect.current?.width + offset) >= (viewportWidth - scrollbarWidth);
+        const isOverScreen =
+          containerRect.current?.left + tooltipRect.current?.width + offset >=
+          viewportWidth - scrollbarWidth;
         if (isOverScreen) {
           setTooltipPosition("right");
         } else {
@@ -81,7 +85,9 @@ export const TagLinkWithPrice = (props: TagLinkWithPriceProps) => {
       >
         {tag}
       </Tag>
-      <span className={clsx(s.price, s[tooltipPosition])} ref={tooltipRef}>от {price} руб.</span>
+      <span className={clsx(s.price, s[tooltipPosition])} ref={tooltipRef}>
+        от {price} руб.
+      </span>
     </div>
   );
 };

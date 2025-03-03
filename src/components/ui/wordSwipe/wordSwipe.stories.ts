@@ -4,7 +4,7 @@ import { WordSwipe } from "./wordSwipe";
 const meta = {
   title: "UI/WordSwipe",
   component: WordSwipe,
-  tags: ["autodocs"]
+  tags: ["autodocs"],
 } satisfies Meta<typeof WordSwipe>;
 
 export default meta;
@@ -12,6 +12,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    words: ["web", "seo"]
-  }
+    words: ["web", "seo"],
+  },
 };

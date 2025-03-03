@@ -6,13 +6,21 @@ import { ComponentPropsWithoutRef, ElementType, useRef } from "react";
 import ArrowIcon from "@/svg/arrow.svg";
 
 export type ButtonProps<T extends ElementType> = {
-  as?: T
+  as?: T;
   variant?: "colored" | "dark";
   text: string;
 } & ComponentPropsWithoutRef<T>;
 
-export const Button = <T extends ElementType = "button">(props: ButtonProps<T>) => {
-  const { as: Component = "button", variant = "colored", text, className, ...restProps } = props;
+export const Button = <T extends ElementType = "button">(
+  props: ButtonProps<T>,
+) => {
+  const {
+    as: Component = "button",
+    variant = "colored",
+    text,
+    className,
+    ...restProps
+  } = props;
   const classNames = clsx(s.button, className, s[variant]);
   const textRef = useRef<HTMLDivElement | null>(null);
   const textContainerRef = useRef<HTMLDivElement | null>(null);
@@ -27,8 +35,7 @@ export const Button = <T extends ElementType = "button">(props: ButtonProps<T>) 
   };
 
   const cancelHover = () => {
-    if (textRef.current)
-      textRef.current.style.margin = `0`;
+    if (textRef.current) textRef.current.style.margin = `0`;
   };
 
   return (
@@ -39,7 +46,9 @@ export const Button = <T extends ElementType = "button">(props: ButtonProps<T>) 
       onMouseLeave={cancelHover}
     >
       <div className={s.textContainer} ref={textContainerRef}>
-        <div className={s.text} ref={textRef}>{text}</div>
+        <div className={s.text} ref={textRef}>
+          {text}
+        </div>
       </div>
       <div className={s.background}></div>
       <div className={s.arrowContainer}>

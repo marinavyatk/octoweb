@@ -5,7 +5,7 @@ import s from "./briefNavbar.module.scss";
 import { ComponentPropsWithoutRef, useRef, useState } from "react";
 import {
   BriefNavigationLink,
-  BriefNavigationLinkProps
+  BriefNavigationLinkProps,
 } from "@/components/ui/briefNavbar/briefNavigationLink/briefNavigationLink";
 import { BurgerButton } from "@/components/ui/buttons/burgerButton/burgerButton";
 import { useClose } from "@/common/customHooks/useClose";
@@ -29,13 +29,13 @@ export const BriefNavbar = (props: BriefNavbarProps) => {
   });
 
   const toggleOpen = () => {
-    setOpen(prev => !prev);
+    setOpen((prev) => !prev);
   };
 
-  useClose({close, elementRef: navRef, direction: "left", open});
+  useClose({ close, elementRef: navRef, direction: "left", open });
 
   return (
-    <div className={classNames} {...restProps} >
+    <div className={classNames} {...restProps}>
       <div className={s.overlay}></div>
       <nav {...restProps} className={s.briefNavbar} ref={navRef}>
         <div className={s.mobileControl}>

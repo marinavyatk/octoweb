@@ -9,7 +9,7 @@ export const BriefOffer = (props: BriefOfferProps) => {
 
   return (
     <div className={classNames}>
-      <BriefButton aria-label="Заполнить бриф"/>
+      <BriefButton aria-label="Заполнить бриф" />
       <div className={s.offerText}>
         <span className={s.heading}>
           Получите скидку <span className={s.accent}>5000 рублей!</span>

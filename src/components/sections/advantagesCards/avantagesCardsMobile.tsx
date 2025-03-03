@@ -5,8 +5,8 @@ import { animated, useSpring, config } from "@react-spring/web";
 import { SquidIcon } from "@/components/layouts/squidIcon";
 import { AdvantageCards } from "@/components/layouts/advantageCards/advantageCards";
 import { useState, useEffect, useRef } from "react";
-import {gsap} from "gsap";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export const AdvantagesCardsMobile = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -20,7 +20,10 @@ export const AdvantagesCardsMobile = () => {
       const { top, height } = container.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
 
-      const progress = Math.min(Math.max(0, viewportHeight - top) / (height + viewportHeight), 1);
+      const progress = Math.min(
+        Math.max(0, viewportHeight - top) / (height + viewportHeight),
+        1,
+      );
       setScrollProgress(progress);
 
       if (progress >= 0.6) {
@@ -33,40 +36,40 @@ export const AdvantagesCardsMobile = () => {
   }, []);
 
   useEffect(() => {
-      gsap.set(".right", { x: 100, opacity: 0 });
-      gsap.set(".left", { x: -100, opacity: 0 });
-     const caseTriggers = ScrollTrigger.batch(".case", {
-        interval: 0.4,
-        onEnter: (batch) => {
-          gsap.to(batch, { x: 0, opacity: 1, stagger: 0.4, overwrite: true });
-        }
-      });
+    gsap.set(".right", { x: 100, opacity: 0 });
+    gsap.set(".left", { x: -100, opacity: 0 });
+    const caseTriggers = ScrollTrigger.batch(".case", {
+      interval: 0.4,
+      onEnter: (batch) => {
+        gsap.to(batch, { x: 0, opacity: 1, stagger: 0.4, overwrite: true });
+      },
+    });
     return () => {
-        if (caseTriggers && Array.isArray(caseTriggers)) {
-            caseTriggers.forEach((trigger) => trigger.kill());
-        }
-    }
+      if (caseTriggers && Array.isArray(caseTriggers)) {
+        caseTriggers.forEach((trigger) => trigger.kill());
+      }
+    };
   }, []);
 
   const headerStyles = useSpring({
     transform: `translateY(${scrollProgress >= 0.1 ? 0 : 100}px)`,
     opacity: scrollProgress >= 0.1 ? 1 : 0,
-    config: config.slow
+    config: config.slow,
   });
   const arrowStyles = useSpring({
     transform: `translateY(${scrollProgress >= 0.15 ? 0 : 100}px)`,
     opacity: scrollProgress >= 0.15 ? 1 : 0,
-    config: config.slow
+    config: config.slow,
   });
   const squidStyles = useSpring({
     transform: `translateY(${scrollProgress >= 0.2 ? 0 : 100}px)`,
     opacity: scrollProgress >= 0.2 ? 1 : 0,
-    config: config.slow
+    config: config.slow,
   });
   const squid2Styles = useSpring({
     transform: `translateY(${scrollProgress >= 0.4 ? 0 : 100}px)`,
     opacity: scrollProgress >= 0.4 ? 1 : 0,
-    config: config.slow
+    config: config.slow,
   });
 
   return (

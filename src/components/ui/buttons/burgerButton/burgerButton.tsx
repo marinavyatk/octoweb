@@ -10,7 +10,13 @@ export const BurgerButton = (props: BurgerButtonProps) => {
   const { open, ...restProps } = props;
   const classNames = clsx(s.burgerButton, open && s.open);
 
-  return <button className={classNames} {...restProps} aria-label={open? 'Закрыть меню' : 'Открыть меню'}>
-    <div className={s.icon}></div>
-  </button>;
+  return (
+    <button
+      className={classNames}
+      {...restProps}
+      aria-label={open ? "Закрыть меню" : "Открыть меню"}
+    >
+      <div className={s.icon}></div>
+    </button>
+  );
 };

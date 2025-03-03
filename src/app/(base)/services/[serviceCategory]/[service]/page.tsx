@@ -1,26 +1,30 @@
 import s from "./service.module.scss";
-import {Team} from "@/components/sections/team/team";
-import {StepCards} from "@/components/sections/stepCards/stepCards";
-import {FAQ} from "@/components/sections/faq/faq";
+import { Team } from "@/components/sections/team/team";
+import { StepCards } from "@/components/sections/stepCards/stepCards";
+import { FAQ } from "@/components/sections/faq/faq";
 import ArrowIconForPrices from "@/svg/arrow4.svg";
-import {AccentTable} from "@/components/layouts/accentTable/accentTable";
-import {PriceTable} from "@/components/layouts/priceTable/priceTable";
-import {CooperationCard} from "@/components/sections/cooperationCard/cooperationCard";
-import {Button} from "@/components/ui/buttons/button/button";
-import {Advantages} from "@/components/sections/advantages/advantages";
-import {Picture} from "@/components/ui/picture/picture";
-import {BigBubble} from "@/components/video/bigBubble";
-import {SmallBubble} from "@/components/video/smallBubble";
-import {api} from "@/common/api";
+import { AccentTable } from "@/components/layouts/accentTable/accentTable";
+import { PriceTable } from "@/components/layouts/priceTable/priceTable";
+import { CooperationCard } from "@/components/sections/cooperationCard/cooperationCard";
+import { Button } from "@/components/ui/buttons/button/button";
+import { Advantages } from "@/components/sections/advantages/advantages";
+import { Picture } from "@/components/ui/picture/picture";
+import { BigBubble } from "@/components/video/bigBubble";
+import { SmallBubble } from "@/components/video/smallBubble";
+import { api } from "@/common/api";
 import Script from "next/script";
-import {checkError, getMetaDataObj} from "@/common/commonFunctions";
-import {cache} from "react";
+import { checkError, getMetaDataObj } from "@/common/commonFunctions";
+import { cache } from "react";
 
 const getCachedSeo = cache(async (service: string) => {
   return await api.getServiceSeo(service);
 });
 
-export async function generateMetadata({ params }: { params: { service: string } }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: { service: string };
+}) {
   const { service } = params;
   const metadata = await getCachedSeo(service);
   if (!metadata) return {};
@@ -28,22 +32,26 @@ export async function generateMetadata({ params }: { params: { service: string }
   return getMetaDataObj(metadata);
 }
 
-
-export default async function Service({ params }: {
-  params: Promise<{ service: string }>
+export default async function Service({
+  params,
+}: {
+  params: Promise<{ service: string }>;
 }) {
   const { service } = await params;
-  const [serviceInfo, seo] = await Promise.all([api.getService(service), getCachedSeo(service)]);
+  const [serviceInfo, seo] = await Promise.all([
+    api.getService(service),
+    getCachedSeo(service),
+  ]);
 
   if (!serviceInfo) return null;
-  checkError(serviceInfo)
+  checkError(serviceInfo);
 
   const schema = seo?.schema;
 
   const stepCards = serviceInfo?.work_stages?.map((stage) => ({
     stepNumber: String(stage.number || ""),
     header: stage.title,
-    description: stage.text
+    description: stage.text,
   }));
 
   return (
@@ -56,7 +64,12 @@ export default async function Service({ params }: {
         <div className={"mainContainer"}>
           <h1>{serviceInfo.full_name}</h1>
           <div className={s.discussProject}>
-            <div className={s.description} dangerouslySetInnerHTML={{ __html: serviceInfo["first_description"] }}></div>
+            <div
+              className={s.description}
+              dangerouslySetInnerHTML={{
+                __html: serviceInfo["first_description"],
+              }}
+            ></div>
             <Button
               text={"ОБСУДИТЬ ПРОЕКТ"}
               as={"a"}
@@ -71,11 +84,15 @@ export default async function Service({ params }: {
             fill
             sizes={"100vw"}
             priority
-            containerProps={{ className: s.serviceImg }} />
+            containerProps={{ className: s.serviceImg }}
+          />
           <div className={s.aboutService}>
             <h2>ОБ УСЛУГЕ</h2>
             <div className={s.serviceContainer}>
-              <div className={s.description} dangerouslySetInnerHTML={{ __html: serviceInfo.content }}></div>
+              <div
+                className={s.description}
+                dangerouslySetInnerHTML={{ __html: serviceInfo.content }}
+              ></div>
               <Button
                 as={"a"}
                 text={"Консультация"}
@@ -85,7 +102,7 @@ export default async function Service({ params }: {
             </div>
           </div>
         </div>
-        <CooperationCard className={s.cooperationCard}/>
+        <CooperationCard className={s.cooperationCard} />
         <div className={"mainContainer"}>
           <div className={s.bubblesAdvantages}>
             <BigBubble className={s.bigBubbleAdvantages} />
@@ -109,7 +126,8 @@ export default async function Service({ params }: {
         <section className={s.prices}>
           <div className={s.pricesContainer}>
             <div className={s.cost}>
-              Стоимость <br />от <span className={s.price}>{serviceInfo.cost} ₽</span>
+              Стоимость <br />
+              от <span className={s.price}>{serviceInfo.cost} ₽</span>
             </div>
             <Button
               as={"a"}
@@ -134,14 +152,14 @@ export default async function Service({ params }: {
           <FAQ className={s.faq} faqData={serviceInfo.faq} />
         </div>
       </div>
-      {schema &&
+      {schema && (
         <Script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
           id="service"
           strategy="beforeInteractive"
         ></Script>
-      }
+      )}
     </>
   );
-};
+}

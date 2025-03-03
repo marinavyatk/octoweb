@@ -15,16 +15,21 @@ export const ServicesLinksList = (props: ServicesLinksListProps) => {
   const classNames = clsx(s.services, className);
 
   const linkList = linksData.map((link, index) => {
-    const number = link.number? link.number : formatNumber(index);
-    return <ServicesLink {...link} key={number} number={number} linkProps={{"aria-label": `Перейти к странице "${link.header}"`}}/>;
+    const number = link.number ? link.number : formatNumber(index);
+    return (
+      <ServicesLink
+        {...link}
+        key={number}
+        number={number}
+        linkProps={{ "aria-label": `Перейти к странице "${link.header}"` }}
+      />
+    );
   });
 
   return (
     <section className={classNames} {...restProps}>
       <h2>{header ? header : "Услуги"}</h2>
-      <div className={s.list}>
-        {linkList}
-      </div>
+      <div className={s.list}>{linkList}</div>
     </section>
   );
 };

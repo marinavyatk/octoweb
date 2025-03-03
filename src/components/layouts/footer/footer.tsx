@@ -7,23 +7,38 @@ import { NavigationButton } from "@/components/ui/buttons/navigationButton/navig
 import Link from "next/link";
 import { routes } from "@/common/routes";
 
-export type FooterProps =
-  { needBriefLink?: boolean, contactLinksProps: ContactLinksProps }
-  & ComponentPropsWithoutRef<"div">;
+export type FooterProps = {
+  needBriefLink?: boolean;
+  contactLinksProps: ContactLinksProps;
+} & ComponentPropsWithoutRef<"div">;
 
 export const Footer = (props: FooterProps) => {
-  const { needBriefLink = true, className, contactLinksProps, ...restProps } = props;
+  const {
+    needBriefLink = true,
+    className,
+    contactLinksProps,
+    ...restProps
+  } = props;
   const classNames = clsx(s.footer, className);
 
   return (
     <div {...restProps} className={classNames}>
       <div className={s.container}>
         <ContactLinks {...contactLinksProps} />
-        {needBriefLink && <BriefButton variant={"secondary"} className={s.briefButton} />}
+        {needBriefLink && (
+          <BriefButton variant={"secondary"} className={s.briefButton} />
+        )}
         <div className={s.contacts}>
-          <a href="mailto:info@octoweb.ru" className={clsx("noRoutingLink", s.email)}
-             target="_blank">info@octoweb.ru</a>
-          <a href="tel:+79054077832" className="noRoutingLink" target="_blank">+7 905 407-78-32</a>
+          <a
+            href="mailto:info@octoweb.ru"
+            className={clsx("noRoutingLink", s.email)}
+            target="_blank"
+          >
+            info@octoweb.ru
+          </a>
+          <a href="tel:+79054077832" className="noRoutingLink" target="_blank">
+            +7 905 407-78-32
+          </a>
           <address>
             <span>КРАСНОДАР </span>
             <br />
@@ -33,15 +48,16 @@ export const Footer = (props: FooterProps) => {
       </div>
       <div className={s.panelUp}>
         <div className={s.arrow}>
-          <NavigationButton
-            variant={"up"}
-            as={"a"}
-            href={"#top"}
-          />
+          <NavigationButton variant={"up"} as={"a"} href={"#top"} />
         </div>
         <div className={s.bottomCaption}>
-          <Link href={routes.privacyPolicy} target={"_blank"}> Политика конфиденциальности </Link>
-          <span className={s.copyright}>© OctoWeb {new Date().getFullYear()} — Все права защищены</span>
+          <Link href={routes.privacyPolicy} target={"_blank"}>
+            {" "}
+            Политика конфиденциальности{" "}
+          </Link>
+          <span className={s.copyright}>
+            © OctoWeb {new Date().getFullYear()} — Все права защищены
+          </span>
         </div>
       </div>
     </div>

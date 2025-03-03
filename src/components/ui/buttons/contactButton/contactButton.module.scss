@@ -13,7 +13,9 @@
   border-radius: 72px;
   position: relative;
   height: 80px;
-  transition: padding 0.4s cubic-bezier(0.92, 0.01, 0.58, 1), width 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
+  transition:
+    padding 0.4s cubic-bezier(0.92, 0.01, 0.58, 1),
+    width 0.4s cubic-bezier(0.92, 0.01, 0.58, 1);
 
   &:hover {
     padding: 0;

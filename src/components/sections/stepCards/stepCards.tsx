@@ -14,7 +14,7 @@ import { useIntersectionObserver } from "@/common/customHooks/useIntersectionObs
 
 export type StepCardsProps = {
   className?: string;
-  stepCards: Step[]
+  stepCards: Step[];
 };
 
 export const StepCards = (props: StepCardsProps) => {
@@ -36,31 +36,35 @@ export const StepCards = (props: StepCardsProps) => {
     );
   });
 
-  return <section className={classNames} ref={sectionRef}>
-    <div className={s.stepsPlaceholder}>
-      <div className={s.stepsContainer}>
-        <Swiper
-          modules={[FreeMode]}
-          slidesPerView={"auto"}
-          freeMode
-          grabCursor
-          className={s.cards}
-        >
-          {cardsList} </Swiper>;
+  return (
+    <section className={classNames} ref={sectionRef}>
+      <div className={s.stepsPlaceholder}>
+        <div className={s.stepsContainer}>
+          <Swiper
+            modules={[FreeMode]}
+            slidesPerView={"auto"}
+            freeMode
+            grabCursor
+            className={s.cards}
+          >
+            {cardsList}{" "}
+          </Swiper>
+          ;
+        </div>
       </div>
-    </div>
-    <div className={s.caption}>
-      {isAnimationVisible ?
-        <Lottie
-          animationData={StepsAnimation}
-          loop
-          autoplay
-          className={s.animation}
-        />
-        :
-        <div className={s.animation}></div>
-      }
-      Листайте :)
-    </div>
-  </section>;
+      <div className={s.caption}>
+        {isAnimationVisible ? (
+          <Lottie
+            animationData={StepsAnimation}
+            loop
+            autoplay
+            className={s.animation}
+          />
+        ) : (
+          <div className={s.animation}></div>
+        )}
+        Листайте :)
+      </div>
+    </section>
+  );
 };

@@ -18,26 +18,26 @@ export const Primary: Story = {
     tags: [
       {
         text: "Промо-сайт",
-        subLink: "promo-site"
+        subLink: "promo-site",
       },
       {
         text: "Лендинг",
-        subLink: "landing"
+        subLink: "landing",
       },
       {
         text: "Многостраничный сайт",
-        subLink: "multi-page-website"
+        subLink: "multi-page-website",
       },
       {
         text: "Сайт-каталог",
-        subLink: "catalog-website"
+        subLink: "catalog-website",
       },
       {
         text: "Интернет-магазин",
-        subLink: "online-store"
-      }
+        subLink: "online-store",
+      },
     ],
     mainLink: "website-development",
-    image: '/link-botanica.webp',
+    image: "/link-botanica.webp",
   },
 };

@@ -9,8 +9,10 @@ export type WarningProps = {
 export const Warning = (props: WarningProps) => {
   const { onConfirmButtonClick, onCancelButtonClick } = props;
   return (
-    <Modal rootProps={{ defaultOpen: true }} modalHeader={"Подтверждение ухода со страницы"}
-    contentProps={{onInteractOutside: onCancelButtonClick}}
+    <Modal
+      rootProps={{ defaultOpen: true }}
+      modalHeader={"Подтверждение ухода со страницы"}
+      contentProps={{ onInteractOutside: onCancelButtonClick }}
     >
       <div className={s.content}>
         <p>
