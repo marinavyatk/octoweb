@@ -41,6 +41,17 @@ export const api = {
       console.error("Не удалось загрузить фото команды", error);
     }
   },
+  async getTeamServicesPhoto() {
+    try {
+      const response = await fetch(`${baseUrl}/team-services-image`, {
+        next: { revalidate: 60 },
+      });
+      const data = await response.json();
+      return data?.team_services_image;
+    } catch (error) {
+      console.error("Не удалось загрузить фото команды", error);
+    }
+  },
   //ABOUT
   async getTeam() {
     try {

@@ -5,7 +5,7 @@ import { FAQ } from "@/components/sections/faq/faq";
 import ArrowIconForPrices from "@/svg/arrow4.svg";
 import { AccentTable } from "@/components/layouts/accentTable/accentTable";
 import { PriceTable } from "@/components/layouts/priceTable/priceTable";
-import { CooperationCard } from "@/components/sections/cooperationCard/cooperationCard";
+import CooperationCard from "@/components/sections/cooperationCard/cooperationCard";
 import { Button } from "@/components/ui/buttons/button/button";
 import { Advantages } from "@/components/sections/advantages/advantages";
 import { Picture } from "@/components/ui/picture/picture";

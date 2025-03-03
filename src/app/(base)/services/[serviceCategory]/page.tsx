@@ -2,7 +2,7 @@ import s from "./serviceCategory.module.scss";
 import { ServicesLinksList } from "@/components/sections/servicesLinksList/servicesLinksList";
 import { StepCards } from "@/components/sections/stepCards/stepCards";
 import { Advantages } from "@/components/sections/advantages/advantages";
-import { CooperationCard } from "@/components/sections/cooperationCard/cooperationCard";
+import CooperationCard from "@/components/sections/cooperationCard/cooperationCard";
 import { Greeting } from "@/components/sections/greeting/greeting";
 import { clsx } from "clsx";
 import { BigBubble } from "@/components/video/bigBubble";

@@ -5,10 +5,12 @@ import HappySymbol from "@/svg/happy-symbol.svg";
 import { Picture } from "@/components/ui/picture/picture";
 import { ComponentPropsWithoutRef } from "react";
 import { clsx } from "clsx";
+import { api } from "@/common/api";
 
 type CooperationCardProps = ComponentPropsWithoutRef<"div">;
 
-export const CooperationCard = (props: CooperationCardProps) => {
+export default async function CooperationCard(props: CooperationCardProps) {
+  const teamPhoto = await api.getTeamServicesPhoto();
   const { className, ...restProps } = props;
   const classNames = clsx(s.cooperationCard, className);
   return (
@@ -39,7 +41,7 @@ export const CooperationCard = (props: CooperationCardProps) => {
       </div>
       <div className={s.map}>
         <Picture
-          src={"/map.webp"}
+          src={teamPhoto}
           alt={"Команда"}
           fill
           sizes={
@@ -54,4 +56,4 @@ export const CooperationCard = (props: CooperationCardProps) => {
       </div>
     </section>
   );
-};
+}
