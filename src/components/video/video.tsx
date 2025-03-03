@@ -1,6 +1,6 @@
 "use client";
 
-import { ComponentPropsWithoutRef, useEffect, useRef } from "react";
+import { ComponentPropsWithoutRef, useRef } from "react";
 import { clsx } from "clsx";
 import s from "./video.module.scss";
 import { useIntersectionObserver } from "@/common/customHooks/useIntersectionObserver";
@@ -17,15 +17,13 @@ export const Video = (props: VideoProps) => {
   const isVisible = useIntersectionObserver(videoRef, 0.01);
   const isFirstVisible = useIntersectionObserver(videoRef, 0.01, true);
 
-  useEffect(() => {
-    if (isVisible) {
-      videoRef.current?.play().catch((error) => {
-        console.error("Error playing video:", error);
-      });
-    } else {
-      videoRef.current?.pause();
-    }
-  }, [isVisible]);
+  if (isVisible) {
+    videoRef.current?.play().catch((error) => {
+      console.error("Error playing video:", error);
+    });
+  } else {
+    videoRef.current?.pause();
+  }
 
   return (
     <video

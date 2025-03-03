@@ -31,7 +31,7 @@ export const Form = (props: FormProps) => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    // reset,
+    reset,
     setValue,
     setError,
     setFocus,
@@ -47,8 +47,6 @@ export const Form = (props: FormProps) => {
     },
     mode: "onBlur",
   });
-
-  console.log("form errors:", errors);
 
   const onSubmit = async (data: FormValues) => {
     const response = await api.postForm(data);
@@ -76,7 +74,7 @@ export const Form = (props: FormProps) => {
 
   const handleCloseNotification = () => {
     setIsFormNotificationShown(false);
-    // reset();
+    reset();
   };
 
   return (
