@@ -83,6 +83,11 @@
       0% 0%
     );
     float: right;
+    background-color: unset;
+
+    img {
+      object-fit: contain;
+    }
   }
 }
 

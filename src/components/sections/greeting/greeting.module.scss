@@ -7,7 +7,8 @@
 }
 
 .greetingText {
-  padding: 120px 0 67px 0;
+  padding-top: var(--first-el-offset);
+  padding-bottom: 67px;
 }
 
 .arrow {
@@ -49,7 +50,7 @@
   }
 
   .greetingText {
-    padding: 77px 0 90px 0;
+    padding-bottom: 90px;
   }
 
   .arrow {
@@ -66,7 +67,7 @@
 
 @media (max-width: 767px) {
   .greetingText {
-    padding: 50px 0 40px 0;
+    padding-bottom: 40px;
   }
 
   .arrow {

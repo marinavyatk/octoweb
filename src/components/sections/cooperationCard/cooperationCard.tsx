@@ -40,7 +40,7 @@ export const CooperationCard = (props: CooperationCardProps) => {
       <div className={s.map}>
         <Picture
           src={"/map.webp"}
-          alt={"Карта"}
+          alt={"Команда"}
           fill
           sizes={
             "(max-width: 767px) 375px,(max-width: 1265px) 736px, (max-width: 1425px) 1193px, (max-width: 1905px) 1224px, 1655px"

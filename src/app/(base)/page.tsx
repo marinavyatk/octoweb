@@ -72,7 +72,6 @@ export default async function Home() {
 
   return (
     <>
-      <div className={s.mainPage}>
         <div className={"mainContainer"}>
           <div className={s.mainBubblesContainer}>
             <BigBubble className={s.bigBubbleMain} />
@@ -98,7 +97,6 @@ export default async function Home() {
           <SmallBubble className={s.smallBubbleServices} />
         </div>
         <StepCards className={s.steps} stepCards={stepCards} />
-      </div>
       {schema && (
         <Script
           type="application/ld+json"

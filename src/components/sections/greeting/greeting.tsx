@@ -1,5 +1,5 @@
 import s from "./greeting.module.scss";
-import ArrowPointerSmall from "@/svg/arrowPointerSmall.svg";
+import Arrow from "@/svg/arrowPointerSmall.svg";
 import {
   GreetingText,
   GreetingTextProps,
@@ -20,7 +20,7 @@ export const Greeting = <T extends ElementType>(props: GreetingProps<T>) => {
     <section {...restProps} className={classNames}>
       <div className={s.textContainer}>
         <GreetingText className={s.greetingText} {...greetingTextProps} />
-        <ArrowPointerSmall className={s.arrow} />
+        <Arrow className={s.arrow} />
       </div>
       <BriefOffer className={s.briefOffer} />
     </section>
