@@ -37,10 +37,9 @@ export default async function Home() {
     getCachedSeo(),
   ]);
 
-
   const casesForSection = cases?.cases
     .splice(0, 4)
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .map(({ imgFullWidth, ...rest }) => rest);
 
   const formattedServices = services?.map((serviceCategory) => {
@@ -72,6 +71,7 @@ export default async function Home() {
 
   return (
     <>
+      <div>
         <div className={"mainContainer"}>
           <div className={s.mainBubblesContainer}>
             <BigBubble className={s.bigBubbleMain} />
@@ -97,6 +97,7 @@ export default async function Home() {
           <SmallBubble className={s.smallBubbleServices} />
         </div>
         <StepCards className={s.steps} stepCards={stepCards} />
+      </div>
       {schema && (
         <Script
           type="application/ld+json"
