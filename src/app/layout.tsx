@@ -5,6 +5,17 @@ import { montserrat, unbounded } from "@/app/fonts/fonts";
 import { PageLoader } from "@/components/ui/linearLoader/pageLoader";
 import { ToastContainer } from "react-toastify";
 import YandexMetrika from "@/common/ymScript";
+import { Metadata } from "next";
+import { TemplateString } from "next/dist/lib/metadata/types/metadata-types";
+
+export const revalidate = 60;
+export const dynamic = "force-static";
+
+export const metadata: Metadata = {
+  title: {
+    default: "Веб-студия Octoweb",
+  } as TemplateString,
+};
 
 export default function RootLayout({
   children,
@@ -28,7 +39,6 @@ export default function RootLayout({
             />
           </div>
         </noscript>
-        {/*<script>history.scrollRestoration = &quot;manual&quot;</script>*/}
       </head>
       <body>
         <PageLoader />

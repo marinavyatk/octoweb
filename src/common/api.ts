@@ -21,9 +21,7 @@ const baseSeoUrl = "https://octow.octoweb.ru/wp-json/wp/v2";
 export const api = {
   async getInteractionStages() {
     try {
-      const response = await fetch(`${baseUrl}/interaction-stages`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseUrl}/interaction-stages`);
       const data = await response.json();
       return data;
     } catch (error) {
@@ -32,9 +30,7 @@ export const api = {
   },
   async getTeamPhoto() {
     try {
-      const response = await fetch(`${baseUrl}/team-options`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseUrl}/team-options`);
       const data: Photo = await response.json();
       return data?.team_general_image;
     } catch (error) {
@@ -43,9 +39,7 @@ export const api = {
   },
   async getTeamServicesPhoto() {
     try {
-      const response = await fetch(`${baseUrl}/team-services-image`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseUrl}/team-services-image`);
       const data = await response.json();
       return data?.team_services_image;
     } catch (error) {
@@ -55,9 +49,7 @@ export const api = {
   //ABOUT
   async getTeam() {
     try {
-      const response = await fetch(`${baseUrl}/team`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseUrl}/team`);
       const data = await response.json();
       return data;
     } catch (error) {
@@ -67,9 +59,7 @@ export const api = {
   //SERVICES
   async getServices() {
     try {
-      const response = await fetch(`${baseUrl}/services`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseUrl}/services`);
       const data: ServicesData[] = await response.json();
       return data;
     } catch (error) {
@@ -78,9 +68,7 @@ export const api = {
   },
   async getServiceCategory(id: string) {
     try {
-      const response = await fetch(`${baseUrl}/services/category/${id}`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseUrl}/services/category/${id}`);
       const data: ServiceCategoryPage = await response.json();
       if (data && "code" in data) {
         return data;
@@ -101,9 +89,7 @@ export const api = {
   },
   async getService(id: string) {
     try {
-      const response = await fetch(`${baseUrl}/services/${id}`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseUrl}/services/${id}`);
       const data: ServicePageData = await response.json();
       return data;
     } catch (error) {
@@ -128,9 +114,7 @@ export const api = {
   },
   async getCasesFilters() {
     try {
-      const response = await fetch(`${baseUrl}/cases/filter`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseUrl}/cases/filter`);
       const data: CasesFiltersData[] = await response.json();
       const filters = data.map((filter) => filter.name);
       const filtersWithDefault = ["All projects", ...filters];
@@ -141,9 +125,7 @@ export const api = {
   },
   async getCase(caseId: string) {
     try {
-      const response = await fetch(`${baseUrl}/cases/${caseId}`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseUrl}/cases/${caseId}`);
       const data: CasePageData = await response.json();
       return data;
     } catch (error) {
@@ -168,9 +150,7 @@ export const api = {
   },
   async getArticlesFilters() {
     try {
-      const response = await fetch(`${baseUrl}/posts/filter`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseUrl}/posts/filter`);
       const data: ArticlesFilters = await response.json();
 
       const filters = data.categories.map((filter) => filter.name);
@@ -182,9 +162,7 @@ export const api = {
   },
   async getArticle(id: string) {
     try {
-      const response = await fetch(`${baseUrl}/posts/${id}`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseUrl}/posts/${id}`);
       const data: ArticlePageData = await response.json();
       return data;
     } catch (error) {
@@ -194,9 +172,7 @@ export const api = {
   //CONTACTS
   async getContacts() {
     try {
-      const response = await fetch(`${baseUrl}/contacts`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseUrl}/contacts`);
       const data: ContactsData = await response.json();
       return data;
     } catch (error) {
@@ -206,9 +182,7 @@ export const api = {
   //PRIVACY POLICY
   async getPrivacyPolicy() {
     try {
-      const response = await fetch(`${baseUrl}/privacy-policy`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseUrl}/privacy-policy`);
       const data: PrivacyPolicyData = await response.json();
       return data;
     } catch (error) {
@@ -306,9 +280,7 @@ export const api = {
   //SEO
   async getMainSeo() {
     try {
-      const response = await fetch(`${baseSeoUrl}/pages?slug=glavnaya`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseSeoUrl}/pages?slug=glavnaya`);
       const data: SEO[] = await response.json();
       return data?.[0]?.yoast_head_json;
     } catch (error) {
@@ -317,9 +289,7 @@ export const api = {
   },
   async getAboutSeo() {
     try {
-      const response = await fetch(`${baseSeoUrl}/pages?slug=about`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseSeoUrl}/pages?slug=about`);
       const data: SEO[] = await response.json();
       return data?.[0]?.yoast_head_json;
     } catch (error) {
@@ -328,9 +298,7 @@ export const api = {
   },
   async getServicesSeo() {
     try {
-      const response = await fetch(`${baseSeoUrl}/pages?slug=services`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseSeoUrl}/pages?slug=services`);
       const data: SEO[] = await response.json();
       return data?.[0]?.yoast_head_json;
     } catch (error) {
@@ -351,9 +319,7 @@ export const api = {
   },
   async getServiceSeo(id: string) {
     try {
-      const response = await fetch(`${baseSeoUrl}/services?slug=${id}`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseSeoUrl}/services?slug=${id}`);
       const data: SEO[] = await response.json();
       return data?.[0]?.yoast_head_json;
     } catch (error) {
@@ -362,22 +328,16 @@ export const api = {
   },
   async getCasesSeo() {
     try {
-      const response = await fetch(`${baseSeoUrl}/pages?slug=cases`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseSeoUrl}/pages?slug=cases`);
       const data: SEO[] = await response.json();
-      const meta = data?.[0]?.yoast_head;
-      const schema = data?.[0]?.yoast_head_json.schema;
-      return { meta, schema };
+      return data?.[0]?.yoast_head_json;
     } catch (error) {
       console.error("Не удалось загрузить SEO данные", error);
     }
   },
   async getCaseSeo(id: string) {
     try {
-      const response = await fetch(`${baseSeoUrl}/cases?slug=${id}`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseSeoUrl}/cases?slug=${id}`);
       const data: SEO[] = await response.json();
       return data?.[0]?.yoast_head_json;
     } catch (error) {
@@ -386,22 +346,16 @@ export const api = {
   },
   async getBlogSeo() {
     try {
-      const response = await fetch(`${baseSeoUrl}/pages?slug=blog`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseSeoUrl}/pages?slug=blog`);
       const data: SEO[] = await response.json();
-      const meta = data?.[0]?.yoast_head;
-      const schema = data?.[0]?.yoast_head_json.schema;
-      return { meta, schema };
+      return data?.[0]?.yoast_head_json;
     } catch (error) {
       console.error("Не удалось загрузить SEO данные", error);
     }
   },
   async getArticleSeo(id: string) {
     try {
-      const response = await fetch(`${baseSeoUrl}/posts?slug=${id}`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseSeoUrl}/posts?slug=${id}`);
       const data: SEO[] = await response.json();
       return data?.[0]?.yoast_head_json;
     } catch (error) {
@@ -410,9 +364,7 @@ export const api = {
   },
   async getContactsSeo() {
     try {
-      const response = await fetch(`${baseSeoUrl}/pages?slug=contacts`, {
-        next: { revalidate: 60 },
-      });
+      const response = await fetch(`${baseSeoUrl}/pages?slug=contacts`);
       const data: SEO[] = await response.json();
       return data?.[0]?.yoast_head_json;
     } catch (error) {

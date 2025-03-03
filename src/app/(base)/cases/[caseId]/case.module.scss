@@ -225,6 +225,7 @@
     font-size: 24px;
 
     .mainImgContainer {
+      mask-image: url(../../../../svg/caseMainPhotoShape1265.svg);
       shape-outside: polygon(
         0% 0%,
         100% 0%,
@@ -334,6 +335,7 @@
 
     .mainImgContainer {
       height: 400px;
+      mask-image: url(../../../../svg/caseMainPhotoShape1440.svg);
     }
 
     .smallImg,
