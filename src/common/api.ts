@@ -266,7 +266,7 @@ export const api = {
         ) {
           if (Array.isArray(subValue) && subValue.length > 0) {
             for (const file of subValue) {
-              formData.append(`data[${key}][${subKey}]`, file);
+              formData.append(`data[${key}][${subKey}][]`, file);
             }
           } else {
             formData.append(`data[${key}][${subKey}]`, "");
