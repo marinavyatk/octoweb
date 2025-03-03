@@ -15,6 +15,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    children: <><TelegramIcon/> Telegram</> ,
+    children: (
+      <>
+        <TelegramIcon /> Telegram
+      </>
+    ),
   },
 };

@@ -53,13 +53,17 @@
 }
 
 .textContainer {
-  min-width: calc(var(--button-width) - var(--arrow-width) - var(--border-width) * 2);
+  min-width: calc(
+    var(--button-width) - var(--arrow-width) - var(--border-width) * 2
+  );
   z-index: 2;
   transition: margin 0.4s;
 }
 
 .text {
-  transition: color 0.4s, margin 0.4s;;
+  transition:
+    color 0.4s,
+    margin 0.4s;
   white-space: nowrap;
   width: fit-content;
   margin: 0 var(--border-width) 0 0;

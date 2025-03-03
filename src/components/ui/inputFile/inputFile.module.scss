@@ -28,7 +28,8 @@
 }
 
 @media (max-width: 767px) {
-  .fileInputContainer svg, .error .errorIcon{
+  .fileInputContainer svg,
+  .error .errorIcon {
     width: 13px;
     height: 13px;
   }

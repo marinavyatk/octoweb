@@ -9,7 +9,7 @@
   flex-shrink: 0;
 }
 
-.mobileControl{
+.mobileControl {
   display: none;
 }
 
@@ -20,25 +20,24 @@
 }
 
 @media (max-width: 1099px) {
-  .container{
+  .container {
     z-index: 1;
     width: fit-content;
   }
 
-  .hidden{
-    .overlay{
+  .hidden {
+    .overlay {
       display: none;
     }
 
-    .mobileControl{
+    .mobileControl {
       width: 339px;
     }
 
-    .briefNavbar{
+    .briefNavbar {
       margin-left: -288px;
     }
   }
-
 
   .briefNavbar {
     width: 288px;
@@ -49,7 +48,7 @@
     margin-left: 0;
   }
 
-  .overlay{
+  .overlay {
     background: var(--color-overlay);
     width: 100vw;
     height: 100vh;

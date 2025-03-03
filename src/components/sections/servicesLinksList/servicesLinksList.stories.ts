@@ -7,95 +7,98 @@ const linksData = [
     tags: [
       {
         text: "Промо-сайт",
-        subLink: "promo-site"
+        subLink: "promo-site",
       },
       {
         text: "Лендинг",
-        subLink: "landing"
+        subLink: "landing",
       },
       {
         text: "Многостраничный сайт",
-        subLink: "multi-page-website"
+        subLink: "multi-page-website",
       },
       {
         text: "Сайт-каталог",
-        subLink: "catalog-website"
+        subLink: "catalog-website",
       },
       {
         text: "Интернет-магазин",
-        subLink: "online-store"
-      }
+        subLink: "online-store",
+      },
     ],
     mainLink: "website-development",
-    img: "/link-botanica.webp"
+    img: "/link-botanica.webp",
   },
   {
     header: "Интернет-Маркетинг",
     tags: [
       {
         text: "Контентное продвижение",
-        subLink: "content-promotion"
+        subLink: "content-promotion",
       },
       {
         text: "Контекстная реклама",
-        subLink: "contextual-advertising"
+        subLink: "contextual-advertising",
       },
       {
         text: "Таргетированная реклама",
-        subLink: "targeted-advertising"
+        subLink: "targeted-advertising",
       },
       {
         text: "SEO",
-        subLink: "seo"
-      }
+        subLink: "seo",
+      },
     ],
     mainLink: "internet-marketing",
-    img: "/link-e-kvadrat.webp"
+    img: "/link-e-kvadrat.webp",
   },
   {
     header: "Поддержка и Развитие",
     tags: [
       {
         text: "Техническая поддержка",
-        subLink: "technical-support"
-      }, {
+        subLink: "technical-support",
+      },
+      {
         text: "Контент поддержка",
-        subLink: "content-support"
-      }, {
+        subLink: "content-support",
+      },
+      {
         text: "Маркетинговая поддержка",
-        subLink: "marketing-support"
-      }
+        subLink: "marketing-support",
+      },
     ],
     mainLink: "development",
-    img: "/link-smxtream.webp"
+    img: "/link-smxtream.webp",
   },
   {
     header: "Дополнительные Услуги",
     tags: [
       {
         text: "Аудит существующего сайта",
-        subLink: "audit"
+        subLink: "audit",
       },
       {
         text: "Упаковка франшиз",
         price: "40000",
-        subLink: "franchise-packaging"
-      }],
+        subLink: "franchise-packaging",
+      },
+    ],
     mainLink: "additional",
-    img: "/link-de-marko.webp"
-  }
+    img: "/link-de-marko.webp",
+  },
 ];
 
 const meta = {
   title: "Sections/ServicesLinksList",
   component: ServicesLinksList,
   tags: ["autodocs"],
-  argTypes: {}
+  argTypes: {},
 } satisfies Meta<typeof ServicesLinksList>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  args: { linksData: linksData }
+  args: { linksData: linksData },
 };

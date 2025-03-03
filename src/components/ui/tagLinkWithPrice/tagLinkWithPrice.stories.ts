@@ -15,6 +15,6 @@ export const Primary: Story = {
     tag: "Лендинг",
     price: "30000",
     serviceId: "landing",
-    category: 'web'
+    category: "web",
   },
 };

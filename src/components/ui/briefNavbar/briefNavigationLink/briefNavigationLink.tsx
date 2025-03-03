@@ -9,7 +9,7 @@ export type BriefNavigationLinkProps = {
   completed: boolean;
   sectionId: string;
   className?: string;
-} & Omit<ReactScrollLinkProps, 'to'>;
+} & Omit<ReactScrollLinkProps, "to">;
 
 export const BriefNavigationLink = (props: BriefNavigationLinkProps) => {
   const { text, completed, className, sectionId, ...restProps } = props;

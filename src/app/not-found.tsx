@@ -6,17 +6,33 @@ export default function NotFound() {
   return (
     <div className={s.errorContainer}>
       <h1>404</h1>
-      <p>Страница не существует. <br />
-        Перейти на главную страницу?</p>
+      <p>
+        Страница не существует. <br />
+        Перейти на главную страницу?
+      </p>
       <ContactButton href={"/"} text={"Главная страница"} className={s.link} />
       <div className={s.positionContainer}>
         <div className={s.bubbleContainer}>
-          <Image src={"/bubble.webp"} alt="" fill sizes={'(max-width: 1100px) 330px, (max-width: 1400px) 530px, 630px'}/>
+          <Image
+            src={"/bubble.webp"}
+            alt=""
+            fill
+            sizes={
+              "(max-width: 1100px) 330px, (max-width: 1400px) 530px, 630px"
+            }
+          />
         </div>
       </div>
       <div className={s.positionContainer}>
         <div className={s.bubbleContainer}>
-          <Image src={"/bubble-2.webp"} alt="" fill sizes={'(max-width: 1100px) 330px, (max-width: 1400px) 530px, 630px'}/>
+          <Image
+            src={"/bubble-2.webp"}
+            alt=""
+            fill
+            sizes={
+              "(max-width: 1100px) 330px, (max-width: 1400px) 530px, 630px"
+            }
+          />
         </div>
       </div>
     </div>

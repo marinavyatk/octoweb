@@ -30,7 +30,7 @@ export const defaultBriefValues = {
     position: "",
     tel: "",
     email: "",
-    communicationWay: []
+    communicationWay: [],
   },
   about: {
     companyName: "",
@@ -45,7 +45,7 @@ export const defaultBriefValues = {
     shortCompanyInfo: "",
     site: "",
     socialNetworks: "",
-    competitors: ""
+    competitors: "",
   },
   details: {
     siteType: "landing",
@@ -61,7 +61,7 @@ export const defaultBriefValues = {
     siteFunctionality: [],
     specificSystem: "",
     seo: "yes",
-    copywriting: "yes"
+    copywriting: "yes",
   },
   targetGroup: {
     knowTargetAudience: "yes",
@@ -71,11 +71,11 @@ export const defaultBriefValues = {
     interests: "",
     useInteractionStages: "",
     communicationChannels: "",
-    intensityOfUse: ""
+    intensityOfUse: "",
   },
   materials: {
     materialsDevelopment: "yes",
-    materialsToDevelop: ""
+    materialsToDevelop: "",
   },
   additionalInfo: {
     numberOfLanguageVersions: "1",
@@ -84,6 +84,6 @@ export const defaultBriefValues = {
     technicalSpecification: {} as FileList,
     siteAdministration: "yes",
     additionalInfo: "",
-    additionalFiles: {} as FileList
-  }
+    additionalFiles: {} as FileList,
+  },
 };

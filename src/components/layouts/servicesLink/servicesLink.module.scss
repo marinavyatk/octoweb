@@ -16,7 +16,9 @@
   line-height: var(--line-height-120);
 
   svg {
-    transition: transform 0.4s, stroke 0.4s;
+    transition:
+      transform 0.4s,
+      stroke 0.4s;
   }
 }
 
@@ -42,10 +44,13 @@
 }
 
 .tag {
-  transition: color 0.4s, background-color 0.4s;
+  transition:
+    color 0.4s,
+    background-color 0.4s;
 }
 
-.tag:hover, .tag:focus-visible {
+.tag:hover,
+.tag:focus-visible {
   color: var(--color-dark-primary);
   background-color: var(--color-accent);
 }
@@ -67,7 +72,9 @@
   height: 224px;
   transform: translateY(224px);
   opacity: 0;
-  transition: opacity 0.4s, transform 0.4s;
+  transition:
+    opacity 0.4s,
+    transform 0.4s;
 
   img {
     border-radius: 16px;
@@ -168,4 +175,3 @@
     }
   }
 }
-

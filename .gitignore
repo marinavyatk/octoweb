@@ -40,3 +40,5 @@ next-env.d.ts
 # storybook static
 /out
 /storybook-static
+
+/.idea

@@ -18,9 +18,9 @@ export const Small: Story = {
     tags: ["Seo", "Ads", "Web"],
     description:
       "Откройте секреты успешной оптимизации веб-сайтов для мобильных устройств.",
-    img: '/blogImgOptimization.png',
+    img: "/blogImgOptimization.png",
     articleId: "optimization",
-    index: 0
+    index: 0,
   },
 };
 
@@ -31,10 +31,10 @@ export const Medium: Story = {
     tags: ["Seo", "Ads", "Web"],
     description:
       "Откройте секреты успешной оптимизации веб-сайтов для мобильных устройств.",
-    img: '/blogImgOptimization.png',
+    img: "/blogImgOptimization.png",
     size: "medium",
     articleId: "optimization",
-    index: 0
+    index: 0,
   },
 };
 
@@ -45,9 +45,9 @@ export const FullWidth: Story = {
     tags: ["Seo", "Ads", "Web"],
     description:
       "Откройте секреты успешной оптимизации веб-сайтов для мобильных устройств.",
-    img: '/blogImgOptimization.png',
+    img: "/blogImgOptimization.png",
     size: "fullWidth",
     articleId: "optimization",
-    index: 0
+    index: 0,
   },
 };

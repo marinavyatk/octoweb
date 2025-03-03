@@ -1,7 +1,10 @@
 import { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 import s from "./radioCheckboxGroup.module.scss";
-import { RadioCheckbox, RadioCheckboxProps } from "../radioCheckbox/radioCheckbox";
+import {
+  RadioCheckbox,
+  RadioCheckboxProps,
+} from "../radioCheckbox/radioCheckbox";
 import { Label } from "../label/label";
 
 export type RadioCheckboxGroupProps = {
@@ -23,12 +26,7 @@ export const RadioCheckboxGroup = (props: RadioCheckboxGroupProps) => {
   const classNames = clsx(s.radioCheckboxGroupContainer, className);
 
   const radioCheckboxes = checkboxItems.map((item) => {
-    return (
-      <RadioCheckbox
-        {...item}
-        key={item.value}
-      />
-    );
+    return <RadioCheckbox {...item} key={item.value} />;
   });
 
   return (

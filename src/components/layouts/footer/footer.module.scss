@@ -20,7 +20,7 @@
     display: block;
     white-space: nowrap;
 
-    &:focus-visible{
+    &:focus-visible {
       text-decoration: underline;
       text-underline-position: under;
     }

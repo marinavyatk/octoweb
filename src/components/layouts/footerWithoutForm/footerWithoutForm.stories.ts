@@ -4,7 +4,7 @@ import { FooterWithoutForm } from "@/components/layouts/footerWithoutForm/footer
 const meta = {
   title: "Layouts/FooterWithoutForm",
   component: FooterWithoutForm,
-  tags: ["autodocs"]
+  tags: ["autodocs"],
 } satisfies Meta<typeof FooterWithoutForm>;
 
 export default meta;
@@ -14,21 +14,21 @@ export const Primary: Story = {
   args: {
     socials: [
       {
-        "name": "telegram",
-        "url": "https://t.me/octoweb_work"
+        name: "telegram",
+        url: "https://t.me/octoweb_work",
       },
       {
-        "name": "vk",
-        "url": "https://vk.com/octoweb"
+        name: "vk",
+        url: "https://vk.com/octoweb",
       },
       {
-        "name": "whatsapp",
-        "url": "https://api.whatsapp.com/send?phone=79054077832"
+        name: "whatsapp",
+        url: "https://api.whatsapp.com/send?phone=79054077832",
       },
       {
-        "name": "instagram",
-        "url": "https://www.instagram.com/octoweb_krd"
-      }
-    ]
-  }
+        name: "instagram",
+        url: "https://www.instagram.com/octoweb_krd",
+      },
+    ],
+  },
 };

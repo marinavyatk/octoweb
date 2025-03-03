@@ -20,7 +20,7 @@ export const Primary: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Does not work outside the react-hook-form.'
+        story: "Does not work outside the react-hook-form.",
       },
     },
   },

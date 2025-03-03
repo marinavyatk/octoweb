@@ -31,9 +31,7 @@ export const Advantages = (props: AdvantageSectionProps) => {
         </h2>
         <ArrowPointerSmall className={s.arrow} />
       </div>
-      <div className={s.advantagesItems}>
-        {advantagesItems}
-      </div>
+      <div className={s.advantagesItems}>{advantagesItems}</div>
     </section>
   );
 };

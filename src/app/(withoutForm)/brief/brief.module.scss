@@ -12,7 +12,7 @@
     margin-bottom: 100px;
   }
 
-  input{
+  input {
     &:-webkit-autofill {
       -webkit-box-shadow: 0 0 0 1000px black inset;
       -webkit-text-fill-color: var(--color-light-100);
@@ -80,7 +80,7 @@
   flex-direction: column;
   gap: 59px;
 
-  &:last-child{
+  &:last-child {
     padding-bottom: 0;
   }
 }
@@ -252,7 +252,8 @@
     gap: 40px;
     margin-top: 30px;
 
-    p:first-child, p:last-child {
+    p:first-child,
+    p:last-child {
       max-width: unset;
     }
   }

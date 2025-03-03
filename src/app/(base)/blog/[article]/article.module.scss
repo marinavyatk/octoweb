@@ -63,7 +63,8 @@
     }
   }
 
-  h3, dt {
+  h3,
+  dt {
     font-weight: var(--font-weight-regular-600);
     font-size: 24px;
     line-height: var(--line-height-140);
@@ -71,11 +72,14 @@
     margin-bottom: 24px;
   }
 
-  ul, ol {
+  ul,
+  ol {
     list-style-position: inside;
   }
 
-  li, p, dd {
+  li,
+  p,
+  dd {
     margin-bottom: 20px;
   }
 
@@ -111,7 +115,8 @@
     margin-bottom: 5px;
   }
 
-  th, td {
+  th,
+  td {
     border: 1px solid white;
     padding: 10px;
   }
@@ -170,7 +175,8 @@
       margin-bottom: 30px;
     }
 
-    h3, dt {
+    h3,
+    dt {
       margin-top: 24px;
     }
 
@@ -270,12 +276,15 @@
       margin-bottom: 14px;
     }
 
-    h3, dt {
+    h3,
+    dt {
       font-size: 16px;
       margin-bottom: 20px;
     }
 
-    li, p, dd {
+    li,
+    p,
+    dd {
       margin-bottom: 15px;
     }
 
@@ -283,7 +292,8 @@
       max-width: 100%;
     }
 
-    th, td {
+    th,
+    td {
       padding: 5px;
     }
 

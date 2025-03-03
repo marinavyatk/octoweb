@@ -4,7 +4,8 @@
   gap: 174px;
 }
 
-.mobileHeader, .mobileIntro {
+.mobileHeader,
+.mobileIntro {
   display: none;
 }
 
@@ -12,7 +13,8 @@
   width: 820px;
 }
 
-.mobileIntro, .desktopIntro {
+.mobileIntro,
+.desktopIntro {
   max-width: 568px;
   width: 100%;
   font-weight: var(--font-weight-regular-250);
@@ -49,7 +51,7 @@
   color: var(--color-accent);
 }
 
-.button:focus-visible{
+.button:focus-visible {
   text-decoration: underline;
   text-underline-position: under;
 }
@@ -74,7 +76,8 @@
     gap: 128px;
   }
 
-  .mobileIntro, .desktopIntro {
+  .mobileIntro,
+  .desktopIntro {
     font-size: 14px;
   }
 
@@ -113,7 +116,8 @@
     margin-bottom: 66px;
   }
 
-  .desktopHeader, .desktopIntro {
+  .desktopHeader,
+  .desktopIntro {
     display: none;
   }
 
@@ -175,7 +179,7 @@
     }
   }
 
-  .teamContainer{
+  .teamContainer {
     max-width: var(--small-screen-max-width);
     margin: 0 auto;
   }

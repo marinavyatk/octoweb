@@ -15,8 +15,8 @@ export type BlogCardProps = {
   header: string;
   description: string;
   linkProps?: ComponentPropsWithoutRef<"a">;
-  priority?: boolean
-  index: number
+  priority?: boolean;
+  index: number;
 } & ComponentPropsWithoutRef<"div">;
 
 export const BlogCard = (props: BlogCardProps) => {
@@ -34,12 +34,18 @@ export const BlogCard = (props: BlogCardProps) => {
     ...restProps
   } = props;
   const getClass = (index: number) => {
-    if (index === 0) return 'fullWidth';
-    return (index + 1) % 2 === 0 ? 'left' : 'right';
+    if (index === 0) return "fullWidth";
+    return (index + 1) % 2 === 0 ? "left" : "right";
   };
 
-  const classNames = clsx(s.blogCard, className, s[size], getClass(index), 'blogCard');
- const  cardRef = useRef<HTMLDivElement>(null)
+  const classNames = clsx(
+    s.blogCard,
+    className,
+    s[size],
+    getClass(index),
+    "blogCard",
+  );
+  const cardRef = useRef<HTMLDivElement>(null);
   const tagList = tags.map((tag) => {
     return (
       <Tag variant={"monochromeSecondary"} key={tag} className={s.tag}>
@@ -49,26 +55,33 @@ export const BlogCard = (props: BlogCardProps) => {
   });
 
   useEffect(() => {
-    cardRef?.current?.setAttribute('data-animated', "true")
+    cardRef?.current?.setAttribute("data-animated", "true");
   }, []);
 
   return (
     <div {...restProps} className={classNames} ref={cardRef}>
       <div className={s.imgContainer}>
-        <Picture src={img} alt="" fill priority={priority} sizes="(max-width: 450px) 100vw, (max-width: 767px) 450px, (max-width: 1000px) 100vw, 1665px"/>
+        <Picture
+          src={img}
+          alt=""
+          fill
+          priority={priority}
+          sizes="(max-width: 450px) 100vw, (max-width: 767px) 450px, (max-width: 1000px) 100vw, 1665px"
+        />
         <div className={s.markContainer}>
           <div className={s.tagList}>{tagList}</div>
-          <ArrowButton as={Link}
-                       variant={"secondary"}
-                       className={s.arrow}
-                       {...linkProps}
-                       href={`/blog/${articleId}`}
-                       aria-label={`Смотреть статью "${header}"`}
+          <ArrowButton
+            as={Link}
+            variant={"secondary"}
+            className={s.arrow}
+            {...linkProps}
+            href={`/blog/${articleId}`}
+            aria-label={`Смотреть статью "${header}"`}
           />
         </div>
       </div>
       <h2 className={s.header}>
-        <a href={`/blog/${articleId}`} {...linkProps} >
+        <a href={`/blog/${articleId}`} {...linkProps}>
           {header}
         </a>
       </h2>

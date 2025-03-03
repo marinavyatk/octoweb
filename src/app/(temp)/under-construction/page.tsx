@@ -15,22 +15,43 @@ export default function Home() {
     }
   };
 
-  return <div className={s.notFound}>
-    <h1 onClick={onClickHandler}>Скоро!</h1>
-    <p>Наш новый сайт находится в стадии разработки. <br />
-      Скоро он станет доступен, а пока переходите на <a href={"https://octoweb.ru"}>https://octoweb.ru</a>
-    </p>
-    <ContactButton href={"https://octoweb.ru/"} text={"Посетить octoweb"} className={s.link} />
-    <div className={s.positionContainer}>
-      <div className={s.bubbleContainer}>
-        <Image src={"/bubble.webp"} alt="" fill sizes={"(max-width: 1100px) 330px, (max-width: 1400px) 530px, 630px"} />
+  return (
+    <div className={s.notFound}>
+      <h1 onClick={onClickHandler}>Скоро!</h1>
+      <p>
+        Наш новый сайт находится в стадии разработки. <br />
+        Скоро он станет доступен, а пока переходите на{" "}
+        <a href={"https://octoweb.ru"}>https://octoweb.ru</a>
+      </p>
+      <ContactButton
+        href={"https://octoweb.ru/"}
+        text={"Посетить octoweb"}
+        className={s.link}
+      />
+      <div className={s.positionContainer}>
+        <div className={s.bubbleContainer}>
+          <Image
+            src={"/bubble.webp"}
+            alt=""
+            fill
+            sizes={
+              "(max-width: 1100px) 330px, (max-width: 1400px) 530px, 630px"
+            }
+          />
+        </div>
+      </div>
+      <div className={s.positionContainer}>
+        <div className={s.bubbleContainer}>
+          <Image
+            src={"/bubble-2.webp"}
+            alt=""
+            fill
+            sizes={
+              "(max-width: 1100px) 330px, (max-width: 1400px) 530px, 630px"
+            }
+          />
+        </div>
       </div>
     </div>
-    <div className={s.positionContainer}>
-      <div className={s.bubbleContainer}>
-        <Image src={"/bubble-2.webp"} alt="" fill
-               sizes={"(max-width: 1100px) 330px, (max-width: 1400px) 530px, 630px"} />
-      </div>
-    </div>
-  </div>;
+  );
 }

@@ -23,7 +23,8 @@
     transition: transform 0.4s;
   }
 
-  &:hover, &:focus-visible {
+  &:hover,
+  &:focus-visible {
     svg {
       transform: rotate(45deg);
       stroke: var(--color-accent);
@@ -39,7 +40,8 @@
     transition: all 0.3s cubic-bezier(1, 1.65, 0.265, 1.55);
   }
 
-  &:hover, &:focus-visible {
+  &:hover,
+  &:focus-visible {
     svg {
       transform: rotate(45deg);
       stroke: var(--color-primary);

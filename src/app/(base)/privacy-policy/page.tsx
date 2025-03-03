@@ -7,8 +7,13 @@ export default async function PrivacyPolicy() {
 
   if (!response) return null;
 
-  return <div className={clsx("mainContainer", s.privacyPage)}>
-    <h1> {response.title} </h1>
-    <div dangerouslySetInnerHTML={{ __html: response.content }} className={s.content}></div>
-  </div>;
+  return (
+    <div className={clsx("mainContainer", s.privacyPage)}>
+      <h1> {response.title} </h1>
+      <div
+        dangerouslySetInnerHTML={{ __html: response.content }}
+        className={s.content}
+      ></div>
+    </div>
+  );
 }

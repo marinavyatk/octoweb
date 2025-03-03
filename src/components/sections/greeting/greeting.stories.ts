@@ -1,10 +1,10 @@
-import type {Meta, StoryObj} from "@storybook/react";
-import {Greeting} from "@/components/sections/greeting/greeting";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Greeting } from "@/components/sections/greeting/greeting";
 
 const meta = {
-  title: 'Sections/Greeting',
+  title: "Sections/Greeting",
   component: Greeting,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Greeting>;
 
 export default meta;
@@ -17,8 +17,8 @@ export const Primary: Story = {
         firstLine: "МЫ РЕВОЛЮЦИОНЕРЫ",
         secondLine: "В СФЕРЕ",
         thirdLine: "ИЗ КРАСНОДАРА",
-        wordSwipeProps: {words: ["web", "seo"]}
+        wordSwipeProps: { words: ["web", "seo"] },
       },
-    }
-  }
+    },
+  },
 };

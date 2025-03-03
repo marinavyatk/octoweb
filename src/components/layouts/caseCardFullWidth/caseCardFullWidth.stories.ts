@@ -15,7 +15,7 @@ export const Primary: Story = {
   args: {
     category: "Корпоративный сайт",
     services: ["Develop", "ux/ui", "seo"],
-    img: 'caseCardFullWidth.png',
+    img: "caseCardFullWidth.png",
     header: "de-marko.ru",
     caseId: "demarko",
   },

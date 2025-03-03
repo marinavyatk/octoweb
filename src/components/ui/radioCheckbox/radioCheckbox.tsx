@@ -6,8 +6,8 @@ export type RadioCheckboxProps = {
   label: string;
   containerProps?: ComponentPropsWithoutRef<"label">;
 } & Omit<ComponentPropsWithoutRef<"input">, "value"> & {
-  value?: string | number;
-};
+    value?: string | number;
+  };
 
 export const RadioCheckbox = React.forwardRef(
   (props: RadioCheckboxProps, ref: Ref<HTMLInputElement>) => {
@@ -25,7 +25,7 @@ export const RadioCheckbox = React.forwardRef(
         {label}
       </label>
     );
-  }
+  },
 );
 
 RadioCheckbox.displayName = "RadioCheckbox";

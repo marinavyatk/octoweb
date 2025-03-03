@@ -37,13 +37,15 @@ export const CaseCardFullWidth = (props: CaseCardProps) => {
       href={`/cases/${caseId}`}
       ref={cardRef}
     >
-      {img &&
-        <Picture src={img}
-                 alt={header}
-                 fill
-                 sizes="(max-width: 450px) 100vw, (max-width: 767px) 450px, 100vw "
-                 containerProps={{ className: s.imgContainer }} />
-      }
+      {img && (
+        <Picture
+          src={img}
+          alt={header}
+          fill
+          sizes="(max-width: 450px) 100vw, (max-width: 767px) 450px, 100vw "
+          containerProps={{ className: s.imgContainer }}
+        />
+      )}
       <Tag variant={"monochromePrimary"} className={s.category}>
         {category}
       </Tag>
@@ -51,11 +53,9 @@ export const CaseCardFullWidth = (props: CaseCardProps) => {
         <div className={s.tagList}>{tagList}</div>
         <div className={s.headerContainer}>
           <h2 className={s.header}>{header}</h2>
-          <div className={clsx(s.angle, s.angleMobile)}>
-          </div>
+          <div className={clsx(s.angle, s.angleMobile)}></div>
         </div>
-        <div className={clsx(s.angle, s.angleDesktop)}>
-        </div>
+        <div className={clsx(s.angle, s.angleDesktop)}></div>
       </div>
     </Link>
   );

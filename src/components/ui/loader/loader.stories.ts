@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Loader } from "@/components/ui/loader/loader";
 
-
 const meta = {
   title: "UI/Loader",
   component: Loader,
@@ -11,6 +10,4 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
-};
-
+export const Primary: Story = {};

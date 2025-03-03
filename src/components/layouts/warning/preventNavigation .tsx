@@ -12,12 +12,10 @@ export const PreventNavigation = ({ isDirty }: PreventNavigationProps) => {
   const router = useRouter();
   const [open, setOpen] = useState(false);
 
-  const confirmationFn = useRef<() => void>(() => {
-  });
+  const confirmationFn = useRef<() => void>(() => {});
   useEffect(() => {
     window.history.pushState(null, document.title, window.location.href);
   }, []);
-
 
   const handleClick = (event: MouseEvent) => {
     const target = event.currentTarget as HTMLAnchorElement;
@@ -36,7 +34,6 @@ export const PreventNavigation = ({ isDirty }: PreventNavigationProps) => {
     }
   };
   useEffect(() => {
-
     const handlePopState = () => {
       const currentHash = window.location.hash;
       if (currentHash) {
@@ -84,23 +81,18 @@ export const PreventNavigation = ({ isDirty }: PreventNavigationProps) => {
     confirmationFn.current();
     setOpen(false);
 
-    confirmationFn.current = () => {
-    };
+    confirmationFn.current = () => {};
   };
   const cancel = () => {
     setOpen(false);
-    confirmationFn.current = () => {
-    };
+    confirmationFn.current = () => {};
   };
 
   return (
     <>
-      {open &&
-        <Warning
-          onCancelButtonClick={cancel}
-          onConfirmButtonClick={confirm}
-        />
-      }
+      {open && (
+        <Warning onCancelButtonClick={cancel} onConfirmButtonClick={confirm} />
+      )}
     </>
   );
 };

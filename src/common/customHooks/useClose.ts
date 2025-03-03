@@ -1,11 +1,11 @@
 import { RefObject, useCallback, useEffect, useRef } from "react";
 
 type useCloseArgs = {
-  close: () => void,
-  elementRef: RefObject<HTMLDivElement>,
-  direction: "right" | "left",
-  open: boolean
-}
+  close: () => void;
+  elementRef: RefObject<HTMLDivElement>;
+  direction: "right" | "left";
+  open: boolean;
+};
 
 export const useClose = (args: useCloseArgs) => {
   const { close, elementRef, direction, open } = args;
@@ -25,13 +25,19 @@ export const useClose = (args: useCloseArgs) => {
     touchStart.current = e.targetTouches[0].clientX;
   }, []);
 
-  const onTouchMove = useCallback((e: TouchEvent) => touchEnd.current = e.targetTouches[0].clientX, []);
+  const onTouchMove = useCallback(
+    (e: TouchEvent) => (touchEnd.current = e.targetTouches[0].clientX),
+    [],
+  );
 
   const onTouchEnd = useCallback(() => {
     if (!touchStart.current || !touchEnd.current) return;
     const distance = touchStart.current - touchEnd.current;
 
-    const isSwipe = direction === "right" ? distance < -minSwipeDistance : distance > minSwipeDistance;
+    const isSwipe =
+      direction === "right"
+        ? distance < -minSwipeDistance
+        : distance > minSwipeDistance;
     if (isSwipe) {
       close();
     }
@@ -39,7 +45,8 @@ export const useClose = (args: useCloseArgs) => {
 
   useEffect(() => {
     if (open) {
-      const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+      const scrollBarWidth =
+        window.innerWidth - document.documentElement.clientWidth;
       document.body.style.overflowY = "hidden";
       document.body.style.paddingRight = `${scrollBarWidth}px`; //need for avoid flickering when open
       document.addEventListener("click", outsideClickHandler);

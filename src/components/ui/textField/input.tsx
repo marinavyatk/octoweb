@@ -10,9 +10,10 @@ export type InputProps = {
   isRequiredField?: boolean;
   errorMessage?: string | undefined;
   divProps?: ComponentPropsWithoutRef<"div">;
-} & ComponentPropsWithoutRef<'input'>;
+} & ComponentPropsWithoutRef<"input">;
 
-export const Input = React.forwardRef((props: InputProps, ref: Ref<HTMLInputElement>) => {
+export const Input = React.forwardRef(
+  (props: InputProps, ref: Ref<HTMLInputElement>) => {
     const {
       isRequiredField,
       label,

@@ -4,9 +4,11 @@ import { clsx } from "clsx";
 import s from "./advantageCards.module.scss";
 import { cards } from "@/common/componentsData/advantageCards";
 
-export type AdvantageCardsProps = {scrollProgress: number} & ComponentPropsWithoutRef<"div">;
+export type AdvantageCardsProps = {
+  scrollProgress: number;
+} & ComponentPropsWithoutRef<"div">;
 export const AdvantageCards = (props: AdvantageCardsProps) => {
-  const { className,scrollProgress, ...restProps } = props;
+  const { className, scrollProgress, ...restProps } = props;
   const classNames = clsx(s.cards, className);
 
   const cardsList = cards.map((card, index) => {

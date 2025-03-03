@@ -60,7 +60,8 @@
   height: 30vh;
 }
 
-.smallBubbleCirclesContainer, .bigBubbleEndContainer {
+.smallBubbleCirclesContainer,
+.bigBubbleEndContainer {
   position: relative;
   contain: layout;
   z-index: -1;

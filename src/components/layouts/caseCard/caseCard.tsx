@@ -1,6 +1,11 @@
 "use client";
 
-import { ComponentPropsWithoutRef, ElementType, useEffect, useRef } from "react";
+import {
+  ComponentPropsWithoutRef,
+  ElementType,
+  useEffect,
+  useRef,
+} from "react";
 import { clsx } from "clsx";
 import s from "./caseCard.module.scss";
 import { Tag } from "../../ui/tag/tag";
@@ -32,9 +37,14 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
     index,
     ...restProps
   } = props;
-  const classNames = clsx(s.card, className, "case", (index + 1) % 2 === 0 ? "right" : "left");
+  const classNames = clsx(
+    s.card,
+    className,
+    "case",
+    (index + 1) % 2 === 0 ? "right" : "left",
+  );
   const sizeClassName = clsx(s.container, s[size]);
-  const headerSize = `${size}Header`
+  const headerSize = `${size}Header`;
   const headerClassName = clsx(s.header, s[headerSize]);
   const cardRef = useRef<HTMLAnchorElement>(null);
   const tagList = services?.map((tag) => {
@@ -60,9 +70,7 @@ export const CaseCard = <T extends ElementType>(props: CaseCardProps<T>) => {
         <Tag variant={"monochromePrimary"} className={s.category}>
           {category}
         </Tag>
-        {img &&
-          <Picture src={img} alt={header} fill sizes="100vw" />
-        }
+        {img && <Picture src={img} alt={header} fill sizes="100vw" />}
         <div className={s.tagList}>{tagList}</div>
       </div>
       <Header className={headerClassName}>{header}</Header>

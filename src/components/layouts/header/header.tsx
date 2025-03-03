@@ -10,16 +10,19 @@ import Headroom from "react-headroom";
 import { HeaderMobile } from "@/components/layouts/header/headerMobile";
 import { Social } from "@/common/types";
 
-export type HeaderProps = { needContactButton?: boolean, socials: Social[]} & ComponentPropsWithoutRef<"header">;
+export type HeaderProps = {
+  needContactButton?: boolean;
+  socials: Social[];
+} & ComponentPropsWithoutRef<"header">;
 
 export const Header = (props: HeaderProps) => {
-  const {socials, needContactButton = true, className, ...restProps } = props;
+  const { socials, needContactButton = true, className, ...restProps } = props;
   const classNames = clsx(s.headerContainer, className);
   const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-      document.body.classList.add('ios');
+      document.body.classList.add("ios");
     }
   }, []);
 
@@ -28,7 +31,7 @@ export const Header = (props: HeaderProps) => {
       if (headerRef.current) {
         document.documentElement.style.setProperty(
           "--header-height",
-          `${headerRef.current.offsetHeight}px`
+          `${headerRef.current.offsetHeight}px`,
         );
       }
     };
@@ -40,10 +43,13 @@ export const Header = (props: HeaderProps) => {
   }, []);
 
   return (
-    <Headroom className={classNames} >
+    <Headroom className={classNames}>
       <header {...restProps} className={s.header} ref={headerRef}>
         <div className={s.headerMobile}>
-          <HeaderMobile needContactButton={needContactButton} socials={socials}/>
+          <HeaderMobile
+            needContactButton={needContactButton}
+            socials={socials}
+          />
         </div>
         <div className={s.headerDesktop}>
           <Logo />

@@ -22,7 +22,7 @@ export const Primary: Story = {
         position: "Руководитель проекта",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        image: '/temp.png',
+        image: "/temp.png",
       },
       {
         experience: "???",
@@ -30,7 +30,7 @@ export const Primary: Story = {
         position: "Проектировщик",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        image: '/temp.png',
+        image: "/temp.png",
       },
       {
         experience: "???",
@@ -38,7 +38,7 @@ export const Primary: Story = {
         position: "Дизайнер",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        image: '/temp.png',
+        image: "/temp.png",
       },
       {
         experience: "4+ года опыта",
@@ -46,7 +46,7 @@ export const Primary: Story = {
         position: "Frontend-Гуру",
         description:
           'Николай "HTML-Rockstar" Елисеев, фронтенд-гуру с исключительным талантом.',
-        image: '/frontendDev.webp'
+        image: "/frontendDev.webp",
       },
       {
         experience: "???",
@@ -54,7 +54,7 @@ export const Primary: Story = {
         position: "Back-end-программист",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        image: '/temp.png',
+        image: "/temp.png",
       },
       {
         experience: "???",
@@ -62,7 +62,7 @@ export const Primary: Story = {
         position: "Тестировщик",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        image: '/temp.png',
+        image: "/temp.png",
       },
       {
         experience: "???",
@@ -70,7 +70,7 @@ export const Primary: Story = {
         position: "Контент-менеджер",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        image: '/temp.png',
+        image: "/temp.png",
       },
       {
         experience: "???",
@@ -78,7 +78,7 @@ export const Primary: Story = {
         position: "SEO-специалист",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolore nihil veritatis.",
-        image: '/temp.png',
+        image: "/temp.png",
       },
     ],
   },

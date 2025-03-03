@@ -4,7 +4,7 @@ import { RadioCheckboxGroup } from "@/components/ui/radioCheckboxGroup/radioChec
 const meta = {
   title: "UI/RadioCheckboxGroup",
   component: RadioCheckboxGroup,
-  tags: ["autodocs"]
+  tags: ["autodocs"],
 } satisfies Meta<typeof RadioCheckboxGroup>;
 
 export default meta;
@@ -18,29 +18,28 @@ export const Primary: Story = {
       {
         label: "Telegram",
         value: "telegram",
-        checked: true
+        checked: true,
       },
       {
         label: "Skype",
         value: "skype",
-        checked: false
+        checked: false,
       },
       {
         label: "WhatsApp",
         value: "whatsApp",
-        checked: true
+        checked: true,
       },
       {
         label: "Email",
         value: "email",
-        checked: false
+        checked: false,
       },
       {
         label: "Звонок",
         value: "call",
-        checked: false
-      }
-    ]
-  }
+        checked: false,
+      },
+    ],
+  },
 };
-

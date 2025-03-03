@@ -10,8 +10,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePathname } from "next/navigation";
 
-
-export type FooterWithFormProps = { socials: Social[] } & ComponentPropsWithoutRef<"div">;
+export type FooterWithFormProps = {
+  socials: Social[];
+} & ComponentPropsWithoutRef<"div">;
 
 export const FooterWithForm = (props: FooterWithFormProps) => {
   gsap.registerPlugin(ScrollTrigger);
@@ -33,17 +34,19 @@ export const FooterWithForm = (props: FooterWithFormProps) => {
         pin: true,
         scrub: true,
         pinSpacing: false,
-      }
+      },
     });
 
-    tl.to(footer, { yPercent: `-${footerHeight}px` }, 0)
-      .to(".overlay", { opacity: 1 }, 0);
+    tl.to(footer, { yPercent: `-${footerHeight}px` }, 0).to(
+      ".overlay",
+      { opacity: 1 },
+      0,
+    );
 
     return () => {
       ScrollTrigger.getById("footer")?.kill();
       ScrollTrigger?.refresh();
     };
-
   }, [pathname]);
 
   useEffect(() => {
@@ -55,14 +58,14 @@ export const FooterWithForm = (props: FooterWithFormProps) => {
 
   return (
     <div ref={footerRef} className={"footer"}>
-    <div {...restProps} className={classNames} id={"form"} >
-      <div className={s.secondaryFormImg}></div>
-      <div className={s.formContainer} >
-        <span className={s.title}>Давайте начнем работать прямо сейчас</span>
-        <Form />
+      <div {...restProps} className={classNames} id={"form"}>
+        <div className={s.secondaryFormImg}></div>
+        <div className={s.formContainer}>
+          <span className={s.title}>Давайте начнем работать прямо сейчас</span>
+          <Form />
+        </div>
+        <Footer contactLinksProps={{ socials: socials || [] }} />
       </div>
-      <Footer contactLinksProps={{ socials: socials || [] }} />
     </div>
-</div>
   );
 };

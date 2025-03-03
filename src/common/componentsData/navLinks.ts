@@ -3,22 +3,22 @@ import { routes } from "@/common/routes";
 export const navData = [
   {
     title: "О нас",
-    href: routes.about
+    href: routes.about,
   },
   {
     title: "Услуги",
-    href: routes.services
+    href: routes.services,
   },
   {
     title: "Кейсы",
-    href: routes.cases
+    href: routes.cases,
   },
   {
     title: "Блог",
-    href: routes.blog
+    href: routes.blog,
   },
   {
     title: "Контакты",
-    href: routes.contacts
-  }
+    href: routes.contacts,
+  },
 ];

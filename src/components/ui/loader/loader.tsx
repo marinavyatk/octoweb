@@ -6,7 +6,5 @@ export type LoaderProps = ComponentProps<"span">;
 
 export const Loader = (props: LoaderProps) => {
   const { className, ...restProps } = props;
-  return (
-    <span className={clsx(s.loader, className)} {...restProps}></span>
-  );
+  return <span className={clsx(s.loader, className)} {...restProps}></span>;
 };

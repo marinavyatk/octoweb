@@ -10,7 +10,7 @@ import s from "./inputAdditionalFile.module.scss";
 import LoadIcon from "@/svg/loadIcon.svg";
 import { AttachedFile } from "../attachedFile/attachedFile";
 import { Label } from "../label/label";
-import { useCombinedRef } from '@/common/customHooks';
+import { useCombinedRef } from "@/common/customHooks";
 
 export type InputAdditionalFileProps = {
   label: string;
@@ -23,7 +23,8 @@ export const InputAdditionalFile = React.forwardRef(
     props: InputAdditionalFileProps,
     ref: ForwardedRef<HTMLInputElement | null>,
   ) => {
-    const { label, containerProps, className, onFilesChange, ...restProps } = props;
+    const { label, containerProps, className, onFilesChange, ...restProps } =
+      props;
     const classNames = clsx(s.inputContainer, className);
     const [files, setFiles] = useState<File[]>([]);
     const inputFileRef = useRef<HTMLInputElement>(null);
@@ -69,7 +70,7 @@ export const InputAdditionalFile = React.forwardRef(
 
     return (
       <div className={classNames} {...containerProps}>
-        <Label text={label} isRequiredField={false} htmlFor={restProps?.name}/>
+        <Label text={label} isRequiredField={false} htmlFor={restProps?.name} />
         {attachedFiles.length > 0 && (
           <div className={s.attachedFiles}>{attachedFiles}</div>
         )}
@@ -84,12 +85,12 @@ export const InputAdditionalFile = React.forwardRef(
             ref={finalInputFileRef}
             onChange={handleChange}
           />
-            <LoadIcon />
-            Загрузить
+          <LoadIcon />
+          Загрузить
         </label>
       </div>
     );
   },
 );
 
-InputAdditionalFile.displayName = 'InputAdditionalFile';
+InputAdditionalFile.displayName = "InputAdditionalFile";

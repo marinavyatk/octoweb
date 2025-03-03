@@ -31,10 +31,10 @@ export const Form = (props: FormProps) => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    // reset,
+    reset,
     setValue,
     setError,
-    setFocus
+    setFocus,
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -43,12 +43,10 @@ export const Form = (props: FormProps) => {
       tel: "",
       projectDescription: "",
       projectDescriptionFile: {} as FileList,
-      mailing: false
+      mailing: false,
     },
-    mode: "onBlur"
+    mode: "onBlur",
   });
-
-  console.log("form errors:", errors);
 
   const onSubmit = async (data: FormValues) => {
     const response = await api.postForm(data);
@@ -76,21 +74,20 @@ export const Form = (props: FormProps) => {
 
   const handleCloseNotification = () => {
     setIsFormNotificationShown(false);
-    // reset();
+    reset();
   };
 
   return (
     <div {...restProps} className={classNames}>
-      {isFormNotificationShown && <FormNotification onButtonClick={handleCloseNotification} />}
-      {isSubmitting &&
+      {isFormNotificationShown && (
+        <FormNotification onButtonClick={handleCloseNotification} />
+      )}
+      {isSubmitting && (
         <div className={s.loaderContainer}>
           <Loader />
         </div>
-      }
-      <form onSubmit={handleSubmit(onSubmit)}
-            ref={form}
-            noValidate
-      >
+      )}
+      <form onSubmit={handleSubmit(onSubmit)} ref={form} noValidate>
         <div className={s.mainInfo}>
           <Input
             label={"Имя"}
@@ -128,10 +125,14 @@ export const Form = (props: FormProps) => {
           fileProps={{ ...register("projectDescriptionFile") }}
           errorMessage={[
             errors.projectDescription?.message,
-            errors.projectDescriptionFile?.message
+            errors.projectDescriptionFile?.message,
           ]}
           className={s.inputWithCounter}
-          onDeleteFile={() => setValue("projectDescriptionFile", {} as FileList, { shouldValidate: true })}
+          onDeleteFile={() =>
+            setValue("projectDescriptionFile", {} as FileList, {
+              shouldValidate: true,
+            })
+          }
         />
         <Checkbox
           {...register("mailing")}
@@ -144,10 +145,14 @@ export const Form = (props: FormProps) => {
             <Link href={routes.privacyPolicy} target="_blank">
               Политики ООО OctoWeb в отношении обработки данных
             </Link>{" "}
-            и, нажимая на кнопку “Отправить”, даю согласие на обработку компанией указанных мной
-            персональных данных
+            и, нажимая на кнопку “Отправить”, даю согласие на обработку
+            компанией указанных мной персональных данных
           </p>
-          <Button text={"Отправить"} type={"submit"} className={s.arrowButton} />
+          <Button
+            text={"Отправить"}
+            type={"submit"}
+            className={s.arrowButton}
+          />
         </div>
       </form>
     </div>

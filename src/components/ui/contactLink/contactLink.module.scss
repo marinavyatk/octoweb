@@ -16,7 +16,8 @@
     transition: fill 0.4s;
   }
 
-  &:hover, &:focus-visible {
+  &:hover,
+  &:focus-visible {
     color: var(--color-dark-primary);
 
     svg {
@@ -62,7 +63,7 @@
 
 @media (max-width: 767px) {
   .contactLink {
-    span{
+    span {
       display: none;
     }
   }

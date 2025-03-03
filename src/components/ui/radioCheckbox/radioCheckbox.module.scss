@@ -37,7 +37,11 @@
   }
 
   &:has(:checked) {
-    background: linear-gradient(351deg, var(--color-primary) 0%, var(--color-primary-bright) 100%);
+    background: linear-gradient(
+      351deg,
+      var(--color-primary) 0%,
+      var(--color-primary-bright) 100%
+    );
 
     input {
       background-color: var(--color-dark-primary);

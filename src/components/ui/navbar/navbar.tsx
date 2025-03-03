@@ -5,7 +5,7 @@ import s from "./navbar.module.scss";
 import { navData } from "@/common/componentsData/navLinks";
 
 export type NavbarProps = {
-  onEveryLinkClick?: (args: unknown) => void
+  onEveryLinkClick?: (args: unknown) => void;
 } & ComponentPropsWithoutRef<"nav">;
 
 export const Navbar = (props: NavbarProps) => {
@@ -15,7 +15,12 @@ export const Navbar = (props: NavbarProps) => {
   const navLinks = navData.map((item) => {
     return (
       <li key={item.title}>
-        <NavigationLink href={item.href} onClick={onEveryLinkClick && onEveryLinkClick}>{item.title}</NavigationLink>
+        <NavigationLink
+          href={item.href}
+          onClick={onEveryLinkClick && onEveryLinkClick}
+        >
+          {item.title}
+        </NavigationLink>
       </li>
     );
   });

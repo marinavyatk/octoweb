@@ -5,10 +5,12 @@ import HappySymbol from "@/svg/happy-symbol.svg";
 import { Picture } from "@/components/ui/picture/picture";
 import { ComponentPropsWithoutRef } from "react";
 import { clsx } from "clsx";
+import { api } from "@/common/api";
 
-type CooperationCardProps = ComponentPropsWithoutRef<"div">
+type CooperationCardProps = ComponentPropsWithoutRef<"div">;
 
-export const CooperationCard = (props: CooperationCardProps) => {
+export default async function CooperationCard(props: CooperationCardProps) {
+  const teamPhoto = await api.getTeamServicesPhoto();
   const { className, ...restProps } = props;
   const classNames = clsx(s.cooperationCard, className);
   return (
@@ -38,9 +40,14 @@ export const CooperationCard = (props: CooperationCardProps) => {
         </AnimatedField>
       </div>
       <div className={s.map}>
-        <Picture src={"/map.webp"} alt={"Карта"} fill
-                 sizes={"(max-width: 767px) 375px,(max-width: 1265px) 736px, (max-width: 1425px) 1193px, (max-width: 1905px) 1224px, 1655px"}
-                 containerProps={{ className: s.imgContainer }}
+        <Picture
+          src={teamPhoto}
+          alt={"Команда"}
+          fill
+          sizes={
+            "(max-width: 767px) 375px,(max-width: 1265px) 736px, (max-width: 1425px) 1193px, (max-width: 1905px) 1224px, 1655px"
+          }
+          containerProps={{ className: s.imgContainer }}
         />
         <p>
           Мы базируемся в Краснодаре и эффективно сотрудничаем с клиентами по
@@ -49,4 +56,4 @@ export const CooperationCard = (props: CooperationCardProps) => {
       </div>
     </section>
   );
-};
+}

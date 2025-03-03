@@ -33,12 +33,12 @@
   }
 }
 
-
 @keyframes show {
   0% {
     transform: translateY(-100%);
   }
-  10%, 90% {
+  10%,
+  90% {
     transform: translateY(0%);
   }
   100% {
@@ -47,7 +47,9 @@
 }
 
 @keyframes bounce {
-  0%, 40%, 100% {
+  0%,
+  40%,
+  100% {
     transform: translateY(0px);
   }
   20% {
@@ -72,7 +74,9 @@
 }
 
 @keyframes bounce-1265 {
-  0%, 40%, 100% {
+  0%,
+  40%,
+  100% {
     transform: translateY(0px);
   }
   20% {
@@ -91,7 +95,9 @@
 }
 
 @keyframes bounce-767 {
-  0%, 40%, 100% {
+  0%,
+  40%,
+  100% {
     transform: translateY(0px);
   }
   20% {

@@ -26,8 +26,12 @@ export const BriefButton = (props: BriefButtonProps) => {
       <div className={s.stroke}>
         <Image src="/stroke.webp" alt="" fill sizes={getSizes()} priority />
       </div>
-      <Link href={routes.brief} className={s.arrowContainer} target={"_blank"}
-            aria-label="Заполнить бриф">
+      <Link
+        href={routes.brief}
+        className={s.arrowContainer}
+        target={"_blank"}
+        aria-label="Заполнить бриф"
+      >
         <ArrowIcon />
       </Link>
     </div>

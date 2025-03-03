@@ -8,7 +8,8 @@
     height: 24px;
   }
 
-  &:hover, &:focus-visible {
+  &:hover,
+  &:focus-visible {
     .upCaption {
       color: var(--color-dark-primary);
     }
@@ -65,7 +66,8 @@
   transition: all 0.4s;
 }
 
-.next, .previous {
+.next,
+.previous {
   background-color: var(--color-accent);
   transition: background-color 0.4s;
 
@@ -80,7 +82,8 @@
 }
 
 .navigationButton:disabled {
-  .next, .previous {
+  .next,
+  .previous {
     background-color: var(--color-dark-secondary);
     cursor: default;
 
@@ -141,7 +144,8 @@
     margin-bottom: 0;
   }
 
-  .next, .previous {
+  .next,
+  .previous {
     width: 30px;
     height: 30px;
   }

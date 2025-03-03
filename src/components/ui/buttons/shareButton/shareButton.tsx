@@ -22,7 +22,7 @@ export const ShareButton = (props: ShareButtonProps) => {
   const shareData = {
     title: "Octoweb.ru - Создание и продвижений сайтов",
     text: "Посмотри эту статью. Мы подготовили для тебя много полезной информации!",
-    url: url
+    url: url,
   };
 
   const copyUrl = async () => {
@@ -40,7 +40,12 @@ export const ShareButton = (props: ShareButtonProps) => {
 
   return (
     <div className={classNames} {...restProps}>
-      <Tag as={"button"} variant={"monochromeSecondary"} onClick={copyUrl} className={s.tag}>
+      <Tag
+        as={"button"}
+        variant={"monochromeSecondary"}
+        onClick={copyUrl}
+        className={s.tag}
+      >
         Поделиться <ShareIcon />
       </Tag>
       {isCopied && <span className={s.underline}>Ссылка скопирована!</span>}

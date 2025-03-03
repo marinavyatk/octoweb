@@ -1,6 +1,10 @@
 import { RefObject, useEffect, useState } from "react";
 
-export const useIntersectionObserver = (ref: RefObject<HTMLElement>, threshold: number, once = false) => {
+export const useIntersectionObserver = (
+  ref: RefObject<HTMLElement>,
+  threshold: number,
+  once = false,
+) => {
   const [isIntersecting, setIsIntersecting] = useState(false);
 
   useEffect(() => {
@@ -19,7 +23,7 @@ export const useIntersectionObserver = (ref: RefObject<HTMLElement>, threshold: 
           }
         });
       },
-      { threshold }
+      { threshold },
     );
 
     if (currentRef) {

@@ -6,12 +6,11 @@ import { clsx } from "clsx";
 import { Loader, LoaderProps } from "@/components/ui/loader/loader";
 import Image from "next/image";
 
-
 export type PictureProps<CT extends ElementType = "div"> = {
   loaderProps?: LoaderProps;
   containerComponent?: CT;
   containerProps?: ComponentPropsWithoutRef<CT>;
-} & ComponentPropsWithoutRef<typeof Image>
+} & ComponentPropsWithoutRef<typeof Image>;
 
 export const Picture = <CT extends ElementType>(props: PictureProps<CT>) => {
   const {
@@ -30,8 +29,13 @@ export const Picture = <CT extends ElementType>(props: PictureProps<CT>) => {
 
   return (
     <ContainerComponent {...containerProps} className={classNames}>
-      {loading && <Loader {...loaderProps} className={clsx(s.loader, loaderProps?.className)} />}
-      <Image onLoad={handleImageLoaded} {...restProps} quality={100}/>
+      {loading && (
+        <Loader
+          {...loaderProps}
+          className={clsx(s.loader, loaderProps?.className)}
+        />
+      )}
+      <Image onLoad={handleImageLoaded} {...restProps} quality={100} />
     </ContainerComponent>
   );
 };

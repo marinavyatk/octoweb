@@ -12,7 +12,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    img: '/case-circle-botanica.png',
+    img: "/case-circle-botanica.png",
     caseId: "botanica",
   },
 };

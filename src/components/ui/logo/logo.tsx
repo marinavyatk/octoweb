@@ -12,7 +12,12 @@ export type LogoProps = {
 
 export const Logo = (props: LogoProps) => {
   const { sideMenuLogo = false, className, ...restProps } = props;
-  const classNames = clsx(s.logo, className, sideMenuLogo && s.sideMenuLogo, !sideMenuLogo && s.hoverable);
+  const classNames = clsx(
+    s.logo,
+    className,
+    sideMenuLogo && s.sideMenuLogo,
+    !sideMenuLogo && s.hoverable,
+  );
   return (
     <Link
       href={routes.main}
@@ -24,10 +29,11 @@ export const Logo = (props: LogoProps) => {
         <LogoImg className={s.logoImg} />
       </div>
       <div className={s.logoText}>
-        <Image src={"/logoText.webp"}
-               alt="Octoweb веб-студия"
-               fill
-               sizes="(max-width: 767px) 95px, (max-width: 1279px) 201px, (max-width: 1425px) 95px, (max-width: 1905px) 115px, 158px"
+        <Image
+          src={"/logoText.webp"}
+          alt="Octoweb веб-студия"
+          fill
+          sizes="(max-width: 767px) 95px, (max-width: 1279px) 201px, (max-width: 1425px) 95px, (max-width: 1905px) 115px, 158px"
         />
       </div>
     </Link>

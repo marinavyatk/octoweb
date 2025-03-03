@@ -17,7 +17,7 @@ export const Checkbox = React.forwardRef(
         <label htmlFor={restProps.name}>{text}</label>
       </div>
     );
-  }
+  },
 );
 
 Checkbox.displayName = "Checkbox";

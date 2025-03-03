@@ -15,22 +15,32 @@ export type ServicesLinkProps = {
   tags?: TagLink[];
   mainLink: string;
   image?: string;
-  linkProps?: ComponentPropsWithoutRef<"a">
+  linkProps?: ComponentPropsWithoutRef<"a">;
 } & ComponentPropsWithoutRef<"div">;
 
 export const ServicesLink = (props: ServicesLinkProps) => {
   const [hoverable, setHoverable] = useState(false);
-  const { number, header, tags, mainLink, linkProps, image, className, ...restProps } = props;
+  const {
+    number,
+    header,
+    tags,
+    mainLink,
+    linkProps,
+    image,
+    className,
+    ...restProps
+  } = props;
   const classNames = clsx(s.servicesLink, className);
   const tagList =
     tags &&
     tags.map((tag) => {
       return (
-        <Tag key={tag.text}
-             variant={"monochromeSecondary"}
-             as={Link}
-             href={`/services/${mainLink}/${tag.subLink}`}
-             className={s.tag}
+        <Tag
+          key={tag.text}
+          variant={"monochromeSecondary"}
+          as={Link}
+          href={`/services/${mainLink}/${tag.subLink}`}
+          className={s.tag}
         >
           {tag.text}
         </Tag>
@@ -50,15 +60,20 @@ export const ServicesLink = (props: ServicesLinkProps) => {
           <span className={s.number}>{number}</span>
           <h3 className={s.header}>{header}</h3>
         </a>
-        <ArrowButton href={`/services/${mainLink}`} {...linkProps} className={s.arrowLink}/>
+        <ArrowButton
+          href={`/services/${mainLink}`}
+          {...linkProps}
+          className={s.arrowLink}
+        />
       </div>
       {tags && <div className={s.tagList}>{tagList}</div>}
-      {image && hoverable &&
+      {image && hoverable && (
         <div className={s.imgContainer}>
           <div className={s.imgPositionContainer}>
             <Image src={image} alt={header} fill sizes={"394px"} />
           </div>
-        </div>}
+        </div>
+      )}
     </div>
   );
 };
