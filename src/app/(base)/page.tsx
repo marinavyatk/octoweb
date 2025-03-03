@@ -65,7 +65,7 @@ export default async function Home() {
     firstLine: "МЫ РЕВОЛЮЦИОНЕРЫ",
     secondLine: "В СФЕРЕ",
     thirdLine: "ИЗ КРАСНОДАРА",
-    wordSwipeProps: { words: ["web", "seo"] },
+    wordSwipeProps: { words: ["web", "seo", "ads"] },
   };
 
   const schema = seo?.schema;
