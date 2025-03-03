@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { Header } from "@/components/layouts/header/header";
-// import { FooterWithForm } from "@/components/layouts/footerWithForm/footerWithForm";
+import { FooterWithForm } from "@/components/layouts/footerWithForm/footerWithForm";
 import { api } from "@/common/api";
 
 export default async function RootLayout({
@@ -16,7 +16,7 @@ export default async function RootLayout({
         {children}
         <div className={"overlay"}></div>
       </main>
-      {/*<FooterWithForm socials={socials || []} />*/}
+      <FooterWithForm socials={socials || []} />
     </>
   );
 }
