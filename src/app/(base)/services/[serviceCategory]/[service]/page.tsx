@@ -135,7 +135,9 @@ export default async function Service({
               href={"#form"}
               rel={"nofollow"}
             />
-            <div className={s.background}></div>
+            <div className={s.bgContainer}>
+              <div className={s.background}></div>
+            </div>
           </div>
           <div className={s.bubblesPrices}>
             <BigBubble className={s.bigBubblePrices} />
