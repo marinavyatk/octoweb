@@ -85,6 +85,7 @@ export default async function Service({
             sizes={"100vw"}
             priority
             containerProps={{ className: s.serviceImg }}
+            unoptimized
           />
           <div className={s.aboutService}>
             <h2>ОБ УСЛУГЕ</h2>
