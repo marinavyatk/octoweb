@@ -21,7 +21,6 @@ export default function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  console.log("Push check 4");
   return (
     <html lang="ru" className={clsx(unbounded.variable, montserrat.variable)}>
       <head>

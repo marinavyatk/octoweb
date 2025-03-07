@@ -82,7 +82,6 @@ export default async function Service({
             src={serviceInfo.image}
             alt={""}
             fill
-            sizes={"100vw"}
             priority
             containerProps={{ className: s.serviceImg }}
             unoptimized
