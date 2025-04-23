@@ -58,7 +58,7 @@
 
 .bottomCaption {
   background-color: var(--color-dark-primary);
-  height: 130px;
+  height: 160px;
   border-radius: 72px 72px 0 0;
   padding: 40px 124px;
   font-weight: var(--font-weight-regular-300);
@@ -97,7 +97,6 @@
   }
 
   .bottomCaption {
-    height: 110px;
     padding: 28px 108px;
   }
 }
@@ -148,7 +147,7 @@
   }
 
   .bottomCaption {
-    height: 100px;
+    height: 140px;
     border-radius: 25px 25px 0 0;
     padding: 19px 24px 12px;
     font-size: 12px;
@@ -183,7 +182,6 @@
   }
 
   .bottomCaption {
-    height: 120px;
     display: flex;
     flex-direction: column;
     align-items: center;

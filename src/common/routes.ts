@@ -13,4 +13,5 @@ export const routes = {
   privacyPolicy: "/privacy-policy",
   userAgreement: "/user-agreement",
   personalDataPolicy: "/personal-data-policy",
+  cookieUsing: "/cookie-using",
 };

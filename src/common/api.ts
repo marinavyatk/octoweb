@@ -212,6 +212,19 @@ export const api = {
       );
     }
   },
+  //COOKIE USING
+  async getCookieUsing() {
+    try {
+      const response = await fetch(`${baseUrl}/cookie-using`);
+      const data: DocumentData = await response.json();
+      return data;
+    } catch (error) {
+      console.error(
+        "Не удалось загрузить политику использования cookie-файлов",
+        error,
+      );
+    }
+  },
 
   //POST
   async postForm(form: FormValues) {

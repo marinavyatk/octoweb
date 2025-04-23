@@ -58,6 +58,9 @@ export const Footer = (props: FooterProps) => {
             <Link href={routes.userAgreement} target={"_blank"}>
               Пользовательское соглашение
             </Link>
+            <Link href={routes.cookieUsing} target={"_blank"}>
+              Политика использования cookie
+            </Link>
             <Link href={routes.personalDataPolicy} target={"_blank"}>
               Политика обработки персональных данных
             </Link>
