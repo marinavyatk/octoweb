@@ -245,9 +245,10 @@ export type Social = {
 };
 
 //PRIVACY POLICY
-export type PrivacyPolicyData = {
+export type DocumentData = {
   title: string;
   content: string;
+  pdf_file: string;
 };
 
 //ERRORS

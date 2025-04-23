@@ -6,8 +6,8 @@ import {
   CasesData,
   CasesFiltersData,
   ContactsData,
+  DocumentData,
   Photo,
-  PrivacyPolicyData,
   SEO,
   ServiceCategoryPage,
   ServicePageData,
@@ -183,10 +183,33 @@ export const api = {
   async getPrivacyPolicy() {
     try {
       const response = await fetch(`${baseUrl}/privacy-policy`);
-      const data: PrivacyPolicyData = await response.json();
+      const data: DocumentData = await response.json();
       return data;
     } catch (error) {
       console.error("Не удалось загрузить политику конфиденциальности", error);
+    }
+  },
+  //USER AGREEMENT
+  async getUserAgreement() {
+    try {
+      const response = await fetch(`${baseUrl}/user-agreement`);
+      const data: DocumentData = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Не удалось загрузить пользовательское соглашение", error);
+    }
+  },
+  //PERSONAL DATA POLICY
+  async getPersonalDataPolicy() {
+    try {
+      const response = await fetch(`${baseUrl}/personal-data-policy`);
+      const data: DocumentData = await response.json();
+      return data;
+    } catch (error) {
+      console.error(
+        "Не удалось загрузить политику обработки персональных данных",
+        error,
+      );
     }
   },
 
