@@ -237,11 +237,23 @@ export type ContactsData = {
   social_links: Social[];
   map_coordinates: LngLat;
   map_place_coordinates: LngLat;
+  requisites: Requisites;
+  offer_pdf: string;
 };
 
 export type Social = {
   name: string;
   url: string;
+};
+
+export type Requisites = {
+  legal_name: string;
+  activity: string;
+  inn: string;
+  account: string;
+  bank: string;
+  corr_account: string;
+  bic: string;
 };
 
 //PRIVACY POLICY
