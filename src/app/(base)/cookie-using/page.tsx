@@ -1,5 +1,5 @@
 import { api } from "@/common/api";
-import s from "../privacy-policy/privacyPolicy.module.scss";
+import s from "../privacy-policy/docs.module.scss";
 import { clsx } from "clsx";
 
 export default async function CookieUsing() {

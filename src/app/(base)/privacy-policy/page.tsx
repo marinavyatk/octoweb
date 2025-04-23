@@ -1,5 +1,5 @@
 import { api } from "@/common/api";
-import s from "./privacyPolicy.module.scss";
+import s from "./docs.module.scss";
 import { clsx } from "clsx";
 
 export default async function PrivacyPolicy() {

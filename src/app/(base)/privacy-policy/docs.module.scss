@@ -2,17 +2,22 @@
   line-height: var(--line-height-180);
 
   h1 {
-    font-size: 70px;
+    font-size: 40px;
     color: var(--color-accent);
     text-align: center;
   }
 
   h2 {
-    font-size: 32px;
-    margin-bottom: 70px;
+    font-size: 26px;
+    margin-top: 70px;
+    margin-bottom: 20px;
     color: var(--color-light-100);
     text-transform: none;
     hyphens: auto;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   h3,
@@ -80,7 +85,7 @@
 }
 
 .fileContainer {
-  padding: 90px 200px 0;
+  margin: 90px 200px 0;
 }
 
 .file {
@@ -96,19 +101,11 @@
   background-color: #8c04ff;
 }
 
-@media (max-width: 1605px) {
-  .docPage {
-    h1 {
-      font-size: 50px;
-    }
-  }
-}
-
 @media (max-width: 1425px) {
   .docPage {
     h2 {
-      font-size: 26px;
-      margin-bottom: 30px;
+      margin-top: 30px;
+      margin-bottom: 10px;
     }
   }
 
@@ -117,7 +114,7 @@
     padding: 40px 100px 300px;
   }
   .fileContainer {
-    padding: 40px 100px 0;
+    margin: 40px 100px 0;
   }
 }
 
@@ -137,12 +134,17 @@
 @media (max-width: 1000px) {
   .docPage {
     h1 {
-      font-size: 20px;
+      font-size: 18px;
+      hyphens: auto;
+    }
+
+    h2 {
+      font-size: 14px;
     }
 
     h3,
     li:has(h3)::before {
-      font-size: 18px;
+      font-size: 14px;
       hyphens: auto;
     }
 
@@ -174,7 +176,7 @@
     font-size: 14px;
   }
   .fileContainer {
-    padding: 40px 0 0;
+    margin: 40px 0 0;
   }
 
   .file {
